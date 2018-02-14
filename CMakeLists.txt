@@ -45,3 +45,6 @@ add_executable(${PROJECT_NAME}
         ${BISON_gobison_OUTPUTS}
         ${FLEX_goflex_OUTPUTS})
 target_link_libraries(${PROJECT_NAME} ${FLEX_LIBRARIES} )
+
+# Include scaner parser sub-project
+#add_subdirectory(etc/scan_parse)
