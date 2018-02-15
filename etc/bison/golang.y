@@ -116,8 +116,8 @@ packages
 
 statements
     : var_dec
+    | type_dec
     ;
-
 
 var_dec
     : tVAR var_body tSEMICOLON
@@ -126,7 +126,7 @@ var_dec
 
 vars_bodies
     : vars_bodies var_body tSEMICOLON
-    | var_body tSEMICOLON
+    | %empty
     ;
 
 var_body:
@@ -146,6 +146,25 @@ var_opt_type
 var_opt_expression
     : tEQUAL expression tSEMICOLON
     | %empty
+    ;
+
+type_dec
+    : tTYPE type_body tSEMICOLON
+    | tTYPE tLEFT_PAR type_bodies tRIGHT_PAR tSEMICOLON
+    ;
+
+types_bodies
+    : types_bodies type_body tSEMICOLON
+    | %empty
+    ;
+
+type_body
+    : tIDENTIFIER type_val
+    ;
+
+type_val
+    : type
+    | tSTRUCT tLEFT_CUR type_bodies tRIGHT_CUR
     ;
 
 type
