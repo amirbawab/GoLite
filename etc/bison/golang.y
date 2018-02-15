@@ -36,6 +36,13 @@ extern "C" int yylineno;
     tPRINT                  "print"
     tPRINTLN                "println"
     tAPPEND                 "append"
+
+    tINT                    "int type"
+    tFLOAT_TYPE             "float type"
+    tSTRING_TYPE            "string type"
+    tBOOL                   "bool type"
+    tRUNE                   "rune type"
+
     tPLUS                   "+"
     tMINUS                  "-"
     tMULTIPLY               "*"
@@ -83,4 +90,69 @@ extern "C" int yylineno;
     tRIGHT_CUR              "}"
     tSEMICOLON              ";"
     tCOLON                  ":"
+    ;
+
+// Configure bison
+%locations
+%error-verbose
+
+// Configure grammar
+%start S
+
+s :
+    packages declarations
+    ;
+
+declarations
+    : declarations structs
+    | declarations functions
+    | %empty
+    ;
+
+packages
+    : tSEMICOLON
+    | %empty
+    ;
+
+statements
+    : var_dec
+    ;
+
+
+var_dec
+    : tVAR var_body tSEMICOLON
+    | tVAR tLEFT_PAR vars_bodies tRIGHT_PAR tSEMICOLON
+    ;
+
+vars_bodies
+    : vars_bodies var_body tSEMICOLON
+    | var_body tSEMICOLON
+    ;
+
+var_body:
+    var_identifiers var_opt_type var_opt_expression
+    ;
+
+var_identifiers
+    : var_identifiers tCOMMA tIDENTIFIER
+    | tIDENTIFIER
+    ;
+
+var_opt_type
+    : type
+    | %empty
+    ;
+
+var_opt_expression
+    : tEQUAL expression tSEMICOLON
+    | %empty
+    ;
+
+type
+    : tINT_TYPE
+    | tFLOAT_TYPE
+    | tSTRING_TYPE
+    | tBOOL_TYPE
+    | tRUNE_TYPE
+    | tIDENTIFIER
     ;

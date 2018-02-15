@@ -37,6 +37,12 @@ print
 println
 append
 
+int
+float64
+bool
+rune
+string
+
 "+"
 "-"
 "*"
