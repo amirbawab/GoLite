@@ -124,6 +124,8 @@ statement
     | return_dec
     | if_dec
     | for_dec
+    | break_dec
+    | continue_dec
     ;
 
 var_dec
@@ -232,7 +234,8 @@ assignment_body
     ;
 
 assignment_operator
-    : tPLUS_EQUAL
+    : tEQUAL
+    | tPLUS_EQUAL
     | tMINUS_EQUAL
     | tMULTIPLY_EQUAL
     | tDIVIDE_EQUAL
@@ -243,6 +246,14 @@ assignment_operator
     | tLEFT_SHIFT_EQUAL
     | tRIGHT_SHIFT_EQUAL
     ;
+
+break_dec
+    : tBREAK tSEMICOLON
+    ;
+
+continue_dec
+    : tCONTINUE tSEMICOLON
+     ;
 
 type
     : tINT_TYPE
