@@ -122,6 +122,8 @@ statement
     : var_dec
     | type_dec
     | return_dec
+    | if_dec
+    | for_dec
     ;
 
 var_dec
@@ -207,6 +209,39 @@ else_opt
 else_if_opt
     : else_if_opt tELSE tIF expression tLEFT_CURL statements tRIGHT_CURL
     | %empty
+    ;
+
+for_dec
+    : tFOR for_condition tLEFT_CURL statements tRIGHT_CURL
+    ;
+
+for_condition
+    : expression
+    | assignment_body tSEMICOLON expression tSEMICOLON assignment_body
+    | %empty
+    ;
+
+assignment
+    : assignment_body tSEMICOLON
+
+assignment_body
+    : tIDENTIFIER assignment_operator expression
+    | tIDENTIFIER tINC
+    | tIDENTIFIER tDEC
+    | tIDENTIFIER tDECLARATION expression
+    ;
+
+assignment_operator
+    : tPLUS_EQUAL
+    | tMINUS_EQUAL
+    | tMULTIPLY_EQUAL
+    | tDIVIDE_EQUAL
+    | tMODULO_EQUAL
+    | tBIT_AND_EQUAL
+    | tBIT_OR_EQUAL
+    | tBIT_XOR_EQUAL
+    | tLEFT_SHIFT_EQUAL
+    | tRIGHT_SHIFT_EQUAL
     ;
 
 type
