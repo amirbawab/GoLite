@@ -172,12 +172,17 @@ type_val
     ;
 
 func_dec
-    : tFUNC tLEFT_PAR func_params tRIGHT_PAR tLEFT_CUR statements tRIGHT_CUR
+    : tFUNC tIDENTIFIER tLEFT_PAR func_params tRIGHT_PAR func_type tLEFT_CUR statements tRIGHT_CUR
     ;
 
 func_params
     : func_params var_identifiers type
     | var_identifiers type
+    ;
+
+func_type
+    : type
+    | %empty
     ;
 
 type
