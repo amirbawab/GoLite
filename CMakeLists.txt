@@ -12,7 +12,8 @@ file(MAKE_DIRECTORY
         ${CMAKE_CURRENT_BINARY_DIR}/cpp/src/bison)
 
 # -I
-include_directories(include)
+include_directories(golite/include)
+include_directories(golite/src)
 include_directories(${CMAKE_CURRENT_BINARY_DIR}/cpp/include)
 
 # Load Flex and Bison
@@ -37,7 +38,7 @@ bison_target(gobison ${PROJECT_SOURCE_DIR}/etc/bison/golang.y
         DEFINES_FILE ${CMAKE_CURRENT_BINARY_DIR}/cpp/include/bison/golang_bison.h)
 
 # Find all cpp files
-file(GLOB_RECURSE PROJECT_SOURCE_FILES src/*/*.cpp)
+file(GLOB_RECURSE PROJECT_SOURCE_FILES golite/src/*/*.cpp)
 
 # Build c++ files
 add_executable(${PROJECT_NAME}
