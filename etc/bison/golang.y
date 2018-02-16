@@ -40,8 +40,8 @@ extern "C" int yylineno;
     tINT                    "int type"
     tFLOAT_TYPE             "float type"
     tSTRING_TYPE            "string type"
-    tBOOL                   "bool type"
-    tRUNE                   "rune type"
+    tBOOL_TYPE              "bool type"
+    tRUNE_TYPE              "rune type"
 
     tPLUS                   "+"
     tMINUS                  "-"
@@ -67,7 +67,6 @@ extern "C" int yylineno;
     tBIT_AND_BIT_XOR_EQUAL  "&^="
     tAND                    "&&"
     tOR                     "||"
-    tCHAN_ARROW             "<-"
     tINC                    "++"
     tDEC                    "--"
     tIS_EQUAL               "=="
@@ -79,7 +78,6 @@ extern "C" int yylineno;
     tLESS_THAN_EQUAL        "<="
     tGREATER_THAN_EQUAL     ">="
     tDECLARATION            ":="
-    tDOT_DOT_DOT            "..."
     tLEFT_PAR               "("
     tLEFT_SQUARE            "["
     tLEFT_CUR               "{"
@@ -115,8 +113,17 @@ packages
     ;
 
 statements
+    : statements statement
+    | %empty
+
+statement
     : var_dec
     | type_dec
+    | return_dec
+    | if_dec
+    | for_dec
+    | break_dec
+    | continue_dec
     ;
 
 var_dec
@@ -165,6 +172,115 @@ type_body
 type_val
     : type
     | tSTRUCT tLEFT_CUR type_bodies tRIGHT_CUR
+    ;
+
+func_dec
+    : tFUNC tIDENTIFIER tLEFT_PAR func_params tRIGHT_PAR func_type tLEFT_CUR statements tRIGHT_CUR
+    ;
+
+func_params
+    : func_params var_identifiers type
+    | var_identifiers type
+    ;
+
+func_type
+    : type
+    | %empty
+    ;
+
+return_dec
+    : tRETURN return_val tSEMICOLON
+    ;
+
+return_val
+    : expression
+    | %empty
+    ;
+
+if_dec
+    : tIF expression tLEFT_CURL statements tRIGHT_CURL else_if_opt else_opt
+    ;
+
+else_opt
+    : tELSE tLEFT_CURL statements tRIGHT_CURL
+    | %empty
+    ;
+
+else_if_opt
+    : else_if_opt tELSE tIF expression tLEFT_CURL statements tRIGHT_CURL
+    | %empty
+    ;
+
+for_dec
+    : tFOR for_condition tLEFT_CURL statements tRIGHT_CURL
+    ;
+
+for_condition
+    : expression
+    | assignment_body tSEMICOLON expression tSEMICOLON assignment_body
+    | %empty
+    ;
+
+assignment
+    : assignment_body tSEMICOLON
+
+assignment_body
+    : tIDENTIFIER assignment_operator expression
+    | tIDENTIFIER tINC
+    | tIDENTIFIER tDEC
+    | tIDENTIFIER tDECLARATION expression
+    ;
+
+assignment_operator
+    : tEQUAL
+    | tPLUS_EQUAL
+    | tMINUS_EQUAL
+    | tMULTIPLY_EQUAL
+    | tDIVIDE_EQUAL
+    | tMODULO_EQUAL
+    | tBIT_AND_EQUAL
+    | tBIT_OR_EQUAL
+    | tBIT_XOR_EQUAL
+    | tLEFT_SHIFT_EQUAL
+    | tRIGHT_SHIFT_EQUAL
+    ;
+
+break_dec
+    : tBREAK tSEMICOLON
+    ;
+
+continue_dec
+    : tCONTINUE tSEMICOLON
+    ;
+
+expression
+    : expression tPLUS expression
+    | expression tMINUS expression
+    | expression tMULT expression
+    | expression tDIV expression
+    | expression tMODULO expression
+    | expression tBIT_AND expression
+    | expression tBIT_OR expression
+    | expression tBIT_XOR expression
+    | expression tBIT_CLEAR expression
+    | expression tLEFT_SHIFT expression
+    | expression tRIGHT_SHIFT expression
+    | expression tIS_EQUAL expression
+    | expression tIS_NOT_EQUAL expression
+    | expression tLESS_THAN expression
+    | expression tGREAT_THAN expression
+    | expression tLESS_THAN_EQUAL expression
+    | expression tGREAT_THAN_EQUAL expression
+    | expression tAND expression
+    | expression tOR expression
+    | tMINUS expression %prec pNEG
+    | tNOT expression %prec pNOT
+    | tLEFT_PAR expression tRIGHT_PAR
+    | tINTEGER
+    | tFLOAT
+    | tSTRING
+    | tRUNE
+    | tIDENTIFIER
     ;
 
 type
