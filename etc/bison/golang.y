@@ -40,8 +40,8 @@ extern "C" int yylineno;
     tINT                    "int type"
     tFLOAT_TYPE             "float type"
     tSTRING_TYPE            "string type"
-    tBOOL                   "bool type"
-    tRUNE                   "rune type"
+    tBOOL_TYPE              "bool type"
+    tRUNE_TYPE              "rune type"
 
     tPLUS                   "+"
     tMINUS                  "-"
@@ -67,7 +67,6 @@ extern "C" int yylineno;
     tBIT_AND_BIT_XOR_EQUAL  "&^="
     tAND                    "&&"
     tOR                     "||"
-    tCHAN_ARROW             "<-"
     tINC                    "++"
     tDEC                    "--"
     tIS_EQUAL               "=="
@@ -79,7 +78,6 @@ extern "C" int yylineno;
     tLESS_THAN_EQUAL        "<="
     tGREATER_THAN_EQUAL     ">="
     tDECLARATION            ":="
-    tDOT_DOT_DOT            "..."
     tLEFT_PAR               "("
     tLEFT_SQUARE            "["
     tLEFT_CUR               "{"
@@ -253,7 +251,37 @@ break_dec
 
 continue_dec
     : tCONTINUE tSEMICOLON
-     ;
+    ;
+
+expression
+    : expression tPLUS expression
+    | expression tMINUS expression
+    | expression tMULT expression
+    | expression tDIV expression
+    | expression tMODULO expression
+    | expression tBIT_AND expression
+    | expression tBIT_OR expression
+    | expression tBIT_XOR expression
+    | expression tBIT_CLEAR expression
+    | expression tLEFT_SHIFT expression
+    | expression tRIGHT_SHIFT expression
+    | expression tIS_EQUAL expression
+    | expression tIS_NOT_EQUAL expression
+    | expression tLESS_THAN expression
+    | expression tGREAT_THAN expression
+    | expression tLESS_THAN_EQUAL expression
+    | expression tGREAT_THAN_EQUAL expression
+    | expression tAND expression
+    | expression tOR expression
+    | tMINUS expression %prec pNEG
+    | tNOT expression %prec pNOT
+    | tLEFT_PAR expression tRIGHT_PAR
+    | tINTEGER
+    | tFLOAT
+    | tSTRING
+    | tRUNE
+    | tIDENTIFIER
+    ;
 
 type
     : tINT_TYPE
