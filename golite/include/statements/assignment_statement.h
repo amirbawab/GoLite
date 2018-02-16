@@ -5,7 +5,7 @@
 #include <expressions/expression.h>
 
 namespace Golite::Statement {
-    class Assignment : Statement {
+    class AssignmentStatement : Statement {
     protected:
         // TODO: identifier
         Expression::Expression* expression_;

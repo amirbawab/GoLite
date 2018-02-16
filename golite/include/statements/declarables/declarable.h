@@ -4,7 +4,7 @@
 #include <statements/statement.h>
 #include <string>
 
-namespace Golite::Statement::Declarable {
+namespace Golite::Statement::Declarable { // TODO: Q: should move to Golite::Statement?
     class Declarable : Statement {
     protected:
         std::string name_;
