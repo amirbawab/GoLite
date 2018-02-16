@@ -121,7 +121,7 @@ statements
 statement
     : var_dec
     | type_dec
-    | tRETURN return_val tSEMICOLON
+    | return_dec
     ;
 
 var_dec
@@ -186,12 +186,28 @@ func_type
     | %empty
     ;
 
+return_dec
+    : tRETURN return_val tSEMICOLON
+    ;
+
 return_val
     : expression
-     | %empty
-     ;
+    | %empty
+    ;
 
+if_dec
+    : tIF expression tLEFT_CURL statements tRIGHT_CURL else_if_opt else_opt
+    ;
 
+else_opt
+    : tELSE tLEFT_CURL statements tRIGHT_CURL
+    | %empty
+    ;
+
+else_if_opt
+    : else_if_opt tELSE tIF expression tLEFT_CURL statements tRIGHT_CURL
+    | %empty
+    ;
 
 type
     : tINT_TYPE
