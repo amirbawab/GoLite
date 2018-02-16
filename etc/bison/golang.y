@@ -121,6 +121,7 @@ statements
 statement
     : var_dec
     | type_dec
+    | tRETURN return_val
     ;
 
 var_dec
@@ -184,6 +185,13 @@ func_type
     : type
     | %empty
     ;
+
+return_val
+    : expression
+     | %empty
+     ;
+
+
 
 type
     : tINT_TYPE
