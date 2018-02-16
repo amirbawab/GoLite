@@ -10,7 +10,7 @@ namespace Golite::Statement {
     protected:
         Expression::Expression* expression_;
         Scope::Scope* body_;
-        Scope::Scope* elsebody_;
+        Scope::Scope* else_body_;
     };
 }
 
