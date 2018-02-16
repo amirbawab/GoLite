@@ -47,4 +47,4 @@ add_executable(${PROJECT_NAME}
 target_link_libraries(${PROJECT_NAME} ${FLEX_LIBRARIES} )
 
 # Include scaner parser sub-project
-#add_subdirectory(etc/scan_parse)
+add_subdirectory(etc/scan_parse)
