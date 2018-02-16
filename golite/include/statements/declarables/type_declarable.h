@@ -4,10 +4,17 @@
 #include <statements/declarables/declarable.h>
 
 namespace Golite::Statement::Declarable {
+    enum TypeDeclarableKind {
+        ARRAY,
+        SLICE,
+        CUSTOM,
+        BUILTIN
+    };
+
     class TypeDeclarable : Declarable {
     protected:
         int dimension_;
-        // TODO: kind
+        TypeDeclarableKind kind_;
     };
 }
 

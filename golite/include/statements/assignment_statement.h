@@ -3,11 +3,12 @@
 
 #include <statements/statement.h>
 #include <expressions/expression.h>
+#include <expressions/identifier_expression.h>
 
 namespace Golite::Statement {
     class AssignmentStatement : Statement {
     protected:
-        // TODO: identifier
+        Expression::IdentifierExpression* identifier_;
         Expression::Expression* expression_;
     };
 }
