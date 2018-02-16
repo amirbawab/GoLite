@@ -121,7 +121,7 @@ statements
 statement
     : var_dec
     | type_dec
-    | tRETURN return_val
+    | tRETURN return_val tSEMICOLON
     ;
 
 var_dec
