@@ -115,6 +115,10 @@ packages
     ;
 
 statements
+    : statements statement
+    | %empty
+
+statement
     : var_dec
     | type_dec
     ;
@@ -165,6 +169,15 @@ type_body
 type_val
     : type
     | tSTRUCT tLEFT_CUR type_bodies tRIGHT_CUR
+    ;
+
+func_dec
+    : tFUNC tLEFT_PAR func_params tRIGHT_PAR tLEFT_CUR statements tRIGHT_CUR
+    ;
+
+func_params
+    : func_params var_identifiers type
+    | var_identifiers type
     ;
 
 type
