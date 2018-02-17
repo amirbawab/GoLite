@@ -1,1 +1,1 @@
-#include <statements/declarables/struct_declarable.h>
+#include <golite/statements/declarables/struct_declarable.h>

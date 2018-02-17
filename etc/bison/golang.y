@@ -1,4 +1,6 @@
 %{
+#include <golite/bison.h>
+
 // Information for Flex
 extern "C" int yylex();
 extern "C" int yyparse();
@@ -37,7 +39,7 @@ extern "C" int yylineno;
     tPRINTLN                "println"
     tAPPEND                 "append"
 
-    tINT                    "int type"
+    tINT_TYPE               "int type"
     tFLOAT_TYPE             "float type"
     tSTRING_TYPE            "string type"
     tBOOL_TYPE              "bool type"
@@ -64,30 +66,37 @@ extern "C" int yylineno;
     tBIT_XOR_EQUAL          "^="
     tLEFT_SHIFT_EQUAL       "<<="
     tRIGHT_SHIFT_EQUAL      ">>="
-    tBIT_AND_BIT_XOR_EQUAL  "&^="
+    tBIT_CLEAR_EQUAL        "&^="
     tAND                    "&&"
     tOR                     "||"
     tINC                    "++"
     tDEC                    "--"
     tIS_EQUAL               "=="
+    tIS_NOT_EQUAL           "!="
     tLESS_THAN              "<"
     tGREATER_THAN           ">"
     tEQUAL                  "="
     tNOT                    "!"
-    tNOT_EQUAL              "!="
     tLESS_THAN_EQUAL        "<="
     tGREATER_THAN_EQUAL     ">="
     tDECLARATION            ":="
     tLEFT_PAR               "("
     tLEFT_SQUARE            "["
-    tLEFT_CUR               "{"
+    tLEFT_CURL              "{"
     tCOMMA                  ","
     tDOT                    "."
     tRIGHT_PAR              ")"
     tRIGHT_SQUARE           "]"
-    tRIGHT_CUR              "}"
+    tRIGHT_CURL             "}"
     tSEMICOLON              ";"
     tCOLON                  ":"
+
+    tFLOAT                  "float"
+    tINT                    "integer"
+    tBOOL                   "bool"
+    tSTRING                 "string"
+    tRUNE                   "rune"
+    tIDENTIFIER             "identifier"
     ;
 
 // Configure bison
@@ -95,20 +104,28 @@ extern "C" int yylineno;
 %error-verbose
 
 // Configure grammar
-%start S
+%start program
+%left tOR
+%left tAND
+%left tIS_EQUAL tIS_NOT_EQUAL tLESS_THAN tGREATER_THAN tLESS_THAN_EQUAL tGREATER_THAN_EQUAL
+%left tPLUS tMINUS tBIT_OR tBIT_XOR
+%left tMULTIPLY tDIVIDE tMODULO tLEFT_SHIFT tRIGHT_SHIFT tBIT_AND tBIT_CLEAR
+%left pNEG pPOS pNOT pXOR
 
-s :
-    packages declarations
+%%
+program
+    : packages declarations
     ;
 
 declarations
-    : declarations structs
-    | declarations functions
+    : declarations type_dec
+    | declarations var_dec
+    | declarations func_dec
     | %empty
     ;
 
 packages
-    : tSEMICOLON
+    : packages tPACKAGE tIDENTIFIER tSEMICOLON
     | %empty
     ;
 
@@ -118,6 +135,7 @@ statements
 
 statement
     : var_dec
+    | assignment_dec
     | type_dec
     | return_dec
     | if_dec
@@ -157,7 +175,7 @@ var_opt_expression
 
 type_dec
     : tTYPE type_body tSEMICOLON
-    | tTYPE tLEFT_PAR type_bodies tRIGHT_PAR tSEMICOLON
+    | tTYPE tLEFT_PAR types_bodies tRIGHT_PAR tSEMICOLON
     ;
 
 types_bodies
@@ -171,16 +189,16 @@ type_body
 
 type_val
     : type
-    | tSTRUCT tLEFT_CUR type_bodies tRIGHT_CUR
+    | tSTRUCT tLEFT_CURL types_bodies tRIGHT_CURL
     ;
 
 func_dec
-    : tFUNC tIDENTIFIER tLEFT_PAR func_params tRIGHT_PAR func_type tLEFT_CUR statements tRIGHT_CUR
+    : tFUNC tIDENTIFIER tLEFT_PAR func_params tRIGHT_PAR func_type tLEFT_CURL statements tRIGHT_CURL
     ;
 
 func_params
     : func_params var_identifiers type
-    | var_identifiers type
+    | %empty
     ;
 
 func_type
@@ -221,7 +239,7 @@ for_condition
     | %empty
     ;
 
-assignment
+assignment_dec
     : assignment_body tSEMICOLON
 
 assignment_body
@@ -256,8 +274,8 @@ continue_dec
 expression
     : expression tPLUS expression
     | expression tMINUS expression
-    | expression tMULT expression
-    | expression tDIV expression
+    | expression tMULTIPLY expression
+    | expression tDIVIDE expression
     | expression tMODULO expression
     | expression tBIT_AND expression
     | expression tBIT_OR expression
@@ -268,15 +286,17 @@ expression
     | expression tIS_EQUAL expression
     | expression tIS_NOT_EQUAL expression
     | expression tLESS_THAN expression
-    | expression tGREAT_THAN expression
+    | expression tGREATER_THAN expression
     | expression tLESS_THAN_EQUAL expression
-    | expression tGREAT_THAN_EQUAL expression
+    | expression tGREATER_THAN_EQUAL expression
     | expression tAND expression
     | expression tOR expression
     | tMINUS expression %prec pNEG
+    | tPLUS expression %prec pPOS
     | tNOT expression %prec pNOT
+    | tBIT_XOR expression %prec pXOR
     | tLEFT_PAR expression tRIGHT_PAR
-    | tINTEGER
+    | tINT
     | tFLOAT
     | tSTRING
     | tRUNE

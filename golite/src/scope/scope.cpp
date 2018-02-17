@@ -1,5 +1,2 @@
-#include <scope/scope.h>
+#include <golite/scope/scope.h>
 
-Scope::Scope() {
-
-}

@@ -13,7 +13,6 @@ file(MAKE_DIRECTORY
 
 # -I
 include_directories(golite/include)
-include_directories(golite/src)
 include_directories(${CMAKE_CURRENT_BINARY_DIR}/cpp/include)
 
 # Load Flex and Bison
@@ -46,6 +45,3 @@ add_executable(${PROJECT_NAME}
         ${BISON_gobison_OUTPUTS}
         ${FLEX_goflex_OUTPUTS})
 target_link_libraries(${PROJECT_NAME} ${FLEX_LIBRARIES} )
-
-# Include scaner parser sub-project
-#add_subdirectory(etc/scan_parse)
