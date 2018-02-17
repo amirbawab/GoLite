@@ -12,16 +12,18 @@
 %x C_COMMENT
 
 %%
-chan            { golite::Utils::support_error(yytext, yylineno); }
-const           { golite::Utils::support_error(yytext, yylineno); }
-defer           { golite::Utils::support_error(yytext, yylineno); }
-fallthrough     { golite::Utils::support_error(yytext, yylineno); }
-interface       { golite::Utils::support_error(yytext, yylineno); }
-map             { golite::Utils::support_error(yytext, yylineno); }
-range           { golite::Utils::support_error(yytext, yylineno); }
-select          { golite::Utils::support_error(yytext, yylineno); }
-"<-"            { golite::Utils::support_error(yytext, yylineno); }
-"..."           { golite::Utils::support_error(yytext, yylineno); }
+chan            { golite::Utils::log_token("tCHAN"); return tCHAN; }
+const           { golite::Utils::log_token("tCONST"); return tCONST; }
+defer           { golite::Utils::log_token("tDEFER"); return tDEFER; }
+fallthrough     { golite::Utils::log_token("tFALLTHROUGH"); return tFALLTHROUGH; }
+interface       { golite::Utils::log_token("tINTERFACE"); return tINTERFACE; }
+map             { golite::Utils::log_token("tMAP"); return tMAP; }
+range           { golite::Utils::log_token("tRANGE"); return tRANGE; }
+select          { golite::Utils::log_token("tSELECT"); return tSELECT; }
+"<-"            { golite::Utils::log_token("tARROW"); return tARROW; }
+"..."           { golite::Utils::log_token("tELLIPSIS"); return tELLIPSIS; }
+go              { golite::Utils::log_token("tGO"); return tGO; }
+goto            { golite::Utils::log_token("tGOTO"); return tGOTO; }
 
 break           { golite::Utils::log_token("tBREAK"); return tBREAK; }
 case            { golite::Utils::log_token("tCASE"); return tCASE; }
@@ -30,8 +32,6 @@ default         { golite::Utils::log_token("tDEFAULT"); return tDEFAULT; }
 else            { golite::Utils::log_token("tELSE"); return tELSE; }
 for             { golite::Utils::log_token("tFOR"); return tFOR; }
 func            { golite::Utils::log_token("tFUNC"); return tFUNC; }
-go              { golite::Utils::log_token("tGO"); return tGO; }
-goto            { golite::Utils::log_token("tGOTO"); return tGOTO; }
 if              { golite::Utils::log_token("tIF"); return tIF; }
 import          { golite::Utils::log_token("tIMPORT"); return tIMPORT; }
 package         { golite::Utils::log_token("tPACKAGE"); return tPACKAGE; }
@@ -104,7 +104,7 @@ string          { golite::Utils::log_token("tSTRING_TYPE"); return tSTRING_TYPE;
     // Inline comment
 }
 
-0|([1-9][0-9]*) {
+0+|([1-9][0-9]*) {
     // Integer
     golite::Utils::log_token("tINT", yytext);
     return tINT;
@@ -116,25 +116,31 @@ string          { golite::Utils::log_token("tSTRING_TYPE"); return tSTRING_TYPE;
     return tINT;
 }
 
-0[x][0-9a-f]+ {
+0[xX][0-9a-fA-F]+ {
     // Hex
     golite::Utils::log_token("tINT", yytext);
     return tINT;
 }
 
-(0|[1-9][0-9]*)?\.[0-9]* {
+([0-9]*\.[0-9]+)|([0-9]+\.[0-9]*) {
     // Float
     golite::Utils::log_token("tFLOAT", yytext);
     return tFLOAT;
 }
 
-'(\\[abfnrtv\\\'])|[^\\]' {
-    // Character
+'((\\[abfnrtv\\\'])|[^\\'])' {
+    // Rune/Character
     golite::Utils::log_token("tRUNE", yytext);
     return tRUNE;
 }
 
-\"((\\[abfnrtv\"\\])|[ a-zA-Z0-9\~\@\#\$\%\^\&\*\-\+\/\`\<\>\=\_\|\'\.\,\;\:\!\?\{\}\[\]\(\)])*\"  {
+`(.|\n)*` {
+    // Raw String
+    golite::Utils::log_token("tSTRING", yytext);
+    return tSTRING;
+}
+
+\"(\\[abfnrtv\\\"]|[^\\"])*\" {
     // String
     golite::Utils::log_token("tSTRING", yytext);
     return tSTRING;
@@ -147,9 +153,9 @@ string          { golite::Utils::log_token("tSTRING_TYPE"); return tSTRING_TYPE;
 }
 
 "/*"            { BEGIN(C_COMMENT); /*Go to C_COMMENT state*/ }
-<C_COMMENT>"*/" { BEGIN(INITIAL); /* Go back to initial state */ }
 <C_COMMENT>.    { /* Comment can contain any char */ }
 <C_COMMENT>\n   { /* Comment can contains new lines */ }
+<C_COMMENT>"*/" { BEGIN(INITIAL); /* Go back to initial state */ }
 
 . {
     // Everything else
