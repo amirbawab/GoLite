@@ -12,16 +12,16 @@
 %x C_COMMENT
 
 %%
-chan            { go::utils::support_error(yytext, yylineno); }
-const           { go::utils::support_error(yytext, yylineno); }
-defer           { go::utils::support_error(yytext, yylineno); }
-fallthrough     { go::utils::support_error(yytext, yylineno); }
-interface       { go::utils::support_error(yytext, yylineno); }
-map             { go::utils::support_error(yytext, yylineno); }
-range           { go::utils::support_error(yytext, yylineno); }
-select          { go::utils::support_error(yytext, yylineno); }
-"<-"            { go::utils::support_error(yytext, yylineno); }
-"..."           { go::utils::support_error(yytext, yylineno); }
+chan            { golite::Utils::support_error(yytext, yylineno); }
+const           { golite::Utils::support_error(yytext, yylineno); }
+defer           { golite::Utils::support_error(yytext, yylineno); }
+fallthrough     { golite::Utils::support_error(yytext, yylineno); }
+interface       { golite::Utils::support_error(yytext, yylineno); }
+map             { golite::Utils::support_error(yytext, yylineno); }
+range           { golite::Utils::support_error(yytext, yylineno); }
+select          { golite::Utils::support_error(yytext, yylineno); }
+"<-"            { golite::Utils::support_error(yytext, yylineno); }
+"..."           { golite::Utils::support_error(yytext, yylineno); }
 
 break           { return tBREAK; }
 case            { return tCASE; }
