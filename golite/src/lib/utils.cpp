@@ -4,7 +4,7 @@
 extern bool tokens_flag;
 
 void golite::Utils::support_error(char *lex, int line) {
-    std::cerr << "GoLite does not support '" << lex << "' at line " << line << std::endl;
+    std::cerr << "Error: GoLite does not support '" << lex << "' at line " << line << std::endl;
     exit(EXIT_ERROR);
 }
 

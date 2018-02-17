@@ -146,13 +146,13 @@ string          { golite::Utils::log_token("tSTRING_TYPE"); return tSTRING_TYPE;
     return tIDENTIFIER;
 }
 
-"/*"            { BEGIN(C_COMMENT); }
-<C_COMMENT>"*/" { BEGIN(INITIAL); }
-<C_COMMENT>.    { }
+"/*"            { BEGIN(C_COMMENT); /*Go to C_COMMENT state*/ }
+<C_COMMENT>"*/" { BEGIN(INITIAL); /* Go back to initial state */ }
+<C_COMMENT>.    { /* Comment can contain any char */ }
+<C_COMMENT>\n   { /* Comment can contains new lines */ }
 
 . {
     // Everything else
-    std::cerr << "" << std::endl;
-    exit(1);
+    golite::Utils::support_error(yytext, yylineno);
 }
 %%
