@@ -11,5 +11,12 @@ namespace golite {
          * @param line
          */
         static void support_error(char* lex, int line);
+
+        /**
+         * Log tokens if flag is on
+         * @param lex
+         * @param val
+         */
+        static void log_token(const char* lex, const char* val = nullptr);
     };
 }

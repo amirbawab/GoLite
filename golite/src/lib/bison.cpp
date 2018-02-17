@@ -1,11 +1,10 @@
 #include <golite/utils.h>
 #include <golite/bison.h>
-#include <stdio.h>
-#include <stdlib.h>
+#include <iostream>
 
 extern int yylineno;
 
 void yyerror(const char *s) {
-    fprintf(stderr, "Error: %s at line %d\n", s, yylineno);
+    std::cerr << "Error: " << s << " at line " << yylineno << std::endl;
     exit(golite::Utils::EXIT_ERROR);
 }

@@ -10,6 +10,7 @@ extern "C" int yylineno;
 
 // Program flags
 bool scan_flag = false;
+bool tokens_flag = false;
 bool parse_flag = false;
 bool pretty_flag = false;
 
@@ -24,6 +25,7 @@ void printUsage() {
     std::cout
             << "GoLite - A mini Go language compiler using" << std::endl
             << "Usage: golite [OPTION]... [FILE]..." << std::endl
+            << "    -t, --tokens          Print tokens" << std::endl
             << "    -s, --scan            Scan input. Exit (1) on error" << std::endl
             << "    -p, --parse           Parse tokens" << std::endl
             << "    -P, --pretty          Prettify input file" << std::endl
@@ -35,6 +37,7 @@ void printUsage() {
  */
 void initParams(int argc, char *argv[]) {
     struct option longOptions[] = {
+            {"tokens", no_argument, 0, 't'},
             {"scan", no_argument, 0, 's'},
             {"parse", no_argument, 0, 'p'},
             {"pretty", no_argument, 0, 'P'},
@@ -44,8 +47,11 @@ void initParams(int argc, char *argv[]) {
 
     int optionIndex = 0;
     int c;
-    while ((c = getopt_long(argc, argv, "spPh", longOptions, &optionIndex)) != -1) {
+    while ((c = getopt_long(argc, argv, "tspPh", longOptions, &optionIndex)) != -1) {
         switch (c) {
+            case 't':
+                tokens_flag = true;
+                break;
             case 's':
                 scan_flag = true;
                 break;
@@ -68,7 +74,7 @@ void initParams(int argc, char *argv[]) {
  * @return true if all required arguments are set
  */
 bool validArguments() {
-    return !input_file.empty() && scan_flag + parse_flag + pretty_flag == 1;
+    return !input_file.empty() && scan_flag + parse_flag + pretty_flag + tokens_flag == 1;
 }
 
 /**
@@ -110,7 +116,7 @@ int main(int argc, char** argv) {
     yyin = file;
 
     // Scan/Parse
-    if(scan_flag) {
+    if(tokens_flag || scan_flag) {
         while (yylex()) {}
     } else if(pretty_flag || parse_flag) {
         do { yyparse(); } while (!feof(yyin));
