@@ -107,10 +107,10 @@ extern "C" int yylineno;
 %start program
 %left tOR
 %left tAND
-%left tIS_EQUAL tIS_NOT_EQUAL
-%left tPLUS tMINUS
-%left tMULTIPLY tDIVIDE
-%left pNEG pNOT
+%left tIS_EQUAL tIS_NOT_EQUAL tLESS_THAN tGREATER_THAN tLESS_THAN_EQUAL tGREATER_THAN_EQUAL
+%left tPLUS tMINUS tBIT_OR tBIT_XOR
+%left tMULTIPLY tDIVIDE tMODULO tLEFT_SHIFT tRIGHT_SHIFT tBIT_AND tBIT_CLEAR
+%left pNEG pPOS pNOT pXOR
 
 %%
 program
@@ -125,7 +125,7 @@ declarations
     ;
 
 packages
-    : tSEMICOLON
+    : packages tPACKAGE tIDENTIFIER tSEMICOLON
     | %empty
     ;
 
@@ -135,6 +135,7 @@ statements
 
 statement
     : var_dec
+    | assignment_dec
     | type_dec
     | return_dec
     | if_dec
@@ -197,7 +198,7 @@ func_dec
 
 func_params
     : func_params var_identifiers type
-    | var_identifiers type
+    | %empty
     ;
 
 func_type
@@ -238,7 +239,7 @@ for_condition
     | %empty
     ;
 
-assignment
+assignment_dec
     : assignment_body tSEMICOLON
 
 assignment_body
@@ -291,7 +292,9 @@ expression
     | expression tAND expression
     | expression tOR expression
     | tMINUS expression %prec pNEG
+    | tPLUS expression %prec pPOS
     | tNOT expression %prec pNOT
+    | tBIT_XOR expression %prec pXOR
     | tLEFT_PAR expression tRIGHT_PAR
     | tINT
     | tFLOAT
