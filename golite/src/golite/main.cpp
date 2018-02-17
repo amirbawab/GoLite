@@ -1,23 +1,21 @@
 #include <getopt.h>
 #include <iostream>
-#include <vector>
 #include <golite/utils.h>
 
 // Information for Flex
-extern FILE *yyin;
-extern int yyparse();
-extern int yylex();
-extern int yylineno;
-
+extern "C" FILE *yyin;
+extern "C" int yyparse();
+extern "C" int yylex();
+extern "C" int yylineno;
 
 // Program flags
-bool token_flag = false;
 bool scan_flag = false;
 bool parse_flag = false;
 bool pretty_flag = false;
 
 // Input files
-std::vector<std::string> input_files;
+std::string input_file;
+std::string input_file_name;
 
 /**
  * Print compiler usage to STDOUT
@@ -27,7 +25,6 @@ void printUsage() {
             << "GoLite - A mini Go language compiler using" << std::endl
             << "Usage: golite [OPTION]... [FILE]..." << std::endl
             << "    -s, --scan            Scan input. Exit (1) on error" << std::endl
-            << "    -t, --tokens          Print tokens" << std::endl
             << "    -p, --parse           Parse tokens" << std::endl
             << "    -P, --pretty          Prettify input file" << std::endl
             << "    -h, --help            Display this help message" << std::endl;
@@ -38,7 +35,6 @@ void printUsage() {
  */
 void initParams(int argc, char *argv[]) {
     struct option longOptions[] = {
-            {"tokens", no_argument, 0, 't'},
             {"scan", no_argument, 0, 's'},
             {"parse", no_argument, 0, 'p'},
             {"pretty", no_argument, 0, 'P'},
@@ -48,11 +44,8 @@ void initParams(int argc, char *argv[]) {
 
     int optionIndex = 0;
     int c;
-    while ((c = getopt_long(argc, argv, "tspPh", longOptions, &optionIndex)) != -1) {
+    while ((c = getopt_long(argc, argv, "spPh", longOptions, &optionIndex)) != -1) {
         switch (c) {
-            case 't':
-                token_flag = true;
-                break;
             case 's':
                 scan_flag = true;
                 break;
@@ -75,15 +68,15 @@ void initParams(int argc, char *argv[]) {
  * @return true if all required arguments are set
  */
 bool validArguments() {
-    return !input_files.empty() && (scan_flag || parse_flag|| token_flag || pretty_flag);
+    return !input_file.empty() && scan_flag + parse_flag + pretty_flag == 1;
 }
 
 /**
  * Fetch input files from the list of arguments passed
  */
 void fetchInputFiles(const int argc, char *argv[]) {
-    for(int i = optind; i < argc; ++i) {
-        input_files.push_back(argv[i]);
+    if(optind < argc) {
+        input_file = argv[optind];
     }
 }
 
@@ -98,7 +91,7 @@ int main(int argc, char** argv) {
     // Initialize params
     initParams(argc, argv);
 
-    // Fetch input filesa
+    // Fetch input files
     fetchInputFiles(argc, argv);
 
     // Check if arguments are valid
@@ -106,5 +99,27 @@ int main(int argc, char** argv) {
         printUsage();
         return golite::Utils::EXIT_ERROR;
     }
+
+    // Read file
+    input_file_name = input_file.substr(input_file.find_last_of("/\\") + 1);
+    FILE *file = fopen(input_file.c_str(), "r");
+    if (!file) {
+        std::cerr << "Cannot open input file: " << input_file_name << std::endl;
+        return golite::Utils::EXIT_ERROR;
+    }
+    yyin = file;
+
+    // Scan/Parse
+    if(scan_flag) {
+        while (yylex()) {}
+    } else if(pretty_flag || parse_flag) {
+        do { yyparse(); } while (!feof(yyin));
+    }
+
+    // Prettify
+    if(pretty_flag) {
+        // TODO
+    }
+
     return golite::Utils::EXIT_FINE;
 }
