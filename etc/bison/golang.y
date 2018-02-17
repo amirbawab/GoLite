@@ -100,6 +100,8 @@ extern "C" int yylineno;
     tSTRING                 "string"
     tRUNE                   "rune"
     tIDENTIFIER             "identifier"
+
+    tNEWLINE                "new line"
     ;
 
 // Configure bison
@@ -117,7 +119,7 @@ extern "C" int yylineno;
 
 %%
 program
-    : packages declarations
+    : package_dec declarations
     ;
 
 declarations
@@ -127,9 +129,8 @@ declarations
     | %empty
     ;
 
-packages
-    : packages tPACKAGE tIDENTIFIER tSEMICOLON
-    | %empty
+package_dec
+    : tPACKAGE tIDENTIFIER tSEMICOLON
     ;
 
 statements
@@ -172,7 +173,7 @@ var_opt_type
     ;
 
 var_opt_expression
-    : tEQUAL expression tSEMICOLON
+    : tEQUAL expression
     | %empty
     ;
 
@@ -196,7 +197,7 @@ type_val
     ;
 
 func_dec
-    : tFUNC tIDENTIFIER tLEFT_PAR func_params tRIGHT_PAR func_type tLEFT_CURL statements tRIGHT_CURL
+    : tFUNC tIDENTIFIER tLEFT_PAR func_params tRIGHT_PAR func_type tLEFT_CURL statements tRIGHT_CURL tSEMICOLON
     ;
 
 func_params
@@ -224,7 +225,7 @@ if_dec
 
 else_opt
     : tELSE tLEFT_CURL statements tRIGHT_CURL
-    | %empty
+    | tSEMICOLON
     ;
 
 else_if_opt
@@ -233,7 +234,7 @@ else_if_opt
     ;
 
 for_dec
-    : tFOR for_condition tLEFT_CURL statements tRIGHT_CURL
+    : tFOR for_condition tLEFT_CURL statements tRIGHT_CURL tSEMICOLON
     ;
 
 for_condition
