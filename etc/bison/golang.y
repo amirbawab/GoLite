@@ -10,27 +10,30 @@ extern "C" int yylineno;
 
 // Define tokens
 %token
-    tBREAK                  "break"
-    tCASE                   "case"
     tCHAN                   "chan"
     tCONST                  "const"
-    tCONTINUE               "continue"
-    tDEFAULT                "default"
     tDEFER                  "defer"
-    tELSE                   "else"
     tFALLTHROUGH            "fallthrough"
-    tFOR                    "for"
-    tFUNC                   "func"
-    tGO                     "go"
-    tGOTO                   "goto"
-    tIF                     "if"
-    tIMPORT                 "import"
     tINTERFACE              "interface"
     tMAP                    "map"
-    tPACKAGE                "package"
     tRANGE                  "range"
-    tRETURN                 "return"
     tSELECT                 "select"
+    tARROW                  "<-"
+    tELLIPSIS               "..."
+    tGO                     "go"
+    tGOTO                   "goto"
+
+    tBREAK                  "break"
+    tCASE                   "case"
+    tCONTINUE               "continue"
+    tDEFAULT                "default"
+    tELSE                   "else"
+    tFOR                    "for"
+    tFUNC                   "func"
+    tIF                     "if"
+    tIMPORT                 "import"
+    tPACKAGE                "package"
+    tRETURN                 "return"
     tSTRUCT                 "struct"
     tSWITCH                 "switch"
     tTYPE                   "type"
@@ -97,6 +100,8 @@ extern "C" int yylineno;
     tSTRING                 "string"
     tRUNE                   "rune"
     tIDENTIFIER             "identifier"
+
+    tNEWLINE                "new line"
     ;
 
 // Configure bison
@@ -114,19 +119,19 @@ extern "C" int yylineno;
 
 %%
 program
-    : packages declarations
+    : package_dec declarations
     ;
 
 declarations
     : declarations type_dec
+    | declarations struct_dec
     | declarations var_dec
     | declarations func_dec
     | %empty
     ;
 
-packages
-    : packages tPACKAGE tIDENTIFIER tSEMICOLON
-    | %empty
+package_dec
+    : tPACKAGE tIDENTIFIER tSEMICOLON
     ;
 
 statements
@@ -136,6 +141,7 @@ statements
 statement
     : var_dec
     | assignment_dec
+    | struct_dec
     | type_dec
     | return_dec
     | if_dec
@@ -169,8 +175,13 @@ var_opt_type
     ;
 
 var_opt_expression
-    : tEQUAL expression tSEMICOLON
+    : tEQUAL expressions
     | %empty
+    ;
+
+expressions
+    : expressions tCOMMA expression
+    | expression
     ;
 
 type_dec
@@ -180,25 +191,39 @@ type_dec
 
 types_bodies
     : types_bodies type_body tSEMICOLON
+    | types_bodies struct_body tSEMICOLON
     | %empty
     ;
 
 type_body
-    : tIDENTIFIER type_val
+    : tIDENTIFIER type
     ;
 
-type_val
-    : type
-    | tSTRUCT tLEFT_CURL types_bodies tRIGHT_CURL
+struct_dec
+    : tTYPE struct_body tSEMICOLON
+    ;
+
+struct_body
+    : tIDENTIFIER tSTRUCT tLEFT_CURL struct_scope tRIGHT_CURL
+    ;
+
+struct_scope
+    : struct_scope var_identifiers type tSEMICOLON
+    | struct_scope struct_body tSEMICOLON
+    | %empty
     ;
 
 func_dec
-    : tFUNC tIDENTIFIER tLEFT_PAR func_params tRIGHT_PAR func_type tLEFT_CURL statements tRIGHT_CURL
+    : tFUNC tIDENTIFIER tLEFT_PAR func_opt_params tRIGHT_PAR func_type tLEFT_CURL statements tRIGHT_CURL tSEMICOLON
     ;
 
-func_params
-    : func_params var_identifiers type
+func_opt_params
+    : func_params
     | %empty
+
+func_params
+    : func_params tCOMMA var_identifiers type
+    | var_identifiers type
     ;
 
 func_type
@@ -221,7 +246,7 @@ if_dec
 
 else_opt
     : tELSE tLEFT_CURL statements tRIGHT_CURL
-    | %empty
+    | tSEMICOLON
     ;
 
 else_if_opt
@@ -230,7 +255,7 @@ else_if_opt
     ;
 
 for_dec
-    : tFOR for_condition tLEFT_CURL statements tRIGHT_CURL
+    : tFOR for_condition tLEFT_CURL statements tRIGHT_CURL tSEMICOLON
     ;
 
 for_condition
@@ -243,10 +268,15 @@ assignment_dec
     : assignment_body tSEMICOLON
 
 assignment_body
-    : tIDENTIFIER assignment_operator expression
-    | tIDENTIFIER tINC
-    | tIDENTIFIER tDEC
+    : tIDENTIFIER assignment_opt_index assignment_operator expression
+    | tIDENTIFIER assignment_opt_index tINC
+    | tIDENTIFIER assignment_opt_index tDEC
     | tIDENTIFIER tDECLARATION expression
+    ;
+
+assignment_opt_index
+    : index
+    | %empty
     ;
 
 assignment_operator
@@ -296,6 +326,7 @@ expression
     | tNOT expression %prec pNOT
     | tBIT_XOR expression %prec pXOR
     | tLEFT_PAR expression tRIGHT_PAR
+    | tAPPEND tLEFT_PAR expression tCOMMA expression tRIGHT_PAR
     | tINT
     | tFLOAT
     | tSTRING
@@ -304,10 +335,28 @@ expression
     ;
 
 type
+    : array_dec type_val
+    | slice_dec type_val
+    | type_val
+    ;
+
+type_val
     : tINT_TYPE
     | tFLOAT_TYPE
     | tSTRING_TYPE
     | tBOOL_TYPE
     | tRUNE_TYPE
     | tIDENTIFIER
+    ;
+
+array_dec
+    : tLEFT_SQUARE tINT tRIGHT_SQUARE
+    ;
+
+index
+    : tLEFT_SQUARE expression tRIGHT_SQUARE
+    ;
+
+slice_dec
+    : tLEFT_SQUARE tRIGHT_SQUARE
     ;
