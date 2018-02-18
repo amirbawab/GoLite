@@ -150,6 +150,11 @@ statement
     | for_dec
     | break_dec
     | continue_dec
+    | block_dec
+    ;
+
+block_dec
+    : tLEFT_CURL statements tRIGHT_CURL tSEMICOLON
     ;
 
 var_dec
