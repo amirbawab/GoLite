@@ -1,5 +1,6 @@
 %{
 #include <golite/bison.h>
+#include <iostream>
 
 // Information for Flex
 extern "C" int yylex();
@@ -137,6 +138,7 @@ package_dec
 statements
     : statements statement
     | %empty
+    ;
 
 statement
     : var_dec
@@ -160,8 +162,8 @@ vars_bodies
     | %empty
     ;
 
-var_body:
-    var_identifiers var_opt_type var_opt_expression
+var_body
+    : var_identifiers var_opt_type var_opt_expression
     ;
 
 var_identifiers
@@ -266,16 +268,27 @@ for_condition
 
 assignment_dec
     : assignment_body tSEMICOLON
-
-assignment_body
-    : tIDENTIFIER assignment_opt_index assignment_operator expression
-    | tIDENTIFIER assignment_opt_index tINC
-    | tIDENTIFIER assignment_opt_index tDEC
-    | tIDENTIFIER tDECLARATION expression
     ;
 
-assignment_opt_index
-    : index
+assignment_body
+    : var_identifiers tDECLARATION expressions
+    | assignment_ambiguous_assignment assignment_operator expressions
+    | tIDENTIFIER identifier_opt_indices tINC
+    | tIDENTIFIER identifier_opt_indices tDEC
+    ;
+
+assignment_ambiguous_assignment
+    : var_identifiers
+    | var_opt_index_identifiers
+    ;
+
+var_opt_index_identifiers
+    : var_opt_index_identifiers tCOMMA tIDENTIFIER identifier_opt_indices
+    | tIDENTIFIER identifier_opt_indices
+    ;
+
+identifier_opt_indices
+    : identifier_opt_indices identifier_index
     | %empty
     ;
 
@@ -353,7 +366,7 @@ array_dec
     : tLEFT_SQUARE tINT tRIGHT_SQUARE
     ;
 
-index
+identifier_index
     : tLEFT_SQUARE expression tRIGHT_SQUARE
     ;
 
