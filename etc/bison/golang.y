@@ -279,12 +279,16 @@ assignment_body
 
 assignment_ambiguous_assignment
     : var_identifiers
-    | var_opt_index_identifiers
+    | assignment_opt_index_identifiers
     ;
 
-var_opt_index_identifiers
-    : var_opt_index_identifiers tCOMMA tIDENTIFIER identifier_opt_indices
-    | tIDENTIFIER identifier_opt_indices
+identifier_and_opt_member
+    : tIDENTIFIER identifier_opt_indices identifier_opt_member
+    ;
+
+assignment_opt_index_identifiers
+    : assignment_opt_index_identifiers tCOMMA identifier_and_opt_member
+    | identifier_and_opt_member
     ;
 
 identifier_opt_indices
@@ -344,7 +348,7 @@ expression
     | tFLOAT
     | tSTRING
     | tRUNE
-    | tIDENTIFIER
+    | identifier_and_opt_member
     ;
 
 type
@@ -360,6 +364,11 @@ type_val
     | tBOOL_TYPE
     | tRUNE_TYPE
     | tIDENTIFIER
+    ;
+
+identifier_opt_member
+    : identifier_opt_member tDOT tIDENTIFIER identifier_opt_indices
+    | %empty
     ;
 
 array_dec
