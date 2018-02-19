@@ -349,8 +349,8 @@ expression
     ;
 
 type
-    : array_dec type_val
-    | slice_dec type_val
+    : array_dec type
+    | slice_dec type
     | type_val
     ;
 
