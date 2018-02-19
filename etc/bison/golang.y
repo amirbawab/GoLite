@@ -119,6 +119,7 @@ extern "C" int yylineno;
 %left tMULTIPLY tDIVIDE tMODULO tLEFT_SHIFT tRIGHT_SHIFT tBIT_AND tBIT_CLEAR
 %left pNEG pPOS pNOT pXOR
 %left tDOT
+%left pINDEX pCALL
 
 %%
 program
@@ -339,8 +340,8 @@ expression
     | tBIT_XOR expression %prec pXOR
     | tLEFT_PAR expression tRIGHT_PAR
     | tAPPEND tLEFT_PAR expression tCOMMA expression tRIGHT_PAR
-    | expression tLEFT_PAR expressions_opt tRIGHT_PAR
-    | expression tLEFT_SQUARE expression tRIGHT_SQUARE
+    | expression tLEFT_PAR expressions_opt tRIGHT_PAR %prec pCALL
+    | expression tLEFT_SQUARE expression tRIGHT_SQUARE %prec pINDEX
     | tINT
     | tFLOAT
     | tSTRING
