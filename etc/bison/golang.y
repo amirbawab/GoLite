@@ -111,12 +111,14 @@ extern "C" int yylineno;
 
 // Configure grammar
 %start program
+
 %left tOR
 %left tAND
 %left tIS_EQUAL tIS_NOT_EQUAL tLESS_THAN tGREATER_THAN tLESS_THAN_EQUAL tGREATER_THAN_EQUAL
 %left tPLUS tMINUS tBIT_OR tBIT_XOR
 %left tMULTIPLY tDIVIDE tMODULO tLEFT_SHIFT tRIGHT_SHIFT tBIT_AND tBIT_CLEAR
 %left pNEG pPOS pNOT pXOR
+%left tDOT
 
 %%
 program
@@ -142,7 +144,6 @@ statements
 
 statement
     : var_dec
-    | assignment_dec
     | struct_dec
     | type_dec
     | return_dec
@@ -151,6 +152,7 @@ statement
     | break_dec
     | continue_dec
     | block_dec
+    | assignment_dec
     ;
 
 block_dec
@@ -183,6 +185,11 @@ var_opt_type
 
 var_opt_expression
     : tEQUAL expressions
+    | %empty
+    ;
+
+expressions_opt
+    : expressions
     | %empty
     ;
 
@@ -271,36 +278,6 @@ for_condition
     | %empty
     ;
 
-assignment_dec
-    : assignment_body tSEMICOLON
-    ;
-
-assignment_body
-    : var_identifiers tDECLARATION expressions
-    | assignment_ambiguous_assignment assignment_operator expressions
-    | tIDENTIFIER identifier_opt_indices tINC
-    | tIDENTIFIER identifier_opt_indices tDEC
-    ;
-
-assignment_ambiguous_assignment
-    : var_identifiers
-    | assignment_opt_index_identifiers
-    ;
-
-identifier_and_opt_member
-    : tIDENTIFIER identifier_opt_indices identifier_opt_member
-    ;
-
-assignment_opt_index_identifiers
-    : assignment_opt_index_identifiers tCOMMA identifier_and_opt_member
-    | identifier_and_opt_member
-    ;
-
-identifier_opt_indices
-    : identifier_opt_indices identifier_index
-    | %empty
-    ;
-
 assignment_operator
     : tEQUAL
     | tPLUS_EQUAL
@@ -313,6 +290,7 @@ assignment_operator
     | tBIT_XOR_EQUAL
     | tLEFT_SHIFT_EQUAL
     | tRIGHT_SHIFT_EQUAL
+    | tDECLARATION
     ;
 
 break_dec
@@ -321,6 +299,17 @@ break_dec
 
 continue_dec
     : tCONTINUE tSEMICOLON
+    ;
+
+assignment_dec
+    : assignment_body tSEMICOLON
+    ;
+
+assignment_body
+    : expressions assignment_operator expressions
+    | expression tINC
+    | expression tDEC
+    | expression
     ;
 
 expression
@@ -343,17 +332,20 @@ expression
     | expression tGREATER_THAN_EQUAL expression
     | expression tAND expression
     | expression tOR expression
+    | expression tDOT expression
     | tMINUS expression %prec pNEG
     | tPLUS expression %prec pPOS
     | tNOT expression %prec pNOT
     | tBIT_XOR expression %prec pXOR
     | tLEFT_PAR expression tRIGHT_PAR
     | tAPPEND tLEFT_PAR expression tCOMMA expression tRIGHT_PAR
+    | expression tLEFT_PAR expressions_opt tRIGHT_PAR
+    | expression tLEFT_SQUARE expression tRIGHT_SQUARE
     | tINT
     | tFLOAT
     | tSTRING
     | tRUNE
-    | identifier_and_opt_member
+    | tIDENTIFIER
     ;
 
 type
@@ -371,17 +363,8 @@ type_val
     | tIDENTIFIER
     ;
 
-identifier_opt_member
-    : identifier_opt_member tDOT tIDENTIFIER identifier_opt_indices
-    | %empty
-    ;
-
 array_dec
     : tLEFT_SQUARE tINT tRIGHT_SQUARE
-    ;
-
-identifier_index
-    : tLEFT_SQUARE expression tRIGHT_SQUARE
     ;
 
 slice_dec
