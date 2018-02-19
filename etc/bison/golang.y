@@ -260,7 +260,7 @@ if_dec
     ;
 
 else_opt
-    : tELSE tLEFT_CURL statements tRIGHT_CURL
+    : tELSE tLEFT_CURL statements tRIGHT_CURL tSEMICOLON
     | tSEMICOLON
     ;
 
