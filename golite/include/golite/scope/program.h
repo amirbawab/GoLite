@@ -12,9 +12,12 @@ namespace golite {
     public:
         ~Program() {}
 
-        static TypeDeclarable* builtInTypes[] = {
-            new TypeDeclarable()
-        };
+        // static const so that one cannot change built-in types at runtime
+        static TypeDeclarable* const INT_TYPE;
+        static TypeDeclarable* const FLOAT_TYPE;
+        static TypeDeclarable* const BOOL_TYPE;
+        static TypeDeclarable* const RUNE_TYPE;
+        static TypeDeclarable* const STRING_TYPE;
 
         static Program* getInstance() {
             static Program* instance(new Program());

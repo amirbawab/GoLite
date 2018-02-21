@@ -111,7 +111,7 @@ extern "C" int yylineno;
     <g_type_decl>           tINT                    "integer"
     <g_type_decl>           tBOOL                   "bool"
     <g_type_decl>           tSTRING                 "string"
-    tRUNE                   "rune"
+    <g_type_decl>           tRUNE                   "rune"
     <g_identifier>          tIDENTIFIER             "identifier"
 
     tNEWLINE                "new line"
