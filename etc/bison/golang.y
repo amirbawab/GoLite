@@ -139,7 +139,6 @@ program
  **/
 global_decs
     : global_decs type_dec
-    | global_decs struct_dec
     | global_decs var_dec
     | global_decs func_dec
     | %empty
@@ -207,35 +206,37 @@ slice_type
  *     TYPE DECLARATION
  ****************************/
 
+/**
+ * Type declaration
+ **/
 type_dec
-    : tTYPE type_body tSEMICOLON
+    : tTYPE type_def tSEMICOLON
     | tTYPE tLEFT_PAR types_bodies tRIGHT_PAR tSEMICOLON
     ;
 
-types_bodies
-    : types_bodies type_body tSEMICOLON
-    | types_bodies struct_body tSEMICOLON
-    | %empty
-    ;
-
-type_body
+/**
+ * Type definition
+ **/
+type_def
     : tIDENTIFIER type
+    | tIDENTIFIER struct_type
     ;
 
-struct_dec
-    : tTYPE struct_body tSEMICOLON
+/**
+ * 'struct' type
+ **/
+struct_type
+    : tSTRUCT tLEFT_CURL struct_body tRIGHT_CURL
     ;
 
+/**
+ * 'struct' body
+ **/
 struct_body
-    : tIDENTIFIER tSTRUCT tLEFT_CURL struct_scope tRIGHT_CURL
-    ;
-
-struct_scope
-    : struct_scope identifiers identifier_type tSEMICOLON
-    | struct_scope struct_body tSEMICOLON
+    : struct_body identifiers type tSEMICOLON
+    | struct_body identifiers struct_type tSEMICOLON
     | %empty
     ;
-
 
 /****************************
  *        FUNCTION
@@ -372,7 +373,6 @@ for_simple_statement
  **/
 statement
     : var_dec
-    | struct_dec
     | type_dec
     | return_dec
     | if_dec
@@ -597,9 +597,17 @@ statements
     ;
 
 /**
- * Variable definitions
+ * Optional variable definitions
  **/
 var_defs
     : var_defs var_def tSEMICOLON
+    | %empty
+    ;
+
+/**
+ * Optinal type definitions
+ */
+type_defs
+    : type_defs type_def tSEMICOLON
     | %empty
     ;
