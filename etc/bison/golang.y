@@ -154,6 +154,16 @@ statement
     | continue_dec
     | block_dec
     | assignment_dec
+    | print_dec
+    | println_dec
+    ;
+
+print_dec
+    : tPRINT tLEFT_PAR expressions tRIGHT_PAR tSEMICOLON
+    ;
+
+println_dec
+    : tPRINTLN tLEFT_PAR expressions tRIGHT_PAR tSEMICOLON
     ;
 
 block_dec
