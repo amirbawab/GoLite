@@ -559,10 +559,20 @@ index
     ;
 
 /**
- * Casting
+ * Casting expression
  **/
 cast_expression
-    : identifier_type tLEFT_PAR expression tRIGHT_PAR
+    : cast_type tLEFT_PAR expression tRIGHT_PAR
+    ;
+
+/**
+ * Casting types
+ **/
+cast_type
+    : tINT_TYPE
+    | tFLOAT_TYPE
+    | tBOOL_TYPE
+    | tRUNE_TYPE
     ;
 
 /**
