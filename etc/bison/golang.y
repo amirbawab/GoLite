@@ -10,8 +10,10 @@ extern "C" int yylineno;
 %code requires {
     #include <golite/expressions/expression.h>
     #include <golite/expressions/identifier_expression.h>
-
     #include <golite/scope/program.h>
+
+    #include <golite/expressions/expression_factory.h>
+
     #include <string>
     #include <iostream>
 }
@@ -138,6 +140,7 @@ extern "C" int yylineno;
 
 %type <g_expression_list> var_identifiers
 %type <g_declarable> type var_opt_type
+%type <g_expr> expression
 
 %%
 program
@@ -342,27 +345,27 @@ assignment_body
     | expression
     ;
 
-expression
-    : expression tPLUS expression
-    | expression tMINUS expression
-    | expression tMULTIPLY expression
-    | expression tDIVIDE expression
-    | expression tMODULO expression
-    | expression tBIT_AND expression
-    | expression tBIT_OR expression
-    | expression tBIT_XOR expression
-    | expression tBIT_CLEAR expression
-    | expression tLEFT_SHIFT expression
-    | expression tRIGHT_SHIFT expression
-    | expression tIS_EQUAL expression
-    | expression tIS_NOT_EQUAL expression
-    | expression tLESS_THAN expression
-    | expression tGREATER_THAN expression
-    | expression tLESS_THAN_EQUAL expression
-    | expression tGREATER_THAN_EQUAL expression
-    | expression tAND expression
-    | expression tOR expression
-    | expression tDOT expression
+expression[root]
+    : expression[lhs] tPLUS expression[rhs] { $root = golite::ExpressionFactory::createBPlus($lhs, $rhs); }
+    | expression[lhs] tMINUS expression[rhs] { $root = golite::ExpressionFactory::createBMinus($lhs, $rhs); }
+    | expression[lhs] tMULTIPLY expression[rhs] { $root = golite::ExpressionFactory::createBMultiply($lhs, $rhs); }
+    | expression[lhs] tDIVIDE expression[rhs] { $root = golite::ExpressionFactory::createBDivide($lhs, $rhs); }
+    | expression[lhs] tMODULO expression[rhs] { $root = golite::ExpressionFactory::createBModulo($lhs, $rhs); }
+    | expression[lhs] tBIT_AND expression[rhs] { $root = golite::ExpressionFactory::createBBitAND($lhs, $rhs); }
+    | expression[lhs] tBIT_OR expression[rhs] { $root = golite::ExpressionFactory::createBBitOR($lhs, $rhs); }
+    | expression[lhs] tBIT_XOR expression[rhs] { $root = golite::ExpressionFactory::createBBitXOR($lhs, $rhs); }
+    | expression[lhs] tBIT_CLEAR expression[rhs] { $root = golite::ExpressionFactory::createBBitClear($lhs, $rhs); }
+    | expression[lhs] tLEFT_SHIFT expression[rhs] { $root = golite::ExpressionFactory::createBLeftShift($lhs, $rhs); }
+    | expression[lhs] tRIGHT_SHIFT expression[rhs] { $root = golite::ExpressionFactory::createBRightShift($lhs, $rhs); }
+    | expression[lhs] tIS_EQUAL expression[rhs] { $root = golite::ExpressionFactory::createBIsEquals($lhs, $rhs); }
+    | expression[lhs] tIS_NOT_EQUAL expression[rhs] { $root = golite::ExpressionFactory::createBIsNotEquals($lhs, $rhs); }
+    | expression[lhs] tLESS_THAN expression[rhs] { $root = golite::ExpressionFactory::createBLessThan($lhs, $rhs); }
+    | expression[lhs] tGREATER_THAN expression[rhs] { $root = golite::ExpressionFactory::createBGreaterThan($lhs, $rhs); }
+    | expression[lhs] tLESS_THAN_EQUAL expression[rhs] { $root = golite::ExpressionFactory::createBLessEqualThan($lhs, $rhs); }
+    | expression[lhs] tGREATER_THAN_EQUAL expression[rhs] { $root = golite::ExpressionFactory::createBGreaterEqualThan($lhs, $rhs); }
+    | expression[lhs] tAND expression[rhs] { $root = golite::ExpressionFactory::createBAnd($lhs, $rhs); }
+    | expression[lhs] tOR expression[rhs] { $root = golite::ExpressionFactory::createBOr($lhs, $rhs); }
+    | expression[lhs] tDOT expression[rhs] { $root = golite::ExpressionFactory::createBDot($lhs, $rhs); }
     | tMINUS expression %prec pNEG
     | tPLUS expression %prec pPOS
     | tNOT expression %prec pNOT

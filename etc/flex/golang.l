@@ -145,24 +145,28 @@ string          { golite::Utils::log_token("tSTRING_TYPE"); yylval.g_declarable 
 ([0-9]*\.[0-9]+)|([0-9]+\.[0-9]*) {
     // Float
     golite::Utils::log_token("tFLOAT", yytext);
+    yylval.g_expr = new golite::LiteralExpression<float>(atof(yytext), 0);
     return fToken(tFLOAT);
 }
 
 '((\\[abfnrtv\\\'])|[^\\'])' {
     // Rune/Character
     golite::Utils::log_token("tRUNE", yytext);
+    yylval.g_expr = new golite::LiteralExpression<char>(yytext[0], 0);
     return fToken(tRUNE);
 }
 
 `(.|\n)*` {
     // Raw String
     golite::Utils::log_token("tSTRING", yytext);
+    yylval.g_expr = new golite::LiteralExpression<std::string>(yytext, 0);
     return fToken(tSTRING);
 }
 
 \"(\\[abfnrtv\\\"]|[^\\"])*\" {
     // String
     golite::Utils::log_token("tSTRING", yytext);
+    yylval.g_expr = new golite::LiteralExpression<std::string>(yytext, 0);
     return fToken(tSTRING);
 }
 
