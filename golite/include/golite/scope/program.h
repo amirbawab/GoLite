@@ -1,20 +1,35 @@
 #ifndef GOLITE_SCOPE_PROGRAM_H
 #define GOLITE_SCOPE_PROGRAM_H
 
+#include <golite/statements/declarables/type_declarable.h>
 #include <golite/scope/scope.h>
+#include <string>
+
+using namespace std;
 
 namespace golite {
     class Program : Scope {
     public:
-        static Program& getInstance() {
-            static Program instance;
+        ~Program() {}
+
+        static TypeDeclarable* builtInTypes[] = {
+            new TypeDeclarable()
+        };
+
+        static Program* getInstance() {
+            static Program* instance(new Program());
             return instance;
         }
 
-        Program(Program const&) = delete; // do not implement
-        void operator=(Program const&) = delete; // do not implement
+        // Delete constructor and operator
+        Program(Program const&) = delete;
+        void operator=(Program const&) = delete;
+
+        void setPackageName(string package_name);
     private:
-        Program();
+        Program() {} // disable the constructor
+
+        string package_name_;
     };
 }
 

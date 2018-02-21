@@ -7,6 +7,7 @@
 namespace golite {
     class Declarable : Statement {
     protected:
+        Declarable(std::string name) { this->name_ = name; }
         std::string name_;
     };
 }

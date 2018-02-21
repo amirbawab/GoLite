@@ -1,6 +1,5 @@
 %{
 #include <golite/bison.h>
-#include <iostream>
 
 // Information for Flex
 extern "C" int yylex();
@@ -8,6 +7,19 @@ extern "C" int yyparse();
 extern "C" int yylineno;
 %}
 
+%code requires {
+    #include <golite/expressions/identifier_expression.h>
+    #include <golite/statements/declarables/type_declarable.h>
+    #include <golite/scope/program.h>
+    #include <string>
+    #include <iostream>
+}
+
+%union {
+    golite::IdentifierExpression*   g_identifier;
+    golite::TypeDeclarable*         g_type_decl;
+    std::vector<golite::IdentifierExpression*>* g_identifier_list;
+}
 
 // Define tokens
 %token
@@ -95,15 +107,16 @@ extern "C" int yylineno;
     tSEMICOLON              ";"
     tCOLON                  ":"
 
-    tFLOAT                  "float"
-    tINT                    "integer"
-    tBOOL                   "bool"
-    tSTRING                 "string"
+    <g_type_decl>           tFLOAT                  "float"
+    <g_type_decl>           tINT                    "integer"
+    <g_type_decl>           tBOOL                   "bool"
+    <g_type_decl>           tSTRING                 "string"
     tRUNE                   "rune"
-    tIDENTIFIER             "identifier"
+    <g_identifier>          tIDENTIFIER             "identifier"
 
     tNEWLINE                "new line"
     ;
+
 
 // Configure bison
 %locations
@@ -121,9 +134,14 @@ extern "C" int yylineno;
 %left tDOT
 %left pINDEX pCALL
 
+%type <g_identifier_list> var_identifiers
+%type <g_type_decl> type
+
 %%
 program
-    : package_dec declarations
+    : package_dec declarations {
+        //golite::Program::getInstance()->setPackageName("test");
+    }
     ;
 
 declarations
@@ -135,12 +153,15 @@ declarations
     ;
 
 package_dec
-    : tPACKAGE tIDENTIFIER tSEMICOLON
+    : tPACKAGE tIDENTIFIER[package_name] tSEMICOLON {
+        golite::IdentifierExpression* package_name = static_cast<golite::IdentifierExpression*>($package_name);
+        golite::Program::getInstance()->setPackageName(package_name->getName());
+    }
     ;
 
 statements
     : statements statement
-    | %empty
+    |  %empty
     ;
 
 statement
@@ -167,19 +188,25 @@ var_dec
 
 vars_bodies
     : vars_bodies var_body tSEMICOLON
-    | %empty
+    |  %empty
     ;
 
 var_body
     : var_identifiers var_opt_type var_opt_expression
     ;
 
-var_identifiers
-    : var_identifiers tCOMMA tIDENTIFIER
+var_identifiers[root]
+    : var_identifiers tCOMMA tIDENTIFIER[id] {
+        if(!$root) {
+            $root = new std::vector<golite::IdentifierExpression*>();
+        }
+
+        $root->push_back($id);
+    }
     | tIDENTIFIER
     ;
 
-var_opt_type
+var_opt_type[root]
     : type
     | %empty
     ;
@@ -191,7 +218,7 @@ var_opt_expression
 
 expressions_opt
     : expressions
-    | %empty
+    |  %empty
     ;
 
 expressions
@@ -207,7 +234,7 @@ type_dec
 types_bodies
     : types_bodies type_body tSEMICOLON
     | types_bodies struct_body tSEMICOLON
-    | %empty
+    |  %empty
     ;
 
 type_body
@@ -225,7 +252,7 @@ struct_body
 struct_scope
     : struct_scope var_identifiers type tSEMICOLON
     | struct_scope struct_body tSEMICOLON
-    | %empty
+    |  %empty
     ;
 
 func_dec
@@ -234,7 +261,7 @@ func_dec
 
 func_opt_params
     : func_params
-    | %empty
+    |  %empty
 
 func_params
     : func_params tCOMMA var_identifiers type
@@ -243,7 +270,7 @@ func_params
 
 func_type
     : type
-    | %empty
+    |  %empty
     ;
 
 return_dec
@@ -252,7 +279,7 @@ return_dec
 
 return_val
     : expression
-    | %empty
+    |  %empty
     ;
 
 if_dec
@@ -266,7 +293,7 @@ else_opt
 
 else_if_opt
     : else_if_opt tELSE tIF expression tLEFT_CURL statements tRIGHT_CURL
-    | %empty
+    |  %empty
     ;
 
 for_dec
@@ -276,7 +303,7 @@ for_dec
 for_condition
     : expression
     | assignment_body tSEMICOLON expression tSEMICOLON assignment_body
-    | %empty
+    |  %empty
     ;
 
 assignment_operator

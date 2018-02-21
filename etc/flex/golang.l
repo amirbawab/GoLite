@@ -7,6 +7,8 @@
 
 #define YY_DECL extern "C" int yylex()
 
+#include <golite/expressions/identifier_expression.h>
+
 // Function prototype
 int fToken(int token);
 %}
@@ -161,6 +163,7 @@ string          { golite::Utils::log_token("tSTRING_TYPE"); return fToken(tSTRIN
 [a-zA-Z_][a-zA-Z0-9_]* {
     // Identifier
     golite::Utils::log_token("tIDENTIFIER", yytext);
+    yylval.g_identifier = new golite::IdentifierExpression(strdup(yytext), 0);
     return fToken(tIDENTIFIER);
 }
 
