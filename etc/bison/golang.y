@@ -190,20 +190,6 @@ return_val
     | %empty
     ;
 
-if_dec
-    : tIF expression tLEFT_CURL statements tRIGHT_CURL else_if_opt else_opt
-    ;
-
-else_opt
-    : tELSE tLEFT_CURL statements tRIGHT_CURL tSEMICOLON
-    | tSEMICOLON
-    ;
-
-else_if_opt
-    : else_if_opt tELSE tIF expression tLEFT_CURL statements tRIGHT_CURL
-    | %empty
-    ;
-
 for_dec
     : tFOR for_condition tLEFT_CURL statements tRIGHT_CURL tSEMICOLON
     ;
@@ -214,6 +200,9 @@ for_condition
     | %empty
     ;
 
+/**
+ * Assignment operators
+ **/
 assignment_operator
     : tEQUAL
     | tPLUS_EQUAL
@@ -226,6 +215,7 @@ assignment_operator
     | tBIT_XOR_EQUAL
     | tLEFT_SHIFT_EQUAL
     | tRIGHT_SHIFT_EQUAL
+    | tBIT_CLEAR_EQUAL
     | tDECLARATION
     ;
 
@@ -320,6 +310,41 @@ var_opt_expression
     ;
 
 /****************************
+ *      IF STATEMENT
+ ****************************/
+
+/**
+ * 'if' statement
+ **/
+if_dec
+    : tIF if_simple_statement expression tLEFT_CURL statements tRIGHT_CURL else_if_opt else_opt tSEMICOLON
+    ;
+
+/**
+ * Optional 'else if' statement
+ **/
+else_if_opt
+    : else_if_opt tELSE tIF if_simple_statement expression tLEFT_CURL statements tRIGHT_CURL
+    | %empty
+    ;
+
+/**
+ * Optional 'else' statement
+ **/
+else_opt
+    : tELSE tLEFT_CURL statements tRIGHT_CURL tSEMICOLON
+    | %empty
+    ;
+
+/**
+ * Optional if simple statement
+ **/
+if_simple_statement
+    : simple_statement tSEMICOLON
+    | %empty
+    ;
+
+/****************************
  *     OTHER STATEMENTS
  ****************************/
 
@@ -374,6 +399,18 @@ break_dec
  **/
 continue_dec
     : tCONTINUE tSEMICOLON
+    ;
+
+/**
+ * Simple statement
+ **/
+simple_statement
+    : expression
+    | expression tINT
+    | expression tDEC_
+    | expressions assignment_operator expressions
+    | identifiers tDECLARATION expressions
+    | %empty
     ;
 
 /****************************
