@@ -5,7 +5,11 @@
 
 namespace golite {
     template <class T>
-    class LiteralExpression : Expression {
+    class LiteralExpression : public Expression {
+    public:
+        LiteralExpression(T val, int line): Expression(line) {
+            this->value_ = val;
+        }
     protected:
         T value_;
     };

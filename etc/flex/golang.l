@@ -8,6 +8,9 @@
 #define YY_DECL extern "C" int yylex()
 
 #include <golite/expressions/identifier_expression.h>
+#include <golite/expressions/literal_expression.h>
+#include <golite/expressions/literals/octal_value.h>
+#include <golite/expressions/literals/hex_value.h>
 
 // Function prototype
 int fToken(int token);
@@ -121,19 +124,21 @@ string          { golite::Utils::log_token("tSTRING_TYPE"); yylval.g_declarable 
 0+|([1-9][0-9]*) {
     // Integer
     golite::Utils::log_token("tINT", yytext);
-    //yylval.
+    yylval.g_expr = new golite::LiteralExpression<int>(atoi(yytext), 0);
     return fToken(tINT);
 }
 
 0[1-7][0-7]* {
     // Octal
     golite::Utils::log_token("tINT", yytext);
+    yylval.g_expr = new golite::LiteralExpression<golite::OctalValue>(golite::OctalValue(atoi(yytext)), 0);
     return fToken(tINT);
 }
 
 0[xX][0-9a-fA-F]+ {
     // Hex
     golite::Utils::log_token("tINT", yytext);
+    yylval.g_expr = new golite::LiteralExpression<golite::HexValue>(golite::HexValue(strdup(yytext)), 0);
     return fToken(tINT);
 }
 
