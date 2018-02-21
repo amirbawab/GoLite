@@ -1,8 +1,13 @@
 #ifndef GOLITE_EXPRESSIONS_EXPRESSION_FACTORY_H
 #define GOLITE_EXPRESSIONS_EXPRESSION_FACTORY_H
 
+#include <vector>
+
 #include <golite/expressions/expression.h>
 #include <golite/expressions/binary_expression.h>
+#include <golite/expressions/unary_expression.h>
+#include <golite/expressions/function_call_expression.h>
+#include <golite/expressions/index_expression.h>
 
 namespace golite {
     class ExpressionFactory {
@@ -27,6 +32,14 @@ namespace golite {
         static BinaryExpression* createBAnd(Expression* lhs, Expression* rhs);
         static BinaryExpression* createBOr(Expression* lhs, Expression* rhs);
         static BinaryExpression* createBDot(Expression* lhs, Expression* rhs);
+
+        static UnaryExpression* createUMinus(Expression* operand);
+        static UnaryExpression* createUPlus(Expression* operand);
+        static UnaryExpression* createUNot(Expression* operand);
+        static UnaryExpression* createUBitXOR(Expression* operand);
+
+        static FunctionCallExpression* createFunctionCall(Expression* identifier, std::vector<Expression*>* args);
+        static IndexExpression* createIndexExpr(Expression* target, Expression* idx);
     };
 }
 

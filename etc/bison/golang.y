@@ -10,9 +10,11 @@ extern "C" int yylineno;
 %code requires {
     #include <golite/expressions/expression.h>
     #include <golite/expressions/identifier_expression.h>
+    #include <golite/statements/declarables/builtin.h>
     #include <golite/scope/program.h>
 
     #include <golite/expressions/expression_factory.h>
+    #include <golite/statements/declarables/declarable_factory.h>
 
     #include <string>
     #include <iostream>
@@ -23,6 +25,7 @@ extern "C" int yylineno;
     golite::Declarable*         g_declarable;
 
     std::vector<golite::Expression*>* g_expression_list;
+    std::vector<golite::Declarable*>* g_declarable_list;
 }
 
 // Define tokens
@@ -138,7 +141,8 @@ extern "C" int yylineno;
 %left tDOT
 %left pINDEX pCALL
 
-%type <g_expression_list> var_identifiers
+%type <g_expression_list> var_identifiers expressions expressions_opt var_opt_expression
+%type <g_declarable_list> var_body
 %type <g_declarable> type var_opt_type
 %type <g_expr> expression
 
@@ -196,8 +200,20 @@ vars_bodies
     |  %empty
     ;
 
-var_body
-    : var_identifiers[ids] var_opt_type[type] var_opt_expression
+var_body[root]
+    : var_identifiers[ids] var_opt_type[type] var_opt_expression[expr] {
+        std::vector<golite::Declarable*>* var_decls = new std::vector<golite::Declarable*>();
+        std::vector<golite::Expression*>* ids = static_cast<std::vector<golite::Expression*>*>($ids);
+
+        for(std::vector<golite::Expression*>::iterator it = ids->begin();
+            it != ids->end();
+            ++it) {
+            golite::Declarable* var_decl = golite::DeclarableFactory::createVarDecl(((golite::IdentifierExpression*)(*it))->getName(), (golite::TypeDeclarable*)$type);
+            var_decls->push_back(var_decl);
+        }
+
+        $root = var_decls;
+    }
     ;
 
 var_identifiers[root]
@@ -208,27 +224,42 @@ var_identifiers[root]
 
         $root->push_back($id);
     }
-    | tIDENTIFIER
+    | tIDENTIFIER[id] {
+        std::vector<golite::Expression*>* ids = new std::vector<golite::Expression*>();
+        ids->push_back($id);
+        $root = ids;
+    }
     ;
 
 var_opt_type[root]
-    : type { $root = $1; }
+    : type { $root = $root; }
     | %empty { $root = nullptr; }
     ;
 
-var_opt_expression
-    : tEQUAL expressions
-    | %empty
+var_opt_expression[root]
+    : tEQUAL expressions { $root = $root; }
+    | %empty { $root = nullptr; }
     ;
 
-expressions_opt
-    : expressions
-    |  %empty
+expressions_opt[root]
+    : expressions { $root = $root; }
+    |  %empty { $root = nullptr; }
     ;
 
-expressions
-    : expressions tCOMMA expression
-    | expression
+expressions[root]
+    : expressions tCOMMA expression[expr] {
+        if(!$root) {
+            $root = new std::vector<golite::Expression*>();
+        }
+
+        $root->push_back($expr);
+    }
+    | expression[expr] {
+        std::vector<golite::Expression*>* exprs = new std::vector<golite::Expression*>();
+        exprs->push_back($expr);
+
+        $root = exprs;
+    }
     ;
 
 type_dec
@@ -366,14 +397,20 @@ expression[root]
     | expression[lhs] tAND expression[rhs] { $root = golite::ExpressionFactory::createBAnd($lhs, $rhs); }
     | expression[lhs] tOR expression[rhs] { $root = golite::ExpressionFactory::createBOr($lhs, $rhs); }
     | expression[lhs] tDOT expression[rhs] { $root = golite::ExpressionFactory::createBDot($lhs, $rhs); }
-    | tMINUS expression %prec pNEG
-    | tPLUS expression %prec pPOS
-    | tNOT expression %prec pNOT
-    | tBIT_XOR expression %prec pXOR
-    | tLEFT_PAR expression tRIGHT_PAR
-    | tAPPEND tLEFT_PAR expression tCOMMA expression tRIGHT_PAR
-    | expression tLEFT_PAR expressions_opt tRIGHT_PAR %prec pCALL
-    | expression tLEFT_SQUARE expression tRIGHT_SQUARE %prec pINDEX
+    | tMINUS expression[op] %prec pNEG { $root = golite::ExpressionFactory::createUMinus($op); }
+    | tPLUS expression[op] %prec pPOS { $root = golite::ExpressionFactory::createUPlus($op); }
+    | tNOT expression[op] %prec pNOT { $root = golite::ExpressionFactory::createUNot($op); }
+    | tBIT_XOR expression[op] %prec pXOR { $root = golite::ExpressionFactory::createUBitXOR($op); }
+    | tLEFT_PAR expression[op] tRIGHT_PAR { $root = $op; }
+    | tAPPEND tLEFT_PAR expression[src_slice] tCOMMA expression[expr] tRIGHT_PAR {
+        std::vector<golite::Expression*>* expr = new std::vector<golite::Expression*>();
+        expr->push_back($src_slice);
+        expr->push_back($expr);
+
+        $root = golite::ExpressionFactory::createFunctionCall(golite::BuiltIn::APPEND_FN_ID, expr);
+    }
+    | expression[function] tLEFT_PAR expressions_opt[args] tRIGHT_PAR %prec pCALL { $root = golite::ExpressionFactory::createFunctionCall($function, $args); }
+    | expression[target] tLEFT_SQUARE expression[idx] tRIGHT_SQUARE %prec pINDEX { $root = golite::ExpressionFactory::createIndexExpr($target, $idx); }
     | tINT
     | tFLOAT
     | tSTRING

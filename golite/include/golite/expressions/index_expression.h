@@ -4,8 +4,14 @@
 #include <golite/expressions/expression.h>
 
 namespace golite {
-    class IndexExpression : Expression {
+    class IndexExpression : public Expression {
+    public:
+        IndexExpression(Expression* target, Expression* idx) {
+            this->target_ = target;
+            this->expression_ = idx;
+        }
     protected:
+        Expression* target_;
         Expression* expression_;
     };
 }

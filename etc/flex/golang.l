@@ -5,12 +5,13 @@
 #include <iostream>
 #include <stdbool.h>
 
-#define YY_DECL extern "C" int yylex()
 
+#include <golite/statements/declarables/builtin.h>
 #include <golite/expressions/identifier_expression.h>
 #include <golite/expressions/literal_expression.h>
 #include <golite/expressions/literals/octal_value.h>
 #include <golite/expressions/literals/hex_value.h>
+#define YY_DECL extern "C" int yylex()
 
 // Function prototype
 int fToken(int token);
@@ -53,11 +54,11 @@ print           { golite::Utils::log_token("tPRINT"); return fToken(tPRINT); }
 println         { golite::Utils::log_token("tPRINTLN"); return fToken(tPRINTLN); }
 append          { golite::Utils::log_token("tAPPEND"); return fToken(tAPPEND); }
 
-int             { golite::Utils::log_token("tINT_TYPE"); yylval.g_declarable = golite::Program::INT_TYPE; return fToken(tINT_TYPE); }
-float64         { golite::Utils::log_token("tFLOAT_TYPE"); yylval.g_declarable = golite::Program::FLOAT_TYPE; return fToken(tFLOAT_TYPE); }
-bool            { golite::Utils::log_token("tBOOL_TYPE"); yylval.g_declarable = golite::Program::BOOL_TYPE; return fToken(tBOOL_TYPE); }
-rune            { golite::Utils::log_token("tRUNE_TYPE"); yylval.g_declarable = golite::Program::RUNE_TYPE; return fToken(tRUNE_TYPE); }
-string          { golite::Utils::log_token("tSTRING_TYPE"); yylval.g_declarable = golite::Program::STRING_TYPE; return fToken(tSTRING_TYPE); }
+int             { golite::Utils::log_token("tINT_TYPE"); yylval.g_declarable = golite::BuiltIn::INT_TYPE; return fToken(tINT_TYPE); }
+float64         { golite::Utils::log_token("tFLOAT_TYPE"); yylval.g_declarable = golite::BuiltIn::FLOAT_TYPE; return fToken(tFLOAT_TYPE); }
+bool            { golite::Utils::log_token("tBOOL_TYPE"); yylval.g_declarable = golite::BuiltIn::BOOL_TYPE; return fToken(tBOOL_TYPE); }
+rune            { golite::Utils::log_token("tRUNE_TYPE"); yylval.g_declarable = golite::BuiltIn::RUNE_TYPE; return fToken(tRUNE_TYPE); }
+string          { golite::Utils::log_token("tSTRING_TYPE"); yylval.g_declarable = golite::BuiltIn::STRING_TYPE; return fToken(tSTRING_TYPE); }
 
 "+"             { golite::Utils::log_token("tPLUS"); return fToken(tPLUS); }
 "-"             { golite::Utils::log_token("tMINUS"); return fToken(tMINUS); }

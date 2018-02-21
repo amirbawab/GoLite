@@ -7,8 +7,8 @@
 
 namespace golite {
     enum TypeDeclarableKind {
-        ARRAY,
-        SLICE,
+        ARRAY_CUSTOM,
+        SLICE_CUSTOM,
         CUSTOM,
         BUILTIN
     };
