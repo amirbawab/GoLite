@@ -8,17 +8,19 @@ extern "C" int yylineno;
 %}
 
 %code requires {
+    #include <golite/expressions/expression.h>
     #include <golite/expressions/identifier_expression.h>
-    #include <golite/statements/declarables/type_declarable.h>
+
     #include <golite/scope/program.h>
     #include <string>
     #include <iostream>
 }
 
 %union {
-    golite::IdentifierExpression*   g_identifier;
-    golite::TypeDeclarable*         g_type_decl;
-    std::vector<golite::IdentifierExpression*>* g_identifier_list;
+    golite::Expression*         g_expr;
+    golite::Declarable*         g_declarable;
+
+    std::vector<golite::Expression*>* g_expression_list;
 }
 
 // Define tokens
@@ -107,12 +109,12 @@ extern "C" int yylineno;
     tSEMICOLON              ";"
     tCOLON                  ":"
 
-    <g_type_decl>           tFLOAT                  "float"
-    <g_type_decl>           tINT                    "integer"
-    <g_type_decl>           tBOOL                   "bool"
-    <g_type_decl>           tSTRING                 "string"
-    <g_type_decl>           tRUNE                   "rune"
-    <g_identifier>          tIDENTIFIER             "identifier"
+    <g_expr>           tFLOAT                  "float"
+    <g_expr>           tINT                    "integer"
+    <g_expr>           tBOOL                   "bool"
+    <g_expr>           tSTRING                 "string"
+    <g_expr>           tRUNE                   "rune"
+    <g_expr>          tIDENTIFIER             "identifier"
 
     tNEWLINE                "new line"
     ;
@@ -134,8 +136,8 @@ extern "C" int yylineno;
 %left tDOT
 %left pINDEX pCALL
 
-%type <g_identifier_list> var_identifiers
-%type <g_type_decl> type
+%type <g_expression_list> var_identifiers
+%type <g_declarable> type var_opt_type
 
 %%
 program
@@ -192,13 +194,13 @@ vars_bodies
     ;
 
 var_body
-    : var_identifiers var_opt_type var_opt_expression
+    : var_identifiers[ids] var_opt_type[type] var_opt_expression
     ;
 
 var_identifiers[root]
     : var_identifiers tCOMMA tIDENTIFIER[id] {
         if(!$root) {
-            $root = new std::vector<golite::IdentifierExpression*>();
+            $root = new std::vector<golite::Expression*>();
         }
 
         $root->push_back($id);
@@ -207,8 +209,8 @@ var_identifiers[root]
     ;
 
 var_opt_type[root]
-    : type
-    | %empty
+    : type { $root = $1; }
+    | %empty { $root = nullptr; }
     ;
 
 var_opt_expression

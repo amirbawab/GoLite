@@ -30,7 +30,7 @@ namespace golite {
 
         void setPackageName(string package_name);
     private:
-        Program() {} // disable the constructor
+        Program();
 
         string package_name_;
     };
