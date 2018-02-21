@@ -151,17 +151,6 @@ package_dec
     : tPACKAGE tIDENTIFIER tSEMICOLON
     ;
 
-assignment_dec
-    : assignment_body tSEMICOLON
-    ;
-
-assignment_body
-    : expressions assignment_operator expressions
-    | expression tINC
-    | expression tDEC
-    | expression
-    ;
-
 /****************************
  *     IDENTIFIER TYPE
  ****************************/
@@ -363,6 +352,41 @@ for_simple_statement
     | %empty
     ;
 
+/****************************
+ *     SWITCH STATEMENT
+ ****************************/
+
+/**
+ * Swtich declaration
+ **/
+swtich_dec
+    : tSWITCH switch_simple_statement switch_expression tLEFT_CURL switch_body tRIGHT_CURL tSEMICOLON
+    ;
+
+/**
+ * Otional switch statement
+ **/
+switch_simple_statement
+    : simple_statement tSEMICOLON
+    | %empty
+    ;
+
+/**
+ * Switch optional expression
+ **/
+switch_expression
+    : expression
+    | %empty
+    ;
+
+/**
+ * Switch statement body
+ **/
+switch_body
+    : switch_body tCASE expressions tCOLON statements
+    | switch_body tDEFAULT tCOLON statements
+    | %empty
+    ;
 
 /****************************
  *     OTHER STATEMENTS
@@ -374,13 +398,13 @@ for_simple_statement
 statement
     : var_dec
     | type_dec
+    | simple_statement
     | return_dec
-    | if_dec
-    | for_dec
     | break_dec
     | continue_dec
     | block_dec
-    | assignment_dec
+    | if_dec
+    | for_dec
     | print_dec
     | println_dec
     ;
@@ -547,7 +571,7 @@ index
  **/
 cast_expression
     : type tLEFT_PAR expression tRIGHT_PAR
-    :
+    ;
 
 /**
  * Assignment operators
