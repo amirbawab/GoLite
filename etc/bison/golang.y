@@ -190,16 +190,6 @@ return_val
     | %empty
     ;
 
-for_dec
-    : tFOR for_condition tLEFT_CURL statements tRIGHT_CURL tSEMICOLON
-    ;
-
-for_condition
-    : expression
-    | assignment_body tSEMICOLON expression tSEMICOLON assignment_body
-    | %empty
-    ;
-
 /**
  * Assignment operators
  **/
@@ -343,6 +333,35 @@ if_simple_statement
     : simple_statement tSEMICOLON
     | %empty
     ;
+
+/****************************
+ *      FOR STATEMENT
+ ****************************/
+
+/**
+ * For declaration
+ **/
+for_dec
+    : tFOR for_condition tLEFT_CURL statements tRIGHT_CURL tSEMICOLON
+    ;
+
+/**
+ * For condition forms
+ **/
+for_condition
+    : expression
+    | for_simple_statement tSEMICOLON expression tSEMICOLON for_simple_statement
+    | %empty
+    ;
+
+/**
+ * Optional for simple statement
+ **/
+for_simple_statement
+    : simple_statement
+    | %empty
+    ;
+
 
 /****************************
  *     OTHER STATEMENTS
