@@ -152,6 +152,40 @@ package_dec
     : tPACKAGE tIDENTIFIER tSEMICOLON
     ;
 
+assignment_dec
+    : assignment_body tSEMICOLON
+    ;
+
+assignment_body
+    : expressions assignment_operator expressions
+    | expression tINC
+    | expression tDEC
+    | expression
+    ;
+
+identifier_type
+    : array_dec identifier_type
+    | slice_dec identifier_type
+    | tINT_TYPE
+    | tFLOAT_TYPE
+    | tSTRING_TYPE
+    | tBOOL_TYPE
+    | tRUNE_TYPE
+    | tIDENTIFIER
+    ;
+
+array_dec
+    : tLEFT_SQUARE tINT tRIGHT_SQUARE
+    ;
+
+slice_dec
+    : tLEFT_SQUARE tRIGHT_SQUARE
+    ;
+
+/****************************
+ *     TYPE DECLARATION
+ ****************************/
+
 type_dec
     : tTYPE type_body tSEMICOLON
     | tTYPE tLEFT_PAR types_bodies tRIGHT_PAR tSEMICOLON
@@ -176,72 +210,11 @@ struct_body
     ;
 
 struct_scope
-    : struct_scope identifiers type tSEMICOLON
+    : struct_scope identifiers identifier_type tSEMICOLON
     | struct_scope struct_body tSEMICOLON
     | %empty
     ;
 
-return_dec
-    : tRETURN return_val tSEMICOLON
-    ;
-
-return_val
-    : expression
-    | %empty
-    ;
-
-/**
- * Assignment operators
- **/
-assignment_operator
-    : tEQUAL
-    | tPLUS_EQUAL
-    | tMINUS_EQUAL
-    | tMULTIPLY_EQUAL
-    | tDIVIDE_EQUAL
-    | tMODULO_EQUAL
-    | tBIT_AND_EQUAL
-    | tBIT_OR_EQUAL
-    | tBIT_XOR_EQUAL
-    | tLEFT_SHIFT_EQUAL
-    | tRIGHT_SHIFT_EQUAL
-    | tBIT_CLEAR_EQUAL
-    | tDECLARATION
-    ;
-
-assignment_dec
-    : assignment_body tSEMICOLON
-    ;
-
-assignment_body
-    : expressions assignment_operator expressions
-    | expression tINC
-    | expression tDEC
-    | expression
-    ;
-
-type
-    : array_dec type
-    | slice_dec type
-    | type_val
-    ;
-
-type_val
-    : tINT_TYPE
-    | tFLOAT_TYPE
-    | tSTRING_TYPE
-    | tBOOL_TYPE
-    | tRUNE_TYPE
-    | tIDENTIFIER
-    ;
-
-array_dec
-    : tLEFT_SQUARE tINT tRIGHT_SQUARE
-    ;
-
-slice_dec
-    : tLEFT_SQUARE tRIGHT_SQUARE
-    ;
 
 /****************************
  *        FUNCTION
@@ -259,12 +232,12 @@ func_opt_params
     | %empty
 
 func_params
-    : func_params tCOMMA identifiers type
+    : func_params tCOMMA identifiers identifier_type
     | identifiers type
     ;
 
 func_type
-    : type
+    : identifier_type
     | %empty
     ;
 
@@ -276,24 +249,21 @@ func_type
  * Variable delcaration
  **/
 var_dec
-    : tVAR var_body tSEMICOLON
-    | tVAR tLEFT_PAR vars_bodies tRIGHT_PAR tSEMICOLON
+    : tVAR var_def tSEMICOLON
+    | tVAR tLEFT_PAR var_defs tRIGHT_PAR tSEMICOLON
     ;
 
-vars_bodies
-    : vars_bodies var_body tSEMICOLON
-    | %empty
+/**
+ * Variable definition
+ **/
+var_def
+    : identifiers identifier_type var_opt_expression
+    | identifiers tEQUAL expressions
     ;
 
-var_body
-    : identifiers var_opt_type var_opt_expression
-    ;
-
-var_opt_type
-    : type
-    | %empty
-    ;
-
+/**
+ * Variable optional expression
+ **/
 var_opt_expression
     : tEQUAL expressions
     | %empty
@@ -432,6 +402,21 @@ simple_statement
     | %empty
     ;
 
+/**
+ * Return statement
+ **/
+return_dec
+    : tRETURN return_val tSEMICOLON
+    ;
+
+/**
+ * Return statement option value
+ **/
+return_val
+    : expression
+    | %empty
+    ;
+
 /****************************
  *       EXPRESSIONS
  ****************************/
@@ -534,6 +519,25 @@ cast_expression
     : type tLEFT_PAR expression tRIGHT_PAR
     :
 
+/**
+ * Assignment operators
+ **/
+assignment_operator
+    : tEQUAL
+    | tPLUS_EQUAL
+    | tMINUS_EQUAL
+    | tMULTIPLY_EQUAL
+    | tDIVIDE_EQUAL
+    | tMODULO_EQUAL
+    | tBIT_AND_EQUAL
+    | tBIT_OR_EQUAL
+    | tBIT_XOR_EQUAL
+    | tLEFT_SHIFT_EQUAL
+    | tRIGHT_SHIFT_EQUAL
+    | tBIT_CLEAR_EQUAL
+    | tDECLARATION
+    ;
+
 /****************************
  *          PLURALS
  ****************************/
@@ -559,5 +563,13 @@ expressions
  **/
 statements
     : statements statement
+    | %empty
+    ;
+
+/**
+ * Variable definitions
+ **/
+var_defs
+    : var_defs var_def tSEMICOLON
     | %empty
     ;
