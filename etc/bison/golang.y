@@ -161,6 +161,7 @@ package_dec
 identifier_type
     : array_type identifier_type
     | slice_type identifier_type
+    | struct_type
     | tIDENTIFIER
     | tLEFT_PAR identifier_type tRIGHT_PAR
     | identifier_builtin_type
@@ -200,15 +201,14 @@ slice_type
  **/
 type_dec
     : tTYPE type_def tSEMICOLON
-    | tTYPE tLEFT_PAR types_bodies tRIGHT_PAR tSEMICOLON
+    | tTYPE tLEFT_PAR type_defs tRIGHT_PAR tSEMICOLON
     ;
 
 /**
  * Type definition
  **/
 type_def
-    : tIDENTIFIER type
-    | tIDENTIFIER struct_type
+    : tIDENTIFIER identifier_type
     ;
 
 /**
@@ -222,8 +222,7 @@ struct_type
  * 'struct' body
  **/
 struct_body
-    : struct_body identifiers type tSEMICOLON
-    | struct_body identifiers struct_type tSEMICOLON
+    : struct_body identifiers identifier_type tSEMICOLON
     | %empty
     ;
 
@@ -250,7 +249,7 @@ func_opt_params
  **/
 func_params
     : func_params tCOMMA identifiers identifier_type
-    | identifiers type
+    | identifiers identifier_type
     ;
 
 /**
@@ -297,14 +296,14 @@ var_opt_expression
  * 'if' statement
  **/
 if_dec
-    : tIF if_simple_statement expression tLEFT_CURL statements tRIGHT_CURL else_if_opt else_opt tSEMICOLON
+    : tIF simple_statement_opt expression tLEFT_CURL statements tRIGHT_CURL else_if_opt else_opt tSEMICOLON
     ;
 
 /**
  * Optional 'else if' statement
  **/
 else_if_opt
-    : else_if_opt tELSE tIF if_simple_statement expression tLEFT_CURL statements tRIGHT_CURL
+    : else_if_opt tELSE tIF simple_statement_opt expression tLEFT_CURL statements tRIGHT_CURL
     | %empty
     ;
 
@@ -313,14 +312,6 @@ else_if_opt
  **/
 else_opt
     : tELSE tLEFT_CURL statements tRIGHT_CURL tSEMICOLON
-    | %empty
-    ;
-
-/**
- * Optional if simple statement
- **/
-if_simple_statement
-    : simple_statement tSEMICOLON
     | %empty
     ;
 
@@ -359,16 +350,8 @@ for_simple_statement
 /**
  * Swtich declaration
  **/
-swtich_dec
-    : tSWITCH switch_simple_statement switch_expression tLEFT_CURL switch_body tRIGHT_CURL tSEMICOLON
-    ;
-
-/**
- * Otional switch statement
- **/
-switch_simple_statement
-    : simple_statement tSEMICOLON
-    | %empty
+switch_dec
+    : tSWITCH simple_statement_opt switch_expression tLEFT_CURL switch_body tRIGHT_CURL tSEMICOLON
     ;
 
 /**
@@ -407,6 +390,7 @@ statement
     | for_dec
     | print_dec
     | println_dec
+    | switch_dec
     ;
 
 /**
@@ -450,7 +434,7 @@ continue_dec
 simple_statement
     : expression
     | expression tINT
-    | expression tDEC_
+    | expression tDEC
     | expressions assignment_operator expressions
     | identifiers tDECLARATION expressions
     | %empty
@@ -468,6 +452,14 @@ return_dec
  **/
 return_val
     : expression
+    | %empty
+    ;
+
+/**
+ * Optional simple statement
+ **/
+simple_statement_opt
+    : simple_statement tSEMICOLON
     | %empty
     ;
 
@@ -570,7 +562,7 @@ index
  * Casting
  **/
 cast_expression
-    : type tLEFT_PAR expression tRIGHT_PAR
+    : identifier_type tLEFT_PAR expression tRIGHT_PAR
     ;
 
 /**
