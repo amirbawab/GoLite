@@ -163,22 +163,43 @@ assignment_body
     | expression
     ;
 
+/****************************
+ *     IDENTIFIER TYPE
+ ****************************/
+
+/**
+ * Type for identifiers
+ **/
 identifier_type
-    : array_dec identifier_type
-    | slice_dec identifier_type
-    | tINT_TYPE
+    : array_type identifier_type
+    | slice_type identifier_type
+    | tIDENTIFIER
+    | tLEFT_PAR identifier_type tRIGHT_PAR
+    | identifier_builtin_type
+    ;
+
+/**
+ * Built-in type for identifiers
+ **/
+identifier_builtin_type
+    : tINT_TYPE
     | tFLOAT_TYPE
     | tSTRING_TYPE
     | tBOOL_TYPE
     | tRUNE_TYPE
-    | tIDENTIFIER
     ;
 
-array_dec
+/**
+ * Array type
+ **/
+array_type
     : tLEFT_SQUARE tINT tRIGHT_SQUARE
     ;
 
-slice_dec
+/**
+ * Slice type
+ **/
+slice_type
     : tLEFT_SQUARE tRIGHT_SQUARE
     ;
 
@@ -227,15 +248,24 @@ func_dec
     : tFUNC tIDENTIFIER tLEFT_PAR func_opt_params tRIGHT_PAR func_type tLEFT_CURL statements tRIGHT_CURL tSEMICOLON
     ;
 
+/**
+ * Function optional parameters
+ **/
 func_opt_params
     : func_params
     | %empty
 
+/**
+ * Function parameters
+ **/
 func_params
     : func_params tCOMMA identifiers identifier_type
     | identifiers type
     ;
 
+/**
+ * Function type
+ **/
 func_type
     : identifier_type
     | %empty
