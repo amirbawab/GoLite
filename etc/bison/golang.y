@@ -234,15 +234,15 @@ struct_body
  * Function declaration
  **/
 func_dec
-    : tFUNC tIDENTIFIER tLEFT_PAR func_opt_params tRIGHT_PAR func_type block_body tSEMICOLON
+    : tFUNC tIDENTIFIER func_opt_params func_type block_body tSEMICOLON
     ;
 
 /**
  * Function optional parameters
  **/
 func_opt_params
-    : func_params
-    | %empty
+    : tLEFT_PAR func_params tRIGHT_PAR
+    | tLEFT_PAR tRIGHT_PAR
 
 /**
  * Function parameters
@@ -293,17 +293,25 @@ var_opt_expression
  ****************************/
 
 /**
- * 'if' statement
+ * 'if' statement declaration
  **/
 if_dec
-    : tIF simple_statement_opt expression block_body else_if_opt else_opt tSEMICOLON
+    : if_def else_if_opt else_opt tSEMICOLON
+    ;
+
+/**
+ * 'if' statement definition
+ **/
+if_def
+    : tIF simple_statement tSEMICOLON expression block_body
+    | tIF expression block_body
     ;
 
 /**
  * Optional 'else if' statement
  **/
 else_if_opt
-    : else_if_opt tELSE tIF simple_statement_opt expression block_body
+    : else_if_opt tELSE if_def
     | %empty
     ;
 
@@ -455,7 +463,6 @@ simple_statement
     | expression tDEC
     | expressions assignment_operator expressions
     | identifiers tDECLARATION expressions
-    | %empty
     ;
 
 /**
@@ -477,7 +484,7 @@ return_val
  * Optional simple statement
  **/
 simple_statement_opt
-    : simple_statement tSEMICOLON
+    : simple_statement_dec
     | %empty
     ;
 
