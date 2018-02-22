@@ -1,8 +1,8 @@
 #ifndef GOLITE_SCOPE_PROGRAM_H
 #define GOLITE_SCOPE_PROGRAM_H
 
-#include <golite/statements/declarables/type_declarable.h>
-#include <golite/scope/scope.h>
+#include <golite/type_declarable.h>
+#include <golite/scope.h>
 #include <string>
 
 using namespace std;

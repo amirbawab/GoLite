@@ -1,9 +1,9 @@
 #ifndef GOLITE_STATEMENTS_FOR_H
 #define GOLITE_STATEMENTS_FOR_H
 
-#include <golite/statements/statement.h>
-#include <golite/scope/scope.h>
-#include <golite/expressions/expression.h>
+#include <golite/statement.h>
+#include <golite/scope.h>
+#include <golite/expression.h>
 
 namespace golite {
     class ForStatement : Statement {

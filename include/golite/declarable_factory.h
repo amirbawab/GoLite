@@ -3,9 +3,9 @@
 
 #include <string>
 
-#include <golite/statements/declarables/variable_declarable.h>
-#include <golite/statements/declarables/type_declarable.h>
-#include <golite/statements/declarables/struct_declarable.h>
+#include <golite/variable_declarable.h>
+#include <golite/type_declarable.h>
+#include <golite/struct_declarable.h>
 
 namespace golite {
     class DeclarableFactory {

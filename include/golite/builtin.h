@@ -1,9 +1,9 @@
 #ifndef GOLITE_STATEMENTS_DECLARABLES_BUILTIN_H
 #define GOLITE_STATEMENTS_DECLARABLES_BUILTIN_H
 
-#include <golite/expressions/identifier_expression.h>
-#include <golite/statements/declarables/type_declarable.h>
-#include <golite/statements/declarables/function_declarable.h>
+#include <golite/identifier_expression.h>
+#include <golite/type_declarable.h>
+#include <golite/function_declarable.h>
 
 namespace golite {
     class BuiltIn {

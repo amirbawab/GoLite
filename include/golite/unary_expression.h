@@ -1,7 +1,7 @@
 #ifndef GOLITE_EXPRESSIONS_UNARY_H
 #define GOLITE_EXPRESSIONS_UNARY_H
 
-#include <golite/expressions/expression.h>
+#include <golite/expression.h>
 
 namespace golite {
     enum UnaryExpressionType {

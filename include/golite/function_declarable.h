@@ -4,10 +4,10 @@
 #include <vector>
 #include <string>
 
-#include <golite/statements/declarables/declarable.h>
-#include <golite/statements/declarables/type_declarable.h>
-#include <golite/statements/declarables/variable_declarable.h>
-#include <golite/scope/scope.h>
+#include <golite/declarable.h>
+#include <golite/type_declarable.h>
+#include <golite/variable_declarable.h>
+#include <golite/scope.h>
 
 namespace golite {
     class FunctionDeclarable : public Declarable {

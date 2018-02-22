@@ -3,8 +3,8 @@
 
 #include <string>
 #include <vector>
-#include <golite/statements/declarables/declarable.h>
-#include <golite/statements/declarables/variable_declarable.h>
+#include <golite/declarable.h>
+#include <golitevariable_declarable.h>
 
 namespace golite {
     class StructDeclarable : public Declarable {

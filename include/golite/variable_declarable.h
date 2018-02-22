@@ -3,8 +3,8 @@
 
 #include <string>
 
-#include <golite/statements/declarables/declarable.h>
-#include <golite/statements/declarables/type_declarable.h>
+#include <golite/declarable.h>
+#include <golite/type_declarable.h>
 
 namespace golite {
     class VariableDeclarable : public Declarable {

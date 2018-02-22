@@ -3,11 +3,11 @@
 
 #include <vector>
 
-#include <golite/expressions/expression.h>
-#include <golite/expressions/binary_expression.h>
-#include <golite/expressions/unary_expression.h>
-#include <golite/expressions/function_call_expression.h>
-#include <golite/expressions/index_expression.h>
+#include <golite/expression.h>
+#include <golite/binary_expression.h>
+#include <golite/unary_expression.h>
+#include <golite/function_call_expression.h>
+#include <golite/index_expression.h>
 
 namespace golite {
     class ExpressionFactory {

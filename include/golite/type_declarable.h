@@ -3,7 +3,7 @@
 
 #include <string>
 
-#include <golite/statements/declarables/declarable.h>
+#include <golite/declarable.h>
 
 namespace golite {
     enum TypeDeclarableKind {

@@ -1,7 +1,7 @@
 #ifndef GOLITE_EXPRESSIONS_INDEX_H
 #define GOLITE_EXPRESSIONS_INDEX_H
 
-#include <golite/expressions/expression.h>
+#include <golite/expression.h>
 
 namespace golite {
     class IndexExpression : public Expression {

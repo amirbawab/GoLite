@@ -2,7 +2,7 @@
 #define GOLITE_SCOPE_SCOPE_H
 
 #include <vector>
-#include <golite/statements/statement.h>
+#include <golite/statement.h>
 #include <golite/symbol_table.h>
 
 namespace golite {

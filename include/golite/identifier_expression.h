@@ -3,7 +3,7 @@
 
 #include <string>
 #include <utility>
-#include <golite/expressions/expression.h>
+#include <golite/expression.h>
 
 namespace golite {
     class IdentifierExpression : public Expression {
