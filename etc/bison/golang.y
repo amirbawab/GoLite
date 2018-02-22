@@ -339,15 +339,7 @@ for_dec
  **/
 for_condition
     : expression
-    | for_simple_statement tSEMICOLON expression tSEMICOLON for_simple_statement
-    | %empty
-    ;
-
-/**
- * Optional for simple statement
- **/
-for_simple_statement
-    : simple_statement
+    | simple_statement tSEMICOLON expression tSEMICOLON simple_statement
     | %empty
     ;
 
@@ -359,7 +351,15 @@ for_simple_statement
  * Swtich declaration
  **/
 switch_dec
-    : tSWITCH simple_statement_opt switch_expression tLEFT_CURL switch_body tRIGHT_CURL tSEMICOLON
+    : switch_def tLEFT_CURL switch_body tRIGHT_CURL tSEMICOLON
+    ;
+
+/**
+ * Switch definition
+ **/
+switch_def
+    : tSWITCH simple_statement tSEMICOLON switch_expression 
+    | tSWITCH switch_expression 
     ;
 
 /**
@@ -430,14 +430,14 @@ statement
  * Print statement
  **/
 print_dec
-    : tPRINT tLEFT_PAR expressions tRIGHT_PAR tSEMICOLON
+    : tPRINT tLEFT_PAR expressions_opt tRIGHT_PAR tSEMICOLON
     ;
 
 /**
  * Println statement
  **/
 println_dec
-    : tPRINTLN tLEFT_PAR expressions tRIGHT_PAR tSEMICOLON
+    : tPRINTLN tLEFT_PAR expressions_opt tRIGHT_PAR tSEMICOLON
     ;
 
 /**
@@ -463,6 +463,7 @@ simple_statement
     | expression tDEC
     | expressions assignment_operator expressions
     | identifiers tDECLARATION expressions
+    | %empty
     ;
 
 /**
@@ -477,14 +478,6 @@ return_dec
  **/
 return_val
     : expression
-    | %empty
-    ;
-
-/**
- * Optional simple statement
- **/
-simple_statement_opt
-    : simple_statement_dec
     | %empty
     ;
 
@@ -632,11 +625,19 @@ identifiers
     ;
 
 /**
- * One or more expression
+ * One or more expressions
  **/
 expressions
     : expressions tCOMMA expression
     | expression
+    ;
+
+/**
+ * Zero or more expressions
+ **/
+expressions_opt
+    : expressions
+    | %empty
     ;
 
 /**
