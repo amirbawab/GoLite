@@ -311,7 +311,7 @@ else_if_opt
  * Optional 'else' statement
  **/
 else_opt
-    : tELSE tLEFT_CURL statements tRIGHT_CURL tSEMICOLON
+    : tELSE tLEFT_CURL statements tRIGHT_CURL
     | %empty
     ;
 
@@ -381,7 +381,7 @@ switch_body
 statement
     : var_dec
     | type_dec
-    | simple_statement
+    | simple_statement_dec
     | return_dec
     | break_dec
     | continue_dec
@@ -391,6 +391,13 @@ statement
     | print_dec
     | println_dec
     | switch_dec
+    ;
+
+/**
+ *
+ **/
+ simple_statement_dec
+    : simple_statement tSEMICOLON
     ;
 
 /**
@@ -433,7 +440,7 @@ continue_dec
  **/
 simple_statement
     : expression
-    | expression tINT
+    | expression tINC
     | expression tDEC
     | expressions assignment_operator expressions
     | identifiers tDECLARATION expressions
