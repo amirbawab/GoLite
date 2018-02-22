@@ -142,8 +142,8 @@ extern "C" int yylineno;
 %left pINDEX pCALL
 
 %type <g_expression_list> var_identifiers expressions expressions_opt var_opt_expression
-%type <g_declarable_list> var_body vars_bodies var_dec
-%type <g_declarable> type var_opt_type
+%type <g_declarable_list> var_body vars_bodies var_dec types_bodies type_dec
+%type <g_declarable> type var_opt_type type_body struct_dec struct_body struct_scope
 %type <g_expr> expression
 
 %%
@@ -273,33 +273,77 @@ expressions[root]
     }
     ;
 
-type_dec
-    : tTYPE type_body tSEMICOLON
+type_dec[root]
+    : tTYPE type_body tSEMICOLON {
+        $root = new std::vector<golite::Declarable*>();
+
+    }
     | tTYPE tLEFT_PAR types_bodies tRIGHT_PAR tSEMICOLON
     ;
 
-types_bodies
-    : types_bodies type_body tSEMICOLON
+types_bodies[root]
+    : types_bodies type_body[body] tSEMICOLON {
+        if(!$root) {
+            $root = new std::vector<golite::Declarable*>();
+        }
+
+        $root->push_back($body);
+    }
     | types_bodies struct_body tSEMICOLON
     |  %empty
     ;
 
-type_body
-    : tIDENTIFIER type
+type_body[root]
+    : tIDENTIFIER[id] type {
+        golite::Expression* id = static_cast<golite::Expression*>($id);
+        $root = golite::DeclarableFactory::createCustomTypeDecl(((golite::IdentifierExpression*)id)->getName());
+    }
     ;
 
-struct_dec
-    : tTYPE struct_body tSEMICOLON
+struct_dec[root]
+    : tTYPE struct_body[body] tSEMICOLON { $root = $body; }
     ;
 
-struct_body
-    : tIDENTIFIER tSTRUCT tLEFT_CURL struct_scope tRIGHT_CURL
+struct_body[root]
+    : tIDENTIFIER[id] tSTRUCT tLEFT_CURL struct_scope[struct] tRIGHT_CURL {
+        golite::IdentifierExpression* id = (golite::IdentifierExpression*)static_cast<golite::Expression*>($id);
+        golite::StructDeclarable* structDec = (golite::StructDeclarable*)static_cast<golite::Declarable*>($struct);
+
+        structDec->setName(id->getName());
+
+        $root = $struct;
+    }
     ;
 
-struct_scope
-    : struct_scope var_identifiers type tSEMICOLON
-    | struct_scope struct_body tSEMICOLON
-    |  %empty
+struct_scope[root]
+    : struct_scope var_identifiers[ids] type[type] tSEMICOLON {
+        std::vector<golite::Expression*>* ids = static_cast<std::vector<golite::Expression*>*>($ids);
+        golite::TypeDeclarable* type = (golite::TypeDeclarable*)static_cast<golite::Declarable*>($type);
+
+        std::vector<golite::VariableDeclarable*>* vars = new std::vector<golite::VariableDeclarable*>();
+        for(std::vector<golite::Expression*>::iterator it = ids->begin();
+            it != ids->end();
+            ++it) {
+            golite::IdentifierExpression* id = (golite::IdentifierExpression*)*it;
+            golite::VariableDeclarable* var_decl = golite::DeclarableFactory::createVarDecl(id->getName(), type);
+            vars->push_back(var_decl);
+        }
+
+        golite::StructDeclarable* currentStruct = golite::DeclarableFactory::createStruct("", vars);
+        $root = currentStruct;
+    }
+    | struct_scope struct_body[nested] tSEMICOLON {
+        // set the current struct scope nested struct ?
+        golite::StructDeclarable* nested = (golite::StructDeclarable*)static_cast<golite::Declarable*>($nested);
+        if(!$root) {
+            $root = golite::DeclarableFactory::createStruct("", new std::vector<golite::VariableDeclarable*>(), nested);
+        } else {
+            golite::StructDeclarable* root = (golite::StructDeclarable*)static_cast<golite::Declarable*>($root);
+
+            root->setNestedStruct(nested);
+        }
+    }
+    |  %empty { $root = nullptr; }
     ;
 
 func_dec
