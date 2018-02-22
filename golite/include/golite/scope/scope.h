@@ -7,6 +7,8 @@
 
 namespace golite {
     class Scope {
+    public:
+        Scope();
     protected:
         std::vector<Statement*>* statements_;
         SymbolTable symbol_table_;

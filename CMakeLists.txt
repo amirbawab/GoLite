@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.5)
 project(golite)
 
+set(BISON_EXECUTABLE /usr/local/bin/bison)
+
 # Define options/variables
 set(CMAKE_VERBOSE_MAKEFILE ON)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/bin)

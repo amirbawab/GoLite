@@ -6,10 +6,15 @@
 #include <golite/expressions/identifier_expression.h>
 
 namespace golite {
-    class FunctionCallExpression : Expression {
+    class FunctionCallExpression : public Expression {
+    public:
+        FunctionCallExpression(Expression* function, std::vector<Expression*>* args) {
+            this->function_ = function;
+            this->args_ = args;
+        }
     protected:
-        std::vector<Expression*> args_;
-        IdentifierExpression* identifier_;
+        std::vector<Expression*>* args_;
+        Expression* function_;
     };
 }
 
