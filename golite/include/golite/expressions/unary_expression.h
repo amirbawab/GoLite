@@ -5,11 +5,18 @@
 
 namespace golite {
     enum UnaryExpressionType {
-        MINUS,
-        NOT
+        UNARY_MINUS,
+        UNARY_NOT,
+        UNARY_PLUS,
+        UNARY_XOR
     };
 
-    class UnaryExpression : Expression {
+    class UnaryExpression : public Expression {
+    public:
+        UnaryExpression(Expression* operand, UnaryExpressionType type) {
+            this->operand_ = operand;
+            this->type_ = type;
+        }
     protected:
         Expression* operand_;
         UnaryExpressionType type_;
