@@ -142,7 +142,7 @@ extern "C" int yylineno;
 %left pINDEX pCALL
 
 %type <g_expression_list> var_identifiers expressions expressions_opt var_opt_expression
-%type <g_declarable_list> var_body
+%type <g_declarable_list> var_body vars_bodies var_dec
 %type <g_declarable> type var_opt_type
 %type <g_expr> expression
 
@@ -190,14 +190,25 @@ block_dec
     : tLEFT_CURL statements tRIGHT_CURL tSEMICOLON
     ;
 
-var_dec
-    : tVAR var_body tSEMICOLON
-    | tVAR tLEFT_PAR vars_bodies tRIGHT_PAR tSEMICOLON
+var_dec[root]
+    : tVAR var_body[body] tSEMICOLON { $root = $body; }
+    | tVAR tLEFT_PAR vars_bodies[bodies] tRIGHT_PAR tSEMICOLON { $root = $bodies; }
     ;
 
-vars_bodies
-    : vars_bodies var_body tSEMICOLON
-    |  %empty
+vars_bodies[root]
+    : vars_bodies var_body[body] tSEMICOLON {
+        if(!$root) {
+            $root = new std::vector<golite::Declarable*>();
+        }
+
+        std::vector<golite::Declarable*>* body = static_cast<std::vector<golite::Declarable*>*>($body);
+        for(std::vector<golite::Declarable*>::iterator it = body->begin();
+            it != body->end();
+            ++it) {
+            $root->push_back(*it);
+        }
+    }
+    |  %empty { $root = nullptr; }
     ;
 
 var_body[root]
