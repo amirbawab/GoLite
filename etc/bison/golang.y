@@ -234,7 +234,7 @@ struct_body
  * Function declaration
  **/
 func_dec
-    : tFUNC tIDENTIFIER tLEFT_PAR func_opt_params tRIGHT_PAR func_type tLEFT_CURL statements tRIGHT_CURL tSEMICOLON
+    : tFUNC tIDENTIFIER tLEFT_PAR func_opt_params tRIGHT_PAR func_type block_body tSEMICOLON
     ;
 
 /**
@@ -296,14 +296,14 @@ var_opt_expression
  * 'if' statement
  **/
 if_dec
-    : tIF simple_statement_opt expression tLEFT_CURL statements tRIGHT_CURL else_if_opt else_opt tSEMICOLON
+    : tIF simple_statement_opt expression block_body else_if_opt else_opt tSEMICOLON
     ;
 
 /**
  * Optional 'else if' statement
  **/
 else_if_opt
-    : else_if_opt tELSE tIF simple_statement_opt expression tLEFT_CURL statements tRIGHT_CURL
+    : else_if_opt tELSE tIF simple_statement_opt expression block_body
     | %empty
     ;
 
@@ -311,7 +311,7 @@ else_if_opt
  * Optional 'else' statement
  **/
 else_opt
-    : tELSE tLEFT_CURL statements tRIGHT_CURL
+    : tELSE block_body
     | %empty
     ;
 
@@ -323,7 +323,7 @@ else_opt
  * For declaration
  **/
 for_dec
-    : tFOR for_condition tLEFT_CURL statements tRIGHT_CURL tSEMICOLON
+    : tFOR for_condition block_body tSEMICOLON
     ;
 
 /**
@@ -372,6 +372,24 @@ switch_body
     ;
 
 /****************************
+ *     BLOCK STATEMENT
+ ****************************/
+
+/**
+ * Block statement
+ **/
+block_dec
+    : block_body tSEMICOLON
+    ;
+
+/**
+ * Block statement body
+ **/
+block_body
+    : tLEFT_CURL statements tRIGHT_CURL
+    ;
+
+/****************************
  *     OTHER STATEMENTS
  ****************************/
 
@@ -394,7 +412,7 @@ statement
     ;
 
 /**
- *
+ * Simple statement declaration
  **/
  simple_statement_dec
     : simple_statement tSEMICOLON
@@ -412,13 +430,6 @@ print_dec
  **/
 println_dec
     : tPRINTLN tLEFT_PAR expressions tRIGHT_PAR tSEMICOLON
-    ;
-
-/**
- * Block statement
- **/
-block_dec
-    : tLEFT_CURL statements tRIGHT_CURL tSEMICOLON
     ;
 
 /**
