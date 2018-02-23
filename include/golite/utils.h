@@ -1,3 +1,5 @@
+#ifndef GOLITE_UTILS_H
+#define GOLITE_UTILS_H
 namespace golite {
     class Utils {
     public:
@@ -20,3 +22,5 @@ namespace golite {
         static void log_token(const char* lex, const char* val = nullptr);
     };
 }
+
+#endif
