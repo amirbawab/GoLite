@@ -6,8 +6,8 @@
 #include <golite/expression.h>
 #include <golite/binary.h>
 #include <golite/unary.h>
-#include <golite/function_call_expression.h>
-#include <golite/index_expression.h>
+#include <golite/function_call.h>
+#include <golite/index.h>
 
 namespace golite {
     class ExpressionFactory {
