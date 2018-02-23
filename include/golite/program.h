@@ -1,11 +1,9 @@
 #ifndef GOLITE_SCOPE_PROGRAM_H
 #define GOLITE_SCOPE_PROGRAM_H
 
-#include <golite/type.h>
-#include <golite/block.h>
 #include <string>
-
-using namespace std;
+#include <golite/declarable.h>
+#include <golite/identifier.h>
 
 namespace golite {
 
@@ -14,10 +12,12 @@ namespace golite {
      *
      * Program instance and entry point to the input AST
      */
-    class Program : public Block {
-    public:
-        ~Program() {}
+    class Program {
+    private:
+        Identifier* package_name_;
+        std::vector<Declarables*> declarables_;
 
+    public:
         static Program* getInstance() {
             static Program* instance(new Program());
             return instance;
@@ -27,11 +27,17 @@ namespace golite {
         Program(Program const&) = delete;
         void operator=(Program const&) = delete;
 
-        void setPackageName(string package_name);
-    private:
-        Program();
+        /**
+         * Set package name
+         * @param package_name
+         */
+        void setPackageName(string package_name) {package_name = package_name;}
 
-        string package_name_;
+        /**
+         * Get package name
+         * @return package name
+         */
+        std::string getPackageName() const { return package_name_; }
     };
 }
 

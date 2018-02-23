@@ -3,7 +3,7 @@
 
 #include <string>
 #include <golite/declarable.h>
-#include <golite/expression.h>
+#include <golite/identifier.h>
 #include <golite/type.h>
 
 namespace golite {
@@ -12,7 +12,7 @@ namespace golite {
      * var id ...
      */
     class Variable : public Declarable, public Statement {
-        std::vector<std::string> names_;
+        std::vector<Identifier*> identifiers_;
         TypeComponent* type_component_;
         std::vector<Expression*> expressions_;
     };

@@ -4,11 +4,12 @@
 #include <string>
 #include <vector>
 #include <golite/type_component.h>
+#include <golite/identifier.h>
 
 namespace golite {
     class FunctionParam {
     private:
-        std::vector<std::string> names_;
+        std::vector<Identifier*> identifiers_;
         TypeComponent* type_component_;
     };
 }

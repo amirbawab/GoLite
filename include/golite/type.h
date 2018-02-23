@@ -1,29 +1,28 @@
 #ifndef GOLITE_STATEMENTS_DECLARABLES_TYPE_H
 #define GOLITE_STATEMENTS_DECLARABLES_TYPE_H
 
-#include <string>
 #include <golite/declarable.h>
-#include <golite/statement.h>
+#include <golite/identifier.h>
 #include <golite/type_component.h>
 
 namespace golite {
     class Type : public Declarable, public Statement {
     private:
-        std::string name_;
+        Identifier identifier_;
         TypeComponent* type_component_;
     public:
 
         /**
-         * Get name
-         * @return name
+         * Get identifier
+         * @return identifier
          */
-        std::string getName() const { return name_; }
+        Identifier* getIdentifier() const { return identifier_; }
 
         /**
-         * Set name
-         * @param name
+         * Set identifier
+         * @param identifier
          */
-        void setName(std::string name) { name_ = name; }
+        void setIdentifier(Identifier* identifier) { identifier_ = identifier; }
 
         /**
          * Get tyep component

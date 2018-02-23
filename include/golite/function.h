@@ -8,7 +8,7 @@
 #include <golite/type_component.h>
 #include <golite/block.h>
 #include <golite/function_param.h>
-#include <string>
+#include <golite/identifier.h>
 
 namespace golite {
     /**
@@ -18,7 +18,7 @@ namespace golite {
      */
     class Function : public Declarable, public Statement {
     private:
-        std::string name_;
+        Identifier identifier_;
         TypeComponent* type_component_;
         Block* block_;
         std::vector<FunctionParam*> params_;
