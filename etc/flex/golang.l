@@ -4,13 +4,12 @@
 #include <bison/golang_bison.h>
 #include <iostream>
 #include <stdbool.h>
+#include <golite/builtin.h>
+#include <golite/identifier_expression.h>
+#include <golite/literal_expression.h>
+#include <golite/octal_value.h>
+#include <golite/hex_value.h>
 
-
-#include <golite/statements/declarables/builtin.h>
-#include <golite/expressions/identifier_expression.h>
-#include <golite/expressions/literal_expression.h>
-#include <golite/expressions/literals/octal_value.h>
-#include <golite/expressions/literals/hex_value.h>
 #define YY_DECL extern "C" int yylex()
 
 // Function prototype

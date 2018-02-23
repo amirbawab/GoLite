@@ -2,6 +2,20 @@
 #define GOLITE_STATEMENTS_STATEMENT_H
 
 namespace golite {
+
+    /**
+     * Parent class for all kind of statements
+     * - print
+     * - println
+     * - return
+     * - break
+     * - continue
+     * - simple
+     * - block
+     * - for
+     * - switch
+     * - if
+     */
     class Statement {
     protected:
         int line_;

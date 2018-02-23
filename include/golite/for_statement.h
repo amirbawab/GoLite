@@ -2,7 +2,7 @@
 #define GOLITE_STATEMENTS_FOR_H
 
 #include <golite/statement.h>
-#include <golite/scope.h>
+#include <golite/block.h>
 #include <golite/expression.h>
 
 namespace golite {

@@ -1,4 +1,4 @@
-#include <golite/expressions/expression_factory.h>
+#include <golite/expression_factory.h>
 
 using namespace golite;
 
@@ -76,10 +76,6 @@ BinaryExpression* ExpressionFactory::createBAnd(Expression* lhs, Expression* rhs
 
 BinaryExpression* ExpressionFactory::createBOr(Expression* lhs, Expression* rhs) {
     return new BinaryExpression(lhs, rhs, BinaryExpressionType::BINARY_OR);
-}
-
-BinaryExpression* ExpressionFactory::createBDot(Expression* lhs, Expression* rhs) {
-    return new BinaryExpression(lhs, rhs, BinaryExpressionType::BINARY_DOT);
 }
 
 UnaryExpression* ExpressionFactory::createUMinus(Expression* operand) {

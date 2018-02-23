@@ -1,6 +1,13 @@
 #ifndef GOLITE_UTILS_H
 #define GOLITE_UTILS_H
 namespace golite {
+
+    /**
+     * Project utils
+     *
+     * functions in this class must be static
+     * No instance of this class is needed to be created
+     */
     class Utils {
     public:
         // Constants

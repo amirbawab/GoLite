@@ -1,4 +1,4 @@
-#include <golite/statements/declarables/declarable_factory.h>
+#include <golite/declarable_factory.h>
 
 using namespace golite;
 

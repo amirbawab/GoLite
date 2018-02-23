@@ -3,6 +3,7 @@
 
 #include <string>
 
+// TODO We won't need to keep track of the original integer format, directory convert to decimal
 namespace golite {
     class HexValue {
     public:

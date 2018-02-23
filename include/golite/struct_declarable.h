@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 #include <golite/declarable.h>
-#include <golitevariable_declarable.h>
+#include <golite/variable_declarable.h>
 
 namespace golite {
     class StructDeclarable : public Declarable {

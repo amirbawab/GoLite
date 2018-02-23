@@ -6,6 +6,7 @@
 #include <golite/identifier_expression.h>
 
 namespace golite {
+    // FIXME Update inheritance
     class FunctionCallExpression : public Expression {
     public:
         FunctionCallExpression(Expression* function, std::vector<Expression*>* args) {
@@ -14,6 +15,7 @@ namespace golite {
         }
     protected:
         std::vector<Expression*>* args_;
+        // TODO Not sure we still need this
         Expression* function_;
     };
 }

@@ -6,6 +6,7 @@
 #include <golite/expression.h>
 
 namespace golite {
+    // FIXME Update inheritance
     class IdentifierExpression : public Expression {
     public:
         IdentifierExpression(std::string name, int line): Expression(line) {

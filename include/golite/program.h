@@ -2,13 +2,19 @@
 #define GOLITE_SCOPE_PROGRAM_H
 
 #include <golite/type_declarable.h>
-#include <golite/scope.h>
+#include <golite/block.h>
 #include <string>
 
 using namespace std;
 
 namespace golite {
-    class Program : Scope {
+
+    /**
+     * Singleton class
+     *
+     * Program instance and entry point to the input AST
+     */
+    class Program : public Block {
     public:
         ~Program() {}
 

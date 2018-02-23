@@ -1,6 +1,7 @@
 #ifndef GOLITE_EXPRESSIONS_LITERALS_OCTAL_VALUE_H
 #define GOLITE_EXPRESSIONS_LITERALS_OCTAL_VALUE_H
 
+// TODO We won't need to keep track of the original integer format, directory convert to decimal
 namespace golite {
     class OctalValue {
     public:

@@ -1,4 +1,4 @@
-#include <golite/statements/declarables/builtin.h>
+#include <golite/builtin.h>
 
 using namespace golite;
 

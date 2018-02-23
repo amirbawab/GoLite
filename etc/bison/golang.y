@@ -1,12 +1,33 @@
 %{
 #include <golite/bison.h>
-#include <iostream>
 
 // Information for Flex
 extern "C" int yylex();
 extern "C" int yyparse();
 extern "C" int yylineno;
 %}
+
+%code requires {
+    #include <golite/expression.h>
+    #include <golite/identifier_expression.h>
+    #include <golite/builtin.h>
+    #include <golite/program.h>
+
+    #include <golite/expression_factory.h>
+    #include <golite/declarable_factory.h>
+
+    #include <string>
+    #include <iostream>
+}
+
+
+%union {
+    golite::Expression*         g_expr;
+    golite::Declarable*         g_declarable;
+
+    std::vector<golite::Expression*>* g_expression_list;
+    std::vector<golite::Declarable*>* g_declarable_list;
+}
 
 
 // Define tokens

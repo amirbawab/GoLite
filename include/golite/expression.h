@@ -2,13 +2,20 @@
 #define GOLITE_EXPRESSIONS_EXPRESSION_H
 
 namespace golite {
+    /**
+     * Parent class for all kind of expressions
+     * - Primary
+     * - Unary
+     * - Binary
+     * - Append (GoLite extra feature)
+     */
     class Expression {
     public:
         virtual ~Expression() = default;
     protected:
-        explicit Expression() {};
+        Expression() {};
 
-        explicit Expression(int line_no) { this->line_ = line_no; }
+        Expression(int line_no) { this->line_ = line_no; }
         int line_;
     };
 }
