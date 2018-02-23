@@ -64,12 +64,6 @@ extern "C" int yylineno;
     tPRINTLN                "println"
     tAPPEND                 "append"
 
-    tINT_TYPE               "int type"
-    tFLOAT_TYPE             "float type"
-    tSTRING_TYPE            "string type"
-    tBOOL_TYPE              "bool type"
-    tRUNE_TYPE              "rune type"
-
     tPLUS                   "+"
     tMINUS                  "-"
     tMULTIPLY               "*"
@@ -185,18 +179,6 @@ identifier_type
     | struct_type
     | tIDENTIFIER
     | tLEFT_PAR identifier_type tRIGHT_PAR
-    | identifier_builtin_type
-    ;
-
-/**
- * Built-in type for identifiers
- **/
-identifier_builtin_type
-    : tINT_TYPE
-    | tFLOAT_TYPE
-    | tSTRING_TYPE
-    | tBOOL_TYPE
-    | tRUNE_TYPE
     ;
 
 /**
@@ -264,6 +246,7 @@ func_dec
 func_opt_params
     : tLEFT_PAR func_params tRIGHT_PAR
     | tLEFT_PAR tRIGHT_PAR
+    ;
 
 /**
  * Function parameters
@@ -574,7 +557,6 @@ primary_expression
     : primary_expression selector
     | primary_expression index
     | primary_expression func_call %prec pCALL
-    | cast_expression
     | tLEFT_PAR expression tRIGHT_PAR
     | tIDENTIFIER
     | tINT
@@ -595,23 +577,6 @@ selector
  **/
 index
     : tLEFT_SQUARE expression tRIGHT_SQUARE %prec pINDEX
-    ;
-
-/**
- * Casting expression
- **/
-cast_expression
-    : cast_type tLEFT_PAR expression tRIGHT_PAR
-    ;
-
-/**
- * Casting types
- **/
-cast_type
-    : tINT_TYPE
-    | tFLOAT_TYPE
-    | tBOOL_TYPE
-    | tRUNE_TYPE
     ;
 
 /**
