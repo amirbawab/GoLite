@@ -1,6 +1,7 @@
 #ifndef GOLITE_STATEMENTS_ASSIGNMENT_H
 #define GOLITE_STATEMENTS_ASSIGNMENT_H
 
+#include <vector>
 #include <golite/simple.h>
 #include <golite/expression.h>
 
@@ -28,10 +29,10 @@ namespace golite {
     private:
 
         // expression = ...
-        Expression* left_expression_;
+        std::vector<Expression*> left_expressions_;
 
         // ... = expression
-        Expression* right_expression_;
+        std::vector<Expression*> right_expressions_;
 
         // Assignment kind
         golite::AssignmentStatement::KIND kind_;
@@ -56,28 +57,16 @@ namespace golite {
         };
 
         /**
-         * Get left expression
-         * @return left expression
+         * Get left expressions
+         * @return left expressions
          */
-        Expression* getLeftExpression() const { return left_expression_;}
+        std::vector<Expression*> getLeftExpressions() const { return left_expressions_;}
 
         /**
-         * Get right expression
-         * @return right expression
+         * Get right expressions
+         * @return right expressions
          */
-        Expression* getRightExpression() const { return right_expression_; }
-
-        /**
-         * Set left expression
-         * @param expression
-         */
-        void setLeftExpression(Expression* expression) { left_expression_ = expression; }
-
-        /**
-         * Set right expression
-         * @param expression
-         */
-        void setRightExpression(Expression* expression) { right_expression_ = expression; }
+        std::vector<Expression*> getRightExpressions() const { return right_expressions_; }
 
         /**
          * Get assignment kind

@@ -2,25 +2,14 @@
 #define GOLITE_FUNCTION_PARAM_H
 
 #include <string>
-#include <golite/type_declarable.h>
+#include <vector>
+#include <golite/type_component.h>
 
 namespace golite {
     class FunctionParam {
     private:
-        // Parameter name
-        std::string name_;
-
-        // TODO Fix type
-        TypeDeclarable* type_;
-
-    public:
-        FunctionParam(std::string name) : name_(name) {}
-
-        /**
-         * Get parameter name
-         * @return name
-         */
-        std::string getName() const {return name_;}
+        std::vector<std::string> names_;
+        TypeComponent* type_component_;
     };
 }
 

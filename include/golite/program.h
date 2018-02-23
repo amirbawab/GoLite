@@ -1,7 +1,7 @@
 #ifndef GOLITE_SCOPE_PROGRAM_H
 #define GOLITE_SCOPE_PROGRAM_H
 
-#include <golite/type_declarable.h>
+#include <golite/type.h>
 #include <golite/block.h>
 #include <string>
 
