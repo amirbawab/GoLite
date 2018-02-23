@@ -1,1 +1,0 @@
-#include <golite/statements/declarables/struct_declarable.h>
