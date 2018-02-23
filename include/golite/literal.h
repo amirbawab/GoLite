@@ -8,6 +8,8 @@ namespace golite {
     class Literal : public Primary {
     private:
         T value_;
+    public:
+        Literal(T value) : value_(value){}
     };
 }
 

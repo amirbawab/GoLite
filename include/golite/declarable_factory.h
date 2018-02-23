@@ -11,9 +11,8 @@ namespace golite {
     class DeclarableFactory {
     public:
         // FIXME change parameters
-        static VariableDeclarable* createVarDecl(std::string name, TypeDeclarable* type);
-        static TypeDeclarable* createCustomTypeDecl(std::string name);
-        static StructDeclarable* createStruct(std::string name, std::vector<golite::VariableDeclarable*>* vars, golite::StructDeclarable* nested_struct = nullptr);
+        static Variable* createVarDecl(/*TODO*/);
+        static Type* createTypeDecl(/*TODO*/);
     };
 }
 

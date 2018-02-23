@@ -26,7 +26,7 @@ namespace golite {
             XOR
         };
 
-        UnaryExpression(Expression* operand, KIND kind) : operand_(operand), kind_(kind) {}
+        Unary(Expression* operand, KIND kind) : operand_(operand), kind_(kind) {}
 
         /**
          * Get operand

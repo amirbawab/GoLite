@@ -1,6 +1,7 @@
 #ifndef GOLITE_IDENTIFIER_H
 #define GOLITE_IDENTIFIER_H
 
+#include <string>
 #include <golite/primary.h>
 
 namespace golite {
@@ -8,6 +9,7 @@ namespace golite {
     private:
         std::string name_;
     public:
+        Identifier(std::string name) : name_(name) {}
 
         /**
          * Get name

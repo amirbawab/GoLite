@@ -1,6 +1,7 @@
 #ifndef GOLITE_STATEMENTS_VARIABLE_H
 #define GOLITE_STATEMENTS_VARIABLE_H
 
+#include <vector>
 #include <string>
 #include <golite/declarable.h>
 #include <golite/identifier.h>

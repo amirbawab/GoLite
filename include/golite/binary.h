@@ -64,7 +64,7 @@ namespace golite {
          * @param rhs
          * @param kind
          */
-        BinaryExpression(Expression* lhs, Expression* rhs, KIND kind) : lhs_(lhs), rhs_(rhs), kind_(kind) {}
+        Binary(Expression* lhs, Expression* rhs, KIND kind) : lhs_(lhs), rhs_(rhs), kind_(kind) {}
 
         /**
          * Get left operand
@@ -93,7 +93,7 @@ namespace golite {
         Expression* rhs_;
 
         // Binary expression type
-        Kind kind_;
+        KIND kind_;
     };
 }
 

@@ -9,7 +9,7 @@ extern "C" int yylineno;
 
 %code requires {
     #include <golite/expression.h>
-    #include <golite/identifier_expression.h>
+    #include <golite/identifier.h>
     #include <golite/builtin.h>
     #include <golite/program.h>
 

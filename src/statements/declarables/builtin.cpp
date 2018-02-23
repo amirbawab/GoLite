@@ -1,13 +1,9 @@
 #include <golite/builtin.h>
 
-using namespace golite;
+golite::Type* const golite::BuiltIn::INT_TYPE = new golite::Type();
+golite::Type* const golite::BuiltIn::FLOAT_TYPE = new golite::Type();
+golite::Type* const golite::BuiltIn::BOOL_TYPE = new golite::Type();
+golite::Type* const golite::BuiltIn::RUNE_TYPE = new golite::Type();
+golite::Type* const golite::BuiltIn::STRING_TYPE = new golite::Type();
 
-TypeDeclarable* const BuiltIn::INT_TYPE = new TypeDeclarable("int", TypeDeclarableKind::BUILTIN);
-TypeDeclarable* const BuiltIn::FLOAT_TYPE = new TypeDeclarable("float64", TypeDeclarableKind::BUILTIN);
-TypeDeclarable* const BuiltIn::BOOL_TYPE = new TypeDeclarable("bool", TypeDeclarableKind::BUILTIN);
-TypeDeclarable* const BuiltIn::RUNE_TYPE = new TypeDeclarable("rune", TypeDeclarableKind::BUILTIN);
-TypeDeclarable* const BuiltIn::STRING_TYPE = new TypeDeclarable("string", TypeDeclarableKind::BUILTIN);
-
-// TODO: edit this function so that the return type + parameters are correct
-IdentifierExpression* const BuiltIn::APPEND_FN_ID = new IdentifierExpression("append", 0);
-FunctionDeclarable* const BuiltIn::APPEND_FN = new FunctionDeclarable("append", nullptr, nullptr, nullptr);
+golite::Function* const golite::BuiltIn::APPEND_FN = new golite::Function();

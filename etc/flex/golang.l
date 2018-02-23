@@ -1,14 +1,10 @@
 %{
+#include <iostream>
+#include <stdbool.h>
 #include <golite/bison.h>
 #include <golite/utils.h>
 #include <bison/golang_bison.h>
-#include <iostream>
-#include <stdbool.h>
-#include <golite/builtin.h>
-#include <golite/identifier_expression.h>
-#include <golite/literal_expression.h>
-#include <golite/octal_value.h>
-#include <golite/hex_value.h>
+#include <golite/literal.h>
 
 #define YY_DECL extern "C" int yylex()
 
@@ -124,56 +120,56 @@ string          { golite::Utils::log_token("tSTRING_TYPE"); yylval.g_declarable 
 0+|([1-9][0-9]*) {
     // Integer
     golite::Utils::log_token("tINT", yytext);
-    yylval.g_expr = new golite::LiteralExpression<int>(atoi(yytext), 0);
+    yylval.g_expr = new golite::Literal<int>(atoi(yytext));
     return fToken(tINT);
 }
 
 0[1-7][0-7]* {
     // Octal
     golite::Utils::log_token("tINT", yytext);
-    yylval.g_expr = new golite::LiteralExpression<golite::OctalValue>(golite::OctalValue(atoi(yytext)), 0);
+    yylval.g_expr = new golite::Literal<int>(atoi(yytext));
     return fToken(tINT);
 }
 
 0[xX][0-9a-fA-F]+ {
     // Hex
     golite::Utils::log_token("tINT", yytext);
-    yylval.g_expr = new golite::LiteralExpression<golite::HexValue>(golite::HexValue(strdup(yytext)), 0);
+    yylval.g_expr = new golite::Literal<int>(atoi(yytext));
     return fToken(tINT);
 }
 
 ([0-9]*\.[0-9]+)|([0-9]+\.[0-9]*) {
     // Float
     golite::Utils::log_token("tFLOAT", yytext);
-    yylval.g_expr = new golite::LiteralExpression<float>(atof(yytext), 0);
+    yylval.g_expr = new golite::Literal<float>(atof(yytext));
     return fToken(tFLOAT);
 }
 
 '((\\[abfnrtv\\\'])|[^\\'])' {
     // Rune/Character
     golite::Utils::log_token("tRUNE", yytext);
-    yylval.g_expr = new golite::LiteralExpression<char>(yytext[0], 0);
+    yylval.g_expr = new golite::Literal<char>(yytext[0]);
     return fToken(tRUNE);
 }
 
 `(.|\n)*` {
     // Raw String
     golite::Utils::log_token("tSTRING", yytext);
-    yylval.g_expr = new golite::LiteralExpression<std::string>(yytext, 0);
+    yylval.g_expr = new golite::Literal<std::string>(yytext);
     return fToken(tSTRING);
 }
 
 \"(\\[abfnrtv\\\"]|[^\\"])*\" {
     // String
     golite::Utils::log_token("tSTRING", yytext);
-    yylval.g_expr = new golite::LiteralExpression<std::string>(yytext, 0);
+    yylval.g_expr = new golite::Literal<std::string>(yytext);
     return fToken(tSTRING);
 }
 
 [a-zA-Z_][a-zA-Z0-9_]* {
     // Identifier
     golite::Utils::log_token("tIDENTIFIER", yytext);
-    yylval.g_expr = new golite::IdentifierExpression(strdup(yytext), 0);
+    yylval.g_expr = new golite::Identifier(strdup(yytext));
     return fToken(tIDENTIFIER);
 }
 

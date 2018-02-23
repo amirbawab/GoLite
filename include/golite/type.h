@@ -8,7 +8,7 @@
 namespace golite {
     class Type : public Declarable, public Statement {
     private:
-        Identifier identifier_;
+        Identifier* identifier_;
         TypeComponent* type_component_;
     public:
 

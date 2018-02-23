@@ -2,102 +2,94 @@
 
 using namespace golite;
 
-BinaryExpression* ExpressionFactory::createBPlus(Expression* lhs, Expression* rhs) {
-    return new BinaryExpression(lhs, rhs, BinaryExpressionType::BINARY_PLUS);
+Binary* ExpressionFactory::createBPlus(Expression* lhs, Expression* rhs) {
+    return new Binary(lhs, rhs, Binary::KIND::PLUS);
 }
 
-BinaryExpression* ExpressionFactory::createBMinus(Expression *lhs, Expression *rhs) {
-    return new BinaryExpression(lhs, rhs, BinaryExpressionType::BINARY_MINUS);
+Binary* ExpressionFactory::createBMinus(Expression *lhs, Expression *rhs) {
+    return new Binary(lhs, rhs, Binary::KIND::MINUS);
 }
 
-BinaryExpression* ExpressionFactory::createBMultiply(Expression *lhs, Expression *rhs) {
-    return new BinaryExpression(lhs, rhs, BinaryExpressionType::BINARY_MULTIPLY);
+Binary* ExpressionFactory::createBMultiply(Expression *lhs, Expression *rhs) {
+    return new Binary(lhs, rhs, Binary::KIND::MULTIPLY);
 }
 
-BinaryExpression* ExpressionFactory::createBDivide(Expression *lhs, Expression *rhs) {
-    return new BinaryExpression(lhs, rhs, BinaryExpressionType::BINARY_DIVIDE);
+Binary* ExpressionFactory::createBDivide(Expression *lhs, Expression *rhs) {
+    return new Binary(lhs, rhs, Binary::KIND::DIVIDE);
 }
 
-BinaryExpression* ExpressionFactory::createBModulo(Expression *lhs, Expression *rhs) {
-    return new BinaryExpression(lhs, rhs, BinaryExpressionType::BINARY_MODULO);
+Binary* ExpressionFactory::createBModulo(Expression *lhs, Expression *rhs) {
+    return new Binary(lhs, rhs, Binary::KIND::MODULO);
 }
 
-BinaryExpression *ExpressionFactory::createBBitAND(Expression *lhs, Expression *rhs) {
-    return new BinaryExpression(lhs, rhs, BinaryExpressionType::BINARY_BIT_AND);
+Binary *ExpressionFactory::createBBitAND(Expression *lhs, Expression *rhs) {
+    return new Binary(lhs, rhs, Binary::KIND::BIT_AND);
 }
 
-BinaryExpression *ExpressionFactory::createBBitOR(Expression *lhs, Expression *rhs) {
-    return new BinaryExpression(lhs, rhs, BinaryExpressionType::BINARY_BIT_OR);
+Binary *ExpressionFactory::createBBitOR(Expression *lhs, Expression *rhs) {
+    return new Binary(lhs, rhs, Binary::KIND::BIT_OR);
 }
 
-BinaryExpression *ExpressionFactory::createBBitXOR(Expression *lhs, Expression *rhs) {
-    return new BinaryExpression(lhs, rhs, BinaryExpressionType::BINARY_BIT_XOR);
+Binary *ExpressionFactory::createBBitXOR(Expression *lhs, Expression *rhs) {
+    return new Binary(lhs, rhs, Binary::KIND::BIT_XOR);
 }
 
-BinaryExpression *ExpressionFactory::createBBitClear(Expression *lhs, Expression *rhs) {
-    return new BinaryExpression(lhs, rhs, BinaryExpressionType::BINARY_BIT_CLEAR);
+Binary *ExpressionFactory::createBBitClear(Expression *lhs, Expression *rhs) {
+    return new Binary(lhs, rhs, Binary::KIND::BIT_CLEAR);
 }
 
-BinaryExpression* ExpressionFactory::createBLeftShift(Expression* lhs, Expression* rhs) {
-    return new BinaryExpression(lhs, rhs, BinaryExpressionType::BINARY_LEFT_SHIFT);
+Binary* ExpressionFactory::createBLeftShift(Expression* lhs, Expression* rhs) {
+    return new Binary(lhs, rhs, Binary::KIND::LEFT_SHIFT);
 }
 
-BinaryExpression* ExpressionFactory::createBRightShift(Expression* lhs, Expression* rhs) {
-    return new BinaryExpression(lhs, rhs, BinaryExpressionType::BINARY_RIGHT_SHIFT);
+Binary* ExpressionFactory::createBRightShift(Expression* lhs, Expression* rhs) {
+    return new Binary(lhs, rhs, Binary::KIND::RIGHT_SHIFT);
 }
 
-BinaryExpression* ExpressionFactory::createBIsEquals(Expression* lhs, Expression* rhs) {
-    return new BinaryExpression(lhs, rhs, BinaryExpressionType::BINARY_IS_EQUAL);
+Binary* ExpressionFactory::createBIsEquals(Expression* lhs, Expression* rhs) {
+    return new Binary(lhs, rhs, Binary::KIND::IS_EQUAL);
 }
 
-BinaryExpression* ExpressionFactory::createBIsNotEquals(Expression* lhs, Expression* rhs) {
-    return new BinaryExpression(lhs, rhs, BinaryExpressionType::BINARY_IS_NOT_EQUAL);
+Binary* ExpressionFactory::createBIsNotEquals(Expression* lhs, Expression* rhs) {
+    return new Binary(lhs, rhs, Binary::KIND::IS_NOT_EQUAL);
 }
 
-BinaryExpression* ExpressionFactory::createBLessThan(Expression* lhs, Expression* rhs) {
-    return new BinaryExpression(lhs, rhs, BinaryExpressionType::BINARY_LESS_THAN);
+Binary* ExpressionFactory::createBLessThan(Expression* lhs, Expression* rhs) {
+    return new Binary(lhs, rhs, Binary::KIND::LESS_THAN);
 }
 
-BinaryExpression* ExpressionFactory::createBLessEqualThan(Expression* lhs, Expression* rhs) {
-    return new BinaryExpression(lhs, rhs, BinaryExpressionType::BINARY_LESS_THAN_EQUAL);
+Binary* ExpressionFactory::createBLessEqualThan(Expression* lhs, Expression* rhs) {
+    return new Binary(lhs, rhs, Binary::KIND::LESS_THAN_EQUAL);
 
 }
-BinaryExpression* ExpressionFactory::createBGreaterThan(Expression* lhs, Expression* rhs) {
-    return new BinaryExpression(lhs, rhs, BinaryExpressionType::BINARY_GREATER_THAN);
+Binary* ExpressionFactory::createBGreaterThan(Expression* lhs, Expression* rhs) {
+    return new Binary(lhs, rhs, Binary::KIND::GREATER_THAN);
 }
 
-BinaryExpression* ExpressionFactory::createBGreaterEqualThan(Expression* lhs, Expression* rhs) {
-    return new BinaryExpression(lhs, rhs, BinaryExpressionType::BINARY_GREATER_THAN_EQUAL);
+Binary* ExpressionFactory::createBGreaterEqualThan(Expression* lhs, Expression* rhs) {
+    return new Binary(lhs, rhs, Binary::KIND::GREATER_THAN_EQUAL);
 }
 
-BinaryExpression* ExpressionFactory::createBAnd(Expression* lhs, Expression* rhs) {
-    return new BinaryExpression(lhs, rhs, BinaryExpressionType::BINARY_AND);
+Binary* ExpressionFactory::createBAnd(Expression* lhs, Expression* rhs) {
+    return new Binary(lhs, rhs, Binary::KIND::AND);
 }
 
-BinaryExpression* ExpressionFactory::createBOr(Expression* lhs, Expression* rhs) {
-    return new BinaryExpression(lhs, rhs, BinaryExpressionType::BINARY_OR);
+Binary* ExpressionFactory::createBOr(Expression* lhs, Expression* rhs) {
+    return new Binary(lhs, rhs, Binary::KIND::OR);
 }
 
-UnaryExpression* ExpressionFactory::createUMinus(Expression* operand) {
-    return new UnaryExpression(operand, UnaryExpressionType::UNARY_MINUS);
+Unary* ExpressionFactory::createUMinus(Expression* operand) {
+    return new Unary(operand, Unary::KIND::MINUS);
 }
 
-UnaryExpression* ExpressionFactory::createUPlus(Expression* operand) {
-    return new UnaryExpression(operand, UnaryExpressionType::UNARY_PLUS);
+Unary* ExpressionFactory::createUPlus(Expression* operand) {
+    return new Unary(operand, Unary::KIND::PLUS);
 }
 
-UnaryExpression* ExpressionFactory::createUNot(Expression* operand) {
-    return new UnaryExpression(operand, UnaryExpressionType::UNARY_NOT);
+Unary* ExpressionFactory::createUNot(Expression* operand) {
+    return new Unary(operand, Unary::KIND::NOT);
 }
 
-UnaryExpression* ExpressionFactory::createUBitXOR(Expression* operand) {
-    return new UnaryExpression(operand, UnaryExpressionType::UNARY_XOR);
-}
-
-FunctionCallExpression* ExpressionFactory::createFunctionCall(Expression* fn, std::vector<Expression*>* args) {
-    return new FunctionCallExpression(fn, args);
-}
-
-IndexExpression* ExpressionFactory::createIndexExpr(Expression* target, Expression* idx) {
-    return new IndexExpression(target, idx);
+Unary* ExpressionFactory::createUBitXOR(Expression* operand) {
+    return new Unary(operand, Unary::KIND::XOR);
 }

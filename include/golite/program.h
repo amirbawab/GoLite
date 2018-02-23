@@ -14,8 +14,9 @@ namespace golite {
      */
     class Program {
     private:
+        Program(){}
         Identifier* package_name_;
-        std::vector<Declarables*> declarables_;
+        std::vector<Declarable*> declarables_;
 
     public:
         static Program* getInstance() {
@@ -31,13 +32,13 @@ namespace golite {
          * Set package name
          * @param package_name
          */
-        void setPackageName(string package_name) {package_name = package_name;}
+        void setPackageName(Identifier* package_name) {package_name = package_name;}
 
         /**
          * Get package name
          * @return package name
          */
-        std::string getPackageName() const { return package_name_; }
+        Identifier* getPackageName() const { return package_name_; }
     };
 }
 
