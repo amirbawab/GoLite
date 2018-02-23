@@ -1,14 +1,12 @@
-#ifndef GOLITE_SCOPE_SCOPE_H
-#define GOLITE_SCOPE_SCOPE_H
+#ifndef GOLITE_BLCOK_H
+#define GOLITE_BLOCK_H
 
 #include <vector>
 #include <golite/statement.h>
-#include <golite/symbol_table.h>
 
 namespace golite {
     class Block : public Statement {
     public:
-        Block();
 
         /**
          * Set statements
@@ -24,7 +22,6 @@ namespace golite {
 
     protected:
         std::vector<Statement*> statements_;
-        SymbolTable symbol_table_;
     };
 }
 

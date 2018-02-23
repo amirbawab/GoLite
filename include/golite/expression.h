@@ -1,6 +1,8 @@
 #ifndef GOLITE_EXPRESSIONS_EXPRESSION_H
 #define GOLITE_EXPRESSIONS_EXPRESSION_H
 
+#include <golite/simple.h>
+
 namespace golite {
     /**
      * Parent class for all kind of expressions
@@ -9,14 +11,8 @@ namespace golite {
      * - Binary
      * - Append (GoLite extra feature)
      */
-    class Expression {
-    public:
-        virtual ~Expression() = default;
-    protected:
-        Expression() {};
+    class Expression : public Simple {
 
-        Expression(int line_no) { this->line_ = line_no; }
-        int line_;
     };
 }
 
