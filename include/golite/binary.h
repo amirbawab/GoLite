@@ -6,32 +6,6 @@
 namespace golite {
 
     /**
-     * Kind of binary expressions
-     */
-    // TODO Move enum inside the binary class?
-    enum BinaryExpressionType {
-        BINARY_MINUS,
-        BINARY_PLUS,
-        BINARY_MULTIPLY,
-        BINARY_DIVIDE,
-        BINARY_MODULO,
-        BINARY_BIT_AND,
-        BINARY_BIT_OR,
-        BINARY_BIT_XOR,
-        BINARY_BIT_CLEAR,
-        BINARY_LEFT_SHIFT,
-        BINARY_RIGHT_SHIFT,
-        BINARY_IS_EQUAL,
-        BINARY_IS_NOT_EQUAL,
-        BINARY_LESS_THAN,
-        BINARY_LESS_THAN_EQUAL,
-        BINARY_GREATER_THAN,
-        BINARY_GREATER_THAN_EQUAL,
-        BINARY_AND,
-        BINARY_OR
-    };
-
-    /**
      * Class representing a binary expression
      *
      * binary_expression: <expr> <operator> <expr>
@@ -56,20 +30,41 @@ namespace golite {
      *   &&
      *   ||
      */
-    class BinaryExpression : public Expression {
+    class Binary : public Expression {
     public:
+
+        /**
+         * Kind of binary expressions
+         */
+        enum KIND {
+            MINUS,
+            PLUS,
+            MULTIPLY,
+            DIVIDE,
+            MODULO,
+            BIT_AND,
+            BIT_OR,
+            BIT_XOR,
+            BIT_CLEAR,
+            LEFT_SHIFT,
+            RIGHT_SHIFT,
+            IS_EQUAL,
+            IS_NOT_EQUAL,
+            LESS_THAN,
+            LESS_THAN_EQUAL,
+            GREATER_THAN,
+            GREATER_THAN_EQUAL,
+            AND,
+            OR
+        };
 
         /**
          * Binary expression constructor
          * @param lhs
          * @param rhs
-         * @param type
+         * @param kind
          */
-        BinaryExpression(Expression* lhs, Expression* rhs, BinaryExpressionType type): Expression() {
-            this->lhs_ = lhs;
-            this->rhs_ = rhs;
-            this->type_ = type;
-        }
+        BinaryExpression(Expression* lhs, Expression* rhs, KIND kind) : lhs_(lhs), rhs_(rhs), kind_(kind) {}
 
         /**
          * Get left operand
@@ -84,10 +79,10 @@ namespace golite {
         Expression* getRightOperand() const {return rhs_; }
 
         /**
-         * Get operation type
+         * Get operation kind
          * @return type of the binary operation
          */
-        BinaryExpressionType getType() { return type_; }
+        KIND getKind() const { return kind_; }
 
     private:
 
@@ -98,7 +93,7 @@ namespace golite {
         Expression* rhs_;
 
         // Binary expression type
-        BinaryExpressionType  type_;
+        Kind kind_;
     };
 }
 

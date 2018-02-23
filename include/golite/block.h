@@ -1,4 +1,4 @@
-#ifndef GOLITE_BLCOK_H
+#ifndef GOLITE_BLOCK_H
 #define GOLITE_BLOCK_H
 
 #include <vector>

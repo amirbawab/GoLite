@@ -4,15 +4,6 @@
 #include <golite/expression.h>
 
 namespace golite {
-    /**
-     * All types of unary operators
-     */
-    enum UnaryExpressionType {
-        UNARY_MINUS,
-        UNARY_NOT,
-        UNARY_PLUS,
-        UNARY_XOR
-    };
 
     /**
      * Class representing unary expression
@@ -23,12 +14,19 @@ namespace golite {
      *     +
      *     ^
      */
-    class UnaryExpression : public Expression {
+    class Unary : public Expression {
     public:
-        UnaryExpression(Expression* operand, UnaryExpressionType type) {
-            this->operand_ = operand;
-            this->type_ = type;
-        }
+        /**
+         * All kinds of unary operators
+         */
+        enum KIND {
+            MINUS,
+            NOT,
+            PLUS,
+            XOR
+        };
+
+        UnaryExpression(Expression* operand, KIND kind) : operand_(operand), kind_(kind) {}
 
         /**
          * Get operand
@@ -37,13 +35,13 @@ namespace golite {
         Expression* getOperand() const { return operand_; }
 
         /**
-         * Get type
-         * @return type
+         * Get kind
+         * @return kind
          */
-        UnaryExpressionType getType() const { type_; }
+        KIND getKind() const { kind_; }
     protected:
         Expression* operand_;
-        UnaryExpressionType type_;
+        KIND kind_;
     };
 }
 

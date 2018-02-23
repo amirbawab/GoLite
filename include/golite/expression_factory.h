@@ -4,8 +4,8 @@
 #include <vector>
 
 #include <golite/expression.h>
-#include <golite/binary_expression.h>
-#include <golite/unary_expression.h>
+#include <golite/binary.h>
+#include <golite/unary.h>
 #include <golite/function_call_expression.h>
 #include <golite/index_expression.h>
 

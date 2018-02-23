@@ -1,9 +1,8 @@
 #ifndef GOLITE_STATEMENTS_ASSIGNMENT_H
 #define GOLITE_STATEMENTS_ASSIGNMENT_H
 
-#include <golite/statement.h>
+#include <golite/simple.h>
 #include <golite/expression.h>
-#include <golite/identifier_expression.h>
 
 /**
  * Assignment expression in GoLite are not expression
@@ -25,7 +24,7 @@
  *   &^=
  */
 namespace golite {
-    class AssignmentStatement : Statement {
+    class Assignment : public Simple {
     private:
 
         // expression = ...
