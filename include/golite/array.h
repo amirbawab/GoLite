@@ -8,11 +8,13 @@ namespace golite {
     private:
         int size_;
     public:
+        Array(golite::TypeComponent* type_component) : TypeDecorator(type_component) {}
+
         /**
          * Get size
          * @return size
          */
-        int getSize() const { return size; }
+        int getSize() const { return size_; }
 
         /**
          * Set size

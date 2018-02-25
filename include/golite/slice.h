@@ -5,7 +5,8 @@
 
 namespace golite {
     class Slice : public TypeDecorator {
-
+    public:
+        Slice(golite::TypeComponent* type_component) : TypeDecorator(type_component){}
     };
 }
 

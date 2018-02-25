@@ -8,27 +8,33 @@ extern "C" int yylineno;
 %}
 
 %code requires {
-    #include <golite/expression.h>
-    #include <golite/identifier.h>
-    #include <golite/builtin.h>
-    #include <golite/program.h>
-
-    #include <golite/expression_factory.h>
-    #include <golite/declarable_factory.h>
-
     #include <string>
+    #include <vector>
     #include <iostream>
+    #include <golite/variable.h>
+    #include <golite/identifier.h>
+    #include <golite/program.h>
+    #include <golite/declarable.h>
+    #include <golite/type_reference.h>
+    #include <golite/array.h>
+    #include <golite/slice.h>
 }
-
 
 %union {
-    golite::Expression*         g_expr;
-    golite::Declarable*         g_declarable;
-
-    std::vector<golite::Expression*>* g_expression_list;
-    std::vector<golite::Declarable*>* g_declarable_list;
+    golite::Variable*                   g_variable;
+    std::vector<golite::Variable*>*     g_variables;
+    golite::Identifier*                 g_identifier;
+    std::vector<golite::Identifier*>*   g_identifiers;
+    std::vector<golite::Declarable*>*   g_declarables;
+    golite::TypeComponent*              g_type_component;
 }
 
+%type <g_identifiers>       identifiers
+%type <g_declarables>       global_decs
+%type <g_variable>          var_def
+%type <g_variables>         var_defs
+%type <g_variables>         var_dec
+%type <g_type_component>    identifier_type
 
 // Define tokens
 %token
@@ -115,7 +121,7 @@ extern "C" int yylineno;
     tBOOL                   "bool"
     tSTRING                 "string"
     tRUNE                   "rune"
-    tIDENTIFIER             "identifier"
+    <g_identifier>          tIDENTIFIER             "identifier"
 
     tNEWLINE                "new line"
     ;
@@ -152,18 +158,29 @@ program
 /**
  * Global scope delcarations
  **/
-global_decs
+global_decs[root]
     : global_decs type_dec
-    | global_decs var_dec
+    | global_decs var_dec[variables]
+        {
+            for(golite::Variable* variable : *$variables) {
+                $root->push_back(variable);
+            }
+        }
     | global_decs func_dec
     | %empty
+        {
+            $root = new std::vector<golite::Declarable*>();
+        }
     ;
 
 /**
  * Package decalaration
  **/
 package_dec
-    : tPACKAGE tIDENTIFIER tSEMICOLON
+    : tPACKAGE tIDENTIFIER[identifier] tSEMICOLON
+        {
+            golite::Program::getInstance()->setPackageName($identifier);
+        }
     ;
 
 /****************************
@@ -173,12 +190,29 @@ package_dec
 /**
  * Type for identifiers
  **/
-identifier_type
+identifier_type[root]
     : array_type identifier_type
+        {
+            $root = new golite::Array($root);
+        }
     | slice_type identifier_type
+        {
+            $root = new golite::Slice($root);
+        }
     | struct_type
-    | tIDENTIFIER
-    | tLEFT_PAR identifier_type tRIGHT_PAR
+        {
+            // FIXME
+        }
+    | tIDENTIFIER[id]
+        {
+            golite::TypeReference* type_reference = new golite::TypeReference();
+            type_reference->setIdentifier($id);
+            $root = type_reference;
+        }
+    | tLEFT_PAR identifier_type[id_type] tRIGHT_PAR
+        {
+            $root = $id_type;
+        }
     ;
 
 /**
@@ -271,17 +305,38 @@ func_type
 /**
  * Variable delcaration
  **/
-var_dec
-    : tVAR var_def tSEMICOLON
-    | tVAR tLEFT_PAR var_defs tRIGHT_PAR tSEMICOLON
+var_dec[root]
+    : tVAR var_def[variable] tSEMICOLON
+        {
+            $root = new std::vector<golite::Variable*>();
+            $root->push_back($variable);
+        }
+    | tVAR tLEFT_PAR var_defs[variables] tRIGHT_PAR tSEMICOLON
+        {
+            $root = new std::vector<golite::Variable*>();
+            for(golite::Variable* variable : *$variables) {
+                $root->push_back(variable);
+            }
+        }
     ;
 
 /**
  * Variable definition
  **/
-var_def
-    : identifiers identifier_type var_opt_expression
-    | identifiers tEQUAL expressions
+var_def[root]
+    : identifiers[ids] identifier_type[id_type] var_opt_expression
+        {
+            $root = new golite::Variable();
+            $root->setIdentifiers(*$ids);
+            $root->setTypeComponent($id_type);
+            // FIXME Expression
+        }
+    | identifiers[ids] tEQUAL expressions
+        {
+            $root = new golite::Variable();
+            $root->setIdentifiers(*$ids);
+            // FIXME Expression
+        }
     ;
 
 /**
@@ -605,9 +660,16 @@ assignment_operator
 /**
  * One or more identifier
  **/
-identifiers
-    : identifiers tCOMMA tIDENTIFIER
-    | tIDENTIFIER
+identifiers[root]
+    : identifiers tCOMMA tIDENTIFIER[identifier]
+        {
+            $root->push_back($identifier);
+        }
+    | tIDENTIFIER[identifier]
+        {
+            $root = new std::vector<golite::Identifier*>();
+            $root->push_back($identifier);
+        }
     ;
 
 /**
@@ -637,9 +699,15 @@ statements
 /**
  * Optional variable definitions
  **/
-var_defs
-    : var_defs var_def tSEMICOLON
+var_defs[root]
+    : var_defs var_def[variable] tSEMICOLON
+        {
+            $root->push_back($variable);
+        }
     | %empty
+        {
+            $root = new std::vector<golite::Variable*>();
+        }
     ;
 
 /**

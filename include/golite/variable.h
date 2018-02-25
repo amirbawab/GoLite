@@ -13,9 +13,23 @@ namespace golite {
      * var id ...
      */
     class Variable : public Declarable, public Statement {
+    private:
         std::vector<Identifier*> identifiers_;
-        TypeComponent* type_component_;
+        TypeComponent* type_component_ = nullptr;
         std::vector<Expression*> expressions_;
+    public:
+
+        /**
+         * Set identifiers
+         * @param identifiers
+         */
+        void setIdentifiers(std::vector<Identifier*> identifiers) { identifiers_ = identifiers; }
+
+        /**
+         * Set type component
+         * @param type_component
+         */
+        void setTypeComponent(TypeComponent* type_component) { type_component_ = type_component; }
     };
 }
 

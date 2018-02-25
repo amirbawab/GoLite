@@ -7,6 +7,7 @@
 namespace golite {
     class TypeReference : public TypeComponent {
     private:
+        Identifier* identifier_;
         Type* type_;
     public:
 
@@ -21,6 +22,18 @@ namespace golite {
          * @return type
          */
         Type* getType() const { return type_; }
+
+        /**
+         * Set identifier
+         * @param identifier
+         */
+        void setIdentifier(golite::Identifier* identifier) { identifier_ = identifier; }
+
+        /**
+         * Get identifier
+         * @return identifier
+         */
+        Identifier* getIdentifier() const { return identifier_;}
     };
 }
 

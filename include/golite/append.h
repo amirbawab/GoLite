@@ -23,8 +23,8 @@ namespace golite {
         Expression* getRightExpression() const { return right_expression_; }
 
     private:
-        Expression* left_expression_*;
-        Expression* right_expression_*;
+        Expression* left_expression_;
+        Expression* right_expression_;
     };
 }
 
