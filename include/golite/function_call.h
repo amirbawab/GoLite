@@ -12,10 +12,10 @@ namespace golite {
     public:
 
         /**
-         * Get arguments
-         * @return arguments
+         * Set arguments
+         * @param args
          */
-        std::vector<Expression*> getArgs() { return args_;}
+        void setArgs(std::vector<Expression*> args) { args_ = args; }
     };
 }
 

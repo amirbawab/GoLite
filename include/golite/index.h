@@ -4,10 +4,11 @@
 #include <golite/primary.h>
 
 namespace golite {
-    class Index : public Expression {
+    class Index : public Primary {
     private:
         Expression* expression_;
     public:
+        Index(Expression* expression) : expression_(expression) {}
 
         /**
          * Set expression

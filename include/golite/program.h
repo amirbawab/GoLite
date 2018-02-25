@@ -39,6 +39,12 @@ namespace golite {
          * @return package name
          */
         Identifier* getPackageName() const { return package_name_; }
+
+        /**
+         * Set declarables
+         * @param declarables
+         */
+        void setDeclarables(std::vector<Declarable*> declarables) { declarables_ = declarables; }
     };
 }
 

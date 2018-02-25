@@ -30,6 +30,12 @@ namespace golite {
          * @param type_component
          */
         void setTypeComponent(TypeComponent* type_component) { type_component_ = type_component; }
+
+        /**
+         * Set expresions
+         * @param expressions
+         */
+        void setExpressions(std::vector<Expression*> expressions) { expressions_ = expressions; }
     };
 }
 

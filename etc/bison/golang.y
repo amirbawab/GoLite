@@ -18,6 +18,11 @@ extern "C" int yylineno;
     #include <golite/type_reference.h>
     #include <golite/array.h>
     #include <golite/slice.h>
+    #include <golite/expression.h>
+    #include <golite/selector.h>
+    #include <golite/literal.h>
+    #include <golite/index.h>
+    #include <golite/function_call.h>
 }
 
 %union {
@@ -27,6 +32,9 @@ extern "C" int yylineno;
     std::vector<golite::Identifier*>*   g_identifiers;
     std::vector<golite::Declarable*>*   g_declarables;
     golite::TypeComponent*              g_type_component;
+    golite::Expression*                 g_expression;
+    std::vector<golite::Expression*>*   g_expressions;
+    golite::Primary*                    g_primary;
 }
 
 %type <g_identifiers>       identifiers
@@ -35,6 +43,15 @@ extern "C" int yylineno;
 %type <g_variables>         var_defs
 %type <g_variables>         var_dec
 %type <g_type_component>    identifier_type
+%type <g_expression>        expression
+%type <g_expressions>       expressions
+%type <g_expressions>       var_opt_expressions
+%type <g_primary>           primary_expression
+%type <g_primary>           selector
+%type <g_primary>           index
+%type <g_primary>           func_call
+%type <g_expressions>       func_args
+%type <g_expressions>       expressions_opt
 
 // Define tokens
 %token
@@ -116,11 +133,11 @@ extern "C" int yylineno;
     tSEMICOLON              ";"
     tCOLON                  ":"
 
-    tFLOAT                  "float"
-    tINT                    "integer"
-    tBOOL                   "bool"
-    tSTRING                 "string"
-    tRUNE                   "rune"
+    <g_primary>             tFLOAT                  "float"
+    <g_primary>             tINT                    "integer"
+    <g_primary>             tBOOL                   "bool"
+    <g_primary>             tSTRING                 "string"
+    <g_primary>             tRUNE                   "rune"
     <g_identifier>          tIDENTIFIER             "identifier"
 
     tNEWLINE                "new line"
@@ -152,7 +169,10 @@ extern "C" int yylineno;
  * Grammar starting point
  **/
 program
-    : package_dec global_decs
+    : package_dec global_decs[declarables]
+        {
+            golite::Program::getInstance()->setDeclarables(*$declarables);
+        }
     ;
 
 /**
@@ -324,27 +344,35 @@ var_dec[root]
  * Variable definition
  **/
 var_def[root]
-    : identifiers[ids] identifier_type[id_type] var_opt_expression
+    : identifiers[ids] identifier_type[id_type] var_opt_expressions[exprs]
         {
             $root = new golite::Variable();
             $root->setIdentifiers(*$ids);
             $root->setTypeComponent($id_type);
-            // FIXME Expression
+            if($exprs){
+                $root->setExpressions(*$exprs);
+            }
         }
-    | identifiers[ids] tEQUAL expressions
+    | identifiers[ids] tEQUAL expressions[exprs]
         {
             $root = new golite::Variable();
             $root->setIdentifiers(*$ids);
-            // FIXME Expression
+            $root->setExpressions(*$exprs);
         }
     ;
 
 /**
  * Variable optional expression
  **/
-var_opt_expression
-    : tEQUAL expressions
+var_opt_expressions[root]
+    : tEQUAL expressions[exprs]
+        {
+            $root = $exprs;
+        }
     | %empty
+        {
+            $root = nullptr;
+        }
     ;
 
 /****************************
@@ -547,7 +575,7 @@ return_val
 /**
  * All kinds of expressions
  **/
-expression
+expression[root]
     : binary_expression
     | unary_expression
     | primary_expression
@@ -592,46 +620,96 @@ unary_expression
 /**
  * Function call
  **/
-func_call
-    : tLEFT_PAR func_args tRIGHT_PAR
+func_call[root]
+    : tLEFT_PAR func_args[args] tRIGHT_PAR
+        {
+            golite::FunctionCall* function_call = new golite::FunctionCall();
+            function_call->setArgs(*$args);
+            $root = function_call;
+        }
     ;
 
 /**
  * Function call arguments
  **/
-func_args
-    : expressions
+func_args[root]
+    : expressions[exprs]
+        {
+            $root = $exprs;
+        }
     | %empty
+        {
+            $root = nullptr;
+        }
     ;
 
 /**
  * Expression decorators
  * Append syntax to an expression
  **/
-primary_expression
-    : primary_expression selector
-    | primary_expression index
-    | primary_expression func_call %prec pCALL
-    | tLEFT_PAR expression tRIGHT_PAR
-    | tIDENTIFIER
-    | tINT
-    | tFLOAT
-    | tSTRING
-    | tRUNE
+primary_expression[root]
+    : primary_expression selector[id_selector]
+        {
+            $root->addChild($id_selector);
+        }
+    | primary_expression index[i]
+        {
+            $root->addChild($i);
+        }
+    | primary_expression func_call[call] %prec pCALL
+        {
+            $root->addChild($call);
+        }
+    | tLEFT_PAR expression[expr] tRIGHT_PAR
+        {
+            $root = new golite::Primary();
+            $root->addChild($expr);
+        }
+    | tIDENTIFIER[id]
+        {
+            $root = new golite::Primary();
+            $root->addChild($id);
+        }
+    | tINT[integer]
+        {
+            $root = new golite::Primary();
+            $root->addChild($integer);
+        }
+    | tFLOAT[float]
+        {
+            $root = new golite::Primary();
+            $root->addChild($float);
+        }
+    | tSTRING[string]
+        {
+            $root = new golite::Primary();
+            $root->addChild($string);
+        }
+    | tRUNE[rune]
+        {
+            $root = new golite::Primary();
+            $root->addChild($rune);
+        }
     ;
 
 /**
  * Member access
  **/
-selector
-    : tDOT tIDENTIFIER
+selector[root]
+    : tDOT tIDENTIFIER[id]
+        {
+            $root = new golite::Selector($id);
+        }
     ;
 
 /**
  * Array indices
  **/
-index
-    : tLEFT_SQUARE expression tRIGHT_SQUARE %prec pINDEX
+index[root]
+    : tLEFT_SQUARE expression[expr] tRIGHT_SQUARE %prec pINDEX
+        {
+            $root = new golite::Index($expr);
+        }
     ;
 
 /**
@@ -675,17 +753,30 @@ identifiers[root]
 /**
  * One or more expressions
  **/
-expressions
-    : expressions tCOMMA expression
-    | expression
+expressions[root]
+    : expressions tCOMMA expression[expr]
+        {
+            $root->push_back($expr);
+        }
+    | expression[expr]
+        {
+            $root = new std::vector<golite::Expression*>();
+            $root->push_back($expr);
+        }
     ;
 
 /**
  * Zero or more expressions
  **/
-expressions_opt
-    : expressions
+expressions_opt[root]
+    : expressions[exprs]
+        {
+            $root = $exprs;
+        }
     | %empty
+        {
+            $root = nullptr;
+        }
     ;
 
 /**

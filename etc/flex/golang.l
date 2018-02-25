@@ -114,42 +114,49 @@ append          { golite::Utils::log_token("tAPPEND"); return fToken(tAPPEND); }
 0+|([1-9][0-9]*) {
     // Integer
     golite::Utils::log_token("tINT", yytext);
+    yylval.g_expression = new golite::Literal<int>(atoi(yytext));
     return fToken(tINT);
 }
 
 0[1-7][0-7]* {
     // Octal
     golite::Utils::log_token("tINT", yytext);
+    yylval.g_expression = new golite::Literal<int>(atoi(yytext));
     return fToken(tINT);
 }
 
 0[xX][0-9a-fA-F]+ {
     // Hex
     golite::Utils::log_token("tINT", yytext);
+    yylval.g_expression = new golite::Literal<int>(atoi(yytext));
     return fToken(tINT);
 }
 
 ([0-9]*\.[0-9]+)|([0-9]+\.[0-9]*) {
     // Float
     golite::Utils::log_token("tFLOAT", yytext);
+    yylval.g_expression = new golite::Literal<float>(atof(yytext));
     return fToken(tFLOAT);
 }
 
 '((\\[abfnrtv\\\'])|[^\\'])' {
     // Rune/Character
     golite::Utils::log_token("tRUNE", yytext);
+    yylval.g_expression = new golite::Literal<char>(yytext[0]);
     return fToken(tRUNE);
 }
 
 `(.|\n)*` {
     // Raw String
     golite::Utils::log_token("tSTRING", yytext);
+    yylval.g_expression = new golite::Literal<char*>(strdup(yytext));
     return fToken(tSTRING);
 }
 
 \"(\\[abfnrtv\\\"]|[^\\"])*\" {
     // String
     golite::Utils::log_token("tSTRING", yytext);
+    yylval.g_expression = new golite::Literal<char*>(strdup(yytext));
     return fToken(tSTRING);
 }
 
