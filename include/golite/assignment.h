@@ -26,16 +26,6 @@
  */
 namespace golite {
     class Assignment : public Simple {
-    private:
-
-        // expression = ...
-        std::vector<Expression*> left_expressions_;
-
-        // ... = expression
-        std::vector<Expression*> right_expressions_;
-
-        // Assignment kind
-        golite::AssignmentStatement::KIND kind_;
     public:
 
         /**
@@ -79,6 +69,16 @@ namespace golite {
          * @param kind
          */
         void setKind(KIND kind) { kind_ = kind; }
+    private:
+
+        // expression = ...
+        std::vector<Expression*> left_expressions_;
+
+        // ... = expression
+        std::vector<Expression*> right_expressions_;
+
+        // Assignment kind
+        golite::Assignment::KIND kind_;
     };
 }
 

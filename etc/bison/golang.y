@@ -38,6 +38,10 @@ extern "C" int yylineno;
     #include <golite/if.h>
     #include <golite/for.h>
     #include <golite/switch.h>
+    #include <golite/empty.h>
+    #include <golite/assignment.h>
+    #include <golite/inc_dec.h>
+    #include <golite/declaration.h>
 }
 
 %union {
@@ -531,7 +535,7 @@ if_def[root]
             $root = new golite::If();
             $root->setExpression($expr);
             $root->setBlock($block);
-            // FIXME simple
+            $root->setSimple($simple);
         }
     | tIF expression[expr] block_body[block]
         {
@@ -621,6 +625,9 @@ for_condition[root]
  **/
 switch_dec
     : switch_def tLEFT_CURL switch_body tRIGHT_CURL tSEMICOLON
+        {
+            // FIXME
+        }
     ;
 
 /**
@@ -647,8 +654,11 @@ switch_body
 /**
  * Block statement
  **/
-block_dec
-    : block_body tSEMICOLON
+block_dec[root]
+    : block_body[block] tSEMICOLON
+        {
+            $root = $block;
+        }
     ;
 
 /**
@@ -793,13 +803,82 @@ continue_dec[root]
 /**
  * Simple statement
  **/
-simple_statement
-    : expression
-    | expression tINC
-    | expression tDEC
-    | expressions assignment_operator expressions
-    | identifiers tDECLARATION expressions
+simple_statement[root]
+    : expression[expr]
+        {
+            $root = $expr;
+        }
+    | expression[expr] tINC
+        {
+            $root = new golite::IncDec($expr, true);
+        }
+    | expression[expr] tDEC
+        {
+            $root = new golite::IncDec($expr, false);
+        }
+    | expressions tEQUAL expressions
+        {
+            // FIXME
+        }
+    | expressions tPLUS_EQUAL expressions
+        {
+            // FIXME
+        }
+    | expressions tMINUS_EQUAL expressions
+        {
+            // FIXME
+        }
+    | expressions tMULTIPLY_EQUAL expressions
+        {
+            // FIXME
+        }
+    | expressions tDIVIDE_EQUAL expressions
+        {
+            // FIXME
+        }
+    | expressions tMODULO_EQUAL expressions
+        {
+            // FIXME
+        }
+    | expressions tBIT_AND_EQUAL expressions
+        {
+            // FIXME
+        }
+    | expressions tBIT_OR_EQUAL expressions
+        {
+            // FIXME
+        }
+    | expressions tBIT_XOR_EQUAL expressions
+        {
+            // FIXME
+        }
+    | expressions tLEFT_SHIFT_EQUAL expressions
+        {
+            // FIXME
+        }
+    | expressions tRIGHT_SHIFT_EQUAL expressions
+        {
+            // FIXME
+        }
+    | expressions tBIT_CLEAR_EQUAL expressions
+        {
+            // FIXME
+        }
+    | expressions tDECLARATION expressions
+        {
+            // FIXME
+        }
+    | identifiers[ids] tDECLARATION expressions[exprs]
+        {
+            golite::Declaration* declaration = new golite::Declaration();
+            declaration->setIdentifiers(*$ids);
+            declaration->setExpressions(*$exprs);
+            $root = declaration;
+        }
     | %empty
+        {
+            $root = new golite::Empty();
+        }
     ;
 
 /**
@@ -1023,25 +1102,6 @@ index[root]
         {
             $root = new golite::Index($expr);
         }
-    ;
-
-/**
- * Assignment operators
- **/
-assignment_operator
-    : tEQUAL
-    | tPLUS_EQUAL
-    | tMINUS_EQUAL
-    | tMULTIPLY_EQUAL
-    | tDIVIDE_EQUAL
-    | tMODULO_EQUAL
-    | tBIT_AND_EQUAL
-    | tBIT_OR_EQUAL
-    | tBIT_XOR_EQUAL
-    | tLEFT_SHIFT_EQUAL
-    | tRIGHT_SHIFT_EQUAL
-    | tBIT_CLEAR_EQUAL
-    | tDECLARATION
     ;
 
 /****************************

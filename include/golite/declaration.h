@@ -12,28 +12,16 @@ namespace golite {
     public:
 
         /**
-         * Get left identifiers
-         * @return left identifiers
+         * Set identifiers
+         * @param identifiers
          */
-        std::vector<Identifier*> getLeftIdentifiers() const { return left_identifiers_;}
+        void setIdentifiers(std::vector<Identifier*> identifiers) { left_identifiers_ = identifiers; }
 
         /**
-         * Get right expressions
-         * @return right expressions
+         * Set expresions
+         * @param expressions
          */
-        std::vector<Expression*> getRightExpressions() const { return right_expressions_; }
-
-        /**
-         * Get assignment kind
-         * @return assignment kind
-         */
-        KIND getKind() const {return kind_;}
-
-        /**
-         * Set assignment kind
-         * @param kind
-         */
-        void setKind(KIND kind) { kind_ = kind; }
+        void setExpressions(std::vector<Expression*> expressions) { right_expressions_ = expressions; }
     };
 }
 
