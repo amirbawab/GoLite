@@ -17,17 +17,7 @@ namespace golite {
      * - if
      */
     class Statement {
-    protected:
 
-        // Line number
-        int line_;
-    public:
-
-        /**
-         * Get line number
-         * @return statement line number
-         */
-        int getLine() const {return line_; }
     };
 }
 

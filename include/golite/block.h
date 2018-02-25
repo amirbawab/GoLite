@@ -6,6 +6,9 @@
 
 namespace golite {
     class Block : public Statement {
+    protected:
+        std::vector<Statement*> statements_;
+
     public:
 
         /**
@@ -13,15 +16,6 @@ namespace golite {
          * @param statements
          */
         void setStatements(std::vector<Statement*> statements) { statements_ = statements; }
-
-        /**
-         * Get statements
-         * @return statements vector
-         */
-        std::vector<Statement*> getStatements() {return statements_;}
-
-    protected:
-        std::vector<Statement*> statements_;
     };
 }
 

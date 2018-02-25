@@ -12,25 +12,13 @@ namespace golite {
      */
     class If : public Statement {
     private:
-        Block block_;
-        Expression* expression_;
+        Block* block_ = nullptr;
+        Expression* expression_ = nullptr;
         std::vector<If*> else_if_;
-        Block* else_;
-        Simple* simple_;
+        Block* else_ = nullptr;
+        Simple* simple_ = nullptr;
 
     public:
-
-        /**
-         * Get block reference
-         * @return block
-         */
-        Block& getBlock() {return block_;}
-
-        /**
-         * Get else statement
-         * @return else statement
-         */
-        Block* getElse() const { return else_;}
 
         /**
          * Set else statement
@@ -39,40 +27,28 @@ namespace golite {
         void setElse(Block* block) { else_ = block; }
 
         /**
-         * Get simple
-         * @return simple
-         */
-        Simple* getSimple() const { return simple_; }
-
-        /**
          * Set simple
          * @param simple
          */
         void setSimple(Simple* simple) { simple_ = simple; }
 
         /**
-         * Get else if vector
-         * @return vector
-         */
-        std::vector<If*> getElseIf() {return else_if_; }
-
-        /**
-         * Add else if statement
-         * @param elseIf
-         */
-        void addElseIf(If* elseIf);
-
-        /**
-         * Get expression
-         * @return expression
-         */
-        Expression* getExpression() const { return expression_; }
-
-        /**
          * Set expression
          * @param expression
          */
         void setExpression(Expression* expression) { expression_ = expression; }
+
+        /**
+         * Set else if
+         * @param else_if
+         */
+        void setElseIf(std::vector<If*> else_if) { else_if_ = else_if; }
+
+        /**
+         * Set block
+         * @param block
+         */
+        void setBlock(Block* block) { block_ = block; }
     };
 }
 

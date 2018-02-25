@@ -10,6 +10,7 @@ extern "C" int yylineno;
 %code requires {
     #include <string>
     #include <vector>
+    #include <algorithm>
     #include <iostream>
     #include <golite/variable.h>
     #include <golite/identifier.h>
@@ -25,23 +26,51 @@ extern "C" int yylineno;
     #include <golite/function_call.h>
     #include <golite/expression_factory.h>
     #include <golite/append.h>
+    #include <golite/struct.h>
+    #include <golite/struct_field.h>
+    #include <golite/function.h>
+    #include <golite/function_param.h>
+    #include <golite/return.h>
+    #include <golite/break.h>
+    #include <golite/continue.h>
+    #include <golite/print.h>
+    #include <golite/println.h>
+    #include <golite/if.h>
+    #include <golite/for.h>
+    #include <golite/switch.h>
 }
 
 %union {
-    golite::Variable*                   g_variable;
-    std::vector<golite::Variable*>*     g_variables;
-    golite::Identifier*                 g_identifier;
-    std::vector<golite::Identifier*>*   g_identifiers;
-    std::vector<golite::Declarable*>*   g_declarables;
-    golite::TypeComponent*              g_type_component;
-    golite::Expression*                 g_expression;
-    std::vector<golite::Expression*>*   g_expressions;
-    golite::Primary*                    g_primary;
-    golite::Literal<int>*               g_literal_int;
-    golite::Literal<char*>*             g_literal_string;
-    golite::Literal<float>*             g_literal_float;
-    golite::Literal<char>*              g_literal_rune;
-    golite::Literal<bool>*              g_literal_bool;
+    golite::Variable*                       g_variable;
+    std::vector<golite::Variable*>*         g_variables;
+    golite::Type*                           g_type;
+    std::vector<golite::Type*>*             g_types;
+    golite::Identifier*                     g_identifier;
+    std::vector<golite::Identifier*>*       g_identifiers;
+    std::vector<golite::Declarable*>*       g_declarables;
+    golite::TypeComponent*                  g_type_component;
+    golite::Expression*                     g_expression;
+    std::vector<golite::Expression*>*       g_expressions;
+    golite::Primary*                        g_primary;
+    golite::Literal<int>*                   g_literal_int;
+    golite::Literal<char*>*                 g_literal_string;
+    golite::Literal<float>*                 g_literal_float;
+    golite::Literal<char>*                  g_literal_rune;
+    golite::Literal<bool>*                  g_literal_bool;
+    golite::Struct*                         g_struct;
+    std::vector<golite::StructField*>*      g_struct_fields;
+    golite::Function*                       g_function;
+    golite::Block*                          g_block;
+    std::vector<golite::FunctionParam*>*    g_function_params;
+    std::vector<golite::Statement*>*        g_statements;
+    golite::Statement*                      g_statement;
+    golite::If*                             g_if;
+    std::vector<golite::If*>*               g_ifs;
+    struct {
+        golite::Simple* left;
+        golite::Simple* right;
+        golite::Expression* expression;}    g_for_condition;
+    golite::Simple*                         g_simple;
 }
 
 %type <g_identifiers>       identifiers
@@ -49,6 +78,9 @@ extern "C" int yylineno;
 %type <g_variable>          var_def
 %type <g_variables>         var_defs
 %type <g_variables>         var_dec
+%type <g_type>              type_def
+%type <g_types>             type_defs
+%type <g_types>             type_dec
 %type <g_type_component>    identifier_type
 %type <g_expression>        expression
 %type <g_expressions>       expressions
@@ -57,11 +89,35 @@ extern "C" int yylineno;
 %type <g_primary>           selector
 %type <g_primary>           index
 %type <g_primary>           func_call
-%type <g_expressions>       func_args
+%type <g_expression>        expression_opt
 %type <g_expressions>       expressions_opt
 %type <g_expression>        binary_expression
 %type <g_expression>        unary_expression
 %type <g_literal_int>       array_type
+%type <g_struct>            struct_type
+%type <g_struct_fields>     struct_body
+%type <g_function>          func_dec
+%type <g_block>             block_dec
+%type <g_block>             block_body
+%type <g_function_params>   func_params
+%type <g_function_params>   func_opt_params
+%type <g_type_component>    func_type
+%type <g_statements>        statement
+%type <g_statements>        statements
+%type <g_statement>         return_dec
+%type <g_statement>         break_dec
+%type <g_statement>         continue_dec
+%type <g_statement>         print_dec
+%type <g_statement>         println_dec
+%type <g_if>                if_dec
+%type <g_if>                if_def
+%type <g_statement>         for_dec
+%type <g_statement>         switch_dec
+%type <g_ifs>               else_if_opt
+%type <g_block>             else_opt
+%type <g_for_condition>     for_condition
+%type <g_simple>            simple_statement_dec
+%type <g_simple>            simple_statement
 
 // Define tokens
 %token
@@ -189,9 +245,11 @@ program
  * Global scope delcarations
  **/
 global_decs[root]
-    : global_decs type_dec
+    : global_decs type_dec[types]
         {
-            // FIXME
+            for(golite::Type* type : *$types) {
+                $root->push_back(type);
+            }
         }
     | global_decs var_dec[variables]
         {
@@ -235,9 +293,9 @@ identifier_type[root]
         {
             $root = new golite::Slice($root);
         }
-    | struct_type
+    | struct_type[struct]
         {
-            // FIXME
+            $root = $struct;
         }
     | tIDENTIFIER[id]
         {
@@ -266,6 +324,9 @@ array_type[root]
  **/
 slice_type
     : tLEFT_SQUARE tRIGHT_SQUARE
+        {
+            // Do nothing
+        }
     ;
 
 /****************************
@@ -275,31 +336,54 @@ slice_type
 /**
  * Type declaration
  **/
-type_dec
-    : tTYPE type_def tSEMICOLON
-    | tTYPE tLEFT_PAR type_defs tRIGHT_PAR tSEMICOLON
+type_dec[root]
+    : tTYPE type_def[type] tSEMICOLON
+        {
+            $root = new std::vector<golite::Type*>();
+            $root->push_back($type);
+        }
+    | tTYPE tLEFT_PAR type_defs[types] tRIGHT_PAR tSEMICOLON
+        {
+            $root = $types;
+        }
     ;
 
 /**
  * Type definition
  **/
-type_def
-    : tIDENTIFIER identifier_type
+type_def[root]
+    : tIDENTIFIER[id] identifier_type[id_type]
+        {
+            $root = new golite::Type($id, $id_type);
+        }
     ;
 
 /**
  * 'struct' type
  **/
-struct_type
-    : tSTRUCT tLEFT_CURL struct_body tRIGHT_CURL
+struct_type[root]
+    : tSTRUCT tLEFT_CURL struct_body[fields] tRIGHT_CURL
+        {
+            $root = new golite::Struct();
+            $root->setFields(*$fields);
+        }
     ;
 
 /**
  * 'struct' body
  **/
-struct_body
-    : struct_body identifiers identifier_type tSEMICOLON
+struct_body[root]
+    : struct_body identifiers[ids] identifier_type[id_type] tSEMICOLON
+        {
+            golite::StructField* struct_field = new golite::StructField();
+            struct_field->setIdentifiers(*$ids);
+            struct_field->setTypeComponent($id_type);
+            $root->push_back(struct_field);
+        }
     | %empty
+        {
+            $root = new std::vector<golite::StructField*>();
+        }
     ;
 
 /****************************
@@ -309,32 +393,63 @@ struct_body
 /**
  * Function declaration
  **/
-func_dec
-    : tFUNC tIDENTIFIER func_opt_params func_type block_body tSEMICOLON
+func_dec[root]
+    : tFUNC tIDENTIFIER[id] func_opt_params[params] func_type[id_type] block_body[block] tSEMICOLON
+        {
+            $root = new golite::Function($id);
+            $root->setParams(*$params);
+            $root->setBlock($block);
+            $root->setTypeComponent($id_type);
+        }
     ;
 
 /**
  * Function optional parameters
  **/
-func_opt_params
-    : tLEFT_PAR func_params tRIGHT_PAR
+func_opt_params[root]
+    : tLEFT_PAR func_params[params] tRIGHT_PAR
+        {
+            $root = $params;
+        }
     | tLEFT_PAR tRIGHT_PAR
+        {
+            $root = nullptr;
+        }
     ;
 
 /**
  * Function parameters
  **/
-func_params
-    : func_params tCOMMA identifiers identifier_type
-    | identifiers identifier_type
+func_params[root]
+    : func_params tCOMMA identifiers[ids] identifier_type[id_type]
+        {
+            golite::FunctionParam* function_param = new golite::FunctionParam();
+            function_param->setIdentifiers(*$ids);
+            function_param->setTypeComponent($id_type);
+            $root->push_back(function_param);
+        }
+    | identifiers[ids] identifier_type[id_type]
+        {
+            golite::FunctionParam* function_param = new golite::FunctionParam();
+            function_param->setIdentifiers(*$ids);
+            function_param->setTypeComponent($id_type);
+            $root = new std::vector<golite::FunctionParam*>();
+            $root->push_back(function_param);
+        }
     ;
 
 /**
  * Function type
  **/
-func_type
-    : identifier_type
+func_type[root]
+    : identifier_type[id_type]
+        {
+            $root = $id_type;
+        }
     | %empty
+        {
+            $root = nullptr;
+        }
     ;
 
 /****************************
@@ -352,10 +467,7 @@ var_dec[root]
         }
     | tVAR tLEFT_PAR var_defs[variables] tRIGHT_PAR tSEMICOLON
         {
-            $root = new std::vector<golite::Variable*>();
-            for(golite::Variable* variable : *$variables) {
-                $root->push_back(variable);
-            }
+            $root = $variables;
         }
     ;
 
@@ -401,32 +513,60 @@ var_opt_expressions[root]
 /**
  * 'if' statement declaration
  **/
-if_dec
-    : if_def else_if_opt else_opt tSEMICOLON
+if_dec[root]
+    : if_def[if] else_if_opt[else_if] else_opt[else] tSEMICOLON
+        {
+            $if->setElseIf(*$else_if);
+            $if->setElse($else);
+            $root = $if;
+        }
     ;
 
 /**
  * 'if' statement definition
  **/
-if_def
-    : tIF simple_statement tSEMICOLON expression block_body
-    | tIF expression block_body
+if_def[root]
+    : tIF simple_statement[simple] tSEMICOLON expression[expr] block_body[block]
+        {
+            $root = new golite::If();
+            $root->setExpression($expr);
+            $root->setBlock($block);
+            // FIXME simple
+        }
+    | tIF expression[expr] block_body[block]
+        {
+            $root = new golite::If();
+            $root->setExpression($expr);
+            $root->setBlock($block);
+        }
     ;
 
 /**
  * Optional 'else if' statement
  **/
-else_if_opt
-    : else_if_opt tELSE if_def
+else_if_opt[root]
+    : else_if_opt tELSE if_def[if]
+        {
+            $root->push_back($if);
+        }
     | %empty
+        {
+            $root = new std::vector<golite::If*>();
+        }
     ;
 
 /**
  * Optional 'else' statement
  **/
-else_opt
-    : tELSE block_body
+else_opt[root]
+    : tELSE block_body[block]
+        {
+            $root = $block;
+        }
     | %empty
+        {
+            $root = nullptr;
+        }
     ;
 
 /****************************
@@ -436,17 +576,40 @@ else_opt
 /**
  * For declaration
  **/
-for_dec
-    : tFOR for_condition block_body tSEMICOLON
+for_dec[root]
+    : tFOR for_condition[condition] block_body[block] tSEMICOLON
+        {
+            golite::For* for_statement = new golite::For();
+            for_statement->setBlock($block);
+            for_statement->setLeftSimple($condition.left);
+            for_statement->setRightSimple($condition.right);
+            for_statement->setExpression($condition.expression);
+            $root = for_statement;
+        }
     ;
 
 /**
  * For condition forms
  **/
-for_condition
-    : expression
-    | simple_statement tSEMICOLON expression tSEMICOLON simple_statement
+for_condition[root]
+    : expression[expr]
+        {
+            $root.left = nullptr;
+            $root.right = nullptr;
+            $root.expression = $expr;
+        }
+    | simple_statement[left] tSEMICOLON expression[expr] tSEMICOLON simple_statement[right]
+        {
+            $root.left = $left;
+            $root.right = $right;
+            $root.expression = $expr;
+        }
     | %empty
+        {
+            $root.left = nullptr;
+            $root.right = nullptr;
+            $root.expression = nullptr;
+        }
     ;
 
 /****************************
@@ -464,16 +627,8 @@ switch_dec
  * Switch definition
  **/
 switch_def
-    : tSWITCH simple_statement tSEMICOLON switch_expression 
-    | tSWITCH switch_expression 
-    ;
-
-/**
- * Switch optional expression
- **/
-switch_expression
-    : expression
-    | %empty
+    : tSWITCH simple_statement tSEMICOLON expression_opt
+    | tSWITCH expression_opt
     ;
 
 /**
@@ -499,8 +654,12 @@ block_dec
 /**
  * Block statement body
  **/
-block_body
-    : tLEFT_CURL statements tRIGHT_CURL
+block_body[root]
+    : tLEFT_CURL statements[stmts] tRIGHT_CURL
+        {
+            $root = new golite::Block();
+            $root->setStatements(*$stmts);
+        }
     ;
 
 /****************************
@@ -510,54 +669,125 @@ block_body
 /** 
  * Complex Statement declaration
  **/
-statement
-    : var_dec
-    | type_dec
-    | simple_statement_dec
-    | return_dec
-    | break_dec
-    | continue_dec
-    | block_dec
+statement[root]
+    : var_dec[variables]
+        {
+            $root = new std::vector<golite::Statement*>();
+            for(golite::Variable* variable : *$variables) {
+                $root->push_back(variable);
+            }
+        }
+    | type_dec[types]
+        {
+            $root = new std::vector<golite::Statement*>();
+            for(golite::Type* type : *$types) {
+                $root->push_back(type);
+            }
+        }
+    | simple_statement_dec[simple]
+        {
+            $root = new std::vector<golite::Statement*>(1);
+            $root->push_back($simple);
+        }
+    | return_dec[return]
+        {
+            $root = new std::vector<golite::Statement*>(1);
+            $root->push_back($return);
+        }
+    | break_dec[break]
+        {
+            $root = new std::vector<golite::Statement*>(1);
+            $root->push_back($break);
+        }
+    | continue_dec[continue]
+        {
+            $root = new std::vector<golite::Statement*>(1);
+            $root->push_back($continue);
+        }
+    | block_dec[block]
+        {
+            $root = new std::vector<golite::Statement*>(1);
+            $root->push_back($block);
+        }
     | if_dec
+        {
+            $root = new std::vector<golite::Statement*>(1);
+            $root->push_back($if_dec);
+        }
     | for_dec
-    | print_dec
-    | println_dec
+        {
+            $root = new std::vector<golite::Statement*>(1);
+            $root->push_back($for_dec);
+        }
+    | print_dec[print]
+        {
+            $root = new std::vector<golite::Statement*>(1);
+            $root->push_back($print);
+        }
+    | println_dec[println]
+        {
+            $root = new std::vector<golite::Statement*>(1);
+            $root->push_back($println);
+        }
     | switch_dec
+        {
+            $root = new std::vector<golite::Statement*>(1);
+            $root->push_back($switch_dec);
+        }
     ;
 
 /**
  * Simple statement declaration
  **/
- simple_statement_dec
-    : simple_statement tSEMICOLON
+ simple_statement_dec[root]
+    : simple_statement[simple] tSEMICOLON
+        {
+            $root = $simple;
+        }
     ;
 
 /**
  * Print statement
  **/
-print_dec
-    : tPRINT tLEFT_PAR expressions_opt tRIGHT_PAR tSEMICOLON
+print_dec[root]
+    : tPRINT tLEFT_PAR expressions_opt[exprs] tRIGHT_PAR tSEMICOLON
+        {
+            golite::Print* print_statement = new golite::Print();
+            print_statement->setExpressions(*$exprs);
+            $root = print_statement;
+        }
     ;
 
 /**
  * Println statement
  **/
-println_dec
-    : tPRINTLN tLEFT_PAR expressions_opt tRIGHT_PAR tSEMICOLON
+println_dec[root]
+    : tPRINTLN tLEFT_PAR expressions_opt[exprs] tRIGHT_PAR tSEMICOLON
+        {
+            golite::Println* println_statement = new golite::Println();
+            println_statement->setExpressions(*$exprs);
+            $root = println_statement;
+        }
     ;
 
 /**
  * Break statement
  **/
-break_dec
+break_dec[root]
     : tBREAK tSEMICOLON
+        {
+            $root = new golite::Break();
+        }
     ;
 
 /**
  * Continue statement
  **/
-continue_dec
+continue_dec[root]
     : tCONTINUE tSEMICOLON
+        {
+            $root = new golite::Continue();
+        }
     ;
 
 /**
@@ -575,16 +805,13 @@ simple_statement
 /**
  * Return statement
  **/
-return_dec
-    : tRETURN return_val tSEMICOLON
-    ;
-
-/**
- * Return statement option value
- **/
-return_val
-    : expression
-    | %empty
+return_dec[root]
+    : tRETURN expression_opt[expr] tSEMICOLON
+        {
+            golite::Return* return_statement = new golite::Return();
+            return_statement->setExpression($expr);
+            $root = return_statement;
+        }
     ;
 
 /****************************
@@ -721,25 +948,11 @@ unary_expression[root]
  * Function call
  **/
 func_call[root]
-    : tLEFT_PAR func_args[args] tRIGHT_PAR
+    : tLEFT_PAR expressions_opt[exprs] tRIGHT_PAR
         {
             golite::FunctionCall* function_call = new golite::FunctionCall();
-            function_call->setArgs(*$args);
+            function_call->setArgs(*$exprs);
             $root = function_call;
-        }
-    ;
-
-/**
- * Function call arguments
- **/
-func_args[root]
-    : expressions[exprs]
-        {
-            $root = $exprs;
-        }
-    | %empty
-        {
-            $root = nullptr;
         }
     ;
 
@@ -866,6 +1079,20 @@ expressions[root]
     ;
 
 /**
+ * Option expression
+ **/
+expression_opt[root]
+    : expression[expr]
+        {
+            $root = $expr;
+        }
+    | %empty
+        {
+            $root = nullptr;
+        }
+    ;
+
+/**
  * Zero or more expressions
  **/
 expressions_opt[root]
@@ -882,9 +1109,15 @@ expressions_opt[root]
 /**
  * Zero or more statements
  **/
-statements
-    : statements statement
+statements[root]
+    : statements statement[stmt]
+        {
+            $root->insert($root->end(), $stmt->begin(), $stmt->end());
+        }
     | %empty
+        {
+            $root = new std::vector<golite::Statement*>();
+        }
     ;
 
 /**
@@ -904,7 +1137,13 @@ var_defs[root]
 /**
  * Optinal type definitions
  */
-type_defs
-    : type_defs type_def tSEMICOLON
+type_defs[root]
+    : type_defs type_def[type] tSEMICOLON
+        {
+            $root->push_back($type);
+        }
     | %empty
+        {
+            $root = new std::vector<golite::Type*>();
+        }
     ;

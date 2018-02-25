@@ -5,7 +5,15 @@
 
 namespace golite {
     class Println : public Statement {
+    private:
+        std::vector<golite::Expression*> expressions_;
+    public:
 
+        /**
+         * Set expressions
+         * @param expressions
+         */
+        void setExpressions(std::vector<golite::Expression*> expressions) { expressions_ = expressions; }
     };
 }
 

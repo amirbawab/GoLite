@@ -6,19 +6,13 @@
 #include <golite/expression.h>
 
 namespace golite {
-    class ForStatement : public Statement {
+    class For : public Statement {
     private:
-        Block block_;
-        Simple* left_simple_;
-        Simple* right_simple_;
-        Expression* expression_;
+        Block* block_ = nullptr;
+        Simple* left_simple_ = nullptr;
+        Simple* right_simple_ = nullptr;
+        Expression* expression_ = nullptr;
     public:
-
-        /**
-         * Get block
-         * @return block reference
-         */
-        Block& getBlock() { return block_; }
 
         /**
          * Set left simple
@@ -39,22 +33,10 @@ namespace golite {
         void setExpression(Expression* expression) { expression_ = expression; }
 
         /**
-         * Get expression
-         * @return expression
+         * Set block
+         * @param block
          */
-        Expression* getExpression() { return expression_; }
-
-        /**
-         * Get left simple
-         * @return left simple
-         */
-        Simple* getLeftSimple() { return left_simple_; }
-
-        /**
-         * Get right simple
-         * @return right simple
-         */
-        Simple* getRightSimple() {return right_simple_; }
+        void setBlock(Block* block) { block_ = block; }
     };
 }
 

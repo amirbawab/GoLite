@@ -12,10 +12,10 @@ namespace golite {
     public:
 
         /**
-         * Get fields
-         * @return fields
+         * Set fields
+         * @param fields
          */
-        std::vector<StructField*> getFields() { return fields_; }
+        void setFields(std::vector<StructField*> fields) { fields_ = fields; }
     };
 }
 

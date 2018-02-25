@@ -6,14 +6,8 @@
 namespace golite {
     class Return : public Statement {
     private:
-        Expression* expression_;
+        Expression* expression_ = nullptr;
     public:
-
-        /**
-         * Get expression
-         * @return expression
-         */
-        Expression* getExpression() { return expression_; }
 
         /**
          * Set expression
