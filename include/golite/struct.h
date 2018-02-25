@@ -16,6 +16,11 @@ namespace golite {
          * @param fields
          */
         void setFields(std::vector<StructField*> fields) { fields_ = fields; }
+
+        /**
+         * @see TypeComponent::toGoLite(int)
+         */
+        std::string toGoLite(int indent);
     };
 }
 

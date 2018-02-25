@@ -17,6 +17,11 @@ namespace golite {
          * @return size
          */
         golite::Literal<int>* getSize() const { return size_; }
+
+        /**
+         * @see TypeComponent
+         */
+        std::string toGoLite(int indent);
     };
 }
 

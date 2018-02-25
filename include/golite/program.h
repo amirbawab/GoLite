@@ -45,6 +45,12 @@ namespace golite {
          * @param declarables
          */
         void setDeclarables(std::vector<Declarable*> declarables) { declarables_ = declarables; }
+
+        /**
+         * Convert to golite
+         * @return golite code
+         */
+        std::string toGoLite();
     };
 }
 

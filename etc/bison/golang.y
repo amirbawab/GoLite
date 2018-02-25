@@ -422,7 +422,7 @@ func_opt_params[root]
         }
     | tLEFT_PAR tRIGHT_PAR
         {
-            $root = nullptr;
+            $root = new std::vector<golite::FunctionParam*>(0);
         }
     ;
 
@@ -489,9 +489,7 @@ var_def[root]
             $root = new golite::Variable();
             $root->setIdentifiers(*$ids);
             $root->setTypeComponent($id_type);
-            if($exprs){
-                $root->setExpressions(*$exprs);
-            }
+            $root->setExpressions(*$exprs);
         }
     | identifiers[ids] tEQUAL expressions[exprs]
         {
@@ -511,7 +509,7 @@ var_opt_expressions[root]
         }
     | %empty
         {
-            $root = nullptr;
+            $root = new std::vector<golite::Expression*>(0);
         }
     ;
 
@@ -1184,7 +1182,7 @@ expressions_opt[root]
         }
     | %empty
         {
-            $root = nullptr;
+            $root = new std::vector<golite::Expression*>(0);
         }
     ;
 

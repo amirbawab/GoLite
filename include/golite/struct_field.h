@@ -1,6 +1,7 @@
 #ifndef GOLITE_STRUCT_FIELD_H
 #define GOLITE_STRUCT_FIELD_H
 
+#include <string>
 #include <vector>
 #include <golite/type_component.h>
 #include <golite/identifier.h>
@@ -23,6 +24,13 @@ namespace golite {
          * @param type_component
          */
         void setTypeComponent(golite::TypeComponent* type_component) { type_component_ = type_component; }
+
+        /**
+         * Conver to GoLite
+         * @param indent
+         * @return golite code
+         */
+        std::string toGoLite(int indent);
     };
 }
 

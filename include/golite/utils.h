@@ -1,5 +1,9 @@
 #ifndef GOLITE_UTILS_H
 #define GOLITE_UTILS_H
+
+#include <sstream>
+#include <vector>
+
 namespace golite {
 
     /**
@@ -27,6 +31,13 @@ namespace golite {
          * @param val
          */
         static void log_token(const char* lex, const char* val = nullptr);
+
+        /**
+         * Create indentation
+         * @param val
+         * @return spaces
+         */
+        static std::string indent(int val);
     };
 }
 

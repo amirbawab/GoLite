@@ -1,5 +1,6 @@
 #include <iostream>
 #include <golite/utils.h>
+#include <sstream>
 
 extern bool tokens_flag;
 
@@ -16,4 +17,12 @@ void golite::Utils::log_token(const char *lex, const char *val) {
             std::cout << lex << std::endl;
         }
     }
+}
+
+std::string golite::Utils::indent(int val) {
+    std::stringstream indent;
+    for (size_t i = 0; i < val; i++) {
+        indent << std::string(4, ' ');
+    }
+    return indent.str();
 }

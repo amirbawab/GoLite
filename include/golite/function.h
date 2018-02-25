@@ -42,6 +42,11 @@ namespace golite {
          * @param type_component
          */
         void setTypeComponent(golite::TypeComponent* type_component) { type_component_ = type_component; }
+
+        /**
+         * @see Declarable::toGoLite(int)
+         */
+        std::string toGoLite(int indent);
     };
 }
 

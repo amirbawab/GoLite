@@ -34,6 +34,11 @@ namespace golite {
          * @return identifier
          */
         Identifier* getIdentifier() const { return identifier_;}
+
+        /**
+         * @see TypeComponent::toGoLite(int)
+         */
+        std::string toGoLite(int indent);
     };
 }
 
