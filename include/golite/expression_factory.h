@@ -23,15 +23,14 @@ namespace golite {
         static Binary* createBBitClear(Expression* lhs, Expression* rhs);
         static Binary* createBLeftShift(Expression* lhs, Expression* rhs);
         static Binary* createBRightShift(Expression* lhs, Expression* rhs);
-        static Binary* createBIsEquals(Expression* lhs, Expression* rhs);
-        static Binary* createBIsNotEquals(Expression* lhs, Expression* rhs);
+        static Binary* createBIsEqual(Expression* lhs, Expression* rhs);
+        static Binary* createBIsNotEqual(Expression* lhs, Expression* rhs);
         static Binary* createBLessThan(Expression* lhs, Expression* rhs);
         static Binary* createBLessEqualThan(Expression* lhs, Expression* rhs);
         static Binary* createBGreaterThan(Expression* lhs, Expression* rhs);
         static Binary* createBGreaterEqualThan(Expression* lhs, Expression* rhs);
         static Binary* createBAnd(Expression* lhs, Expression* rhs);
         static Binary* createBOr(Expression* lhs, Expression* rhs);
-        static Binary* createBDot(Expression* lhs, Expression* rhs);
 
         static Unary* createUMinus(Expression* operand);
         static Unary* createUPlus(Expression* operand);

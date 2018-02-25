@@ -23,6 +23,8 @@ extern "C" int yylineno;
     #include <golite/literal.h>
     #include <golite/index.h>
     #include <golite/function_call.h>
+    #include <golite/expression_factory.h>
+    #include <golite/append.h>
 }
 
 %union {
@@ -35,6 +37,11 @@ extern "C" int yylineno;
     golite::Expression*                 g_expression;
     std::vector<golite::Expression*>*   g_expressions;
     golite::Primary*                    g_primary;
+    golite::Literal<int>*               g_literal_int;
+    golite::Literal<char*>*             g_literal_string;
+    golite::Literal<float>*             g_literal_float;
+    golite::Literal<char>*              g_literal_rune;
+    golite::Literal<bool>*              g_literal_bool;
 }
 
 %type <g_identifiers>       identifiers
@@ -52,6 +59,9 @@ extern "C" int yylineno;
 %type <g_primary>           func_call
 %type <g_expressions>       func_args
 %type <g_expressions>       expressions_opt
+%type <g_expression>        binary_expression
+%type <g_expression>        unary_expression
+%type <g_literal_int>       array_type
 
 // Define tokens
 %token
@@ -133,11 +143,11 @@ extern "C" int yylineno;
     tSEMICOLON              ";"
     tCOLON                  ":"
 
-    <g_primary>             tFLOAT                  "float"
-    <g_primary>             tINT                    "integer"
-    <g_primary>             tBOOL                   "bool"
-    <g_primary>             tSTRING                 "string"
-    <g_primary>             tRUNE                   "rune"
+    <g_literal_float>       tFLOAT                  "float"
+    <g_literal_int>         tINT                    "integer"
+    <g_literal_bool>        tBOOL                   "bool"
+    <g_literal_string>      tSTRING                 "string"
+    <g_literal_rune>        tRUNE                   "rune"
     <g_identifier>          tIDENTIFIER             "identifier"
 
     tNEWLINE                "new line"
@@ -180,6 +190,9 @@ program
  **/
 global_decs[root]
     : global_decs type_dec
+        {
+            // FIXME
+        }
     | global_decs var_dec[variables]
         {
             for(golite::Variable* variable : *$variables) {
@@ -187,6 +200,9 @@ global_decs[root]
             }
         }
     | global_decs func_dec
+        {
+            // FIXME
+        }
     | %empty
         {
             $root = new std::vector<golite::Declarable*>();
@@ -211,9 +227,9 @@ package_dec
  * Type for identifiers
  **/
 identifier_type[root]
-    : array_type identifier_type
+    : array_type[size] identifier_type
         {
-            $root = new golite::Array($root);
+            $root = new golite::Array($root, $size);
         }
     | slice_type identifier_type
         {
@@ -238,8 +254,11 @@ identifier_type[root]
 /**
  * Array type
  **/
-array_type
-    : tLEFT_SQUARE tINT tRIGHT_SQUARE
+array_type[root]
+    : tLEFT_SQUARE tINT[size] tRIGHT_SQUARE
+        {
+            $root = $size;
+        }
     ;
 
 /**
@@ -576,45 +595,126 @@ return_val
  * All kinds of expressions
  **/
 expression[root]
-    : binary_expression
-    | unary_expression
-    | primary_expression
-    | tAPPEND tLEFT_PAR expression tCOMMA expression tRIGHT_PAR
+    : binary_expression[binary]
+        {
+            $root = $binary;
+        }
+    | unary_expression[unary]
+        {
+            $root = $unary;
+        }
+    | primary_expression[primary]
+        {
+            $root = $primary;
+        }
+    | tAPPEND tLEFT_PAR expression[left] tCOMMA expression[right] tRIGHT_PAR
+        {
+            $root = new golite::Append($left, $right);
+        }
     ;
 
 /**
  * All the binary expressions
  **/
-binary_expression
-    : expression tPLUS expression
-    | expression tMINUS expression
-    | expression tMULTIPLY expression
-    | expression tDIVIDE expression
-    | expression tMODULO expression
-    | expression tBIT_AND expression
-    | expression tBIT_OR expression
-    | expression tBIT_XOR expression
-    | expression tBIT_CLEAR expression
-    | expression tLEFT_SHIFT expression
-    | expression tRIGHT_SHIFT expression
-    | expression tIS_EQUAL expression
-    | expression tIS_NOT_EQUAL expression
-    | expression tLESS_THAN expression
-    | expression tGREATER_THAN expression
-    | expression tLESS_THAN_EQUAL expression
-    | expression tGREATER_THAN_EQUAL expression
-    | expression tAND expression
-    | expression tOR expression
+binary_expression[root]
+    : expression[left] tPLUS expression[right]
+        {
+            $root = golite::ExpressionFactory::createBPlus($left, $right);
+        }
+    | expression[left] tMINUS expression[right]
+        {
+            $root = golite::ExpressionFactory::createBMinus($left, $right);
+        }
+    | expression[left] tMULTIPLY expression[right]
+        {
+            $root = golite::ExpressionFactory::createBMultiply($left, $right);
+        }
+    | expression[left] tDIVIDE expression[right]
+        {
+            $root = golite::ExpressionFactory::createBDivide($left, $right);
+        }
+    | expression[left] tMODULO expression[right]
+        {
+            $root = golite::ExpressionFactory::createBModulo($left, $right);
+        }
+    | expression[left] tBIT_AND expression[right]
+        {
+            $root = golite::ExpressionFactory::createBBitAND($left, $right);
+        }
+    | expression[left] tBIT_OR expression[right]
+        {
+            $root = golite::ExpressionFactory::createBBitOR($left, $right);
+        }
+    | expression[left] tBIT_XOR expression[right]
+        {
+            $root = golite::ExpressionFactory::createBBitXOR($left, $right);
+        }
+    | expression[left] tBIT_CLEAR expression[right]
+        {
+            $root = golite::ExpressionFactory::createBBitClear($left, $right);
+        }
+    | expression[left] tLEFT_SHIFT expression[right]
+        {
+            $root = golite::ExpressionFactory::createBLeftShift($left, $right);
+        }
+    | expression[left] tRIGHT_SHIFT expression[right]
+        {
+            $root = golite::ExpressionFactory::createBRightShift($left, $right);
+        }
+    | expression[left] tIS_EQUAL expression[right]
+        {
+            $root = golite::ExpressionFactory::createBIsEqual($left, $right);
+        }
+    | expression[left] tIS_NOT_EQUAL expression[right]
+        {
+            $root = golite::ExpressionFactory::createBIsNotEqual($left, $right);
+        }
+    | expression[left] tLESS_THAN expression[right]
+        {
+            $root = golite::ExpressionFactory::createBLessThan($left, $right);
+        }
+    | expression[left] tGREATER_THAN expression[right]
+        {
+            $root = golite::ExpressionFactory::createBGreaterThan($left, $right);
+        }
+    | expression[left] tLESS_THAN_EQUAL expression[right]
+        {
+            $root = golite::ExpressionFactory::createBLessEqualThan($left, $right);
+        }
+    | expression[left] tGREATER_THAN_EQUAL expression[right]
+        {
+            $root = golite::ExpressionFactory::createBGreaterEqualThan($left, $right);
+        }
+    | expression[left] tAND expression[right]
+        {
+            $root = golite::ExpressionFactory::createBAnd($left, $right);
+        }
+    | expression[left] tOR expression[right]
+        {
+            $root = golite::ExpressionFactory::createBOr($left, $right);
+        }
     ;
 
 /**
  * All the unary expressions
  **/
-unary_expression
-    : tMINUS expression %prec pNEG
-    | tPLUS expression %prec pPOS
-    | tNOT expression %prec pNOT
-    | tBIT_XOR expression %prec pXOR
+unary_expression[root]
+    : tMINUS expression[operand]
+        {
+            $root = golite::ExpressionFactory::createUMinus($operand);
+        }
+    | tPLUS expression[operand]
+        {
+            $root = golite::ExpressionFactory::createUPlus($operand);
+        }
+    | tNOT expression[operand]
+        {
+            $root = golite::ExpressionFactory::createUNot($operand);
+        }
+    | tBIT_XOR expression[operand]
+        {
+            $root = golite::ExpressionFactory::createUBitXOR($operand);
+        }
     ;
 
 /**
@@ -656,7 +756,7 @@ primary_expression[root]
         {
             $root->addChild($i);
         }
-    | primary_expression func_call[call] %prec pCALL
+    | primary_expression func_call[call]
         {
             $root->addChild($call);
         }
@@ -706,7 +806,7 @@ selector[root]
  * Array indices
  **/
 index[root]
-    : tLEFT_SQUARE expression[expr] tRIGHT_SQUARE %prec pINDEX
+    : tLEFT_SQUARE expression[expr] tRIGHT_SQUARE
         {
             $root = new golite::Index($expr);
         }

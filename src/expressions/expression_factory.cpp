@@ -1,95 +1,93 @@
 #include <golite/expression_factory.h>
 
-using namespace golite;
-
-Binary* ExpressionFactory::createBPlus(Expression* lhs, Expression* rhs) {
-    return new Binary(lhs, rhs, Binary::KIND::PLUS);
+golite::Binary* golite::ExpressionFactory::createBPlus(golite::Expression* lhs, golite::Expression* rhs) {
+    return new golite::Binary(lhs, rhs, golite::Binary::KIND::PLUS);
 }
 
-Binary* ExpressionFactory::createBMinus(Expression *lhs, Expression *rhs) {
-    return new Binary(lhs, rhs, Binary::KIND::MINUS);
+golite::Binary* golite::ExpressionFactory::createBMinus(Expression *lhs, Expression *rhs) {
+    return new golite::Binary(lhs, rhs, golite::Binary::KIND::MINUS);
 }
 
-Binary* ExpressionFactory::createBMultiply(Expression *lhs, Expression *rhs) {
-    return new Binary(lhs, rhs, Binary::KIND::MULTIPLY);
+golite::Binary* golite::ExpressionFactory::createBMultiply(Expression *lhs, Expression *rhs) {
+    return new golite::Binary(lhs, rhs, golite::Binary::KIND::MULTIPLY);
 }
 
-Binary* ExpressionFactory::createBDivide(Expression *lhs, Expression *rhs) {
-    return new Binary(lhs, rhs, Binary::KIND::DIVIDE);
+golite::Binary* golite::ExpressionFactory::createBDivide(Expression *lhs, Expression *rhs) {
+    return new golite::Binary(lhs, rhs, golite::Binary::KIND::DIVIDE);
 }
 
-Binary* ExpressionFactory::createBModulo(Expression *lhs, Expression *rhs) {
-    return new Binary(lhs, rhs, Binary::KIND::MODULO);
+golite::Binary* golite::ExpressionFactory::createBModulo(Expression *lhs, Expression *rhs) {
+    return new golite::Binary(lhs, rhs, golite::Binary::KIND::MODULO);
 }
 
-Binary *ExpressionFactory::createBBitAND(Expression *lhs, Expression *rhs) {
-    return new Binary(lhs, rhs, Binary::KIND::BIT_AND);
+golite::Binary* golite::ExpressionFactory::createBBitAND(golite::Expression* lhs, golite::Expression* rhs) {
+    return new golite::Binary(lhs, rhs, golite::Binary::KIND::BIT_AND);
 }
 
-Binary *ExpressionFactory::createBBitOR(Expression *lhs, Expression *rhs) {
-    return new Binary(lhs, rhs, Binary::KIND::BIT_OR);
+golite::Binary* golite::ExpressionFactory::createBBitOR(golite::Expression* lhs, golite::Expression* rhs) {
+    return new golite::Binary(lhs, rhs, golite::Binary::KIND::BIT_OR);
 }
 
-Binary *ExpressionFactory::createBBitXOR(Expression *lhs, Expression *rhs) {
-    return new Binary(lhs, rhs, Binary::KIND::BIT_XOR);
+golite::Binary* golite::ExpressionFactory::createBBitXOR(golite::Expression *lhs, golite::Expression *rhs) {
+    return new golite::Binary(lhs, rhs, golite::Binary::KIND::BIT_XOR);
 }
 
-Binary *ExpressionFactory::createBBitClear(Expression *lhs, Expression *rhs) {
-    return new Binary(lhs, rhs, Binary::KIND::BIT_CLEAR);
+golite::Binary* golite::ExpressionFactory::createBBitClear(golite::Expression *lhs, golite::Expression *rhs) {
+    return new golite::Binary(lhs, rhs, golite::Binary::KIND::BIT_CLEAR);
 }
 
-Binary* ExpressionFactory::createBLeftShift(Expression* lhs, Expression* rhs) {
-    return new Binary(lhs, rhs, Binary::KIND::LEFT_SHIFT);
+golite::Binary* golite::ExpressionFactory::createBLeftShift(golite::Expression* lhs, golite::Expression* rhs) {
+    return new golite::Binary(lhs, rhs, golite::Binary::KIND::LEFT_SHIFT);
 }
 
-Binary* ExpressionFactory::createBRightShift(Expression* lhs, Expression* rhs) {
-    return new Binary(lhs, rhs, Binary::KIND::RIGHT_SHIFT);
+golite::Binary* golite::ExpressionFactory::createBRightShift(golite::Expression* lhs, golite::Expression* rhs) {
+    return new golite::Binary(lhs, rhs, golite::Binary::KIND::RIGHT_SHIFT);
 }
 
-Binary* ExpressionFactory::createBIsEquals(Expression* lhs, Expression* rhs) {
-    return new Binary(lhs, rhs, Binary::KIND::IS_EQUAL);
+golite::Binary* golite::ExpressionFactory::createBIsEqual(golite::Expression* lhs, golite::Expression* rhs) {
+    return new golite::Binary(lhs, rhs, golite::Binary::KIND::IS_EQUAL);
 }
 
-Binary* ExpressionFactory::createBIsNotEquals(Expression* lhs, Expression* rhs) {
-    return new Binary(lhs, rhs, Binary::KIND::IS_NOT_EQUAL);
+golite::Binary* golite::ExpressionFactory::createBIsNotEqual(golite::Expression* lhs, golite::Expression* rhs) {
+    return new golite::Binary(lhs, rhs, golite::Binary::KIND::IS_NOT_EQUAL);
 }
 
-Binary* ExpressionFactory::createBLessThan(Expression* lhs, Expression* rhs) {
-    return new Binary(lhs, rhs, Binary::KIND::LESS_THAN);
+golite::Binary* golite::ExpressionFactory::createBLessThan(golite::Expression* lhs, golite::Expression* rhs) {
+    return new golite::Binary(lhs, rhs, golite::Binary::KIND::LESS_THAN);
 }
 
-Binary* ExpressionFactory::createBLessEqualThan(Expression* lhs, Expression* rhs) {
-    return new Binary(lhs, rhs, Binary::KIND::LESS_THAN_EQUAL);
+golite::Binary* golite::ExpressionFactory::createBLessEqualThan(golite::Expression* lhs, golite::Expression* rhs) {
+    return new golite::Binary(lhs, rhs, golite::Binary::KIND::LESS_THAN_EQUAL);
 
 }
-Binary* ExpressionFactory::createBGreaterThan(Expression* lhs, Expression* rhs) {
-    return new Binary(lhs, rhs, Binary::KIND::GREATER_THAN);
+golite::Binary* golite::ExpressionFactory::createBGreaterThan(golite::Expression* lhs, golite::Expression* rhs) {
+    return new golite::Binary(lhs, rhs, golite::Binary::KIND::GREATER_THAN);
 }
 
-Binary* ExpressionFactory::createBGreaterEqualThan(Expression* lhs, Expression* rhs) {
-    return new Binary(lhs, rhs, Binary::KIND::GREATER_THAN_EQUAL);
+golite::Binary* golite::ExpressionFactory::createBGreaterEqualThan(golite::Expression* lhs, golite::Expression* rhs) {
+    return new golite::Binary(lhs, rhs, golite::Binary::KIND::GREATER_THAN_EQUAL);
 }
 
-Binary* ExpressionFactory::createBAnd(Expression* lhs, Expression* rhs) {
-    return new Binary(lhs, rhs, Binary::KIND::AND);
+golite::Binary* golite::ExpressionFactory::createBAnd(golite::Expression* lhs, golite::Expression* rhs) {
+    return new golite::Binary(lhs, rhs, golite::Binary::KIND::AND);
 }
 
-Binary* ExpressionFactory::createBOr(Expression* lhs, Expression* rhs) {
-    return new Binary(lhs, rhs, Binary::KIND::OR);
+golite::Binary* golite::ExpressionFactory::createBOr(golite::Expression* lhs, golite::Expression* rhs) {
+    return new golite::Binary(lhs, rhs, golite::Binary::KIND::OR);
 }
 
-Unary* ExpressionFactory::createUMinus(Expression* operand) {
+golite::Unary* golite::ExpressionFactory::createUMinus(golite::Expression* operand) {
     return new Unary(operand, Unary::KIND::MINUS);
 }
 
-Unary* ExpressionFactory::createUPlus(Expression* operand) {
+golite::Unary* golite::ExpressionFactory::createUPlus(golite::Expression* operand) {
     return new Unary(operand, Unary::KIND::PLUS);
 }
 
-Unary* ExpressionFactory::createUNot(Expression* operand) {
+golite::Unary* golite::ExpressionFactory::createUNot(golite::Expression* operand) {
     return new Unary(operand, Unary::KIND::NOT);
 }
 
-Unary* ExpressionFactory::createUBitXOR(Expression* operand) {
+golite::Unary* golite::ExpressionFactory::createUBitXOR(golite::Expression* operand) {
     return new Unary(operand, Unary::KIND::XOR);
 }
