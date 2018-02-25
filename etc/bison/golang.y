@@ -42,6 +42,7 @@ extern "C" int yylineno;
     #include <golite/assignment_factory.h>
     #include <golite/inc_dec.h>
     #include <golite/declaration.h>
+    #include <golite/switch_case.h>
 }
 
 %union {
@@ -75,6 +76,8 @@ extern "C" int yylineno;
         golite::Simple* right;
         golite::Expression* expression;}    g_for_condition;
     golite::Simple*                         g_simple;
+    golite::Switch*                         g_switch;
+    std::vector<golite::SwitchCase*>*       g_switch_cases;
 }
 
 %type <g_identifiers>       identifiers
@@ -116,12 +119,14 @@ extern "C" int yylineno;
 %type <g_if>                if_dec
 %type <g_if>                if_def
 %type <g_statement>         for_dec
-%type <g_statement>         switch_dec
 %type <g_ifs>               else_if_opt
 %type <g_block>             else_opt
 %type <g_for_condition>     for_condition
 %type <g_simple>            simple_statement_dec
 %type <g_simple>            simple_statement
+%type <g_switch>            switch_dec
+%type <g_switch>            switch_def
+%type <g_switch_cases>      switch_cases
 
 // Define tokens
 %token
@@ -261,9 +266,9 @@ global_decs[root]
                 $root->push_back(variable);
             }
         }
-    | global_decs func_dec
+    | global_decs func_dec[function]
         {
-            // FIXME
+            $root->push_back($function);
         }
     | %empty
         {
@@ -623,28 +628,52 @@ for_condition[root]
 /**
  * Swtich declaration
  **/
-switch_dec
-    : switch_def tLEFT_CURL switch_body tRIGHT_CURL tSEMICOLON
+switch_dec[root]
+    : switch_def[switch] tLEFT_CURL switch_cases[body] tRIGHT_CURL tSEMICOLON
         {
-            // FIXME
+            $switch->setCases(*$body);
+            $root = $switch;
         }
     ;
 
 /**
  * Switch definition
  **/
-switch_def
-    : tSWITCH simple_statement tSEMICOLON expression_opt
-    | tSWITCH expression_opt
+switch_def[root]
+    : tSWITCH simple_statement[simple] tSEMICOLON expression_opt[expr]
+        {
+            $root = new golite::Switch();
+            $root->setSimple($simple);
+            $root->setExpression($expr);
+        }
+    | tSWITCH expression_opt[expr]
+        {
+            $root = new golite::Switch();
+            $root->setExpression($expr);
+        }
     ;
 
 /**
  * Switch statement body
  **/
-switch_body
-    : switch_body tCASE expressions tCOLON statements
-    | switch_body tDEFAULT tCOLON statements
+switch_cases[root]
+    : switch_cases tCASE expressions[exprs] tCOLON statements[stmts]
+        {
+            golite::SwitchCase* switch_case = new golite::SwitchCase();
+            switch_case->setExpressions(*$exprs);
+            switch_case->setStatements(*$stmts);
+            $root->push_back(switch_case);
+        }
+    | switch_cases tDEFAULT tCOLON statements[stmts]
+        {
+            golite::SwitchCase* switch_case = new golite::SwitchCase();
+            switch_case->setStatements(*$stmts);
+            $root->push_back(switch_case);
+        }
     | %empty
+        {
+            $root = new std::vector<golite::SwitchCase*>();
+        }
     ;
 
 /****************************

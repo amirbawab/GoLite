@@ -18,6 +18,18 @@ namespace golite {
         bool isDefault() {
             return expressions_.empty();
         }
+
+        /**
+         * Set expressions
+         * @param expressions
+         */
+        void setExpressions(std::vector<Expression*> expressions) { expressions_ = expressions; }
+
+        /**
+         * Set statements
+         * @param statements
+         */
+        void setStatements(std::vector<Statement*> statements) { statements_  = statements; }
     };
 }
 
