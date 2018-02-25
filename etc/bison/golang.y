@@ -39,7 +39,7 @@ extern "C" int yylineno;
     #include <golite/for.h>
     #include <golite/switch.h>
     #include <golite/empty.h>
-    #include <golite/assignment.h>
+    #include <golite/assignment_factory.h>
     #include <golite/inc_dec.h>
     #include <golite/declaration.h>
 }
@@ -816,64 +816,57 @@ simple_statement[root]
         {
             $root = new golite::IncDec($expr, false);
         }
-    | expressions tEQUAL expressions
+    | expressions[left] tEQUAL expressions[right]
         {
-            // FIXME
+            $root = golite::AssignmentFactory::createEqual(*$left, *$right);
         }
-    | expressions tPLUS_EQUAL expressions
+    | expressions[left] tPLUS_EQUAL expressions[right]
         {
-            // FIXME
+            $root = golite::AssignmentFactory::createPlusEqual(*$left, *$right);
         }
-    | expressions tMINUS_EQUAL expressions
+    | expressions[left] tMINUS_EQUAL expressions[right]
         {
-            // FIXME
+            $root = golite::AssignmentFactory::createMinusEqual(*$left, *$right);
         }
-    | expressions tMULTIPLY_EQUAL expressions
+    | expressions[left] tMULTIPLY_EQUAL expressions[right]
         {
-            // FIXME
+            $root = golite::AssignmentFactory::createMultiplyEqual(*$left, *$right);
         }
-    | expressions tDIVIDE_EQUAL expressions
+    | expressions[left] tDIVIDE_EQUAL expressions[right]
         {
-            // FIXME
+            $root = golite::AssignmentFactory::createDivideEqual(*$left, *$right);
         }
-    | expressions tMODULO_EQUAL expressions
+    | expressions[left] tMODULO_EQUAL expressions[right]
         {
-            // FIXME
+            $root = golite::AssignmentFactory::createModuloEqual(*$left, *$right);
         }
-    | expressions tBIT_AND_EQUAL expressions
+    | expressions[left] tBIT_AND_EQUAL expressions[right]
         {
-            // FIXME
+            $root = golite::AssignmentFactory::createBitANDEqual(*$left, *$right);
         }
-    | expressions tBIT_OR_EQUAL expressions
+    | expressions[left] tBIT_OR_EQUAL expressions[right]
         {
-            // FIXME
+            $root = golite::AssignmentFactory::createBitOREqual(*$left, *$right);
         }
-    | expressions tBIT_XOR_EQUAL expressions
+    | expressions[left] tBIT_XOR_EQUAL expressions[right]
         {
-            // FIXME
+            $root = golite::AssignmentFactory::createBitXOREqual(*$left, *$right);
         }
-    | expressions tLEFT_SHIFT_EQUAL expressions
+    | expressions[left] tLEFT_SHIFT_EQUAL expressions[right]
         {
-            // FIXME
+            $root = golite::AssignmentFactory::createLeftShiftEqual(*$left, *$right);
         }
-    | expressions tRIGHT_SHIFT_EQUAL expressions
+    | expressions[left] tRIGHT_SHIFT_EQUAL expressions[right]
         {
-            // FIXME
+            $root = golite::AssignmentFactory::createRightShiftEqual(*$left, *$right);
         }
-    | expressions tBIT_CLEAR_EQUAL expressions
+    | expressions[left] tBIT_CLEAR_EQUAL expressions[right]
         {
-            // FIXME
-        }
-    | expressions tDECLARATION expressions
-        {
-            // FIXME
+            $root = golite::AssignmentFactory::createBitClearEqual(*$left, *$right);
         }
     | identifiers[ids] tDECLARATION expressions[exprs]
         {
-            golite::Declaration* declaration = new golite::Declaration();
-            declaration->setIdentifiers(*$ids);
-            declaration->setExpressions(*$exprs);
-            $root = declaration;
+            $root = new golite::Declaration(*$ids, *$exprs);
         }
     | %empty
         {
