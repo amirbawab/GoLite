@@ -16,6 +16,17 @@ namespace golite {
          * @param statements
          */
         void setStatements(std::vector<Statement*> statements) { statements_ = statements; }
+
+        /**
+         * Get statemetns
+         * @return statements
+         */
+        std::vector<Statement*> getStatements() { return statements_; }
+
+        /**
+         * @see Statement::toGoLite(int)
+         */
+        std::string toGoLite(int indent);
     };
 }
 

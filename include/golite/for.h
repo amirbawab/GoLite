@@ -37,6 +37,11 @@ namespace golite {
          * @param block
          */
         void setBlock(Block* block) { block_ = block; }
+
+        /**
+         * @see  Statement::toGoLite(int)
+         */
+        std::string toGoLite(int indent);
     };
 }
 

@@ -30,6 +30,13 @@ namespace golite {
          * @param statements
          */
         void setStatements(std::vector<Statement*> statements) { statements_  = statements; }
+
+        /**
+         * Conver to GoLite
+         * @param indent
+         * @return golite code
+         */
+        std::string toGoLite(int indent);
     };
 }
 

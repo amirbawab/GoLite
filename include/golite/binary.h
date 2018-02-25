@@ -84,6 +84,11 @@ namespace golite {
          */
         KIND getKind() const { return kind_; }
 
+        /**
+         * @see Statement
+         */
+        std::string toGoLite(int indent);
+
     private:
 
         // expression + ...

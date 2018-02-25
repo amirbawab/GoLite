@@ -16,6 +16,11 @@ namespace golite {
          * @param identifier
          */
         void setIdentifier(Identifier* identifier) { identifier_ = identifier; }
+
+        /**
+         * @see Statement::toGoLite(int)
+         */
+        std::string toGoLite(int indent);
     };
 }
 

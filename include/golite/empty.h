@@ -5,7 +5,12 @@
 
 namespace golite {
     class Empty : public Simple {
+    public:
 
+        /**
+         * @see Statement::toGoLite(int)
+         */
+        std::string toGoLite(int indent);
     };
 }
 

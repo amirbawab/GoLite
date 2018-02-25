@@ -1,8 +1,7 @@
 #ifndef GOLITE_UTILS_H
 #define GOLITE_UTILS_H
 
-#include <sstream>
-#include <vector>
+#include <string>
 
 namespace golite {
 

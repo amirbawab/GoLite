@@ -14,6 +14,11 @@ namespace golite {
          * @param expression
          */
         void setExpression(Expression* expression) { expression_ = expression;}
+
+        /**
+         * @see Statement::toGoLite(int)
+         */
+        std::string toGoLite(int indent);
     };
 }
 

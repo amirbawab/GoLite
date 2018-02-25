@@ -21,6 +21,11 @@ namespace golite {
          * @return expression
          */
         Expression* getExpression() const { return expression_; }
+
+        /**
+         * @see Statement::toGoLite(int)
+         */
+        std::string toGoLite(int indent);
     };
 }
 

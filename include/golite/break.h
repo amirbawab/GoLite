@@ -5,7 +5,11 @@
 
 namespace golite {
     class Break : public Statement {
-
+    public:
+        /**
+         * @see Statement::toGoLite(int)
+         */
+        std::string toGoLite(int indent);
     };
 }
 

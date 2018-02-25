@@ -70,6 +70,11 @@ namespace golite {
          */
         void setKind(KIND kind) { kind_ = kind; }
 
+        /**
+         * @see Statement::toGoLite(int)
+         */
+        std::string toGoLite(int indent);
+
         Assignment(std::vector<Expression*> left, std::vector<Expression*> right, KIND kind) :
                 left_expressions_(left), right_expressions_(right), kind_(kind){}
     private:

@@ -22,6 +22,10 @@ namespace golite {
          */
         Expression* getRightExpression() const { return right_expression_; }
 
+        /**
+         * @see Statement::toGoLite(int)
+         */
+        std::string toGoLite(int indent);
     private:
         Expression* left_expression_;
         Expression* right_expression_;

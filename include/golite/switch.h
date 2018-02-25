@@ -31,6 +31,11 @@ namespace golite {
          * @param cases
          */
         void setCases(std::vector<SwitchCase*> cases) { cases_ = cases; }
+
+        /**
+         * @see Statement::toGoLite(int)
+         */
+        std::string toGoLite(int indent);
     };
 }
 

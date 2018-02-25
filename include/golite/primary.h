@@ -15,6 +15,11 @@ namespace golite {
          * @param child
          */
         void addChild(golite::Expression* child);
+
+        /**
+         * @see Statement::toGoLite(int)
+         */
+        std::string toGoLite(int indent);
     };
 }
 

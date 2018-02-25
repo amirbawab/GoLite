@@ -16,6 +16,11 @@ namespace golite {
          * @param args
          */
         void setArgs(std::vector<Expression*> args) { args_ = args; }
+
+        /**
+         * @see Statement::toGoLite(int)
+         */
+        std::string toGoLite(int indent);
     };
 }
 

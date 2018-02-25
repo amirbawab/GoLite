@@ -22,6 +22,11 @@ namespace golite {
          * @param name
          */
         void setName(std::string name) { name_ = name; }
+
+        /**
+         * @see Statement::toGoLite(int)
+         */
+        std::string toGoLite(int indent);
     };
 }
 

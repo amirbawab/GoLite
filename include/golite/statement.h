@@ -1,6 +1,8 @@
 #ifndef GOLITE_STATEMENTS_STATEMENT_H
 #define GOLITE_STATEMENTS_STATEMENT_H
 
+#include <string>
+
 namespace golite {
 
     /**
@@ -17,7 +19,14 @@ namespace golite {
      * - if
      */
     class Statement {
+    public:
 
+        /**
+         * Convert to GoLite
+         * @param indent
+         * @return golite code
+         */
+        virtual std::string toGoLite(int indent) = 0;
     };
 }
 
