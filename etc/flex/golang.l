@@ -5,16 +5,20 @@
 #include <golite/utils.h>
 #include <bison/golang_bison.h>
 #include <golite/literal.h>
+#include <sstream>
 
 #define YY_DECL extern "C" int yylex()
 
 // Function prototype
 int fToken(int token);
+std::stringstream ss;
 %}
 
 %option yylineno
 
 %x C_COMMENT
+%x C_STRING
+%x C_STRING_ESC
 
 %%
 chan            { golite::Utils::log_token("tCHAN"); return fToken(tCHAN); }
@@ -142,7 +146,7 @@ append          { golite::Utils::log_token("tAPPEND"); return fToken(tAPPEND); }
 '((\\[abfnrtv\\\'])|[^\\'])' {
     // Rune/Character
     golite::Utils::log_token("tRUNE", yytext);
-    yylval.g_expression = new golite::Literal<char>(yytext[0], yylineno);
+    yylval.g_expression = new golite::Literal<char*>(strdup(yytext), yylineno);
     return fToken(tRUNE);
 }
 
@@ -153,11 +157,35 @@ append          { golite::Utils::log_token("tAPPEND"); return fToken(tAPPEND); }
     return fToken(tSTRING);
 }
 
-\"(\\[abfnrtv\\\"]|[^\\"])*\" {
-    // String
-    golite::Utils::log_token("tSTRING", yytext);
-    yylval.g_expression = new golite::Literal<char*>(strdup(yytext), yylineno);
+<INITIAL>\" {
+    ss.str("");
+    ss.clear();
+    ss << "\"";
+    BEGIN(C_STRING);
+}
+<C_STRING>[^\\"\n]* { ss << yytext; }
+<C_STRING>\\ { BEGIN(C_STRING_ESC); }
+<C_STRING>\" {
+    ss << "\"";
+    BEGIN(INITIAL);
+    golite::Utils::log_token("tSTRING", ss.str().c_str());
+    yylval.g_expression = new golite::Literal<char*>(strdup(ss.str().c_str()), yylineno);
     return fToken(tSTRING);
+}
+<C_STRING>\n {
+    golite::Utils::error_message("Missing closing string quote", yylineno);
+}
+<C_STRING_ESC>[abfnrtv"\\] {
+    ss << "\\" << yytext;
+    BEGIN(C_STRING);
+}
+<C_STRING_ESC>\n {
+    golite::Utils::error_message("Missing escape character", yylineno);
+}
+<C_STRING_ESC>. {
+    std::stringstream msg;
+    msg << "Unsupported escape character '\\" << yytext << "'";
+    golite::Utils::error_message(msg.str().c_str(), yylineno);
 }
 
 [a-zA-Z_][a-zA-Z0-9_]* {

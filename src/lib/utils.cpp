@@ -5,7 +5,13 @@
 extern bool tokens_flag;
 
 void golite::Utils::support_error(char *lex, int line) {
-    std::cerr << "Error: GoLite does not support '" << lex << "' at line " << line << std::endl;
+    std::stringstream ss;
+    ss << "GoLite does not support '" << lex << "'";
+    error_message(ss.str().c_str(), line);
+}
+
+void golite::Utils::error_message(const char *msg, int line) {
+    std::cerr << "Error: " << msg << " at line " << line << std::endl;
     exit(EXIT_ERROR);
 }
 

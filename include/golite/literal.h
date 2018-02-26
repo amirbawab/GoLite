@@ -55,21 +55,6 @@ namespace golite {
     };
 
     template <>
-    class Literal<char> : public Primary {
-    private:
-        char value_;
-        int line_;
-    public:
-        Literal(char value, int line) : value_(value), line_(line){}
-        std::string toGoLite(int indent) {
-            std::stringstream ss;
-            ss << golite::Utils::indent(indent) << std::to_string(value_);
-            return ss.str();
-        }
-        int getLine() const { return line_; }
-    };
-
-    template <>
     class Literal<float> : public Primary {
     private:
         float value_;

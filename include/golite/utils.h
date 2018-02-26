@@ -25,6 +25,13 @@ namespace golite {
         static void support_error(char* lex, int line);
 
         /**
+         * Custom message
+         * @param msg
+         * @param line
+         */
+        static void error_message(const char* msg, int line);
+
+        /**
          * Log tokens if flag is on
          * @param lex
          * @param val
