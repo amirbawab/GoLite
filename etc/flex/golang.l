@@ -111,6 +111,16 @@ append          { golite::Utils::log_token("tAPPEND"); return fToken(tAPPEND); }
     }
 }
 
+<<EOF>> {
+    static bool add_newline = true;
+    if(add_newline) {
+        add_newline = false;
+        unput('\n');
+    } else {
+        return 0;
+    }
+}
+
 "//".* {
     // Inline comment
 }
