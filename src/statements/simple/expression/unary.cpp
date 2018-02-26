@@ -4,6 +4,7 @@
 
 std::string golite::Unary::toGoLite(int indent) {
     std::stringstream ss;
+    ss << golite::Utils::indent(indent) << "(";
     switch (kind_) {
         case MINUS:
             ss << "-";
@@ -18,6 +19,6 @@ std::string golite::Unary::toGoLite(int indent) {
             ss << "^";
             break;
     }
-    ss << operand_->toGoLite(0);
+    ss << operand_->toGoLite(0) << ")";
     return ss.str();
 }

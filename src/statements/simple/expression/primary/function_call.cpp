@@ -4,7 +4,7 @@
 
 std::string golite::FunctionCall::toGoLite(int indent) {
     std::stringstream ss;
-    ss << golite::Utils::indent(0) << "( ";
+    ss << golite::Utils::indent(indent) << "(";
     for(size_t i = 0; i < args_.size(); i++) {
         if(i != 0) {
             ss << ", ";

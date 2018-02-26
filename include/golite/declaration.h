@@ -7,17 +7,15 @@
 namespace golite {
     class Declaration : public Simple {
     private:
-        std::vector<Identifier*> left_identifiers_;
-        std::vector<Expression*> right_expressions_;
+        std::vector<golite::Expression*> left_identifiers_;
+        std::vector<golite::Expression*> right_expressions_;
     public:
-        Declaration(std::vector<golite::Identifier*> left, std::vector<golite::Expression*> right) :
-            left_identifiers_(left), right_expressions_(right) {}
 
         /**
          * Set identifiers
          * @param identifiers
          */
-        void setIdentifiers(std::vector<Identifier*> identifiers) { left_identifiers_ = identifiers; }
+        void setIdentifiers(std::vector<golite::Expression*> identifiers);
 
         /**
          * Set expresions

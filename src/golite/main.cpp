@@ -124,7 +124,7 @@ int main(int argc, char** argv) {
         do { yyparse(); } while (!feof(yyin));
     } else if(pretty_flag) {
         do { yyparse(); } while (!feof(yyin));
-        std::cout << golite::Program::getInstance()->toGoLite(0) << std::endl;
+        std::cout << golite::Program::getInstance()->toGoLite(1) << std::endl;
     }
 
     return golite::Utils::EXIT_FINE;

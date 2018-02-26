@@ -4,6 +4,6 @@
 
 std::string golite::Selector::toGoLite(int indent) {
     std::stringstream ss;
-    ss << "." << identifier_->toGoLite(0);
+    ss << golite::Utils::indent(indent) << "." << identifier_->toGoLite(0);
     return ss.str();
 }

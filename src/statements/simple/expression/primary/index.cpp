@@ -4,6 +4,6 @@
 
 std::string golite::Index::toGoLite(int indent) {
     std::stringstream ss;
-    ss << "[ " << expression_->toGoLite(0) << " ]";
+    ss << golite::Utils::indent(indent) << "[" << expression_->toGoLite(0) << "]";
     return ss.str();
 }

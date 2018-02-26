@@ -13,7 +13,7 @@ std::string golite::Variable::toGoLite(int indent) {
     }
 
     if(type_component_) {
-        ss << " " << type_component_->toGoLite(0);
+        ss << " " << type_component_->toGoLite(indent);
     }
 
     if(!expressions_.empty()) {

@@ -231,8 +231,6 @@ extern "C" int yylineno;
 %left tPLUS tMINUS tBIT_OR tBIT_XOR
 %left tMULTIPLY tDIVIDE tMODULO tLEFT_SHIFT tRIGHT_SHIFT tBIT_AND tBIT_CLEAR
 %left pNEG pPOS pNOT pXOR
-%left tDOT
-%left pINDEX pCALL
 
 %%
 
@@ -294,13 +292,13 @@ package_dec
  * Type for identifiers
  **/
 identifier_type[root]
-    : array_type[size] identifier_type
+    : array_type[size] identifier_type[p_root]
         {
-            $root = new golite::Array($root, $size);
+            $root = new golite::Array($p_root, $size);
         }
-    | slice_type identifier_type
+    | slice_type identifier_type[p_root]
         {
-            $root = new golite::Slice($root);
+            $root = new golite::Slice($p_root);
         }
     | struct_type[struct]
         {
@@ -891,9 +889,14 @@ simple_statement[root]
         {
             $root = golite::AssignmentFactory::createBitClearEqual(*$left, *$right);
         }
-    | identifiers[ids] tDECLARATION expressions[exprs]
+    | expressions[left] tDECLARATION expressions[right]
         {
-            $root = new golite::Declaration(*$ids, *$exprs);
+            // To resolve reduce/reduce conflict,
+            // declaration takes an expression on the LHS
+            golite::Declaration* declaration = new golite::Declaration();
+            declaration->setIdentifiers(*$left);
+            declaration->setExpressions(*$right);
+            $root = declaration;
         }
     | %empty
         {
@@ -1025,19 +1028,19 @@ binary_expression[root]
  * All the unary expressions
  **/
 unary_expression[root]
-    : tMINUS expression[operand]
+    : tMINUS expression[operand] %prec pNEG
         {
             $root = golite::ExpressionFactory::createUMinus($operand);
         }
-    | tPLUS expression[operand]
+    | tPLUS expression[operand] %prec pPOS
         {
             $root = golite::ExpressionFactory::createUPlus($operand);
         }
-    | tNOT expression[operand]
+    | tNOT expression[operand] %prec pNOT
         {
             $root = golite::ExpressionFactory::createUNot($operand);
         }
-    | tBIT_XOR expression[operand]
+    | tBIT_XOR expression[operand] %prec pXOR
         {
             $root = golite::ExpressionFactory::createUBitXOR($operand);
         }

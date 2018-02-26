@@ -2,5 +2,7 @@
 #include <sstream>
 
 std::string golite::TypeReference::toGoLite(int indent) {
-    return identifier_->toGoLite(indent);
+    std::stringstream ss;
+    ss << identifier_->toGoLite(0);
+    return ss.str();
 }

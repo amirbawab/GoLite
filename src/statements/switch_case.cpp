@@ -6,7 +6,7 @@ std::string golite::SwitchCase::toGoLite(int indent) {
     std::stringstream ss;
     ss << golite::Utils::indent(indent);
     if(isDefault()) {
-        ss << "default: " << std::endl;
+        ss << "default:";
     } else {
         ss << "case ";
         for(size_t i = 0; i < expressions_.size(); i++) {
@@ -15,11 +15,10 @@ std::string golite::SwitchCase::toGoLite(int indent) {
             }
             ss << expressions_[i]->toGoLite(0);
         }
-        ss << ":" << std::endl;
+        ss << ":";
     }
     for(Statement* statement : statements_) {
-        ss << statement->toGoLite(indent+1) << std::endl;
+        ss << std::endl << statement->toGoLite(indent+1);
     }
-    ss << golite::Utils::indent(indent) << "}";
     return ss.str();
 }

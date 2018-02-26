@@ -15,11 +15,15 @@ std::string golite::Function::toGoLite(int indent) {
     }
     ss << ") ";
     if(type_component_) {
-        ss << type_component_->toGoLite(0) << " ";
+        ss << type_component_->toGoLite(indent) << " ";
     }
-    ss << "{" << std::endl;
-    for(Statement* statement : block_->getStatements()) {
-        ss << statement->toGoLite(indent+1) << std::endl;
+    ss << "{";
+    if(!block_->getStatements().empty()) {
+        ss << std::endl;
+        for(Statement* statement : block_->getStatements()) {
+            ss << statement->toGoLite(indent+1) << std::endl;
+        }
+        ss << golite::Utils::indent(indent);
     }
     ss << "}";
     return ss.str();

@@ -9,7 +9,7 @@ std::string golite::Println::toGoLite(int indent) {
         if(i != 0) {
             ss << ", ";
         }
-        ss << expressions_[i]->toGoLite(indent);
+        ss << expressions_[i]->toGoLite(0);
     }
     ss << ");";
     return ss.str();

@@ -4,7 +4,7 @@
 
 std::string golite::Binary::toGoLite(int indent) {
     std::stringstream ss;
-    ss << golite::Utils::indent(indent) << lhs_->toGoLite(0);
+    ss << golite::Utils::indent(indent) << "(" << lhs_->toGoLite(0);
     switch (kind_){
         case MINUS:
             ss << " - ";
@@ -64,6 +64,6 @@ std::string golite::Binary::toGoLite(int indent) {
             ss << " || ";
             break;
     }
-    ss << rhs_->toGoLite(0);
+    ss << rhs_->toGoLite(0) << ")";
     return ss.str();
 }
