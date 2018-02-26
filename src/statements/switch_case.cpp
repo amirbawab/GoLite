@@ -10,7 +10,7 @@ std::string golite::SwitchCase::toGoLite(int indent) {
     } else {
         ss << "case " << golite::Pretty::implodeExpressions(expressions_) << ":";
     }
-    for(Statement* statement : statements_) {
+    for(Statement* statement : block_->getStatements()) {
         ss << std::endl << statement->toGoLite(indent+1);
     }
     return ss.str();

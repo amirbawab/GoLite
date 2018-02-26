@@ -3,12 +3,13 @@
 
 #include <vector>
 #include <golite/expression.h>
+#include <golite/block.h>
 
 namespace golite {
     class SwitchCase {
     private:
         std::vector<Expression*> expressions_;
-        std::vector<Statement*> statements_;
+        Block* block_;
     public:
 
         /**
@@ -26,10 +27,16 @@ namespace golite {
         void setExpressions(std::vector<Expression*> expressions) { expressions_ = expressions; }
 
         /**
-         * Set statements
-         * @param statements
+         * Set block
+         * @param block
          */
-        void setStatements(std::vector<Statement*> statements) { statements_  = statements; }
+        void setBlock(Block* block) { block_ = block; }
+
+        /**
+         * Get block
+         * @return block
+         */
+        Block* getBlock() const { return block_; }
 
         /**
          * Conver to GoLite

@@ -659,15 +659,19 @@ switch_def[root]
 switch_cases[root]
     : switch_cases tCASE expressions[exprs] tCOLON statements[stmts]
         {
+            golite::Block* block = new golite::Block();
+            block->setStatements(*$stmts);
             golite::SwitchCase* switch_case = new golite::SwitchCase();
             switch_case->setExpressions(*$exprs);
-            switch_case->setStatements(*$stmts);
+            switch_case->setBlock(block);
             $root->push_back(switch_case);
         }
     | switch_cases tDEFAULT tCOLON statements[stmts]
         {
+            golite::Block* block = new golite::Block();
+            block->setStatements(*$stmts);
             golite::SwitchCase* switch_case = new golite::SwitchCase();
-            switch_case->setStatements(*$stmts);
+            switch_case->setBlock(block);
             $root->push_back(switch_case);
         }
     | %empty

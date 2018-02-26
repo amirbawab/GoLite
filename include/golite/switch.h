@@ -33,9 +33,20 @@ namespace golite {
         void setCases(std::vector<SwitchCase*> cases) { cases_ = cases; }
 
         /**
+         * Check for bad usage of continue statement
+         * @return true if it does
+         */
+        golite::Continue* badContinue();
+
+        /**
          * @see Statement::toGoLite(int)
          */
         std::string toGoLite(int indent);
+
+        /**
+         * @see Statement::isSwitch()
+         */
+        bool isSwitch() { return true; }
     };
 }
 

@@ -26,3 +26,11 @@ std::string golite::Switch::toGoLite(int indent) {
     ss << "}";
     return ss.str();
 }
+
+golite::Continue* golite::Switch::badContinue() {
+    for(SwitchCase* switch_case : cases_) {
+        Continue* bad = switch_case->getBlock()->badContinue();
+        if(bad) return bad;
+    }
+    return nullptr;
+}

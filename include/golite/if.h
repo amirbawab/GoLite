@@ -51,9 +51,20 @@ namespace golite {
         void setBlock(Block* block) { block_ = block; }
 
         /**
+         * Get block
+         * @return block
+         */
+        Block* getBlock() const { return block_; }
+
+        /**
          * @see Statement::toGoLite(int)
          */
         std::string toGoLite(int indent);
+
+        /**
+         * @see Statement::isIf()
+         */
+        bool isIf() { return true; }
     };
 }
 

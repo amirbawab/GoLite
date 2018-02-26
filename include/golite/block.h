@@ -3,6 +3,8 @@
 
 #include <vector>
 #include <golite/statement.h>
+#include <golite/break.h>
+#include <golite/continue.h>
 
 namespace golite {
     class Block : public Statement {
@@ -27,6 +29,23 @@ namespace golite {
          * @see Statement::toGoLite(int)
          */
         std::string toGoLite(int indent);
+
+        /**
+         * @see Statement::isBlock()
+         */
+        bool isBlock() { return true; }
+
+        /**
+         * Check if recursively if block has a wrong break statement
+         * @return ptr | nullptr
+         */
+        golite::Break* badBreak();
+
+        /**
+         * Check if recursively if block has a wrong continue statement
+         * @return ptr | nullptr
+         */
+        golite::Continue* badContinue();
     };
 }
 

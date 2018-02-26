@@ -42,6 +42,11 @@ namespace golite {
          * @see  Statement::toGoLite(int)
          */
         std::string toGoLite(int indent);
+
+        /**
+         * @see Statement::isFor()
+         */
+        bool isFor() { return true; }
     };
 }
 
