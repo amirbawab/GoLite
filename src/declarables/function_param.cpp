@@ -4,7 +4,7 @@
 
 std::string golite::FunctionParam::toGoLite(int indent) {
     std::stringstream ss;
-    ss << golite::Utils::indent(indent) << golite::Pretty::implodeIdentifiers(identifiers_)
-       << " " << type_component_->toGoLite(0);
+    ss << golite::Pretty::implodeIdentifiers(identifiers_)
+       << " " << type_component_->toGoLite(indent);
     return ss.str();
 }

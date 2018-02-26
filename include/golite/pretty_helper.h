@@ -44,13 +44,13 @@ namespace golite {
          * @param expressions
          * @return string
          */
-        inline static std::string implodeParams(const std::vector<golite::FunctionParam*> &params){
+        inline static std::string implodeParams(const std::vector<golite::FunctionParam*> &params, int indent){
             std::stringstream ss;
             for(size_t i = 0; i < params.size(); i++) {
                 if(i != 0) {
                     ss << ", ";
                 }
-                ss << params[i]->toGoLite(0);
+                ss << params[i]->toGoLite(indent);
             }
             return ss.str();
         }
