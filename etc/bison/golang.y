@@ -294,21 +294,25 @@ package_dec
 identifier_type[root]
     : array_type[size] identifier_type[p_root]
         {
-            $root = new golite::Array($p_root, $size);
+            $p_root->addChild(new golite::Array($size));
+            $root = $p_root;
         }
     | slice_type identifier_type[p_root]
         {
-            $root = new golite::Slice($p_root);
+            $p_root->addChild(new golite::Slice());
+            $root = $p_root;
         }
     | struct_type[struct]
         {
-            $root = $struct;
+            $root = new golite::TypeComponent();
+            $root->addChild($struct);
         }
     | tIDENTIFIER[id]
         {
             golite::TypeReference* type_reference = new golite::TypeReference();
             type_reference->setIdentifier($id);
-            $root = type_reference;
+            $root = new golite::TypeComponent();
+            $root->addChild(type_reference);
         }
     | tLEFT_PAR identifier_type[id_type] tRIGHT_PAR
         {

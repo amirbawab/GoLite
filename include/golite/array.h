@@ -1,16 +1,15 @@
 #ifndef GOLITE_ARRAY_H
 #define GOLITE_ARRAY_H
 
-#include <golite/type_decorator.h>
+#include <golite/type_component.h>
 #include <golite/literal.h>
 
 namespace golite {
-    class Array : public TypeDecorator {
+    class Array : public TypeComponent {
     private:
         golite::Literal<int>* size_;
     public:
-        Array(golite::TypeComponent* type_component, golite::Literal<int>* size) :
-                TypeDecorator(type_component), size_(size) {}
+        Array(golite::Literal<int>* size) : size_(size) {}
 
         /**
          * Get size

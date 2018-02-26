@@ -8,20 +8,7 @@ namespace golite {
     class TypeReference : public TypeComponent {
     private:
         Identifier* identifier_;
-        Type* type_;
     public:
-
-        /**
-         * Set type
-         * @param type
-         */
-        void setType(Type* type) { type_ = type; }
-
-        /**
-         * Get type
-         * @return type
-         */
-        Type* getType() const { return type_; }
 
         /**
          * Set identifier

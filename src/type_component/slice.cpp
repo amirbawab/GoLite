@@ -3,6 +3,6 @@
 
 std::string golite::Slice::toGoLite(int indent) {
     std::stringstream ss;
-    ss << "[]" << type_component_->toGoLite(indent);
+    ss << "[]";
     return ss.str();
 }

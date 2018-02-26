@@ -1,12 +1,11 @@
 #ifndef GOLITE_SLICE_H
 #define GOLITE_SLICE_H
 
-#include <golite/type_decorator.h>
+#include <golite/type_component.h>
 
 namespace golite {
-    class Slice : public TypeDecorator {
+    class Slice : public TypeComponent {
     public:
-        Slice(golite::TypeComponent* type_component) : TypeDecorator(type_component){}
 
         /**
          * @see TypeComponent::toGoLite(int)

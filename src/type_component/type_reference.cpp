@@ -1,5 +1,6 @@
 #include <golite/type_reference.h>
 #include <sstream>
+#include <iostream>
 
 std::string golite::TypeReference::toGoLite(int indent) {
     std::stringstream ss;
