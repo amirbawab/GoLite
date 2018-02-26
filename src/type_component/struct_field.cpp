@@ -1,16 +1,10 @@
 #include <golite/struct_field.h>
 #include <golite/utils.h>
-#include <sstream>
+#include <golite/pretty_helper.h>
 
 std::string golite::StructField::toGoLite(int indent) {
     std::stringstream ss;
-    ss << golite::Utils::indent(indent);
-    for(size_t i = 0; i < identifiers_.size(); i++) {
-        if(i != 0) {
-            ss << ", ";
-        }
-        ss << identifiers_[i]->toGoLite(0);
-    }
+    ss << golite::Utils::indent(indent) << golite::Pretty::implodeIdentifiers(identifiers_);
     ss << " " << type_component_->toGoLite(indent) << ";";
     return ss.str();
 }

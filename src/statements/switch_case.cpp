@@ -1,6 +1,6 @@
 #include <golite/switch_case.h>
 #include <golite/utils.h>
-#include <sstream>
+#include <golite/pretty_helper.h>
 
 std::string golite::SwitchCase::toGoLite(int indent) {
     std::stringstream ss;
@@ -8,14 +8,7 @@ std::string golite::SwitchCase::toGoLite(int indent) {
     if(isDefault()) {
         ss << "default:";
     } else {
-        ss << "case ";
-        for(size_t i = 0; i < expressions_.size(); i++) {
-            if(i != 0) {
-                ss << ", ";
-            }
-            ss << expressions_[i]->toGoLite(0);
-        }
-        ss << ":";
+        ss << "case " << golite::Pretty::implodeExpressions(expressions_) << ":";
     }
     for(Statement* statement : statements_) {
         ss << std::endl << statement->toGoLite(indent+1);

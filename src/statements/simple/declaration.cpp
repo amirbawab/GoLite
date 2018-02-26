@@ -1,24 +1,11 @@
 #include <golite/declaration.h>
 #include <golite/utils.h>
-#include <sstream>
+#include <golite/pretty_helper.h>
 
 std::string golite::Declaration::toGoLite(int indent) {
     std::stringstream ss;
-    ss << golite::Utils::indent(indent);
-    for(size_t i = 0; i < left_identifiers_.size(); i++) {
-        if(i != 0) {
-            ss << ", ";
-        }
-        ss << left_identifiers_[i]->toGoLite(0);
-    }
-    ss << " := ";
-    for(size_t i = 0; i < right_expressions_.size(); i++) {
-        if(i != 0) {
-            ss << ", ";
-        }
-        ss << right_expressions_[i]->toGoLite(0);
-    }
-    ss << ";";
+    ss << golite::Utils::indent(indent) << golite::Pretty::implodeExpressions(left_identifiers_)
+       << " := " << golite::Pretty::implodeExpressions(right_expressions_) << ";";
     return ss.str();
 }
 

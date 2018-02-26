@@ -4,6 +4,6 @@
 
 std::string golite::Empty::toGoLite(int indent) {
     std::stringstream ss;
-    ss << golite::Utils::indent(indent) << "/*epsilon*/";
+    ss << golite::Utils::indent(indent) << "/*empty*/";
     return ss.str();
 }

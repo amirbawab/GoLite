@@ -1,17 +1,10 @@
 #include <golite/assignment.h>
 #include <golite/utils.h>
-#include <sstream>
+#include <golite/pretty_helper.h>
 
 std::string golite::Assignment::toGoLite(int indent) {
     std::stringstream ss;
-    ss << golite::Utils::indent(indent);
-    for(size_t i = 0; i < left_expressions_.size(); i++) {
-        if(i != 0) {
-            ss << ", ";
-        }
-        ss << left_expressions_[i]->toGoLite(0);
-    }
-
+    ss << golite::Utils::indent(indent) << golite::Pretty::implodeExpressions(left_expressions_);
     switch (kind_) {
         case EQUAL:
             ss << " = ";
@@ -51,12 +44,6 @@ std::string golite::Assignment::toGoLite(int indent) {
             break;
     }
 
-    for(size_t i = 0; i < right_expressions_.size(); i++) {
-        if(i != 0) {
-            ss << ", ";
-        }
-        ss << right_expressions_[i]->toGoLite(0);
-    }
-    ss << ";";
+    ss << golite::Pretty::implodeExpressions(right_expressions_) << ";";
     return ss.str();
 }

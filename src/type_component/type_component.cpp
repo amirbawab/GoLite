@@ -6,9 +6,9 @@
 std::string golite::TypeComponent::toGoLite(int indent) {
     std::stringstream ss;
     for(size_t i = children_.size()-1; i > 0; i--) {
-        ss << children_[i]->toGoLite(0);
+        ss << children_[i]->toGoLite(indent);
     }
-    ss << children_.front()->toGoLite(0);
+    ss << children_.front()->toGoLite(indent);
     return ss.str();
 }
 
