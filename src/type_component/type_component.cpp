@@ -5,6 +5,10 @@
 
 std::string golite::TypeComponent::toGoLite(int indent) {
     std::stringstream ss;
+    if(children_.empty()) {
+        throw std::runtime_error("Cannot prettify an empty type component");
+    }
+
     for(size_t i = children_.size()-1; i > 0; i--) {
         ss << children_[i]->toGoLite(indent);
     }

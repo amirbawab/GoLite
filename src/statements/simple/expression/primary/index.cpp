@@ -7,3 +7,7 @@ std::string golite::Index::toGoLite(int indent) {
     ss << golite::Utils::indent(indent) << "[" << expression_->toGoLite(0) << "]";
     return ss.str();
 }
+
+int golite::Index::getLine() {
+    return expression_->getLine();
+}

@@ -44,6 +44,6 @@ std::string golite::Assignment::toGoLite(int indent) {
             break;
     }
 
-    ss << golite::Pretty::implodeExpressions(right_expressions_) << ";";
+    ss << golite::Pretty::implodeExpressions(right_expressions_);
     return ss.str();
 }

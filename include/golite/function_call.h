@@ -8,7 +8,6 @@ namespace golite {
     class FunctionCall : public Primary {
     private:
         std::vector<Expression*> args_;
-
     public:
 
         /**
@@ -21,6 +20,12 @@ namespace golite {
          * @see Statement::toGoLite(int)
          */
         std::string toGoLite(int indent);
+
+        /**
+         * Get line number
+         * @return line number
+         */
+        int getLine();
     };
 }
 

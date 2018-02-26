@@ -26,6 +26,12 @@ namespace golite {
          * @see Statement::toGoLite(int)
          */
         std::string toGoLite(int indent);
+
+        /**
+         * Get line number
+         * @return line number
+         */
+        int getLine();
     private:
         Expression* left_expression_;
         Expression* right_expression_;

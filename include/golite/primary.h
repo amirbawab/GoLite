@@ -20,6 +20,12 @@ namespace golite {
          * @see Statement::toGoLite(int)
          */
         std::string toGoLite(int indent);
+
+        /**
+         * Get line number
+         * @return line number
+         */
+        int getLine();
     };
 }
 

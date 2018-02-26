@@ -22,3 +22,7 @@ std::string golite::Unary::toGoLite(int indent) {
     ss << operand_->toGoLite(0) << ")";
     return ss.str();
 }
+
+int golite::Unary::getLine() {
+    return operand_->getLine();
+}

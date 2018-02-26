@@ -89,6 +89,11 @@ namespace golite {
          */
         std::string toGoLite(int indent);
 
+        /**
+         * Get line number
+         * @return line number
+         */
+        int getLine();
     private:
 
         // expression + ...

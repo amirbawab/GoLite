@@ -6,9 +6,9 @@ std::string golite::IncDec::toGoLite(int indent) {
     std::stringstream ss;
     ss << golite::Utils::indent(indent) << expression_->toGoLite(0);
     if(isIncrement()) {
-        ss << "++;";
+        ss << "++";
     } else {
-        ss << "--;";
+        ss << "--";
     }
     return ss.str();
 }

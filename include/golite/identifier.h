@@ -8,8 +8,9 @@ namespace golite {
     class Identifier : public Primary {
     private:
         std::string name_;
+        int line_;
     public:
-        Identifier(std::string name) : name_(name) {}
+        Identifier(std::string name, int line) : name_(name), line_(line) {}
 
         /**
          * Get name
@@ -18,10 +19,10 @@ namespace golite {
         std::string getName() const { return name_; }
 
         /**
-         * Set name
-         * @param name
+         * Get line
+         * @return line
          */
-        void setName(std::string name) { name_ = name; }
+        int getLine() { return line_; }
 
         /**
          * @see Statement::toGoLite(int)

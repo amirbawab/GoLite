@@ -14,3 +14,10 @@ std::string golite::Primary::toGoLite(int indent) {
     }
     return ss.str();
 }
+
+int golite::Primary::getLine() {
+    if(children_.empty()) {
+        throw std::runtime_error("Cannot get line number of an empty primary");
+    }
+    return children_.front()->getLine();
+}

@@ -67,3 +67,7 @@ std::string golite::Binary::toGoLite(int indent) {
     ss << rhs_->toGoLite(0) << ")";
     return ss.str();
 }
+
+int golite::Binary::getLine() {
+    return lhs_->getLine();
+}

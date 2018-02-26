@@ -7,3 +7,7 @@ std::string golite::Selector::toGoLite(int indent) {
     ss << golite::Utils::indent(indent) << "." << identifier_->toGoLite(0);
     return ss.str();
 }
+
+int golite::Selector::getLine() {
+    return identifier_->getLine();
+}

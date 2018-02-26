@@ -5,7 +5,7 @@
 std::string golite::Declaration::toGoLite(int indent) {
     std::stringstream ss;
     ss << golite::Utils::indent(indent) << golite::Pretty::implodeExpressions(left_identifiers_)
-       << " := " << golite::Pretty::implodeExpressions(right_expressions_) << ";";
+       << " := " << golite::Pretty::implodeExpressions(right_expressions_);
     return ss.str();
 }
 

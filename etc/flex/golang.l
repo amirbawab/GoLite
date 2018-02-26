@@ -114,56 +114,56 @@ append          { golite::Utils::log_token("tAPPEND"); return fToken(tAPPEND); }
 0+|([1-9][0-9]*) {
     // Integer
     golite::Utils::log_token("tINT", yytext);
-    yylval.g_expression = new golite::Literal<int>(atoi(yytext));
+    yylval.g_expression = new golite::Literal<int>(atoi(yytext), yylineno);
     return fToken(tINT);
 }
 
 0[1-7][0-7]* {
     // Octal
     golite::Utils::log_token("tINT", yytext);
-    yylval.g_expression = new golite::Literal<int>(atoi(yytext));
+    yylval.g_expression = new golite::Literal<int>(atoi(yytext), yylineno);
     return fToken(tINT);
 }
 
 0[xX][0-9a-fA-F]+ {
     // Hex
     golite::Utils::log_token("tINT", yytext);
-    yylval.g_expression = new golite::Literal<int>(atoi(yytext));
+    yylval.g_expression = new golite::Literal<int>(atoi(yytext), yylineno);
     return fToken(tINT);
 }
 
 ([0-9]*\.[0-9]+)|([0-9]+\.[0-9]*) {
     // Float
     golite::Utils::log_token("tFLOAT", yytext);
-    yylval.g_expression = new golite::Literal<float>(atof(yytext));
+    yylval.g_expression = new golite::Literal<float>(atof(yytext), yylineno);
     return fToken(tFLOAT);
 }
 
 '((\\[abfnrtv\\\'])|[^\\'])' {
     // Rune/Character
     golite::Utils::log_token("tRUNE", yytext);
-    yylval.g_expression = new golite::Literal<char>(yytext[0]);
+    yylval.g_expression = new golite::Literal<char>(yytext[0], yylineno);
     return fToken(tRUNE);
 }
 
 `(.|\n)*` {
     // Raw String
     golite::Utils::log_token("tSTRING", yytext);
-    yylval.g_expression = new golite::Literal<char*>(strdup(yytext));
+    yylval.g_expression = new golite::Literal<char*>(strdup(yytext), yylineno);
     return fToken(tSTRING);
 }
 
 \"(\\[abfnrtv\\\"]|[^\\"])*\" {
     // String
     golite::Utils::log_token("tSTRING", yytext);
-    yylval.g_expression = new golite::Literal<char*>(strdup(yytext));
+    yylval.g_expression = new golite::Literal<char*>(strdup(yytext), yylineno);
     return fToken(tSTRING);
 }
 
 [a-zA-Z_][a-zA-Z0-9_]* {
     // Identifier
     golite::Utils::log_token("tIDENTIFIER", yytext);
-    yylval.g_identifier = new golite::Identifier(strdup(yytext));
+    yylval.g_identifier = new golite::Identifier(strdup(yytext), yylineno);
     return fToken(tIDENTIFIER);
 }
 

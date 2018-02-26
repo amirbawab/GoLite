@@ -6,6 +6,10 @@ std::string golite::Append::toGoLite(int indent) {
     std::stringstream ss;
     ss << golite::Utils::indent(indent) << "append("
        << left_expression_->toGoLite(0) << ", "
-       << right_expression_->toGoLite(0) << ");";
+       << right_expression_->toGoLite(0) << ")";
     return ss.str();
+}
+
+int golite::Append::getLine() {
+    return left_expression_->getLine();
 }

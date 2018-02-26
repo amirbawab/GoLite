@@ -44,6 +44,11 @@ namespace golite {
          * @see Statement::toGoLite(int)
          */
         std::string toGoLite(int indent);
+
+        /**
+         * Get line number
+         */
+        int getLine();
     protected:
         Expression* operand_;
         KIND kind_;
