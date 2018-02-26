@@ -16,7 +16,7 @@ namespace golite {
      *
      * func main([params]) [type] {[statements]}
      */
-    class Function : public Declarable, public Statement {
+    class Function : public Declarable {
     private:
         Identifier* identifier_ = nullptr;
         TypeComponent* type_component_ = nullptr;

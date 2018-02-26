@@ -146,7 +146,7 @@ append          { golite::Utils::log_token("tAPPEND"); return fToken(tAPPEND); }
     return fToken(tRUNE);
 }
 
-`(.|\n)*` {
+`([^`]|\n)*` {
     // Raw String
     golite::Utils::log_token("tSTRING", yytext);
     yylval.g_expression = new golite::Literal<char*>(strdup(yytext), yylineno);
