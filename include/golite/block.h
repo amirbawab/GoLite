@@ -21,7 +21,7 @@ namespace golite {
          * Get statemetns
          * @return statements
          */
-        std::vector<Statement*> getStatements() { return statements_; }
+        const std::vector<Statement*> &getStatements() { return statements_; }
 
         /**
          * @see Statement::toGoLite(int)

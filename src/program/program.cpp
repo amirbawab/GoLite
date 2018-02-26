@@ -2,11 +2,11 @@
 #include <golite/utils.h>
 #include <sstream>
 
-std::string golite::Program::toGoLite() {
+std::string golite::Program::toGoLite(int indent) {
     std::stringstream ss;
-    ss << "package " << "identifier" << ";" << std::endl;
+    ss << golite::Utils::indent(indent)<< "package " << package_name_->toGoLite(0) << ";" << std::endl;
     for(Declarable* declarable : declarables_) {
-        ss << declarable->toGoLite(0) << std::endl;
+        ss << std::endl << declarable->toGoLite(indent);
     }
     return ss.str();
 }

@@ -2,6 +2,8 @@
 #define GOLITE_LITERAL_H
 
 #include <golite/primary.h>
+#include <golite/utils.h>
+#include <sstream>
 
 namespace golite {
     template <class T>
@@ -14,7 +16,9 @@ namespace golite {
     public:
         Literal(bool value) : value_(value){}
         std::string toGoLite(int indent) {
-            return value_ ? "true" : "false";
+            std::stringstream ss;
+            ss << golite::Utils::indent(indent) << (value_ ? "true" : "false");
+            return ss.str();
         }
     };
 
@@ -25,7 +29,9 @@ namespace golite {
     public:
         Literal(int value) : value_(value){}
         std::string toGoLite(int indent) {
-            return std::to_string(value_);
+            std::stringstream ss;
+            ss << golite::Utils::indent(indent) << std::to_string(value_);
+            return ss.str();
         }
     };
 
@@ -36,7 +42,9 @@ namespace golite {
     public:
         Literal(char* value) : value_(value){}
         std::string toGoLite(int indent) {
-            return value_;
+            std::stringstream ss;
+            ss << golite::Utils::indent(indent) << std::string(value_);
+            return ss.str();
         }
     };
 
@@ -47,7 +55,9 @@ namespace golite {
     public:
         Literal(char value) : value_(value){}
         std::string toGoLite(int indent) {
-            return std::to_string(value_);
+            std::stringstream ss;
+            ss << golite::Utils::indent(indent) << std::to_string(value_);
+            return ss.str();
         }
     };
 
@@ -58,7 +68,9 @@ namespace golite {
     public:
         Literal(float value) : value_(value){}
         std::string toGoLite(int indent) {
-            return std::to_string(value_);
+            std::stringstream ss;
+            ss << golite::Utils::indent(indent) << std::to_string(value_);
+            return ss.str();
         }
     };
 }

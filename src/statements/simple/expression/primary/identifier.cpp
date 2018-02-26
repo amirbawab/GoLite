@@ -3,5 +3,7 @@
 #include <sstream>
 
 std::string golite::Identifier::toGoLite(int indent) {
-    return name_;
+    std::stringstream ss;
+    ss << golite::Utils::indent(indent) << name_;
+    return ss.str();
 }

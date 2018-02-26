@@ -18,9 +18,9 @@ namespace golite {
      */
     class Function : public Declarable, public Statement {
     private:
-        Identifier* identifier_;
-        TypeComponent* type_component_;
-        Block* block_;
+        Identifier* identifier_ = nullptr;
+        TypeComponent* type_component_ = nullptr;
+        Block* block_ = nullptr;
         std::vector<FunctionParam*> params_;
     public:
         Function(Identifier* identifier) : identifier_(identifier){}

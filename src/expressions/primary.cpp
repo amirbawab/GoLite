@@ -8,8 +8,9 @@ void golite::Primary::addChild(golite::Expression *child) {
 
 std::string golite::Primary::toGoLite(int indent) {
     std::stringstream ss;
+    ss << golite::Utils::indent(indent);
     for(Expression* primary : children_) {
-        ss << primary << std::endl;
+        ss << primary->toGoLite(0);
     }
     return ss.str();
 }

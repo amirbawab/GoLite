@@ -422,7 +422,7 @@ func_opt_params[root]
         }
     | tLEFT_PAR tRIGHT_PAR
         {
-            $root = new std::vector<golite::FunctionParam*>(0);
+            $root = new std::vector<golite::FunctionParam*>();
         }
     ;
 
@@ -509,7 +509,7 @@ var_opt_expressions[root]
         }
     | %empty
         {
-            $root = new std::vector<golite::Expression*>(0);
+            $root = new std::vector<golite::Expression*>();
         }
     ;
 
@@ -723,52 +723,52 @@ statement[root]
         }
     | simple_statement_dec[simple]
         {
-            $root = new std::vector<golite::Statement*>(1);
+            $root = new std::vector<golite::Statement*>();
             $root->push_back($simple);
         }
     | return_dec[return]
         {
-            $root = new std::vector<golite::Statement*>(1);
+            $root = new std::vector<golite::Statement*>();
             $root->push_back($return);
         }
     | break_dec[break]
         {
-            $root = new std::vector<golite::Statement*>(1);
+            $root = new std::vector<golite::Statement*>();
             $root->push_back($break);
         }
     | continue_dec[continue]
         {
-            $root = new std::vector<golite::Statement*>(1);
+            $root = new std::vector<golite::Statement*>();
             $root->push_back($continue);
         }
     | block_dec[block]
         {
-            $root = new std::vector<golite::Statement*>(1);
+            $root = new std::vector<golite::Statement*>();
             $root->push_back($block);
         }
-    | if_dec
+    | if_dec[if]
         {
-            $root = new std::vector<golite::Statement*>(1);
-            $root->push_back($if_dec);
+            $root = new std::vector<golite::Statement*>();
+            $root->push_back($if);
         }
     | for_dec
         {
-            $root = new std::vector<golite::Statement*>(1);
+            $root = new std::vector<golite::Statement*>();
             $root->push_back($for_dec);
         }
     | print_dec[print]
         {
-            $root = new std::vector<golite::Statement*>(1);
+            $root = new std::vector<golite::Statement*>();
             $root->push_back($print);
         }
     | println_dec[println]
         {
-            $root = new std::vector<golite::Statement*>(1);
+            $root = new std::vector<golite::Statement*>();
             $root->push_back($println);
         }
     | switch_dec
         {
-            $root = new std::vector<golite::Statement*>(1);
+            $root = new std::vector<golite::Statement*>();
             $root->push_back($switch_dec);
         }
     ;
@@ -1182,7 +1182,7 @@ expressions_opt[root]
         }
     | %empty
         {
-            $root = new std::vector<golite::Expression*>(0);
+            $root = new std::vector<golite::Expression*>();
         }
     ;
 

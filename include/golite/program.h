@@ -32,7 +32,7 @@ namespace golite {
          * Set package name
          * @param package_name
          */
-        void setPackageName(Identifier* package_name) {package_name = package_name;}
+        void setPackageName(Identifier* package_name) {package_name_ = package_name;}
 
         /**
          * Get package name
@@ -48,9 +48,10 @@ namespace golite {
 
         /**
          * Convert to golite
+         * @param indent
          * @return golite code
          */
-        std::string toGoLite();
+        std::string toGoLite(int indent);
     };
 }
 

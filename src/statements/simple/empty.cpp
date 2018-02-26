@@ -3,5 +3,7 @@
 #include <sstream>
 
 std::string golite::Empty::toGoLite(int indent) {
-    return "/*Empty statement*/;";
+    std::stringstream ss;
+    ss << golite::Utils::indent(indent) << "/*epsilon*/";
+    return ss.str();
 }
