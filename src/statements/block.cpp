@@ -22,9 +22,9 @@ std::string golite::Block::toGoLite(int indent) {
     return ss.str();
 }
 
-golite::Break* golite::Block::badBreak() {
+golite::Statement* golite::Block::badBreak() {
     for(Statement* statement : statements_) {
-        golite::Break* bad = nullptr;
+        golite::Statement* bad = nullptr;
         if(statement->isIf()) {
             golite::If* if_stmt = static_cast<If*>(statement);
             bad = if_stmt->getBlock()->badBreak();
@@ -32,16 +32,16 @@ golite::Break* golite::Block::badBreak() {
             golite::Block* block_stmt = static_cast<Block*>(statement);
             bad = block_stmt->badBreak();
         } else if(statement->isBreak()) {
-            bad = static_cast<Break*>(statement);
+            bad = statement;
         }
         if(bad) return bad;
     }
     return nullptr;
 }
 
-golite::Continue* golite::Block::badContinue() {
+golite::Statement* golite::Block::badContinue() {
     for(Statement* statement : statements_) {
-        golite::Continue* bad = nullptr;
+        golite::Statement* bad = nullptr;
         if(statement->isIf()) {
             golite::If* if_stmt = static_cast<If*>(statement);
             bad = if_stmt->getBlock()->badContinue();
@@ -52,7 +52,7 @@ golite::Continue* golite::Block::badContinue() {
             golite::Switch* switch_stmt = static_cast<Switch*>(statement);
             bad = switch_stmt->badContinue();
         } else if(statement->isContinue()) {
-            bad = static_cast<Continue*>(statement);
+            bad = statement;
         }
         if(bad) return bad;
     }
@@ -112,9 +112,9 @@ golite::Statement* golite::Block::badStatement() {
     return nullptr;
 }
 
-golite::Declaration* golite::Block::badDeclaration() {
+golite::Statement* golite::Block::badDeclaration() {
     for(Statement* statement : statements_) {
-        Declaration* bad = nullptr;
+        Statement* bad = nullptr;
         if(statement->isFor()) {
             golite::For* for_stmt = static_cast<For*>(statement);
             bad = for_stmt->getBlock()->badDeclaration();
@@ -160,5 +160,9 @@ golite::Statement* golite::Block::badSwitch() {
         }
         if(bad) return bad;
     }
+    return nullptr;
+}
+
+golite::Statement* golite::Block::badBlank() {
     return nullptr;
 }

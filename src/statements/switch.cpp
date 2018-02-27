@@ -28,9 +28,9 @@ std::string golite::Switch::toGoLite(int indent) {
     return ss.str();
 }
 
-golite::Continue* golite::Switch::badContinue() {
+golite::Statement* golite::Switch::badContinue() {
     for(SwitchCase* switch_case : cases_) {
-        Continue* bad = switch_case->getBlock()->badContinue();
+        Statement* bad = switch_case->getBlock()->badContinue();
         if(bad) return bad;
     }
     return nullptr;
@@ -44,9 +44,9 @@ golite::Statement* golite::Switch::badStatement() {
     return nullptr;
 }
 
-golite::Declaration* golite::Switch::badDeclaration() {
+golite::Statement* golite::Switch::badDeclaration() {
     for(SwitchCase* switch_case : cases_) {
-        Declaration* bad = switch_case->getBlock()->badDeclaration();
+        Statement* bad = switch_case->getBlock()->badDeclaration();
         if(bad) return bad;
     }
     return nullptr;

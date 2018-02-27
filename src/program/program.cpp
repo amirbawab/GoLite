@@ -28,14 +28,14 @@ void golite::Program::weedingPass() {
             golite::Function* func = static_cast<Function*>(declarable);
 
             // Bad break
-            Break* badBreak = func->getBlock()->badBreak();
+            Statement* badBreak = func->getBlock()->badBreak();
             if(badBreak) {
                 golite::Utils::error_message("Break statement used outside for loop and switch case",
                                              badBreak->getLine());
             }
 
             // Bad continue
-            Continue* badContinue = func->getBlock()->badContinue();
+            Statement* badContinue = func->getBlock()->badContinue();
             if(badContinue) {
                 golite::Utils::error_message("Continue statement used outside for loop",
                                              badContinue->getLine());
@@ -54,7 +54,7 @@ void golite::Program::weedingPass() {
             }
 
             // Bad declaration
-            Declaration* badDeclaration = func->getBlock()->badDeclaration();
+            Statement* badDeclaration = func->getBlock()->badDeclaration();
             if(badDeclaration) {
                 golite::Utils::error_message("Element to the left of the declaration must be identifiers",
                                              badDeclaration->getLine());

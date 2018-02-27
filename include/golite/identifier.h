@@ -7,6 +7,7 @@
 namespace golite {
     class Identifier : public Primary {
     private:
+        static std::string BLANK;
         std::string name_;
         int line_;
     public:
@@ -33,6 +34,12 @@ namespace golite {
          * @ee Expression::isIdentifier()
          */
         bool isIdentifier() { return true; }
+
+        /**
+         * Check if identifier is a blank identifier
+         * @return true if it is
+         */
+        bool isBlank();
     };
 }
 

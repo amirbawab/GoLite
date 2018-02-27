@@ -43,7 +43,7 @@ namespace golite {
          * Check for bad usage of continue statement
          * @return ptr | nullptr
          */
-        golite::Continue* badContinue();
+        golite::Statement* badContinue();
 
         /**
          * Check for bad usage of continue statement
@@ -55,7 +55,7 @@ namespace golite {
          * Check for bad usage of declaration statement
          * @return ptr | nullptr
          */
-        golite::Declaration* badDeclaration();
+        golite::Statement* badDeclaration();
 
         /**
          * Check for bad usage of switch default
