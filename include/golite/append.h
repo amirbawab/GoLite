@@ -33,8 +33,8 @@ namespace golite {
          */
         int getLine();
     private:
-        Expression* left_expression_;
-        Expression* right_expression_;
+        Expression* left_expression_ = nullptr;
+        Expression* right_expression_ = nullptr;
     };
 }
 

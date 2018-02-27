@@ -50,7 +50,7 @@ namespace golite {
          */
         int getLine();
     protected:
-        Expression* operand_;
+        Expression* operand_ = nullptr;
         KIND kind_;
     };
 }

@@ -9,7 +9,7 @@ namespace golite {
     private:
 
         // Expression to increment or decrement
-        Expression* expression_;
+        Expression* expression_ = nullptr;
 
         // Increment flag
         bool is_increment_ = true;

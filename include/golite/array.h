@@ -7,7 +7,7 @@
 namespace golite {
     class Array : public TypeComposite {
     private:
-        golite::Literal<int>* size_;
+        golite::Literal<int>* size_ = nullptr;
     public:
         Array(golite::Literal<int>* size) : size_(size) {}
 

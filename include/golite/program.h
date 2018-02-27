@@ -15,7 +15,7 @@ namespace golite {
     class Program {
     private:
         Program(){}
-        Identifier* package_name_;
+        Identifier* package_name_ = nullptr;
         std::vector<Declarable*> declarables_;
 
     public:

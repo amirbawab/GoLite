@@ -6,7 +6,7 @@
 namespace golite {
     class Index : public Primary {
     private:
-        Expression* expression_;
+        Expression* expression_ = nullptr;
     public:
         Index(Expression* expression) : expression_(expression) {}
 

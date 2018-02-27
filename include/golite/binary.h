@@ -97,10 +97,10 @@ namespace golite {
     private:
 
         // expression + ...
-        Expression* lhs_;
+        Expression* lhs_ = nullptr;
 
         // ... + expression
-        Expression* rhs_;
+        Expression* rhs_ = nullptr;
 
         // Binary expression type
         KIND kind_;

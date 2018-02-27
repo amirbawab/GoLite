@@ -7,7 +7,7 @@
 namespace golite {
     class TypeReference : public TypeComposite {
     private:
-        Identifier* identifier_;
+        Identifier* identifier_ = nullptr;
     public:
 
         /**

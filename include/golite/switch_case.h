@@ -9,7 +9,7 @@ namespace golite {
     class SwitchCase {
     private:
         std::vector<Expression*> expressions_;
-        Block* block_;
+        Block* block_ = nullptr;
     public:
 
         /**

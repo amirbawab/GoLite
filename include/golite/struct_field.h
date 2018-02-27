@@ -10,7 +10,7 @@ namespace golite {
     class StructField {
     private:
         std::vector<Identifier*> identifiers_;
-        TypeComponent* type_component_;
+        TypeComponent* type_component_ = nullptr;
     public:
 
         /**
