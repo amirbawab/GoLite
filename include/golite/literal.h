@@ -21,7 +21,7 @@ namespace golite {
             ss << golite::Utils::indent(indent) << (value_ ? "true" : "false");
             return ss.str();
         }
-        int getLine() const { return line_; }
+        int getLine() { return line_; }
     };
 
     template <>
@@ -36,7 +36,7 @@ namespace golite {
             ss << golite::Utils::indent(indent) << std::to_string(value_);
             return ss.str();
         }
-        int getLine() const { return line_; }
+        int getLine() { return line_; }
     };
 
     template <>
@@ -51,7 +51,7 @@ namespace golite {
             ss << golite::Utils::indent(indent) << std::string(value_);
             return ss.str();
         }
-        int getLine() const { return line_; }
+        int getLine() { return line_; }
     };
 
     template <>
@@ -66,7 +66,7 @@ namespace golite {
             ss << golite::Utils::indent(indent) << std::to_string(value_);
             return ss.str();
         }
-        int getLine() const { return line_; }
+        int getLine() { return line_; }
     };
 }
 

@@ -43,6 +43,7 @@ extern "C" int yylineno;
     #include <golite/inc_dec.h>
     #include <golite/declaration.h>
     #include <golite/switch_case.h>
+    #include <golite/primary_expression.h>
 }
 
 %union {
@@ -57,6 +58,7 @@ extern "C" int yylineno;
     golite::Expression*                     g_expression;
     std::vector<golite::Expression*>*       g_expressions;
     golite::Primary*                        g_primary;
+    golite::PrimaryExpression*              g_primary_expression;
     golite::Literal<int>*                   g_literal_int;
     golite::Literal<char*>*                 g_literal_string;
     golite::Literal<float>*                 g_literal_float;
@@ -81,53 +83,53 @@ extern "C" int yylineno;
     struct{ int line; }                     g_line;
 }
 
-%type <g_identifiers>       identifiers
-%type <g_declarables>       global_decs
-%type <g_variable>          var_def
-%type <g_variables>         var_defs
-%type <g_variables>         var_dec
-%type <g_type>              type_def
-%type <g_types>             type_defs
-%type <g_types>             type_dec
-%type <g_type_component>    identifier_type
-%type <g_expression>        expression
-%type <g_expressions>       expressions
-%type <g_expressions>       var_opt_expressions
-%type <g_primary>           primary_expression
-%type <g_primary>           selector
-%type <g_primary>           index
-%type <g_primary>           func_call
-%type <g_expression>        expression_opt
-%type <g_expressions>       expressions_opt
-%type <g_expression>        binary_expression
-%type <g_expression>        unary_expression
-%type <g_literal_int>       array_type
-%type <g_struct>            struct_type
-%type <g_struct_fields>     struct_body
-%type <g_function>          func_dec
-%type <g_block>             block_dec
-%type <g_block>             block_body
-%type <g_function_params>   func_params
-%type <g_function_params>   func_opt_params
-%type <g_type_component>    func_type
-%type <g_statements>        statement
-%type <g_statements>        statements
-%type <g_statement>         return_dec
-%type <g_statement>         break_dec
-%type <g_statement>         continue_dec
-%type <g_statement>         print_dec
-%type <g_statement>         println_dec
-%type <g_if>                if_dec
-%type <g_if>                if_def
-%type <g_statement>         for_dec
-%type <g_ifs>               else_if_opt
-%type <g_block>             else_opt
-%type <g_for_condition>     for_condition
-%type <g_simple>            simple_statement_dec
-%type <g_simple>            simple_statement
-%type <g_switch>            switch_dec
-%type <g_switch>            switch_def
-%type <g_switch_cases>      switch_cases
+%type <g_identifiers>           identifiers
+%type <g_declarables>           global_decs
+%type <g_variable>              var_def
+%type <g_variables>             var_defs
+%type <g_variables>             var_dec
+%type <g_type>                  type_def
+%type <g_types>                 type_defs
+%type <g_types>                 type_dec
+%type <g_type_component>        identifier_type
+%type <g_expression>            expression
+%type <g_expressions>           expressions
+%type <g_expressions>           var_opt_expressions
+%type <g_primary_expression>    primary_expression
+%type <g_primary>               selector
+%type <g_primary>               index
+%type <g_primary>               func_call
+%type <g_expression>            expression_opt
+%type <g_expressions>           expressions_opt
+%type <g_expression>            binary_expression
+%type <g_expression>            unary_expression
+%type <g_literal_int>           array_type
+%type <g_struct>                struct_type
+%type <g_struct_fields>         struct_body
+%type <g_function>              func_dec
+%type <g_block>                 block_dec
+%type <g_block>                 block_body
+%type <g_function_params>       func_params
+%type <g_function_params>       func_opt_params
+%type <g_type_component>        func_type
+%type <g_statements>            statement
+%type <g_statements>            statements
+%type <g_statement>             return_dec
+%type <g_statement>             break_dec
+%type <g_statement>             continue_dec
+%type <g_statement>             print_dec
+%type <g_statement>             println_dec
+%type <g_if>                    if_dec
+%type <g_if>                    if_def
+%type <g_statement>             for_dec
+%type <g_ifs>                   else_if_opt
+%type <g_block>                 else_opt
+%type <g_for_condition>         for_condition
+%type <g_simple>                simple_statement_dec
+%type <g_simple>                simple_statement
+%type <g_switch>                switch_dec
+%type <g_switch>                switch_def
+%type <g_switch_cases>          switch_cases
 
 // Define tokens
 %token
@@ -1087,32 +1089,32 @@ primary_expression[root]
         }
     | tLEFT_PAR expression[expr] tRIGHT_PAR
         {
-            $root = new golite::Primary();
+            $root = new golite::PrimaryExpression();
             $root->addChild($expr);
         }
     | tIDENTIFIER[id]
         {
-            $root = new golite::Primary();
+            $root = new golite::PrimaryExpression();
             $root->addChild($id);
         }
     | tINT[integer]
         {
-            $root = new golite::Primary();
+            $root = new golite::PrimaryExpression();
             $root->addChild($integer);
         }
     | tFLOAT[float]
         {
-            $root = new golite::Primary();
+            $root = new golite::PrimaryExpression();
             $root->addChild($float);
         }
     | tSTRING[string]
         {
-            $root = new golite::Primary();
+            $root = new golite::PrimaryExpression();
             $root->addChild($string);
         }
     | tRUNE[rune]
         {
-            $root = new golite::Primary();
+            $root = new golite::PrimaryExpression();
             $root->addChild($rune);
         }
     ;
