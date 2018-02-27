@@ -7,3 +7,7 @@ std::string golite::TypeReference::toGoLite(int indent) {
     ss << identifier_->toGoLite(0);
     return ss.str();
 }
+
+int golite::TypeReference::getLine() {
+    return identifier_->getLine();
+}

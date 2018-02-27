@@ -6,3 +6,7 @@ std::string golite::Array::toGoLite(int indent) {
     ss << "[" << size_->toGoLite(0) << "]";
     return ss.str();
 }
+
+int golite::Array::getLine() {
+    return size_->getLine();
+}

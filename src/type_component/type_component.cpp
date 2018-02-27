@@ -16,6 +16,13 @@ std::string golite::TypeComponent::toGoLite(int indent) {
     return ss.str();
 }
 
-void golite::TypeComponent::addChild(golite::TypeComponent *type_component) {
-    children_.push_back(type_component);
+void golite::TypeComponent::addChild(golite::TypeComposite *type_composite) {
+    children_.push_back(type_composite);
+}
+
+int golite::TypeComponent::getLine() {
+    if(children_.empty()) {
+        throw std::runtime_error("Cannot get line of an empty type component");
+    }
+    return children_.front()->getLine();
 }

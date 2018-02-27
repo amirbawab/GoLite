@@ -3,11 +3,12 @@
 
 #include <string>
 #include <vector>
+#include <golite/type_composite.h>
 
 namespace golite {
     class TypeComponent {
     private:
-        std::vector<golite::TypeComponent*> children_;
+        std::vector<golite::TypeComposite*> children_;
 
     public:
 
@@ -20,9 +21,15 @@ namespace golite {
 
         /**
          * Add child
-         * @param type_component
+         * @param type_composite
          */
-        void addChild(golite::TypeComponent* type_component);
+        void addChild(golite::TypeComposite* type_composite);
+
+        /**
+         * Get line number
+         * @return line number
+         */
+        int getLine();
     };
 }
 

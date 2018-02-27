@@ -2,14 +2,21 @@
 #define GOLITE_STRUCT_H
 
 #include <vector>
-#include <golite/type_component.h>
+#include <golite/type_composite.h>
 #include <golite/struct_field.h>
 
 namespace golite {
-    class Struct : public TypeComponent {
+    class Struct : public TypeComposite {
     private:
         std::vector<StructField*> fields_;
+        int line_;
     public:
+        Struct(int line) : line_(line) {}
+
+        /**
+         * @see TypeComposite::getLine()
+         */
+        int getLine() { return line_; }
 
         /**
          * Set fields

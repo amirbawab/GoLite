@@ -130,6 +130,7 @@ extern "C" int yylineno;
 %type <g_switch>                switch_dec
 %type <g_switch>                switch_def
 %type <g_switch_cases>          switch_cases
+%type <g_line>                  slice_type
 
 // Define tokens
 %token
@@ -194,7 +195,6 @@ extern "C" int yylineno;
     tLESS_THAN_EQUAL        "<="
     tGREATER_THAN_EQUAL     ">="
     tDECLARATION            ":="
-    tLEFT_SQUARE            "["
     tCOMMA                  ","
     tDOT                    "."
     tRIGHT_PAR              ")"
@@ -203,6 +203,7 @@ extern "C" int yylineno;
     tSEMICOLON              ";"
 
     <g_line>                tRETURN                 "return"
+    <g_line>                tLEFT_SQUARE            "["
     <g_line>                tLEFT_PAR               "("
     <g_line>                tLEFT_CURL              "{"
     <g_line>                tCOLON                  ":"
@@ -301,9 +302,9 @@ identifier_type[root]
             $p_root->addChild(new golite::Array($size));
             $root = $p_root;
         }
-    | slice_type identifier_type[p_root]
+    | slice_type[slice] identifier_type[p_root]
         {
-            $p_root->addChild(new golite::Slice());
+            $p_root->addChild(new golite::Slice($slice.line));
             $root = $p_root;
         }
     | struct_type[struct]
@@ -337,10 +338,10 @@ array_type[root]
 /**
  * Slice type
  **/
-slice_type
-    : tLEFT_SQUARE tRIGHT_SQUARE
+slice_type[root]
+    : tLEFT_SQUARE[left_square] tRIGHT_SQUARE
         {
-            // Do nothing
+            $root.line = $left_square.line;
         }
     ;
 
@@ -377,9 +378,9 @@ type_def[root]
  * 'struct' type
  **/
 struct_type[root]
-    : tSTRUCT tLEFT_CURL struct_body[fields] tRIGHT_CURL
+    : tSTRUCT tLEFT_CURL[left_curl] struct_body[fields] tRIGHT_CURL
         {
-            $root = new golite::Struct();
+            $root = new golite::Struct($left_curl.line);
             $root->setFields(*$fields);
         }
     ;
