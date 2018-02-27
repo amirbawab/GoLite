@@ -63,6 +63,24 @@ namespace golite {
          * @return true for block statements
          */
         virtual bool isBlock() { return false; }
+
+        /**
+         * Assignment statement overrides this function
+         * @return true for assignment statements
+         */
+        virtual bool isAssignment() { return false; }
+
+        /**
+         * Declaration statement overrides this function
+         * @return true for declaration statements
+         */
+        virtual bool isDeclaration() { return false; }
+
+        /**
+         * Variable statement overrides this function
+         * @return true for variable statements
+         */
+        virtual bool isVariable() { return false; }
     };
 }
 

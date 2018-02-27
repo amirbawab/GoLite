@@ -13,3 +13,7 @@ void golite::Declaration::setIdentifiers(std::vector<golite::Expression *> ident
     // TODO Make sure expressions are identifiers (not arrays, function calls nor selectors)
     left_identifiers_ = identifiers;
 }
+
+bool golite::Declaration::badEquation() {
+    return left_identifiers_.size() != right_expressions_.size();
+}

@@ -47,3 +47,7 @@ std::string golite::Assignment::toGoLite(int indent) {
     ss << golite::Pretty::implodeExpressions(right_expressions_);
     return ss.str();
 }
+
+bool golite::Assignment::badEquation() {
+    return left_expressions_.size() != right_expressions_.size();
+}

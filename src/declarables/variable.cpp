@@ -14,3 +14,8 @@ std::string golite::Variable::toGoLite(int indent) {
     ss << golite::Pretty::implodeExpressions(expressions_) << ";";
     return ss.str();
 }
+
+bool golite::Variable::badEquation() {
+    if(expressions_.empty()) return false;
+    return identifiers_.size() != expressions_.size();
+}

@@ -41,6 +41,17 @@ namespace golite {
          * @see Declarable::toGoLite(int)
          */
         std::string toGoLite(int indent);
+
+        /**
+         * @see Declarable::isVariable()
+         */
+        bool isVariable() { return true; }
+
+        /**
+         * Bad equation
+         * @return true if it is
+         */
+        bool badEquation();
     };
 }
 

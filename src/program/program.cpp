@@ -32,6 +32,12 @@ void golite::Program::weedingPass() {
                 golite::Utils::error_message("Continue statement used outside for loop",
                                              badContinue->getLine());
             }
+
+            // Bad equation
+            Statement* badEquation = func->getBlock()->badEquation();
+            if(badEquation) {
+                golite::Utils::error_message("Number of left and right elements does not match", 0 /*TODO Fix number*/);
+            }
         }
     }
 }

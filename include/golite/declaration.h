@@ -27,6 +27,17 @@ namespace golite {
          * @see Statement::toGoLite(int)
          */
         std::string toGoLite(int indent);
+
+        /**
+         * @see Statement::isDeclaration()
+         */
+        bool isDeclaration() { return true; }
+
+        /**
+         * Bad equation
+         * @return true if it is
+         */
+        bool badEquation();
     };
 }
 

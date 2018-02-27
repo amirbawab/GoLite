@@ -3,6 +3,9 @@
 #include <golite/if.h>
 #include <sstream>
 #include <golite/switch.h>
+#include <golite/assignment.h>
+#include <golite/declaration.h>
+#include <golite/variable.h>
 
 std::string golite::Block::toGoLite(int indent) {
     std::stringstream ss;
@@ -49,6 +52,33 @@ golite::Continue* golite::Block::badContinue() {
             bad = switch_stmt->badContinue();
         } else if(statement->isContinue()) {
             bad = static_cast<Continue*>(statement);
+        }
+        if(bad) return bad;
+    }
+    return nullptr;
+}
+
+golite::Statement* golite::Block::badEquation() {
+    for(Statement* statement : statements_) {
+        Statement* bad = nullptr;
+        if(statement->isAssignment()) {
+            golite::Assignment* assignment = static_cast<Assignment*>(statement);
+            if(assignment->badEquation()) {
+                bad = assignment;
+            }
+        } else if(statement->isDeclaration()) {
+            golite::Declaration* declaration = static_cast<Declaration*>(statement);
+            if(declaration->badEquation()) {
+                bad = declaration;
+            }
+        } else if(statement->isVariable()) {
+            golite::Variable* variable = static_cast<Variable*>(statement);
+            if(variable->badEquation()) {
+                bad = variable;
+            }
+        } else if(statement->isBlock()) {
+            golite::Block* block = static_cast<Block*>(statement);
+            bad = block->badEquation();
         }
         if(bad) return bad;
     }

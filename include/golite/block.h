@@ -36,16 +36,22 @@ namespace golite {
         bool isBlock() { return true; }
 
         /**
-         * Check if recursively if block has a wrong break statement
+         * Check recursively if block has a wrong break statement
          * @return ptr | nullptr
          */
         golite::Break* badBreak();
 
         /**
-         * Check if recursively if block has a wrong continue statement
+         * Check recursively if block has a wrong continue statement
          * @return ptr | nullptr
          */
         golite::Continue* badContinue();
+
+        /**
+         * Check recursively if block has a wrong assignment, declaration or variable declaration
+         * @return ptr | nullptr
+         */
+        golite::Statement* badEquation();
     };
 }
 
