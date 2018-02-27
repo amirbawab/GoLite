@@ -2,10 +2,10 @@
 #define GOLITE_APPEND_H
 
 #include <vector>
-#include <golite/expression.h>
+#include <golite/primary.h>
 
 namespace golite {
-    class Append : public Expression {
+    class Append : public Primary {
     public:
         Append(Expression* left_expression, Expression* right_expression) :
                 left_expression_(left_expression), right_expression_(right_expression){}

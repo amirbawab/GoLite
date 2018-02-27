@@ -949,10 +949,6 @@ expression[root]
         {
             $root = $primary;
         }
-    | tAPPEND tLEFT_PAR expression[left] tCOMMA expression[right] tRIGHT_PAR
-        {
-            $root = new golite::Append($left, $right);
-        }
     ;
 
 /**
@@ -1117,6 +1113,11 @@ primary_expression[root]
         {
             $root = new golite::PrimaryExpression();
             $root->addChild($rune);
+        }
+    | tAPPEND tLEFT_PAR expression[left] tCOMMA expression[right] tRIGHT_PAR
+        {
+            $root = new golite::PrimaryExpression();
+            $root->addChild(new golite::Append($left, $right));
         }
     ;
 
