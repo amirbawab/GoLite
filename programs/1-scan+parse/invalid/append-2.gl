@@ -2,5 +2,5 @@
 package main
 
 func main() {
-    append(1,2) // must be a function call
+    append(1,2)[5] // must be a function call
 }
