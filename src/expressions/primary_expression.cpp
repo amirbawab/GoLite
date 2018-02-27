@@ -2,7 +2,7 @@
 #include <golite/utils.h>
 #include <sstream>
 
-void golite::PrimaryExpression::addChild(golite::Expression *child) {
+void golite::PrimaryExpression::addChild(golite::Primary *child) {
     children_.push_back(child);
 }
 

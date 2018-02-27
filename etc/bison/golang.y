@@ -44,6 +44,7 @@ extern "C" int yylineno;
     #include <golite/declaration.h>
     #include <golite/switch_case.h>
     #include <golite/primary_expression.h>
+    #include <golite/parenthesis.h>
 }
 
 %union {
@@ -1087,7 +1088,7 @@ primary_expression[root]
     | tLEFT_PAR expression[expr] tRIGHT_PAR
         {
             $root = new golite::PrimaryExpression();
-            $root->addChild($expr);
+            $root->addChild(new golite::Parenthesis($expr));
         }
     | tIDENTIFIER[id]
         {
