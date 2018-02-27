@@ -2,7 +2,7 @@
 #include <golite/utils.h>
 #include <sstream>
 #include <golite/function.h>
-#include <golite/utils.h>
+#include <golite/variable.h>
 
 std::string golite::Program::toGoLite(int indent) {
     std::stringstream ss;
@@ -16,7 +16,15 @@ std::string golite::Program::toGoLite(int indent) {
 void golite::Program::weedingPass() {
     // Usage of break and continue
     for(Declarable* declarable : declarables_) {
-        if(declarable->isFunction()) {
+        if(declarable->isDecVariable()) {
+            golite::Variable* variable = static_cast<Variable*>(declarable);
+
+            // Bad equation
+            if(variable->badEquation()) {
+                golite::Utils::error_message("Number of left and right elements does not match", variable->getLine());
+            }
+
+        } else if(declarable->isFunction()) {
             golite::Function* func = static_cast<Function*>(declarable);
 
             // Bad break
@@ -43,6 +51,13 @@ void golite::Program::weedingPass() {
             Statement* badStatement = func->getBlock()->badStatement();
             if(badStatement) {
                 golite::Utils::error_message("Statement must be a function call", badStatement->getLine());
+            }
+
+            // Bad declaration
+            Declaration* badDeclaration = func->getBlock()->badDeclaration();
+            if(badDeclaration) {
+                golite::Utils::error_message("Element to the left of the declaration must be identifiers",
+                                             badDeclaration->getLine());
             }
         }
     }

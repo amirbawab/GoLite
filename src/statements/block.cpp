@@ -72,7 +72,7 @@ golite::Statement* golite::Block::badEquation() {
             if(declaration->badEquation()) {
                 bad = declaration;
             }
-        } else if(statement->isVariable()) {
+        } else if(statement->isStatVariable()) {
             golite::Variable* variable = static_cast<Variable*>(statement);
             if(variable->badEquation()) {
                 bad = variable;
@@ -105,6 +105,32 @@ golite::Statement* golite::Block::badStatement() {
             golite::Expression* expression = static_cast<Expression*>(statement);
             if(!expression->isFunctionCall()) {
                 bad = expression;
+            }
+        }
+        if(bad) return bad;
+    }
+    return nullptr;
+}
+
+golite::Declaration* golite::Block::badDeclaration() {
+    for(Statement* statement : statements_) {
+        Declaration* bad = nullptr;
+        if(statement->isFor()) {
+            golite::For* for_stmt = static_cast<For*>(statement);
+            bad = for_stmt->getBlock()->badDeclaration();
+        } else if(statement->isIf()) {
+            golite::If* if_stmt = static_cast<If*>(statement);
+            bad = if_stmt->getBlock()->badDeclaration();
+        } else if(statement->isSwitch()) {
+            golite::Switch* switch_stmt = static_cast<Switch*>(statement);
+            bad = switch_stmt->badDeclaration();
+        } else if(statement->isBlock()) {
+            golite::Block* block = static_cast<Block*>(statement);
+            bad = block->badDeclaration();
+        } else if(statement->isDeclaration()) {
+            golite::Declaration* declaration = static_cast<Declaration*>(statement);
+            if(declaration->badIdentifiers()) {
+                bad = declaration;
             }
         }
         if(bad) return bad;

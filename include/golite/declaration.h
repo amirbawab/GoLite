@@ -20,7 +20,7 @@ namespace golite {
          * Set identifiers
          * @param identifiers
          */
-        void setIdentifiers(std::vector<golite::Expression*> identifiers);
+        void setIdentifiers(std::vector<golite::Expression*> identifiers) { left_identifiers_ = identifiers; }
 
         /**
          * Set expresions
@@ -43,6 +43,12 @@ namespace golite {
          * @return true if it is
          */
         bool badEquation();
+
+        /**
+         * Check if declaration identifiers are wrong
+         * @return true if the are
+         */
+        bool badIdentifiers();
     };
 }
 

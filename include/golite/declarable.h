@@ -18,15 +18,21 @@ namespace golite {
         /**
          * Convert code to golite
          * @param indent
-         * @return
+         * @return code
          */
         virtual std::string toGoLite(int indent) = 0;
 
         /**
          * Function overrides this function
-         * @return true for block statements
+         * @return true for functions
          */
         virtual bool isFunction() { return false; }
+
+        /**
+         * Variable overrides this function
+         * @return true for variable statements
+         */
+        virtual bool isDecVariable() { return false; }
     };
 }
 

@@ -31,6 +31,11 @@ namespace golite {
          * @see Expression::isFunctionCall()
          */
         bool isFunctionCall();
+
+        /**
+         * @see Expression::isIdentifier()
+         */
+        bool isIdentifier();
     };
 }
 

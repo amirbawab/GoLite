@@ -5,6 +5,7 @@
 #include <golite/statement.h>
 #include <golite/break.h>
 #include <golite/continue.h>
+#include <golite/declaration.h>
 
 namespace golite {
     class Block : public Statement {
@@ -65,6 +66,12 @@ namespace golite {
          * @return ptr | nullptr
          */
         golite::Statement* badStatement();
+
+        /**
+         * Bad declaration
+         * @return ptr | nullptr
+         */
+        golite::Declaration* badDeclaration();
     };
 }
 

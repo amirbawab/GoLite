@@ -86,7 +86,7 @@ namespace golite {
          * Variable statement overrides this function
          * @return true for variable statements
          */
-        virtual bool isVariable() { return false; }
+        virtual bool isStatVariable() { return false; }
 
         /**
          * Expressions statement overrides this function

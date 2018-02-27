@@ -1,6 +1,7 @@
 #include <golite/switch.h>
 #include <golite/utils.h>
 #include <sstream>
+#include <golite/declaration.h>
 
 std::string golite::Switch::toGoLite(int indent) {
     std::stringstream ss;
@@ -38,6 +39,14 @@ golite::Continue* golite::Switch::badContinue() {
 golite::Statement* golite::Switch::badStatement() {
     for(SwitchCase* switch_case : cases_) {
         Statement* bad = switch_case->getBlock()->badStatement();
+        if(bad) return bad;
+    }
+    return nullptr;
+}
+
+golite::Declaration* golite::Switch::badDeclaration() {
+    for(SwitchCase* switch_case : cases_) {
+        Declaration* bad = switch_case->getBlock()->badDeclaration();
         if(bad) return bad;
     }
     return nullptr;

@@ -24,6 +24,12 @@ namespace golite {
          * @return true if it is
          */
         virtual bool isFunctionCall() { return false; }
+
+        /**
+         * Check if expression is an identifier
+         * @return true if it is
+         */
+        virtual bool isIdentifier() { return false; }
     };
 }
 

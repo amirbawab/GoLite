@@ -24,7 +24,14 @@ int golite::PrimaryExpression::getLine() {
 
 bool golite::PrimaryExpression::isFunctionCall() {
     if(children_.empty()) {
-        throw std::runtime_error("Cannot check primary expression is a function call because children list is empty");
+        throw std::runtime_error("Cannot check if primary expression is a function call because children list is empty");
     }
     return children_.back()->isFunctionCall();
+}
+
+bool golite::PrimaryExpression::isIdentifier() {
+    if(children_.empty()) {
+        throw std::runtime_error("Cannot check if primary expression is an identifier because children list is empty");
+    }
+    return children_.back()->isIdentifier();
 }

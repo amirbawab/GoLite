@@ -28,6 +28,11 @@ namespace golite {
          * @see Statement::toGoLite(int)
          */
         std::string toGoLite(int indent);
+
+        /**
+         * @ee Expression::isIdentifier()
+         */
+        bool isIdentifier() { return true; }
     };
 }
 

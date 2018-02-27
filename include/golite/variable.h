@@ -43,9 +43,14 @@ namespace golite {
         std::string toGoLite(int indent);
 
         /**
-         * @see Declarable::isVariable()
+         * @see Declarable::isDecVariable()
          */
-        bool isVariable() { return true; }
+        bool isDecVariable() { return true; }
+
+        /**
+         * @see Statement::isStatVariable()
+         */
+        bool isStatVariable() { return true; }
 
         /**
          * Bad equation

@@ -52,6 +52,12 @@ namespace golite {
         golite::Statement* badStatement();
 
         /**
+         * Check for bad usage of declaration statement
+         * @return ptr | nullptr
+         */
+        golite::Declaration* badDeclaration();
+
+        /**
          * @see Statement::toGoLite(int)
          */
         std::string toGoLite(int indent);
