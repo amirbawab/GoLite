@@ -51,3 +51,24 @@ golite::Declaration* golite::Switch::badDeclaration() {
     }
     return nullptr;
 }
+
+golite::Statement* golite::Switch::badSwitch() {
+    for(SwitchCase* switch_case : cases_) {
+        Statement* bad = switch_case->getBlock()->badSwitch();
+        if(bad) return bad;
+    }
+    return nullptr;
+}
+
+golite::SwitchCase* golite::Switch::badDefault() {
+    bool has_default = false;
+    for(SwitchCase* switch_case : cases_) {
+        if(has_default) {
+            return switch_case;
+        }
+        if(switch_case->isDefault()) {
+            has_default = true;
+        }
+    }
+    return nullptr;
+}

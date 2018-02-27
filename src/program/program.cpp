@@ -59,6 +59,13 @@ void golite::Program::weedingPass() {
                 golite::Utils::error_message("Element to the left of the declaration must be identifiers",
                                              badDeclaration->getLine());
             }
+
+            // Bad switch
+            Statement* badSwitch = func->getBlock()->badSwitch();
+            if(badSwitch) {
+                golite::Utils::error_message("Switch statement has more than one default case",
+                                             badSwitch->getLine());
+            }
         }
     }
 }

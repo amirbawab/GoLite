@@ -58,6 +58,18 @@ namespace golite {
         golite::Declaration* badDeclaration();
 
         /**
+         * Check for bad usage of switch default
+         * @return ptr | nullptr
+         */
+        golite::SwitchCase* badDefault();
+
+        /**
+         * Check for bad usage of switch
+         * @return ptr | nullptr
+         */
+        golite::Statement* badSwitch();
+
+        /**
          * @see Statement::toGoLite(int)
          */
         std::string toGoLite(int indent);

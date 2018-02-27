@@ -136,5 +136,29 @@ golite::Declaration* golite::Block::badDeclaration() {
         if(bad) return bad;
     }
     return nullptr;
+}
 
+golite::Statement* golite::Block::badSwitch() {
+    for(Statement* statement : statements_) {
+        Statement* bad = nullptr;
+        if(statement->isFor()) {
+            golite::For* for_stmt = static_cast<For*>(statement);
+            bad = for_stmt->getBlock()->badSwitch();
+        } else if(statement->isIf()) {
+            golite::If* if_stmt = static_cast<If*>(statement);
+            bad = if_stmt->getBlock()->badSwitch();
+        } else if(statement->isBlock()) {
+            golite::Block* block = static_cast<Block*>(statement);
+            bad = block->badSwitch();
+        } else if(statement->isSwitch()) {
+            golite::Switch* switch_stmt = static_cast<Switch*>(statement);
+            if(switch_stmt->badDefault()) {
+                bad = switch_stmt;
+            } else {
+                bad = switch_stmt->badSwitch();
+            }
+        }
+        if(bad) return bad;
+    }
+    return nullptr;
 }

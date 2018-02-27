@@ -72,6 +72,12 @@ namespace golite {
          * @return ptr | nullptr
          */
         golite::Declaration* badDeclaration();
+
+        /**
+         * Bad declaration
+         * @return ptr | nullptr
+         */
+        golite::Statement* badSwitch();
     };
 }
 
