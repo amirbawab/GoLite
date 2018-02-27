@@ -128,21 +128,33 @@ continue        { golite::Utils::log_token("tCONTINUE"); yylval.g_line.line = yy
 0+|([1-9][0-9]*) {
     // Integer
     golite::Utils::log_token("tINT", yytext);
-    yylval.g_expression = new golite::Literal<int>(atoi(yytext), yylineno);
+    try {
+        yylval.g_expression = new golite::Literal<int>(atoi(yytext), yylineno);
+    } catch(int e) {
+        yylval.g_expression = new golite::Literal<int>(-1, yylineno);
+    }
     return fToken(tINT);
 }
 
 0[1-7][0-7]* {
     // Octal
     golite::Utils::log_token("tINT", yytext);
-    yylval.g_expression = new golite::Literal<int>(atoi(yytext), yylineno);
+    try {
+        yylval.g_expression = new golite::Literal<int>(std::stoi(yytext, 0, 8), yylineno);
+    } catch(int e) {
+        yylval.g_expression = new golite::Literal<int>(-1, yylineno);
+    }
     return fToken(tINT);
 }
 
 0[xX][0-9a-fA-F]+ {
     // Hex
     golite::Utils::log_token("tINT", yytext);
-    yylval.g_expression = new golite::Literal<int>(atoi(yytext), yylineno);
+    try {
+        yylval.g_expression = new golite::Literal<int>(atoi(yytext), yylineno);
+    } catch(int e) {
+        yylval.g_expression = new golite::Literal<int>(-1, yylineno);
+    }
     return fToken(tINT);
 }
 
