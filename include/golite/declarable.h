@@ -21,6 +21,12 @@ namespace golite {
          * @return
          */
         virtual std::string toGoLite(int indent) = 0;
+
+        /**
+         * Function overrides this function
+         * @return true for block statements
+         */
+        virtual bool isFunction() { return false; }
     };
 }
 

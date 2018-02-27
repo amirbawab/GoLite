@@ -52,6 +52,11 @@ namespace golite {
          * @return golite code
          */
         std::string toGoLite(int indent);
+
+        /**
+         * Perform a weeding pass to detect errors
+         */
+        void weedingPass();
     };
 }
 

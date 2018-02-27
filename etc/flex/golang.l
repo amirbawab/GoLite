@@ -34,9 +34,7 @@ select          { golite::Utils::log_token("tSELECT"); return fToken(tSELECT); }
 go              { golite::Utils::log_token("tGO"); return fToken(tGO); }
 goto            { golite::Utils::log_token("tGOTO"); return fToken(tGOTO); }
 
-break           { golite::Utils::log_token("tBREAK"); return fToken(tBREAK); }
 case            { golite::Utils::log_token("tCASE"); return fToken(tCASE); }
-continue        { golite::Utils::log_token("tCONTINUE"); return fToken(tCONTINUE); }
 default         { golite::Utils::log_token("tDEFAULT"); return fToken(tDEFAULT); }
 else            { golite::Utils::log_token("tELSE"); return fToken(tELSE); }
 for             { golite::Utils::log_token("tFOR"); return fToken(tFOR); }
@@ -52,6 +50,8 @@ var             { golite::Utils::log_token("tVAR"); return fToken(tVAR); }
 print           { golite::Utils::log_token("tPRINT"); return fToken(tPRINT); }
 println         { golite::Utils::log_token("tPRINTLN"); return fToken(tPRINTLN); }
 append          { golite::Utils::log_token("tAPPEND"); return fToken(tAPPEND); }
+break           { golite::Utils::log_token("tBREAK"); yylval.g_line.line = yylineno; return fToken(tBREAK); }
+continue        { golite::Utils::log_token("tCONTINUE"); yylval.g_line.line = yylineno; return fToken(tCONTINUE); }
 
 "+"             { golite::Utils::log_token("tPLUS"); return fToken(tPLUS); }
 "-"             { golite::Utils::log_token("tMINUS"); return fToken(tMINUS); }

@@ -122,8 +122,10 @@ int main(int argc, char** argv) {
         while (yylex()) {}
     } else if(parse_flag) {
         do { yyparse(); } while (!feof(yyin));
+        golite::Program::getInstance()->weedingPass();
     } else if(pretty_flag) {
         do { yyparse(); } while (!feof(yyin));
+        golite::Program::getInstance()->weedingPass();
         std::cout << golite::Program::getInstance()->toGoLite(1) << std::endl;
     }
 

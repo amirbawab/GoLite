@@ -44,6 +44,17 @@ namespace golite {
         void setTypeComponent(golite::TypeComponent* type_component) { type_component_ = type_component; }
 
         /**
+         * Get block
+         * @return block
+         */
+        Block* getBlock() const { return block_; }
+
+        /**
+         * @see Declarable::isFunction()
+         */
+        bool isFunction() { return true; }
+
+        /**
          * @see Declarable::toGoLite(int)
          */
         std::string toGoLite(int indent);

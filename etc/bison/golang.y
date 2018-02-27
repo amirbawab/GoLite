@@ -78,6 +78,7 @@ extern "C" int yylineno;
     golite::Simple*                         g_simple;
     golite::Switch*                         g_switch;
     std::vector<golite::SwitchCase*>*       g_switch_cases;
+    struct{ int line; }                     g_line;
 }
 
 %type <g_identifiers>       identifiers
@@ -143,9 +144,7 @@ extern "C" int yylineno;
     tGO                     "go"
     tGOTO                   "goto"
 
-    tBREAK                  "break"
     tCASE                   "case"
-    tCONTINUE               "continue"
     tDEFAULT                "default"
     tELSE                   "else"
     tFOR                    "for"
@@ -207,6 +206,9 @@ extern "C" int yylineno;
     tRIGHT_CURL             "}"
     tSEMICOLON              ";"
     tCOLON                  ":"
+
+    <g_line>                tBREAK                  "break"
+    <g_line>                tCONTINUE               "continue"
 
     <g_literal_float>       tFLOAT                  "float"
     <g_literal_int>         tINT                    "integer"
@@ -817,9 +819,9 @@ println_dec[root]
  * Break statement
  **/
 break_dec[root]
-    : tBREAK tSEMICOLON
+    : tBREAK[break] tSEMICOLON
         {
-            $root = new golite::Break();
+            $root = new golite::Break($break.line);
         }
     ;
 
@@ -827,9 +829,9 @@ break_dec[root]
  * Continue statement
  **/
 continue_dec[root]
-    : tCONTINUE tSEMICOLON
+    : tCONTINUE[continue] tSEMICOLON
         {
-            $root = new golite::Continue();
+            $root = new golite::Continue($continue.line);
         }
     ;
 

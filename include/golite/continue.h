@@ -5,7 +5,17 @@
 
 namespace golite {
     class Continue : public Statement {
+    private:
+        int line_;
     public:
+        Continue(int line) : line_(line) {}
+
+        /**
+         * Get line number
+         * @return line number
+         */
+        int getLine() const { return line_; }
+
         /**
          * @see Statement::toGoLite(int)
          */
