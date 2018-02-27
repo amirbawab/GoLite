@@ -14,7 +14,7 @@ namespace golite {
          * Get line number
          * @return line number
          */
-        int getLine() const { return line_; }
+        int getLine() { return line_; }
 
         /**
          * @see Statement::toGoLite(int)

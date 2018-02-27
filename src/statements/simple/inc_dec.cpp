@@ -12,3 +12,7 @@ std::string golite::IncDec::toGoLite(int indent) {
     }
     return ss.str();
 }
+
+int golite::IncDec::getLine() {
+    return expression_->getLine();
+}

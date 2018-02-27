@@ -19,3 +19,10 @@ bool golite::Variable::badEquation() {
     if(expressions_.empty()) return false;
     return identifiers_.size() != expressions_.size();
 }
+
+int golite::Variable::getLine() {
+    if(identifiers_.empty()) {
+        throw std::runtime_error("Cannot get line number of variable with no identifiers");
+    }
+    return identifiers_.front()->getLine();
+}

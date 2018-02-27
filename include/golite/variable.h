@@ -52,6 +52,11 @@ namespace golite {
          * @return true if it is
          */
         bool badEquation();
+
+        /**
+         * @see Statement::getLine()
+         */
+        int getLine();
     };
 }
 

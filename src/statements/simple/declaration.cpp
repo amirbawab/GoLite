@@ -17,3 +17,10 @@ void golite::Declaration::setIdentifiers(std::vector<golite::Expression *> ident
 bool golite::Declaration::badEquation() {
     return left_identifiers_.size() != right_expressions_.size();
 }
+
+int golite::Declaration::getLine() {
+    if(left_identifiers_.empty()) {
+        throw std::runtime_error("Cannot get line of declaration with not left expressions");
+    }
+    return left_identifiers_.front()->getLine();
+}

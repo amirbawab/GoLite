@@ -29,6 +29,12 @@ namespace golite {
         virtual std::string toGoLite(int indent) = 0;
 
         /**
+         * Get line number
+         * @return line number
+         */
+        virtual int getLine() = 0;
+
+        /**
          * Break statement overrides this function
          * @return true for break statements
          */

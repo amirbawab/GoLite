@@ -9,7 +9,14 @@ namespace golite {
     class Print : public Statement {
     private:
         std::vector<golite::Expression*> expressions_;
+        int line_;
     public:
+        Print(int line) : line_(line) {}
+
+        /**
+         * @see Statement::getLine()
+         */
+        int getLine() { return line_; }
 
         /**
          * Set expressions

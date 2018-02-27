@@ -147,14 +147,10 @@ extern "C" int yylineno;
     tCASE                   "case"
     tDEFAULT                "default"
     tELSE                   "else"
-    tFOR                    "for"
     tFUNC                   "func"
-    tIF                     "if"
     tIMPORT                 "import"
     tPACKAGE                "package"
-    tRETURN                 "return"
     tSTRUCT                 "struct"
-    tSWITCH                 "switch"
     tTYPE                   "type"
     tVAR                    "var"
     tPRINT                  "print"
@@ -196,17 +192,21 @@ extern "C" int yylineno;
     tLESS_THAN_EQUAL        "<="
     tGREATER_THAN_EQUAL     ">="
     tDECLARATION            ":="
-    tLEFT_PAR               "("
     tLEFT_SQUARE            "["
-    tLEFT_CURL              "{"
     tCOMMA                  ","
     tDOT                    "."
     tRIGHT_PAR              ")"
     tRIGHT_SQUARE           "]"
     tRIGHT_CURL             "}"
     tSEMICOLON              ";"
-    tCOLON                  ":"
 
+    <g_line>                tRETURN                 "return"
+    <g_line>                tLEFT_PAR               "("
+    <g_line>                tLEFT_CURL              "{"
+    <g_line>                tCOLON                  ":"
+    <g_line>                tSWITCH                 "switch"
+    <g_line>                tFOR                    "for"
+    <g_line>                tIF                     "if"
     <g_line>                tBREAK                  "break"
     <g_line>                tCONTINUE               "continue"
 
@@ -537,16 +537,16 @@ if_dec[root]
  * 'if' statement definition
  **/
 if_def[root]
-    : tIF simple_statement[simple] tSEMICOLON expression[expr] block_body[block]
+    : tIF[if] simple_statement[simple] tSEMICOLON expression[expr] block_body[block]
         {
-            $root = new golite::If();
+            $root = new golite::If($if.line);
             $root->setExpression($expr);
             $root->setBlock($block);
             $root->setSimple($simple);
         }
-    | tIF expression[expr] block_body[block]
+    | tIF[if] expression[expr] block_body[block]
         {
-            $root = new golite::If();
+            $root = new golite::If($if.line);
             $root->setExpression($expr);
             $root->setBlock($block);
         }
@@ -588,9 +588,9 @@ else_opt[root]
  * For declaration
  **/
 for_dec[root]
-    : tFOR for_condition[condition] block_body[block] tSEMICOLON
+    : tFOR[for] for_condition[condition] block_body[block] tSEMICOLON
         {
-            golite::For* for_statement = new golite::For();
+            golite::For* for_statement = new golite::For($for.line);
             for_statement->setBlock($block);
             for_statement->setLeftSimple($condition.left);
             for_statement->setRightSimple($condition.right);
@@ -642,15 +642,15 @@ switch_dec[root]
  * Switch definition
  **/
 switch_def[root]
-    : tSWITCH simple_statement[simple] tSEMICOLON expression_opt[expr]
+    : tSWITCH[switch] simple_statement[simple] tSEMICOLON expression_opt[expr]
         {
-            $root = new golite::Switch();
+            $root = new golite::Switch($switch.line);
             $root->setSimple($simple);
             $root->setExpression($expr);
         }
-    | tSWITCH expression_opt[expr]
+    | tSWITCH[switch] expression_opt[expr]
         {
-            $root = new golite::Switch();
+            $root = new golite::Switch($switch.line);
             $root->setExpression($expr);
         }
     ;
@@ -659,18 +659,18 @@ switch_def[root]
  * Switch statement body
  **/
 switch_cases[root]
-    : switch_cases tCASE expressions[exprs] tCOLON statements[stmts]
+    : switch_cases tCASE expressions[exprs] tCOLON[colon] statements[stmts]
         {
-            golite::Block* block = new golite::Block();
+            golite::Block* block = new golite::Block($colon.line);
             block->setStatements(*$stmts);
             golite::SwitchCase* switch_case = new golite::SwitchCase();
             switch_case->setExpressions(*$exprs);
             switch_case->setBlock(block);
             $root->push_back(switch_case);
         }
-    | switch_cases tDEFAULT tCOLON statements[stmts]
+    | switch_cases tDEFAULT tCOLON[colon] statements[stmts]
         {
-            golite::Block* block = new golite::Block();
+            golite::Block* block = new golite::Block($colon.line);
             block->setStatements(*$stmts);
             golite::SwitchCase* switch_case = new golite::SwitchCase();
             switch_case->setBlock(block);
@@ -700,9 +700,9 @@ block_dec[root]
  * Block statement body
  **/
 block_body[root]
-    : tLEFT_CURL statements[stmts] tRIGHT_CURL
+    : tLEFT_CURL[left_curl] statements[stmts] tRIGHT_CURL
         {
-            $root = new golite::Block();
+            $root = new golite::Block($left_curl.line);
             $root->setStatements(*$stmts);
         }
     ;
@@ -795,9 +795,9 @@ statement[root]
  * Print statement
  **/
 print_dec[root]
-    : tPRINT tLEFT_PAR expressions_opt[exprs] tRIGHT_PAR tSEMICOLON
+    : tPRINT tLEFT_PAR[left_par] expressions_opt[exprs] tRIGHT_PAR tSEMICOLON
         {
-            golite::Print* print_statement = new golite::Print();
+            golite::Print* print_statement = new golite::Print($left_par.line);
             print_statement->setExpressions(*$exprs);
             $root = print_statement;
         }
@@ -807,9 +807,9 @@ print_dec[root]
  * Println statement
  **/
 println_dec[root]
-    : tPRINTLN tLEFT_PAR expressions_opt[exprs] tRIGHT_PAR tSEMICOLON
+    : tPRINTLN tLEFT_PAR[left_par] expressions_opt[exprs] tRIGHT_PAR tSEMICOLON
         {
-            golite::Println* println_statement = new golite::Println();
+            golite::Println* println_statement = new golite::Println($left_par.line);
             println_statement->setExpressions(*$exprs);
             $root = println_statement;
         }
@@ -918,9 +918,9 @@ simple_statement[root]
  * Return statement
  **/
 return_dec[root]
-    : tRETURN expression_opt[expr] tSEMICOLON
+    : tRETURN[return] expression_opt[expr] tSEMICOLON
         {
-            golite::Return* return_statement = new golite::Return();
+            golite::Return* return_statement = new golite::Return($return.line);
             return_statement->setExpression($expr);
             $root = return_statement;
         }
@@ -1060,9 +1060,9 @@ unary_expression[root]
  * Function call
  **/
 func_call[root]
-    : tLEFT_PAR expressions_opt[exprs] tRIGHT_PAR
+    : tLEFT_PAR[left_par] expressions_opt[exprs] tRIGHT_PAR
         {
-            golite::FunctionCall* function_call = new golite::FunctionCall();
+            golite::FunctionCall* function_call = new golite::FunctionCall($left_par.line);
             function_call->setArgs(*$exprs);
             $root = function_call;
         }

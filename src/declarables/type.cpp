@@ -8,3 +8,7 @@ std::string golite::Type::toGoLite(int indent) {
        << type_component_->toGoLite(indent) << ";";
     return ss.str();
 }
+
+int golite::Type::getLine() {
+    return identifier_->getLine();
+}

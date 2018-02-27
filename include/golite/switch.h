@@ -11,8 +11,15 @@ namespace golite {
         Simple* simple_ = nullptr;
         Expression* expression_ = nullptr;
         std::vector<SwitchCase*> cases_;
+        int line_;
 
     public:
+        Switch(int line) : line_(line) {}
+
+        /**
+         * @see Statement::getLine()
+         */
+        int getLine() { return line_; }
 
         /**
          * Set simple

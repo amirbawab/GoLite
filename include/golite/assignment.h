@@ -86,6 +86,12 @@ namespace golite {
          */
         bool badEquation();
 
+        /**
+         * Get line
+         * @return line
+         */
+        int getLine();
+
         Assignment(std::vector<Expression*> left, std::vector<Expression*> right, KIND kind) :
                 left_expressions_(left), right_expressions_(right), kind_(kind){}
     private:

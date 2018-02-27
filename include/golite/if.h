@@ -17,8 +17,14 @@ namespace golite {
         std::vector<If*> else_if_;
         Block* else_ = nullptr;
         Simple* simple_ = nullptr;
-
+        int line_;
     public:
+        If(int line) : line_(line) {}
+
+        /**
+         * @see Statement::getLine()
+         */
+        int getLine() { return line_; }
 
         /**
          * Set else statement

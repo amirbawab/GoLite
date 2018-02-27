@@ -51,3 +51,10 @@ std::string golite::Assignment::toGoLite(int indent) {
 bool golite::Assignment::badEquation() {
     return left_expressions_.size() != right_expressions_.size();
 }
+
+int golite::Assignment::getLine() {
+    if(left_expressions_.empty()) {
+        throw std::runtime_error("Cannot get line of assignment operation with not left expressions");
+    }
+    return left_expressions_.front()->getLine();
+}

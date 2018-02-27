@@ -7,7 +7,3 @@ std::string golite::FunctionCall::toGoLite(int indent) {
     ss << golite::Utils::indent(indent) << "(" << golite::Pretty::implodeExpressions(args_) << ")";
     return ss.str();
 }
-
-int golite::FunctionCall::getLine() {
-    throw std::runtime_error("Cannot get line on a function call");
-}

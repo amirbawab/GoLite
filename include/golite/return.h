@@ -7,7 +7,14 @@ namespace golite {
     class Return : public Statement {
     private:
         Expression* expression_ = nullptr;
+        int line_;
     public:
+        Return(int line) : line_(line) {}
+
+        /**
+         * @see Statement::getLine()
+         */
+        int getLine() { return line_; }
 
         /**
          * Set expression

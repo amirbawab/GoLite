@@ -11,10 +11,7 @@ namespace golite {
      * - Binary
      * - Append (GoLite extra feature)
      */
-    class Expression : public Simple {
-    public:
-        virtual int getLine() = 0;
-    };
+    class Expression : public Simple {};
 }
 
 #endif

@@ -37,14 +37,14 @@ goto            { golite::Utils::log_token("tGOTO"); return fToken(tGOTO); }
 case            { golite::Utils::log_token("tCASE"); return fToken(tCASE); }
 default         { golite::Utils::log_token("tDEFAULT"); return fToken(tDEFAULT); }
 else            { golite::Utils::log_token("tELSE"); return fToken(tELSE); }
-for             { golite::Utils::log_token("tFOR"); return fToken(tFOR); }
+for             { golite::Utils::log_token("tFOR"); yylval.g_line.line = yylineno; return fToken(tFOR); }
 func            { golite::Utils::log_token("tFUNC"); return fToken(tFUNC); }
-if              { golite::Utils::log_token("tIF"); return fToken(tIF); }
+if              { golite::Utils::log_token("tIF"); yylval.g_line.line = yylineno; return fToken(tIF); }
 import          { golite::Utils::log_token("tIMPORT"); return fToken(tIMPORT); }
 package         { golite::Utils::log_token("tPACKAGE"); return fToken(tPACKAGE); }
-return          { golite::Utils::log_token("tRETURN"); return fToken(tRETURN); }
+return          { golite::Utils::log_token("tRETURN"); yylval.g_line.line = yylineno; return fToken(tRETURN); }
 struct          { golite::Utils::log_token("tSTRUCT"); return fToken(tSTRUCT); }
-switch          { golite::Utils::log_token("tSWITCH"); return fToken(tSWITCH); }
+switch          { golite::Utils::log_token("tSWITCH"); yylval.g_line.line = yylineno; return fToken(tSWITCH); }
 type            { golite::Utils::log_token("tTYPE"); return fToken(tTYPE); }
 var             { golite::Utils::log_token("tVAR"); return fToken(tVAR); }
 print           { golite::Utils::log_token("tPRINT"); return fToken(tPRINT); }
@@ -88,16 +88,16 @@ continue        { golite::Utils::log_token("tCONTINUE"); yylval.g_line.line = yy
 "<="            { golite::Utils::log_token("tLESS_THAN_EQUAL"); return fToken(tLESS_THAN_EQUAL); }
 ">="            { golite::Utils::log_token("tGREATER_THAN_EQUAL"); return fToken(tGREATER_THAN_EQUAL); }
 ":="            { golite::Utils::log_token("tDECLARATION"); return fToken(tDECLARATION); }
-"("             { golite::Utils::log_token("tLEFT_PAR"); return fToken(tLEFT_PAR); }
+"("             { golite::Utils::log_token("tLEFT_PAR"); yylval.g_line.line = yylineno; return fToken(tLEFT_PAR); }
 "["             { golite::Utils::log_token("tLEFT_SQUARE"); return fToken(tLEFT_SQUARE); }
-"{"             { golite::Utils::log_token("tLEFT_CURL"); return fToken(tLEFT_CURL); }
+"{"             { golite::Utils::log_token("tLEFT_CURL"); yylval.g_line.line = yylineno; return fToken(tLEFT_CURL); }
 ","             { golite::Utils::log_token("tCOMMA"); return fToken(tCOMMA); }
 "."             { golite::Utils::log_token("tDOT"); return fToken(tDOT); }
 ")"             { golite::Utils::log_token("tRIGHT_PAR"); return fToken(tRIGHT_PAR); }
 "]"             { golite::Utils::log_token("tRIGHT_SQUARE"); return fToken(tRIGHT_SQUARE); }
 "}"             { golite::Utils::log_token("tRIGHT_CURL"); return fToken(tRIGHT_CURL); }
 ";"             { golite::Utils::log_token("tSEMICOLON"); return fToken(tSEMICOLON); }
-":"             { golite::Utils::log_token("tCOLON"); return fToken(tCOLON); }
+":"             { golite::Utils::log_token("tCOLON"); yylval.g_line.line = yylineno; return fToken(tCOLON); }
 
 [ \t\r] {
     // White-space

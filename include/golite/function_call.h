@@ -8,7 +8,9 @@ namespace golite {
     class FunctionCall : public Primary {
     private:
         std::vector<Expression*> args_;
+        int line_;
     public:
+        FunctionCall(int line) : line_(line) {}
 
         /**
          * Set arguments
@@ -25,7 +27,7 @@ namespace golite {
          * Get line number
          * @return line number
          */
-        int getLine();
+        int getLine() { return line_; }
     };
 }
 

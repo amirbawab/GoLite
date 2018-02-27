@@ -12,6 +12,11 @@ namespace golite {
     public:
 
         /**
+         * @see Statement::getLine()
+         */
+        int getLine();
+
+        /**
          * Set identifiers
          * @param identifiers
          */

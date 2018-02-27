@@ -36,7 +36,7 @@ void golite::Program::weedingPass() {
             // Bad equation
             Statement* badEquation = func->getBlock()->badEquation();
             if(badEquation) {
-                golite::Utils::error_message("Number of left and right elements does not match", 0 /*TODO Fix number*/);
+                golite::Utils::error_message("Number of left and right elements does not match", badEquation->getLine());
             }
         }
     }

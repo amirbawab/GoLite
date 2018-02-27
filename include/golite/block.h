@@ -8,10 +8,17 @@
 
 namespace golite {
     class Block : public Statement {
-    protected:
+    private:
         std::vector<Statement*> statements_;
+        int line_;
 
     public:
+        Block(int line) : line_(line) {}
+
+        /**
+         * @see Statement::getLine()
+         */
+        int getLine() { return line_; }
 
         /**
          * Set statements

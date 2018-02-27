@@ -42,6 +42,11 @@ namespace golite {
          * @see Declarable::toGoLite(int)
          */
         std::string toGoLite(int indent);
+
+        /**
+         * @see Statement::getLine()
+         */
+        int getLine();
     };
 }
 
