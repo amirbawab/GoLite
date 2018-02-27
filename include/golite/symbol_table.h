@@ -8,7 +8,7 @@
 namespace golite {
     class SymbolTable {
     protected:
-        SymbolTable* parent_;
+        SymbolTable* parent_ = nullptr;
         std::map<std::string, Declarable*> entries_;
     };
 }

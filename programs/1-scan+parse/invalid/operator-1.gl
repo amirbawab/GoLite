@@ -1,8 +1,0 @@
-// assignment is only done when prefixed by var
-
-package main
-
-func main() {
-    s = "test" // invalid without var statement
-    println(s)
-}

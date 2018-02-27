@@ -1,17 +1,24 @@
 #ifndef GOLITE_SCOPE_PROGRAM_H
 #define GOLITE_SCOPE_PROGRAM_H
 
-#include <golite/type_declarable.h>
-#include <golite/scope.h>
 #include <string>
-
-using namespace std;
+#include <golite/declarable.h>
+#include <golite/identifier.h>
 
 namespace golite {
-    class Program : Scope {
-    public:
-        ~Program() {}
 
+    /**
+     * Singleton class
+     *
+     * Program instance and entry point to the input AST
+     */
+    class Program {
+    private:
+        Program(){}
+        Identifier* package_name_ = nullptr;
+        std::vector<Declarable*> declarables_;
+
+    public:
         static Program* getInstance() {
             static Program* instance(new Program());
             return instance;
@@ -21,11 +28,35 @@ namespace golite {
         Program(Program const&) = delete;
         void operator=(Program const&) = delete;
 
-        void setPackageName(string package_name);
-    private:
-        Program();
+        /**
+         * Set package name
+         * @param package_name
+         */
+        void setPackageName(Identifier* package_name) {package_name_ = package_name;}
 
-        string package_name_;
+        /**
+         * Get package name
+         * @return package name
+         */
+        Identifier* getPackageName() const { return package_name_; }
+
+        /**
+         * Set declarables
+         * @param declarables
+         */
+        void setDeclarables(std::vector<Declarable*> declarables) { declarables_ = declarables; }
+
+        /**
+         * Convert to golite
+         * @param indent
+         * @return golite code
+         */
+        std::string toGoLite(int indent);
+
+        /**
+         * Perform a weeding pass to detect errors
+         */
+        void weedingPass();
     };
 }
 

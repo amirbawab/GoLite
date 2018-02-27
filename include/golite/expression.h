@@ -1,15 +1,35 @@
 #ifndef GOLITE_EXPRESSIONS_EXPRESSION_H
 #define GOLITE_EXPRESSIONS_EXPRESSION_H
 
-namespace golite {
-    class Expression {
-    public:
-        virtual ~Expression() = default;
-    protected:
-        explicit Expression() {};
+#include <golite/simple.h>
 
-        explicit Expression(int line_no) { this->line_ = line_no; }
-        int line_;
+namespace golite {
+    /**
+     * Parent class for all kind of expressions
+     * - Primary
+     * - Unary
+     * - Binary
+     * - Append (GoLite extra feature)
+     */
+    class Expression : public Simple {
+    public:
+
+        /**
+         * @see Statement::isExpression()
+         */
+        virtual bool isExpression() { return true; }
+
+        /**
+         * Check if expression is a function call
+         * @return true if it is
+         */
+        virtual bool isFunctionCall() { return false; }
+
+        /**
+         * Check if expression is an identifier
+         * @return true if it is
+         */
+        virtual bool isIdentifier() { return false; }
     };
 }
 

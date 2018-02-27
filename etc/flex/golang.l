@@ -1,25 +1,24 @@
 %{
+#include <iostream>
+#include <stdbool.h>
 #include <golite/bison.h>
 #include <golite/utils.h>
 #include <bison/golang_bison.h>
-#include <iostream>
-#include <stdbool.h>
+#include <golite/literal.h>
+#include <sstream>
 
-
-#include <golite/statements/declarables/builtin.h>
-#include <golite/expressions/identifier_expression.h>
-#include <golite/expressions/literal_expression.h>
-#include <golite/expressions/literals/octal_value.h>
-#include <golite/expressions/literals/hex_value.h>
 #define YY_DECL extern "C" int yylex()
 
 // Function prototype
 int fToken(int token);
+std::stringstream ss;
 %}
 
 %option yylineno
 
 %x C_COMMENT
+%x C_STRING
+%x C_STRING_ESC
 
 %%
 chan            { golite::Utils::log_token("tCHAN"); return fToken(tCHAN); }
@@ -35,30 +34,24 @@ select          { golite::Utils::log_token("tSELECT"); return fToken(tSELECT); }
 go              { golite::Utils::log_token("tGO"); return fToken(tGO); }
 goto            { golite::Utils::log_token("tGOTO"); return fToken(tGOTO); }
 
-break           { golite::Utils::log_token("tBREAK"); return fToken(tBREAK); }
 case            { golite::Utils::log_token("tCASE"); return fToken(tCASE); }
-continue        { golite::Utils::log_token("tCONTINUE"); return fToken(tCONTINUE); }
 default         { golite::Utils::log_token("tDEFAULT"); return fToken(tDEFAULT); }
 else            { golite::Utils::log_token("tELSE"); return fToken(tELSE); }
-for             { golite::Utils::log_token("tFOR"); return fToken(tFOR); }
+for             { golite::Utils::log_token("tFOR"); yylval.g_line.line = yylineno; return fToken(tFOR); }
 func            { golite::Utils::log_token("tFUNC"); return fToken(tFUNC); }
-if              { golite::Utils::log_token("tIF"); return fToken(tIF); }
+if              { golite::Utils::log_token("tIF"); yylval.g_line.line = yylineno; return fToken(tIF); }
 import          { golite::Utils::log_token("tIMPORT"); return fToken(tIMPORT); }
 package         { golite::Utils::log_token("tPACKAGE"); return fToken(tPACKAGE); }
-return          { golite::Utils::log_token("tRETURN"); return fToken(tRETURN); }
+return          { golite::Utils::log_token("tRETURN"); yylval.g_line.line = yylineno; return fToken(tRETURN); }
 struct          { golite::Utils::log_token("tSTRUCT"); return fToken(tSTRUCT); }
-switch          { golite::Utils::log_token("tSWITCH"); return fToken(tSWITCH); }
+switch          { golite::Utils::log_token("tSWITCH"); yylval.g_line.line = yylineno; return fToken(tSWITCH); }
 type            { golite::Utils::log_token("tTYPE"); return fToken(tTYPE); }
 var             { golite::Utils::log_token("tVAR"); return fToken(tVAR); }
 print           { golite::Utils::log_token("tPRINT"); return fToken(tPRINT); }
 println         { golite::Utils::log_token("tPRINTLN"); return fToken(tPRINTLN); }
 append          { golite::Utils::log_token("tAPPEND"); return fToken(tAPPEND); }
-
-int             { golite::Utils::log_token("tINT_TYPE"); yylval.g_declarable = golite::BuiltIn::INT_TYPE; return fToken(tINT_TYPE); }
-float64         { golite::Utils::log_token("tFLOAT_TYPE"); yylval.g_declarable = golite::BuiltIn::FLOAT_TYPE; return fToken(tFLOAT_TYPE); }
-bool            { golite::Utils::log_token("tBOOL_TYPE"); yylval.g_declarable = golite::BuiltIn::BOOL_TYPE; return fToken(tBOOL_TYPE); }
-rune            { golite::Utils::log_token("tRUNE_TYPE"); yylval.g_declarable = golite::BuiltIn::RUNE_TYPE; return fToken(tRUNE_TYPE); }
-string          { golite::Utils::log_token("tSTRING_TYPE"); yylval.g_declarable = golite::BuiltIn::STRING_TYPE; return fToken(tSTRING_TYPE); }
+break           { golite::Utils::log_token("tBREAK"); yylval.g_line.line = yylineno; return fToken(tBREAK); }
+continue        { golite::Utils::log_token("tCONTINUE"); yylval.g_line.line = yylineno; return fToken(tCONTINUE); }
 
 "+"             { golite::Utils::log_token("tPLUS"); return fToken(tPLUS); }
 "-"             { golite::Utils::log_token("tMINUS"); return fToken(tMINUS); }
@@ -95,16 +88,16 @@ string          { golite::Utils::log_token("tSTRING_TYPE"); yylval.g_declarable 
 "<="            { golite::Utils::log_token("tLESS_THAN_EQUAL"); return fToken(tLESS_THAN_EQUAL); }
 ">="            { golite::Utils::log_token("tGREATER_THAN_EQUAL"); return fToken(tGREATER_THAN_EQUAL); }
 ":="            { golite::Utils::log_token("tDECLARATION"); return fToken(tDECLARATION); }
-"("             { golite::Utils::log_token("tLEFT_PAR"); return fToken(tLEFT_PAR); }
+"("             { golite::Utils::log_token("tLEFT_PAR"); yylval.g_line.line = yylineno; return fToken(tLEFT_PAR); }
 "["             { golite::Utils::log_token("tLEFT_SQUARE"); return fToken(tLEFT_SQUARE); }
-"{"             { golite::Utils::log_token("tLEFT_CURL"); return fToken(tLEFT_CURL); }
+"{"             { golite::Utils::log_token("tLEFT_CURL"); yylval.g_line.line = yylineno; return fToken(tLEFT_CURL); }
 ","             { golite::Utils::log_token("tCOMMA"); return fToken(tCOMMA); }
 "."             { golite::Utils::log_token("tDOT"); return fToken(tDOT); }
 ")"             { golite::Utils::log_token("tRIGHT_PAR"); return fToken(tRIGHT_PAR); }
 "]"             { golite::Utils::log_token("tRIGHT_SQUARE"); return fToken(tRIGHT_SQUARE); }
 "}"             { golite::Utils::log_token("tRIGHT_CURL"); return fToken(tRIGHT_CURL); }
 ";"             { golite::Utils::log_token("tSEMICOLON"); return fToken(tSEMICOLON); }
-":"             { golite::Utils::log_token("tCOLON"); return fToken(tCOLON); }
+":"             { golite::Utils::log_token("tCOLON"); yylval.g_line.line = yylineno; return fToken(tCOLON); }
 
 [ \t\r] {
     // White-space
@@ -118,6 +111,16 @@ string          { golite::Utils::log_token("tSTRING_TYPE"); yylval.g_declarable 
     }
 }
 
+<<EOF>> {
+    static bool add_newline = true;
+    if(add_newline) {
+        add_newline = false;
+        unput('\n');
+    } else {
+        return 0;
+    }
+}
+
 "//".* {
     // Inline comment
 }
@@ -125,56 +128,92 @@ string          { golite::Utils::log_token("tSTRING_TYPE"); yylval.g_declarable 
 0+|([1-9][0-9]*) {
     // Integer
     golite::Utils::log_token("tINT", yytext);
-    yylval.g_expr = new golite::LiteralExpression<int>(atoi(yytext), 0);
+    try {
+        yylval.g_expression = new golite::Literal<int>(atoi(yytext), yylineno);
+    } catch(int e) {
+        yylval.g_expression = new golite::Literal<int>(-1, yylineno);
+    }
     return fToken(tINT);
 }
 
 0[1-7][0-7]* {
     // Octal
     golite::Utils::log_token("tINT", yytext);
-    yylval.g_expr = new golite::LiteralExpression<golite::OctalValue>(golite::OctalValue(atoi(yytext)), 0);
+    try {
+        yylval.g_expression = new golite::Literal<int>(std::stoi(yytext, 0, 8), yylineno);
+    } catch(int e) {
+        yylval.g_expression = new golite::Literal<int>(-1, yylineno);
+    }
     return fToken(tINT);
 }
 
 0[xX][0-9a-fA-F]+ {
     // Hex
     golite::Utils::log_token("tINT", yytext);
-    yylval.g_expr = new golite::LiteralExpression<golite::HexValue>(golite::HexValue(strdup(yytext)), 0);
+    try {
+        yylval.g_expression = new golite::Literal<int>(atoi(yytext), yylineno);
+    } catch(int e) {
+        yylval.g_expression = new golite::Literal<int>(-1, yylineno);
+    }
     return fToken(tINT);
 }
 
 ([0-9]*\.[0-9]+)|([0-9]+\.[0-9]*) {
     // Float
     golite::Utils::log_token("tFLOAT", yytext);
-    yylval.g_expr = new golite::LiteralExpression<float>(atof(yytext), 0);
+    yylval.g_expression = new golite::Literal<float>(atof(yytext), yylineno);
     return fToken(tFLOAT);
 }
 
 '((\\[abfnrtv\\\'])|[^\\'])' {
     // Rune/Character
     golite::Utils::log_token("tRUNE", yytext);
-    yylval.g_expr = new golite::LiteralExpression<char>(yytext[0], 0);
+    yylval.g_expression = new golite::Literal<char*>(strdup(yytext), yylineno);
     return fToken(tRUNE);
 }
 
-`(.|\n)*` {
+`([^`]|\n)*` {
     // Raw String
     golite::Utils::log_token("tSTRING", yytext);
-    yylval.g_expr = new golite::LiteralExpression<std::string>(yytext, 0);
+    yylval.g_expression = new golite::Literal<char*>(strdup(yytext), yylineno);
     return fToken(tSTRING);
 }
 
-\"(\\[abfnrtv\\\"]|[^\\"])*\" {
-    // String
-    golite::Utils::log_token("tSTRING", yytext);
-    yylval.g_expr = new golite::LiteralExpression<std::string>(yytext, 0);
+<INITIAL>\" {
+    ss.str("");
+    ss.clear();
+    ss << "\"";
+    BEGIN(C_STRING);
+}
+<C_STRING>[^\\"\n]* { ss << yytext; }
+<C_STRING>\\ { BEGIN(C_STRING_ESC); }
+<C_STRING>\" {
+    ss << "\"";
+    BEGIN(INITIAL);
+    golite::Utils::log_token("tSTRING", ss.str().c_str());
+    yylval.g_expression = new golite::Literal<char*>(strdup(ss.str().c_str()), yylineno);
     return fToken(tSTRING);
+}
+<C_STRING>\n {
+    golite::Utils::error_message("Missing closing string quote", yylineno);
+}
+<C_STRING_ESC>[abfnrtv"\\] {
+    ss << "\\" << yytext;
+    BEGIN(C_STRING);
+}
+<C_STRING_ESC>\n {
+    golite::Utils::error_message("Missing escape character", yylineno);
+}
+<C_STRING_ESC>. {
+    std::stringstream msg;
+    msg << "Unsupported escape character '\\" << yytext << "'";
+    golite::Utils::error_message(msg.str().c_str(), yylineno);
 }
 
 [a-zA-Z_][a-zA-Z0-9_]* {
     // Identifier
     golite::Utils::log_token("tIDENTIFIER", yytext);
-    yylval.g_expr = new golite::IdentifierExpression(strdup(yytext), 0);
+    yylval.g_identifier = new golite::Identifier(strdup(yytext), yylineno);
     return fToken(tIDENTIFIER);
 }
 

@@ -1,6 +1,7 @@
 #include <getopt.h>
 #include <iostream>
 #include <golite/utils.h>
+#include <golite/program.h>
 
 // Information for Flex
 extern "C" FILE *yyin;
@@ -115,16 +116,17 @@ int main(int argc, char** argv) {
     }
     yyin = file;
 
-    // Scan/Parse
-    if(tokens_flag || scan_flag) {
+    if(tokens_flag) {
         while (yylex()) {}
-    } else if(pretty_flag || parse_flag) {
+    } else if(scan_flag) {
+        while (yylex()) {}
+    } else if(parse_flag) {
         do { yyparse(); } while (!feof(yyin));
-    }
-
-    // Prettify
-    if(pretty_flag) {
-        // TODO
+        golite::Program::getInstance()->weedingPass();
+    } else if(pretty_flag) {
+        do { yyparse(); } while (!feof(yyin));
+        golite::Program::getInstance()->weedingPass();
+        std::cout << golite::Program::getInstance()->toGoLite(1) << std::endl;
     }
 
     return golite::Utils::EXIT_FINE;

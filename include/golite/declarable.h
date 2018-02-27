@@ -1,14 +1,38 @@
 #ifndef GOLITE_STATEMENTS_DECLARABLES_DECLARABLE_H
 #define GOLITE_STATEMENTS_DECLARABLES_DECLARABLE_H
 
-#include <golite/statement.h>
 #include <string>
 
 namespace golite {
-    class Declarable : Statement {
-    protected:
-        Declarable(std::string name) { this->name_ = name; }
-        std::string name_;
+    /**
+     * Parent class of elements that can be created on the global scope (program scope)
+     *
+     * The following types can are declarable on the global scope:
+     * - Types
+     * - Variables
+     * - Functions
+     */
+    class Declarable {
+    public:
+
+        /**
+         * Convert code to golite
+         * @param indent
+         * @return code
+         */
+        virtual std::string toGoLite(int indent) = 0;
+
+        /**
+         * Function overrides this function
+         * @return true for functions
+         */
+        virtual bool isFunction() { return false; }
+
+        /**
+         * Variable overrides this function
+         * @return true for variable statements
+         */
+        virtual bool isDecVariable() { return false; }
     };
 }
 
