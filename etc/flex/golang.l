@@ -139,7 +139,7 @@ continue        { golite::Utils::log_token("tCONTINUE"); yylval.g_line.line = yy
     golite::Utils::log_token("tINT", yytext);
     try {
         yylval.g_expression = new golite::Literal<int>(atoi(yytext), yylineno);
-    } catch(int e) {
+    } catch(...) {
         yylval.g_expression = new golite::Literal<int>(-1, yylineno);
     }
     return fToken(tINT);
@@ -150,7 +150,7 @@ continue        { golite::Utils::log_token("tCONTINUE"); yylval.g_line.line = yy
     golite::Utils::log_token("tINT", yytext);
     try {
         yylval.g_expression = new golite::Literal<int>(std::stoi(yytext, 0, 8), yylineno);
-    } catch(int e) {
+    } catch(...) {
         yylval.g_expression = new golite::Literal<int>(-1, yylineno);
     }
     return fToken(tINT);
@@ -160,8 +160,8 @@ continue        { golite::Utils::log_token("tCONTINUE"); yylval.g_line.line = yy
     // Hex
     golite::Utils::log_token("tINT", yytext);
     try {
-        yylval.g_expression = new golite::Literal<int>(atoi(yytext), yylineno);
-    } catch(int e) {
+        yylval.g_expression = new golite::Literal<int>(std::stoi(yytext, 0, 16), yylineno);
+    } catch(...) {
         yylval.g_expression = new golite::Literal<int>(-1, yylineno);
     }
     return fToken(tINT);
