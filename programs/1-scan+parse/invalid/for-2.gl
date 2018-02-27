@@ -1,0 +1,7 @@
+// the post statement needs to be evaluated
+
+package main
+
+func main() {
+	for y := 1; y < 2; 1 {  }
+}
