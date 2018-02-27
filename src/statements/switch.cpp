@@ -63,10 +63,10 @@ golite::Statement* golite::Switch::badSwitch() {
 golite::SwitchCase* golite::Switch::badDefault() {
     bool has_default = false;
     for(SwitchCase* switch_case : cases_) {
-        if(has_default) {
-            return switch_case;
-        }
         if(switch_case->isDefault()) {
+            if(has_default) {
+                return switch_case;
+            }
             has_default = true;
         }
     }
