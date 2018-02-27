@@ -34,3 +34,11 @@ golite::Continue* golite::Switch::badContinue() {
     }
     return nullptr;
 }
+
+golite::Statement* golite::Switch::badStatement() {
+    for(SwitchCase* switch_case : cases_) {
+        Statement* bad = switch_case->getBlock()->badStatement();
+        if(bad) return bad;
+    }
+    return nullptr;
+}

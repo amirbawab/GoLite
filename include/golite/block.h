@@ -59,6 +59,12 @@ namespace golite {
          * @return ptr | nullptr
          */
         golite::Statement* badEquation();
+
+        /**
+         * Bad statment
+         * @return ptr | nullptr
+         */
+        golite::Statement* badStatement();
     };
 }
 

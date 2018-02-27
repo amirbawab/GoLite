@@ -41,9 +41,15 @@ namespace golite {
 
         /**
          * Check for bad usage of continue statement
-         * @return true if it does
+         * @return ptr | nullptr
          */
         golite::Continue* badContinue();
+
+        /**
+         * Check for bad usage of continue statement
+         * @return ptr | nullptr
+         */
+        golite::Statement* badStatement();
 
         /**
          * @see Statement::toGoLite(int)

@@ -38,6 +38,12 @@ void golite::Program::weedingPass() {
             if(badEquation) {
                 golite::Utils::error_message("Number of left and right elements does not match", badEquation->getLine());
             }
+
+            // Bad statement
+            Statement* badStatement = func->getBlock()->badStatement();
+            if(badStatement) {
+                golite::Utils::error_message("Statement must be a function call", badStatement->getLine());
+            }
         }
     }
 }

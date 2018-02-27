@@ -1,11 +1,12 @@
 #include <golite/block.h>
 #include <golite/utils.h>
 #include <golite/if.h>
-#include <sstream>
+#include <golite/for.h>
 #include <golite/switch.h>
 #include <golite/assignment.h>
 #include <golite/declaration.h>
 #include <golite/variable.h>
+#include <sstream>
 
 std::string golite::Block::toGoLite(int indent) {
     std::stringstream ss;
@@ -83,4 +84,31 @@ golite::Statement* golite::Block::badEquation() {
         if(bad) return bad;
     }
     return nullptr;
+}
+
+golite::Statement* golite::Block::badStatement() {
+    for(Statement* statement : statements_) {
+        Statement* bad = nullptr;
+        if(statement->isFor()) {
+            golite::For* for_stmt = static_cast<For*>(statement);
+            bad = for_stmt->getBlock()->badStatement();
+        } else if(statement->isIf()) {
+            golite::If* if_stmt = static_cast<If*>(statement);
+            bad = if_stmt->getBlock()->badStatement();
+        } else if(statement->isSwitch()) {
+            golite::Switch* switch_stmt = static_cast<Switch*>(statement);
+            bad = switch_stmt->badStatement();
+        } else if(statement->isBlock()) {
+            golite::Block* block = static_cast<Block*>(statement);
+            bad = block->badStatement();
+        } else if(statement->isExpression()) {
+            golite::Expression* expression = static_cast<Expression*>(statement);
+            if(!expression->isFunctionCall()) {
+                bad = expression;
+            }
+        }
+        if(bad) return bad;
+    }
+    return nullptr;
+
 }

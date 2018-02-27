@@ -26,6 +26,11 @@ namespace golite {
          * @return line number
          */
         int getLine();
+
+        /**
+         * @see Expression::isFunctionCall()
+         */
+        bool isFunctionCall();
     };
 }
 

@@ -11,7 +11,20 @@ namespace golite {
      * - Binary
      * - Append (GoLite extra feature)
      */
-    class Expression : public Simple {};
+    class Expression : public Simple {
+    public:
+
+        /**
+         * @see Statement::isExpression()
+         */
+        virtual bool isExpression() { return true; }
+
+        /**
+         * Check if expression is a function call
+         * @return true if it is
+         */
+        virtual bool isFunctionCall() { return false; }
+    };
 }
 
 #endif

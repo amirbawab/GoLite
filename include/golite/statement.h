@@ -87,6 +87,12 @@ namespace golite {
          * @return true for variable statements
          */
         virtual bool isVariable() { return false; }
+
+        /**
+         * Expressions statement overrides this function
+         * @return true for expression statements
+         */
+        virtual bool isExpression() { return false; }
     };
 }
 

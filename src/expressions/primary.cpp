@@ -21,3 +21,12 @@ int golite::Primary::getLine() {
     }
     return children_.front()->getLine();
 }
+
+bool golite::Primary::isFunctionCall() {
+    // FIXME Ideally we should throw an exception here but right now derived classes inherit children,
+    // and they always have an empty children vector
+    if(children_.empty()) {
+        return false;
+    }
+    return children_.back()->isFunctionCall();
+}
