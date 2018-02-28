@@ -2,7 +2,7 @@ package main
 
 func main() {
     s := "test"
-    if(_) {
+    if _ {
         println(s)
     }
 }

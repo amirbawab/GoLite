@@ -2,6 +2,7 @@
 #include <golite/utils.h>
 #include <sstream>
 #include <golite/identifier.h>
+#include <golite/primary_expression.h>
 
 std::string golite::Append::toGoLite(int indent) {
     std::stringstream ss;
@@ -17,7 +18,8 @@ int golite::Append::getLine() {
 
 void golite::Append::weedingPass(bool check_break, bool check_continue) {
     if(left_expression_->isIdentifier()) {
-        golite::Identifier* identifier = static_cast<Identifier*>(left_expression_);
+        golite::PrimaryExpression* primary_expression = static_cast<PrimaryExpression*>(left_expression_);
+        golite::Identifier* identifier = static_cast<Identifier*>(primary_expression->lastChild());
         if(identifier->isBlank()) {
             golite::Utils::error_message("Append does not accept left argument to be a blank identifier",
                                          left_expression_->getLine());
@@ -25,7 +27,8 @@ void golite::Append::weedingPass(bool check_break, bool check_continue) {
     }
 
     if(right_expression_->isIdentifier()) {
-        golite::Identifier* identifier = static_cast<Identifier*>(right_expression_);
+        golite::PrimaryExpression* primary_expression = static_cast<PrimaryExpression*>(right_expression_);
+        golite::Identifier* identifier = static_cast<Identifier*>(primary_expression->lastChild());
         if(identifier->isBlank()) {
             golite::Utils::error_message("Append does not accept right argument to be a blank identifier",
                                          right_expression_->getLine());

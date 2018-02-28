@@ -2,6 +2,7 @@
 #include <golite/utils.h>
 #include <sstream>
 #include <golite/identifier.h>
+#include <golite/primary_expression.h>
 
 std::string golite::Binary::toGoLite(int indent) {
     std::stringstream ss;
@@ -75,7 +76,8 @@ int golite::Binary::getLine() {
 
 void golite::Binary::weedingPass(bool check_break, bool check_continue) {
     if(left_operand_->isIdentifier()) {
-        golite::Identifier* identifier = static_cast<Identifier*>(left_operand_);
+        golite::PrimaryExpression* primary_expression = static_cast<PrimaryExpression*>(left_operand_);
+        golite::Identifier* identifier = static_cast<Identifier*>(primary_expression->lastChild());
         if(identifier->isBlank()) {
             golite::Utils::error_message("Left operand in binary expression cannot be a blank identifier",
                                          left_operand_->getLine());
@@ -83,7 +85,8 @@ void golite::Binary::weedingPass(bool check_break, bool check_continue) {
     }
 
     if(right_operand_->isIdentifier()) {
-        golite::Identifier* identifier = static_cast<Identifier*>(right_operand_);
+        golite::PrimaryExpression* primary_expression = static_cast<PrimaryExpression*>(right_operand_);
+        golite::Identifier* identifier = static_cast<Identifier*>(primary_expression->lastChild());
         if(identifier->isBlank()) {
             golite::Utils::error_message("Right operand in binary expression cannot be a blank identifier",
                                          right_operand_->getLine());

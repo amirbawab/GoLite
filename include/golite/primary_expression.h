@@ -17,6 +17,18 @@ namespace golite {
         void addChild(golite::Primary* child);
 
         /**
+         * Get children
+         * @return list of children
+         */
+        std::vector<golite::Primary*> getChildren() { return children_; }
+
+        /**
+         * Get last child
+         * @return last child
+         */
+        golite::Primary* lastChild();
+
+        /**
          * @see Statement::toGoLite(int)
          */
         std::string toGoLite(int indent);

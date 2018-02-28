@@ -53,3 +53,10 @@ void golite::PrimaryExpression::weedingPass(bool check_break, bool check_continu
         primary->weedingPass(check_break, check_continue);
     }
 }
+
+golite::Primary* golite::PrimaryExpression::lastChild() {
+    if(children_.empty()) {
+        throw std::runtime_error("Cannot get last child of an empty list");
+    }
+    return children_.back();
+}
