@@ -64,19 +64,19 @@ namespace golite {
          * @param rhs
          * @param kind
          */
-        Binary(Expression* lhs, Expression* rhs, KIND kind) : lhs_(lhs), rhs_(rhs), kind_(kind) {}
+        Binary(Expression* lhs, Expression* rhs, KIND kind) : left_operand_(lhs), right_operand_(rhs), kind_(kind) {}
 
         /**
          * Get left operand
          * @return left operand
          */
-        Expression* getLeftOperand() const {return lhs_; }
+        Expression* getLeftOperand() const {return left_operand_; }
 
         /**
          * Get right operand
          * @return right operand
          */
-        Expression* getRightOperand() const {return rhs_; }
+        Expression* getRightOperand() const {return right_operand_; }
 
         /**
          * Get operation kind
@@ -94,13 +94,18 @@ namespace golite {
          * @return line number
          */
         int getLine();
+
+        /**
+         * @see Statement::weedingPass()
+         */
+        void weedingPass(bool check_break, bool check_continue);
     private:
 
         // expression + ...
-        Expression* lhs_ = nullptr;
+        Expression* left_operand_ = nullptr;
 
         // ... + expression
-        Expression* rhs_ = nullptr;
+        Expression* right_operand_ = nullptr;
 
         // Binary expression type
         KIND kind_;

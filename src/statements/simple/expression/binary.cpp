@@ -1,10 +1,11 @@
 #include <golite/binary.h>
 #include <golite/utils.h>
 #include <sstream>
+#include <golite/identifier.h>
 
 std::string golite::Binary::toGoLite(int indent) {
     std::stringstream ss;
-    ss << golite::Utils::indent(indent) << "(" << lhs_->toGoLite(0);
+    ss << golite::Utils::indent(indent) << "(" << left_operand_->toGoLite(0);
     switch (kind_){
         case MINUS:
             ss << " - ";
@@ -64,10 +65,31 @@ std::string golite::Binary::toGoLite(int indent) {
             ss << " || ";
             break;
     }
-    ss << rhs_->toGoLite(0) << ")";
+    ss << right_operand_->toGoLite(0) << ")";
     return ss.str();
 }
 
 int golite::Binary::getLine() {
-    return lhs_->getLine();
+    return left_operand_->getLine();
+}
+
+void golite::Binary::weedingPass(bool check_break, bool check_continue) {
+    if(left_operand_->isIdentifier()) {
+        golite::Identifier* identifier = static_cast<Identifier*>(left_operand_);
+        if(identifier->isBlank()) {
+            golite::Utils::error_message("Left operand in binary expression cannot be a blank identifier",
+                                         left_operand_->getLine());
+        }
+    }
+
+    if(right_operand_->isIdentifier()) {
+        golite::Identifier* identifier = static_cast<Identifier*>(right_operand_);
+        if(identifier->isBlank()) {
+            golite::Utils::error_message("Right operand in binary expression cannot be a blank identifier",
+                                         right_operand_->getLine());
+        }
+    }
+
+    left_operand_->weedingPass(check_break, check_continue);
+    right_operand_->weedingPass(check_break, check_continue);
 }

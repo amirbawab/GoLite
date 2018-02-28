@@ -60,6 +60,11 @@ namespace golite {
          * @see Statement::isFor()
          */
         bool isFor() { return true; }
+
+        /**
+         * @see Statement::weedingPass()
+         */
+        void weedingPass(bool check_break, bool check_continue);
     };
 }
 

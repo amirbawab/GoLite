@@ -33,6 +33,11 @@ namespace golite {
          * @return true for variable statements
          */
         virtual bool isDecVariable() { return false; }
+
+        /**
+         * @see Statement::weedingPass()
+         */
+        virtual void weedingPass(bool check_break, bool check_continue) = 0;
     };
 }
 

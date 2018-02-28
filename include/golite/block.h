@@ -41,46 +41,9 @@ namespace golite {
         bool isBlock() { return true; }
 
         /**
-         * Check recursively if block has a wrong break statement
-         * @return ptr | nullptr
+         * @see Statement::weedingPass()
          */
-        golite::Statement* badBreak();
-
-        /**
-         * Check recursively if block has a wrong continue statement
-         * @return ptr | nullptr
-         */
-        golite::Statement* badContinue();
-
-        /**
-         * Check recursively if block has a wrong assignment, declaration or variable declaration
-         * @return ptr | nullptr
-         */
-        golite::Statement* badEquation();
-
-        /**
-         * Bad statment
-         * @return ptr | nullptr
-         */
-        golite::Statement* badStatement();
-
-        /**
-         * Bad declaration
-         * @return ptr | nullptr
-         */
-        golite::Statement* badDeclaration();
-
-        /**
-         * Bad declaration
-         * @return ptr | nullptr
-         */
-        golite::Statement* badSwitch();
-
-        /**
-         * Bad blank
-         * @return ptr | nullptr
-         */
-        golite::Statement* badBlank();
+        void weedingPass(bool check_break, bool check_continue);
     };
 }
 

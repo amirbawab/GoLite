@@ -27,6 +27,11 @@ namespace golite {
          * @see Statement::toGoLite(int)
          */
         std::string toGoLite(int indent);
+
+        /**
+         * @see Statement::weedingPass()
+         */
+        void weedingPass(bool check_break, bool check_continue);
     };
 }
 

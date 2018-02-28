@@ -48,13 +48,29 @@ std::string golite::Assignment::toGoLite(int indent) {
     return ss.str();
 }
 
-bool golite::Assignment::badEquation() {
-    return left_expressions_.size() != right_expressions_.size();
-}
-
 int golite::Assignment::getLine() {
     if(left_expressions_.empty()) {
         throw std::runtime_error("Cannot get line of assignment operation with not left expressions");
     }
     return left_expressions_.front()->getLine();
+}
+
+void golite::Assignment::weedingPass(bool check_break, bool check_continue) {
+    if(left_expressions_.size() != right_expressions_.size()) {
+        golite::Utils::error_message("Number of left and right elements of assignment does not match", getLine());
+    }
+
+    for(Expression* expression : left_expressions_) {
+        expression->weedingPass(check_break, check_continue);
+    }
+
+    for(Expression* expression : right_expressions_) {
+        if(expression->isIdentifier()) {
+            golite::Identifier* identifier = static_cast<Identifier*>(expression);
+            if(identifier->isBlank()) {
+                golite::Utils::error_message("Assignment value cannot be a blank identifier", expression->getLine());
+            }
+        }
+        expression->weedingPass(check_break, check_continue);
+    }
 }

@@ -28,47 +28,23 @@ std::string golite::Switch::toGoLite(int indent) {
     return ss.str();
 }
 
-golite::Statement* golite::Switch::badContinue() {
-    for(SwitchCase* switch_case : cases_) {
-        Statement* bad = switch_case->getBlock()->badContinue();
-        if(bad) return bad;
+void golite::Switch::weedingPass(bool check_break, bool check_continue) {
+    if(simple_) {
+        simple_->weedingPass(check_break, check_continue);
     }
-    return nullptr;
-}
-
-golite::Statement* golite::Switch::badStatement() {
-    for(SwitchCase* switch_case : cases_) {
-        Statement* bad = switch_case->getBlock()->badStatement();
-        if(bad) return bad;
+    if(expression_) {
+        expression_->weedingPass(check_break, check_continue);
     }
-    return nullptr;
-}
 
-golite::Statement* golite::Switch::badDeclaration() {
-    for(SwitchCase* switch_case : cases_) {
-        Statement* bad = switch_case->getBlock()->badDeclaration();
-        if(bad) return bad;
-    }
-    return nullptr;
-}
-
-golite::Statement* golite::Switch::badSwitch() {
-    for(SwitchCase* switch_case : cases_) {
-        Statement* bad = switch_case->getBlock()->badSwitch();
-        if(bad) return bad;
-    }
-    return nullptr;
-}
-
-golite::SwitchCase* golite::Switch::badDefault() {
     bool has_default = false;
     for(SwitchCase* switch_case : cases_) {
         if(switch_case->isDefault()) {
             if(has_default) {
-                return switch_case;
+                golite::Utils::error_message("Switch statement has more than one default case",
+                                             switch_case->getLine());
             }
             has_default = true;
         }
+        switch_case->weedingPass(check_break, check_continue);
     }
-    return nullptr;
 }

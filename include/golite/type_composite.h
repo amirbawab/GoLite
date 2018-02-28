@@ -20,6 +20,13 @@ namespace golite {
          * @return line number
          */
         virtual int getLine() = 0;
+
+        /**
+         * Perform a weeding pass
+         * @param check_break
+         * @param check_continue
+         */
+        virtual void weedingPass(bool check_break, bool check_continue) = 0;
     };
 }
 

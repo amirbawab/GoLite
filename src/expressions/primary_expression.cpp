@@ -1,6 +1,7 @@
 #include <golite/primary_expression.h>
 #include <golite/utils.h>
 #include <sstream>
+#include <golite/identifier.h>
 
 void golite::PrimaryExpression::addChild(golite::Primary *child) {
     children_.push_back(child);
@@ -34,4 +35,21 @@ bool golite::PrimaryExpression::isIdentifier() {
         throw std::runtime_error("Cannot check if primary expression is an identifier because children list is empty");
     }
     return children_.back()->isIdentifier();
+}
+
+void golite::PrimaryExpression::weedingPass(bool check_break, bool check_continue) {
+    if(children_.empty()) {
+        throw std::runtime_error("Cannot perform weeding pass on primary expression because children list is empty");
+    }
+
+    if(children_.front()->isIdentifier()){
+        golite::Identifier* identifier = static_cast<Identifier*>(children_.front());
+        if(identifier->isBlank() && children_.size() > 1) {
+            golite::Utils::error_message("Blank identifier cannot be accessed", getLine());
+        }
+    }
+
+    for(Primary* primary : children_) {
+        primary->weedingPass(check_break, check_continue);
+    }
 }

@@ -12,3 +12,8 @@ std::string golite::Type::toGoLite(int indent) {
 int golite::Type::getLine() {
     return identifier_->getLine();
 }
+
+void golite::Type::weedingPass(bool check_break, bool check_continue) {
+    identifier_->weedingPass(check_break, check_continue);
+    type_component_->weedingPass(check_break, check_continue);
+}

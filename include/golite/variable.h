@@ -53,15 +53,14 @@ namespace golite {
         bool isStatVariable() { return true; }
 
         /**
-         * Bad equation
-         * @return true if it is
-         */
-        bool badEquation();
-
-        /**
          * @see Statement::getLine()
          */
         int getLine();
+
+        /**
+         * @see Statement::weedingPass()
+         */
+        void weedingPass(bool check_break, bool check_continue);
     };
 }
 

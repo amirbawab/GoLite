@@ -11,3 +11,9 @@ std::string golite::Selector::toGoLite(int indent) {
 int golite::Selector::getLine() {
     return identifier_->getLine();
 }
+
+void golite::Selector::weedingPass(bool check_break, bool check_continue) {
+    if(identifier_->isBlank()) {
+        golite::Utils::error_message("Selector cannot be a blank identifier", identifier_->getLine());
+    }
+}

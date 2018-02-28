@@ -20,3 +20,17 @@ std::string golite::Function::toGoLite(int indent) {
     ss << "}";
     return ss.str();
 }
+
+void golite::Function::weedingPass(bool check_break, bool check_continue) {
+    identifier_->weedingPass(check_break, check_continue);
+
+    for(FunctionParam* function_param : params_) {
+        function_param->weedingPass(check_break, check_continue);
+    }
+
+    if(type_component_) {
+        type_component_->weedingPass(check_break, check_continue);
+    }
+
+    block_->weedingPass(check_break, check_continue);
+}

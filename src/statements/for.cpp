@@ -33,3 +33,16 @@ std::string golite::For::toGoLite(int indent) {
     ss << "}";
     return ss.str();
 }
+
+void golite::For::weedingPass(bool check_break, bool check_continue) {
+    if(left_simple_) {
+        left_simple_->weedingPass(check_break, check_continue);
+    }
+    if(expression_) {
+        expression_->weedingPass(check_break, check_continue);
+    }
+    if(right_simple_) {
+        right_simple_->weedingPass(check_break, check_continue);
+    }
+    block_->weedingPass(false, false);
+}

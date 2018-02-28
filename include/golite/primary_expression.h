@@ -36,6 +36,11 @@ namespace golite {
          * @see Expression::isIdentifier()
          */
         bool isIdentifier();
+
+        /**
+         * @see Statement::weedingPass()
+         */
+        void weedingPass(bool check_break, bool check_continue);
     };
 }
 

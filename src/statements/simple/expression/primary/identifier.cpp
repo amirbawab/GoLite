@@ -13,3 +13,7 @@ std::string golite::Identifier::toGoLite(int indent) {
 bool golite::Identifier::isBlank() {
     return name_ == BLANK;
 }
+
+void golite::Identifier::weedingPass(bool check_break, bool check_continue) {
+    // Do nothing
+}

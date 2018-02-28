@@ -15,3 +15,14 @@ std::string golite::SwitchCase::toGoLite(int indent) {
     }
     return ss.str();
 }
+
+int golite::SwitchCase::getLine() {
+    return block_->getLine();
+}
+
+void golite::SwitchCase::weedingPass(bool check_break, bool check_continue) {
+    for(Expression* expression : expressions_) {
+        expression->weedingPass(check_break, check_continue);
+    }
+    block_->weedingPass(false, check_continue);
+}

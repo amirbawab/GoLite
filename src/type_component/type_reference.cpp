@@ -1,6 +1,7 @@
 #include <golite/type_reference.h>
 #include <sstream>
 #include <iostream>
+#include <golite/utils.h>
 
 std::string golite::TypeReference::toGoLite(int indent) {
     std::stringstream ss;
@@ -10,4 +11,11 @@ std::string golite::TypeReference::toGoLite(int indent) {
 
 int golite::TypeReference::getLine() {
     return identifier_->getLine();
+}
+
+void golite::TypeReference::weedingPass(bool check_break, bool check_continue) {
+    if(identifier_->isBlank()) {
+        golite::Utils::error_message("Type cannot be a blank identifier", identifier_->getLine());
+    }
+    identifier_->weedingPass(check_break, check_continue);
 }

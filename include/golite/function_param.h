@@ -31,6 +31,13 @@ namespace golite {
          * @return golite code
          */
         std::string toGoLite(int indent);
+
+        /**
+         * Perform a weeding pass
+         * @param check_break
+         * @param check_continue
+         */
+        virtual void weedingPass(bool check_break, bool check_continue);
     };
 }
 

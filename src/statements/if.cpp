@@ -58,3 +58,11 @@ std::string golite::If::toGoLite(int indent) {
 
     return ss.str();
 }
+
+void golite::If::weedingPass(bool check_break, bool check_continue) {
+    if(simple_) {
+        simple_->weedingPass(check_break, check_continue);
+    }
+    expression_->weedingPass(check_break, check_continue);
+    block_->weedingPass(check_break, check_continue);
+}

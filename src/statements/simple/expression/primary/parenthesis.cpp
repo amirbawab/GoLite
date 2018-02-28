@@ -1,6 +1,7 @@
 #include <golite/parenthesis.h>
 #include <golite/utils.h>
 #include <sstream>
+#include <golite/identifier.h>
 
 std::string golite::Parenthesis::toGoLite(int indent) {
     std::stringstream ss;
@@ -10,4 +11,14 @@ std::string golite::Parenthesis::toGoLite(int indent) {
 
 int golite::Parenthesis::getLine() {
     return expression_->getLine();
+}
+
+void golite::Parenthesis::weedingPass(bool check_break, bool check_continue) {
+    if(expression_->isIdentifier()) {
+        golite::Identifier* identifier = static_cast<Identifier*>(expression_);
+        if(identifier->isBlank()) {
+            golite::Utils::error_message("Blank identifier cannot exist between parenthesis", expression_->getLine());
+        }
+    }
+    expression_->weedingPass(check_break, check_continue);
 }
