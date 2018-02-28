@@ -7,7 +7,7 @@
 #include <golite/statement.h>
 
 namespace golite {
-    class SwitchCase : public Statement {
+    class SwitchCase {
     private:
         std::vector<Expression*> expressions_;
         Block* block_ = nullptr;
@@ -52,7 +52,9 @@ namespace golite {
         int getLine();
 
         /**
-         * @see Statement::weedingPass()
+         * Perform a weeding pass
+         * @param check_break
+         * @param check_continue
          */
         void weedingPass(bool check_break, bool check_continue);
     };
