@@ -1,6 +1,8 @@
 #include <golite/for.h>
 #include <golite/utils.h>
 #include <sstream>
+#include <golite/primary_expression.h>
+#include <golite/identifier.h>
 
 std::string golite::For::toGoLite(int indent) {
     std::stringstream ss;
@@ -36,12 +38,38 @@ std::string golite::For::toGoLite(int indent) {
 
 void golite::For::weedingPass(bool check_break, bool check_continue) {
     if(left_simple_) {
+        if(left_simple_->isExpression()) {
+            golite::Expression* expression = static_cast<Expression*>(left_simple_);
+            golite::PrimaryExpression* primary_expression = static_cast<PrimaryExpression*>(expression);
+            golite::Identifier* identifier = static_cast<Identifier*>(primary_expression->lastChild());
+            if(identifier->isBlank()) {
+                golite::Utils::error_message("For statement pre statement cannot be a blank identifier",
+                                             left_simple_->getLine());
+            }
+        }
         left_simple_->weedingPass(check_break, check_continue);
     }
+
     if(expression_) {
+        golite::PrimaryExpression* primary_expression = static_cast<PrimaryExpression*>(expression_);
+        golite::Identifier* identifier = static_cast<Identifier*>(primary_expression->lastChild());
+        if(identifier->isBlank()) {
+            golite::Utils::error_message("For statement expression cannot be a blank identifier",
+                                         expression_->getLine());
+        }
         expression_->weedingPass(check_break, check_continue);
     }
+
     if(right_simple_) {
+        if(right_simple_->isExpression()) {
+            golite::Expression* expression = static_cast<Expression*>(right_simple_);
+            golite::PrimaryExpression* primary_expression = static_cast<PrimaryExpression*>(expression);
+            golite::Identifier* identifier = static_cast<Identifier*>(primary_expression->lastChild());
+            if(identifier->isBlank()) {
+                golite::Utils::error_message("For statement post statement cannot be a blank identifier",
+                                             right_simple_->getLine());
+            }
+        }
         right_simple_->weedingPass(check_break, check_continue);
     }
     block_->weedingPass(false, false);
