@@ -19,6 +19,11 @@ namespace golite {
          * @see TypeComposite::getLine()
          */
         int getLine() { return line_; }
+
+        /**
+         * @see TypeComposite::weedingPass()
+         */
+        void weedingPass(bool check_break, bool check_continue);
     };
 }
 

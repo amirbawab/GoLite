@@ -11,3 +11,7 @@ std::string golite::Empty::toGoLite(int indent) {
 int golite::Empty::getLine() {
     throw std::runtime_error("Empty statement should not be used to get a line number");
 }
+
+void golite::Empty::weedingPass(bool check_break, bool check_continue) {
+    // Do nothing
+}

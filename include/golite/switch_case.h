@@ -4,9 +4,10 @@
 #include <vector>
 #include <golite/expression.h>
 #include <golite/block.h>
+#include <golite/statement.h>
 
 namespace golite {
-    class SwitchCase {
+    class SwitchCase : public Statement {
     private:
         std::vector<Expression*> expressions_;
         Block* block_ = nullptr;
@@ -44,6 +45,16 @@ namespace golite {
          * @return golite code
          */
         std::string toGoLite(int indent);
+
+        /**
+         * @see Statement::getLine()
+         */
+        int getLine();
+
+        /**
+         * @see Statement::weedingPass()
+         */
+        void weedingPass(bool check_break, bool check_continue);
     };
 }
 

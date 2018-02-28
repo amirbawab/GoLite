@@ -33,6 +33,11 @@ namespace golite {
          * @see Expression::isFunctionCall()
          */
         bool isFunctionCall() { return true; }
+
+        /**
+         * @see Statement::weedingPass()
+         */
+        void weedingPass(bool check_break, bool check_continue);
     };
 }
 

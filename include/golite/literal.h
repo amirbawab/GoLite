@@ -22,6 +22,7 @@ namespace golite {
             return ss.str();
         }
         int getLine() { return line_; }
+        void weedingPass(bool check_break, bool check_continue) { /*Do nothing*/ }
     };
 
     template <>
@@ -37,6 +38,7 @@ namespace golite {
             return ss.str();
         }
         int getLine() { return line_; }
+        void weedingPass(bool check_break, bool check_continue) { /*Do nothing*/ }
     };
 
     template <>
@@ -52,6 +54,7 @@ namespace golite {
             return ss.str();
         }
         int getLine() { return line_; }
+        void weedingPass(bool check_break, bool check_continue) { /*Do nothing*/ }
     };
 
     template <>
@@ -67,6 +70,7 @@ namespace golite {
             return ss.str();
         }
         int getLine() { return line_; }
+        void weedingPass(bool check_break, bool check_continue) { /*Do nothing*/ }
     };
 }
 

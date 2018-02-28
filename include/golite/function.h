@@ -58,6 +58,11 @@ namespace golite {
          * @see Declarable::toGoLite(int)
          */
         std::string toGoLite(int indent);
+
+        /**
+         * @see Declarable::weedingPass()
+         */
+        void weedingPass(bool check_break, bool check_continue);
     };
 }
 

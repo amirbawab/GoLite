@@ -2,6 +2,7 @@
 #include <golite/utils.h>
 #include <sstream>
 #include <golite/declaration.h>
+#include <golite/primary_expression.h>
 
 std::string golite::Switch::toGoLite(int indent) {
     std::stringstream ss;
@@ -28,47 +29,42 @@ std::string golite::Switch::toGoLite(int indent) {
     return ss.str();
 }
 
-golite::Continue* golite::Switch::badContinue() {
-    for(SwitchCase* switch_case : cases_) {
-        Continue* bad = switch_case->getBlock()->badContinue();
-        if(bad) return bad;
+void golite::Switch::weedingPass(bool check_break, bool check_continue) {
+    if(simple_) {
+        if(simple_->isExpression()) {
+            golite::Expression* expression = static_cast<Expression*>(simple_);
+            if(expression->isIdentifier()) {
+                golite::PrimaryExpression* primary_expression = static_cast<PrimaryExpression*>(expression);
+                golite::Identifier* identifier = static_cast<Identifier*>(primary_expression->lastChild());
+                if(identifier->isBlank()) {
+                    golite::Utils::error_message("Switch statement initial statement cannot be a blank identifier",
+                                                 simple_->getLine());
+                }
+            }
+        }
+        simple_->weedingPass(check_break, check_continue);
     }
-    return nullptr;
-}
-
-golite::Statement* golite::Switch::badStatement() {
-    for(SwitchCase* switch_case : cases_) {
-        Statement* bad = switch_case->getBlock()->badStatement();
-        if(bad) return bad;
+    if(expression_) {
+        if(expression_->isIdentifier()) {
+            golite::PrimaryExpression* primary_expression = static_cast<PrimaryExpression*>(expression_);
+            golite::Identifier* identifier = static_cast<Identifier*>(primary_expression->lastChild());
+            if(identifier->isBlank()) {
+                golite::Utils::error_message("Switch statement expression cannot be a blank identifier",
+                                             expression_->getLine());
+            }
+        }
+        expression_->weedingPass(check_break, check_continue);
     }
-    return nullptr;
-}
 
-golite::Declaration* golite::Switch::badDeclaration() {
-    for(SwitchCase* switch_case : cases_) {
-        Declaration* bad = switch_case->getBlock()->badDeclaration();
-        if(bad) return bad;
-    }
-    return nullptr;
-}
-
-golite::Statement* golite::Switch::badSwitch() {
-    for(SwitchCase* switch_case : cases_) {
-        Statement* bad = switch_case->getBlock()->badSwitch();
-        if(bad) return bad;
-    }
-    return nullptr;
-}
-
-golite::SwitchCase* golite::Switch::badDefault() {
     bool has_default = false;
     for(SwitchCase* switch_case : cases_) {
         if(switch_case->isDefault()) {
             if(has_default) {
-                return switch_case;
+                golite::Utils::error_message("Switch statement has more than one default case",
+                                             switch_case->getLine());
             }
             has_default = true;
         }
+        switch_case->weedingPass(check_break, check_continue);
     }
-    return nullptr;
 }

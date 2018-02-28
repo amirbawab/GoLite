@@ -28,6 +28,11 @@ namespace golite {
          * @see TypeComponent::toGoLite(int)
          */
         std::string toGoLite(int indent);
+
+        /**
+         * @see TypeComposite::weedingPass()
+         */
+        void weedingPass(bool check_break, bool check_continue);
     };
 }
 

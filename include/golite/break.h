@@ -25,6 +25,11 @@ namespace golite {
          * @see Statement::isBreak()
          */
         bool isBreak() { return true; }
+
+        /**
+         * @see Statement::weedingPass()
+         */
+        void weedingPass(bool, bool);
     };
 }
 

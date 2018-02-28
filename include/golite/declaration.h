@@ -39,16 +39,9 @@ namespace golite {
         bool isDeclaration() { return true; }
 
         /**
-         * Bad equation
-         * @return true if it is
+         * @see Statement::weedingPass()
          */
-        bool badEquation();
-
-        /**
-         * Check if declaration identifiers are wrong
-         * @return true if the are
-         */
-        bool badIdentifiers();
+        void weedingPass(bool check_break, bool check_continue);
     };
 }
 

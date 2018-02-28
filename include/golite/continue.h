@@ -25,6 +25,11 @@ namespace golite {
          * @see Statement::Continue
          */
         bool isContinue() { return true; }
+
+        /**
+         * @see Statement::weedingPass()
+         */
+        void weedingPass(bool, bool);
     };
 }
 

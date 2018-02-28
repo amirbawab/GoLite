@@ -40,36 +40,6 @@ namespace golite {
         void setCases(std::vector<SwitchCase*> cases) { cases_ = cases; }
 
         /**
-         * Check for bad usage of continue statement
-         * @return ptr | nullptr
-         */
-        golite::Continue* badContinue();
-
-        /**
-         * Check for bad usage of continue statement
-         * @return ptr | nullptr
-         */
-        golite::Statement* badStatement();
-
-        /**
-         * Check for bad usage of declaration statement
-         * @return ptr | nullptr
-         */
-        golite::Declaration* badDeclaration();
-
-        /**
-         * Check for bad usage of switch default
-         * @return ptr | nullptr
-         */
-        golite::SwitchCase* badDefault();
-
-        /**
-         * Check for bad usage of switch
-         * @return ptr | nullptr
-         */
-        golite::Statement* badSwitch();
-
-        /**
          * @see Statement::toGoLite(int)
          */
         std::string toGoLite(int indent);
@@ -78,6 +48,11 @@ namespace golite {
          * @see Statement::isSwitch()
          */
         bool isSwitch() { return true; }
+
+        /**
+         * @see Statement::weedingPass()
+         */
+        void weedingPass(bool check_break, bool check_continue);
     };
 }
 

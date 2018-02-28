@@ -32,6 +32,11 @@ namespace golite {
          * @return line number
          */
         int getLine();
+
+        /**
+         * @see Statement::weedingPass()
+         */
+        void weedingPass(bool check_break, bool check_continue);
     private:
         Expression* left_expression_ = nullptr;
         Expression* right_expression_ = nullptr;

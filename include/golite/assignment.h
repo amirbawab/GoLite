@@ -81,16 +81,15 @@ namespace golite {
         bool isAssignment() { return true; }
 
         /**
-         * Bad equation
-         * @return true if it is
-         */
-        bool badEquation();
-
-        /**
          * Get line
          * @return line
          */
         int getLine();
+
+        /**
+         * @see Statement::weedingPass()
+         */
+        void weedingPass(bool check_break, bool check_continue);
 
         Assignment(std::vector<Expression*> left, std::vector<Expression*> right, KIND kind) :
                 left_expressions_(left), right_expressions_(right), kind_(kind){}

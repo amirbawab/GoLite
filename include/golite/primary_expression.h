@@ -2,19 +2,31 @@
 #define GOLITE_PRIMARY_EXPRESSION_H
 
 #include <vector>
-#include <golite/expression.h>
+#include <golite/primary.h>
 
 namespace golite {
     class PrimaryExpression : public Expression {
     private:
-        std::vector<golite::Expression*> children_;
+        std::vector<golite::Primary*> children_;
     public:
 
         /**
          * Add child
          * @param child
          */
-        void addChild(golite::Expression* child);
+        void addChild(golite::Primary* child);
+
+        /**
+         * Get children
+         * @return list of children
+         */
+        std::vector<golite::Primary*> getChildren() { return children_; }
+
+        /**
+         * Get last child
+         * @return last child
+         */
+        golite::Primary* lastChild();
 
         /**
          * @see Statement::toGoLite(int)
@@ -36,6 +48,11 @@ namespace golite {
          * @see Expression::isIdentifier()
          */
         bool isIdentifier();
+
+        /**
+         * @see Statement::weedingPass()
+         */
+        void weedingPass(bool check_break, bool check_continue);
     };
 }
 

@@ -1,21 +1,20 @@
-#ifndef GOLITE_SELECTOR_H
-#define GOLITE_SELECTOR_H
+#ifndef GOLITE_EXPRESSIONS_PARENTHESIS_H
+#define GOLITE_EXPRESSIONS_PARENTHESIS_H
 
 #include <golite/primary.h>
-#include <golite/identifier.h>
 
 namespace golite {
-    class Selector : public Primary {
+    class Parenthesis : public Primary {
     private:
-        Identifier* identifier_ = nullptr;
+        Expression* expression_ = nullptr;
     public:
-        Selector(Identifier* identifier) : identifier_(identifier) {}
+        Parenthesis(Expression* expression) : expression_(expression) {}
 
         /**
-         * Set identifier
-         * @param identifier
+         * Get expression
+         * @return expression
          */
-        void setIdentifier(Identifier* identifier) { identifier_ = identifier; }
+        Expression* getExpression() const { return expression_; }
 
         /**
          * @see Statement::toGoLite(int)

@@ -112,12 +112,21 @@ continue        { golite::Utils::log_token("tCONTINUE"); yylval.g_line.line = yy
 }
 
 <<EOF>> {
-    static bool add_newline = true;
-    if(add_newline) {
-        add_newline = false;
-        unput('\n');
+    // Read EOF without closing comment
+    if(YY_START == C_COMMENT) {
+        golite::Utils::error_message("Block comment not closed before reaching end of file", yylineno-1);
+    } else if(YY_START == C_STRING) {
+        golite::Utils::error_message("Missing closing string quote before end of file", yylineno);
     } else {
-        return 0;
+
+        // Always add a new line
+        static bool add_newline = true;
+        if(add_newline) {
+            add_newline = false;
+            unput('\n');
+        } else {
+            return 0;
+        }
     }
 }
 
@@ -130,7 +139,7 @@ continue        { golite::Utils::log_token("tCONTINUE"); yylval.g_line.line = yy
     golite::Utils::log_token("tINT", yytext);
     try {
         yylval.g_expression = new golite::Literal<int>(atoi(yytext), yylineno);
-    } catch(int e) {
+    } catch(...) {
         yylval.g_expression = new golite::Literal<int>(-1, yylineno);
     }
     return fToken(tINT);
@@ -141,7 +150,7 @@ continue        { golite::Utils::log_token("tCONTINUE"); yylval.g_line.line = yy
     golite::Utils::log_token("tINT", yytext);
     try {
         yylval.g_expression = new golite::Literal<int>(std::stoi(yytext, 0, 8), yylineno);
-    } catch(int e) {
+    } catch(...) {
         yylval.g_expression = new golite::Literal<int>(-1, yylineno);
     }
     return fToken(tINT);
@@ -151,8 +160,8 @@ continue        { golite::Utils::log_token("tCONTINUE"); yylval.g_line.line = yy
     // Hex
     golite::Utils::log_token("tINT", yytext);
     try {
-        yylval.g_expression = new golite::Literal<int>(atoi(yytext), yylineno);
-    } catch(int e) {
+        yylval.g_expression = new golite::Literal<int>(std::stoi(yytext, 0, 16), yylineno);
+    } catch(...) {
         yylval.g_expression = new golite::Literal<int>(-1, yylineno);
     }
     return fToken(tINT);
@@ -195,7 +204,7 @@ continue        { golite::Utils::log_token("tCONTINUE"); yylval.g_line.line = yy
     return fToken(tSTRING);
 }
 <C_STRING>\n {
-    golite::Utils::error_message("Missing closing string quote", yylineno);
+    golite::Utils::error_message("Missing closing string quote", yylineno-1);
 }
 <C_STRING_ESC>[abfnrtv"\\] {
     ss << "\\" << yytext;
