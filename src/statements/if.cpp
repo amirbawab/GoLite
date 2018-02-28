@@ -86,5 +86,14 @@ void golite::If::weedingPass(bool check_break, bool check_continue) {
         }
     }
     expression_->weedingPass(check_break, check_continue);
+
+    for(If* else_if_stmt : else_if_) {
+        else_if_stmt->weedingPass(check_break, check_continue);
+    }
+
+    if(else_) {
+        else_->weedingPass(check_break, check_continue);
+    }
+
     block_->weedingPass(check_break, check_continue);
 }
