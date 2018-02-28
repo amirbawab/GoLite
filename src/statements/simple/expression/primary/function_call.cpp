@@ -11,13 +11,9 @@ std::string golite::FunctionCall::toGoLite(int indent) {
 
 void golite::FunctionCall::weedingPass(bool check_break, bool check_continue) {
     for(Expression* expression : args_) {
-        if(expression->isIdentifier()) {
-            golite::PrimaryExpression* primary_expression = static_cast<PrimaryExpression*>(expression);
-            golite::Identifier* identifier = static_cast<Identifier*>(primary_expression->lastChild());
-            if(identifier->isBlank()) {
-                golite::Utils::error_message("Function call does not accept blank identifier as argument",
-                                             expression->getLine());
-            }
+        if(expression->isBlank()) {
+            golite::Utils::error_message("Function call does not accept blank identifier as argument",
+                                         expression->getLine());
         }
         expression->weedingPass(check_break, check_continue);
     }

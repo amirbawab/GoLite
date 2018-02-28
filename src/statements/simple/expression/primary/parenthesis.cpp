@@ -15,12 +15,8 @@ int golite::Parenthesis::getLine() {
 }
 
 void golite::Parenthesis::weedingPass(bool check_break, bool check_continue) {
-    if(expression_->isIdentifier()) {
-        golite::PrimaryExpression* primary_expression = static_cast<PrimaryExpression*>(expression_);
-        golite::Identifier* identifier = static_cast<Identifier*>(primary_expression->lastChild());
-        if(identifier->isBlank()) {
-            golite::Utils::error_message("Blank identifier cannot exist between parenthesis", expression_->getLine());
-        }
+    if(expression_->isBlank()) {
+        golite::Utils::error_message("Blank identifier cannot exist between parenthesis", expression_->getLine());
     }
     expression_->weedingPass(check_break, check_continue);
 }

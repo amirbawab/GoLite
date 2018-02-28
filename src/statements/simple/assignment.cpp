@@ -66,12 +66,8 @@ void golite::Assignment::weedingPass(bool check_break, bool check_continue) {
     }
 
     for(Expression* expression : right_expressions_) {
-        if(expression->isIdentifier()) {
-            golite::PrimaryExpression* primary_expression = static_cast<PrimaryExpression*>(expression);
-            golite::Identifier* identifier = static_cast<Identifier*>(primary_expression->lastChild());
-            if(identifier->isBlank()) {
-                golite::Utils::error_message("Assignment value cannot be a blank identifier", expression->getLine());
-            }
+        if(expression->isBlank()) {
+            golite::Utils::error_message("Assignment value cannot be a blank identifier", expression->getLine());
         }
         expression->weedingPass(check_break, check_continue);
     }

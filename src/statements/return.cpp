@@ -16,12 +16,8 @@ std::string golite::Return::toGoLite(int indent) {
 
 void golite::Return::weedingPass(bool check_break, bool check_continue) {
     if(expression_) {
-        if(expression_->isIdentifier()) {
-            golite::PrimaryExpression* primary_expression = static_cast<PrimaryExpression*>(expression_);
-            golite::Identifier* identifier = static_cast<Identifier*>(primary_expression->lastChild());
-            if(identifier->isBlank()) {
-                golite::Utils::error_message("A return statement cannot return a blank identifier", identifier->getLine());
-            }
+        if(expression_->isBlank()) {
+            golite::Utils::error_message("A return statement cannot return a blank identifier", expression_->getLine());
         }
         expression_->weedingPass(check_break, check_continue);
     }

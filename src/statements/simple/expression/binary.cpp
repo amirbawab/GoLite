@@ -75,22 +75,14 @@ int golite::Binary::getLine() {
 }
 
 void golite::Binary::weedingPass(bool check_break, bool check_continue) {
-    if(left_operand_->isIdentifier()) {
-        golite::PrimaryExpression* primary_expression = static_cast<PrimaryExpression*>(left_operand_);
-        golite::Identifier* identifier = static_cast<Identifier*>(primary_expression->lastChild());
-        if(identifier->isBlank()) {
-            golite::Utils::error_message("Left operand in binary expression cannot be a blank identifier",
-                                         left_operand_->getLine());
-        }
+    if(left_operand_->isBlank()) {
+        golite::Utils::error_message("Left operand in binary expression cannot be a blank identifier",
+                                     left_operand_->getLine());
     }
 
-    if(right_operand_->isIdentifier()) {
-        golite::PrimaryExpression* primary_expression = static_cast<PrimaryExpression*>(right_operand_);
-        golite::Identifier* identifier = static_cast<Identifier*>(primary_expression->lastChild());
-        if(identifier->isBlank()) {
-            golite::Utils::error_message("Right operand in binary expression cannot be a blank identifier",
-                                         right_operand_->getLine());
-        }
+    if(right_operand_->isBlank()) {
+        golite::Utils::error_message("Right operand in binary expression cannot be a blank identifier",
+                                     right_operand_->getLine());
     }
 
     left_operand_->weedingPass(check_break, check_continue);
