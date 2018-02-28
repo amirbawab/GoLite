@@ -65,11 +65,13 @@ void golite::If::weedingPass(bool check_break, bool check_continue) {
     if(simple_) {
         if(simple_->isExpression()) {
             golite::Expression* expression = static_cast<Expression*>(simple_);
-            golite::PrimaryExpression* primary_expression = static_cast<PrimaryExpression*>(expression);
-            golite::Identifier* identifier = static_cast<Identifier*>(primary_expression->lastChild());
-            if(identifier->isBlank()) {
-                golite::Utils::error_message("If statement initial statement cannot be a blank identifier",
-                                             simple_->getLine());
+            if(expression->isIdentifier()) {
+                golite::PrimaryExpression* primary_expression = static_cast<PrimaryExpression*>(expression);
+                golite::Identifier* identifier = static_cast<Identifier*>(primary_expression->lastChild());
+                if(identifier->isBlank()) {
+                    golite::Utils::error_message("If statement initial statement cannot be a blank identifier",
+                                                 simple_->getLine());
+                }
             }
         }
         simple_->weedingPass(check_break, check_continue);
