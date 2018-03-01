@@ -11,6 +11,6 @@ int golite::Array::getLine() {
     return size_->getLine();
 }
 
-void golite::Array::weedingPass(bool check_break, bool check_continue) {
-    size_->weedingPass(check_break, check_continue);
+void golite::Array::weedingPass() {
+    size_->weedingPass(false, false);
 }

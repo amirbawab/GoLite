@@ -27,8 +27,8 @@ int golite::TypeComponent::getLine() {
     return children_.front()->getLine();
 }
 
-void golite::TypeComponent::weedingPass(bool check_break, bool check_continue) {
+void golite::TypeComponent::weedingPass() {
     for(TypeComposite* type_composite : children_) {
-        type_composite->weedingPass(check_break, check_continue);
+        type_composite->weedingPass();
     }
 }

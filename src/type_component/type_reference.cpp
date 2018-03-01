@@ -13,9 +13,9 @@ int golite::TypeReference::getLine() {
     return identifier_->getLine();
 }
 
-void golite::TypeReference::weedingPass(bool check_break, bool check_continue) {
+void golite::TypeReference::weedingPass() {
     if(identifier_->isBlank()) {
         golite::Utils::error_message("Type cannot be a blank identifier", identifier_->getLine());
     }
-    identifier_->weedingPass(check_break, check_continue);
+    identifier_->weedingPass(false, false);
 }

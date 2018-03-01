@@ -9,9 +9,9 @@ std::string golite::StructField::toGoLite(int indent) {
     return ss.str();
 }
 
-void golite::StructField::weedingPass(bool check_break, bool check_continue) {
+void golite::StructField::weedingPass() {
     for(Identifier* identifier : identifiers_) {
-        identifier->weedingPass(check_break, check_continue);
+        identifier->weedingPass(false, false);
     }
-    type_component_->weedingPass(check_break, check_continue);
+    type_component_->weedingPass();
 }

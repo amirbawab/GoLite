@@ -17,8 +17,8 @@ std::string golite::Struct::toGoLite(int indent) {
     return ss.str();
 }
 
-void golite::Struct::weedingPass(bool check_break, bool check_continue) {
+void golite::Struct::weedingPass() {
     for(StructField* field : fields_) {
-        field->weedingPass(check_break, check_continue);
+        field->weedingPass();
     }
 }

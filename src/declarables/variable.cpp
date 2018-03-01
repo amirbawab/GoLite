@@ -31,7 +31,7 @@ void golite::Variable::weedingPass(bool check_break, bool check_continue) {
     }
 
     if(type_component_) {
-        type_component_->weedingPass(check_break, check_continue);
+        type_component_->weedingPass();
     }
 
     for(Identifier* identifier : identifiers_) {

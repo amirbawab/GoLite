@@ -13,5 +13,5 @@ void golite::FunctionParam::weedingPass(bool check_break, bool check_continue) {
     for(Identifier* identifier : identifiers_) {
         identifier->weedingPass(check_break, check_continue);
     }
-    type_component_->weedingPass(check_break, check_continue);
+    type_component_->weedingPass();
 }

@@ -35,7 +35,7 @@ namespace golite {
         /**
          * @see TypeComposite::weedingPass()
          */
-        void weedingPass(bool check_break, bool check_continue);
+        void weedingPass();
     };
 }
 
