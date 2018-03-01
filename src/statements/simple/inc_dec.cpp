@@ -19,10 +19,10 @@ int golite::IncDec::getLine() {
     return expression_->getLine();
 }
 
-void golite::IncDec::weedingPass(bool check_break, bool check_continue) {
+void golite::IncDec::weedingPass(bool, bool) {
     if(expression_->isBlank()) {
         golite::Utils::error_message("Increment and decrement statement cannot have a blank expression",
                                      expression_->getLine());
     }
-    expression_->weedingPass(check_break, check_continue);
+    expression_->weedingPass(false, false);
 }

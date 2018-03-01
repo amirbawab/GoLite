@@ -9,9 +9,9 @@ std::string golite::FunctionParam::toGoLite(int indent) {
     return ss.str();
 }
 
-void golite::FunctionParam::weedingPass(bool check_break, bool check_continue) {
+void golite::FunctionParam::weedingPass() {
     for(Identifier* identifier : identifiers_) {
-        identifier->weedingPass(check_break, check_continue);
+        identifier->weedingPass(false, false);
     }
     type_component_->weedingPass();
 }

@@ -36,7 +36,7 @@ std::string golite::For::toGoLite(int indent) {
     return ss.str();
 }
 
-void golite::For::weedingPass(bool check_break, bool check_continue) {
+void golite::For::weedingPass(bool, bool) {
     if(left_simple_) {
         if(left_simple_->isExpression()) {
             golite::Expression* expression = static_cast<Expression*>(left_simple_);
@@ -45,7 +45,7 @@ void golite::For::weedingPass(bool check_break, bool check_continue) {
                                              left_simple_->getLine());
             }
         }
-        left_simple_->weedingPass(check_break, check_continue);
+        left_simple_->weedingPass(false, false);
     }
 
     if(expression_) {
@@ -53,7 +53,7 @@ void golite::For::weedingPass(bool check_break, bool check_continue) {
             golite::Utils::error_message("For statement expression cannot be a blank identifier",
                                          expression_->getLine());
         }
-        expression_->weedingPass(check_break, check_continue);
+        expression_->weedingPass(false, false);
     }
 
     if(right_simple_) {
@@ -64,7 +64,7 @@ void golite::For::weedingPass(bool check_break, bool check_continue) {
                                              right_simple_->getLine());
             }
         }
-        right_simple_->weedingPass(check_break, check_continue);
+        right_simple_->weedingPass(false, false);
     }
     block_->weedingPass(false, false);
 }

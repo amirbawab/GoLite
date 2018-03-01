@@ -70,13 +70,13 @@ void golite::If::weedingPass(bool check_break, bool check_continue) {
                                              simple_->getLine());
             }
         }
-        simple_->weedingPass(check_break, check_continue);
+        simple_->weedingPass(false, false);
     }
 
     if(expression_->isBlank()) {
         golite::Utils::error_message("If statement expression cannot be a blank identifier", expression_->getLine());
     }
-    expression_->weedingPass(check_break, check_continue);
+    expression_->weedingPass(false, false);
 
     for(If* else_if_stmt : else_if_) {
         else_if_stmt->weedingPass(check_break, check_continue);

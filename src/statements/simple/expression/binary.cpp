@@ -74,7 +74,7 @@ int golite::Binary::getLine() {
     return left_operand_->getLine();
 }
 
-void golite::Binary::weedingPass(bool check_break, bool check_continue) {
+void golite::Binary::weedingPass(bool, bool) {
     if(left_operand_->isBlank()) {
         golite::Utils::error_message("Left operand in binary expression cannot be a blank identifier",
                                      left_operand_->getLine());
@@ -85,6 +85,6 @@ void golite::Binary::weedingPass(bool check_break, bool check_continue) {
                                      right_operand_->getLine());
     }
 
-    left_operand_->weedingPass(check_break, check_continue);
-    right_operand_->weedingPass(check_break, check_continue);
+    left_operand_->weedingPass(false, false);
+    right_operand_->weedingPass(false, false);
 }

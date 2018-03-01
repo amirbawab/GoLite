@@ -14,9 +14,9 @@ int golite::Parenthesis::getLine() {
     return expression_->getLine();
 }
 
-void golite::Parenthesis::weedingPass(bool check_break, bool check_continue) {
+void golite::Parenthesis::weedingPass(bool, bool) {
     if(expression_->isBlank()) {
         golite::Utils::error_message("Blank identifier cannot exist between parenthesis", expression_->getLine());
     }
-    expression_->weedingPass(check_break, check_continue);
+    expression_->weedingPass(false, false);
 }

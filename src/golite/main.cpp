@@ -126,7 +126,7 @@ int main(int argc, char** argv) {
     } else if(pretty_flag) {
         do { yyparse(); } while (!feof(yyin));
         golite::Program::getInstance()->weedingPass();
-        std::cout << golite::Program::getInstance()->toGoLite(1) << std::endl;
+        std::cout << golite::Program::getInstance()->toGoLite(0) << std::endl;
     }
 
     return golite::Utils::EXIT_FINE;

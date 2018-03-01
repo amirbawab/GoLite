@@ -13,7 +13,7 @@ int golite::Type::getLine() {
     return identifier_->getLine();
 }
 
-void golite::Type::weedingPass(bool check_break, bool check_continue) {
-    identifier_->weedingPass(check_break, check_continue);
+void golite::Type::weedingPass(bool, bool) {
+    identifier_->weedingPass(false, false);
     type_component_->weedingPass();
 }

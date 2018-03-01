@@ -44,23 +44,17 @@ bool golite::PrimaryExpression::isBlank() {
     return children_.back()->isBlank();
 }
 
-void golite::PrimaryExpression::weedingPass(bool check_break, bool check_continue) {
-    if(children_.empty()) {
+void golite::PrimaryExpression::weedingPass(bool, bool) {
+    if (children_.empty()) {
         throw std::runtime_error("Cannot perform weeding pass on primary expression because children list is empty");
     }
 
-    if(children_.front()->isBlank() && children_.size() > 1) {
-        golite::Utils::error_message("Blank identifier cannot be accessed", getLine());
+    if (children_.front()->isBlank() && children_.size() > 1) {
+        golite::Utils::error_message("Blank identifier cannot be accessed", children_.front()->getLine());
     }
 
-    for(Primary* primary : children_) {
-        primary->weedingPass(check_break, check_continue);
+    for (Primary *primary : children_) {
+        primary->weedingPass(false, false);
     }
 }
 
-golite::Primary* golite::PrimaryExpression::lastChild() {
-    if(children_.empty()) {
-        throw std::runtime_error("Cannot get last child of an empty list");
-    }
-    return children_.back();
-}

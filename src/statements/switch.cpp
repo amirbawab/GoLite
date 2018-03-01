@@ -29,7 +29,7 @@ std::string golite::Switch::toGoLite(int indent) {
     return ss.str();
 }
 
-void golite::Switch::weedingPass(bool check_break, bool check_continue) {
+void golite::Switch::weedingPass(bool, bool check_continue) {
     if(simple_) {
         if(simple_->isExpression()) {
             golite::Expression* expression = static_cast<Expression*>(simple_);
@@ -38,7 +38,7 @@ void golite::Switch::weedingPass(bool check_break, bool check_continue) {
                                              simple_->getLine());
             }
         }
-        simple_->weedingPass(check_break, check_continue);
+        simple_->weedingPass(false, false);
     }
 
     if(expression_) {
@@ -46,7 +46,7 @@ void golite::Switch::weedingPass(bool check_break, bool check_continue) {
             golite::Utils::error_message("Switch statement expression cannot be a blank identifier",
                                          expression_->getLine());
         }
-        expression_->weedingPass(check_break, check_continue);
+        expression_->weedingPass(false, false);
     }
 
     bool has_default = false;
@@ -58,6 +58,6 @@ void golite::Switch::weedingPass(bool check_break, bool check_continue) {
             }
             has_default = true;
         }
-        switch_case->weedingPass(check_break, check_continue);
+        switch_case->weedingPass(check_continue);
     }
 }

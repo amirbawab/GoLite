@@ -24,7 +24,7 @@ int golite::Variable::getLine() {
     return identifiers_.front()->getLine();
 }
 
-void golite::Variable::weedingPass(bool check_break, bool check_continue) {
+void golite::Variable::weedingPass(bool, bool) {
     if(!expressions_.empty() && identifiers_.size() != expressions_.size()) {
         golite::Utils::error_message("Number of left and right elements of variable declaration does not match",
                                      getLine());
@@ -35,13 +35,13 @@ void golite::Variable::weedingPass(bool check_break, bool check_continue) {
     }
 
     for(Identifier* identifier : identifiers_) {
-        identifier->weedingPass(check_break, check_continue);
+        identifier->weedingPass(false, false);
     }
 
     for(Expression* expression : expressions_) {
         if(expression->isBlank()) {
             golite::Utils::error_message("Variable value cannot be a blank identifier", expression->getLine());
         }
-        expression->weedingPass(check_break, check_continue);
+        expression->weedingPass(false, false);
     }
 }

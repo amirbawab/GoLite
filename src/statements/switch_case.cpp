@@ -21,12 +21,12 @@ int golite::SwitchCase::getLine() {
     return block_->getLine();
 }
 
-void golite::SwitchCase::weedingPass(bool check_break, bool check_continue) {
+void golite::SwitchCase::weedingPass(bool check_continue) {
     for(Expression* expression : expressions_) {
         if(expression->isBlank()) {
             golite::Utils::error_message("Case expression cannot be a blank identifier", expression->getLine());
         }
-        expression->weedingPass(check_break, check_continue);
+        expression->weedingPass(false, false);
     }
     block_->weedingPass(false, check_continue);
 }

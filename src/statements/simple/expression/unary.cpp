@@ -29,9 +29,9 @@ int golite::Unary::getLine() {
     return operand_->getLine();
 }
 
-void golite::Unary::weedingPass(bool check_break, bool check_continue) {
+void golite::Unary::weedingPass(bool, bool) {
     if(operand_->isBlank()) {
         golite::Utils::error_message("Unary operand cannot be a blank identifier", operand_->getLine());
     }
-    operand_->weedingPass(check_break, check_continue);
+    operand_->weedingPass(false, false);
 }

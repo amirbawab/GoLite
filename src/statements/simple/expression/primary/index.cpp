@@ -14,9 +14,9 @@ int golite::Index::getLine() {
     return expression_->getLine();
 }
 
-void golite::Index::weedingPass(bool check_break, bool check_continue) {
+void golite::Index::weedingPass(bool, bool) {
     if(expression_->isBlank()) {
         golite::Utils::error_message("Index expression cannot be a blank identifier", expression_->getLine());
     }
-    expression_->weedingPass(check_break, check_continue);
+    expression_->weedingPass(false, false);
 }

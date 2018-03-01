@@ -9,12 +9,12 @@ std::string golite::Println::toGoLite(int indent) {
     return ss.str();
 }
 
-void golite::Println::weedingPass(bool check_break, bool check_continue) {
+void golite::Println::weedingPass(bool, bool) {
     for(Expression* expression : expressions_) {
         if(expression->isBlank()) {
             golite::Utils::error_message("Function println does not accept blank identifier as arguments",
                                          expression->getLine());
         }
-        expression->weedingPass(check_break, check_continue);
+        expression->weedingPass(false, false);
     }
 }

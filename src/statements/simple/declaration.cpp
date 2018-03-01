@@ -18,7 +18,7 @@ int golite::Declaration::getLine() {
     return left_identifiers_.front()->getLine();
 }
 
-void golite::Declaration::weedingPass(bool check_break, bool check_continue) {
+void golite::Declaration::weedingPass(bool, bool) {
     if(left_identifiers_.size() != right_expressions_.size()) {
         golite::Utils::error_message("Number of left and right elements of declaration does not match", getLine());
     }
@@ -28,12 +28,13 @@ void golite::Declaration::weedingPass(bool check_break, bool check_continue) {
             golite::Utils::error_message("Element to the left of the declaration must be identifiers",
                                          expression->getLine());
         }
+        expression->weedingPass(false, false);
     }
 
     for(Expression* expression : right_expressions_) {
         if(expression->isBlank()) {
             golite::Utils::error_message("Declaration value cannot be a blank identifier", expression->getLine());
         }
-        expression->weedingPass(check_break, check_continue);
+        expression->weedingPass(false, false);
     }
 }

@@ -14,11 +14,11 @@ std::string golite::Return::toGoLite(int indent) {
     return ss.str();
 }
 
-void golite::Return::weedingPass(bool check_break, bool check_continue) {
+void golite::Return::weedingPass(bool, bool) {
     if(expression_) {
         if(expression_->isBlank()) {
             golite::Utils::error_message("A return statement cannot return a blank identifier", expression_->getLine());
         }
-        expression_->weedingPass(check_break, check_continue);
+        expression_->weedingPass(false, false);
     }
 }

@@ -8,7 +8,7 @@ std::string golite::Break::toGoLite(int indent) {
     return ss.str();
 }
 
-void golite::Break::weedingPass(bool check_break, bool check_continue) {
+void golite::Break::weedingPass(bool check_break, bool) {
     if(check_break) {
         golite::Utils::error_message("Break statement used outside for loop and switch case", getLine());
     }
