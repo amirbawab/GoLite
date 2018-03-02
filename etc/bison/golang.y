@@ -613,7 +613,7 @@ for_condition[root]
             $root.right = nullptr;
             $root.expression = $expr;
         }
-    | simple_statement[left] tSEMICOLON expression[expr] tSEMICOLON simple_statement[right]
+    | simple_statement[left] tSEMICOLON expression_opt[expr] tSEMICOLON simple_statement[right]
         {
             $root.left = $left;
             $root.right = $right;
