@@ -38,6 +38,8 @@ namespace golite {
          * @see Statement::weedingPass()
          */
         virtual void weedingPass(bool check_break, bool check_continue) = 0;
+
+        //virtual void symbolTablePass(SymbolTable* root) = 0;
     };
 }
 
