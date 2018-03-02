@@ -12,5 +12,5 @@ int golite::Array::getLine() {
 }
 
 void golite::Array::weedingPass() {
-    size_->weedingPass(false, false);
+    size_->weedingPass();
 }

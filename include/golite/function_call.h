@@ -19,7 +19,7 @@ namespace golite {
         void setArgs(std::vector<Expression*> args) { args_ = args; }
 
         /**
-         * @see Statement::toGoLite(int)
+         * @see Expression::toGoLite(int)
          */
         std::string toGoLite(int indent);
 
@@ -35,12 +35,12 @@ namespace golite {
         bool isFunctionCall() { return true; }
 
         /**
-         * @see Statement::weedingPass()
+         * @see Expression::weedingPass()
          */
-        void weedingPass(bool check_break, bool check_continue);
+        void weedingPass();
 
         /**
-         * @see Statement::typeCheck()
+         * @see Expression::typeCheck()
          */
         golite::TypeComponent* typeCheck();
     };

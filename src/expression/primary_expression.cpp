@@ -44,7 +44,7 @@ bool golite::PrimaryExpression::isBlank() {
     return children_.back()->isBlank();
 }
 
-void golite::PrimaryExpression::weedingPass(bool, bool) {
+void golite::PrimaryExpression::weedingPass() {
     if (children_.empty()) {
         throw std::runtime_error("Cannot perform weeding pass on primary expression because children list is empty");
     }
@@ -54,7 +54,7 @@ void golite::PrimaryExpression::weedingPass(bool, bool) {
     }
 
     for (Primary *primary : children_) {
-        primary->weedingPass(false, false);
+        primary->weedingPass();
     }
 }
 

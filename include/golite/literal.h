@@ -23,7 +23,7 @@ namespace golite {
             return ss.str();
         }
         int getLine() { return line_; }
-        void weedingPass(bool check_break, bool check_continue) { /*Do nothing*/ }
+        void weedingPass() { /*Do nothing*/ }
         golite::TypeComponent* typeCheck() {
             return golite::Program::BOOL_BUILTIN_TYPE.getTypeComponent();
         }
@@ -42,7 +42,7 @@ namespace golite {
             return ss.str();
         }
         int getLine() { return line_; }
-        void weedingPass(bool check_break, bool check_continue) { /*Do nothing*/ }
+        void weedingPass() { /*Do nothing*/ }
         golite::TypeComponent* typeCheck() {
             return golite::Program::INT_BUILTIN_TYPE.getTypeComponent();
         }
@@ -61,7 +61,7 @@ namespace golite {
             return ss.str();
         }
         int getLine() { return line_; }
-        void weedingPass(bool check_break, bool check_continue) { /*Do nothing*/ }
+        void weedingPass() { /*Do nothing*/ }
         golite::TypeComponent* typeCheck() {
             return golite::Program::STRING_BUILTIN_TYPE.getTypeComponent();
         }
@@ -80,7 +80,7 @@ namespace golite {
             return ss.str();
         }
         int getLine() { return line_; }
-        void weedingPass(bool check_break, bool check_continue) { /*Do nothing*/ }
+        void weedingPass() { /*Do nothing*/ }
         golite::TypeComponent* typeCheck() {
             return golite::Program::FLOAT64_BUILTIN_TYPE.getTypeComponent();
         }

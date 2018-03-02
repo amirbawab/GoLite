@@ -14,7 +14,7 @@ bool golite::Identifier::isBlank() {
     return name_ == BLANK;
 }
 
-void golite::Identifier::weedingPass(bool, bool) {
+void golite::Identifier::weedingPass() {
     // Do nothing
 }
 

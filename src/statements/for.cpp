@@ -3,6 +3,7 @@
 #include <sstream>
 #include <golite/primary_expression.h>
 #include <golite/identifier.h>
+#include <golite/simple_expression.h>
 
 std::string golite::For::toGoLite(int indent) {
     std::stringstream ss;
@@ -38,9 +39,9 @@ std::string golite::For::toGoLite(int indent) {
 
 void golite::For::weedingPass(bool, bool) {
     if(left_simple_) {
-        if(left_simple_->isExpression()) {
-            golite::Expression* expression = static_cast<Expression*>(left_simple_);
-            if(expression->isBlank()) {
+        if(left_simple_->isSimpleExpression()) {
+            golite::SimpleExpression* simple_expression = static_cast<SimpleExpression*>(left_simple_);
+            if(simple_expression->getExpression()->isBlank()) {
                 golite::Utils::error_message("For statement pre statement cannot be a blank identifier",
                                              left_simple_->getLine());
             }
@@ -53,13 +54,13 @@ void golite::For::weedingPass(bool, bool) {
             golite::Utils::error_message("For statement expression cannot be a blank identifier",
                                          expression_->getLine());
         }
-        expression_->weedingPass(false, false);
+        expression_->weedingPass();
     }
 
     if(right_simple_) {
-        if(right_simple_->isExpression()) {
-            golite::Expression* expression = static_cast<Expression*>(right_simple_);
-            if(expression->isBlank()) {
+        if(right_simple_->isSimpleExpression()) {
+            golite::SimpleExpression* simple_expression = static_cast<SimpleExpression*>(right_simple_);
+            if(simple_expression->getExpression()->isBlank()) {
                 golite::Utils::error_message("For statement post statement cannot be a blank identifier",
                                              right_simple_->getLine());
             }

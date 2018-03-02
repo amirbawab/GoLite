@@ -41,7 +41,7 @@ namespace golite {
         KIND getKind() const { kind_; }
 
         /**
-         * @see Statement::toGoLite(int)
+         * @see Expression::toGoLite(int)
          */
         std::string toGoLite(int indent);
 
@@ -51,12 +51,12 @@ namespace golite {
         int getLine();
 
         /**
-         * @see Statement::weedingPass()
+         * @see Expression::weedingPass()
          */
-        void weedingPass(bool check_break, bool check_continue);
+        void weedingPass();
 
         /**
-         * @see Statement::typeCheck()
+         * @see Expression::typeCheck()
          */
         golite::TypeComponent* typeCheck();
     protected:

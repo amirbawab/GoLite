@@ -26,7 +26,7 @@ void golite::SwitchCase::weedingPass(bool check_continue) {
         if(expression->isBlank()) {
             golite::Utils::error_message("Case expression cannot be a blank identifier", expression->getLine());
         }
-        expression->weedingPass(false, false);
+        expression->weedingPass();
     }
     block_->weedingPass(false, check_continue);
 }

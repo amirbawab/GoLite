@@ -29,11 +29,11 @@ int golite::Unary::getLine() {
     return operand_->getLine();
 }
 
-void golite::Unary::weedingPass(bool, bool) {
+void golite::Unary::weedingPass() {
     if(operand_->isBlank()) {
         golite::Utils::error_message("Unary operand cannot be a blank identifier", operand_->getLine());
     }
-    operand_->weedingPass(false, false);
+    operand_->weedingPass();
 }
 
 golite::TypeComponent* golite::Unary::typeCheck() {

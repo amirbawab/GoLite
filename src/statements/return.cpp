@@ -19,7 +19,7 @@ void golite::Return::weedingPass(bool, bool) {
         if(expression_->isBlank()) {
             golite::Utils::error_message("A return statement cannot return a blank identifier", expression_->getLine());
         }
-        expression_->weedingPass(false, false);
+        expression_->weedingPass();
     }
 }
 

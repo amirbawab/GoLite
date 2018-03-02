@@ -1,7 +1,7 @@
 #ifndef GOLITE_EXPRESSIONS_EXPRESSION_H
 #define GOLITE_EXPRESSIONS_EXPRESSION_H
 
-#include <golite/simple.h>
+#include <string>
 #include <golite/type_component.h>
 
 namespace golite {
@@ -12,13 +12,8 @@ namespace golite {
      * - Binary
      * - Append (GoLite extra feature)
      */
-    class Expression : public Simple {
+    class Expression {
     public:
-
-        /**
-         * @see Statement::isExpression()
-         */
-        virtual bool isExpression() { return true; }
 
         /**
          * Check if expression is a function call
@@ -37,6 +32,30 @@ namespace golite {
          * @return true if it is
          */
         virtual bool isBlank() { return false; }
+
+        /**
+         * Get line number
+         * @return line number
+         */
+        virtual int getLine() = 0;
+
+        /**
+         * Perform type checking
+         * @return type component ptr
+         */
+        virtual TypeComponent* typeCheck() = 0;
+
+        /**
+         * Perform weeding pass
+         */
+        virtual void weedingPass() = 0;
+
+        /**
+         * Generate GoLite code
+         * @param indent
+         * @return golite code
+         */
+        virtual std::string toGoLite(int indent) = 0;
     };
 }
 

@@ -4,6 +4,7 @@
 #include <iostream>
 #include <golite/primary_expression.h>
 #include <golite/identifier.h>
+#include <golite/simple_expression.h>
 
 std::string golite::If::toGoLite(int indent) {
     std::stringstream ss;
@@ -63,9 +64,9 @@ std::string golite::If::toGoLite(int indent) {
 
 void golite::If::weedingPass(bool check_break, bool check_continue) {
     if(simple_) {
-        if(simple_->isExpression()) {
-            golite::Expression* expression = static_cast<Expression*>(simple_);
-            if(expression->isBlank()) {
+        if(simple_->isSimpleExpression()) {
+            golite::SimpleExpression* simple_expression = static_cast<SimpleExpression*>(simple_);
+            if(simple_expression->getExpression()->isBlank()) {
                 golite::Utils::error_message("If statement initial statement cannot be a blank identifier",
                                              simple_->getLine());
             }
@@ -76,7 +77,7 @@ void golite::If::weedingPass(bool check_break, bool check_continue) {
     if(expression_->isBlank()) {
         golite::Utils::error_message("If statement expression cannot be a blank identifier", expression_->getLine());
     }
-    expression_->weedingPass(false, false);
+    expression_->weedingPass();
 
     for(If* else_if_stmt : else_if_) {
         else_if_stmt->weedingPass(check_break, check_continue);

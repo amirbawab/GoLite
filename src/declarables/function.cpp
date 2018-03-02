@@ -22,7 +22,7 @@ std::string golite::Function::toGoLite(int indent) {
 }
 
 void golite::Function::weedingPass(bool check_break, bool check_continue) {
-    identifier_->weedingPass(false, false);
+    identifier_->weedingPass();
 
     for(FunctionParam* function_param : params_) {
         function_param->weedingPass();

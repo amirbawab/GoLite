@@ -1,6 +1,7 @@
 #ifndef GOLITE_STATEMENTS_DECLARABLES_TYPE_H
 #define GOLITE_STATEMENTS_DECLARABLES_TYPE_H
 
+#include <golite/statement.h>
 #include <golite/declarable.h>
 #include <golite/identifier.h>
 #include <golite/type_component.h>

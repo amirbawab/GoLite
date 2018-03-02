@@ -4,6 +4,7 @@
 #include <vector>
 #include <golite/expression.h>
 #include <golite/switch_case.h>
+#include <golite/simple.h>
 
 namespace golite {
     class Switch : public Statement {

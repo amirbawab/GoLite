@@ -24,7 +24,7 @@ void golite::IncDec::weedingPass(bool, bool) {
         golite::Utils::error_message("Increment and decrement statement cannot have a blank expression",
                                      expression_->getLine());
     }
-    expression_->weedingPass(false, false);
+    expression_->weedingPass();
 }
 
 golite::TypeComponent* golite::IncDec::typeCheck() {

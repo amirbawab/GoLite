@@ -1,6 +1,7 @@
 #ifndef GOLITE_RETURN_H
 #define GOLITE_RETURN_H
 
+#include <golite/statement.h>
 #include <golite/expression.h>
 
 namespace golite {

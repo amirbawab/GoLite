@@ -34,14 +34,14 @@ void golite::Variable::weedingPass(bool, bool) {
     }
 
     for(Identifier* identifier : identifiers_) {
-        identifier->weedingPass(false, false);
+        identifier->weedingPass();
     }
 
     for(Expression* expression : expressions_) {
         if(expression->isBlank()) {
             golite::Utils::error_message("Variable value cannot be a blank identifier", expression->getLine());
         }
-        expression->weedingPass(false, false);
+        expression->weedingPass();
     }
 }
 

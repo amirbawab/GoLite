@@ -97,10 +97,10 @@ namespace golite {
         virtual bool isStatVariable() { return false; }
 
         /**
-         * Expressions statement overrides this function
-         * @return true for expression statements
+         * Simple Expression statement overrides this function
+         * @return true for simple expression statements
          */
-        virtual bool isExpression() { return false; }
+        virtual bool isSimpleExpression() { return false; }
 
         /**
          * Perform type checking

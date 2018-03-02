@@ -62,14 +62,14 @@ void golite::Assignment::weedingPass(bool, bool) {
     }
 
     for(Expression* expression : left_expressions_) {
-        expression->weedingPass(false, false);
+        expression->weedingPass();
     }
 
     for(Expression* expression : right_expressions_) {
         if(expression->isBlank()) {
             golite::Utils::error_message("Assignment value cannot be a blank identifier", expression->getLine());
         }
-        expression->weedingPass(false, false);
+        expression->weedingPass();
     }
 }
 

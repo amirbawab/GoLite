@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <golite/expression.h>
+#include <golite/statement.h>
 
 namespace golite {
     class Println : public Statement {

@@ -14,7 +14,7 @@ int golite::Type::getLine() {
 }
 
 void golite::Type::weedingPass(bool, bool) {
-    identifier_->weedingPass(false, false);
+    identifier_->weedingPass();
     type_component_->weedingPass();
 }
 

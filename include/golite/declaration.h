@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <golite/identifier.h>
+#include <golite/simple.h>
 
 namespace golite {
     class Declaration : public Simple {

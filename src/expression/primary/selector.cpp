@@ -12,11 +12,11 @@ int golite::Selector::getLine() {
     return identifier_->getLine();
 }
 
-void golite::Selector::weedingPass(bool, bool) {
+void golite::Selector::weedingPass() {
     if(identifier_->isBlank()) {
         golite::Utils::error_message("Selector cannot be a blank identifier", identifier_->getLine());
     }
-    identifier_->weedingPass(false, false);
+    identifier_->weedingPass();
 }
 
 golite::TypeComponent* golite::Selector::typeCheck() {

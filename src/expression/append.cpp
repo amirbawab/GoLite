@@ -16,7 +16,7 @@ int golite::Append::getLine() {
     return left_expression_->getLine();
 }
 
-void golite::Append::weedingPass(bool, bool) {
+void golite::Append::weedingPass() {
     if(left_expression_->isBlank()) {
         golite::Utils::error_message("Append does not accept left argument to be a blank identifier",
                                      left_expression_->getLine());
@@ -27,8 +27,8 @@ void golite::Append::weedingPass(bool, bool) {
                                      right_expression_->getLine());
     }
 
-    left_expression_->weedingPass(false, false);
-    right_expression_->weedingPass(false, false);
+    left_expression_->weedingPass();
+    right_expression_->weedingPass();
 }
 
 golite::TypeComponent* golite::Append::typeCheck() {
