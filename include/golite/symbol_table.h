@@ -30,20 +30,20 @@ namespace golite {
         void putSymbol(std::string name, Declarable* decl);
 
         /**
-         * Gets the symbol from the sym table (or one of its parent, if specified) for a given symbol
-         * @param name
-         * @param search_in_parent
-         * @return
-         */
-        Declarable* getSymbol(std::string name, bool search_in_parent = true);
-
-        /**
          * Check whether the current sym table (or one of its parent, if specified) has a given symbol
          * @param name
          * @param search_in_parent
          * @return
          */
         bool hasSymbol(std::string name, bool search_in_parent = true);
+
+        /**
+         * Gets the symbol from the sym table (or one of its parent, if specified) for a given symbol
+         * @param name
+         * @param search_in_parent
+         * @return
+         */
+        Declarable* getSymbol(std::string name, bool search_in_parent = true);
     };
 }
 

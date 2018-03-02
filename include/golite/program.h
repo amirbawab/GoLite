@@ -21,12 +21,14 @@ namespace golite {
         Identifier* package_name_ = nullptr;
         std::vector<Declarable*> declarables_;
         SymbolTable* root_symbol_table_;
+
+        void initializeSymbolTable();
     public:
-        static const Type INT_BUILTIN_TYPE;
-        static const Type FLOAT64_BUILTIN_TYPE;
-        static const Type RUNE_BUILTIN_TYPE;
-        static const Type BOOL_BUILTIN_TYPE;
-        static const Type STRING_BUILTIN_TYPE;
+        static Type INT_BUILTIN_TYPE;
+        static Type FLOAT64_BUILTIN_TYPE;
+        static Type RUNE_BUILTIN_TYPE;
+        static Type BOOL_BUILTIN_TYPE;
+        static Type STRING_BUILTIN_TYPE;
 
         static Program* getInstance() {
             static Program* instance(new Program());
