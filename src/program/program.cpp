@@ -22,3 +22,9 @@ void golite::Program::weedingPass() {
         declarable->weedingPass(true, true);
     }
 }
+
+void golite::Program::symbolTablePass() {
+    for(Declarable* declarable: declarable_) {
+        declarable->symbolTablePass(this->root_symbol_table_);
+    }
+}

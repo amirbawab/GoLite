@@ -2,8 +2,10 @@
 #define GOLITE_SCOPE_PROGRAM_H
 
 #include <string>
+#include <stack>
 #include <golite/declarable.h>
 #include <golite/identifier.h>
+#include <golite/symbol_table.h>
 
 namespace golite {
 
@@ -17,7 +19,7 @@ namespace golite {
         Program(){}
         Identifier* package_name_ = nullptr;
         std::vector<Declarable*> declarables_;
-
+        SymbolTable* root_symbol_table_;
     public:
         static Program* getInstance() {
             static Program* instance(new Program());
@@ -57,6 +59,11 @@ namespace golite {
          * Perform a weeding pass to detect errors
          */
         void weedingPass();
+
+        /**
+         * Perform a symbol table pass to detect errors
+         */
+        void symbolTablePass();
     };
 }
 
