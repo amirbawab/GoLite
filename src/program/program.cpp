@@ -49,3 +49,9 @@ void golite::Program::symbolTablePass() {
         //declarable->symbolTablePass(this->root_symbol_table_);
     }
 }
+
+void golite::Program::typeCheck() {
+    for(Declarable* declarable : declarables_) {
+        declarable->typeCheck();
+    }
+}

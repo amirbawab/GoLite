@@ -34,3 +34,8 @@ void golite::Function::weedingPass(bool check_break, bool check_continue) {
 
     block_->weedingPass(check_break, check_continue);
 }
+
+golite::TypeComponent* golite::Function::typeCheck() {
+    block_->typeCheck();
+    return nullptr;
+}

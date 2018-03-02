@@ -2,6 +2,7 @@
 #define GOLITE_STATEMENTS_DECLARABLES_DECLARABLE_H
 
 #include <string>
+#include <golite/type_component.h>
 
 namespace golite {
     /**
@@ -40,6 +41,11 @@ namespace golite {
         virtual void weedingPass(bool check_break, bool check_continue) = 0;
 
         //virtual void symbolTablePass(SymbolTable* root) = 0;
+
+        /**
+         * @see Statement::typeCheck()
+         */
+        virtual TypeComponent* typeCheck() = 0;
     };
 }
 
