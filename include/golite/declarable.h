@@ -2,7 +2,6 @@
 #define GOLITE_STATEMENTS_DECLARABLES_DECLARABLE_H
 
 #include <string>
-#include <golite/symbol_table.h>
 
 namespace golite {
     /**
@@ -40,7 +39,7 @@ namespace golite {
          */
         virtual void weedingPass(bool check_break, bool check_continue) = 0;
 
-        virtual void symbolTablePass(SymbolTable* root) = 0;
+        //virtual void symbolTablePass(SymbolTable* root) = 0;
     };
 }
 

@@ -11,7 +11,7 @@ void golite::SymbolTable::putSymbol(std::string name, Declarable *decl) {
     // TODO : check what to do with existing entries ? probably only need to replace
 }
 
-golite::Declarable* golite::SymbolTable::getSymbol(std::string name, bool search_in_parent = true) {
+golite::Declarable* golite::SymbolTable::getSymbol(std::string name, bool search_in_parent) {
     SymbolTable* curr_sym_table = this;
     std::map<std::string, Declarable*>::iterator found;
     while(curr_sym_table) {
@@ -22,6 +22,6 @@ golite::Declarable* golite::SymbolTable::getSymbol(std::string name, bool search
     return nullptr;
 }
 
-bool golite::SymbolTable::hasSymbol(std::string name, bool search_in_parent = true) {
+bool golite::SymbolTable::hasSymbol(std::string name, bool search_in_parent) {
     return this->getSymbol(name, search_in_parent) != nullptr;
 }

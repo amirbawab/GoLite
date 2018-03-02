@@ -6,6 +6,7 @@
 #include <golite/declarable.h>
 #include <golite/identifier.h>
 #include <golite/symbol_table.h>
+#include <golite/type.h>
 
 namespace golite {
 
@@ -21,6 +22,12 @@ namespace golite {
         std::vector<Declarable*> declarables_;
         SymbolTable* root_symbol_table_;
     public:
+        static const Type INT_BUILTIN_TYPE;
+        static const Type FLOAT64_BUILTIN_TYPE;
+        static const Type RUNE_BUILTIN_TYPE;
+        static const Type BOOL_BUILTIN_TYPE;
+        static const Type STRING_BUILTIN_TYPE;
+
         static Program* getInstance() {
             static Program* instance(new Program());
             return instance;
