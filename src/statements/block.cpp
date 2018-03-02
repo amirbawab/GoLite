@@ -29,9 +29,8 @@ void golite::Block::weedingPass(bool check_break, bool check_continue) {
     }
 }
 
-golite::TypeComponent* golite::Block::typeCheck() {
+void golite::Block::typeCheck() {
     for(Statement* statement : statements_) {
         statement->typeCheck();
     }
-    return nullptr;
 }

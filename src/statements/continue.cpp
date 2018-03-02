@@ -14,7 +14,6 @@ void golite::Continue::weedingPass(bool, bool check_continue) {
     }
 }
 
-golite::TypeComponent* golite::Continue::typeCheck() {
+void golite::Continue::typeCheck() {
     // Do nothing
-    return nullptr;
 }

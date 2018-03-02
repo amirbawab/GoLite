@@ -27,8 +27,7 @@ void golite::IncDec::weedingPass(bool, bool) {
     expression_->weedingPass();
 }
 
-golite::TypeComponent* golite::IncDec::typeCheck() {
+void golite::IncDec::typeCheck() {
     TypeComponent* type_component = expression_->typeCheck();
     // TODO Check if type component is an integer
-    return nullptr;
 }

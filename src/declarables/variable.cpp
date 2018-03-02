@@ -45,7 +45,7 @@ void golite::Variable::weedingPass(bool, bool) {
     }
 }
 
-golite::TypeComponent* golite::Variable::typeCheck() {
+void golite::Variable::typeCheck() {
     if(!expressions_.empty()) {
         if(identifiers_.size() != expressions_.size()) {
             throw std::runtime_error("Cannot perform type checking on variable statement with different number of "
@@ -57,5 +57,4 @@ golite::TypeComponent* golite::Variable::typeCheck() {
             // TODO type_component_ == type_component
         }
     }
-    return nullptr;
 }

@@ -4,7 +4,7 @@ int golite::SimpleExpression::getLine() {
     return expression_->getLine();
 }
 
-golite::TypeComponent* golite::SimpleExpression::typeCheck() {
+void golite::SimpleExpression::typeCheck() {
     expression_->typeCheck();
 }
 

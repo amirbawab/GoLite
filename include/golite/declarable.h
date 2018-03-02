@@ -45,7 +45,7 @@ namespace golite {
         /**
          * @see Statement::typeCheck()
          */
-        virtual TypeComponent* typeCheck() = 0;
+        virtual void typeCheck() = 0;
     };
 }
 

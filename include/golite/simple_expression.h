@@ -40,7 +40,7 @@ namespace golite {
         /**
          * @see Statement::typeCheck()
          */
-        TypeComponent* typeCheck();
+        void typeCheck();
     };
 }
 #endif

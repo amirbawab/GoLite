@@ -105,7 +105,7 @@ namespace golite {
         /**
          * Perform type checking
          */
-        virtual TypeComponent* typeCheck() = 0;
+        virtual void typeCheck() = 0;
     };
 }
 

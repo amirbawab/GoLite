@@ -48,7 +48,7 @@ namespace golite {
         /**
          * @see Statement::typeCheck()
          */
-        golite::TypeComponent* typeCheck();
+        void typeCheck();
     };
 }
 

@@ -90,7 +90,7 @@ void golite::If::weedingPass(bool check_break, bool check_continue) {
     block_->weedingPass(check_break, check_continue);
 }
 
-golite::TypeComponent* golite::If::typeCheck() {
+void golite::If::typeCheck() {
     if(simple_) {
         simple_->typeCheck();
     }
@@ -108,5 +108,4 @@ golite::TypeComponent* golite::If::typeCheck() {
     if(else_){
         else_->typeCheck();
     }
-    return nullptr;
 }

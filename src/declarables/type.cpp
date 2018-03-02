@@ -18,7 +18,6 @@ void golite::Type::weedingPass(bool, bool) {
     type_component_->weedingPass();
 }
 
-golite::TypeComponent* golite::Type::typeCheck() {
+void golite::Type::typeCheck() {
     // Do nothing
-    return nullptr;
 }

@@ -23,9 +23,8 @@ void golite::Return::weedingPass(bool, bool) {
     }
 }
 
-golite::TypeComponent* golite::Return::typeCheck() {
+void golite::Return::typeCheck() {
     if(expression_) {
         expression_->typeCheck();
     }
-    return nullptr;
 }

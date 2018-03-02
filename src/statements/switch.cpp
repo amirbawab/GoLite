@@ -63,7 +63,7 @@ void golite::Switch::weedingPass(bool, bool check_continue) {
     }
 }
 
-golite::TypeComponent* golite::Switch::typeCheck() {
+void golite::Switch::typeCheck() {
     if(simple_) {
         simple_->typeCheck();
     }
@@ -76,5 +76,4 @@ golite::TypeComponent* golite::Switch::typeCheck() {
     for(SwitchCase* switch_case : cases_) {
         switch_case->typeCheck();
     }
-    return nullptr;
 }

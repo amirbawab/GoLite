@@ -19,9 +19,8 @@ void golite::Print::weedingPass(bool, bool) {
     }
 }
 
-golite::TypeComponent* golite::Print::typeCheck() {
+void golite::Print::typeCheck() {
     for(Expression* expression : expressions_) {
         expression->typeCheck();
     }
-    return nullptr;
 }

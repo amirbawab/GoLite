@@ -67,7 +67,7 @@ namespace golite {
         /**
          * @see Declarable::typeCheck()
          */
-        TypeComponent* typeCheck();
+        void typeCheck();
     };
 }
 

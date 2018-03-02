@@ -70,7 +70,7 @@ void golite::For::weedingPass(bool, bool) {
     block_->weedingPass(false, false);
 }
 
-golite::TypeComponent* golite::For::typeCheck() {
+void golite::For::typeCheck() {
     if(left_simple_) {
         left_simple_->typeCheck();
     }
@@ -84,5 +84,4 @@ golite::TypeComponent* golite::For::typeCheck() {
         right_simple_->typeCheck();
     }
     block_->typeCheck();
-    return nullptr;
 }

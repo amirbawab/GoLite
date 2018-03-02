@@ -73,10 +73,9 @@ void golite::Assignment::weedingPass(bool, bool) {
     }
 }
 
-golite::TypeComponent* golite::Assignment::typeCheck() {
+void golite::Assignment::typeCheck() {
     for(Expression* expression : right_expressions_) {
         TypeComponent* type_component = expression->typeCheck();
         // TODO Compare with identifiers types
     }
-    return nullptr;
 }

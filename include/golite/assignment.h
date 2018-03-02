@@ -94,7 +94,7 @@ namespace golite {
         /**
          * @see Statement::typeCheck()
          */
-        golite::TypeComponent* typeCheck();
+        void typeCheck();
 
         Assignment(std::vector<Expression*> left, std::vector<Expression*> right, KIND kind) :
                 left_expressions_(left), right_expressions_(right), kind_(kind){}

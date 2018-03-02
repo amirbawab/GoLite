@@ -14,7 +14,6 @@ void golite::Break::weedingPass(bool check_break, bool) {
     }
 }
 
-golite::TypeComponent* golite::Break::typeCheck() {
+void golite::Break::typeCheck() {
     // Do nothing
-    return nullptr;
 }

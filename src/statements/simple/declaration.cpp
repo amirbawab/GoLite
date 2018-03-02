@@ -39,10 +39,9 @@ void golite::Declaration::weedingPass(bool, bool) {
     }
 }
 
-golite::TypeComponent* golite::Declaration::typeCheck() {
+void golite::Declaration::typeCheck() {
     for(Expression* expression : right_expressions_) {
         TypeComponent* type_component = expression->typeCheck();
         // TODO Check specs
     }
-    return nullptr;
 }
