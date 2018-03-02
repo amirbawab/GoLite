@@ -20,3 +20,7 @@ void golite::Index::weedingPass(bool, bool) {
     }
     expression_->weedingPass(false, false);
 }
+
+golite::TypeComponent* golite::Index::typeCheck() {
+    return nullptr;
+}

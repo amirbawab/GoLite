@@ -2,7 +2,6 @@
 #include <golite/utils.h>
 #include <golite/pretty_helper.h>
 #include <iostream>
-#include <golite/primary_expression.h>
 
 std::string golite::Variable::toGoLite(int indent) {
     std::stringstream ss;
@@ -44,4 +43,19 @@ void golite::Variable::weedingPass(bool, bool) {
         }
         expression->weedingPass(false, false);
     }
+}
+
+golite::TypeComponent* golite::Variable::typeCheck() {
+    if(!expressions_.empty()) {
+        if(identifiers_.size() != expressions_.size()) {
+            throw std::runtime_error("Cannot perform type checking on variable statement with different number of "
+                                             "identifiers and expressions");
+        }
+
+        for(size_t i=0; i < identifiers_.size(); i++) {
+            TypeComponent* type_component = expressions_[i]->typeCheck();
+            // TODO type_component_ == type_component
+        }
+    }
+    return nullptr;
 }

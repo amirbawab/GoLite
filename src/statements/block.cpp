@@ -28,3 +28,10 @@ void golite::Block::weedingPass(bool check_break, bool check_continue) {
         statement->weedingPass(check_break, check_continue);
     }
 }
+
+golite::TypeComponent* golite::Block::typeCheck() {
+    for(Statement* statement : statements_) {
+        statement->typeCheck();
+    }
+    return nullptr;
+}

@@ -88,3 +88,24 @@ void golite::If::weedingPass(bool check_break, bool check_continue) {
 
     block_->weedingPass(check_break, check_continue);
 }
+
+golite::TypeComponent* golite::If::typeCheck() {
+    if(simple_) {
+        simple_->typeCheck();
+    }
+
+    if(expression_) {
+        TypeComponent* type_component = expression_->typeCheck();
+        // TODO Check if it's boolean
+    }
+    block_->typeCheck();
+
+    for(If* else_if : else_if_) {
+        else_if->typeCheck();
+    }
+
+    if(else_){
+        else_->typeCheck();
+    }
+    return nullptr;
+}

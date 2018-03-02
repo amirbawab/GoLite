@@ -30,3 +30,7 @@ void golite::Append::weedingPass(bool, bool) {
     left_expression_->weedingPass(false, false);
     right_expression_->weedingPass(false, false);
 }
+
+golite::TypeComponent* golite::Append::typeCheck() {
+    return nullptr;
+}

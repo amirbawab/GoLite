@@ -18,3 +18,7 @@ void golite::Selector::weedingPass(bool, bool) {
     }
     identifier_->weedingPass(false, false);
 }
+
+golite::TypeComponent* golite::Selector::typeCheck() {
+    return nullptr;
+}

@@ -52,6 +52,11 @@ namespace golite {
          * @see Statement::weedingPass()
          */
         void weedingPass(bool check_break, bool check_continue);
+
+        /**
+         * @see Statement::typeCheck()
+         */
+        TypeComponent* typeCheck();
     };
 }
 

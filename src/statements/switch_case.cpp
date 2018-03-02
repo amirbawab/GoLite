@@ -30,3 +30,10 @@ void golite::SwitchCase::weedingPass(bool check_continue) {
     }
     block_->weedingPass(false, check_continue);
 }
+
+void golite::SwitchCase::typeCheck() {
+    for(Expression* expression : expressions_) {
+        expression->typeCheck();
+    }
+    block_->typeCheck();
+}

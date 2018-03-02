@@ -15,3 +15,8 @@ int golite::Empty::getLine() {
 void golite::Empty::weedingPass(bool, bool) {
     // Do nothing
 }
+
+golite::TypeComponent* golite::Empty::typeCheck() {
+    // Do nothing
+    return nullptr;
+}

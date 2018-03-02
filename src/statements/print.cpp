@@ -18,3 +18,10 @@ void golite::Print::weedingPass(bool, bool) {
         expression->weedingPass(false, false);
     }
 }
+
+golite::TypeComponent* golite::Print::typeCheck() {
+    for(Expression* expression : expressions_) {
+        expression->typeCheck();
+    }
+    return nullptr;
+}

@@ -61,3 +61,19 @@ void golite::Switch::weedingPass(bool, bool check_continue) {
         switch_case->weedingPass(check_continue);
     }
 }
+
+golite::TypeComponent* golite::Switch::typeCheck() {
+    if(simple_) {
+        simple_->typeCheck();
+    }
+
+    if(expression_) {
+        TypeComponent* type_component_ = expression_->typeCheck();
+        // TODO Check if it's booklean
+    }
+
+    for(SwitchCase* switch_case : cases_) {
+        switch_case->typeCheck();
+    }
+    return nullptr;
+}

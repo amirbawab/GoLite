@@ -2,6 +2,7 @@
 #define GOLITE_EXPRESSIONS_EXPRESSION_H
 
 #include <golite/simple.h>
+#include <golite/type_component.h>
 
 namespace golite {
     /**

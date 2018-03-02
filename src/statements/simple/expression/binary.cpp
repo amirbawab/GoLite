@@ -88,3 +88,10 @@ void golite::Binary::weedingPass(bool, bool) {
     left_operand_->weedingPass(false, false);
     right_operand_->weedingPass(false, false);
 }
+
+golite::TypeComponent* golite::Binary::typeCheck() {
+    TypeComponent* left = left_operand_->typeCheck();
+    TypeComponent* right = right_operand_->typeCheck();
+    return nullptr;
+}
+

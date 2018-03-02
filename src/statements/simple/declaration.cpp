@@ -38,3 +38,11 @@ void golite::Declaration::weedingPass(bool, bool) {
         expression->weedingPass(false, false);
     }
 }
+
+golite::TypeComponent* golite::Declaration::typeCheck() {
+    for(Expression* expression : right_expressions_) {
+        TypeComponent* type_component = expression->typeCheck();
+        // TODO Check specs
+    }
+    return nullptr;
+}

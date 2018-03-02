@@ -72,3 +72,11 @@ void golite::Assignment::weedingPass(bool, bool) {
         expression->weedingPass(false, false);
     }
 }
+
+golite::TypeComponent* golite::Assignment::typeCheck() {
+    for(Expression* expression : right_expressions_) {
+        TypeComponent* type_component = expression->typeCheck();
+        // TODO Compare with identifiers types
+    }
+    return nullptr;
+}

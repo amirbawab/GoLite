@@ -35,3 +35,10 @@ void golite::Unary::weedingPass(bool, bool) {
     }
     operand_->weedingPass(false, false);
 }
+
+golite::TypeComponent* golite::Unary::typeCheck() {
+    TypeComponent *type_component = operand_->typeCheck();
+    // TODO Check if type can be incremented or decremented
+    return nullptr;
+}
+

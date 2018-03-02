@@ -2,6 +2,7 @@
 #define GOLITE_STATEMENTS_STATEMENT_H
 
 #include <string>
+#include <golite/type_component.h>
 
 namespace golite {
 
@@ -100,6 +101,11 @@ namespace golite {
          * @return true for expression statements
          */
         virtual bool isExpression() { return false; }
+
+        /**
+         * Perform type checking
+         */
+        virtual TypeComponent* typeCheck() = 0;
     };
 }
 

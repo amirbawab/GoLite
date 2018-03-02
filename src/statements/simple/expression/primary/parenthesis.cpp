@@ -20,3 +20,7 @@ void golite::Parenthesis::weedingPass(bool, bool) {
     }
     expression_->weedingPass(false, false);
 }
+
+golite::TypeComponent* golite::Parenthesis::typeCheck() {
+    return nullptr;
+}

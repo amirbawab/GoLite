@@ -17,3 +17,7 @@ bool golite::Identifier::isBlank() {
 void golite::Identifier::weedingPass(bool, bool) {
     // Do nothing
 }
+
+golite::TypeComponent* golite::Identifier::typeCheck() {
+    return nullptr;
+}

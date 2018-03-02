@@ -18,3 +18,7 @@ void golite::FunctionCall::weedingPass(bool, bool) {
         expression->weedingPass(false, false);
     }
 }
+
+golite::TypeComponent* golite::FunctionCall::typeCheck() {
+    return nullptr;
+}

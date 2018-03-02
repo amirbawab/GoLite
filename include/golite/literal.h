@@ -23,6 +23,7 @@ namespace golite {
         }
         int getLine() { return line_; }
         void weedingPass(bool check_break, bool check_continue) { /*Do nothing*/ }
+        golite::TypeComponent* typeCheck() { return nullptr; }
     };
 
     template <>
@@ -39,6 +40,7 @@ namespace golite {
         }
         int getLine() { return line_; }
         void weedingPass(bool check_break, bool check_continue) { /*Do nothing*/ }
+        golite::TypeComponent* typeCheck() { return nullptr; }
     };
 
     template <>
@@ -55,6 +57,7 @@ namespace golite {
         }
         int getLine() { return line_; }
         void weedingPass(bool check_break, bool check_continue) { /*Do nothing*/ }
+        golite::TypeComponent* typeCheck() { return nullptr; }
     };
 
     template <>
@@ -71,6 +74,7 @@ namespace golite {
         }
         int getLine() { return line_; }
         void weedingPass(bool check_break, bool check_continue) { /*Do nothing*/ }
+        golite::TypeComponent* typeCheck() { return nullptr; }
     };
 }
 

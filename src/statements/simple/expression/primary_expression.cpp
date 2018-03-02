@@ -58,3 +58,8 @@ void golite::PrimaryExpression::weedingPass(bool, bool) {
     }
 }
 
+golite::TypeComponent* golite::PrimaryExpression::typeCheck() {
+    // TODO Several type of checks
+    return nullptr;
+}
+
