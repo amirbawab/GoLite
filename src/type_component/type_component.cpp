@@ -33,37 +33,27 @@ void golite::TypeComponent::weedingPass() {
     }
 }
 
-bool golite::TypeComponent::isInt() {
-    if(children_.empty()) {
-        throw std::runtime_error("Cannot check if type component is int because list of children is empty");
-    }
-    return children_.size() == 1 && children_.front()->isInt();
-}
+bool golite::TypeComponent::isCompatible(TypeComponent *type_component) {
 
-bool golite::TypeComponent::isFloat64() {
-    if(children_.empty()) {
-        throw std::runtime_error("Cannot check if type component is float64 because list of children is empty");
+    // If the number of composite types is different they they are not compatible
+    if(children_.size() != type_component->children_.size()) {
+        return false;
     }
-    return children_.size() == 1 && children_.front()->isFloat64();
-}
 
-bool golite::TypeComponent::isBool() {
-    if(children_.empty()) {
-        throw std::runtime_error("Cannot check if type component is boolean because list of children is empty");
-    }
-    return children_.size() == 1 && children_.front()->isBool();
-}
+    for(size_t i=0; i < children_.size(); i++) {
 
-bool golite::TypeComponent::isString() {
-    if(children_.empty()) {
-        throw std::runtime_error("Cannot check if type component is string because list of children is empty");
+        // Case of type reference
+        if(children_[i]->isTypeReference()) {
+            if(!type_component->children_[i]->isTypeReference()) {
+                return false;
+            }
+            TypeReference* typeReference1 = static_cast<TypeReference*>(children_[i]);
+            TypeReference* typeReference2 = static_cast<TypeReference*>(type_component->children_[i]);
+            if(typeReference1->getIdentifier()->getName() != typeReference2->getIdentifier()->getName()) {
+                return false;
+            }
+        }
+        // TODO Complete for other cases
     }
-    return children_.size() == 1 && children_.front()->isString();
-}
-
-bool golite::TypeComponent::isRune() {
-    if(children_.empty()) {
-        throw std::runtime_error("Cannot check if type component is rune because list of children is empty");
-    }
-    return children_.size() == 1 && children_.front()->isRune();
+    return true;
 }

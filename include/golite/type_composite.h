@@ -49,36 +49,6 @@ namespace golite {
          * @return true for slice
          */
         virtual bool isSlice() { return false; }
-
-        /**
-         * Check if type is int
-         * @return true if it is
-         */
-        virtual bool isInt() { return false; }
-
-        /**
-         * Check if type is float
-         * @return true if it is
-         */
-        virtual bool isFloat64() { return false; }
-
-        /**
-         * Check if type is boolean
-         * @return true if it is
-         */
-        virtual bool isBool() { return false; }
-
-        /**
-         * Check if type is string
-         * @return true if it is
-         */
-        virtual bool isString() { return false; }
-
-        /**
-         * Check if type is rune
-         * @return true if it is
-         */
-        virtual bool isRune() { return false; }
     };
 }
 

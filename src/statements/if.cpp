@@ -5,6 +5,7 @@
 #include <golite/primary_expression.h>
 #include <golite/identifier.h>
 #include <golite/simple_expression.h>
+#include <golite/program.h>
 
 std::string golite::If::toGoLite(int indent) {
     std::stringstream ss;
@@ -97,7 +98,9 @@ void golite::If::typeCheck() {
 
     if(expression_) {
         TypeComponent* type_component = expression_->typeCheck();
-        // TODO Check if it's boolean
+        if(!type_component->isCompatible(Program::BOOL_BUILTIN_TYPE.getTypeComponent())) {
+            golite::Utils::error_message("If condition must evaluate to a boolean", expression_->getLine());
+        }
     }
     block_->typeCheck();
 

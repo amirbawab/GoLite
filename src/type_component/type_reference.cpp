@@ -19,23 +19,3 @@ void golite::TypeReference::weedingPass() {
     }
     identifier_->weedingPass();
 }
-
-bool golite::TypeReference::isInt() {
-    return identifier_->getName() == "int";
-}
-
-bool golite::TypeReference::isFloat64() {
-    return identifier_->getName() == "float64";
-}
-
-bool golite::TypeReference::isBool() {
-    return identifier_->getName() == "bool";
-}
-
-bool golite::TypeReference::isString() {
-    return identifier_->getName() == "string";
-}
-
-bool golite::TypeReference::isRune() {
-    return identifier_->getName() == "rune";
-}

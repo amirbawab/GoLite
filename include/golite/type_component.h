@@ -43,34 +43,11 @@ namespace golite {
         std::vector<golite::TypeComposite*> getChildren() { return children_; }
 
         /**
-         * Check if type is int
-         * @return true if it is
+         * Check if a type component is comaptible with this
+         * @param type_component
+         * @return true if they are compatible
          */
-        bool isInt();
-
-        /**
-         * Check if type is float
-         * @return true if it is
-         */
-        bool isFloat64();
-
-        /**
-         * Check if type is boolean
-         * @return true if it is
-         */
-        bool isBool();
-
-        /**
-         * Check if type is string
-         * @return true if it is
-         */
-        bool isString();
-
-        /**
-         * Check if type is rune
-         * @return true if it is
-         */
-        bool isRune();
+        bool isCompatible(TypeComponent* type_component);
     };
 }
 

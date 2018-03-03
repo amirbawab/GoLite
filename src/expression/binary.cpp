@@ -97,19 +97,22 @@ golite::TypeComponent* golite::Binary::typeCheck() {
     switch (kind_) {
         case KIND::OR:
         case KIND::AND:
-            if(!left->isBool()) {
+            if(!left->isCompatible(Program::BOOL_BUILTIN_TYPE.getTypeComponent())) {
                 golite::Utils::error_message("Left operand of && an || must be a boolean" , left_operand_->getLine());
             }
 
-            if(!right->isBool()) {
+            if(!right->isCompatible(Program::BOOL_BUILTIN_TYPE.getTypeComponent())) {
                 golite::Utils::error_message("Right operand of && an || must be a boolean" , right_operand_->getLine());
             }
             return golite::Program::BOOL_BUILTIN_TYPE.getTypeComponent();
 
         case KIND::IS_EQUAL:
         case KIND::IS_NOT_EQUAL:
-            // TODO Check if compatible
-            return nullptr;
+            if(!left->isCompatible(right)) {
+                golite::Utils::error_message("Left and right operand of == and != must be compatible",
+                                             left_operand_->getLine());
+            }
+            return golite::Program::BOOL_BUILTIN_TYPE.getTypeComponent();
 
         case KIND::LESS_THAN:
         case KIND::LESS_THAN_EQUAL:
