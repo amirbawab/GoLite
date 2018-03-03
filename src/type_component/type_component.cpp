@@ -9,10 +9,9 @@ std::string golite::TypeComponent::toGoLite(int indent) {
         throw std::runtime_error("Cannot prettify an empty type component");
     }
 
-    for(size_t i = children_.size()-1; i > 0; i--) {
-        ss << children_[i]->toGoLite(indent);
+    for(size_t i = children_.size(); i > 0; i--) {
+        ss << children_[i-1]->toGoLite(indent);
     }
-    ss << children_.front()->toGoLite(indent);
     return ss.str();
 }
 
