@@ -19,5 +19,6 @@ void golite::Identifier::weedingPass() {
 }
 
 golite::TypeComponent* golite::Identifier::typeCheck() {
+    // TODO Get identifier from symbol table
     return nullptr;
 }

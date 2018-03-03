@@ -4,6 +4,7 @@
 #include <golite/identifier.h>
 #include <golite/primary_expression.h>
 #include <iostream>
+#include <golite/program.h>
 
 std::string golite::Binary::toGoLite(int indent) {
     std::stringstream ss;
@@ -93,6 +94,42 @@ void golite::Binary::weedingPass() {
 golite::TypeComponent* golite::Binary::typeCheck() {
     TypeComponent* left = left_operand_->typeCheck();
     TypeComponent* right = right_operand_->typeCheck();
-    return nullptr;
+    switch (kind_) {
+        case KIND::OR:
+        case KIND::AND:
+            if(!left->isBool()) {
+                golite::Utils::error_message("Left operand of && an || must be a boolean" , left_operand_->getLine());
+            }
+
+            if(!right->isBool()) {
+                golite::Utils::error_message("Right operand of && an || must be a boolean" , right_operand_->getLine());
+            }
+            return golite::Program::BOOL_BUILTIN_TYPE.getTypeComponent();
+
+        case KIND::IS_EQUAL:
+        case KIND::IS_NOT_EQUAL:
+            // TODO Check if compatible
+            return nullptr;
+
+        case KIND::LESS_THAN:
+        case KIND::LESS_THAN_EQUAL:
+        case KIND::GREATER_THAN:
+        case KIND::GREATER_THAN_EQUAL:
+            return nullptr;
+
+        case KIND::PLUS:
+        case KIND::MINUS:
+        case KIND::MULTIPLY:
+        case KIND::DIVIDE:
+        case KIND::MODULO:
+        case KIND::BIT_AND:
+        case KIND::BIT_OR:
+        case KIND::LEFT_SHIFT:
+        case KIND::RIGHT_SHIFT:
+        case KIND::BIT_CLEAR:
+        case KIND::BIT_XOR:
+            return nullptr;
+    }
+    throw std::runtime_error("Unrecognized binary expression kind");
 }
 

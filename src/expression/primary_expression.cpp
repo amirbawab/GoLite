@@ -59,7 +59,13 @@ void golite::PrimaryExpression::weedingPass() {
 }
 
 golite::TypeComponent* golite::PrimaryExpression::typeCheck() {
-    // FIXME
+    if(children_.empty()) {
+        throw std::runtime_error("Cannot perform type checking on a primary expression with an empty list of children");
+    }
+
+    // Get the type of the first element
+    std::vector<golite::TypeComposite*> type_composites = children_.front()->typeCheck()->getChildren();
+    // TODO Traverse the vector of type composite and verify the element in the primary expression align with the type
     return children_.front()->typeCheck();
 }
 

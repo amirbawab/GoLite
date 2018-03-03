@@ -41,6 +41,36 @@ namespace golite {
          * @see TypeComposite::isTypeReference()
          */
         bool isTypeReference() { return true; }
+
+        /**
+         * Check if type is int
+         * @return true if it is
+         */
+        bool isInt();
+
+        /**
+         * Check if type is float
+         * @return true if it is
+         */
+        bool isFloat64();
+
+        /**
+         * Check if type is boolean
+         * @return true if it is
+         */
+        bool isBool();
+
+        /**
+         * Check if type is string
+         * @return true if it is
+         */
+        bool isString();
+
+        /**
+         * Check if type is rune
+         * @return true if it is
+         */
+        bool isRune();
     };
 }
 
