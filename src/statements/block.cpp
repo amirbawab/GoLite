@@ -19,12 +19,6 @@ std::string golite::Block::toGoLite(int indent) {
 
 void golite::Block::weedingPass(bool check_break, bool check_continue) {
     for(Statement* statement : statements_) {
-        if(statement->isSimpleExpression()) {
-            golite::SimpleExpression* simple_expression = static_cast<SimpleExpression*>(statement);
-            if(!simple_expression->getExpression()->isFunctionCall()) {
-                golite::Utils::error_message("Expression statement must be a function call", statement->getLine());
-            }
-        }
         statement->weedingPass(check_break, check_continue);
     }
 }

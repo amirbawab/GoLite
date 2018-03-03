@@ -36,6 +36,11 @@ namespace golite {
          * @see TypeComposite::weedingPass()
          */
         void weedingPass();
+
+        /**
+         * @see TypeComposite::isTypeReference()
+         */
+        bool isTypeReference() { return true; }
     };
 }
 

@@ -31,6 +31,11 @@ namespace golite {
          * @see TypeComposite::weedingPass()
          */
         void weedingPass();
+
+        /**
+         * @see TypeComposite::isArray()
+         */
+        bool isArray() { return true; }
     };
 }
 

@@ -35,6 +35,12 @@ namespace golite {
          * Perform a weeding pass
          */
         virtual void weedingPass();
+
+        /**
+         * Get children vector
+         * @return children vector
+         */
+        std::vector<golite::TypeComposite*> getChildren() { return children_; }
     };
 }
 

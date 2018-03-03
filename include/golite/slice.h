@@ -24,6 +24,11 @@ namespace golite {
          * @see TypeComposite::weedingPass()
          */
         void weedingPass();
+
+        /**
+         * @see TypeComposite::isSlice()
+         */
+        bool isSlice() { return true; }
     };
 }
 

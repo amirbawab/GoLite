@@ -3,6 +3,7 @@
 #include <sstream>
 #include <golite/identifier.h>
 #include <golite/primary_expression.h>
+#include <iostream>
 
 std::string golite::Binary::toGoLite(int indent) {
     std::stringstream ss;

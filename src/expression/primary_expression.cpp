@@ -59,7 +59,7 @@ void golite::PrimaryExpression::weedingPass() {
 }
 
 golite::TypeComponent* golite::PrimaryExpression::typeCheck() {
-    // TODO Several type of checks
-    return nullptr;
+    // FIXME
+    return children_.front()->typeCheck();
 }
 
