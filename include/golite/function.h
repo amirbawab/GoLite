@@ -25,6 +25,9 @@ namespace golite {
     public:
         Function(Identifier* identifier) : identifier_(identifier){}
 
+        // Function currently being processed
+        static golite::Function* active_function;
+
         /**
          * Set function params
          * @param params
@@ -68,6 +71,12 @@ namespace golite {
          * @see Declarable::typeCheck()
          */
         void typeCheck();
+
+        /**
+         * Get type component
+         * @return type component
+         */
+        golite::TypeComponent* getTypeComponent() { return type_component_; }
     };
 }
 

@@ -3,6 +3,7 @@
 #include <sstream>
 #include <golite/identifier.h>
 #include <golite/primary_expression.h>
+#include <golite/function.h>
 
 std::string golite::Return::toGoLite(int indent) {
     std::stringstream ss;
@@ -25,6 +26,20 @@ void golite::Return::weedingPass(bool, bool) {
 
 void golite::Return::typeCheck() {
     if(expression_) {
-        expression_->typeCheck();
+        TypeComponent* type_component = expression_->typeCheck();
+        if(golite::Function::active_function->getTypeComponent()) {
+            if(!golite::Function::active_function->getTypeComponent()->isCompatible(type_component)) {
+                golite::Utils::error_message("Return expression is not compatible with the function type",
+                                             expression_->getLine());
+            }
+        } else {
+            golite::Utils::error_message(
+                    "Return statement cannot contain an expression because the function type is void",
+                    expression_->getLine());
+        }
+    } else {
+        if(golite::Function::active_function->getTypeComponent()) {
+            golite::Utils::error_message("Function declaration expects a type", getLine());
+        }
     }
 }
