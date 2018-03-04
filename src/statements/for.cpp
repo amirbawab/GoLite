@@ -4,6 +4,7 @@
 #include <golite/primary_expression.h>
 #include <golite/identifier.h>
 #include <golite/simple_expression.h>
+#include <golite/program.h>
 
 std::string golite::For::toGoLite(int indent) {
     std::stringstream ss;
@@ -77,7 +78,9 @@ void golite::For::typeCheck() {
 
     if(expression_) {
         TypeComponent* type_component_ = expression_->typeCheck();
-        // TODO Check if it is boolean
+        if(!type_component_->isCompatible(golite::Program::BOOL_BUILTIN_TYPE.getTypeComponent())) {
+            golite::Utils::error_message("For condition must evaluate to a boolean", expression_->getLine());
+        }
     }
 
     if(right_simple_) {
