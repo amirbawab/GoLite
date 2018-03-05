@@ -34,3 +34,15 @@ void golite::Function::weedingPass(bool check_break, bool check_continue) {
 
     block_->weedingPass(check_break, check_continue);
 }
+
+void golite::Function::symbolTablePass(golite::SymbolTable *root) {
+    if(root->getSymbol(this->identifier_->getName(), false)) {
+        golite::Utils::error_message(this->identifier_->getName() + " redeclared in this block", -1); // TODO : fix me
+    }
+
+    root->putSymbol(this->identifier_->getName(), this);
+
+    golite::SymbolTable* fn_symbol_table = new golite::SymbolTable();
+    root->addChild(fn_symbol_table);
+    // TODO : go through all statements
+}

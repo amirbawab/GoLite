@@ -2,6 +2,7 @@
 #define GOLITE_STATEMENTS_DECLARABLES_DECLARABLE_H
 
 #include <string>
+#include <golite/symbol_table.h>
 
 namespace golite {
     /**
@@ -35,11 +36,17 @@ namespace golite {
         virtual bool isDecVariable() { return false; }
 
         /**
+         * Type decl overrides this function
+         * @return true for type
+         */
+        virtual bool isTypeDeclaration() {  return false; }
+
+        /**
          * @see Statement::weedingPass()
          */
         virtual void weedingPass(bool check_break, bool check_continue) = 0;
 
-        //virtual void symbolTablePass(SymbolTable* root) = 0;
+        virtual void symbolTablePass(SymbolTable* root) = 0;
     };
 }
 

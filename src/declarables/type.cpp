@@ -17,3 +17,11 @@ void golite::Type::weedingPass(bool, bool) {
     identifier_->weedingPass(false, false);
     type_component_->weedingPass();
 }
+
+void golite::Type::symbolTablePass(SymbolTable *root) {
+    if(root->getSymbol(this->identifier_->getName(), false)) {
+        golite::Utils::error_message(this->identifier_->getName() + "redeclared in this block", this->getLine());
+    }
+
+    root->putSymbol(this->identifier_->getName(), this);
+}

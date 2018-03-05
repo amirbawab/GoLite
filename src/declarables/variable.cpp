@@ -2,7 +2,7 @@
 #include <golite/utils.h>
 #include <golite/pretty_helper.h>
 #include <iostream>
-#include <golite/primary_expression.h>
+#include <vector>
 
 std::string golite::Variable::toGoLite(int indent) {
     std::stringstream ss;
@@ -43,5 +43,19 @@ void golite::Variable::weedingPass(bool, bool) {
             golite::Utils::error_message("Variable value cannot be a blank identifier", expression->getLine());
         }
         expression->weedingPass(false, false);
+    }
+}
+
+void golite::Variable::symbolTablePass(SymbolTable *root) {
+    for(std::vector<golite::Identifier*>::iterator itt = this->identifiers_.begin();
+            itt != this->identifiers_.end();
+            itt++) {
+        // search for an existing symbol in current scope
+        golite::Declarable* existingSymbol = root->getSymbol((*itt)->getName(), false);
+        if(existingSymbol) {
+            golite::Utils::error_message((*itt)->getName() + " redeclared in this block", this->getLine());
+        }
+
+        root->putSymbol((*itt)->getName(), this);
     }
 }

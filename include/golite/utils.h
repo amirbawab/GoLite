@@ -29,7 +29,7 @@ namespace golite {
          * @param msg
          * @param line
          */
-        static void error_message(const char* msg, int line);
+        static void error_message(std::basic_string<char, std::char_traits<char>, std::allocator<char>> msg, int line);
 
         /**
          * Log tokens if flag is on

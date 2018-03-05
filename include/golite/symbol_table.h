@@ -4,9 +4,10 @@
 #include <map>
 #include <string>
 #include <vector>
-#include <golite/declarable.h>
 
 namespace golite {
+    class Declarable;
+
     class SymbolTable {
     private:
         SymbolTable* parent_;

@@ -39,6 +39,11 @@ namespace golite {
         void setTypeComponent(TypeComponent* type_component) { type_component_ = type_component; }
 
         /**
+         * @see Declarable::isTypeDeclaration()
+         */
+        bool isTypeDeclaration() {  return true; }
+
+        /**
          * @see Declarable::toGoLite(int)
          */
         std::string toGoLite(int indent);
@@ -52,6 +57,11 @@ namespace golite {
          * @see Statement::weedingPass()
          */
         void weedingPass(bool check_break, bool check_continue);
+
+        /**
+         * @see Declarable::symbolTablePass()
+         */
+        void symbolTablePass(SymbolTable *root);
     };
 }
 
