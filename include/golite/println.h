@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <golite/expression.h>
+#include <golite/symbol_table.h>
 
 namespace golite {
     class Println : public Statement {
@@ -32,6 +33,8 @@ namespace golite {
          * @see Statement::weedingPass()
          */
         void weedingPass(bool check_break, bool check_continue);
+
+        void symbolTablePass(SymbolTable* root);
     };
 }
 

@@ -2,6 +2,7 @@
 #define GOLITE_STATEMENTS_STATEMENT_H
 
 #include <string>
+#include <golite/symbol_table.h>
 
 namespace golite {
 
@@ -40,6 +41,12 @@ namespace golite {
          * @param check_continue
          */
         virtual void weedingPass(bool check_break, bool check_continue) = 0;
+
+        /**
+         * Performs a symbol table pass
+         * @param root
+         */
+        virtual void symbolTablePass(SymbolTable* root)/* = 0*/ {};
 
         /**
          * Break statement overrides this function
