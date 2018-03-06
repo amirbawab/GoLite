@@ -1,8 +1,9 @@
 #include <golite/declaration.h>
 #include <golite/utils.h>
 #include <golite/pretty_helper.h>
-#include <iostream>
 #include <golite/primary_expression.h>
+#include <golite/variable.h>
+#include <iostream>
 
 std::string golite::Declaration::toGoLite(int indent) {
     std::stringstream ss;
@@ -48,9 +49,11 @@ void golite::Declaration::symbolTablePass(SymbolTable *root) {
         expr->symbolTablePass(root);
     }
 
-    // create new symbol
-    for(golite::Expression* expr : this->left_identifiers_) {
-        golite::Identifier* id = static_cast<golite::Identifier*>(expr);
-        root->putSymbol(id->getName(), this);
+    // create new variable in symbol table
+    for(int i = 0; i < this->left_identifiers_.size(); i++) {
+        golite::Identifier* id = static_cast<golite::Identifier*>(this->left_identifiers_[i]);
+        golite::Expression* value = this->right_expressions_[i];
+
+        golite::Variable* var_
     }
 }

@@ -2,7 +2,6 @@
 #define GOLITE_STATEMENTS_DECLARABLES_DECLARABLE_H
 
 #include <string>
-#include <golite/symbol.h>
 #include <golite/symbol_table.h>
 
 namespace golite {
@@ -14,7 +13,7 @@ namespace golite {
      * - Variables
      * - Functions
      */
-    class Declarable: virtual public Symbol {
+    class Declarable {
     public:
 
         /**
@@ -46,6 +45,8 @@ namespace golite {
          * @see Statement::weedingPass()
          */
         virtual void weedingPass(bool check_break, bool check_continue) = 0;
+
+        virtual void symbolTablePass(SymbolTable* root) /*= 0*/ {};
     };
 }
 

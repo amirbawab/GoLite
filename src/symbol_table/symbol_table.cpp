@@ -6,14 +6,14 @@ void golite::SymbolTable::addChild(SymbolTable *table) {
     this->children_.push_back(table);
 }
 
-void golite::SymbolTable::putSymbol(std::string name, golite::Symbol *decl) {
-    this->entries_.insert(std::pair<std::string, golite::Symbol*>(name, decl));
+void golite::SymbolTable::putSymbol(std::string name, golite::Declarable *decl) {
+    this->entries_.insert(std::pair<std::string, golite::Declarable*>(name, decl));
     // TODO : check what to do with existing entries ? probably only need to replace
 }
 
-golite::Symbol* golite::SymbolTable::getSymbol(std::string name, bool search_in_parent) {
+golite::Declarable* golite::SymbolTable::getSymbol(std::string name, bool search_in_parent) {
     SymbolTable* curr_sym_table = this;
-    std::map<std::string, golite::Symbol*>::iterator found;
+    std::map<std::string, golite::Declarable*>::iterator found;
     while(curr_sym_table) {
         found = curr_sym_table->entries_.find(name);
         if(found != curr_sym_table->entries_.end() || !search_in_parent) { return (*found).second; }
