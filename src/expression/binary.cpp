@@ -118,7 +118,7 @@ golite::TypeComponent* golite::Binary::typeCheck() {
         case KIND::LESS_THAN_EQUAL:
         case KIND::GREATER_THAN:
         case KIND::GREATER_THAN_EQUAL:
-            return nullptr;
+            return golite::Program::BOOL_BUILTIN_TYPE.getTypeComponent();
 
         case KIND::PLUS:
         case KIND::MINUS:
