@@ -22,9 +22,7 @@ void golite::Println::weedingPass(bool, bool) {
 
 void golite::Println::symbolTablePass(SymbolTable *root) {
     // carry the symtable checking over the println expressions
-    for(std::vector<golite::Expression*>::iterator itt = this->expressions_.begin();
-            itt != this->expressions_.end();
-            itt++) {
-        (*itt)->symbolTablePass(root);
+    for(golite::Expression* expr: this->expressions_) {
+        expr->symbolTablePass(root);
     }
 }
