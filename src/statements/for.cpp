@@ -65,6 +65,9 @@ void golite::For::weedingPass(bool, bool) {
                 golite::Utils::error_message("For statement post statement cannot be a blank identifier",
                                              right_simple_->getLine());
             }
+        } else if(right_simple_->isDeclaration()){
+            golite::Utils::error_message("Right simple statement cannot be a short declaration",
+                                         right_simple_->getLine());
         }
         right_simple_->weedingPass(false, false);
     }
