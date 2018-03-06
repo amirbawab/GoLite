@@ -28,3 +28,9 @@ void golite::Block::weedingPass(bool check_break, bool check_continue) {
         statement->weedingPass(check_break, check_continue);
     }
 }
+
+void golite::Block::symbolTablePass(SymbolTable *root) {
+    for(Statement* statement : statements_) {
+        statement->symbolTablePass(root);
+    }
+}

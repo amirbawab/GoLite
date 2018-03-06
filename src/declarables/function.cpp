@@ -45,7 +45,5 @@ void golite::Function::symbolTablePass(golite::SymbolTable *root) {
     golite::SymbolTable* fn_symbol_table = new golite::SymbolTable();
     root->addChild(fn_symbol_table);
 
-    for(golite::Statement* stmt: this->block_->getStatements()) {
-        stmt->symbolTablePass(fn_symbol_table);
-    }
+    this->block_->symbolTablePass(fn_symbol_table);
 }
