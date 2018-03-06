@@ -3,3 +3,5 @@
 cmake-build-debug/
 build/
 *.log
+grading/
+grading.sh
