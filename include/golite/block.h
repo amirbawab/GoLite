@@ -45,6 +45,9 @@ namespace golite {
          */
         void weedingPass(bool check_break, bool check_continue);
 
+        /**
+         * @see Statement::symbolTablePass()
+         */
         void symbolTablePass(SymbolTable* root);
     };
 }
