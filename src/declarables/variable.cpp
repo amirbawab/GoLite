@@ -47,15 +47,13 @@ void golite::Variable::weedingPass(bool, bool) {
 }
 
 void golite::Variable::symbolTablePass(SymbolTable *root) {
-    for(std::vector<golite::Identifier*>::iterator itt = this->identifiers_.begin();
-            itt != this->identifiers_.end();
-            itt++) {
+    for(golite::Identifier* id : this->identifiers_) {
         // search for an existing symbol in current scope
-        golite::Symbol* existingSymbol = root->getSymbol((*itt)->getName(), false);
+        golite::Symbol* existingSymbol = root->getSymbol(id->getName(), false);
         if(existingSymbol) {
-            golite::Utils::error_message((*itt)->getName() + " redeclared in this block", this->getLine());
+            golite::Utils::error_message(id->getName() + " redeclared in this block", this->getLine());
         }
 
-        root->putSymbol((*itt)->getName(), this);
+        root->putSymbol(id->getName(), this);
     }
 }

@@ -72,3 +72,13 @@ void golite::Assignment::weedingPass(bool, bool) {
         expression->weedingPass(false, false);
     }
 }
+
+void golite::Assignment::symbolTablePass(SymbolTable *root) {
+    for(golite::Expression* expr : this->left_expressions_) {
+        expr->symbolTablePass(root);
+    }
+
+    for(golite::Expression* expr : this->right_expressions_) {
+        expr->symbolTablePass(root);
+    }
+}
