@@ -22,3 +22,9 @@ void golite::Return::weedingPass(bool, bool) {
         expression_->weedingPass(false, false);
     }
 }
+
+void golite::Return::symbolTablePass(SymbolTable *root) {
+    if(expression_) {
+        this->expression_->symbolTablePass(root);
+    }
+}
