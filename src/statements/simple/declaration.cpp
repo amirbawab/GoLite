@@ -38,3 +38,19 @@ void golite::Declaration::weedingPass(bool, bool) {
         expression->weedingPass(false, false);
     }
 }
+
+void golite::Declaration::symbolTablePass(SymbolTable *root) {
+    for(golite::Expression* expr : this->left_identifiers_) {
+        expr->symbolTablePass(root);
+    }
+
+    for(golite::Expression* expr : this->right_expressions_) {
+        expr->symbolTablePass(root);
+    }
+
+    // create new symbol
+    for(golite::Expression* expr : this->left_identifiers_) {
+        golite::Identifier* id = static_cast<golite::Identifier*>(expr);
+        root->putSymbol(id->getName(), this);
+    }
+}

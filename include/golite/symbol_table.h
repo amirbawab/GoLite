@@ -6,13 +6,13 @@
 #include <vector>
 
 namespace golite {
-    class Declarable;
+    class Symbol;
 
     class SymbolTable {
     private:
         SymbolTable* parent_;
         std::vector<SymbolTable*> children_; // symbol table may have multiple children
-        std::map<std::string, Declarable*> entries_;
+        std::map<std::string, Symbol*> entries_;
 
     public:
         SymbolTable() { this->parent_ = nullptr; }
@@ -28,7 +28,7 @@ namespace golite {
          * @param name
          * @param decl
          */
-        void putSymbol(std::string name, Declarable* decl);
+        void putSymbol(std::string name, Symbol* decl);
 
         /**
          * Check whether the current sym table (or one of its parent, if specified) has a given symbol
@@ -44,7 +44,7 @@ namespace golite {
          * @param search_in_parent
          * @return
          */
-        Declarable* getSymbol(std::string name, bool search_in_parent = true);
+        Symbol* getSymbol(std::string name, bool search_in_parent = true);
     };
 }
 

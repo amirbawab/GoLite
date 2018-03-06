@@ -51,7 +51,7 @@ void golite::Variable::symbolTablePass(SymbolTable *root) {
             itt != this->identifiers_.end();
             itt++) {
         // search for an existing symbol in current scope
-        golite::Declarable* existingSymbol = root->getSymbol((*itt)->getName(), false);
+        golite::Symbol* existingSymbol = root->getSymbol((*itt)->getName(), false);
         if(existingSymbol) {
             golite::Utils::error_message((*itt)->getName() + " redeclared in this block", this->getLine());
         }
