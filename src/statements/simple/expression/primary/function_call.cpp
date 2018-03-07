@@ -18,3 +18,9 @@ void golite::FunctionCall::weedingPass(bool, bool) {
         expression->weedingPass(false, false);
     }
 }
+
+void golite::FunctionCall::symbolTablePass(SymbolTable *root) {
+    for(Expression* expr : this->args_) {
+        expr->symbolTablePass(root);
+    }
+}

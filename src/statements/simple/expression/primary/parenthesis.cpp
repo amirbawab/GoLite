@@ -20,3 +20,7 @@ void golite::Parenthesis::weedingPass(bool, bool) {
     }
     expression_->weedingPass(false, false);
 }
+
+void golite::Parenthesis::symbolTablePass(SymbolTable *root) {
+    this->expression_->symbolTablePass(root);
+}

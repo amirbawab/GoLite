@@ -36,6 +36,8 @@ namespace golite {
          * @return true if it is
          */
         virtual bool isBlank() { return false; }
+
+
     };
 }
 

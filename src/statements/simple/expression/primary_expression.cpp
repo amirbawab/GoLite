@@ -58,3 +58,8 @@ void golite::PrimaryExpression::weedingPass(bool, bool) {
     }
 }
 
+void golite::PrimaryExpression::symbolTablePass(SymbolTable *root) {
+    for(Primary* primary : this->children_) {
+        primary->symbolTablePass(root);
+    }
+}
