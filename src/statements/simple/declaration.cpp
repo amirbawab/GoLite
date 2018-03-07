@@ -50,23 +50,27 @@ void golite::Declaration::symbolTablePass(SymbolTable *root) {
 
     std::vector<golite::Identifier*> new_vars = std::vector<golite::Identifier*>();
     for(int i = 0; i < this->left_identifiers_.size(); i++) {
-        golite::Identifier* id = static_cast<golite::Identifier*>(this->left_identifiers_[i]);
-        golite::Declarable* already_declared_var = root->getSymbol(id->getName(), false);
-        if(already_declared_var) {
-            this->right_expressions_.erase(this->right_expressions_.begin() + i);
+        golite::PrimaryExpression* id_prim = static_cast<golite::PrimaryExpression*>(this->left_identifiers_[i]);
+        if(id_prim->isIdentifier()) {
+            golite::Identifier* id = static_cast<golite::Identifier*>(id_prim->getChildren().back());
 
-            // TODO : check if we need to replace the existing variable ? not sure issue #35
-            /*// somehow re-assign the new expression to the already declared variable
-            if(already_declared_var->isDecVariable()) {
-                golite::Variable* existing_var = static_cast<golite::Variable*>(already_declared_var);
-                long indexof_id = existing_var->indexOfIdentifier(id->getName());
-                existing_var->replaceExpression(indexof_id, this->right_expressions_[indexof_id]); // overwrite the variable with new value
+            golite::Declarable* already_declared_var = root->getSymbol(id->getName(), false);
+            if(already_declared_var) {
+                this->right_expressions_.erase(this->right_expressions_.begin() + i);
 
-                // then remove from the right_expression as they are now not new variables
+                // TODO : check if we need to replace the existing variable ? not sure issue #35
+                /*// somehow re-assign the new expression to the already declared variable
+                if(already_declared_var->isDecVariable()) {
+                    golite::Variable* existing_var = static_cast<golite::Variable*>(already_declared_var);
+                    long indexof_id = existing_var->indexOfIdentifier(id->getName());
+                    existing_var->replaceExpression(indexof_id, this->right_expressions_[indexof_id]); // overwrite the variable with new value
 
-            }*/
-        } else {
-            new_vars.push_back(id);
+                    // then remove from the right_expression as they are now not new variables
+
+                }*/
+            } else {
+                new_vars.push_back(id);
+            }
         }
     }
 
