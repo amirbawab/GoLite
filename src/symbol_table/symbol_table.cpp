@@ -17,7 +17,12 @@ golite::Declarable* golite::SymbolTable::getSymbol(std::string name, bool search
     std::map<std::string, golite::Declarable*>::iterator found;
     while(curr_sym_table) {
         found = curr_sym_table->entries_.find(name);
-        if(found != curr_sym_table->entries_.end() || !search_in_parent) { return (*found).second; }
+        if(found != curr_sym_table->entries_.end()) {
+            return (*found).second;
+        } else if(!search_in_parent) {
+            return nullptr;
+        }
+        curr_sym_table = curr_sym_table->parent_;
     }
 
     return nullptr;

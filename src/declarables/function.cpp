@@ -36,7 +36,7 @@ void golite::Function::weedingPass(bool check_break, bool check_continue) {
 }
 
 void golite::Function::symbolTablePass(golite::SymbolTable *root) {
-    if(root->getSymbol(this->identifier_->getName(), false)) {
+    if(root->hasSymbol(this->identifier_->getName(), false)) {
         golite::Utils::error_message(this->identifier_->getName() + " redeclared in this block", -1); // TODO : fix me
     }
 

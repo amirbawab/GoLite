@@ -52,7 +52,7 @@ void initParams(int argc, char *argv[]) {
 
     int optionIndex = 0;
     int c;
-    while ((c = getopt_long(argc, argv, "tspPh", longOptions, &optionIndex)) != -1) {
+    while ((c = getopt_long(argc, argv, "tspPSh", longOptions, &optionIndex)) != -1) {
         switch (c) {
             case 't':
                 tokens_flag = true;
@@ -82,7 +82,7 @@ void initParams(int argc, char *argv[]) {
  * @return true if all required arguments are set
  */
 bool validArguments() {
-    return !input_file.empty() && scan_flag + parse_flag + pretty_flag + tokens_flag == 1;
+    return !input_file.empty() && scan_flag + parse_flag + pretty_flag + symbol_flag + tokens_flag == 1;
 }
 
 /**

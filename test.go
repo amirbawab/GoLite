@@ -1,3 +1,5 @@
-package main
+package test
 
-func main() {}
+func main() {
+    type test struct { a int; }
+}
