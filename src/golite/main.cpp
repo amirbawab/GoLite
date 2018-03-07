@@ -14,6 +14,7 @@ bool scan_flag = false;
 bool tokens_flag = false;
 bool parse_flag = false;
 bool pretty_flag = false;
+bool typecheck_flag = false;
 bool symbol_flag = false;
 
 // Input files
@@ -31,6 +32,7 @@ void printUsage() {
             << "    -s, --scan            Scan input. Exit (1) on error" << std::endl
             << "    -p, --parse           Parse tokens" << std::endl
             << "    -P, --pretty          Prettify input file" << std::endl
+            << "    -T, --typecheck       Perform type checking" << std::endl
             << "    -S, --symbol          Outputs the symbol table." << std::endl
             << "    -h, --help            Display this help message" << std::endl;
 
@@ -45,6 +47,7 @@ void initParams(int argc, char *argv[]) {
             {"scan", no_argument, 0, 's'},
             {"parse", no_argument, 0, 'p'},
             {"pretty", no_argument, 0, 'P'},
+            {"typecheck", no_argument, 0, 'T'},
             {"symbol", no_argument, 0, 'S'},
             {"help", no_argument, 0, 'h'},
             {0, 0, 0, 0}
@@ -52,7 +55,7 @@ void initParams(int argc, char *argv[]) {
 
     int optionIndex = 0;
     int c;
-    while ((c = getopt_long(argc, argv, "tspPSh", longOptions, &optionIndex)) != -1) {
+    while ((c = getopt_long(argc, argv, "tspPTSh", longOptions, &optionIndex)) != -1) {
         switch (c) {
             case 't':
                 tokens_flag = true;
@@ -65,6 +68,9 @@ void initParams(int argc, char *argv[]) {
                 break;
             case 'P':
                 pretty_flag = true;
+                break;
+            case 'T':
+                typecheck_flag = true;
                 break;
             case 'S':
                 symbol_flag = true;
@@ -82,7 +88,8 @@ void initParams(int argc, char *argv[]) {
  * @return true if all required arguments are set
  */
 bool validArguments() {
-    return !input_file.empty() && scan_flag + parse_flag + pretty_flag + symbol_flag + tokens_flag == 1;
+    return !input_file.empty() &&
+            scan_flag + parse_flag + pretty_flag + tokens_flag + typecheck_flag + symbol_flag == 1;
 }
 
 /**
@@ -137,6 +144,10 @@ int main(int argc, char** argv) {
     } else if(symbol_flag) {
         do { yyparse(); } while(!feof(yyin));
         golite::Program::getInstance()->symbolTablePass();
+    } else if(typecheck_flag) {
+        do { yyparse(); } while (!feof(yyin));
+        golite::Program::getInstance()->weedingPass();
+        // TODO Type checking
     }
 
     return golite::Utils::EXIT_FINE;
