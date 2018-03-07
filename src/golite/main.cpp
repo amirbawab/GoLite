@@ -141,13 +141,15 @@ int main(int argc, char** argv) {
         do { yyparse(); } while (!feof(yyin));
         golite::Program::getInstance()->weedingPass();
         std::cout << golite::Program::getInstance()->toGoLite(0) << std::endl;
-    } else if(symbol_flag) {
-        do { yyparse(); } while(!feof(yyin));
-        golite::Program::getInstance()->symbolTablePass();
     } else if(typecheck_flag) {
         do { yyparse(); } while (!feof(yyin));
         golite::Program::getInstance()->weedingPass();
-        // TODO Type checking
+        golite::Program::getInstance()->typeCheck();
+    } else if(symbol_flag) {
+        do { yyparse(); } while (!feof(yyin));
+        golite::Program::getInstance()->weedingPass();
+        golite::Program::getInstance()->typeCheck();
+        golite::Program::getInstance()->symbolTablePass();
     }
 
     return golite::Utils::EXIT_FINE;

@@ -14,8 +14,13 @@ bool golite::Identifier::isBlank() {
     return name_ == BLANK;
 }
 
-void golite::Identifier::weedingPass(bool, bool) {
+void golite::Identifier::weedingPass() {
     // Do nothing
+}
+
+golite::TypeComponent* golite::Identifier::typeCheck() {
+    // TODO Get identifier from symbol table
+    return nullptr;
 }
 
 void golite::Identifier::symbolTablePass(SymbolTable *root) {

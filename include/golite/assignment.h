@@ -92,6 +92,11 @@ namespace golite {
         void weedingPass(bool check_break, bool check_continue);
 
         /**
+         * @see Statement::typeCheck()
+         */
+        void typeCheck();
+
+        /*
          * @See Symbol::symbolTablePass()
          */
         void symbolTablePass(SymbolTable* root);

@@ -1,6 +1,7 @@
 #ifndef GOLITE_STATEMENTS_DECLARABLES_TYPE_H
 #define GOLITE_STATEMENTS_DECLARABLES_TYPE_H
 
+#include <golite/statement.h>
 #include <golite/declarable.h>
 #include <golite/identifier.h>
 #include <golite/type_component.h>
@@ -59,6 +60,11 @@ namespace golite {
         void weedingPass(bool check_break, bool check_continue);
 
         /**
+         * @see Statement::typeCheck()
+         */
+        void typeCheck();
+
+        /*
          * @see Declarable::symbolTablePass()
          */
         void symbolTablePass(SymbolTable *root);

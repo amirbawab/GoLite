@@ -1,6 +1,7 @@
 #ifndef GOLITE_LITERAL_H
 #define GOLITE_LITERAL_H
 
+#include <golite/program.h>
 #include <golite/primary.h>
 #include <golite/utils.h>
 #include <sstream>
@@ -22,7 +23,10 @@ namespace golite {
             return ss.str();
         }
         int getLine() { return line_; }
-        void weedingPass(bool check_break, bool check_continue) { /*Do nothing*/ }
+        void weedingPass() { /*Do nothing*/ }
+        golite::TypeComponent* typeCheck() {
+            return golite::Program::BOOL_BUILTIN_TYPE.getTypeComponent();
+        }
         void symbolTablePass(SymbolTable* root) { /*Do nothing*/ }
     };
 
@@ -39,7 +43,10 @@ namespace golite {
             return ss.str();
         }
         int getLine() { return line_; }
-        void weedingPass(bool check_break, bool check_continue) { /*Do nothing*/ }
+        void weedingPass() { /*Do nothing*/ }
+        golite::TypeComponent* typeCheck() {
+            return golite::Program::INT_BUILTIN_TYPE.getTypeComponent();
+        }
         void symbolTablePass(SymbolTable* root) { /*Do nothing*/ }
     };
 
@@ -56,7 +63,10 @@ namespace golite {
             return ss.str();
         }
         int getLine() { return line_; }
-        void weedingPass(bool check_break, bool check_continue) { /*Do nothing*/ }
+        void weedingPass() { /*Do nothing*/ }
+        golite::TypeComponent* typeCheck() {
+            return golite::Program::STRING_BUILTIN_TYPE.getTypeComponent();
+        }
         void symbolTablePass(SymbolTable* root) { /*Do nothing*/ }
     };
 
@@ -73,7 +83,10 @@ namespace golite {
             return ss.str();
         }
         int getLine() { return line_; }
-        void weedingPass(bool check_break, bool check_continue) { /*Do nothing*/ }
+        void weedingPass() { /*Do nothing*/ }
+        golite::TypeComponent* typeCheck() {
+            return golite::Program::FLOAT64_BUILTIN_TYPE.getTypeComponent();
+        }
         void symbolTablePass(SymbolTable* root) { /*Do nothing*/ }
     };
 }

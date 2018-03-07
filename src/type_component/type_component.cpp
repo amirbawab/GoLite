@@ -2,6 +2,7 @@
 #include <golite/utils.h>
 #include <sstream>
 #include <iostream>
+#include <golite/type_reference.h>
 
 std::string golite::TypeComponent::toGoLite(int indent) {
     std::stringstream ss;
@@ -9,10 +10,9 @@ std::string golite::TypeComponent::toGoLite(int indent) {
         throw std::runtime_error("Cannot prettify an empty type component");
     }
 
-    for(size_t i = children_.size()-1; i > 0; i--) {
-        ss << children_[i]->toGoLite(indent);
+    for(size_t i = children_.size(); i > 0; i--) {
+        ss << children_[i-1]->toGoLite(indent);
     }
-    ss << children_.front()->toGoLite(indent);
     return ss.str();
 }
 
@@ -31,4 +31,29 @@ void golite::TypeComponent::weedingPass() {
     for(TypeComposite* type_composite : children_) {
         type_composite->weedingPass();
     }
+}
+
+bool golite::TypeComponent::isCompatible(TypeComponent *type_component) {
+
+    // If the number of composite types is different they they are not compatible
+    if(children_.size() != type_component->children_.size()) {
+        return false;
+    }
+
+    for(size_t i=0; i < children_.size(); i++) {
+
+        // Case of type reference
+        if(children_[i]->isTypeReference()) {
+            if(!type_component->children_[i]->isTypeReference()) {
+                return false;
+            }
+            TypeReference* typeReference1 = static_cast<TypeReference*>(children_[i]);
+            TypeReference* typeReference2 = static_cast<TypeReference*>(type_component->children_[i]);
+            if(typeReference1->getIdentifier()->getName() != typeReference2->getIdentifier()->getName()) {
+                return false;
+            }
+        }
+        // TODO Complete for other cases
+    }
+    return true;
 }

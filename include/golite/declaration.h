@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <golite/identifier.h>
+#include <golite/simple.h>
 
 namespace golite {
     class Declaration : public Simple {
@@ -44,6 +45,11 @@ namespace golite {
         void weedingPass(bool check_break, bool check_continue);
 
         /**
+         * @see Statement::typeCheck()
+         */
+        void typeCheck();
+
+        /*
          * @see Statement::symbolTablePass()
          */
         void symbolTablePass(SymbolTable* root);

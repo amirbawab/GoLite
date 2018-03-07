@@ -4,6 +4,8 @@
 #include <iostream>
 #include <golite/primary_expression.h>
 #include <golite/identifier.h>
+#include <golite/simple_expression.h>
+#include <golite/program.h>
 
 std::string golite::If::toGoLite(int indent) {
     std::stringstream ss;
@@ -63,9 +65,9 @@ std::string golite::If::toGoLite(int indent) {
 
 void golite::If::weedingPass(bool check_break, bool check_continue) {
     if(simple_) {
-        if(simple_->isExpression()) {
-            golite::Expression* expression = static_cast<Expression*>(simple_);
-            if(expression->isBlank()) {
+        if(simple_->isSimpleExpression()) {
+            golite::SimpleExpression* simple_expression = static_cast<SimpleExpression*>(simple_);
+            if(simple_expression->getExpression()->isBlank()) {
                 golite::Utils::error_message("If statement initial statement cannot be a blank identifier",
                                              simple_->getLine());
             }
@@ -76,7 +78,7 @@ void golite::If::weedingPass(bool check_break, bool check_continue) {
     if(expression_->isBlank()) {
         golite::Utils::error_message("If statement expression cannot be a blank identifier", expression_->getLine());
     }
-    expression_->weedingPass(false, false);
+    expression_->weedingPass();
 
     for(If* else_if_stmt : else_if_) {
         else_if_stmt->weedingPass(check_break, check_continue);
@@ -87,6 +89,28 @@ void golite::If::weedingPass(bool check_break, bool check_continue) {
     }
 
     block_->weedingPass(check_break, check_continue);
+}
+
+void golite::If::typeCheck() {
+    if (simple_) {
+        simple_->typeCheck();
+    }
+
+    if (expression_) {
+        TypeComponent *type_component = expression_->typeCheck();
+        if (!type_component->isCompatible(Program::BOOL_BUILTIN_TYPE.getTypeComponent())) {
+            golite::Utils::error_message("If condition must evaluate to a boolean", expression_->getLine());
+        }
+    }
+    block_->typeCheck();
+
+    for (If *else_if : else_if_) {
+        else_if->typeCheck();
+    }
+
+    if (else_) {
+        else_->typeCheck();
+    }
 }
 
 void golite::If::symbolTablePass(SymbolTable *root) {

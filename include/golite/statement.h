@@ -2,6 +2,7 @@
 #define GOLITE_STATEMENTS_STATEMENT_H
 
 #include <string>
+#include <golite/type_component.h>
 #include <golite/symbol_table.h>
 
 namespace golite {
@@ -97,11 +98,20 @@ namespace golite {
         virtual bool isStatVariable() { return false; }
 
         /**
-         * Expressions statement overrides this function
-         * @return true for expression statements
+         * Simple Expression statement overrides this function
+         * @return true for simple expression statements
          */
-        virtual bool isExpression() { return false; }
+        virtual bool isSimpleExpression() { return false; }
 
+        /**
+         * Perform type checking
+         */
+        virtual void typeCheck() = 0;
+
+        /**
+         * Perform symbol table check
+         * @param root
+         */
         virtual void symbolTablePass(SymbolTable* root) = 0;
     };
 }

@@ -35,6 +35,19 @@ namespace golite {
          * Perform a weeding pass
          */
         virtual void weedingPass();
+
+        /**
+         * Get children vector
+         * @return children vector
+         */
+        std::vector<golite::TypeComposite*> getChildren() { return children_; }
+
+        /**
+         * Check if a type component is comaptible with this
+         * @param type_component
+         * @return true if they are compatible
+         */
+        bool isCompatible(TypeComponent* type_component);
     };
 }
 

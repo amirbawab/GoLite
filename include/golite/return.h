@@ -1,6 +1,7 @@
 #ifndef GOLITE_RETURN_H
 #define GOLITE_RETURN_H
 
+#include <golite/statement.h>
 #include <golite/expression.h>
 
 namespace golite {
@@ -33,6 +34,11 @@ namespace golite {
         void weedingPass(bool check_break, bool check_continue);
 
         /**
+         * @see Statement::typeCheck()
+         */
+        void typeCheck();
+
+        /*
          * @see Statement::symbolTablePass()
          */
         void symbolTablePass(SymbolTable* root);

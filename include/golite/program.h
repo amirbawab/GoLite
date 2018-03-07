@@ -73,6 +73,11 @@ namespace golite {
          * Perform a symbol table pass to detect errors
          */
         void symbolTablePass();
+
+        /**
+         * Perform type checking on all declarable
+         */
+        void typeCheck();
     };
 }
 

@@ -13,3 +13,7 @@ void golite::Break::weedingPass(bool check_break, bool) {
         golite::Utils::error_message("Break statement used outside for loop and switch case", getLine());
     }
 }
+
+void golite::Break::typeCheck() {
+    // Do nothing
+}

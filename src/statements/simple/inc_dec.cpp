@@ -24,7 +24,12 @@ void golite::IncDec::weedingPass(bool, bool) {
         golite::Utils::error_message("Increment and decrement statement cannot have a blank expression",
                                      expression_->getLine());
     }
-    expression_->weedingPass(false, false);
+    expression_->weedingPass();
+}
+
+void golite::IncDec::typeCheck() {
+    TypeComponent* type_component = expression_->typeCheck();
+    // TODO Check if type component is an integer
 }
 
 void golite::IncDec::symbolTablePass(SymbolTable *root) {

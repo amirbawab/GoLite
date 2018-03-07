@@ -61,15 +61,29 @@ void golite::Assignment::weedingPass(bool, bool) {
         golite::Utils::error_message("Number of left and right elements of assignment does not match", getLine());
     }
 
+    if(left_expressions_.size() > 1 && kind_ != KIND::EQUAL) {
+        golite::Utils::error_message("<op>= assignments expect 1 left operand", getLine());
+    }
+
     for(Expression* expression : left_expressions_) {
-        expression->weedingPass(false, false);
+        if(kind_ != KIND::EQUAL && expression->isBlank()) {
+            golite::Utils::error_message("Assignment target may not be the blank identifier", expression->getLine());
+        }
+        expression->weedingPass();
     }
 
     for(Expression* expression : right_expressions_) {
         if(expression->isBlank()) {
             golite::Utils::error_message("Assignment value cannot be a blank identifier", expression->getLine());
         }
-        expression->weedingPass(false, false);
+        expression->weedingPass();
+    }
+}
+
+void golite::Assignment::typeCheck() {
+    for(Expression* expression : right_expressions_) {
+        TypeComponent* type_component = expression->typeCheck();
+        // TODO Compare with identifiers types
     }
 }
 

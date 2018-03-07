@@ -29,14 +29,21 @@ void golite::Declaration::weedingPass(bool, bool) {
             golite::Utils::error_message("Element to the left of the declaration must be identifiers",
                                          expression->getLine());
         }
-        expression->weedingPass(false, false);
+        expression->weedingPass();
     }
 
     for(Expression* expression : right_expressions_) {
         if(expression->isBlank()) {
             golite::Utils::error_message("Declaration value cannot be a blank identifier", expression->getLine());
         }
-        expression->weedingPass(false, false);
+        expression->weedingPass();
+    }
+}
+
+void golite::Declaration::typeCheck() {
+    for(Expression* expression : right_expressions_) {
+        TypeComponent* type_component = expression->typeCheck();
+        // TODO Check specs
     }
 }
 

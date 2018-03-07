@@ -52,14 +52,28 @@ void golite::Variable::weedingPass(bool, bool) {
     }
 
     for(Identifier* identifier : identifiers_) {
-        identifier->weedingPass(false, false);
+        identifier->weedingPass();
     }
 
     for(Expression* expression : expressions_) {
         if(expression->isBlank()) {
             golite::Utils::error_message("Variable value cannot be a blank identifier", expression->getLine());
         }
-        expression->weedingPass(false, false);
+        expression->weedingPass();
+    }
+}
+
+void golite::Variable::typeCheck() {
+    if(!expressions_.empty()) {
+        if(identifiers_.size() != expressions_.size()) {
+            throw std::runtime_error("Cannot perform type checking on variable statement with different number of "
+                                             "identifiers and expressions");
+        }
+
+        for(size_t i=0; i < identifiers_.size(); i++) {
+            TypeComponent* type_component = expressions_[i]->typeCheck();
+            // TODO type_component_ == type_component
+        }
     }
 }
 

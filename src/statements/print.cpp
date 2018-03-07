@@ -15,7 +15,13 @@ void golite::Print::weedingPass(bool, bool) {
             golite::Utils::error_message("Function print does not accept blank identifier as arguments",
                                          expression->getLine());
         }
-        expression->weedingPass(false, false);
+        expression->weedingPass();
+    }
+}
+
+void golite::Print::typeCheck() {
+    for (Expression *expression : expressions_) {
+        expression->typeCheck();
     }
 }
 

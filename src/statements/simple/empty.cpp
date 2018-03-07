@@ -1,11 +1,8 @@
 #include <golite/empty.h>
-#include <golite/utils.h>
 #include <sstream>
 
 std::string golite::Empty::toGoLite(int indent) {
-    std::stringstream ss;
-    ss << golite::Utils::indent(indent) << "/*empty*/";
-    return ss.str();
+    return std::string("");
 }
 
 int golite::Empty::getLine() {
@@ -13,5 +10,9 @@ int golite::Empty::getLine() {
 }
 
 void golite::Empty::weedingPass(bool, bool) {
+    // Do nothing
+}
+
+void golite::Empty::typeCheck() {
     // Do nothing
 }

@@ -3,6 +3,8 @@
 #include <sstream>
 #include <golite/identifier.h>
 #include <golite/primary_expression.h>
+#include <iostream>
+#include <golite/program.h>
 
 std::string golite::Binary::toGoLite(int indent) {
     std::stringstream ss;
@@ -74,7 +76,7 @@ int golite::Binary::getLine() {
     return left_operand_->getLine();
 }
 
-void golite::Binary::weedingPass(bool, bool) {
+void golite::Binary::weedingPass() {
     if(left_operand_->isBlank()) {
         golite::Utils::error_message("Left operand in binary expression cannot be a blank identifier",
                                      left_operand_->getLine());
@@ -85,8 +87,53 @@ void golite::Binary::weedingPass(bool, bool) {
                                      right_operand_->getLine());
     }
 
-    left_operand_->weedingPass(false, false);
-    right_operand_->weedingPass(false, false);
+    left_operand_->weedingPass();
+    right_operand_->weedingPass();
+}
+
+golite::TypeComponent* golite::Binary::typeCheck() {
+    TypeComponent* left = left_operand_->typeCheck();
+    TypeComponent* right = right_operand_->typeCheck();
+    switch (kind_) {
+        case KIND::OR:
+        case KIND::AND:
+            if(!left->isCompatible(Program::BOOL_BUILTIN_TYPE.getTypeComponent())) {
+                golite::Utils::error_message("Left operand of && an || must be a boolean" , left_operand_->getLine());
+            }
+
+            if(!right->isCompatible(Program::BOOL_BUILTIN_TYPE.getTypeComponent())) {
+                golite::Utils::error_message("Right operand of && an || must be a boolean" , right_operand_->getLine());
+            }
+            return golite::Program::BOOL_BUILTIN_TYPE.getTypeComponent();
+
+        case KIND::IS_EQUAL:
+        case KIND::IS_NOT_EQUAL:
+            if(!left->isCompatible(right)) {
+                golite::Utils::error_message("Left and right operand of == and != must be compatible",
+                                             left_operand_->getLine());
+            }
+            return golite::Program::BOOL_BUILTIN_TYPE.getTypeComponent();
+
+        case KIND::LESS_THAN:
+        case KIND::LESS_THAN_EQUAL:
+        case KIND::GREATER_THAN:
+        case KIND::GREATER_THAN_EQUAL:
+            return golite::Program::BOOL_BUILTIN_TYPE.getTypeComponent();
+
+        case KIND::PLUS:
+        case KIND::MINUS:
+        case KIND::MULTIPLY:
+        case KIND::DIVIDE:
+        case KIND::MODULO:
+        case KIND::BIT_AND:
+        case KIND::BIT_OR:
+        case KIND::LEFT_SHIFT:
+        case KIND::RIGHT_SHIFT:
+        case KIND::BIT_CLEAR:
+        case KIND::BIT_XOR:
+            return nullptr;
+    }
+    throw std::runtime_error("Unrecognized binary expression kind");
 }
 
 void golite::Binary::symbolTablePass(SymbolTable *root) {

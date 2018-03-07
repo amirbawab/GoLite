@@ -1,7 +1,7 @@
 #include <golite/block.h>
 #include <golite/utils.h>
 #include <sstream>
-#include <golite/expression.h>
+#include <golite/simple_expression.h>
 
 std::string golite::Block::toGoLite(int indent) {
     std::stringstream ss;
@@ -19,13 +19,13 @@ std::string golite::Block::toGoLite(int indent) {
 
 void golite::Block::weedingPass(bool check_break, bool check_continue) {
     for(Statement* statement : statements_) {
-        if(statement->isExpression()) {
-            golite::Expression* expression = static_cast<Expression*>(statement);
-            if(!expression->isFunctionCall()) {
-                golite::Utils::error_message("Expression statement must be a function call", statement->getLine());
-            }
-        }
         statement->weedingPass(check_break, check_continue);
+    }
+}
+
+void golite::Block::typeCheck() {
+    for (Statement *statement : statements_) {
+        statement->typeCheck();
     }
 }
 

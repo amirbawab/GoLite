@@ -9,14 +9,18 @@ std::string golite::FunctionCall::toGoLite(int indent) {
     return ss.str();
 }
 
-void golite::FunctionCall::weedingPass(bool, bool) {
+void golite::FunctionCall::weedingPass() {
     for(Expression* expression : args_) {
         if(expression->isBlank()) {
             golite::Utils::error_message("Function call does not accept blank identifier as argument",
                                          expression->getLine());
         }
-        expression->weedingPass(false, false);
+        expression->weedingPass();
     }
+}
+
+golite::TypeComponent* golite::FunctionCall::typeCheck() {
+    return nullptr;
 }
 
 void golite::FunctionCall::symbolTablePass(SymbolTable *root) {

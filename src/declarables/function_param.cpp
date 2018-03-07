@@ -11,7 +11,7 @@ std::string golite::FunctionParam::toGoLite(int indent) {
 
 void golite::FunctionParam::weedingPass() {
     for(Identifier* identifier : identifiers_) {
-        identifier->weedingPass(false, false);
+        identifier->weedingPass();
     }
     type_component_->weedingPass();
 }

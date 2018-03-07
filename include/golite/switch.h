@@ -4,6 +4,7 @@
 #include <vector>
 #include <golite/expression.h>
 #include <golite/switch_case.h>
+#include <golite/simple.h>
 
 namespace golite {
     class Switch : public Statement {
@@ -55,6 +56,11 @@ namespace golite {
         void weedingPass(bool check_break, bool check_continue);
 
         /**
+         * @see Statement::typeCheck()
+         */
+        void typeCheck();
+
+        /*
          * @see Statement::symbolTablePass()
          */
         void symbolTablePass(SymbolTable* root);

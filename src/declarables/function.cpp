@@ -2,6 +2,8 @@
 #include <golite/utils.h>
 #include <golite/pretty_helper.h>
 
+golite::Function* golite::Function::active_function = nullptr;
+
 std::string golite::Function::toGoLite(int indent) {
     std::stringstream ss;
     ss << golite::Utils::indent(indent) << "func " << identifier_->toGoLite(0)
@@ -22,7 +24,7 @@ std::string golite::Function::toGoLite(int indent) {
 }
 
 void golite::Function::weedingPass(bool check_break, bool check_continue) {
-    identifier_->weedingPass(false, false);
+    identifier_->weedingPass();
 
     for(FunctionParam* function_param : params_) {
         function_param->weedingPass();
@@ -33,6 +35,12 @@ void golite::Function::weedingPass(bool check_break, bool check_continue) {
     }
 
     block_->weedingPass(check_break, check_continue);
+}
+
+void golite::Function::typeCheck() {
+    golite::Function::active_function = this;
+    block_->typeCheck();
+    golite::Function::active_function = nullptr;
 }
 
 void golite::Function::symbolTablePass(golite::SymbolTable *root) {

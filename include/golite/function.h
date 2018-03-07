@@ -25,6 +25,9 @@ namespace golite {
     public:
         Function(Identifier* identifier) : identifier_(identifier){}
 
+        // Function currently being processed
+        static golite::Function* active_function;
+
         /**
          * Set function params
          * @param params
@@ -65,6 +68,17 @@ namespace golite {
         void weedingPass(bool check_break, bool check_continue);
 
         /**
+         * @see Declarable::typeCheck()
+         */
+        void typeCheck();
+
+        /**
+         * Get type component
+         * @return type component
+         */
+        golite::TypeComponent* getTypeComponent() { return type_component_; }
+
+        /*
          * @see Declarable::symbolTablePass
          */
         void symbolTablePass(SymbolTable* root);

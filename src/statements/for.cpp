@@ -3,6 +3,8 @@
 #include <sstream>
 #include <golite/primary_expression.h>
 #include <golite/identifier.h>
+#include <golite/simple_expression.h>
+#include <golite/program.h>
 
 std::string golite::For::toGoLite(int indent) {
     std::stringstream ss;
@@ -38,9 +40,9 @@ std::string golite::For::toGoLite(int indent) {
 
 void golite::For::weedingPass(bool, bool) {
     if(left_simple_) {
-        if(left_simple_->isExpression()) {
-            golite::Expression* expression = static_cast<Expression*>(left_simple_);
-            if(expression->isBlank()) {
+        if(left_simple_->isSimpleExpression()) {
+            golite::SimpleExpression* simple_expression = static_cast<SimpleExpression*>(left_simple_);
+            if(simple_expression->getExpression()->isBlank()) {
                 golite::Utils::error_message("For statement pre statement cannot be a blank identifier",
                                              left_simple_->getLine());
             }
@@ -53,20 +55,41 @@ void golite::For::weedingPass(bool, bool) {
             golite::Utils::error_message("For statement expression cannot be a blank identifier",
                                          expression_->getLine());
         }
-        expression_->weedingPass(false, false);
+        expression_->weedingPass();
     }
 
     if(right_simple_) {
-        if(right_simple_->isExpression()) {
-            golite::Expression* expression = static_cast<Expression*>(right_simple_);
-            if(expression->isBlank()) {
+        if(right_simple_->isSimpleExpression()) {
+            golite::SimpleExpression* simple_expression = static_cast<SimpleExpression*>(right_simple_);
+            if(simple_expression->getExpression()->isBlank()) {
                 golite::Utils::error_message("For statement post statement cannot be a blank identifier",
                                              right_simple_->getLine());
             }
+        } else if(right_simple_->isDeclaration()){
+            golite::Utils::error_message("Right simple statement cannot be a short declaration",
+                                         right_simple_->getLine());
         }
         right_simple_->weedingPass(false, false);
     }
     block_->weedingPass(false, false);
+}
+
+void golite::For::typeCheck() {
+    if (left_simple_) {
+        left_simple_->typeCheck();
+    }
+
+    if (expression_) {
+        TypeComponent *type_component_ = expression_->typeCheck();
+        if (!type_component_->isCompatible(golite::Program::BOOL_BUILTIN_TYPE.getTypeComponent())) {
+            golite::Utils::error_message("For condition must evaluate to a boolean", expression_->getLine());
+        }
+    }
+
+    if (right_simple_) {
+        right_simple_->typeCheck();
+    }
+    block_->typeCheck();
 }
 
 void golite::For::symbolTablePass(SymbolTable *root) {

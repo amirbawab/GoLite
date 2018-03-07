@@ -3,6 +3,7 @@
 #include <sstream>
 #include <golite/declaration.h>
 #include <golite/primary_expression.h>
+#include <golite/simple_expression.h>
 
 std::string golite::Switch::toGoLite(int indent) {
     std::stringstream ss;
@@ -31,9 +32,9 @@ std::string golite::Switch::toGoLite(int indent) {
 
 void golite::Switch::weedingPass(bool, bool check_continue) {
     if(simple_) {
-        if(simple_->isExpression()) {
-            golite::Expression* expression = static_cast<Expression*>(simple_);
-            if(expression->isBlank()) {
+        if(simple_->isSimpleExpression()) {
+            golite::SimpleExpression* simple_expression = static_cast<SimpleExpression*>(simple_);
+            if(simple_expression->getExpression()->isBlank()) {
                 golite::Utils::error_message("Switch statement initial statement cannot be a blank identifier",
                                              simple_->getLine());
             }
@@ -46,7 +47,7 @@ void golite::Switch::weedingPass(bool, bool check_continue) {
             golite::Utils::error_message("Switch statement expression cannot be a blank identifier",
                                          expression_->getLine());
         }
-        expression_->weedingPass(false, false);
+        expression_->weedingPass();
     }
 
     bool has_default = false;
@@ -59,6 +60,21 @@ void golite::Switch::weedingPass(bool, bool check_continue) {
             has_default = true;
         }
         switch_case->weedingPass(check_continue);
+    }
+}
+
+void golite::Switch::typeCheck() {
+    if (simple_) {
+        simple_->typeCheck();
+    }
+
+    if (expression_) {
+        TypeComponent *type_component_ = expression_->typeCheck();
+        // TODO Check if it's booklean
+    }
+
+    for (SwitchCase *switch_case : cases_) {
+        switch_case->typeCheck();
     }
 }
 

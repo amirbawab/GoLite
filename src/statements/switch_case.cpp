@@ -2,6 +2,7 @@
 #include <golite/utils.h>
 #include <golite/pretty_helper.h>
 #include <golite/primary_expression.h>
+#include <golite/program.h>
 
 std::string golite::SwitchCase::toGoLite(int indent) {
     std::stringstream ss;
@@ -26,9 +27,19 @@ void golite::SwitchCase::weedingPass(bool check_continue) {
         if(expression->isBlank()) {
             golite::Utils::error_message("Case expression cannot be a blank identifier", expression->getLine());
         }
-        expression->weedingPass(false, false);
+        expression->weedingPass();
     }
     block_->weedingPass(false, check_continue);
+}
+
+void golite::SwitchCase::typeCheck() {
+    for (Expression *expression : expressions_) {
+        TypeComponent *type_component = expression->typeCheck();
+        if (!type_component->isCompatible(golite::Program::BOOL_BUILTIN_TYPE.getTypeComponent())) {
+            golite::Utils::error_message("Switch case condition must evaluate to a boolean", expression->getLine());
+        }
+    }
+    block_->typeCheck();
 }
 
 void golite::SwitchCase::symbolTablePass(SymbolTable *root) {

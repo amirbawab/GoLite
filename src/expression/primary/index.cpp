@@ -14,11 +14,15 @@ int golite::Index::getLine() {
     return expression_->getLine();
 }
 
-void golite::Index::weedingPass(bool, bool) {
+void golite::Index::weedingPass() {
     if(expression_->isBlank()) {
         golite::Utils::error_message("Index expression cannot be a blank identifier", expression_->getLine());
     }
-    expression_->weedingPass(false, false);
+    expression_->weedingPass();
+}
+
+golite::TypeComponent* golite::Index::typeCheck() {
+    return nullptr;
 }
 
 void golite::Index::symbolTablePass(SymbolTable *root) {

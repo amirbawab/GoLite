@@ -58,6 +58,11 @@ namespace golite {
         void weedingPass(bool check_continue);
 
         /**
+         * Perform type checking
+         */
+        void typeCheck();
+
+        /*
          * Perform a symbol table pass
          */
         void symbolTablePass(SymbolTable* root);

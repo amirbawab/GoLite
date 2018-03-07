@@ -11,7 +11,7 @@ std::string golite::StructField::toGoLite(int indent) {
 
 void golite::StructField::weedingPass() {
     for(Identifier* identifier : identifiers_) {
-        identifier->weedingPass(false, false);
+        identifier->weedingPass();
     }
     type_component_->weedingPass();
 }

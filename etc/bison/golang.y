@@ -45,6 +45,7 @@ extern "C" int yylineno;
     #include <golite/switch_case.h>
     #include <golite/primary_expression.h>
     #include <golite/parenthesis.h>
+    #include <golite/simple_expression.h>
 }
 
 %union {
@@ -613,7 +614,7 @@ for_condition[root]
             $root.right = nullptr;
             $root.expression = $expr;
         }
-    | simple_statement[left] tSEMICOLON expression[expr] tSEMICOLON simple_statement[right]
+    | simple_statement[left] tSEMICOLON expression_opt[expr] tSEMICOLON simple_statement[right]
         {
             $root.left = $left;
             $root.right = $right;
@@ -845,7 +846,7 @@ continue_dec[root]
 simple_statement[root]
     : expression[expr]
         {
-            $root = $expr;
+            $root = new golite::SimpleExpression($expr);
         }
     | expression[expr] tINC
         {

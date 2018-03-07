@@ -13,3 +13,7 @@ void golite::Continue::weedingPass(bool, bool check_continue) {
         golite::Utils::error_message("Continue statement used outside for loop", getLine());
     }
 }
+
+void golite::Continue::typeCheck() {
+    // Do nothing
+}

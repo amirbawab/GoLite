@@ -44,7 +44,7 @@ bool golite::PrimaryExpression::isBlank() {
     return children_.back()->isBlank();
 }
 
-void golite::PrimaryExpression::weedingPass(bool, bool) {
+void golite::PrimaryExpression::weedingPass() {
     if (children_.empty()) {
         throw std::runtime_error("Cannot perform weeding pass on primary expression because children list is empty");
     }
@@ -54,8 +54,19 @@ void golite::PrimaryExpression::weedingPass(bool, bool) {
     }
 
     for (Primary *primary : children_) {
-        primary->weedingPass(false, false);
+        primary->weedingPass();
     }
+}
+
+golite::TypeComponent* golite::PrimaryExpression::typeCheck() {
+    if(children_.empty()) {
+        throw std::runtime_error("Cannot perform type checking on a primary expression with an empty list of children");
+    }
+
+    // Get the type of the first element
+    std::vector<golite::TypeComposite*> type_composites = children_.front()->typeCheck()->getChildren();
+    // TODO Traverse the vector of type composite and verify the element in the primary expression align with the type
+    return children_.front()->typeCheck();
 }
 
 void golite::PrimaryExpression::symbolTablePass(SymbolTable *root) {

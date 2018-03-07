@@ -51,3 +51,9 @@ void golite::Program::symbolTablePass() {
 
     std::cout << this->root_symbol_table_->prettyPrint(0) << std::endl;
 }
+
+void golite::Program::typeCheck() {
+    for(Declarable* declarable : declarables_) {
+        declarable->typeCheck();
+    }
+}
