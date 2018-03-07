@@ -23,8 +23,8 @@ void golite::Type::typeCheck() {
 }
 
 void golite::Type::symbolTablePass(SymbolTable *root) {
-    if(root->getSymbol(this->identifier_->getName(), false)) {
-        golite::Utils::error_message(this->identifier_->getName() + "redeclared in this block", this->getLine());
+    if(root->hasSymbol(this->identifier_->getName(), false)) {
+        golite::Utils::error_message("Type name " + identifier_->getName() + " redeclared in this block", getLine());
     }
 
     root->putSymbol(this->identifier_->getName(), this);

@@ -80,9 +80,8 @@ void golite::Variable::typeCheck() {
 void golite::Variable::symbolTablePass(SymbolTable *root) {
     for(golite::Identifier* id : this->identifiers_) {
         // search for an existing symbol in current scope
-        golite::Declarable* existingSymbol = root->getSymbol(id->getName(), false);
-        if(existingSymbol) {
-            golite::Utils::error_message(id->getName() + " redeclared in this block", this->getLine());
+        if(root->hasSymbol(id->getName(), false)) {
+            golite::Utils::error_message("Variable name " + id->getName() + " redeclared in this block", getLine());
         }
 
         root->putSymbol(id->getName(), this);

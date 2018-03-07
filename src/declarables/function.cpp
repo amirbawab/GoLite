@@ -45,7 +45,8 @@ void golite::Function::typeCheck() {
 
 void golite::Function::symbolTablePass(golite::SymbolTable *root) {
     if(root->hasSymbol(this->identifier_->getName(), false)) {
-        golite::Utils::error_message(this->identifier_->getName() + " redeclared in this block", -1); // TODO : fix me
+        golite::Utils::error_message("Function name " + identifier_->getName() + " redeclared in this block",
+                                     identifier_->getLine()); // TODO: fix me. Amir: looks good to me!
     }
 
     root->putSymbol(this->identifier_->getName(), this);

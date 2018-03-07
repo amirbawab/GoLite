@@ -53,7 +53,7 @@ namespace golite {
         virtual void typeCheck() = 0;
 
         /**
-         * @see Declarable::symbolTablePass()
+         * @see Statement::symbolTablePass()
          */
         virtual void symbolTablePass(SymbolTable* root) = 0;
 
