@@ -3,6 +3,7 @@
 #include <golite/pretty_helper.h>
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 long golite::Variable::indexOfIdentifier(std::string id) {
     std::vector<golite::Identifier*>::iterator found_id_itt =
