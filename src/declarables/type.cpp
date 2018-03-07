@@ -25,3 +25,7 @@ void golite::Type::symbolTablePass(SymbolTable *root) {
 
     root->putSymbol(this->identifier_->getName(), this);
 }
+
+std::string golite::Type::toPrettySymbol() {
+    return "type";
+}

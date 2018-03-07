@@ -62,6 +62,11 @@ namespace golite {
          * @see Declarable::symbolTablePass()
          */
         void symbolTablePass(SymbolTable *root);
+
+        /**
+         * @see Declarable::toPrettySymbol()
+         */
+        std::string toPrettySymbol();
     };
 }
 

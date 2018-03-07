@@ -51,7 +51,10 @@ namespace golite {
          */
         virtual void symbolTablePass(SymbolTable* root) = 0;
 
-        std::string toPrettySymbol() { return "declarable"; }
+        /**
+         * Gets the pretty symbol
+         */
+        virtual std::string toPrettySymbol() = 0;
     };
 }
 

@@ -47,3 +47,7 @@ void golite::Function::symbolTablePass(golite::SymbolTable *root) {
 
     this->block_->symbolTablePass(fn_symbol_table);
 }
+
+std::string golite::Function::toPrettySymbol() {
+    return "func";
+}

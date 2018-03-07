@@ -73,3 +73,7 @@ void golite::Variable::symbolTablePass(SymbolTable *root) {
         root->putSymbol(id->getName(), this);
     }
 }
+
+std::string golite::Variable::toPrettySymbol() {
+    return "var";
+}

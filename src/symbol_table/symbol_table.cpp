@@ -1,5 +1,5 @@
 #include <golite/symbol_table.h>
-#include <iterator>
+#include <golite/declarable.h>
 #include <golite/utils.h>
 
 void golite::SymbolTable::addChild(SymbolTable *table) {
@@ -39,7 +39,7 @@ std::string golite::SymbolTable::prettyPrint(int indent) {
 
     // show entries
     for(std::map<std::string, Declarable*>::value_type kv : this->entries_) {
-        ss << golite::Utils::indent(indent) << kv.first << " [declarable]" << " = " << std::endl;
+        ss << golite::Utils::indent(indent) << kv.first << " [" << kv.second->toPrettySymbol() << "]" << " = " << std::endl;
     }
 
     // show nested symbol table
