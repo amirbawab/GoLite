@@ -42,3 +42,20 @@ void golite::Function::typeCheck() {
     block_->typeCheck();
     golite::Function::active_function = nullptr;
 }
+
+void golite::Function::symbolTablePass(golite::SymbolTable *root) {
+    if(root->hasSymbol(this->identifier_->getName(), false)) {
+        golite::Utils::error_message(this->identifier_->getName() + " redeclared in this block", -1); // TODO : fix me
+    }
+
+    root->putSymbol(this->identifier_->getName(), this);
+
+    golite::SymbolTable* fn_symbol_table = new golite::SymbolTable();
+    root->addChild(fn_symbol_table);
+
+    this->block_->symbolTablePass(fn_symbol_table);
+}
+
+std::string golite::Function::toPrettySymbol() {
+    return "func";
+}

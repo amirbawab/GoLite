@@ -20,7 +20,13 @@ void golite::Print::weedingPass(bool, bool) {
 }
 
 void golite::Print::typeCheck() {
-    for(Expression* expression : expressions_) {
+    for (Expression *expression : expressions_) {
         expression->typeCheck();
+    }
+}
+
+void golite::Print::symbolTablePass(SymbolTable *root) {
+    for(golite::Expression* expr: this->expressions_) {
+        expr->symbolTablePass(root);
     }
 }

@@ -21,3 +21,15 @@ void golite::Type::weedingPass(bool, bool) {
 void golite::Type::typeCheck() {
     // Do nothing
 }
+
+void golite::Type::symbolTablePass(SymbolTable *root) {
+    if(root->getSymbol(this->identifier_->getName(), false)) {
+        golite::Utils::error_message(this->identifier_->getName() + "redeclared in this block", this->getLine());
+    }
+
+    root->putSymbol(this->identifier_->getName(), this);
+}
+
+std::string golite::Type::toPrettySymbol() {
+    return "type";
+}

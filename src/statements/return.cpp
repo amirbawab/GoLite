@@ -43,3 +43,9 @@ void golite::Return::typeCheck() {
         }
     }
 }
+
+void golite::Return::symbolTablePass(SymbolTable *root) {
+    if(expression_) {
+        this->expression_->symbolTablePass(root);
+    }
+}

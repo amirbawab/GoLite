@@ -33,8 +33,9 @@ void printUsage() {
             << "    -p, --parse           Parse tokens" << std::endl
             << "    -P, --pretty          Prettify input file" << std::endl
             << "    -T, --typecheck       Perform type checking" << std::endl
-            << "    -S, --symbol          Print symbol table" << std::endl
+            << "    -S, --symbol          Outputs the symbol table." << std::endl
             << "    -h, --help            Display this help message" << std::endl;
+
 }
 
 /**
@@ -147,7 +148,8 @@ int main(int argc, char** argv) {
     } else if(symbol_flag) {
         do { yyparse(); } while (!feof(yyin));
         golite::Program::getInstance()->weedingPass();
-        // TODO Print symbol table
+        golite::Program::getInstance()->typeCheck();
+        golite::Program::getInstance()->symbolTablePass();
     }
 
     return golite::Utils::EXIT_FINE;

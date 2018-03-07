@@ -22,3 +22,9 @@ void golite::FunctionCall::weedingPass() {
 golite::TypeComponent* golite::FunctionCall::typeCheck() {
     return nullptr;
 }
+
+void golite::FunctionCall::symbolTablePass(SymbolTable *root) {
+    for(Expression* expr : this->args_) {
+        expr->symbolTablePass(root);
+    }
+}

@@ -31,3 +31,7 @@ void golite::IncDec::typeCheck() {
     TypeComponent* type_component = expression_->typeCheck();
     // TODO Check if type component is an integer
 }
+
+void golite::IncDec::symbolTablePass(SymbolTable *root) {
+    this->expression_->symbolTablePass(root);
+}

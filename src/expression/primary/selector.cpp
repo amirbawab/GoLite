@@ -22,3 +22,7 @@ void golite::Selector::weedingPass() {
 golite::TypeComponent* golite::Selector::typeCheck() {
     return nullptr;
 }
+
+void golite::Selector::symbolTablePass(SymbolTable *root) {
+    // typecheck checks that the field selected is valid
+}

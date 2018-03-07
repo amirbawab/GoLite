@@ -10,7 +10,7 @@ void golite::Utils::support_error(char *lex, int line) {
     error_message(ss.str().c_str(), line);
 }
 
-void golite::Utils::error_message(const char *msg, int line) {
+void golite::Utils::error_message(std::basic_string<char, std::char_traits<char>, std::allocator<char>> msg, int line) {
     std::cerr << "Error: " << msg << " at line " << line << std::endl;
     exit(EXIT_ERROR);
 }

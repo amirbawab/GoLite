@@ -24,3 +24,7 @@ void golite::Parenthesis::weedingPass() {
 golite::TypeComponent* golite::Parenthesis::typeCheck() {
     return nullptr;
 }
+
+void golite::Parenthesis::symbolTablePass(SymbolTable *root) {
+    this->expression_->symbolTablePass(root);
+}

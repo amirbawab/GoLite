@@ -27,6 +27,7 @@ namespace golite {
         golite::TypeComponent* typeCheck() {
             return golite::Program::BOOL_BUILTIN_TYPE.getTypeComponent();
         }
+        void symbolTablePass(SymbolTable* root) { /*Do nothing*/ }
     };
 
     template <>
@@ -46,6 +47,7 @@ namespace golite {
         golite::TypeComponent* typeCheck() {
             return golite::Program::INT_BUILTIN_TYPE.getTypeComponent();
         }
+        void symbolTablePass(SymbolTable* root) { /*Do nothing*/ }
     };
 
     template <>
@@ -65,6 +67,7 @@ namespace golite {
         golite::TypeComponent* typeCheck() {
             return golite::Program::STRING_BUILTIN_TYPE.getTypeComponent();
         }
+        void symbolTablePass(SymbolTable* root) { /*Do nothing*/ }
     };
 
     template <>
@@ -84,6 +87,7 @@ namespace golite {
         golite::TypeComponent* typeCheck() {
             return golite::Program::FLOAT64_BUILTIN_TYPE.getTypeComponent();
         }
+        void symbolTablePass(SymbolTable* root) { /*Do nothing*/ }
     };
 }
 

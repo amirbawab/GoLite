@@ -22,3 +22,9 @@ std::string golite::SimpleExpression::toGoLite(int indent) {
     ss << expression_->toGoLite(indent) << ";";
     return ss.str();
 }
+
+void golite::SimpleExpression::symbolTablePass(SymbolTable *root) {
+    if(expression_) {
+        this->expression_->symbolTablePass(root);
+    }
+}

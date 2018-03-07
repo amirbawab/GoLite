@@ -69,3 +69,8 @@ golite::TypeComponent* golite::PrimaryExpression::typeCheck() {
     return children_.front()->typeCheck();
 }
 
+void golite::PrimaryExpression::symbolTablePass(SymbolTable *root) {
+    for(Primary* primary : this->children_) {
+        primary->symbolTablePass(root);
+    }
+}

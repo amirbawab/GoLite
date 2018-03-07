@@ -33,11 +33,23 @@ void golite::SwitchCase::weedingPass(bool check_continue) {
 }
 
 void golite::SwitchCase::typeCheck() {
-    for(Expression* expression : expressions_) {
-        TypeComponent* type_component = expression->typeCheck();
-        if(!type_component->isCompatible(golite::Program::BOOL_BUILTIN_TYPE.getTypeComponent())) {
+    for (Expression *expression : expressions_) {
+        TypeComponent *type_component = expression->typeCheck();
+        if (!type_component->isCompatible(golite::Program::BOOL_BUILTIN_TYPE.getTypeComponent())) {
             golite::Utils::error_message("Switch case condition must evaluate to a boolean", expression->getLine());
         }
     }
     block_->typeCheck();
+}
+
+void golite::SwitchCase::symbolTablePass(SymbolTable *root) {
+    for(golite::Expression* expr : this->expressions_) {
+        expr->symbolTablePass(root);
+    }
+
+    SymbolTable* block_symbol_table = new SymbolTable();
+    root->addChild(block_symbol_table);
+    if(this->block_) {
+        this->block_->symbolTablePass(block_symbol_table);
+    }
 }

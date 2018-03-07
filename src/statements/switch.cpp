@@ -64,16 +64,30 @@ void golite::Switch::weedingPass(bool, bool check_continue) {
 }
 
 void golite::Switch::typeCheck() {
-    if(simple_) {
+    if (simple_) {
         simple_->typeCheck();
     }
 
-    if(expression_) {
-        TypeComponent* type_component_ = expression_->typeCheck();
+    if (expression_) {
+        TypeComponent *type_component_ = expression_->typeCheck();
         // TODO Check if it's booklean
     }
 
-    for(SwitchCase* switch_case : cases_) {
+    for (SwitchCase *switch_case : cases_) {
         switch_case->typeCheck();
+    }
+}
+
+void golite::Switch::symbolTablePass(golite::SymbolTable *root) {
+    if(this->simple_) {
+        this->simple_->symbolTablePass(root);
+    }
+
+    if(this->expression_) {
+        this->expression_->symbolTablePass(root);
+    }
+
+    for(golite::SwitchCase* switch_case : this->cases_) {
+        switch_case->symbolTablePass(root);
     }
 }

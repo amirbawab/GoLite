@@ -26,6 +26,11 @@ namespace golite {
          * @see Statement::typeCheck()
          */
         void typeCheck();
+
+        /*
+         * @see Statement::symbolTablePass()
+         */
+        void symbolTablePass(SymbolTable* root) {};
     };
 }
 

@@ -3,6 +3,7 @@
 
 #include <string>
 #include <golite/type_component.h>
+#include <golite/symbol_table.h>
 
 namespace golite {
 
@@ -106,6 +107,12 @@ namespace golite {
          * Perform type checking
          */
         virtual void typeCheck() = 0;
+
+        /**
+         * Perform symbol table check
+         * @param root
+         */
+        virtual void symbolTablePass(SymbolTable* root) = 0;
     };
 }
 

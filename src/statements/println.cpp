@@ -2,6 +2,7 @@
 #include <golite/utils.h>
 #include <golite/pretty_helper.h>
 #include <golite/primary_expression.h>
+#include <vector>
 
 std::string golite::Println::toGoLite(int indent) {
     std::stringstream ss;
@@ -22,5 +23,12 @@ void golite::Println::weedingPass(bool, bool) {
 void golite::Println::typeCheck() {
     for(Expression* expression : expressions_) {
         expression->typeCheck();
+    }
+}
+
+void golite::Println::symbolTablePass(SymbolTable *root) {
+    // carry the symtable checking over the println expressions
+    for(golite::Expression* expr: this->expressions_) {
+        expr->symbolTablePass(root);
     }
 }

@@ -3,6 +3,7 @@
 
 #include <string>
 #include <golite/type_component.h>
+#include <golite/symbol_table.h>
 
 namespace golite {
     /**
@@ -56,6 +57,12 @@ namespace golite {
          * @return golite code
          */
         virtual std::string toGoLite(int indent) = 0;
+
+        /**
+         * Perform symbol table check
+         * @param root
+         */
+        virtual void symbolTablePass(SymbolTable* root) = 0;
     };
 }
 

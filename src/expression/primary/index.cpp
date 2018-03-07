@@ -24,3 +24,7 @@ void golite::Index::weedingPass() {
 golite::TypeComponent* golite::Index::typeCheck() {
     return nullptr;
 }
+
+void golite::Index::symbolTablePass(SymbolTable *root) {
+    this->expression_->symbolTablePass(root);
+}

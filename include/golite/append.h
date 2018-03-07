@@ -42,6 +42,11 @@ namespace golite {
          * @see Expression::typeCheck()
          */
         golite::TypeComponent* typeCheck();
+
+        /**
+         * @see Statement::symbolTablePass
+         */
+        void symbolTablePass(SymbolTable* root);
     private:
         Expression* left_expression_ = nullptr;
         Expression* right_expression_ = nullptr;

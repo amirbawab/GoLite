@@ -3,6 +3,7 @@
 
 #include <string>
 #include <golite/type_component.h>
+#include <golite/symbol_table.h>
 
 namespace golite {
     /**
@@ -36,16 +37,30 @@ namespace golite {
         virtual bool isDecVariable() { return false; }
 
         /**
+         * Type decl overrides this function
+         * @return true for type
+         */
+        virtual bool isTypeDeclaration() {  return false; }
+
+        /**
          * @see Statement::weedingPass()
          */
         virtual void weedingPass(bool check_break, bool check_continue) = 0;
-
-        //virtual void symbolTablePass(SymbolTable* root) = 0;
 
         /**
          * @see Statement::typeCheck()
          */
         virtual void typeCheck() = 0;
+
+        /**
+         * @see Declarable::symbolTablePass()
+         */
+        virtual void symbolTablePass(SymbolTable* root) = 0;
+
+        /**
+         * Gets the pretty symbol
+         */
+        virtual std::string toPrettySymbol() = 0;
     };
 }
 

@@ -43,6 +43,11 @@ namespace golite {
          * @see Expression::typeCheck()
          */
         golite::TypeComponent* typeCheck();
+
+        /**
+         * @see Statement::symbolTablePass()
+         */
+        void symbolTablePass(SymbolTable* root);
     };
 }
 

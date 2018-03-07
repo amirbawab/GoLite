@@ -75,19 +75,29 @@ void golite::For::weedingPass(bool, bool) {
 }
 
 void golite::For::typeCheck() {
-    if(left_simple_) {
+    if (left_simple_) {
         left_simple_->typeCheck();
     }
 
-    if(expression_) {
-        TypeComponent* type_component_ = expression_->typeCheck();
-        if(!type_component_->isCompatible(golite::Program::BOOL_BUILTIN_TYPE.getTypeComponent())) {
+    if (expression_) {
+        TypeComponent *type_component_ = expression_->typeCheck();
+        if (!type_component_->isCompatible(golite::Program::BOOL_BUILTIN_TYPE.getTypeComponent())) {
             golite::Utils::error_message("For condition must evaluate to a boolean", expression_->getLine());
         }
     }
 
-    if(right_simple_) {
+    if (right_simple_) {
         right_simple_->typeCheck();
     }
     block_->typeCheck();
+}
+
+void golite::For::symbolTablePass(SymbolTable *root) {
+    golite::SymbolTable* for_symbol_table = new golite::SymbolTable();
+    root->addChild(for_symbol_table);
+
+    this->left_simple_->symbolTablePass(for_symbol_table);
+    this->right_simple_->symbolTablePass(for_symbol_table);
+
+    this->block_->symbolTablePass(for_symbol_table);
 }

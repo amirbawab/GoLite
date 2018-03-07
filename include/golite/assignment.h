@@ -96,6 +96,11 @@ namespace golite {
          */
         void typeCheck();
 
+        /*
+         * @See Symbol::symbolTablePass()
+         */
+        void symbolTablePass(SymbolTable* root);
+
         Assignment(std::vector<Expression*> left, std::vector<Expression*> right, KIND kind) :
                 left_expressions_(left), right_expressions_(right), kind_(kind){}
     private:

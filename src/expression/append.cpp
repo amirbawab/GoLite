@@ -34,3 +34,8 @@ void golite::Append::weedingPass() {
 golite::TypeComponent* golite::Append::typeCheck() {
     return nullptr;
 }
+
+void golite::Append::symbolTablePass(SymbolTable *root) {
+    this->left_expression_->symbolTablePass(root);
+    this->right_expression_->symbolTablePass(root);
+}

@@ -42,3 +42,6 @@ golite::TypeComponent* golite::Unary::typeCheck() {
     return nullptr;
 }
 
+void golite::Unary::symbolTablePass(SymbolTable *root) {
+    this->operand_->symbolTablePass(root);
+}

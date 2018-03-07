@@ -136,3 +136,7 @@ golite::TypeComponent* golite::Binary::typeCheck() {
     throw std::runtime_error("Unrecognized binary expression kind");
 }
 
+void golite::Binary::symbolTablePass(SymbolTable *root) {
+    this->left_operand_->symbolTablePass(root);
+    this->right_operand_->symbolTablePass(root);
+}

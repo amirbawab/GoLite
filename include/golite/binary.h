@@ -105,6 +105,10 @@ namespace golite {
          */
         golite::TypeComponent* typeCheck();
 
+        /**
+         * @see Statement::symbolTablePass()
+         */
+        void symbolTablePass(SymbolTable* root);
     private:
 
         // expression + ...
