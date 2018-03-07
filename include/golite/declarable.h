@@ -46,7 +46,12 @@ namespace golite {
          */
         virtual void weedingPass(bool check_break, bool check_continue) = 0;
 
+        /**
+         * @see Declarable::symbolTablePass()
+         */
         virtual void symbolTablePass(SymbolTable* root) /*= 0*/ {};
+
+        std::string toPrettySymbol() { return "declarable"; }
     };
 }
 

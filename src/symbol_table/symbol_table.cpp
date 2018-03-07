@@ -1,5 +1,6 @@
 #include <golite/symbol_table.h>
 #include <iterator>
+#include <golite/utils.h>
 
 void golite::SymbolTable::addChild(SymbolTable *table) {
     table->parent_ = this;
@@ -24,4 +25,24 @@ golite::Declarable* golite::SymbolTable::getSymbol(std::string name, bool search
 
 bool golite::SymbolTable::hasSymbol(std::string name, bool search_in_parent) {
     return this->getSymbol(name, search_in_parent) != nullptr;
+}
+
+std::string golite::SymbolTable::prettyPrint(int indent) {
+    std::stringstream ss;
+    ss << golite::Utils::indent(indent) << "{" << std::endl;
+    indent++;
+
+    // show entries
+    for(std::map<std::string, Declarable*>::value_type kv : this->entries_) {
+        ss << golite::Utils::indent(indent) << kv.first << " [declarable]" << " = " << std::endl;
+    }
+
+    // show nested symbol table
+    for(SymbolTable* child : this->children_) {
+        ss << child->prettyPrint(indent) << std::endl;
+    }
+
+    indent--;
+    ss << golite::Utils::indent(indent) << "}" << std::endl;
+    return ss.str();
 }

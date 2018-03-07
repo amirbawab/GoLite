@@ -1,6 +1,6 @@
 #include <golite/program.h>
 #include <golite/utils.h>
-#include <sstream>
+#include <iostream>
 #include <golite/function.h>
 #include <golite/variable.h>
 #include <golite/type_factory.h>
@@ -48,4 +48,6 @@ void golite::Program::symbolTablePass() {
     for(Declarable* declarable: declarables_) {
         declarable->symbolTablePass(this->root_symbol_table_);
     }
+
+    std::cout << this->root_symbol_table_->prettyPrint(0) << std::endl;
 }

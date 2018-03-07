@@ -1,6 +1,7 @@
 #ifndef GOLITE_SYMBOL_TABLE
 #define GOLITE_SYMBOL_TABLE
 
+#include <sstream>
 #include <map>
 #include <string>
 #include <vector>
@@ -45,6 +46,8 @@ namespace golite {
          * @return
          */
         Declarable* getSymbol(std::string name, bool search_in_parent = true);
+
+        std::string prettyPrint(int indent = 0);
     };
 }
 

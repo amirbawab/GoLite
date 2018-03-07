@@ -14,6 +14,7 @@ bool scan_flag = false;
 bool tokens_flag = false;
 bool parse_flag = false;
 bool pretty_flag = false;
+bool symbol_flag = false;
 
 // Input files
 std::string input_file;
@@ -30,7 +31,9 @@ void printUsage() {
             << "    -s, --scan            Scan input. Exit (1) on error" << std::endl
             << "    -p, --parse           Parse tokens" << std::endl
             << "    -P, --pretty          Prettify input file" << std::endl
+            << "    -S, --symbol          Outputs the symbol table." << std::endl
             << "    -h, --help            Display this help message" << std::endl;
+
 }
 
 /**
@@ -42,6 +45,7 @@ void initParams(int argc, char *argv[]) {
             {"scan", no_argument, 0, 's'},
             {"parse", no_argument, 0, 'p'},
             {"pretty", no_argument, 0, 'P'},
+            {"symbol", no_argument, 0, 'S'},
             {"help", no_argument, 0, 'h'},
             {0, 0, 0, 0}
     };
@@ -61,6 +65,9 @@ void initParams(int argc, char *argv[]) {
                 break;
             case 'P':
                 pretty_flag = true;
+                break;
+            case 'S':
+                symbol_flag = true;
                 break;
             case 'h':
             default:
@@ -127,6 +134,9 @@ int main(int argc, char** argv) {
         do { yyparse(); } while (!feof(yyin));
         golite::Program::getInstance()->weedingPass();
         std::cout << golite::Program::getInstance()->toGoLite(0) << std::endl;
+    } else if(symbol_flag) {
+        do { yyparse(); } while(!feof(yyin));
+        golite::Program::getInstance()->symbolTablePass();
     }
 
     return golite::Utils::EXIT_FINE;
