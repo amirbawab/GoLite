@@ -17,3 +17,11 @@ bool golite::Identifier::isBlank() {
 void golite::Identifier::weedingPass(bool, bool) {
     // Do nothing
 }
+
+void golite::Identifier::symbolTablePass(SymbolTable *root) {
+    // check that the identifier actually exists
+    Declarable* found_symbol = root->getSymbol(this->getName());
+    if(!found_symbol) {
+        golite::Utils::error_message("undefined: " + this->getName(), this->getLine());
+    }
+}

@@ -20,3 +20,7 @@ void golite::Index::weedingPass(bool, bool) {
     }
     expression_->weedingPass(false, false);
 }
+
+void golite::Index::symbolTablePass(SymbolTable *root) {
+    this->expression_->symbolTablePass(root);
+}

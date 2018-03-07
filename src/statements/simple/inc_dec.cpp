@@ -26,3 +26,7 @@ void golite::IncDec::weedingPass(bool, bool) {
     }
     expression_->weedingPass(false, false);
 }
+
+void golite::IncDec::symbolTablePass(SymbolTable *root) {
+    this->expression_->symbolTablePass(root);
+}

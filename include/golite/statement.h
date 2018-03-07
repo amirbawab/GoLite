@@ -2,6 +2,7 @@
 #define GOLITE_STATEMENTS_STATEMENT_H
 
 #include <string>
+#include <golite/symbol_table.h>
 
 namespace golite {
 
@@ -100,6 +101,8 @@ namespace golite {
          * @return true for expression statements
          */
         virtual bool isExpression() { return false; }
+
+        virtual void symbolTablePass(SymbolTable* root) = 0;
     };
 }
 

@@ -30,3 +30,8 @@ void golite::Append::weedingPass(bool, bool) {
     left_expression_->weedingPass(false, false);
     right_expression_->weedingPass(false, false);
 }
+
+void golite::Append::symbolTablePass(SymbolTable *root) {
+    this->left_expression_->symbolTablePass(root);
+    this->right_expression_->symbolTablePass(root);
+}

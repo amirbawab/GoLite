@@ -30,6 +30,11 @@ namespace golite {
          * @see Statement::weedingPass()
          */
         void weedingPass(bool, bool);
+
+        /**
+         * @see Statement::symbolTablePass()
+         */
+        void symbolTablePass(SymbolTable* root) {};
     };
 }
 

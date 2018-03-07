@@ -25,6 +25,10 @@ namespace golite {
          */
         void setIdentifiers(std::vector<Identifier*> identifiers) { identifiers_ = identifiers; }
 
+        long indexOfIdentifier(std::string id);
+
+        void replaceExpression(int index, Expression* expr);
+
         /**
          * Set type component
          * @param type_component
@@ -61,6 +65,16 @@ namespace golite {
          * @see Statement::weedingPass()
          */
         void weedingPass(bool check_break, bool check_continue);
+
+        /**
+         * @see Declarable::symbolTablePass()
+         */
+        void symbolTablePass(SymbolTable* root);
+
+        /**
+         * @see Declarable::toPrettySymbol()
+         */
+        std::string toPrettySymbol();
     };
 }
 

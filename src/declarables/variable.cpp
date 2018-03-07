@@ -2,7 +2,23 @@
 #include <golite/utils.h>
 #include <golite/pretty_helper.h>
 #include <iostream>
-#include <golite/primary_expression.h>
+#include <vector>
+
+long golite::Variable::indexOfIdentifier(std::string id) {
+    std::vector<golite::Identifier*>::iterator found_id_itt =
+            std::find_if(this->identifiers_.begin(), this->identifiers_.end(), [&id](const golite::Identifier* c_id) {
+                return c_id->getName() == id;
+            });
+    if(found_id_itt == this->identifiers_.end()) {
+        return -1;
+    }
+
+    return std::distance(this->identifiers_.begin(), found_id_itt);
+}
+
+void golite::Variable::replaceExpression(int index, Expression *expr) {
+    this->expressions_[index] = expr;
+}
 
 std::string golite::Variable::toGoLite(int indent) {
     std::stringstream ss;
@@ -44,4 +60,20 @@ void golite::Variable::weedingPass(bool, bool) {
         }
         expression->weedingPass(false, false);
     }
+}
+
+void golite::Variable::symbolTablePass(SymbolTable *root) {
+    for(golite::Identifier* id : this->identifiers_) {
+        // search for an existing symbol in current scope
+        golite::Declarable* existingSymbol = root->getSymbol(id->getName(), false);
+        if(existingSymbol) {
+            golite::Utils::error_message(id->getName() + " redeclared in this block", this->getLine());
+        }
+
+        root->putSymbol(id->getName(), this);
+    }
+}
+
+std::string golite::Variable::toPrettySymbol() {
+    return "var";
 }

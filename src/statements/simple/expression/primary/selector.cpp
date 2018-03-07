@@ -18,3 +18,7 @@ void golite::Selector::weedingPass(bool, bool) {
     }
     identifier_->weedingPass(false, false);
 }
+
+void golite::Selector::symbolTablePass(SymbolTable *root) {
+    // typecheck checks that the field selected is valid
+}

@@ -35,3 +35,7 @@ void golite::Unary::weedingPass(bool, bool) {
     }
     operand_->weedingPass(false, false);
 }
+
+void golite::Unary::symbolTablePass(SymbolTable *root) {
+    this->operand_->symbolTablePass(root);
+}

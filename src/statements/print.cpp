@@ -18,3 +18,9 @@ void golite::Print::weedingPass(bool, bool) {
         expression->weedingPass(false, false);
     }
 }
+
+void golite::Print::symbolTablePass(SymbolTable *root) {
+    for(golite::Expression* expr: this->expressions_) {
+        expr->symbolTablePass(root);
+    }
+}

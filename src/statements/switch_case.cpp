@@ -30,3 +30,15 @@ void golite::SwitchCase::weedingPass(bool check_continue) {
     }
     block_->weedingPass(false, check_continue);
 }
+
+void golite::SwitchCase::symbolTablePass(SymbolTable *root) {
+    for(golite::Expression* expr : this->expressions_) {
+        expr->symbolTablePass(root);
+    }
+
+    SymbolTable* block_symbol_table = new SymbolTable();
+    root->addChild(block_symbol_table);
+    if(this->block_) {
+        this->block_->symbolTablePass(block_symbol_table);
+    }
+}

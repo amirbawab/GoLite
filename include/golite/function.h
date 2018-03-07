@@ -63,6 +63,16 @@ namespace golite {
          * @see Declarable::weedingPass()
          */
         void weedingPass(bool check_break, bool check_continue);
+
+        /**
+         * @see Declarable::symbolTablePass
+         */
+        void symbolTablePass(SymbolTable* root);
+
+        /**
+         * @see Declarable::toPrettySymbol()
+         */
+        std::string toPrettySymbol();
     };
 }
 

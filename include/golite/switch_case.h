@@ -56,6 +56,11 @@ namespace golite {
          * @param check_continue
          */
         void weedingPass(bool check_continue);
+
+        /**
+         * Perform a symbol table pass
+         */
+        void symbolTablePass(SymbolTable* root);
     };
 }
 

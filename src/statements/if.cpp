@@ -88,3 +88,23 @@ void golite::If::weedingPass(bool check_break, bool check_continue) {
 
     block_->weedingPass(check_break, check_continue);
 }
+
+void golite::If::symbolTablePass(SymbolTable *root) {
+    if(this->simple_) {
+        this->simple_->symbolTablePass(root);
+    }
+
+    this->expression_->symbolTablePass(root);
+
+    for(golite::If* else_if_stmt : this->else_if_) {
+        else_if_stmt->symbolTablePass(root);
+    }
+
+    if(this->else_) {
+        this->else_->symbolTablePass(root);
+    }
+
+    SymbolTable* if_symbol_table = new SymbolTable();
+    root->addChild(if_symbol_table);
+    this->block_->symbolTablePass(if_symbol_table);
+}

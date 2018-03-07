@@ -88,3 +88,8 @@ void golite::Binary::weedingPass(bool, bool) {
     left_operand_->weedingPass(false, false);
     right_operand_->weedingPass(false, false);
 }
+
+void golite::Binary::symbolTablePass(SymbolTable *root) {
+    this->left_operand_->symbolTablePass(root);
+    this->right_operand_->symbolTablePass(root);
+}

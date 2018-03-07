@@ -68,3 +68,13 @@ void golite::For::weedingPass(bool, bool) {
     }
     block_->weedingPass(false, false);
 }
+
+void golite::For::symbolTablePass(SymbolTable *root) {
+    golite::SymbolTable* for_symbol_table = new golite::SymbolTable();
+    root->addChild(for_symbol_table);
+
+    this->left_simple_->symbolTablePass(for_symbol_table);
+    this->right_simple_->symbolTablePass(for_symbol_table);
+
+    this->block_->symbolTablePass(for_symbol_table);
+}
