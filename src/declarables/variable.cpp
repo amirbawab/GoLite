@@ -4,6 +4,22 @@
 #include <iostream>
 #include <vector>
 
+long golite::Variable::indexOfIdentifier(std::string id) {
+    std::vector<golite::Identifier*>::iterator found_id_itt =
+            std::find_if(this->identifiers_.begin(), this->identifiers_.end(), [&id](const golite::Identifier* c_id) {
+                return c_id->getName() == id;
+            });
+    if(found_id_itt == this->identifiers_.end()) {
+        return -1;
+    }
+
+    return std::distance(this->identifiers_.begin(), found_id_itt);
+}
+
+void golite::Variable::replaceExpression(int index, Expression *expr) {
+    this->expressions_[index] = expr;
+}
+
 std::string golite::Variable::toGoLite(int indent) {
     std::stringstream ss;
     ss << golite::Utils::indent(indent) << "var " << golite::Pretty::implodeIdentifiers(identifiers_);

@@ -25,6 +25,10 @@ namespace golite {
          */
         void setIdentifiers(std::vector<Identifier*> identifiers) { identifiers_ = identifiers; }
 
+        long indexOfIdentifier(std::string id);
+
+        void replaceExpression(int index, Expression* expr);
+
         /**
          * Set type component
          * @param type_component

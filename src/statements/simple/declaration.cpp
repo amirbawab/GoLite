@@ -41,25 +41,42 @@ void golite::Declaration::weedingPass(bool, bool) {
 }
 
 /**
- * Declaration are treated like short-end for variable declarations
+ * Declaration are treated like shorthand for variable declarations
  */
 void golite::Declaration::symbolTablePass(SymbolTable *root) {
-    for(golite::Expression* expr : this->left_identifiers_) {
-        expr->symbolTablePass(root);
-    }
-
     for(golite::Expression* expr : this->right_expressions_) {
         expr->symbolTablePass(root);
     }
 
-    std::vector<golite::Identifier*> ids = std::vector<golite::Identifier*>();
+    std::vector<golite::Identifier*> new_vars = std::vector<golite::Identifier*>();
     for(int i = 0; i < this->left_identifiers_.size(); i++) {
         golite::Identifier* id = static_cast<golite::Identifier*>(this->left_identifiers_[i]);
-        ids.push_back(id);
+        golite::Declarable* already_declared_var = root->getSymbol(id->getName(), false);
+        if(already_declared_var) {
+            this->right_expressions_.erase(this->right_expressions_.begin() + i);
+
+            // TODO : check if we need to replace the existing variable ? not sure issue #35
+            /*// somehow re-assign the new expression to the already declared variable
+            if(already_declared_var->isDecVariable()) {
+                golite::Variable* existing_var = static_cast<golite::Variable*>(already_declared_var);
+                long indexof_id = existing_var->indexOfIdentifier(id->getName());
+                existing_var->replaceExpression(indexof_id, this->right_expressions_[indexof_id]); // overwrite the variable with new value
+
+                // then remove from the right_expression as they are now not new variables
+
+            }*/
+        } else {
+            new_vars.push_back(id);
+        }
+    }
+
+    // make sure there's at least one new variable
+    if(new_vars.size() == 0) {
+        golite::Utils::error_message("no new variables on left side of :=", this->getLine());
     }
 
     golite::Variable* var_decl = new golite::Variable();
-    var_decl->setIdentifiers(ids);
+    var_decl->setIdentifiers(new_vars);
     var_decl->setExpressions(this->right_expressions_);
 
     var_decl->symbolTablePass(root);
