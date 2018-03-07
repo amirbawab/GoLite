@@ -104,5 +104,7 @@ void golite::If::symbolTablePass(SymbolTable *root) {
         this->else_->symbolTablePass(root);
     }
 
-    this->block_->symbolTablePass(root);
+    SymbolTable* if_symbol_table = new SymbolTable();
+    root->addChild(if_symbol_table);
+    this->block_->symbolTablePass(if_symbol_table);
 }

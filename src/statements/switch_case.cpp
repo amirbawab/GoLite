@@ -36,7 +36,9 @@ void golite::SwitchCase::symbolTablePass(SymbolTable *root) {
         expr->symbolTablePass(root);
     }
 
+    SymbolTable* block_symbol_table = new SymbolTable();
+    root->addChild(block_symbol_table);
     if(this->block_) {
-        this->block_->symbolTablePass(root);
+        this->block_->symbolTablePass(block_symbol_table);
     }
 }

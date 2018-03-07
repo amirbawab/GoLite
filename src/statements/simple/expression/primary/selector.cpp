@@ -20,5 +20,5 @@ void golite::Selector::weedingPass(bool, bool) {
 }
 
 void golite::Selector::symbolTablePass(SymbolTable *root) {
-    // TODO : Check how type structs are implemented ...
+    // typecheck checks that the field selected is valid
 }
