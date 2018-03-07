@@ -40,6 +40,9 @@ void golite::Declaration::weedingPass(bool, bool) {
     }
 }
 
+/**
+ * Declaration are treated like short-end for variable declarations
+ */
 void golite::Declaration::symbolTablePass(SymbolTable *root) {
     for(golite::Expression* expr : this->left_identifiers_) {
         expr->symbolTablePass(root);
@@ -49,11 +52,15 @@ void golite::Declaration::symbolTablePass(SymbolTable *root) {
         expr->symbolTablePass(root);
     }
 
-    // create new variable in symbol table
+    std::vector<golite::Identifier*> ids = std::vector<golite::Identifier*>();
     for(int i = 0; i < this->left_identifiers_.size(); i++) {
         golite::Identifier* id = static_cast<golite::Identifier*>(this->left_identifiers_[i]);
-        golite::Expression* value = this->right_expressions_[i];
-
-        golite::Variable* var_
+        ids.push_back(id);
     }
+
+    golite::Variable* var_decl = new golite::Variable();
+    var_decl->setIdentifiers(ids);
+    var_decl->setExpressions(this->right_expressions_);
+
+    var_decl->symbolTablePass(root);
 }
