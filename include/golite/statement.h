@@ -102,7 +102,7 @@ namespace golite {
          */
         virtual bool isExpression() { return false; }
 
-        virtual void symbolTablePass(SymbolTable* root) /*= 0*/ {};
+        virtual void symbolTablePass(SymbolTable* root) = 0;
     };
 }
 
