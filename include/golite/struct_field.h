@@ -36,6 +36,12 @@ namespace golite {
          * Perform a weeding pass
          */
         virtual void weedingPass();
+
+        /**
+         * Perform symbol table check
+         * @param root
+         */
+        void symbolTablePass(SymbolTable* root);
     };
 }
 

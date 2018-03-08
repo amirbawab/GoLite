@@ -83,8 +83,11 @@ void golite::Variable::symbolTablePass(SymbolTable *root) {
         if(root->hasSymbol(id->getName(), false)) {
             golite::Utils::error_message("Variable name " + id->getName() + " redeclared in this block", getLine());
         }
-
         root->putSymbol(id->getName(), this);
+    }
+
+    if(type_component_) {
+        type_component_->symbolTablePass(root);
     }
 
     for(golite::Expression* expression : expressions_) {

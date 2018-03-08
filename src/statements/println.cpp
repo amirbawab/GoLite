@@ -27,7 +27,6 @@ void golite::Println::typeCheck() {
 }
 
 void golite::Println::symbolTablePass(SymbolTable *root) {
-    // carry the symtable checking over the println expressions
     for(golite::Expression* expr: this->expressions_) {
         expr->symbolTablePass(root);
     }

@@ -24,7 +24,5 @@ std::string golite::SimpleExpression::toGoLite(int indent) {
 }
 
 void golite::SimpleExpression::symbolTablePass(SymbolTable *root) {
-    if(expression_) {
-        this->expression_->symbolTablePass(root);
-    }
+    this->expression_->symbolTablePass(root);
 }

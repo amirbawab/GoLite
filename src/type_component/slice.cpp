@@ -10,3 +10,7 @@ std::string golite::Slice::toGoLite(int indent) {
 void golite::Slice::weedingPass() {
     // Do nothing
 }
+
+void golite::Slice::symbolTablePass(SymbolTable *root) {
+    // Do nothing
+}

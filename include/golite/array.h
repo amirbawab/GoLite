@@ -36,6 +36,11 @@ namespace golite {
          * @see TypeComposite::isArray()
          */
         bool isArray() { return true; }
+
+        /**
+         * @see TypeComposite::symbolTablePass()
+         */
+        void symbolTablePass(SymbolTable* root);
     };
 }
 

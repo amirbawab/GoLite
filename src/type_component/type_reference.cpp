@@ -19,3 +19,7 @@ void golite::TypeReference::weedingPass() {
     }
     identifier_->weedingPass();
 }
+
+void golite::TypeReference::symbolTablePass(SymbolTable *root) {
+    identifier_->symbolTablePass(root);
+}

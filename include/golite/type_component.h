@@ -48,6 +48,12 @@ namespace golite {
          * @return true if they are compatible
          */
         bool isCompatible(TypeComponent* type_component);
+
+        /**
+         * Perform symbol table check
+         * @param root
+         */
+        void symbolTablePass(SymbolTable* root);
     };
 }
 

@@ -38,6 +38,11 @@ namespace golite {
          * @see TypeComposite::isStruct()
          */
         bool isStruct() { return true; }
+
+        /**
+         * @see TypeComposite::symbolTablePass()
+         */
+        void symbolTablePass(SymbolTable* root);
     };
 }
 

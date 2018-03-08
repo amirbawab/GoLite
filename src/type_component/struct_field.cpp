@@ -15,3 +15,7 @@ void golite::StructField::weedingPass() {
     }
     type_component_->weedingPass();
 }
+
+void golite::StructField::symbolTablePass(SymbolTable *root) {
+    type_component_->symbolTablePass(root);
+}

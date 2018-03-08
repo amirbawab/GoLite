@@ -49,11 +49,13 @@ void golite::Function::symbolTablePass(golite::SymbolTable *root) {
                                      identifier_->getLine()); // TODO: fix me. Amir: looks good to me!
     }
 
+    if(type_component_) {
+        type_component_->symbolTablePass(root);
+    }
     root->putSymbol(this->identifier_->getName(), this);
 
     golite::SymbolTable* fn_symbol_table = new golite::SymbolTable();
     root->addChild(fn_symbol_table);
-
     this->block_->symbolTablePass(fn_symbol_table);
 }
 

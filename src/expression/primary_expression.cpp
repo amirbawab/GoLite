@@ -70,8 +70,9 @@ golite::TypeComponent* golite::PrimaryExpression::typeCheck() {
 }
 
 void golite::PrimaryExpression::symbolTablePass(SymbolTable *root) {
-    // FIXME Some cases, like selector, would need different symbol table to have a correct lookup
-    for(Primary* primary : this->children_) {
-        primary->symbolTablePass(root);
+    if(children_.empty()) {
+        throw std::runtime_error("Cannot perform symbol table pass on a primary expression with an empty list of children");
     }
+    children_.front()->symbolTablePass(root);
+    // The rest of the primary expression children are handled by the type checking pass
 }

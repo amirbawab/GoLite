@@ -26,5 +26,5 @@ golite::TypeComponent* golite::Index::typeCheck() {
 }
 
 void golite::Index::symbolTablePass(SymbolTable *root) {
-    this->expression_->symbolTablePass(root);
+    throw std::runtime_error("Cannot call symbol table check on index. Must be done in type checking.");
 }

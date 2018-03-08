@@ -3,6 +3,7 @@
 
 #include <string>
 #include <vector>
+#include <golite/symbol_table.h>
 
 namespace golite {
     class TypeComposite {
@@ -49,6 +50,12 @@ namespace golite {
          * @return true for slice
          */
         virtual bool isSlice() { return false; }
+
+        /**
+         * Perform symbol table check
+         * @param root
+         */
+        virtual void symbolTablePass(SymbolTable* root) = 0;
     };
 }
 

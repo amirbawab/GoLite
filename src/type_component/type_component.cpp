@@ -57,3 +57,9 @@ bool golite::TypeComponent::isCompatible(TypeComponent *type_component) {
     }
     return true;
 }
+
+void golite::TypeComponent::symbolTablePass(SymbolTable *root) {
+    for(TypeComposite* child : children_) {
+        child->symbolTablePass(root);
+    }
+}

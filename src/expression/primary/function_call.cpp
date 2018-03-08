@@ -24,7 +24,5 @@ golite::TypeComponent* golite::FunctionCall::typeCheck() {
 }
 
 void golite::FunctionCall::symbolTablePass(SymbolTable *root) {
-    for(Expression* expr : this->args_) {
-        expr->symbolTablePass(root);
-    }
+    throw std::runtime_error("Cannot call symbol table check on function call. Must be done in type checking.");
 }

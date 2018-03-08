@@ -14,3 +14,7 @@ int golite::Array::getLine() {
 void golite::Array::weedingPass() {
     size_->weedingPass();
 }
+
+void golite::Array::symbolTablePass(SymbolTable *root) {
+    // Do nothing
+}

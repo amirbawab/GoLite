@@ -26,7 +26,7 @@ void golite::Type::symbolTablePass(SymbolTable *root) {
     if(root->hasSymbol(this->identifier_->getName(), false)) {
         golite::Utils::error_message("Type name " + identifier_->getName() + " redeclared in this block", getLine());
     }
-
+    type_component_->symbolTablePass(root);
     root->putSymbol(this->identifier_->getName(), this);
 }
 

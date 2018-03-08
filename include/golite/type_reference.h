@@ -41,6 +41,11 @@ namespace golite {
          * @see TypeComposite::isTypeReference()
          */
         bool isTypeReference() { return true; }
+
+        /**
+         * @see TypeComposite::symbolTablePass()
+         */
+        void symbolTablePass(SymbolTable* root);
     };
 }
 

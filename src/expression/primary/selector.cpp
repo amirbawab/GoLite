@@ -24,5 +24,5 @@ golite::TypeComponent* golite::Selector::typeCheck() {
 }
 
 void golite::Selector::symbolTablePass(SymbolTable *root) {
-    identifier_->symbolTablePass(root);
+    throw std::runtime_error("Cannot call symbol table check on selector. Must be handled by type checking.");
 }

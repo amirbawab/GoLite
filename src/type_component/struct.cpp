@@ -22,3 +22,9 @@ void golite::Struct::weedingPass() {
         field->weedingPass();
     }
 }
+
+void golite::Struct::symbolTablePass(SymbolTable *root) {
+    for(StructField* field : fields_) {
+        field->symbolTablePass(root);
+    }
+}

@@ -29,6 +29,11 @@ namespace golite {
          * @see TypeComposite::isSlice()
          */
         bool isSlice() { return true; }
+
+        /**
+         * @see TypeComposite::symbolTablePass()
+         */
+        void symbolTablePass(SymbolTable* root);
     };
 }
 
