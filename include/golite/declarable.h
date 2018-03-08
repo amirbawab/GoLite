@@ -15,6 +15,8 @@ namespace golite {
      * - Functions
      */
     class Declarable {
+    protected:
+        TypeComponent* type_component_ = nullptr;
     public:
 
         /**
@@ -61,6 +63,18 @@ namespace golite {
          * Gets the pretty symbol
          */
         virtual std::string toPrettySymbol() = 0;
+
+        /**
+         * Set type component
+         * @param type_component
+         */
+        void setTypeComponent(golite::TypeComponent* type_component) { type_component_ = type_component; }
+
+        /**
+         * Get type component
+         * @return type component
+         */
+        golite::TypeComponent* getTypeComponent() const { return type_component_; }
     };
 }
 

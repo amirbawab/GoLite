@@ -19,7 +19,6 @@ namespace golite {
     class Function : public Declarable {
     private:
         Identifier* identifier_ = nullptr;
-        TypeComponent* type_component_ = nullptr;
         Block* block_ = nullptr;
         std::vector<FunctionParam*> params_;
     public:
@@ -39,12 +38,6 @@ namespace golite {
          * @param block
          */
         void setBlock(Block* block) { block_ = block; }
-
-        /**
-         * Set type component
-         * @param type_component
-         */
-        void setTypeComponent(golite::TypeComponent* type_component) { type_component_ = type_component; }
 
         /**
          * Get block
@@ -71,12 +64,6 @@ namespace golite {
          * @see Declarable::typeCheck()
          */
         void typeCheck();
-
-        /**
-         * Get type component
-         * @return type component
-         */
-        golite::TypeComponent* getTypeComponent() { return type_component_; }
 
         /*
          * @see Declarable::symbolTablePass

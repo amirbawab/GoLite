@@ -10,6 +10,7 @@ namespace golite {
         static std::string BLANK;
         std::string name_;
         int line_;
+        Declarable* st_declarable_ = nullptr;
     public:
         Identifier(std::string name, int line) : name_(name), line_(line) {}
 

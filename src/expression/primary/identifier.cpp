@@ -1,6 +1,8 @@
 #include <golite/identifier.h>
 #include <golite/utils.h>
+#include <golite/declarable.h>
 #include <sstream>
+#include <iostream>
 
 std::string golite::Identifier::BLANK = "_";
 
@@ -19,7 +21,12 @@ void golite::Identifier::weedingPass() {
 }
 
 golite::TypeComponent* golite::Identifier::typeCheck() {
-    // TODO Get identifier from symbol table
+    if(!isBlank()) {
+        if(!st_declarable_) {
+            throw std::runtime_error("Reference declarable is not set. Verify symbol table pass.");
+        }
+        return st_declarable_->getTypeComponent();
+    }
     return nullptr;
 }
 
@@ -30,5 +37,6 @@ void golite::Identifier::symbolTablePass(SymbolTable *root) {
         if(!found_symbol) {
             golite::Utils::error_message("undefined: " + this->getName(), this->getLine());
         }
+        st_declarable_ = found_symbol;
     }
 }
