@@ -25,27 +25,35 @@ void golite::Return::weedingPass(bool, bool) {
 }
 
 void golite::Return::typeCheck() {
-    if(expression_) {
-        TypeComponent* type_component = expression_->typeCheck();
-        if(golite::Function::active_function->getTypeComponent()) {
-            if(!golite::Function::active_function->getTypeComponent()->isCompatible(type_component)) {
-                golite::Utils::error_message("Return expression is not compatible with the function type",
-                                             expression_->getLine());
-            }
-        } else {
-            golite::Utils::error_message(
-                    "Return statement cannot contain an expression because the function type is void",
-                    expression_->getLine());
-        }
-    } else {
-        if(golite::Function::active_function->getTypeComponent()) {
-            golite::Utils::error_message("Function declaration expects a type", getLine());
-        }
-    }
+    // Type checking is done in hasReturn() method
 }
 
 void golite::Return::symbolTablePass(SymbolTable *root) {
     if(expression_) {
         this->expression_->symbolTablePass(root);
     }
+}
+
+bool golite::Return::hasReturn(Declarable *function) {
+    if(expression_) {
+        TypeComponent* type_component = expression_->typeCheck();
+        if(function->getTypeComponent()) {
+            if(!function->getTypeComponent()->isCompatible(type_component)) {
+                golite::Utils::error_message("Return expression type " + type_component->toGoLite(0)
+                                             + "is not compatible with the function type "
+                                             + function->getTypeComponent()->toGoLite(0),
+                                             expression_->getLine());
+            }
+        } else {
+            golite::Utils::error_message(
+                    "Return statement cannot have an expression because the function type is void",
+                    expression_->getLine());
+        }
+    } else {
+        if(function->getTypeComponent()) {
+            golite::Utils::error_message("Function declaration expects a type "
+                                         + function->getTypeComponent()->toGoLite(0), getLine());
+        }
+    }
+    return true;
 }

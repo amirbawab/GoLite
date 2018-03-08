@@ -4,6 +4,7 @@
 #include <string>
 #include <golite/type_component.h>
 #include <golite/symbol_table.h>
+#include <golite/declarable.h>
 
 namespace golite {
 
@@ -113,6 +114,13 @@ namespace golite {
          * @param root
          */
         virtual void symbolTablePass(SymbolTable* root) = 0;
+
+        /**
+         * Check if statement is return or will return in all cases
+         * @param function
+         * @return true if it does
+         */
+        virtual bool hasReturn(Declarable* function) { return false; }
     };
 }
 

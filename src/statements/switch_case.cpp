@@ -51,3 +51,7 @@ void golite::SwitchCase::symbolTablePass(SymbolTable *root) {
     root->addChild(block_symbol_table);
     block_->symbolTablePass(block_symbol_table);
 }
+
+bool golite::SwitchCase::hasReturn(Declarable* function) {
+    return block_->hasReturn(function);
+}

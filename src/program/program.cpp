@@ -10,6 +10,7 @@ golite::Type golite::Program::FLOAT64_BUILTIN_TYPE = golite::TypeFactory::create
 golite::Type golite::Program::RUNE_BUILTIN_TYPE = golite::TypeFactory::createBuiltInType("rune");
 golite::Type golite::Program::BOOL_BUILTIN_TYPE = golite::TypeFactory::createBuiltInType("bool");
 golite::Type golite::Program::STRING_BUILTIN_TYPE = golite::TypeFactory::createBuiltInType("string");
+golite::Type golite::Program::VOID_TYPE = golite::TypeFactory::createBuiltInType("void");
 
 std::string golite::Program::toGoLite(int indent) {
     std::stringstream ss;
@@ -34,11 +35,16 @@ void golite::Program::initializeSymbolTable() {
     this->root_symbol_table_ = new SymbolTable();
 
     // append built-in type
-    this->root_symbol_table_->putSymbol("int", &golite::Program::INT_BUILTIN_TYPE);
-    this->root_symbol_table_->putSymbol("float64", &golite::Program::FLOAT64_BUILTIN_TYPE);
-    this->root_symbol_table_->putSymbol("rune", &golite::Program::RUNE_BUILTIN_TYPE);
-    this->root_symbol_table_->putSymbol("bool", &golite::Program::BOOL_BUILTIN_TYPE);
-    this->root_symbol_table_->putSymbol("string", &golite::Program::STRING_BUILTIN_TYPE);
+    this->root_symbol_table_->putSymbol(golite::Program::INT_BUILTIN_TYPE.getIdentifier()->getName(),
+                                        &golite::Program::INT_BUILTIN_TYPE);
+    this->root_symbol_table_->putSymbol(golite::Program::FLOAT64_BUILTIN_TYPE.getIdentifier()->getName(),
+                                        &golite::Program::FLOAT64_BUILTIN_TYPE);
+    this->root_symbol_table_->putSymbol(golite::Program::RUNE_BUILTIN_TYPE.getIdentifier()->getName(),
+                                        &golite::Program::RUNE_BUILTIN_TYPE);
+    this->root_symbol_table_->putSymbol(golite::Program::BOOL_BUILTIN_TYPE.getIdentifier()->getName(),
+                                        &golite::Program::BOOL_BUILTIN_TYPE);
+    this->root_symbol_table_->putSymbol(golite::Program::STRING_BUILTIN_TYPE.getIdentifier()->getName(),
+                                        &golite::Program::STRING_BUILTIN_TYPE);
 
 }
 

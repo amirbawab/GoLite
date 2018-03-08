@@ -66,6 +66,12 @@ namespace golite {
          * Perform a symbol table pass
          */
         void symbolTablePass(SymbolTable* root);
+
+        /**
+         * Check if all cases have return statement
+         * @param function
+         */
+        bool hasReturn(Declarable* function);
     };
 }
 

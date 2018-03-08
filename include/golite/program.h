@@ -29,6 +29,7 @@ namespace golite {
         static Type RUNE_BUILTIN_TYPE;
         static Type BOOL_BUILTIN_TYPE;
         static Type STRING_BUILTIN_TYPE;
+        static Type VOID_TYPE;
 
         static Program* getInstance() {
             static Program* instance(new Program());

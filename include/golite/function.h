@@ -24,9 +24,6 @@ namespace golite {
     public:
         Function(Identifier* identifier) : identifier_(identifier){}
 
-        // Function currently being processed
-        static golite::Function* active_function;
-
         /**
          * Set function params
          * @param params

@@ -35,3 +35,11 @@ void golite::Block::symbolTablePass(SymbolTable *root) {
         statement->symbolTablePass(root);
     }
 }
+
+bool golite::Block::hasReturn(Declarable* function) {
+    bool has_return = false;
+    for(Statement* statement : statements_) {
+        has_return |= statement->hasReturn(function);
+    }
+    return has_return;
+}

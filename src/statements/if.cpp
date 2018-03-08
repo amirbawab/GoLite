@@ -137,3 +137,19 @@ void golite::If::symbolTablePass(SymbolTable *root) {
         this->else_->symbolTablePass(else_symbol_table);
     }
 }
+
+bool golite::If::hasReturn(Declarable* function) {
+    bool has_return = true;
+    has_return &= block_->hasReturn(function);
+
+    for(If* else_if_stmt : else_if_) {
+        has_return &= else_if_stmt->hasReturn(function);
+    }
+
+    if(else_) {
+        has_return &= else_->hasReturn(function);
+    } else {
+        has_return = false;
+    }
+    return has_return;
+}

@@ -15,3 +15,7 @@ void golite::FunctionParam::weedingPass() {
     }
     type_component_->weedingPass();
 }
+
+void golite::FunctionParam::symbolTablePass(SymbolTable *root) {
+    type_component_->symbolTablePass(root);
+}

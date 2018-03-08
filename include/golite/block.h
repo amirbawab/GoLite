@@ -61,6 +61,11 @@ namespace golite {
          * @return symbol table
          */
         SymbolTable* getSymbolTable() const { return symbol_table_; }
+
+        /**
+         * @see Statement::hasReturn()
+         */
+        bool hasReturn(Declarable* function);
     };
 }
 

@@ -2,8 +2,6 @@
 #include <golite/utils.h>
 #include <golite/pretty_helper.h>
 
-golite::Function* golite::Function::active_function = nullptr;
-
 std::string golite::Function::toGoLite(int indent) {
     std::stringstream ss;
     ss << golite::Utils::indent(indent) << "func " << identifier_->toGoLite(0)
@@ -38,15 +36,21 @@ void golite::Function::weedingPass(bool check_break, bool check_continue) {
 }
 
 void golite::Function::typeCheck() {
-    golite::Function::active_function = this;
     block_->typeCheck();
-    golite::Function::active_function = nullptr;
+    if(type_component_ && !block_->hasReturn(this)) {
+        golite::Utils::error_message("Function " + identifier_->getName() + " is missing a return statement",
+                                     identifier_->getLine());
+    }
 }
 
 void golite::Function::symbolTablePass(golite::SymbolTable *root) {
     if(root->hasSymbol(this->identifier_->getName(), false)) {
         golite::Utils::error_message("Function name " + identifier_->getName() + " redeclared in this block",
                                      identifier_->getLine()); // TODO: fix me. Amir: looks good to me!
+    }
+
+    for(FunctionParam* param : params_) {
+        param->symbolTablePass(root);
     }
 
     if(type_component_) {
