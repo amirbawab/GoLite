@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <golite/program.h>
 
 long golite::Variable::indexOfIdentifier(std::string id) {
     std::vector<golite::Identifier*>::iterator found_id_itt =
@@ -24,7 +25,7 @@ void golite::Variable::replaceExpression(int index, Expression *expr) {
 std::string golite::Variable::toGoLite(int indent) {
     std::stringstream ss;
     ss << golite::Utils::indent(indent) << "var " << golite::Pretty::implodeIdentifiers(identifiers_);
-    if(type_component_) {
+    if(type_component_ != golite::Program::INFER_TYPE->getTypeComponent()) {
         ss << " " << type_component_->toGoLite(indent);
     }
     if(!expressions_.empty()) {
@@ -47,10 +48,7 @@ void golite::Variable::weedingPass(bool, bool) {
                                      getLine());
     }
 
-    if(type_component_) {
-        type_component_->weedingPass();
-    }
-
+    type_component_->weedingPass();
     for(Identifier* identifier : identifiers_) {
         identifier->weedingPass();
     }
@@ -91,7 +89,7 @@ void golite::Variable::symbolTablePass(SymbolTable *root) {
         root->putSymbol(id->getName(), this);
     }
 
-    if(type_component_) {
+    if(type_component_ != golite::Program::INFER_TYPE->getTypeComponent()) {
         type_component_->symbolTablePass(root);
     }
 

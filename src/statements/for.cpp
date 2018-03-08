@@ -81,7 +81,7 @@ void golite::For::typeCheck() {
 
     if (expression_) {
         TypeComponent *type_component_ = expression_->typeCheck();
-        if (!type_component_->isCompatible(golite::Program::BOOL_BUILTIN_TYPE.getTypeComponent())) {
+        if (!type_component_->isCompatible(Program::BOOL_BUILTIN_TYPE->getTypeComponent())) {
             golite::Utils::error_message("For condition must evaluate to a boolean", expression_->getLine());
         }
     }

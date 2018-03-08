@@ -1,12 +1,13 @@
 #include <golite/function.h>
 #include <golite/utils.h>
 #include <golite/pretty_helper.h>
+#include <golite/program.h>
 
 std::string golite::Function::toGoLite(int indent) {
     std::stringstream ss;
     ss << golite::Utils::indent(indent) << "func " << identifier_->toGoLite(0)
        << "(" << golite::Pretty::implodeParams(params_, indent) << ") ";
-    if(type_component_) {
+    if(type_component_ != golite::Program::VOID_TYPE->getTypeComponent()) {
         ss << type_component_->toGoLite(indent) << " ";
     }
     ss << "{";
@@ -23,21 +24,16 @@ std::string golite::Function::toGoLite(int indent) {
 
 void golite::Function::weedingPass(bool check_break, bool check_continue) {
     identifier_->weedingPass();
-
     for(FunctionParam* function_param : params_) {
         function_param->weedingPass();
     }
-
-    if(type_component_) {
-        type_component_->weedingPass();
-    }
-
+    type_component_->weedingPass();
     block_->weedingPass(check_break, check_continue);
 }
 
 void golite::Function::typeCheck() {
     block_->typeCheck();
-    if(type_component_ && !block_->hasReturn(this)) {
+    if(type_component_ != golite::Program::VOID_TYPE->getTypeComponent() && !block_->hasReturn(this)) {
         golite::Utils::error_message("Function " + identifier_->getName() + " is missing a return statement",
                                      identifier_->getLine());
     }
@@ -53,9 +49,7 @@ void golite::Function::symbolTablePass(golite::SymbolTable *root) {
         param->symbolTablePass(root);
     }
 
-    if(type_component_) {
-        type_component_->symbolTablePass(root);
-    }
+    type_component_->symbolTablePass(root);
     root->putSymbol(this->identifier_->getName(), this);
 
     golite::SymbolTable* fn_symbol_table = new golite::SymbolTable();

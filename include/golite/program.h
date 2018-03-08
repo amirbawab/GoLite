@@ -24,12 +24,13 @@ namespace golite {
 
         void initializeSymbolTable();
     public:
-        static Type INT_BUILTIN_TYPE;
-        static Type FLOAT64_BUILTIN_TYPE;
-        static Type RUNE_BUILTIN_TYPE;
-        static Type BOOL_BUILTIN_TYPE;
-        static Type STRING_BUILTIN_TYPE;
-        static Type VOID_TYPE;
+        static Type* INT_BUILTIN_TYPE;
+        static Type* FLOAT64_BUILTIN_TYPE;
+        static Type* RUNE_BUILTIN_TYPE;
+        static Type* BOOL_BUILTIN_TYPE;
+        static Type* STRING_BUILTIN_TYPE;
+        static Type* VOID_TYPE;
+        static Type* INFER_TYPE;
 
         static Program* getInstance() {
             static Program* instance(new Program());

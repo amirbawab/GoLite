@@ -5,12 +5,13 @@
 #include <golite/type_factory.h>
 
 // define static types
-golite::Type golite::Program::INT_BUILTIN_TYPE = golite::TypeFactory::createBuiltInType("int");
-golite::Type golite::Program::FLOAT64_BUILTIN_TYPE = golite::TypeFactory::createBuiltInType("float64");
-golite::Type golite::Program::RUNE_BUILTIN_TYPE = golite::TypeFactory::createBuiltInType("rune");
-golite::Type golite::Program::BOOL_BUILTIN_TYPE = golite::TypeFactory::createBuiltInType("bool");
-golite::Type golite::Program::STRING_BUILTIN_TYPE = golite::TypeFactory::createBuiltInType("string");
-golite::Type golite::Program::VOID_TYPE = golite::TypeFactory::createBuiltInType("void");
+golite::Type* golite::Program::INT_BUILTIN_TYPE = golite::TypeFactory::createBuiltInType("int");
+golite::Type* golite::Program::FLOAT64_BUILTIN_TYPE = golite::TypeFactory::createBuiltInType("float64");
+golite::Type* golite::Program::RUNE_BUILTIN_TYPE = golite::TypeFactory::createBuiltInType("rune");
+golite::Type* golite::Program::BOOL_BUILTIN_TYPE = golite::TypeFactory::createBuiltInType("bool");
+golite::Type* golite::Program::STRING_BUILTIN_TYPE = golite::TypeFactory::createBuiltInType("string");
+golite::Type* golite::Program::VOID_TYPE = golite::TypeFactory::createBuiltInType("");
+golite::Type* golite::Program::INFER_TYPE = golite::TypeFactory::createBuiltInType("");
 
 std::string golite::Program::toGoLite(int indent) {
     std::stringstream ss;
@@ -35,17 +36,11 @@ void golite::Program::initializeSymbolTable() {
     this->root_symbol_table_ = new SymbolTable();
 
     // append built-in type
-    this->root_symbol_table_->putSymbol(golite::Program::INT_BUILTIN_TYPE.getIdentifier()->getName(),
-                                        &golite::Program::INT_BUILTIN_TYPE);
-    this->root_symbol_table_->putSymbol(golite::Program::FLOAT64_BUILTIN_TYPE.getIdentifier()->getName(),
-                                        &golite::Program::FLOAT64_BUILTIN_TYPE);
-    this->root_symbol_table_->putSymbol(golite::Program::RUNE_BUILTIN_TYPE.getIdentifier()->getName(),
-                                        &golite::Program::RUNE_BUILTIN_TYPE);
-    this->root_symbol_table_->putSymbol(golite::Program::BOOL_BUILTIN_TYPE.getIdentifier()->getName(),
-                                        &golite::Program::BOOL_BUILTIN_TYPE);
-    this->root_symbol_table_->putSymbol(golite::Program::STRING_BUILTIN_TYPE.getIdentifier()->getName(),
-                                        &golite::Program::STRING_BUILTIN_TYPE);
-
+    this->root_symbol_table_->putSymbol(INT_BUILTIN_TYPE->getIdentifier()->getName(), INT_BUILTIN_TYPE);
+    this->root_symbol_table_->putSymbol(FLOAT64_BUILTIN_TYPE->getIdentifier()->getName(), FLOAT64_BUILTIN_TYPE);
+    this->root_symbol_table_->putSymbol(RUNE_BUILTIN_TYPE->getIdentifier()->getName(), RUNE_BUILTIN_TYPE);
+    this->root_symbol_table_->putSymbol(BOOL_BUILTIN_TYPE->getIdentifier()->getName(), BOOL_BUILTIN_TYPE);
+    this->root_symbol_table_->putSymbol(STRING_BUILTIN_TYPE->getIdentifier()->getName(), STRING_BUILTIN_TYPE);
 }
 
 void golite::Program::symbolTablePass() {

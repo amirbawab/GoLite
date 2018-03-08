@@ -7,7 +7,7 @@
 namespace golite {
     class TypeFactory {
     public:
-        static const Type createBuiltInType(std::string id);
+        static Type* createBuiltInType(std::string id);
     };
 }
 

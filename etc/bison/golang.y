@@ -466,7 +466,7 @@ func_type[root]
         }
     | %empty
         {
-            $root = nullptr;
+            $root = golite::Program::VOID_TYPE->getTypeComponent();
         }
     ;
 
@@ -504,6 +504,7 @@ var_def[root]
         {
             $root = new golite::Variable();
             $root->setIdentifiers(*$ids);
+            $root->setTypeComponent(golite::Program::INFER_TYPE->getTypeComponent());
             $root->setExpressions(*$exprs);
         }
     ;

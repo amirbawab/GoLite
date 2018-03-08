@@ -25,7 +25,7 @@ namespace golite {
         int getLine() { return line_; }
         void weedingPass() { /*Do nothing*/ }
         golite::TypeComponent* typeCheck() {
-            return golite::Program::BOOL_BUILTIN_TYPE.getTypeComponent();
+            return golite::Program::BOOL_BUILTIN_TYPE->getTypeComponent();
         }
         void symbolTablePass(SymbolTable* root) { /*Do nothing*/ }
     };
@@ -45,7 +45,7 @@ namespace golite {
         int getLine() { return line_; }
         void weedingPass() { /*Do nothing*/ }
         golite::TypeComponent* typeCheck() {
-            return golite::Program::INT_BUILTIN_TYPE.getTypeComponent();
+            return golite::Program::INT_BUILTIN_TYPE->getTypeComponent();
         }
         void symbolTablePass(SymbolTable* root) { /*Do nothing*/ }
     };
@@ -65,7 +65,7 @@ namespace golite {
         int getLine() { return line_; }
         void weedingPass() { /*Do nothing*/ }
         golite::TypeComponent* typeCheck() {
-            return golite::Program::STRING_BUILTIN_TYPE.getTypeComponent();
+            return golite::Program::STRING_BUILTIN_TYPE->getTypeComponent();
         }
         void symbolTablePass(SymbolTable* root) { /*Do nothing*/ }
     };
@@ -85,7 +85,7 @@ namespace golite {
         int getLine() { return line_; }
         void weedingPass() { /*Do nothing*/ }
         golite::TypeComponent* typeCheck() {
-            return golite::Program::FLOAT64_BUILTIN_TYPE.getTypeComponent();
+            return golite::Program::FLOAT64_BUILTIN_TYPE->getTypeComponent();
         }
         void symbolTablePass(SymbolTable* root) { /*Do nothing*/ }
     };
