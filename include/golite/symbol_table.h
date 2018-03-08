@@ -14,6 +14,7 @@ namespace golite {
         SymbolTable* parent_ = nullptr;
         std::vector<SymbolTable*> children_; // symbol table may have multiple children
         std::map<std::string, Declarable*> entries_;
+        std::vector<std::string> entries_keys_;
 
     public:
         /**

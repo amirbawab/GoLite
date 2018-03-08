@@ -9,6 +9,7 @@ void golite::SymbolTable::addChild(SymbolTable *table) {
 
 void golite::SymbolTable::putSymbol(std::string name, golite::Declarable *decl) {
     this->entries_.insert(std::pair<std::string, golite::Declarable*>(name, decl));
+    this->entries_keys_.push_back(name);
     // TODO : check what to do with existing entries ? probably only need to replace
 }
 
@@ -38,8 +39,8 @@ std::string golite::SymbolTable::prettyPrint(int indent) {
     indent++;
 
     // show entries
-    for(std::map<std::string, Declarable*>::value_type kv : this->entries_) {
-        ss << golite::Utils::indent(indent) << kv.first << " [" << kv.second->toPrettySymbol() << "]" << " = " << std::endl;
+    for(std::string key : entries_keys_) {
+        ss << golite::Utils::indent(indent) << key << " [" << entries_[key]->toPrettySymbol() << "]" << " = " << std::endl;
     }
 
     // show nested symbol table
