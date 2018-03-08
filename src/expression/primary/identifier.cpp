@@ -21,13 +21,13 @@ void golite::Identifier::weedingPass() {
 }
 
 golite::TypeComponent* golite::Identifier::typeCheck() {
-    if(!isBlank()) {
-        if(!st_declarable_) {
-            throw std::runtime_error("Reference declarable is not set. Verify symbol table pass.");
-        }
-        return st_declarable_->getTypeComponent();
+    if(isBlank()) {
+        throw std::runtime_error("Cannot call type check on blank identifier");
     }
-    return nullptr;
+    if(!st_declarable_) {
+        throw std::runtime_error("Reference declarable is not set. Verify symbol table pass.");
+    }
+    return st_declarable_->getTypeComponent();
 }
 
 void golite::Identifier::symbolTablePass(SymbolTable *root) {

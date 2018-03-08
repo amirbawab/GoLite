@@ -81,9 +81,27 @@ void golite::Assignment::weedingPass(bool, bool) {
 }
 
 void golite::Assignment::typeCheck() {
-    for(Expression* expression : right_expressions_) {
-        TypeComponent* type_component = expression->typeCheck();
-        // TODO Compare with identifiers types
+    if(left_expressions_.size() != right_expressions_.size()) {
+        throw std::runtime_error("The number of left and right elements is not equal. Verify weeding pass.");
+    }
+
+    for(size_t i=0; i < left_expressions_.size(); i++) {
+        if(!left_expressions_[i]->isPrimaryExpression()) {
+            golite::Utils::error_message("Left element of an assignment cannot be binary or unary",
+                                         left_expressions_[i]->getLine());
+        }
+
+        if(!left_expressions_[i]->isBlank()) {
+            TypeComponent* right_type = right_expressions_[i]->typeCheck();
+            TypeComponent* left_type = left_expressions_[i]->typeCheck();
+            if(!left_type->isCompatible(right_type)) {
+                golite::Utils::error_message("Incompatible " + left_type->toGoLite(0) + " and " + right_type->toGoLite(0),
+                                             left_type->getLine());
+            }
+        } else {
+            // Just perform a symbol table pass on right expression
+            right_expressions_[i]->typeCheck();
+        }
     }
 }
 

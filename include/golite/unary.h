@@ -64,7 +64,12 @@ namespace golite {
          * @see Statement::symbolTablePass()
          */
         void symbolTablePass(SymbolTable* root);
-    protected:
+
+        /**
+         * @see Expression::isUnary()
+         */
+        bool isUnary() { return true; }
+    private:
         Expression* operand_ = nullptr;
         KIND kind_;
     };

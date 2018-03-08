@@ -17,6 +17,24 @@ namespace golite {
     public:
 
         /**
+         * Check if expression is a primary expression
+         * @return true if it is
+         */
+        virtual bool isPrimaryExpression() { return false; }
+
+        /**
+         * Check if expression is a binary expression
+         * @return true if it is
+         */
+        virtual bool isBinary() { return false; }
+
+        /**
+         * Check if expression is a unary expression
+         * @return true if it is
+         */
+        virtual bool isUnary() { return false; }
+
+        /**
          * Check if expression is a function call
          * @return true if it is
          */

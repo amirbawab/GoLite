@@ -109,6 +109,11 @@ namespace golite {
          * @see Statement::symbolTablePass()
          */
         void symbolTablePass(SymbolTable* root);
+
+        /**
+         * @see Expression::isBinary()
+         */
+        bool isBinary() { return true; }
     private:
 
         // expression + ...
