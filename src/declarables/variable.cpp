@@ -71,8 +71,13 @@ void golite::Variable::typeCheck() {
         }
 
         for(size_t i=0; i < identifiers_.size(); i++) {
-            TypeComponent* type_component = expressions_[i]->typeCheck();
-            // TODO type_component_ == type_component
+            TypeComponent* expression_type = expressions_[i]->typeCheck();
+            if(!type_component_->isCompatible(expression_type)) {
+                golite::Utils::error_message("Variable " + identifiers_[i]->getName()
+                                             + " expects an expression of type " + type_component_->toGoLite(0)
+                                             + " but given " + expression_type->toGoLite(0),
+                                             identifiers_[i]->getLine());
+            }
         }
     }
 }
