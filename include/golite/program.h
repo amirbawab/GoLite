@@ -78,6 +78,13 @@ namespace golite {
          * Perform type checking on all declarable
          */
         void typeCheck();
+
+        /**
+         * Get prettified symbol table
+         * @param indent
+         * @return symbol table string representation
+         */
+        std::string prettifySymbolTable(int indent);
     };
 }
 

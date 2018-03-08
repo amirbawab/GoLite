@@ -96,8 +96,17 @@ void golite::For::symbolTablePass(SymbolTable *root) {
     golite::SymbolTable* for_symbol_table = new golite::SymbolTable();
     root->addChild(for_symbol_table);
 
-    this->left_simple_->symbolTablePass(for_symbol_table);
-    this->right_simple_->symbolTablePass(for_symbol_table);
+    if(left_simple_) {
+        left_simple_->symbolTablePass(for_symbol_table);
+    }
+
+    if(expression_) {
+        expression_->symbolTablePass(for_symbol_table);
+    }
+
+    if(right_simple_) {
+        right_simple_->symbolTablePass(for_symbol_table);
+    }
 
     this->block_->symbolTablePass(for_symbol_table);
 }

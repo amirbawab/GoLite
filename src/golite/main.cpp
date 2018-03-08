@@ -141,15 +141,17 @@ int main(int argc, char** argv) {
         do { yyparse(); } while (!feof(yyin));
         golite::Program::getInstance()->weedingPass();
         std::cout << golite::Program::getInstance()->toGoLite(0) << std::endl;
-    } else if(typecheck_flag) {
-        do { yyparse(); } while (!feof(yyin));
-        golite::Program::getInstance()->weedingPass();
-        golite::Program::getInstance()->typeCheck();
     } else if(symbol_flag) {
         do { yyparse(); } while (!feof(yyin));
         golite::Program::getInstance()->weedingPass();
-        golite::Program::getInstance()->typeCheck();
         golite::Program::getInstance()->symbolTablePass();
+        // FIXME Change indentation to 0. Using 1 now just to verify that no indentation was forgotten
+        std::cout << golite::Program::getInstance()->prettifySymbolTable(1) << std::endl;
+    } else if(typecheck_flag) {
+        do { yyparse(); } while (!feof(yyin));
+        golite::Program::getInstance()->weedingPass();
+        golite::Program::getInstance()->symbolTablePass();
+        golite::Program::getInstance()->typeCheck();
     }
 
     return golite::Utils::EXIT_FINE;

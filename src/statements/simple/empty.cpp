@@ -16,3 +16,7 @@ void golite::Empty::weedingPass(bool, bool) {
 void golite::Empty::typeCheck() {
     // Do nothing
 }
+
+void golite::Empty::symbolTablePass(SymbolTable *root) {
+    // Do nothing
+}

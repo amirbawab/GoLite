@@ -70,6 +70,7 @@ golite::TypeComponent* golite::PrimaryExpression::typeCheck() {
 }
 
 void golite::PrimaryExpression::symbolTablePass(SymbolTable *root) {
+    // FIXME Some cases, like selector, would need different symbol table to have a correct lookup
     for(Primary* primary : this->children_) {
         primary->symbolTablePass(root);
     }

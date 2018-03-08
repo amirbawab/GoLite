@@ -30,7 +30,7 @@ namespace golite {
         /*
          * @see Statement::symbolTablePass()
          */
-        void symbolTablePass(SymbolTable* root) {};
+        void symbolTablePass(SymbolTable* root);
     };
 }
 

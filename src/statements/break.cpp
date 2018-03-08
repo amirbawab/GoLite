@@ -17,3 +17,7 @@ void golite::Break::weedingPass(bool check_break, bool) {
 void golite::Break::typeCheck() {
     // Do nothing
 }
+
+void golite::Break::symbolTablePass(SymbolTable *root) {
+    // Do nothing
+}

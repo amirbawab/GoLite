@@ -47,48 +47,46 @@ void golite::Declaration::typeCheck() {
     }
 }
 
-/**
- * Declaration are treated like shorthand for variable declarations
- */
 void golite::Declaration::symbolTablePass(SymbolTable *root) {
-    for(golite::Expression* expr : this->right_expressions_) {
-        expr->symbolTablePass(root);
+
+    if(left_identifiers_.size() != right_expressions_.size()) {
+        throw std::runtime_error("Wrong number of left and right elements. Verify weeding pass.");
     }
 
-    std::vector<golite::Identifier*> new_vars = std::vector<golite::Identifier*>();
-    for(int i = 0; i < this->left_identifiers_.size(); i++) {
-        golite::PrimaryExpression* id_prim = static_cast<golite::PrimaryExpression*>(this->left_identifiers_[i]);
-        if(id_prim->isIdentifier()) {
+    bool new_var = false;
+    for(size_t i=0; i < left_identifiers_.size(); i++) {
+
+        if(!left_identifiers_[i]->isIdentifier()) {
+            throw std::runtime_error("Symbol table expects all left expression to be identifiers. Verify weeding pass.");
+        }
+
+        // Skip blank identifiers
+        if(!left_identifiers_[i]->isBlank()) {
+            golite::PrimaryExpression* id_prim = static_cast<golite::PrimaryExpression*>(left_identifiers_[i]);
             golite::Identifier* id = static_cast<golite::Identifier*>(id_prim->getChildren().back());
-
-            golite::Declarable* already_declared_var = root->getSymbol(id->getName(), false);
-            if(already_declared_var) {
-                this->right_expressions_.erase(this->right_expressions_.begin() + i);
-
-                // TODO : check if we need to replace the existing variable ? not sure issue #35
-                /*// somehow re-assign the new expression to the already declared variable
-                if(already_declared_var->isDecVariable()) {
-                    golite::Variable* existing_var = static_cast<golite::Variable*>(already_declared_var);
-                    long indexof_id = existing_var->indexOfIdentifier(id->getName());
-                    existing_var->replaceExpression(indexof_id, this->right_expressions_[indexof_id]); // overwrite the variable with new value
-
-                    // then remove from the right_expression as they are now not new variables
-
-                }*/
+            Declarable* existing_dec = root->getSymbol(id->getName(), false);
+            if(existing_dec) {
+                if(existing_dec->isTypeDeclaration()) {
+                    golite::Utils::error_message("Type " + id->getName() + " is not an expression",
+                                                 left_identifiers_[i]->getLine());
+                }
             } else {
-                new_vars.push_back(id);
+                new_var = true;
+
+                // FIXME Issue #39
+                golite::Variable* var_decl = new golite::Variable();
+                std::vector<golite::Identifier*> identifiers = { id };
+                std::vector<golite::Expression*> expressions = { right_expressions_[i] };
+                var_decl->setIdentifiers(identifiers);
+                var_decl->setExpressions(expressions);
+                root->putSymbol(id->getName(), var_decl);
+                // Note: Variable type is determined during type checking pass
             }
         }
     }
 
     // make sure there's at least one new variable
-    if(new_vars.size() == 0) {
+    if(!new_var) {
         golite::Utils::error_message("no new variables on left side of :=", this->getLine());
     }
-
-    golite::Variable* var_decl = new golite::Variable();
-    var_decl->setIdentifiers(new_vars);
-    var_decl->setExpressions(this->right_expressions_);
-
-    var_decl->symbolTablePass(root);
 }

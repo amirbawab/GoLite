@@ -24,5 +24,5 @@ golite::TypeComponent* golite::Selector::typeCheck() {
 }
 
 void golite::Selector::symbolTablePass(SymbolTable *root) {
-    // typecheck checks that the field selected is valid
+    identifier_->symbolTablePass(root);
 }

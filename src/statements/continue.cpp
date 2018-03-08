@@ -17,3 +17,7 @@ void golite::Continue::weedingPass(bool, bool check_continue) {
 void golite::Continue::typeCheck() {
     // Do nothing
 }
+
+void golite::Continue::symbolTablePass(SymbolTable *root) {
+    // Do nothing
+}
