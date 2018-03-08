@@ -11,13 +11,11 @@ namespace golite {
 
     class SymbolTable {
     private:
-        SymbolTable* parent_;
+        SymbolTable* parent_ = nullptr;
         std::vector<SymbolTable*> children_; // symbol table may have multiple children
         std::map<std::string, Declarable*> entries_;
 
     public:
-        SymbolTable() { this->parent_ = nullptr; }
-
         /**
          * Adds a Symbol table as a child to the current sym table
          * @param table

@@ -20,7 +20,7 @@ namespace golite {
         Program(){}
         Identifier* package_name_ = nullptr;
         std::vector<Declarable*> declarables_;
-        SymbolTable* root_symbol_table_;
+        SymbolTable* root_symbol_table_ = nullptr;
 
         void initializeSymbolTable();
     public:
