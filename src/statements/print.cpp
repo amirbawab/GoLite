@@ -2,6 +2,7 @@
 #include <golite/utils.h>
 #include <golite/pretty_helper.h>
 #include <golite/primary_expression.h>
+#include <golite/program.h>
 
 std::string golite::Print::toGoLite(int indent) {
     std::stringstream ss;
@@ -21,7 +22,14 @@ void golite::Print::weedingPass(bool, bool) {
 
 void golite::Print::typeCheck() {
     for (Expression *expression : expressions_) {
-        expression->typeCheck();
+        TypeComponent* expression_type = expression->typeCheck();
+        if(expression_type != Program::INT_BUILTIN_TYPE->getTypeComponent()
+           && expression_type != Program::FLOAT64_BUILTIN_TYPE->getTypeComponent()
+           && expression_type != Program::BOOL_BUILTIN_TYPE->getTypeComponent()
+           && expression_type != Program::STRING_BUILTIN_TYPE->getTypeComponent()
+           && expression_type != Program::RUNE_BUILTIN_TYPE->getTypeComponent()) {
+            golite::Utils::error_message("Print expects base types, received " + expression_type->toGoLite(0), expression->getLine());
+        }
     }
 }
 

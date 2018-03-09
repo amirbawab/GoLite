@@ -49,7 +49,9 @@ void golite::Function::symbolTablePass(golite::SymbolTable *root) {
         param->symbolTablePass(root);
     }
 
-    type_component_->symbolTablePass(root);
+    if(type_component_ != Program::VOID_TYPE->getTypeComponent()) {
+        type_component_->symbolTablePass(root);
+    }
     root->putSymbol(this->identifier_->getName(), this);
 
     golite::SymbolTable* fn_symbol_table = new golite::SymbolTable();
