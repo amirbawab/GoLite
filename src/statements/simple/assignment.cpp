@@ -95,8 +95,8 @@ void golite::Assignment::typeCheck() {
             TypeComponent* right_type = right_expressions_[i]->typeCheck();
             TypeComponent* left_type = left_expressions_[i]->typeCheck();
             if(!left_type->isCompatible(right_type)) {
-                golite::Utils::error_message("Incompatible " + left_type->toGoLite(0) + " and " + right_type->toGoLite(0),
-                                             left_type->getLine());
+                golite::Utils::error_message("Incompatible " + left_type->toGoLiteMin() + " and "
+                                             + right_type->toGoLiteMin(), left_type->getLine());
             }
         } else {
             // Just perform a symbol table pass on right expression

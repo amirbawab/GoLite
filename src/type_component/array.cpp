@@ -7,6 +7,10 @@ std::string golite::Array::toGoLite(int indent) {
     return ss.str();
 }
 
+std::string golite::Array::toGoLiteMin() {
+    return toGoLite(0);
+}
+
 int golite::Array::getLine() {
     return size_->getLine();
 }

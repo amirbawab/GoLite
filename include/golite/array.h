@@ -18,9 +18,14 @@ namespace golite {
         golite::Literal<int>* getSize() const { return size_; }
 
         /**
-         * @see TypeComponent::getLine()
+         * @see TypeComponent::toGoLite()
          */
         std::string toGoLite(int indent);
+
+        /**
+         * @see TypeComponent::toGotLiteMin()
+         */
+        std::string toGoLiteMin();
 
         /**
          * @see TypeComposite::getLine()

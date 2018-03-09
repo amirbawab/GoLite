@@ -28,7 +28,8 @@ void golite::Print::typeCheck() {
            && expression_type != Program::BOOL_BUILTIN_TYPE->getTypeComponent()
            && expression_type != Program::STRING_BUILTIN_TYPE->getTypeComponent()
            && expression_type != Program::RUNE_BUILTIN_TYPE->getTypeComponent()) {
-            golite::Utils::error_message("Print expects base types, received " + expression_type->toGoLite(0), expression->getLine());
+            golite::Utils::error_message("Print expects base types, received " + expression_type->toGoLiteMin(),
+                                         expression->getLine());
         }
     }
 }

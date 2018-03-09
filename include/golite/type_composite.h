@@ -17,6 +17,12 @@ namespace golite {
         virtual std::string toGoLite(int indent) = 0;
 
         /**
+         * Convert to GoLite min code
+         * @return golite code
+         */
+        virtual std::string toGoLiteMin() = 0;
+
+        /**
          * Get line number
          * @return line number
          */

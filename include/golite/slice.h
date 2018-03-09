@@ -16,6 +16,11 @@ namespace golite {
         std::string toGoLite(int indent);
 
         /**
+         * @see TypeComponent::toGotLiteMin()
+         */
+        std::string toGoLiteMin();
+
+        /**
          * @see TypeComposite::getLine()
          */
         int getLine() { return line_; }

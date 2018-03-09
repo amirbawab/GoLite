@@ -9,6 +9,13 @@ std::string golite::StructField::toGoLite(int indent) {
     return ss.str();
 }
 
+std::string golite::StructField::toGoLiteMin() {
+    std::stringstream ss;
+    ss << golite::Pretty::implodeIdentifiers(identifiers_);
+    ss << " " << type_component_->toGoLiteMin() << ";";
+    return ss.str();
+}
+
 void golite::StructField::weedingPass() {
     for(Identifier* identifier : identifiers_) {
         identifier->weedingPass();

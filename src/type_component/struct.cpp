@@ -17,6 +17,19 @@ std::string golite::Struct::toGoLite(int indent) {
     return ss.str();
 }
 
+std::string golite::Struct::toGoLiteMin() {
+    std::stringstream ss;
+    ss << "struct {";
+    if(!fields_.empty()) {
+        for(golite::StructField* field : fields_) {
+            ss << " " << field->toGoLiteMin();
+        }
+    }
+    ss << " }";
+    return ss.str();
+
+}
+
 void golite::Struct::weedingPass() {
     for(StructField* field : fields_) {
         field->weedingPass();

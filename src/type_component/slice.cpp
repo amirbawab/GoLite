@@ -7,6 +7,10 @@ std::string golite::Slice::toGoLite(int indent) {
     return ss.str();
 }
 
+std::string golite::Slice::toGoLiteMin() {
+    return toGoLite(0);
+}
+
 void golite::Slice::weedingPass() {
     // Do nothing
 }

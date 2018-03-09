@@ -39,9 +39,9 @@ bool golite::Return::hasReturn(Declarable *function) {
         TypeComponent* type_component = expression_->typeCheck();
         if(function->getTypeComponent()) {
             if(!function->getTypeComponent()->isCompatible(type_component)) {
-                golite::Utils::error_message("Return expression type " + type_component->toGoLite(0)
+                golite::Utils::error_message("Return expression type " + type_component->toGoLiteMin()
                                              + "is not compatible with the function type "
-                                             + function->getTypeComponent()->toGoLite(0),
+                                             + function->getTypeComponent()->toGoLiteMin(),
                                              expression_->getLine());
             }
         } else {
@@ -52,7 +52,7 @@ bool golite::Return::hasReturn(Declarable *function) {
     } else {
         if(function->getTypeComponent()) {
             golite::Utils::error_message("Function declaration expects a type "
-                                         + function->getTypeComponent()->toGoLite(0), getLine());
+                                         + function->getTypeComponent()->toGoLiteMin(), getLine());
         }
     }
     return true;

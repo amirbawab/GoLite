@@ -33,6 +33,12 @@ namespace golite {
         std::string toGoLite(int indent);
 
         /**
+         * Conver to GoLite min
+         * @return golite code
+         */
+        std::string toGoLiteMin();
+
+        /**
          * Perform a weeding pass
          */
         virtual void weedingPass();

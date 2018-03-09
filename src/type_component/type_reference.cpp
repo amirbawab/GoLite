@@ -9,6 +9,10 @@ std::string golite::TypeReference::toGoLite(int indent) {
     return ss.str();
 }
 
+std::string golite::TypeReference::toGoLiteMin() {
+    return identifier_->toGoLite(0);
+}
+
 int golite::TypeReference::getLine() {
     return identifier_->getLine();
 }

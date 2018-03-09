@@ -17,7 +17,13 @@ namespace golite {
          * @param indent
          * @return golite code
          */
-        virtual std::string toGoLite(int indent);
+        std::string toGoLite(int indent);
+
+        /**
+         * Convert to GoLite code
+         * @return golite code
+         */
+        std::string toGoLiteMin();
 
         /**
          * Add child
@@ -34,7 +40,7 @@ namespace golite {
         /**
          * Perform a weeding pass
          */
-        virtual void weedingPass();
+        void weedingPass();
 
         /**
          * Get children vector

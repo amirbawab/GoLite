@@ -16,6 +16,18 @@ std::string golite::TypeComponent::toGoLite(int indent) {
     return ss.str();
 }
 
+std::string golite::TypeComponent::toGoLiteMin() {
+    std::stringstream ss;
+    if(children_.empty()) {
+        throw std::runtime_error("Cannot min prettify an empty type component");
+    }
+
+    for(size_t i = children_.size(); i > 0; i--) {
+        ss << children_[i-1]->toGoLiteMin();
+    }
+    return ss.str();
+}
+
 void golite::TypeComponent::addChild(golite::TypeComposite *type_composite) {
     children_.push_back(type_composite);
 }
