@@ -27,7 +27,6 @@ golite::Declarable* golite::SymbolTable::getSymbol(std::string name, bool search
         }
         curr_sym_table = curr_sym_table->parent_;
     }
-
     return nullptr;
 }
 
@@ -45,6 +44,21 @@ void golite::SymbolTable::updateSymbol(std::string name, Declarable* new_declara
         curr_sym_table = curr_sym_table->parent_;
     }
     throw std::runtime_error("Cannot update an entry that does not exist in symbol table");
+}
+
+golite::SymbolTable* golite::SymbolTable::getSymbolTable(std::string name, bool search_in_parent) {
+    SymbolTable* curr_sym_table = this;
+    std::map<std::string, golite::Declarable*>::iterator found;
+    while(curr_sym_table) {
+        found = curr_sym_table->entries_.find(name);
+        if(found != curr_sym_table->entries_.end()) {
+            return curr_sym_table;
+        } else if(!search_in_parent) {
+            break;
+        }
+        curr_sym_table = curr_sym_table->parent_;
+    }
+    throw std::runtime_error("Cannot get symbol table of an unrecognized identifier");
 }
 
 bool golite::SymbolTable::hasSymbol(std::string name, bool search_in_parent) {

@@ -42,7 +42,11 @@ void golite::Identifier::symbolTablePass(SymbolTable *root) {
             golite::Utils::error_message("undefined: " + this->getName(), this->getLine());
         }
     }
-    symbol_table_ = root;
+
+    // The specific symbol table must be assigned to this identifier
+    // because a future declaration of the a variable with the same name
+    // and in the same scope (or sometimes close parent scope) will fetch the wrong entry
+    symbol_table_ = root->getSymbolTable(getName());
 }
 
 void golite::Identifier::updateTypeInSymbolTable(TypeComponent *new_type, bool search_in_parent) {
