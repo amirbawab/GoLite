@@ -71,8 +71,7 @@ void golite::Variable::typeCheck() {
         for(size_t i=0; i < identifiers_.size(); i++) {
             TypeComponent* expression_type = expressions_[i]->typeCheck();
             if(!identifiers_[i]->isBlank()) {
-                TypeComponent* identifier_type = identifiers_[i]->typeCheck();
-                if(identifier_type->isInfer()) {
+                if(type_component_->isInfer()) {
                     identifiers_[i]->updateTypeInSymbolTable(expression_type);
                 } else if(!type_component_->isCompatible(expression_type)) {
                     golite::Utils::error_message("Variable " + identifiers_[i]->getName()
