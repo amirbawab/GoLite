@@ -70,11 +70,16 @@ void golite::Variable::typeCheck() {
 
         for(size_t i=0; i < identifiers_.size(); i++) {
             TypeComponent* expression_type = expressions_[i]->typeCheck();
-            if(!type_component_->isCompatible(expression_type)) {
-                golite::Utils::error_message("Variable " + identifiers_[i]->getName()
-                                             + " expects an expression of type " + type_component_->toGoLite(0)
-                                             + " but given " + expression_type->toGoLite(0),
-                                             identifiers_[i]->getLine());
+            if(!identifiers_[i]->isBlank()) {
+                TypeComponent* identifier_type = identifiers_[i]->typeCheck();
+                if(identifier_type->isInfer()) {
+                    identifiers_[i]->updateTypeInSymbolTable(expression_type);
+                } else if(!type_component_->isCompatible(expression_type)) {
+                    golite::Utils::error_message("Variable " + identifiers_[i]->getName()
+                                                 + " expects an expression of type " + type_component_->toGoLite(0)
+                                                 + " but given " + expression_type->toGoLite(0),
+                                                 identifiers_[i]->getLine());
+                }
             }
         }
     }
@@ -82,14 +87,16 @@ void golite::Variable::typeCheck() {
 
 void golite::Variable::symbolTablePass(SymbolTable *root) {
     for(golite::Identifier* id : this->identifiers_) {
-        // search for an existing symbol in current scope
-        if(root->hasSymbol(id->getName(), false)) {
-            golite::Utils::error_message("Variable name " + id->getName() + " redeclared in this block", getLine());
+        if(!id->isBlank()) {
+            // search for an existing symbol in current scope
+            if(root->hasSymbol(id->getName(), false)) {
+                golite::Utils::error_message("Variable name " + id->getName() + " redeclared in this block", getLine());
+            }
+            root->putSymbol(id->getName(), this);
         }
-        root->putSymbol(id->getName(), this);
     }
 
-    if(type_component_ != golite::Program::INFER_TYPE->getTypeComponent()) {
+    if(!type_component_->isInfer()) {
         type_component_->symbolTablePass(root);
     }
 

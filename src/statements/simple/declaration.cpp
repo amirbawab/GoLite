@@ -60,13 +60,11 @@ void golite::Declaration::typeCheck() {
                 golite::PrimaryExpression* id_prim = static_cast<golite::PrimaryExpression*>(left_identifiers_[i]);
                 golite::Identifier* id = static_cast<golite::Identifier*>(id_prim->getChildren().back());
                 id->updateTypeInSymbolTable(right_type);
-            } else {
-                if(!left_type->isCompatible(right_type)) {
-                    golite::Utils::error_message("Element at index " + std::to_string(i)
-                                                 + " expects an expression of type " + left_type->toGoLiteMin()
-                                                 + " but given " + right_type->toGoLiteMin(),
-                                                 right_expressions_[i]->getLine());
-                }
+            } else if(!left_type->isCompatible(right_type)) {
+                golite::Utils::error_message("Element at index " + std::to_string(i)
+                                             + " expects an expression of type " + left_type->toGoLiteMin()
+                                             + " but given " + right_type->toGoLiteMin(),
+                                             right_expressions_[i]->getLine());
             }
         }
     }

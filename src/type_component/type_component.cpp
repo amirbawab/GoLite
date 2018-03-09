@@ -104,3 +104,16 @@ bool golite::TypeComponent::isInfer() {
 bool golite::TypeComponent::isVoid() {
     return this == golite::Program::VOID_TYPE->getTypeComponent();
 }
+
+bool golite::TypeComponent::isComparable() {
+    // Everything is comparable
+    return true;
+}
+
+bool golite::TypeComponent::isOrdered() {
+    return isInt() || isFloat64() || isRune() || isString();
+}
+
+bool golite::TypeComponent::isNumeric() {
+    return isInt() || isFloat64() || isRune();
+}

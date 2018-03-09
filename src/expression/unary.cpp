@@ -37,9 +37,29 @@ void golite::Unary::weedingPass() {
 }
 
 golite::TypeComponent* golite::Unary::typeCheck() {
-    TypeComponent *type_component = operand_->typeCheck();
-    // TODO Check if type can be incremented or decremented
-    return nullptr;
+    TypeComponent *operand_type = operand_->typeCheck();
+    switch (kind_) {
+        case PLUS:
+        case MINUS:
+            if(!operand_type->isNumeric()) {
+                golite::Utils::error_message("Unary operation + and - expects a numeric expression but given "
+                                             + operand_type->toGoLiteMin(), getLine());
+            }
+            break;
+        case NOT:
+            if(!operand_type->isBool()) {
+                golite::Utils::error_message("Unary operation ! expects a boolean expression but given "
+                                             + operand_type->toGoLiteMin(), getLine());
+            }
+            break;
+        case XOR:
+            if(!operand_type->isInt() && !operand_type->isRune()) {
+                golite::Utils::error_message("Unary operation ^ expects an int or a rune expression but given "
+                                             + operand_type->toGoLiteMin(), getLine());
+            }
+            break;
+    }
+    return operand_type;
 }
 
 void golite::Unary::symbolTablePass(SymbolTable *root) {

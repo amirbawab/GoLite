@@ -28,8 +28,12 @@ void golite::IncDec::weedingPass(bool, bool) {
 }
 
 void golite::IncDec::typeCheck() {
-    TypeComponent* type_component = expression_->typeCheck();
-    // TODO Check if type component is an integer
+    TypeComponent* expression_type = expression_->typeCheck();
+    // TODO Verify it's an identifier
+    if(!expression_type->isInt()) {
+        golite::Utils::error_message("Increment and decrement statement expect an integer expression but given "
+                                     + expression_type->toGoLiteMin(), expression_->getLine());
+    }
 }
 
 void golite::IncDec::symbolTablePass(SymbolTable *root) {

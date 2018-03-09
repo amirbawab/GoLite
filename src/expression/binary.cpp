@@ -92,24 +92,34 @@ void golite::Binary::weedingPass() {
 }
 
 golite::TypeComponent* golite::Binary::typeCheck() {
-    TypeComponent* left = left_operand_->typeCheck();
-    TypeComponent* right = right_operand_->typeCheck();
+    TypeComponent* left_type = left_operand_->typeCheck();
+    TypeComponent* right_type = right_operand_->typeCheck();
     switch (kind_) {
         case KIND::OR:
         case KIND::AND:
-            if(left != Program::BOOL_BUILTIN_TYPE->getTypeComponent()) {
-                golite::Utils::error_message("Left operand of && an || must be a boolean" , left_operand_->getLine());
+            if(!left_type->isBool()) {
+                golite::Utils::error_message("Left operand of && an || must be a boolean but given "
+                                             + left_type->toGoLiteMin() , left_operand_->getLine());
             }
-
-            if(right != Program::BOOL_BUILTIN_TYPE->getTypeComponent()) {
-                golite::Utils::error_message("Right operand of && an || must be a boolean" , right_operand_->getLine());
+            if(!right_type->isBool()) {
+                golite::Utils::error_message("Right operand of && an || must be a boolean but given "
+                                             + right_type->toGoLiteMin() , right_operand_->getLine());
             }
             return Program::BOOL_BUILTIN_TYPE->getTypeComponent();
 
         case KIND::IS_EQUAL:
         case KIND::IS_NOT_EQUAL:
-            if(!left->isCompatible(right)) {
-                golite::Utils::error_message("Left and right operand of == and != must be compatible",
+            if(!left_type->isComparable()) {
+                golite::Utils::error_message("Left operand of == and != must be comparable but given "
+                                             + left_type->toGoLiteMin(), left_operand_->getLine());
+            }
+            if(!right_type->isComparable()) {
+                golite::Utils::error_message("Right operand of == and != must be comparable but given "
+                                             + right_type->toGoLiteMin(), right_operand_->getLine());
+            }
+            if(!left_type->isCompatible(right_type)) {
+                golite::Utils::error_message("Left and right operand of == and != must be compatible but given "
+                                             + left_type->toGoLiteMin() + " and " + right_type->toGoLiteMin(),
                                              left_operand_->getLine());
             }
             return Program::BOOL_BUILTIN_TYPE->getTypeComponent();
@@ -118,20 +128,71 @@ golite::TypeComponent* golite::Binary::typeCheck() {
         case KIND::LESS_THAN_EQUAL:
         case KIND::GREATER_THAN:
         case KIND::GREATER_THAN_EQUAL:
+            if(!left_type->isOrdered()) {
+                golite::Utils::error_message("Left operand operand of <, >, <=, >= must be ordered but given "
+                                             + left_type->toGoLiteMin(), left_operand_->getLine());
+            }
+            if(!right_type->isOrdered()) {
+                golite::Utils::error_message("Right operand operand of <, >, <=, >= must be ordered but given "
+                                             + right_type->toGoLiteMin(), right_operand_->getLine());
+            }
+            if(!left_type->isCompatible(right_type)) {
+                golite::Utils::error_message("Left and right operands of <, >, <=, >= must be compatible but given "
+                                             + left_type->toGoLiteMin() + " and " + right_type->toGoLiteMin(),
+                                             left_operand_->getLine());
+            }
             return Program::BOOL_BUILTIN_TYPE->getTypeComponent();
 
         case KIND::PLUS:
+            if(!left_type->isString() && !left_type->isNumeric()) {
+                golite::Utils::error_message("Left operand of + must be string or numeric but given "
+                                             + left_type->toGoLiteMin(), left_operand_->getLine());
+            }
+            if(!right_type->isString() && !right_type->isNumeric()) {
+                golite::Utils::error_message("Right operand of + must be string or numeric but given "
+                                             + right_type->toGoLiteMin(), right_operand_->getLine());
+            }
+            if(!left_type->isCompatible(right_type)) {
+                golite::Utils::error_message("Left and right operands of + must be compatible but given "
+                                             + left_type->toGoLiteMin() + " and " + right_type->toGoLiteMin(),
+                                             left_operand_->getLine());
+            }
+            return left_type;
+
         case KIND::MINUS:
         case KIND::MULTIPLY:
         case KIND::DIVIDE:
+            if(!left_type->isNumeric()) {
+                golite::Utils::error_message("Left operand of -, *, / must be numeric but given "
+                                             + left_type->toGoLiteMin(), left_operand_->getLine());
+            }
+            if(!right_type->isNumeric()) {
+                golite::Utils::error_message("Right operand of -, *, / must be numeric but given "
+                                             + right_type->toGoLiteMin(), right_operand_->getLine());
+            }
+            if(!left_type->isCompatible(right_type)) {
+                golite::Utils::error_message("Left and right operands of -, *, / must be compatible but given "
+                                             + left_type->toGoLiteMin() + " and " + right_type->toGoLiteMin(),
+                                             left_operand_->getLine());
+            }
+            return left_type;
+
         case KIND::MODULO:
-        case KIND::BIT_AND:
         case KIND::BIT_OR:
+        case KIND::BIT_AND:
         case KIND::LEFT_SHIFT:
         case KIND::RIGHT_SHIFT:
         case KIND::BIT_CLEAR:
         case KIND::BIT_XOR:
-            return nullptr;
+            if(!left_type->isInt()) {
+                golite::Utils::error_message("Left operand of %, |, &, <<, >>, ^&, ^ must be integer but given "
+                                             + left_type->toGoLiteMin(), left_operand_->getLine());
+            }
+            if(!right_type->isInt()) {
+                golite::Utils::error_message("Right operand of %, |, &, <<, >>, ^&, ^ must be integer but given "
+                                             + right_type->toGoLiteMin(), right_operand_->getLine());
+            }
+            return Program::INT_BUILTIN_TYPE->getTypeComponent();
     }
     throw std::runtime_error("Unrecognized binary expression kind");
 }

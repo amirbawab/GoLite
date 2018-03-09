@@ -96,11 +96,30 @@ namespace golite {
          * @return true if it is
          */
         bool isInfer();
+
         /**
          * Check if it's a void
          * @return true if it is
          */
         bool isVoid();
+
+        /**
+         * Check if it's comparable
+         * @return true if it is
+         */
+        bool isComparable();
+
+        /**
+         * Check if it's ordered
+         * @return true if it is
+         */
+        bool isOrdered();
+
+        /**
+         * Check if it's numeric
+         * @return true if it is
+         */
+        bool isNumeric();
     };
 }
 
