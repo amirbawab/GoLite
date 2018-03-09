@@ -60,6 +60,36 @@ namespace golite {
          * @param root
          */
         void symbolTablePass(SymbolTable* root);
+
+        /**
+         * Check if it's a bool
+         * @return true if it is
+         */
+        bool isBool();
+
+        /**
+         * Check if it's an int
+         * @return true if it is
+         */
+        bool isInt();
+
+        /**
+         * Check if it's a float64
+         * @return true if it is
+         */
+        bool isFloat64();
+
+        /**
+         * Check if it's a string
+         * @return true if it is
+         */
+        bool isString();
+
+        /**
+         * Check if it's a rune
+         * @return true if it is
+         */
+        bool isRune();
     };
 }
 

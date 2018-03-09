@@ -32,10 +32,16 @@ void golite::SwitchCase::weedingPass(bool check_continue) {
     block_->weedingPass(false, check_continue);
 }
 
-void golite::SwitchCase::typeCheck() {
+void golite::SwitchCase::typeCheck(TypeComponent* switch_expression_type) {
     for (Expression *expression : expressions_) {
         TypeComponent *type_component = expression->typeCheck();
-        if (type_component != golite::Program::BOOL_BUILTIN_TYPE->getTypeComponent()) {
+        if(switch_expression_type) {
+            if(!switch_expression_type->isCompatible(type_component)) {
+                golite::Utils::error_message("Case statement expects expression of type "
+                                             + switch_expression_type->toGoLiteMin() + " but given "
+                                             + type_component->toGoLiteMin(), expression->getLine());
+            }
+        } else if (!type_component->isBool()) {
             golite::Utils::error_message("Switch case condition must evaluate to a boolean", expression->getLine());
         }
     }

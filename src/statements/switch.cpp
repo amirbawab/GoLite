@@ -68,13 +68,13 @@ void golite::Switch::typeCheck() {
         simple_->typeCheck();
     }
 
+    TypeComponent* expression_type = nullptr;
     if (expression_) {
-        TypeComponent *type_component_ = expression_->typeCheck();
-        // TODO Check if it's booklean
+        expression_type = expression_->typeCheck();
     }
 
     for (SwitchCase *switch_case : cases_) {
-        switch_case->typeCheck();
+        switch_case->typeCheck(expression_type);
     }
 }
 

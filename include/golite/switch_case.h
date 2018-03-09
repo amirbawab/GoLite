@@ -60,7 +60,7 @@ namespace golite {
         /**
          * Perform type checking
          */
-        void typeCheck();
+        void typeCheck(TypeComponent* switch_expr_type);
 
         /*
          * Perform a symbol table pass

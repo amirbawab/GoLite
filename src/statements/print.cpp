@@ -23,11 +23,7 @@ void golite::Print::weedingPass(bool, bool) {
 void golite::Print::typeCheck() {
     for (Expression *expression : expressions_) {
         TypeComponent* expression_type = expression->typeCheck();
-        if(expression_type != Program::INT_BUILTIN_TYPE->getTypeComponent()
-           && expression_type != Program::FLOAT64_BUILTIN_TYPE->getTypeComponent()
-           && expression_type != Program::BOOL_BUILTIN_TYPE->getTypeComponent()
-           && expression_type != Program::STRING_BUILTIN_TYPE->getTypeComponent()
-           && expression_type != Program::RUNE_BUILTIN_TYPE->getTypeComponent()) {
+        if(!golite::Program::isBuiltIn(expression_type)) {
             golite::Utils::error_message("Print expects base types, received " + expression_type->toGoLiteMin(),
                                          expression->getLine());
         }

@@ -61,3 +61,11 @@ void golite::Program::typeCheck() {
 std::string golite::Program::prettifySymbolTable(int indent) {
     return root_symbol_table_->prettyPrint(indent);
 }
+
+bool golite::Program::isBuiltIn(golite::TypeComponent *type_component) {
+    return type_component->isInt()
+           || type_component->isFloat64()
+           || type_component->isBool()
+           || type_component->isString()
+           || type_component->isRune();
+}

@@ -3,6 +3,7 @@
 #include <golite/pretty_helper.h>
 #include <golite/primary_expression.h>
 #include <vector>
+#include <golite/program.h>
 
 std::string golite::Println::toGoLite(int indent) {
     std::stringstream ss;
@@ -21,8 +22,12 @@ void golite::Println::weedingPass(bool, bool) {
 }
 
 void golite::Println::typeCheck() {
-    for(Expression* expression : expressions_) {
-        expression->typeCheck();
+    for (Expression *expression : expressions_) {
+        TypeComponent* expression_type = expression->typeCheck();
+        if(!golite::Program::isBuiltIn(expression_type)) {
+            golite::Utils::error_message("Println expects base types, received " + expression_type->toGoLiteMin(),
+                                         expression->getLine());
+        }
     }
 }
 

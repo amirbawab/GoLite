@@ -3,6 +3,7 @@
 #include <sstream>
 #include <iostream>
 #include <golite/type_reference.h>
+#include <golite/program.h>
 
 std::string golite::TypeComponent::toGoLite(int indent) {
     std::stringstream ss;
@@ -74,4 +75,24 @@ void golite::TypeComponent::symbolTablePass(SymbolTable *root) {
     for(TypeComposite* child : children_) {
         child->symbolTablePass(root);
     }
+}
+
+bool golite::TypeComponent::isBool() {
+    return this == golite::Program::BOOL_BUILTIN_TYPE->getTypeComponent();
+}
+
+bool golite::TypeComponent::isInt() {
+    return this == golite::Program::INT_BUILTIN_TYPE->getTypeComponent();
+}
+
+bool golite::TypeComponent::isFloat64() {
+    return this == golite::Program::FLOAT64_BUILTIN_TYPE->getTypeComponent();
+}
+
+bool golite::TypeComponent::isRune() {
+    return this == golite::Program::RUNE_BUILTIN_TYPE->getTypeComponent();
+}
+
+bool golite::TypeComponent::isString() {
+    return this == golite::Program::STRING_BUILTIN_TYPE->getTypeComponent();
 }
