@@ -46,6 +46,15 @@ namespace golite {
          */
         Declarable* getSymbol(std::string name, bool search_in_parent = true);
 
+        /**
+         * Update the symbol from the sym table (or one of its parent, if specified) for a given symbol
+         * @param name
+         * @param new_declarable
+         * @param search_in_parent
+         * @return void
+         */
+        void updateSymbol(std::string name, Declarable* new_declarable, bool search_in_parent = true);
+
         std::string prettyPrint(int indent = 0);
     };
 }

@@ -8,9 +8,11 @@ void golite::SymbolTable::addChild(SymbolTable *table) {
 }
 
 void golite::SymbolTable::putSymbol(std::string name, golite::Declarable *decl) {
-    this->entries_.insert(std::pair<std::string, golite::Declarable*>(name, decl));
+    if(entries_.find(name) != entries_.end()) {
+        throw std::runtime_error("Identifier " + name + " already exists in the symbol table");
+    }
+    this->entries_[name] = decl;
     this->entries_keys_.push_back(name);
-    // TODO : check what to do with existing entries ? probably only need to replace
 }
 
 golite::Declarable* golite::SymbolTable::getSymbol(std::string name, bool search_in_parent) {
@@ -27,6 +29,22 @@ golite::Declarable* golite::SymbolTable::getSymbol(std::string name, bool search
     }
 
     return nullptr;
+}
+
+void golite::SymbolTable::updateSymbol(std::string name, Declarable* new_declarable, bool search_in_parent) {
+    SymbolTable* curr_sym_table = this;
+    std::map<std::string, golite::Declarable*>::iterator found;
+    while(curr_sym_table) {
+        found = curr_sym_table->entries_.find(name);
+        if(found != curr_sym_table->entries_.end()) {
+            found->second = new_declarable;
+            return;
+        } else if(!search_in_parent) {
+            break;
+        }
+        curr_sym_table = curr_sym_table->parent_;
+    }
+    throw std::runtime_error("Cannot update an entry that does not exist in symbol table");
 }
 
 bool golite::SymbolTable::hasSymbol(std::string name, bool search_in_parent) {

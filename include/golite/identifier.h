@@ -10,7 +10,7 @@ namespace golite {
         static std::string BLANK;
         std::string name_;
         int line_;
-        Declarable* st_declarable_ = nullptr;
+        SymbolTable* symbol_table_ = nullptr;
     public:
         Identifier(std::string name, int line) : name_(name), line_(line) {}
 
@@ -56,6 +56,13 @@ namespace golite {
          * @see Statement::symbolTablePass()
          */
         void symbolTablePass(SymbolTable* root);
+
+        /**
+         * Update symbol table entry for inferred types
+         * @param new_type
+         * @param search_in_parent
+         */
+        void updateTypeInSymbolTable(TypeComponent* new_type, bool search_in_parent = true);
     };
 }
 

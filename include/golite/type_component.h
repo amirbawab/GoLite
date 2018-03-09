@@ -90,6 +90,17 @@ namespace golite {
          * @return true if it is
          */
         bool isRune();
+
+        /**
+         * Check if it's an infer
+         * @return true if it is
+         */
+        bool isInfer();
+        /**
+         * Check if it's a void
+         * @return true if it is
+         */
+        bool isVoid();
     };
 }
 

@@ -96,3 +96,11 @@ bool golite::TypeComponent::isRune() {
 bool golite::TypeComponent::isString() {
     return this == golite::Program::STRING_BUILTIN_TYPE->getTypeComponent();
 }
+
+bool golite::TypeComponent::isInfer() {
+    return this == golite::Program::INFER_TYPE->getTypeComponent();
+}
+
+bool golite::TypeComponent::isVoid() {
+    return this == golite::Program::VOID_TYPE->getTypeComponent();
+}

@@ -2,7 +2,7 @@
 #include <golite/utils.h>
 #include <golite/declarable.h>
 #include <sstream>
-#include <iostream>
+#include <golite/type.h>
 
 std::string golite::Identifier::BLANK = "_";
 
@@ -24,10 +24,14 @@ golite::TypeComponent* golite::Identifier::typeCheck() {
     if(isBlank()) {
         throw std::runtime_error("Cannot call type check on blank identifier");
     }
-    if(!st_declarable_) {
-        throw std::runtime_error("Reference declarable is not set. Verify symbol table pass.");
+    if(!symbol_table_) {
+        throw std::runtime_error("Symbol table is not set. Verify symbol table pass.");
     }
-    return st_declarable_->getTypeComponent();
+    Declarable* declarable = symbol_table_->getSymbol(getName());
+    if(!declarable) {
+        throw std::runtime_error("Identifier not found in symbol table. Verify symbol table pass.");
+    }
+    return declarable->getTypeComponent();
 }
 
 void golite::Identifier::symbolTablePass(SymbolTable *root) {
@@ -37,6 +41,15 @@ void golite::Identifier::symbolTablePass(SymbolTable *root) {
         if(!found_symbol) {
             golite::Utils::error_message("undefined: " + this->getName(), this->getLine());
         }
-        st_declarable_ = found_symbol;
     }
+    symbol_table_ = root;
+}
+
+void golite::Identifier::updateTypeInSymbolTable(TypeComponent *new_type, bool search_in_parent) {
+    golite::Identifier* type_id = new golite::Identifier("~infer~", -1);
+    Declarable* new_declarable = new golite::Type(type_id, new_type);
+    if(!symbol_table_) {
+        throw std::runtime_error("Symbol table was not set. Verify symbol table pass.");
+    }
+    symbol_table_->updateSymbol(getName(), new_declarable, search_in_parent);
 }

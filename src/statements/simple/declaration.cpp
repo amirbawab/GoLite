@@ -4,6 +4,7 @@
 #include <golite/primary_expression.h>
 #include <golite/variable.h>
 #include <iostream>
+#include <golite/program.h>
 
 std::string golite::Declaration::toGoLite(int indent) {
     std::stringstream ss;
@@ -41,9 +42,33 @@ void golite::Declaration::weedingPass(bool, bool) {
 }
 
 void golite::Declaration::typeCheck() {
-    for(Expression* expression : right_expressions_) {
-        TypeComponent* type_component = expression->typeCheck();
-        // TODO Check specs
+    if(left_identifiers_.size() != right_expressions_.size()) {
+        throw std::runtime_error("Wrong number of left and right elements. Verify weeding pass");
+    }
+
+    for(size_t i=0; i < left_identifiers_.size(); i++) {
+
+        if(!left_identifiers_[i]->isIdentifier()) {
+            throw std::runtime_error("Declaration in type checking pass expects all left expression to be "
+                                             "identifiers. Verify weeding pass.");
+        }
+
+        TypeComponent* right_type = right_expressions_[i]->typeCheck();
+        if(!left_identifiers_[i]->isBlank()) {
+            TypeComponent* left_type = left_identifiers_[i]->typeCheck();
+            if(left_type->isInfer()) {
+                golite::PrimaryExpression* id_prim = static_cast<golite::PrimaryExpression*>(left_identifiers_[i]);
+                golite::Identifier* id = static_cast<golite::Identifier*>(id_prim->getChildren().back());
+                id->updateTypeInSymbolTable(right_type);
+            } else {
+                if(!left_type->isCompatible(right_type)) {
+                    golite::Utils::error_message("Element at index " + std::to_string(i)
+                                                 + " expects an expression of type " + left_type->toGoLiteMin()
+                                                 + " but given " + right_type->toGoLiteMin(),
+                                                 right_expressions_[i]->getLine());
+                }
+            }
+        }
     }
 }
 
@@ -57,7 +82,8 @@ void golite::Declaration::symbolTablePass(SymbolTable *root) {
     for(size_t i=0; i < left_identifiers_.size(); i++) {
 
         if(!left_identifiers_[i]->isIdentifier()) {
-            throw std::runtime_error("Symbol table expects all left expression to be identifiers. Verify weeding pass.");
+            throw std::runtime_error("Declaration in symbol table pass expects all left expression "
+                                             "to be identifiers. Verify weeding pass.");
         }
 
         // Skip blank identifiers
@@ -79,10 +105,12 @@ void golite::Declaration::symbolTablePass(SymbolTable *root) {
                 std::vector<golite::Expression*> expressions = { right_expressions_[i] };
                 var_decl->setIdentifiers(identifiers);
                 var_decl->setExpressions(expressions);
+                var_decl->setTypeComponent(golite::Program::INFER_TYPE->getTypeComponent());
                 root->putSymbol(id->getName(), var_decl);
-                // Note: Variable type is determined during type checking pass
             }
         }
+        left_identifiers_[i]->symbolTablePass(root);
+        right_expressions_[i]->symbolTablePass(root);
     }
 
     // make sure there's at least one new variable
