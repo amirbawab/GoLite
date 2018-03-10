@@ -108,9 +108,15 @@ bool golite::TypeComponent::isNumeric() {
     return isInt() || isFloat64() || isRune();
 }
 
+bool golite::TypeComponent::resolvesTo(Declarable* declarable) {
+    if(children_.size() != 1 || declarable->getTypeComponent()->children_.size() != 1) {
+        return false;
+    }
+    return children_.front()->resolvesTo(declarable);
+}
+
 bool golite::TypeComponent::resolvesToBool() {
-    // TODO
-    return false;
+    return resolvesTo(golite::Program::BOOL_BUILTIN_TYPE);
 }
 
 std::string golite::TypeComponent::toPrettySymbol() {

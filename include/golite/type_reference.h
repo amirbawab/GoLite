@@ -81,6 +81,13 @@ namespace golite {
          * @param built_in
          */
         void setBuiltIn(bool built_in) { built_in_ = built_in;}
+
+        /**
+         * Check if type reference resolves to a declarable
+         * @param declarable
+         * @return true if it is
+         */
+        bool resolvesTo(Declarable* declarable);
     };
 }
 

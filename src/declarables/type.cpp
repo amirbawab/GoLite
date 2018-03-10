@@ -32,7 +32,7 @@ void golite::Type::symbolTablePass(SymbolTable *root) {
 
 std::string golite::Type::toPrettySymbol() {
     std::stringstream ss;
-    ss << identifier_->getName() << " [type]" << type_component_->toPrettySymbol();
+    ss << identifier_->getName() << " [type] = " << type_component_->toPrettySymbol();
     return ss.str();
 }
 

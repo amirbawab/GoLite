@@ -45,12 +45,26 @@ bool golite::TypeReference::isCompatible(TypeComposite *type_composite) {
 
 std::string golite::TypeReference::toPrettySymbol() {
     std::stringstream ss;
+    ss << "(" << identifier_->toGoLite(0);
     if(!built_in_) {
-        ss << " -> " << identifier_->toGoLite(0);
         if(!declarable_type_ || !declarable_type_->getTypeComponent()) {
             throw std::runtime_error("Declarable or declarable type is empty. Verify symbol table pass.");
         }
-        ss << declarable_type_->getTypeComponent()->toPrettySymbol();
+        ss  << " -> " << declarable_type_->getTypeComponent()->toPrettySymbol();
     }
+    ss << ")";
     return ss.str();
+}
+
+bool golite::TypeReference::resolvesTo(Declarable* declarable) {
+    if(!declarable->getTypeComponent() || declarable->getTypeComponent()->getChildren().size() != 1) {
+        throw std::runtime_error("Type composite cannot resolve a declarable with number of children not equal to 1");
+    }
+    if(isCompatible(declarable->getTypeComponent()->getChildren().front())) {
+        return true;
+    }
+    if(built_in_) {
+        return false;
+    }
+    return declarable_type_->getTypeComponent()->resolvesTo(declarable);
 }

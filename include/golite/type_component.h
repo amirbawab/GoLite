@@ -68,7 +68,13 @@ namespace golite {
         bool isBool();
 
         /**
-         * Check if it resolves to bool
+         * Check if it resolves to a type
+         * @return true if it does
+         */
+        bool resolvesTo(Declarable* declarable_type);
+
+        /**
+         * Check if resolves to bools
          * @return true if it does
          */
         bool resolvesToBool();

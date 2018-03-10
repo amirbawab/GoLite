@@ -74,6 +74,13 @@ namespace golite {
          * @return string
          */
         virtual std::string toPrettySymbol() = 0;
+
+        /**
+         * Check if type composite resolves an element
+         * @param declarable
+         * @return true if it does
+         */
+        virtual bool resolvesTo(Declarable* declarable) { return false; }
     };
 }
 
