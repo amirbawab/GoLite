@@ -72,7 +72,8 @@ std::string golite::SymbolTable::prettyPrint(int indent) {
 
     // show entries
     for(std::string key : entries_keys_) {
-        ss << golite::Utils::indent(indent) << key << " [" << entries_[key]->toPrettySymbol() << "]" << " = " << std::endl;
+        ss << golite::Utils::indent(indent) << key << " [" << entries_[key]->toPrettySymbol() << "]" << " = "
+           << entries_[key]->getTypeComponent()->toGoLiteMin() << std::endl;
     }
 
     // show nested symbol table

@@ -18,3 +18,8 @@ void golite::Slice::weedingPass() {
 void golite::Slice::symbolTablePass(SymbolTable *root) {
     // Do nothing
 }
+
+bool golite::Slice::isCompatible(TypeComposite *type_composite) {
+    // TODO
+    return true;
+}

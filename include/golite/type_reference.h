@@ -8,6 +8,7 @@ namespace golite {
     class TypeReference : public TypeComposite {
     private:
         Identifier* identifier_ = nullptr;
+        Declarable* declarable_type_ = nullptr;
     public:
 
         /**
@@ -51,6 +52,23 @@ namespace golite {
          * @see TypeComposite::symbolTablePass()
          */
         void symbolTablePass(SymbolTable* root);
+
+        /**
+         * Get declarable type
+         * @return declarable type
+         */
+        Declarable* getDeclarableType() const { return declarable_type_; }
+
+        /**
+         * Set declarable type
+         * @param declarable_type
+         */
+        void setDeclarableType(Declarable* declarable_type) { declarable_type_ = declarable_type; }
+
+        /**
+         * @see TypeComposite::isCompatible()
+         */
+        bool isCompatible(TypeComposite* type_composite);
     };
 }
 

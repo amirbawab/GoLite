@@ -62,6 +62,12 @@ namespace golite {
          * @param root
          */
         virtual void symbolTablePass(SymbolTable* root) = 0;
+
+        /**
+         * Check if elements are compatible
+         * @return true if they are
+         */
+        virtual bool isCompatible(TypeComposite* type_composite) = 0;
     };
 }
 

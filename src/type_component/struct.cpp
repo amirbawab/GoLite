@@ -41,3 +41,8 @@ void golite::Struct::symbolTablePass(SymbolTable *root) {
         field->symbolTablePass(root);
     }
 }
+
+bool golite::Struct::isCompatible(TypeComposite *type_composite) {
+    // TODO
+    return true;
+}

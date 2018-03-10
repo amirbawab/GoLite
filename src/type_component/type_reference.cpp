@@ -27,3 +27,8 @@ void golite::TypeReference::weedingPass() {
 void golite::TypeReference::symbolTablePass(SymbolTable *root) {
     identifier_->symbolTablePass(root);
 }
+
+bool golite::TypeReference::isCompatible(TypeComposite *type_composite) {
+    // TODO
+    return true;
+}

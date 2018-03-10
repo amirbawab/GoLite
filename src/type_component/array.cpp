@@ -22,3 +22,8 @@ void golite::Array::weedingPass() {
 void golite::Array::symbolTablePass(SymbolTable *root) {
     // Do nothing
 }
+
+bool golite::Array::isCompatible(TypeComposite *type_composite) {
+    // TODO
+    return true;
+}

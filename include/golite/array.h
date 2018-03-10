@@ -46,6 +46,11 @@ namespace golite {
          * @see TypeComposite::symbolTablePass()
          */
         void symbolTablePass(SymbolTable* root);
+
+        /**
+         * @see TypeComposite::isCompatible()
+         */
+        bool isCompatible(TypeComposite* type_composite);
     };
 }
 

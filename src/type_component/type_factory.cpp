@@ -7,6 +7,7 @@ golite::Type* golite::TypeFactory::createBuiltInType(std::string id) {
 
     golite::TypeReference* type_ref = new golite::TypeReference();
     type_ref->setIdentifier(type_id);
+    type_ref->setDeclarableType(new golite::Type(type_id, nullptr));
 
     golite::TypeComponent* type_component = new golite::TypeComponent();
     type_component->addChild(type_ref);
