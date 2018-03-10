@@ -25,7 +25,7 @@ void golite::Variable::replaceExpression(int index, Expression *expr) {
 std::string golite::Variable::toGoLite(int indent) {
     std::stringstream ss;
     ss << golite::Utils::indent(indent) << "var " << golite::Pretty::implodeIdentifiers(identifiers_);
-    if(type_component_ != golite::Program::INFER_TYPE->getTypeComponent()) {
+    if(!type_component_->isInfer()) {
         ss << " " << type_component_->toGoLite(indent);
     }
     if(!expressions_.empty()) {

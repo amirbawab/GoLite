@@ -7,7 +7,7 @@ std::string golite::Function::toGoLite(int indent) {
     std::stringstream ss;
     ss << golite::Utils::indent(indent) << "func " << identifier_->toGoLite(0)
        << "(" << golite::Pretty::implodeParams(params_, indent) << ") ";
-    if(type_component_ != golite::Program::VOID_TYPE->getTypeComponent()) {
+    if(!type_component_->isVoid()) {
         ss << type_component_->toGoLite(indent) << " ";
     }
     ss << "{";
