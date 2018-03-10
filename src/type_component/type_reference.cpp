@@ -29,6 +29,9 @@ void golite::TypeReference::symbolTablePass(SymbolTable *root) {
     if(!declarable) {
         golite::Utils::error_message("Undefined type " + identifier_->getName(), identifier_->getLine());
     }
+    if(!declarable->isTypeDeclaration()) {
+        golite::Utils::error_message("Identifier " + identifier_->getName() + " is not a type declaration", identifier_->getLine());
+    }
     declarable_type_ = declarable;
 }
 
@@ -42,9 +45,12 @@ bool golite::TypeReference::isCompatible(TypeComposite *type_composite) {
 
 std::string golite::TypeReference::toPrettySymbol() {
     std::stringstream ss;
-    ss << identifier_->toGoLite(0);
-    if(declarable_type_ && declarable_type_->getTypeComponent()) {
-        ss << " -> " << declarable_type_->getTypeComponent()->toPrettySymbol();
+    if(!built_in_) {
+        ss << " -> " << identifier_->toGoLite(0);
+        if(!declarable_type_ || !declarable_type_->getTypeComponent()) {
+            throw std::runtime_error("Declarable or declarable type is empty. Verify symbol table pass.");
+        }
+        ss << declarable_type_->getTypeComponent()->toPrettySymbol();
     }
     return ss.str();
 }

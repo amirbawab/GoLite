@@ -33,7 +33,7 @@ void golite::Function::weedingPass(bool check_break, bool check_continue) {
 
 void golite::Function::typeCheck() {
     block_->typeCheck();
-    if(type_component_ != golite::Program::VOID_TYPE->getTypeComponent() && !block_->hasReturn(this)) {
+    if(!type_component_->isVoid() && !block_->hasReturn(this)) {
         golite::Utils::error_message("Function " + identifier_->getName() + " is missing a return statement",
                                      identifier_->getLine());
     }
@@ -49,7 +49,7 @@ void golite::Function::symbolTablePass(golite::SymbolTable *root) {
         param->symbolTablePass(root);
     }
 
-    if(type_component_ != Program::VOID_TYPE->getTypeComponent()) {
+    if(!type_component_->isVoid()) {
         type_component_->symbolTablePass(root);
     }
     root->putSymbol(this->identifier_->getName(), this);
@@ -59,9 +59,9 @@ void golite::Function::symbolTablePass(golite::SymbolTable *root) {
 
 std::string golite::Function::toPrettySymbol() {
     std::stringstream ss;
-    ss << identifier_->getName() << "[function]" << " = ";
+    ss << identifier_->getName() << " [function]";
     if(type_component_->isVoid()) {
-        ss << "void";
+        ss << " -> void";
     } else {
         ss << type_component_->toPrettySymbol();
     }

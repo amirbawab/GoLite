@@ -9,6 +9,7 @@ namespace golite {
     private:
         Identifier* identifier_ = nullptr;
         Declarable* declarable_type_ = nullptr;
+        bool built_in_ = false;
     public:
 
         /**
@@ -74,6 +75,12 @@ namespace golite {
          * @see TypeComposite::toPrettySymbol()
          */
         std::string toPrettySymbol();
+
+        /**
+         * Set built-in value
+         * @param built_in
+         */
+        void setBuiltIn(bool built_in) { built_in_ = built_in;}
     };
 }
 

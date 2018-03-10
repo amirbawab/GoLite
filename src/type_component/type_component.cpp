@@ -68,31 +68,31 @@ void golite::TypeComponent::symbolTablePass(SymbolTable *root) {
 }
 
 bool golite::TypeComponent::isBool() {
-    return this == golite::Program::BOOL_BUILTIN_TYPE->getTypeComponent();
+    return isCompatible(golite::Program::BOOL_BUILTIN_TYPE->getTypeComponent());
 }
 
 bool golite::TypeComponent::isInt() {
-    return this == golite::Program::INT_BUILTIN_TYPE->getTypeComponent();
+    return isCompatible(golite::Program::INT_BUILTIN_TYPE->getTypeComponent());
 }
 
 bool golite::TypeComponent::isFloat64() {
-    return this == golite::Program::FLOAT64_BUILTIN_TYPE->getTypeComponent();
+    return isCompatible(golite::Program::FLOAT64_BUILTIN_TYPE->getTypeComponent());
 }
 
 bool golite::TypeComponent::isRune() {
-    return this == golite::Program::RUNE_BUILTIN_TYPE->getTypeComponent();
+    return isCompatible(golite::Program::RUNE_BUILTIN_TYPE->getTypeComponent());
 }
 
 bool golite::TypeComponent::isString() {
-    return this == golite::Program::STRING_BUILTIN_TYPE->getTypeComponent();
+    return isCompatible(golite::Program::STRING_BUILTIN_TYPE->getTypeComponent());
 }
 
 bool golite::TypeComponent::isInfer() {
-    return this == golite::Program::INFER_TYPE->getTypeComponent();
+    return isCompatible(golite::Program::INFER_TYPE->getTypeComponent());
 }
 
 bool golite::TypeComponent::isVoid() {
-    return this == golite::Program::VOID_TYPE->getTypeComponent();
+    return isCompatible(golite::Program::VOID_TYPE->getTypeComponent());
 }
 
 bool golite::TypeComponent::isComparable() {
@@ -106,6 +106,11 @@ bool golite::TypeComponent::isOrdered() {
 
 bool golite::TypeComponent::isNumeric() {
     return isInt() || isFloat64() || isRune();
+}
+
+bool golite::TypeComponent::resolvesToBool() {
+    // TODO
+    return false;
 }
 
 std::string golite::TypeComponent::toPrettySymbol() {

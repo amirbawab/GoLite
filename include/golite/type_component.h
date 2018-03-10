@@ -68,6 +68,12 @@ namespace golite {
         bool isBool();
 
         /**
+         * Check if it resolves to bool
+         * @return true if it does
+         */
+        bool resolvesToBool();
+
+        /**
          * Check if it's an int
          * @return true if it is
          */

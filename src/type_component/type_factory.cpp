@@ -5,12 +5,17 @@
 golite::Type* golite::TypeFactory::createBuiltInType(std::string id) {
     golite::Identifier* type_id = new golite::Identifier(id, -1);
 
+    // Create the built-in type reference
     golite::TypeReference* type_ref = new golite::TypeReference();
     type_ref->setIdentifier(type_id);
-    type_ref->setDeclarableType(new golite::Type(type_id, nullptr));
+    type_ref->setBuiltIn(true);
 
+    // Create the type component to hold the type refence
     golite::TypeComponent* type_component = new golite::TypeComponent();
     type_component->addChild(type_ref);
 
-    return new golite::Type(type_id, type_component);
+    // Build the recursive definition of type_reference -> type
+    Type* built_in_type = new Type(type_id, type_component);
+    type_ref->setDeclarableType(built_in_type);
+    return built_in_type;
 }
