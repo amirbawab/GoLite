@@ -30,9 +30,10 @@ void golite::Block::typeCheck() {
 }
 
 void golite::Block::symbolTablePass(SymbolTable *root) {
-    symbol_table_ = root;
+    symbol_table_ = new SymbolTable();
+    root->addChild(symbol_table_);
     for(Statement* statement : statements_) {
-        statement->symbolTablePass(root);
+        statement->symbolTablePass(symbol_table_);
     }
 }
 

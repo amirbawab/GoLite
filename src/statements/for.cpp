@@ -94,9 +94,7 @@ void golite::For::typeCheck() {
 }
 
 void golite::For::symbolTablePass(SymbolTable *root) {
-    golite::SymbolTable* for_symbol_table = new golite::SymbolTable();
-    symbol_table_ = new golite::SymbolTable();
-    symbol_table_->addChild(for_symbol_table);
+    symbol_table_ = new SymbolTable();
     root->addChild(symbol_table_);
 
     if(left_simple_) {
@@ -111,7 +109,7 @@ void golite::For::symbolTablePass(SymbolTable *root) {
         right_simple_->symbolTablePass(symbol_table_);
     }
 
-    this->block_->symbolTablePass(for_symbol_table);
+    this->block_->symbolTablePass(symbol_table_);
 }
 
 bool golite::For::hasReturn(Declarable* function) {

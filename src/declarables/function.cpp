@@ -54,9 +54,7 @@ void golite::Function::symbolTablePass(golite::SymbolTable *root) {
     }
     root->putSymbol(this->identifier_->getName(), this);
 
-    golite::SymbolTable* fn_symbol_table = new golite::SymbolTable();
-    root->addChild(fn_symbol_table);
-    this->block_->symbolTablePass(fn_symbol_table);
+    this->block_->symbolTablePass(root);
 }
 
 std::string golite::Function::toPrettySymbol() {
