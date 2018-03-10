@@ -22,3 +22,7 @@ void golite::Slice::symbolTablePass(SymbolTable *root) {
 bool golite::Slice::isCompatible(TypeComposite *type_composite) {
     return type_composite->isSlice();
 }
+
+std::string golite::Slice::toPrettySymbol() {
+    return toGoLiteMin();
+}

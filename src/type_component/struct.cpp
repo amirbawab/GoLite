@@ -76,3 +76,7 @@ bool golite::Struct::isCompatible(TypeComposite *type_composite) {
     }
     return true;
 }
+
+std::string golite::Struct::toPrettySymbol() {
+    return toGoLiteMin();
+}

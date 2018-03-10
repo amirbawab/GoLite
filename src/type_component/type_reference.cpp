@@ -39,3 +39,12 @@ bool golite::TypeReference::isCompatible(TypeComposite *type_composite) {
     TypeReference* type_reference = static_cast<TypeReference*>(type_composite);
     return declarable_type_ == type_reference->declarable_type_;
 }
+
+std::string golite::TypeReference::toPrettySymbol() {
+    std::stringstream ss;
+    ss << identifier_->toGoLite(0);
+    if(declarable_type_ && declarable_type_->getTypeComponent()) {
+        ss << " -> " << declarable_type_->getTypeComponent()->toPrettySymbol();
+    }
+    return ss.str();
+}

@@ -68,6 +68,12 @@ namespace golite {
          * @return true if they are
          */
         virtual bool isCompatible(TypeComposite* type_composite) = 0;
+
+        /**
+         * Display output in symbol table format
+         * @return string
+         */
+        virtual std::string toPrettySymbol() = 0;
     };
 }
 

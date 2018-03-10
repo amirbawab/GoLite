@@ -30,3 +30,7 @@ bool golite::Array::isCompatible(TypeComposite *type_composite) {
     Array* array = static_cast<Array*>(type_composite);
     return size_->getValue() == array->size_->getValue();
 }
+
+std::string golite::Array::toPrettySymbol() {
+    return toGoLiteMin();
+}

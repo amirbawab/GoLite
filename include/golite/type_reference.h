@@ -69,6 +69,11 @@ namespace golite {
          * @see TypeComposite::isCompatible()
          */
         bool isCompatible(TypeComposite* type_composite);
+
+        /**
+         * @see TypeComposite::toPrettySymbol()
+         */
+        std::string toPrettySymbol();
     };
 }
 

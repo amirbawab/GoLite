@@ -109,5 +109,13 @@ bool golite::TypeComponent::isNumeric() {
 }
 
 std::string golite::TypeComponent::toPrettySymbol() {
-    return "FIXME";
+    std::stringstream ss;
+    if(children_.empty()) {
+        throw std::runtime_error("Cannot prettify symbol an empty type component");
+    }
+
+    for(size_t i = children_.size(); i > 0; i--) {
+        ss << children_[i-1]->toPrettySymbol();
+    }
+    return ss.str();
 }
