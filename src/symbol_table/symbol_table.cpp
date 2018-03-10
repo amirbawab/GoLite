@@ -72,11 +72,11 @@ std::string golite::SymbolTable::prettyPrint(int indent) {
 
     // show entries
     for(std::string key : entries_keys_) {
-        ss << golite::Utils::indent(indent) << key << " [" << entries_[key]->toPrettySymbol() << "]" << " = "
-           << entries_[key]->getTypeComponent()->toGoLiteMin() << std::endl;
+        ss << golite::Utils::indent(indent) << entries_[key]->toPrettySymbol() << std::endl;
     }
 
     // show nested symbol table
+    // FIXME Make Sure this aligns with the entries
     for(SymbolTable* child : this->children_) {
         ss << child->prettyPrint(indent) << std::endl;
     }

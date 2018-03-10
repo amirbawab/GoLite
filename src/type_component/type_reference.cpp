@@ -25,7 +25,11 @@ void golite::TypeReference::weedingPass() {
 }
 
 void golite::TypeReference::symbolTablePass(SymbolTable *root) {
-    identifier_->symbolTablePass(root);
+    Declarable* declarable = root->getSymbol(identifier_->getName());
+    if(!declarable) {
+        golite::Utils::error_message("Undefined type " + identifier_->getName(), identifier_->getLine());
+    }
+    declarable_type_ = declarable;
 }
 
 bool golite::TypeReference::isCompatible(TypeComposite *type_composite) {

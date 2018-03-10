@@ -107,3 +107,7 @@ bool golite::TypeComponent::isOrdered() {
 bool golite::TypeComponent::isNumeric() {
     return isInt() || isFloat64() || isRune();
 }
+
+std::string golite::TypeComponent::toPrettySymbol() {
+    return "FIXME";
+}

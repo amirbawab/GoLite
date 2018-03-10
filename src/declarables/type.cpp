@@ -31,7 +31,9 @@ void golite::Type::symbolTablePass(SymbolTable *root) {
 }
 
 std::string golite::Type::toPrettySymbol() {
-    return "type";
+    std::stringstream ss;
+    ss << identifier_->getName() << "[type]" << " = " << type_component_->toPrettySymbol();
+    return ss.str();
 }
 
 golite::Type::Type(Identifier *identifier, TypeComponent *type_component) {

@@ -60,5 +60,7 @@ void golite::Function::symbolTablePass(golite::SymbolTable *root) {
 }
 
 std::string golite::Function::toPrettySymbol() {
-    return "func";
+    std::stringstream ss;
+    ss << identifier_->getName() << "[function]" << " = " << type_component_->toPrettySymbol();
+    return ss.str();
 }

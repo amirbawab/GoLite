@@ -39,7 +39,7 @@ void golite::Identifier::symbolTablePass(SymbolTable *root) {
         // check that the identifier actually exists
         Declarable* found_symbol = root->getSymbol(this->getName());
         if(!found_symbol) {
-            golite::Utils::error_message("undefined: " + this->getName(), this->getLine());
+            golite::Utils::error_message("Undefined: " + this->getName(), this->getLine());
         }
     }
 

@@ -105,5 +105,10 @@ void golite::Variable::symbolTablePass(SymbolTable *root) {
 }
 
 std::string golite::Variable::toPrettySymbol() {
-    return "var";
+    std::stringstream ss;
+    if(identifiers_.size() != 1) {
+        throw std::runtime_error("Symbol table variables must be normalized to one identifier per variable");
+    }
+    ss << identifiers_.front()->getName() << "[variable]" << " = " << type_component_->toPrettySymbol();
+    return ss.str();
 }

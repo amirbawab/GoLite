@@ -120,6 +120,12 @@ namespace golite {
          * @return true if it is
          */
         bool isNumeric();
+
+        /**
+         * Prettify type component for symbol table
+         * @return string
+         */
+        std::string toPrettySymbol();
     };
 }
 

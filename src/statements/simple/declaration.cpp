@@ -99,10 +99,8 @@ void golite::Declaration::symbolTablePass(SymbolTable *root) {
 
                 // FIXME Issue #39
                 golite::Variable* var_decl = new golite::Variable();
-                std::vector<golite::Identifier*> identifiers = { id };
-                std::vector<golite::Expression*> expressions = { right_expressions_[i] };
-                var_decl->setIdentifiers(identifiers);
-                var_decl->setExpressions(expressions);
+                var_decl->setIdentifiers({ id });
+                var_decl->setExpressions({ right_expressions_[i] });
                 var_decl->setTypeComponent(golite::Program::INFER_TYPE->getTypeComponent());
                 root->putSymbol(id->getName(), var_decl);
             }
