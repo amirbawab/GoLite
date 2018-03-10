@@ -20,6 +20,5 @@ void golite::Slice::symbolTablePass(SymbolTable *root) {
 }
 
 bool golite::Slice::isCompatible(TypeComposite *type_composite) {
-    // TODO
-    return true;
+    return type_composite->isSlice();
 }

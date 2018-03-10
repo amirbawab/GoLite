@@ -28,6 +28,7 @@ namespace golite {
             return golite::Program::BOOL_BUILTIN_TYPE->getTypeComponent();
         }
         void symbolTablePass(SymbolTable* root) { /*Do nothing*/ }
+        bool getValue() { return value_; }
     };
 
     template <>
@@ -48,6 +49,7 @@ namespace golite {
             return golite::Program::INT_BUILTIN_TYPE->getTypeComponent();
         }
         void symbolTablePass(SymbolTable* root) { /*Do nothing*/ }
+        int getValue() { return value_; }
     };
 
     template <>
@@ -68,6 +70,7 @@ namespace golite {
             return golite::Program::STRING_BUILTIN_TYPE->getTypeComponent();
         }
         void symbolTablePass(SymbolTable* root) { /*Do nothing*/ }
+        char* getValue() { return value_; }
     };
 
     template <>
@@ -88,6 +91,7 @@ namespace golite {
             return golite::Program::FLOAT64_BUILTIN_TYPE->getTypeComponent();
         }
         void symbolTablePass(SymbolTable* root) { /*Do nothing*/ }
+        float getValue() { return value_; }
     };
 }
 

@@ -24,6 +24,9 @@ void golite::Array::symbolTablePass(SymbolTable *root) {
 }
 
 bool golite::Array::isCompatible(TypeComposite *type_composite) {
-    // TODO
-    return true;
+    if(!type_composite->isArray()) {
+        return false;
+    }
+    Array* array = static_cast<Array*>(type_composite);
+    return size_->getValue() == array->size_->getValue();
 }

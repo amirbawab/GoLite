@@ -29,6 +29,9 @@ void golite::TypeReference::symbolTablePass(SymbolTable *root) {
 }
 
 bool golite::TypeReference::isCompatible(TypeComposite *type_composite) {
-    // TODO
-    return true;
+    if(!type_composite->isTypeReference()) {
+        return false;
+    }
+    TypeReference* type_reference = static_cast<TypeReference*>(type_composite);
+    return declarable_type_ == type_reference->declarable_type_;
 }

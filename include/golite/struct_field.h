@@ -48,6 +48,18 @@ namespace golite {
          * @param root
          */
         void symbolTablePass(SymbolTable* root);
+
+        /**
+         * Get identifiers
+         * @return identifiers
+         */
+        std::vector<golite::Identifier*> getIdentifiers() { return identifiers_; }
+
+        /**
+         * Get type component
+         * @return type component
+         */
+        TypeComponent* getTypeComponent() { return type_component_; }
     };
 }
 
