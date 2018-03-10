@@ -54,19 +54,9 @@ bool golite::TypeComponent::isCompatible(TypeComponent *type_component) {
     }
 
     for(size_t i=0; i < children_.size(); i++) {
-
-        // Case of type reference
-        if(children_[i]->isTypeReference()) {
-            if(!type_component->children_[i]->isTypeReference()) {
-                return false;
-            }
-            TypeReference* typeReference1 = static_cast<TypeReference*>(children_[i]);
-            TypeReference* typeReference2 = static_cast<TypeReference*>(type_component->children_[i]);
-            if(typeReference1->getIdentifier()->getName() != typeReference2->getIdentifier()->getName()) {
-                return false;
-            }
+        if(!children_[i]->isCompatible(type_component->children_[i])) {
+            return false;
         }
-        // TODO Complete for other cases
     }
     return true;
 }
