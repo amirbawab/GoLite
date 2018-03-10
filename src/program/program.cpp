@@ -69,3 +69,11 @@ bool golite::Program::isBuiltIn(golite::TypeComponent *type_component) {
            || type_component->isString()
            || type_component->isRune();
 }
+
+bool golite::Program::resolvesToBuiltIn(golite::TypeComponent *type_component) {
+    return type_component->resolvesToInt()
+           || type_component->resolvesToFloat64()
+           || type_component->resolvesToBool()
+           || type_component->resolvesToString()
+           || type_component->resolvesToRune();
+}

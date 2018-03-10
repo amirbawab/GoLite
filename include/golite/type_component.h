@@ -74,12 +74,6 @@ namespace golite {
         bool resolvesTo(Declarable* declarable_type);
 
         /**
-         * Check if resolves to bools
-         * @return true if it does
-         */
-        bool resolvesToBool();
-
-        /**
          * Check if it's an int
          * @return true if it is
          */
@@ -145,6 +139,52 @@ namespace golite {
          * @return true if it is
          */
         bool isTypeReference(std::string name);
+
+        /**
+         * Check if resolves to bools
+         * @return true if it does
+         */
+        bool resolvesToBool();
+
+        /**
+         * Check if resolves to float
+         * @return true if it does
+         */
+        bool resolvesToFloat64();
+
+        /**
+         * Check if resolves to int
+         * @return true if it does
+         */
+        bool resolvesToInt();
+        /**
+         * Check if resolves to string
+         * @return true if it does
+         */
+        bool resolvesToString();
+        /**
+         * Check if resolves to rune
+         * @return true if it does
+         */
+        bool resolvesToRune();
+
+        /**
+         * Check if it's comparable
+         * @return true if it is
+         */
+        bool resolvesToComparable();
+
+        /**
+         * Check if it's ordered
+         * @return true if it is
+         */
+        bool resolvesToOrdered();
+
+        /**
+         * Check if it's numeric
+         * @return true if it is
+         */
+        bool resolvesToNumeric();
     };
 }
 

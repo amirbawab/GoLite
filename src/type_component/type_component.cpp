@@ -115,10 +115,6 @@ bool golite::TypeComponent::resolvesTo(Declarable* declarable) {
     return children_.front()->resolvesTo(declarable);
 }
 
-bool golite::TypeComponent::resolvesToBool() {
-    return resolvesTo(golite::Program::BOOL_BUILTIN_TYPE);
-}
-
 std::string golite::TypeComponent::toPrettySymbol() {
     std::stringstream ss;
     if(children_.empty()) {
@@ -140,4 +136,37 @@ bool golite::TypeComponent::isTypeReference(std::string name) {
     }
     TypeReference* type_reference = static_cast<TypeReference*>(children_.front());
     return type_reference->getIdentifier()->getName() == name;
+}
+
+bool golite::TypeComponent::resolvesToBool() {
+    return resolvesTo(golite::Program::BOOL_BUILTIN_TYPE);
+}
+
+bool golite::TypeComponent::resolvesToFloat64() {
+    return resolvesTo(golite::Program::FLOAT64_BUILTIN_TYPE);
+}
+
+bool golite::TypeComponent::resolvesToInt() {
+    return resolvesTo(golite::Program::INT_BUILTIN_TYPE);
+}
+
+bool golite::TypeComponent::resolvesToString() {
+    return resolvesTo(golite::Program::STRING_BUILTIN_TYPE);
+}
+
+bool golite::TypeComponent::resolvesToRune() {
+    return resolvesTo(golite::Program::RUNE_BUILTIN_TYPE);
+}
+
+bool golite::TypeComponent::resolvesToComparable() {
+    // Everything is comparable
+    return true;
+}
+
+bool golite::TypeComponent::resolvesToOrdered() {
+    return resolvesToInt() || resolvesToFloat64() || resolvesToRune() || resolvesToString();
+}
+
+bool golite::TypeComponent::resolvesToNumeric() {
+    return resolvesToInt() || resolvesToFloat64() || resolvesToRune();
 }

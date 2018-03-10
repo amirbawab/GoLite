@@ -94,6 +94,13 @@ namespace golite {
          * @return true if built-in
          */
         static bool isBuiltIn(golite::TypeComponent* type_component);
+
+        /**
+         * Resolves to built-in
+         * @param type_component
+         * @return true if resolves to built-in
+         */
+        static bool resolvesToBuiltIn(golite::TypeComponent* type_component);
     };
 }
 
