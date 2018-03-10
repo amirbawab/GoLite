@@ -138,6 +138,13 @@ namespace golite {
          * @return string
          */
         std::string toPrettySymbol();
+
+        /**
+         * Check if type component is a type refence that matches the given name
+         * @param name
+         * @return true if it is
+         */
+        bool isTypeReference(std::string name);
     };
 }
 

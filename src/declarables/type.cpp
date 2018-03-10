@@ -27,6 +27,9 @@ void golite::Type::symbolTablePass(SymbolTable *root) {
         golite::Utils::error_message("Type name " + identifier_->getName() + " redeclared in this block", getLine());
     }
     type_component_->symbolTablePass(root);
+    if(type_component_->isTypeReference(identifier_->getName())) {
+        golite::Utils::error_message("Type " + identifier_->getName() + " cannot be recursive", identifier_->getLine());
+    }
     root->putSymbol(this->identifier_->getName(), this);
 }
 

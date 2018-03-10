@@ -130,3 +130,14 @@ std::string golite::TypeComponent::toPrettySymbol() {
     }
     return ss.str();
 }
+
+bool golite::TypeComponent::isTypeReference(std::string name) {
+    if(children_.size() != 1) {
+        return false;
+    }
+    if(!children_.front()->isTypeReference()) {
+        return false;
+    }
+    TypeReference* type_reference = static_cast<TypeReference*>(children_.front());
+    return type_reference->getIdentifier()->getName() == name;
+}
