@@ -33,7 +33,7 @@ void golite::Program::weedingPass() {
 }
 
 void golite::Program::initializeSymbolTable() {
-    this->root_symbol_table_ = new SymbolTable();
+    this->root_symbol_table_ = new SymbolTable(nullptr);
 
     // append built-in type
     this->root_symbol_table_->putSymbol(INT_BUILTIN_TYPE->getIdentifier()->getName(), INT_BUILTIN_TYPE);
@@ -45,8 +45,7 @@ void golite::Program::initializeSymbolTable() {
 
 void golite::Program::symbolTablePass() {
     this->initializeSymbolTable();
-    SymbolTable* program_symbol_table = new SymbolTable();
-    root_symbol_table_->addChild(program_symbol_table);
+    SymbolTable* program_symbol_table = new SymbolTable(root_symbol_table_);
     for(Declarable* declarable: declarables_) {
         declarable->symbolTablePass(program_symbol_table);
     }
@@ -59,7 +58,7 @@ void golite::Program::typeCheck() {
 }
 
 std::string golite::Program::prettifySymbolTable(int indent) {
-    return root_symbol_table_->prettyPrint(indent);
+    return root_symbol_table_->toPrettySymbol(indent);
 }
 
 bool golite::Program::isBuiltIn(golite::TypeComponent *type_component) {

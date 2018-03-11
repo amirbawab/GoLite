@@ -9,7 +9,6 @@ namespace golite {
     private:
         std::vector<Statement*> statements_;
         int line_;
-        SymbolTable* symbol_table_;
 
     public:
         Block(int line) : line_(line) {}
@@ -55,12 +54,6 @@ namespace golite {
          * @see Statement::symbolTablePass()
          */
         void symbolTablePass(SymbolTable* root);
-
-        /**
-         * Get symbol table
-         * @return symbol table
-         */
-        SymbolTable* getSymbolTable() const { return symbol_table_; }
 
         /**
          * @see Statement::hasReturn()

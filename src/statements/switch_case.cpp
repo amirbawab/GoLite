@@ -54,7 +54,8 @@ void golite::SwitchCase::symbolTablePass(SymbolTable *root) {
         expr->symbolTablePass(root);
     }
 
-    block_->symbolTablePass(root);
+    SymbolTable* block_table = new SymbolTable(root);
+    block_->symbolTablePass(block_table);
 }
 
 bool golite::SwitchCase::hasReturn(Declarable* function) {

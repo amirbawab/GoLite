@@ -12,7 +12,6 @@ namespace golite {
         Simple* left_simple_ = nullptr;
         Simple* right_simple_ = nullptr;
         Expression* expression_ = nullptr;
-        SymbolTable* symbol_table_ = nullptr;
         int line_;
     public:
         For(int line) : line_(line) {}

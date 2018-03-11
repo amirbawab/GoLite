@@ -1,6 +1,7 @@
 #include <golite/function_param.h>
 #include <golite/utils.h>
 #include <golite/pretty_helper.h>
+#include <golite/variable.h>
 
 std::string golite::FunctionParam::toGoLite(int indent) {
     std::stringstream ss;
@@ -17,5 +18,17 @@ void golite::FunctionParam::weedingPass() {
 }
 
 void golite::FunctionParam::symbolTablePass(SymbolTable *root) {
+    for(Identifier* identifier : identifiers_) {
+        if(!identifier->isBlank()) {
+            if(root->hasSymbol(identifier->getName(), false)) {
+                golite::Utils::error_message("Parameter name " + identifier->getName()
+                                             + " redeclared in this block", identifier->getLine());
+            }
+            golite::Variable* variable = new golite::Variable();
+            variable->setIdentifiers({identifier});
+            variable->setTypeComponent(type_component_);
+            root->putSymbol(identifier->getName(), variable);
+        }
+    }
     type_component_->symbolTablePass(root);
 }

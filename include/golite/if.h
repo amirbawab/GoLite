@@ -17,7 +17,6 @@ namespace golite {
         std::vector<If*> else_if_;
         Block* else_ = nullptr;
         Simple* simple_ = nullptr;
-        SymbolTable* symbol_table_ = nullptr;
         int line_;
     public:
         If(int line) : line_(line) {}

@@ -12,16 +12,12 @@ namespace golite {
     class SymbolTable {
     private:
         SymbolTable* parent_ = nullptr;
-        std::vector<SymbolTable*> children_; // symbol table may have multiple children
+        std::map<std::string, SymbolTable*> tables_;
         std::map<std::string, Declarable*> entries_;
         std::vector<std::string> entries_keys_;
 
     public:
-        /**
-         * Adds a Symbol table as a child to the current sym table
-         * @param table
-         */
-        void addChild(SymbolTable* table);
+        SymbolTable(SymbolTable* parent);
 
         /**
          * Puts a new symbol in this sym table
@@ -29,6 +25,12 @@ namespace golite {
          * @param decl
          */
         void putSymbol(std::string name, Declarable* decl);
+
+        /**
+         * Puts a new table
+         * @param table
+         */
+        void putTable(SymbolTable* table);
 
         /**
          * Check whether the current sym table (or one of its parent, if specified) has a given symbol
@@ -63,7 +65,12 @@ namespace golite {
          */
         SymbolTable* getSymbolTable(std::string name, bool search_in_parent = true);
 
-        std::string prettyPrint(int indent = 0);
+        /**
+         * Prettify symbol table
+         * @param indent
+         * @return string
+         */
+        std::string toPrettySymbol(int indent);
     };
 }
 

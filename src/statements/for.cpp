@@ -94,22 +94,21 @@ void golite::For::typeCheck() {
 }
 
 void golite::For::symbolTablePass(SymbolTable *root) {
-    symbol_table_ = new SymbolTable();
-    root->addChild(symbol_table_);
-
+    SymbolTable* for_outer_table = new SymbolTable(root);
     if(left_simple_) {
-        left_simple_->symbolTablePass(symbol_table_);
+        left_simple_->symbolTablePass(for_outer_table);
     }
 
     if(expression_) {
-        expression_->symbolTablePass(symbol_table_);
+        expression_->symbolTablePass(for_outer_table);
     }
 
     if(right_simple_) {
-        right_simple_->symbolTablePass(symbol_table_);
+        right_simple_->symbolTablePass(for_outer_table);
     }
 
-    this->block_->symbolTablePass(symbol_table_);
+    SymbolTable* for_inner_table = new SymbolTable(for_outer_table);
+    this->block_->symbolTablePass(for_inner_table);
 }
 
 bool golite::For::hasReturn(Declarable* function) {

@@ -12,7 +12,6 @@ namespace golite {
         Simple* simple_ = nullptr;
         Expression* expression_ = nullptr;
         std::vector<SwitchCase*> cases_;
-        SymbolTable* symbol_table_ = nullptr;
         int line_;
 
     public:

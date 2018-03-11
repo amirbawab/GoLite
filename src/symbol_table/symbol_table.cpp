@@ -1,10 +1,13 @@
 #include <golite/symbol_table.h>
 #include <golite/declarable.h>
 #include <golite/utils.h>
+#include <iostream>
 
-void golite::SymbolTable::addChild(SymbolTable *table) {
-    table->parent_ = this;
-    this->children_.push_back(table);
+golite::SymbolTable::SymbolTable(SymbolTable *parent) {
+    parent_ = parent;
+    if(parent) {
+        parent->putTable(this);
+    }
 }
 
 void golite::SymbolTable::putSymbol(std::string name, golite::Declarable *decl) {
@@ -13,6 +16,12 @@ void golite::SymbolTable::putSymbol(std::string name, golite::Declarable *decl) 
     }
     this->entries_[name] = decl;
     this->entries_keys_.push_back(name);
+}
+
+void golite::SymbolTable::putTable(SymbolTable *table) {
+    std::string unique_key = " ~ " + std::to_string(entries_keys_.size()) + " ~ ";
+    tables_[unique_key] = table;
+    entries_keys_.push_back(unique_key);
 }
 
 golite::Declarable* golite::SymbolTable::getSymbol(std::string name, bool search_in_parent) {
@@ -65,20 +74,20 @@ bool golite::SymbolTable::hasSymbol(std::string name, bool search_in_parent) {
     return this->getSymbol(name, search_in_parent) != nullptr;
 }
 
-std::string golite::SymbolTable::prettyPrint(int indent) {
+std::string golite::SymbolTable::toPrettySymbol(int indent) {
     std::stringstream ss;
     ss << golite::Utils::indent(indent) << "{" << std::endl;
     indent++;
 
     // show entries
     for(std::string key : entries_keys_) {
-        ss << golite::Utils::indent(indent) << entries_[key]->toPrettySymbol() << std::endl;
-    }
+        if(entries_.find(key) != entries_.end()) {
+            ss << golite::Utils::indent(indent) << entries_[key]->toPrettySymbol() << std::endl;
+        }
 
-    // show nested symbol table
-    // FIXME Make Sure this aligns with the entries
-    for(SymbolTable* child : this->children_) {
-        ss << child->prettyPrint(indent) << std::endl;
+        if(tables_.find(key) != tables_.end()) {
+            ss << tables_[key]->toPrettySymbol(indent);
+        }
     }
 
     indent--;

@@ -45,21 +45,22 @@ void golite::Function::symbolTablePass(golite::SymbolTable *root) {
                                      identifier_->getLine()); // TODO: fix me. Amir: looks good to me!
     }
 
+    root->putSymbol(this->identifier_->getName(), this);
+    SymbolTable* function_block_table = new SymbolTable(root);
     for(FunctionParam* param : params_) {
-        param->symbolTablePass(root);
+        param->symbolTablePass(function_block_table);
     }
 
     if(!type_component_->isVoid()) {
         type_component_->symbolTablePass(root);
     }
-    root->putSymbol(this->identifier_->getName(), this);
 
-    this->block_->symbolTablePass(root);
+    this->block_->symbolTablePass(function_block_table);
 }
 
 std::string golite::Function::toPrettySymbol() {
     std::stringstream ss;
-    ss << identifier_->getName() << " [function] ";
+    ss << identifier_->getName() << " [function] = ";
     if(type_component_->isVoid()) {
         ss << "<void>";
     } else {

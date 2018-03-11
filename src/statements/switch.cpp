@@ -79,19 +79,18 @@ void golite::Switch::typeCheck() {
 }
 
 void golite::Switch::symbolTablePass(golite::SymbolTable *root) {
-    symbol_table_ = new SymbolTable();
-    root->addChild(symbol_table_);
+    SymbolTable* switch_outer_table = new SymbolTable(root);
 
     if(this->simple_) {
-        this->simple_->symbolTablePass(symbol_table_);
+        this->simple_->symbolTablePass(switch_outer_table);
     }
 
     if(this->expression_) {
-        this->expression_->symbolTablePass(symbol_table_);
+        this->expression_->symbolTablePass(switch_outer_table);
     }
 
     for(golite::SwitchCase* switch_case : this->cases_) {
-        switch_case->symbolTablePass(symbol_table_);
+        switch_case->symbolTablePass(switch_outer_table);
     }
 }
 

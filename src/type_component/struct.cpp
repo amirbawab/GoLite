@@ -37,8 +37,7 @@ void golite::Struct::weedingPass() {
 }
 
 void golite::Struct::symbolTablePass(SymbolTable *root) {
-    SymbolTable* symbol_table = new golite::SymbolTable();
-    root->addChild(symbol_table);
+    SymbolTable* symbol_table = new golite::SymbolTable(root);
     for(StructField* field : fields_) {
         field->symbolTablePass(symbol_table);
     }
