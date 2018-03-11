@@ -68,3 +68,14 @@ bool golite::TypeReference::resolvesTo(Declarable* declarable) {
     }
     return declarable_type_->getTypeComponent()->resolvesTo(declarable);
 }
+
+std::vector<golite::TypeComposite*> golite::TypeReference::resolveChildren() {
+    if(built_in_) {
+        return {this};
+    }
+    if(!declarable_type_ || !declarable_type_->getTypeComponent()) {
+        throw std::runtime_error("Cannot resolve children because declarable or declarable type is empty. "
+                                         "Verify symbol table pass.");
+    }
+    return declarable_type_->getTypeComponent()->resolveChildren();
+}

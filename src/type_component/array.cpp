@@ -34,3 +34,7 @@ bool golite::Array::isCompatible(TypeComposite *type_composite) {
 std::string golite::Array::toPrettySymbol() {
     return toGoLiteMin();
 }
+
+std::vector<golite::TypeComposite*> golite::Array::resolveChildren() {
+    return {this};
+}

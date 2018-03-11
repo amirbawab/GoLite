@@ -88,6 +88,11 @@ namespace golite {
          * @return true if it is
          */
         bool resolvesTo(Declarable* declarable);
+
+        /**
+         * @see TypeComposite::resolveChildren()
+         */
+        std::vector<golite::TypeComposite*> resolveChildren();
     };
 }
 

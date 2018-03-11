@@ -170,3 +170,12 @@ bool golite::TypeComponent::resolvesToOrdered() {
 bool golite::TypeComponent::resolvesToNumeric() {
     return resolvesToInt() || resolvesToFloat64() || resolvesToRune();
 }
+
+std::vector<golite::TypeComposite*> golite::TypeComponent::resolveChildren() {
+    std::vector<golite::TypeComposite*> children;
+    for(size_t i=0; i < children_.size(); i++) {
+        std::vector<golite::TypeComposite*> resolved_children = children_[i]->resolveChildren();
+        children.insert(children.end(), resolved_children.begin(), resolved_children.end());
+    }
+    return children;
+}

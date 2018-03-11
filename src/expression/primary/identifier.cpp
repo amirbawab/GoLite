@@ -51,7 +51,7 @@ void golite::Identifier::updateTypeInSymbolTable(TypeComponent *new_type, bool s
     symbol_table_->updateSymbol(getName(), new_declarable, search_in_parent);
 }
 
-Declarable* golite::Identifier::getSymbolTableEntry() {
+golite::Declarable* golite::Identifier::getSymbolTableEntry() {
     if(!symbol_table_) {
         throw std::runtime_error("Cannot get symbol table entry because symbol table was not set. "
                                          "Verify symbol table pass.");

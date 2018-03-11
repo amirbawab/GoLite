@@ -49,6 +49,12 @@ namespace golite {
         std::vector<golite::TypeComposite*> getChildren() { return children_; }
 
         /**
+         * Resolve children recursively
+         * @return vector
+         */
+        std::vector<golite::TypeComposite*> resolveChildren();
+
+        /**
          * Check if a type component is comaptible with this
          * @param type_component
          * @return true if they are compatible

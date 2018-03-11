@@ -81,6 +81,12 @@ namespace golite {
          * @return true if it does
          */
         virtual bool resolvesTo(Declarable* declarable) { return false; }
+
+        /**
+         * Resolve children
+         * @return children
+         */
+        virtual std::vector<TypeComposite*> resolveChildren() = 0;
     };
 }
 

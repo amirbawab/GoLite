@@ -56,6 +56,11 @@ namespace golite {
          * @see TypeComposite::toPrettySymbol()
          */
         std::string toPrettySymbol();
+
+        /**
+         * @see TypeComposite::resolveChildren()
+         */
+        std::vector<golite::TypeComposite*> resolveChildren();
     };
 }
 
