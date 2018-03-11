@@ -41,6 +41,20 @@ void golite::Program::initializeSymbolTable() {
     this->root_symbol_table_->putSymbol(RUNE_BUILTIN_TYPE->getIdentifier()->getName(), RUNE_BUILTIN_TYPE);
     this->root_symbol_table_->putSymbol(BOOL_BUILTIN_TYPE->getIdentifier()->getName(), BOOL_BUILTIN_TYPE);
     this->root_symbol_table_->putSymbol(STRING_BUILTIN_TYPE->getIdentifier()->getName(), STRING_BUILTIN_TYPE);
+
+    // append true
+    Variable* true_var = new Variable();
+    Identifier* true_id = new Identifier("true", -1);
+    true_var->setTypeComponent(Program::BOOL_BUILTIN_TYPE->getTypeComponent());
+    true_var->setIdentifiers({true_id});
+    this->root_symbol_table_->putSymbol(true_id->getName(), true_var);
+
+    // append false
+    Variable* false_var = new Variable();
+    Identifier* false_id = new Identifier("false", -1);
+    false_var->setTypeComponent(Program::BOOL_BUILTIN_TYPE->getTypeComponent());
+    false_var->setIdentifiers({false_id});
+    this->root_symbol_table_->putSymbol(false_id->getName(), false_var);
 }
 
 void golite::Program::symbolTablePass() {

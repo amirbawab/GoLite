@@ -73,6 +73,12 @@ namespace golite {
          * @see Declarable::toPrettySymbol()
          */
         std::string toPrettySymbol();
+
+        /**
+         * Get identifiers
+         * @return identifiers
+         */
+        std::vector<golite::Identifier*> getIdentifiers() { return identifiers_; }
     };
 }
 
