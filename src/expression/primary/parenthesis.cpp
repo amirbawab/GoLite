@@ -28,3 +28,15 @@ golite::TypeComponent* golite::Parenthesis::typeCheck() {
 void golite::Parenthesis::symbolTablePass(SymbolTable *root) {
     this->expression_->symbolTablePass(root);
 }
+
+golite::Expression* golite::Parenthesis::resolveExpression() {
+    if(expression_->isParenthesis()) {
+        if(!expression_->isPrimaryExpression()) {
+            throw std::runtime_error("Unhandled cast for resolve expression");
+        }
+        PrimaryExpression* primary_expression = static_cast<PrimaryExpression*>(expression_);
+        Parenthesis* parenthesis = static_cast<Parenthesis*>(primary_expression->getChildren().back());
+        return parenthesis->resolveExpression();
+    }
+    return expression_;
+}

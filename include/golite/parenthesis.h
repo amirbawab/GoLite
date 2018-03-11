@@ -17,6 +17,12 @@ namespace golite {
         Expression* getExpression() const { return expression_; }
 
         /**
+         * Get non-parenthesis expression
+         * @return expression
+         */
+        Expression* resolveExpression();
+
+        /**
          * @see Expression::toGoLite(int)
          */
         std::string toGoLite(int indent);
@@ -38,12 +44,12 @@ namespace golite {
         golite::TypeComponent* typeCheck();
 
         /**
-         * @see Statement::symbolTablePass()
+         * @see Expression::symbolTablePass()
          */
         void symbolTablePass(SymbolTable* root);
 
         /**
-         * @see Primary::isParenthesis()
+         * @see Expression::isParenthesis()
          */
         bool isParenthesis() { return true; }
     };
