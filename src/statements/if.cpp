@@ -96,9 +96,9 @@ void golite::If::typeCheck() {
         simple_->typeCheck();
     }
 
-    TypeComponent *type_component = expression_->typeCheck();
-    if (!type_component->resolvesToBool()) {
-        golite::Utils::error_message("If condition must evaluate to a bool but given " + type_component->toGoLiteMin(),
+    TypeComponent* expression_type = expression_->typeCheck();
+    if (!expression_type->resolvesToBool()) {
+        golite::Utils::error_message("If condition must evaluate to a bool but given " + expression_type->toGoLiteMin(),
                                      expression_->getLine());
     }
     block_->typeCheck();

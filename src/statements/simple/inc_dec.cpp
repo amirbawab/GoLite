@@ -29,9 +29,9 @@ void golite::IncDec::weedingPass(bool, bool) {
 
 void golite::IncDec::typeCheck() {
     TypeComponent* expression_type = expression_->typeCheck();
-    // TODO Verify it's an identifier
-    if(!expression_type->isInt()) {
-        golite::Utils::error_message("Increment and decrement statement expect an integer expression but given "
+    // TODO expression_type->resolveToIdentifier()
+    if(!expression_type->resolvesToNumeric()) {
+        golite::Utils::error_message("Increment and decrement statement must resolve to a numeric but given "
                                      + expression_type->toGoLiteMin(), expression_->getLine());
     }
 }

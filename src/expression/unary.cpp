@@ -41,21 +41,21 @@ golite::TypeComponent* golite::Unary::typeCheck() {
     switch (kind_) {
         case PLUS:
         case MINUS:
-            if(!operand_type->isNumeric()) {
-                golite::Utils::error_message("Unary operation + and - expects a numeric expression but given "
-                                             + operand_type->toGoLiteMin(), getLine());
+            if(!operand_type->resolvesToNumeric()) {
+                golite::Utils::error_message("Unary operation + and - expects an operand that resolves to a numeric "
+                                                     "expression but given " + operand_type->toGoLiteMin(), getLine());
             }
             break;
         case NOT:
-            if(!operand_type->isBool()) {
-                golite::Utils::error_message("Unary operation ! expects a boolean expression but given "
-                                             + operand_type->toGoLiteMin(), getLine());
+            if(!operand_type->resolvesToBool()) {
+                golite::Utils::error_message("Unary operation ! expects an operand that resolves to a boolean "
+                                                     "expression but given " + operand_type->toGoLiteMin(), getLine());
             }
             break;
         case XOR:
-            if(!operand_type->isInt() && !operand_type->isRune()) {
-                golite::Utils::error_message("Unary operation ^ expects an int or a rune expression but given "
-                                             + operand_type->toGoLiteMin(), getLine());
+            if(!operand_type->resolvesToInt() && !operand_type->resolvesToRune()) {
+                golite::Utils::error_message("Unary operation ^ expects an operand that resolves to an int or a rune "
+                                                     "expression but given " + operand_type->toGoLiteMin(), getLine());
             }
             break;
     }

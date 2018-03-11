@@ -81,7 +81,7 @@ void golite::For::typeCheck() {
 
     if(expression_) {
         TypeComponent *type_component_ = expression_->typeCheck();
-        if (type_component_->isBool()) {
+        if (!type_component_->resolvesToBool()) {
             golite::Utils::error_message("For condition must evaluate to bool but given "
                                          + type_component_->toGoLiteMin(), expression_->getLine());
         }
