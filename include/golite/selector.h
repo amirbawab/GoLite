@@ -18,6 +18,12 @@ namespace golite {
         void setIdentifier(Identifier* identifier) { identifier_ = identifier; }
 
         /**
+         * Get identifier
+         * @return identifier
+         */
+        Identifier* getIdentifier() const { return identifier_; }
+
+        /**
          * @see Expression::toGoLite(int)
          */
         std::string toGoLite(int indent);
