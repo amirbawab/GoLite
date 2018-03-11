@@ -24,14 +24,7 @@ golite::TypeComponent* golite::Identifier::typeCheck() {
     if(isBlank()) {
         throw std::runtime_error("Cannot call type check on blank identifier");
     }
-    if(!symbol_table_) {
-        throw std::runtime_error("Symbol table is not set. Verify symbol table pass.");
-    }
-    Declarable* declarable = symbol_table_->getSymbol(getName());
-    if(!declarable) {
-        throw std::runtime_error("Identifier not found in symbol table. Verify symbol table pass.");
-    }
-    return declarable->getTypeComponent();
+    return getSymbolTableEntry()->getTypeComponent();
 }
 
 void golite::Identifier::symbolTablePass(SymbolTable *root) {
@@ -56,4 +49,18 @@ void golite::Identifier::updateTypeInSymbolTable(TypeComponent *new_type, bool s
         throw std::runtime_error("Symbol table was not set. Verify symbol table pass.");
     }
     symbol_table_->updateSymbol(getName(), new_declarable, search_in_parent);
+}
+
+Declarable* golite::Identifier::getSymbolTableEntry() {
+    if(!symbol_table_) {
+        throw std::runtime_error("Cannot get symbol table entry because symbol table was not set. "
+                                         "Verify symbol table pass.");
+    }
+
+    Declarable* declarable = symbol_table_->getSymbol(getName());
+    if(!declarable) {
+        throw std::runtime_error("Identifier not found in symbol table while getting symbol table. "
+                                         "Verify symbol table pass.");
+    }
+    return declarable;
 }

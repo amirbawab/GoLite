@@ -63,6 +63,12 @@ namespace golite {
          * @param search_in_parent
          */
         void updateTypeInSymbolTable(TypeComponent* new_type, bool search_in_parent = true);
+
+        /**
+         * Get symbol table entry
+         * @return declarable
+         */
+        Declarable* getSymbolTableEntry();
     };
 }
 
