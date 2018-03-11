@@ -22,6 +22,10 @@ void golite::Index::weedingPass() {
 }
 
 golite::TypeComponent* golite::Index::typeCheck() {
+    TypeComponent* expresstion_type = expression_->typeCheck();
+    if(!expresstion_type->resolvesToInt()) {
+        golite::Utils::error_message("Index expression must resolve to an int", expression_->getLine());
+    }
     return nullptr;
 }
 
