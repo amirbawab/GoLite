@@ -3,6 +3,8 @@
 #include <golite/identifier.h>
 #include <sstream>
 #include <iostream>
+#include <golite/selector.h>
+#include <golite/parenthesis.h>
 
 void golite::PrimaryExpression::addChild(golite::Primary *child) {
     children_.push_back(child);
@@ -32,6 +34,8 @@ bool golite::PrimaryExpression::isFunctionCall() {
 }
 
 bool golite::PrimaryExpression::isIdentifier() {
+    // TODO Check if we can resolve inside parenthesis. Refactor required if applied
+    // TODO Or maybe create another method called resolvesToIdentifier()
     if(children_.empty()) {
         throw std::runtime_error("Cannot check if primary expression is an identifier because children list is empty");
     }
@@ -68,30 +72,25 @@ golite::TypeComponent* golite::PrimaryExpression::typeCheck() {
     }
 
     // Get the type of the first element
-    Declarable* declarable = nullptr;
+    Expression* base_expression = nullptr;
     std::vector<golite::TypeComposite*> type_composites;
-    for(size_t i=0; i < children_.size(); i++) {
-
-        // Get child type information
-        Primary* child = children_[i];
-        TypeComponent* child_type = child->typeCheck();
-        std::vector<TypeComposite*> child_type_children = child_type->getChildren();
-
-        // TODO
-        if(child->isSelector()) {
-
-        } else if(child->isIdentifier()) {
-            type_composites.insert(type_composites.end(), child_type_children.begin(), child_type_children.end());
-        } else if(child->isLiteral()) {
-
-        } else if(child->isIndex()) {
-
-        } else if(child->isFunctionCall()) {
-
-        } else if(child->isAppend()) {
-
-        } else if(child->isParenthesis()) {
-
+    for(size_t i = 0; i < children_.size(); i++) {
+        TypeComponent* child_type = children_[i]->typeCheck();
+        if(children_[i]->isSelector()) {
+            base_expression = children_[i];
+        } else if(children_[i]->isIdentifier()) {
+            std::vector<TypeComposite*> type_children = child_type->getChildren();
+            type_composites.insert(type_composites.end(), type_children.begin(), type_children.end());
+            base_expression = children_[i];
+        } else if(children_[i]->isLiteral()) {
+            std::vector<TypeComposite*> type_children = child_type->getChildren();
+            base_expression = children_[i];
+        } else if(children_[i]->isIndex()) {
+        } else if(children_[i]->isFunctionCall()) {
+        } else if(children_[i]->isAppend()) {
+            base_expression = children_[i];
+        } else if(children_[i]->isParenthesis()) {
+            base_expression = children_[i];
         } else {
             throw std::runtime_error("Unhandled type check for an unrecognized child type");
         }
@@ -106,4 +105,14 @@ void golite::PrimaryExpression::symbolTablePass(SymbolTable *root) {
     }
     children_.front()->symbolTablePass(root);
     // The rest of the primary expression children are handled by the type checking pass
+}
+
+bool golite::PrimaryExpression::isParenthesis() {
+    if(children_.empty()) {
+        throw std::runtime_error("Cannot check if primary expression is a parenthesis because children list is empty");
+    }
+    if(children_.size() != 1) {
+        return false;
+    }
+    return children_.back()->isParenthesis();
 }

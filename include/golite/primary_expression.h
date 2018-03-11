@@ -67,6 +67,11 @@ namespace golite {
          * @see Expression::isPrimaryExpression()
          */
         bool isPrimaryExpression() { return true; }
+
+        /**
+         * @see Expression::isParenthesis()
+         */
+        bool isParenthesis();
     };
 }
 

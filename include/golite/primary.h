@@ -31,12 +31,6 @@ namespace golite {
          * @return true if it is
          */
         virtual bool isAppend() { return false; }
-
-        /**
-         * Check if primary is a parenthesis
-         * @return true if it is
-         */
-        virtual bool isParenthesis() { return false; }
     };
 }
 

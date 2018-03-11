@@ -53,6 +53,12 @@ namespace golite {
         virtual bool isBlank() { return false; }
 
         /**
+         * Check if expression is a parenthesis
+         * @return true if it is
+         */
+        virtual bool isParenthesis() { return false; }
+
+        /**
          * Get line number
          * @return line number
          */
