@@ -41,6 +41,11 @@ namespace golite {
          * @see Statement::symbolTablePass()
          */
         void symbolTablePass(SymbolTable* root);
+
+        /**
+         * @see Primary::isParenthesis()
+         */
+        bool isParenthesis() { return true; }
     };
 }
 

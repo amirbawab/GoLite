@@ -32,6 +32,9 @@ void golite::Append::weedingPass() {
 }
 
 golite::TypeComponent* golite::Append::typeCheck() {
+    TypeComponent* left_expression_type = left_expression_->typeCheck();
+    TypeComponent* right_expression_type = right_expression_->typeCheck();
+    // TODO
     return nullptr;
 }
 

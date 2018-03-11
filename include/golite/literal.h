@@ -29,6 +29,7 @@ namespace golite {
         }
         void symbolTablePass(SymbolTable* root) { /*Do nothing*/ }
         bool getValue() { return value_; }
+        bool isLiteral() { return true; }
     };
 
     template <>
@@ -50,6 +51,7 @@ namespace golite {
         }
         void symbolTablePass(SymbolTable* root) { /*Do nothing*/ }
         int getValue() { return value_; }
+        bool isLiteral() { return true; }
     };
 
     template <>
@@ -71,6 +73,7 @@ namespace golite {
         }
         void symbolTablePass(SymbolTable* root) { /*Do nothing*/ }
         char* getValue() { return value_; }
+        bool isLiteral() { return true; }
     };
 
     template <>
@@ -92,6 +95,7 @@ namespace golite {
         }
         void symbolTablePass(SymbolTable* root) { /*Do nothing*/ }
         float getValue() { return value_; }
+        bool isLiteral() { return true; }
     };
 }
 

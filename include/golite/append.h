@@ -47,6 +47,11 @@ namespace golite {
          * @see Statement::symbolTablePass
          */
         void symbolTablePass(SymbolTable* root);
+
+        /**
+         * @see Primary::isAppend()
+         */
+        bool isAppend() { return true; }
     private:
         Expression* left_expression_ = nullptr;
         Expression* right_expression_ = nullptr;

@@ -44,9 +44,14 @@ namespace golite {
         golite::TypeComponent* typeCheck();
 
         /**
-         * @see Statement::symbolTablePass()
+         * @see Expression::symbolTablePass()
          */
         void symbolTablePass(SymbolTable* root);
+
+        /**
+         * @see Primary::isIndex()
+         */
+        bool isIndex() { return true; }
     };
 }
 
