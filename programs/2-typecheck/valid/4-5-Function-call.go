@@ -40,6 +40,10 @@ func f9() struct { a []int; } {
     return a
 }
 
+func f10(a int) int {
+    return 1
+}
+
 func main() {
     var a int = f1()
     var b float64 = f2()
@@ -50,4 +54,5 @@ func main() {
     var f INT = f7()
     var g []int = f8()[0]
     var h int = f9().a[0];
+    var i int = f10(f1());
 }
