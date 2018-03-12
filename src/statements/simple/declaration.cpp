@@ -76,6 +76,10 @@ void golite::Declaration::symbolTablePass(SymbolTable *root) {
         throw std::runtime_error("Wrong number of left and right elements. Verify weeding pass.");
     }
 
+    for(Expression* expression : right_expressions_) {
+        expression->symbolTablePass(root);
+    }
+
     bool new_var = false;
     for(size_t i=0; i < left_identifiers_.size(); i++) {
 
@@ -106,7 +110,6 @@ void golite::Declaration::symbolTablePass(SymbolTable *root) {
             }
         }
         left_identifiers_[i]->symbolTablePass(root);
-        right_expressions_[i]->symbolTablePass(root);
     }
 
     // make sure there's at least one new variable

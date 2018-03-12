@@ -85,6 +85,10 @@ void golite::Variable::typeCheck() {
 }
 
 void golite::Variable::symbolTablePass(SymbolTable *root) {
+    for(golite::Expression* expression : expressions_) {
+        expression->symbolTablePass(root);
+    }
+
     for(golite::Identifier* id : this->identifiers_) {
         if(!id->isBlank()) {
             // search for an existing symbol in current scope
@@ -97,10 +101,6 @@ void golite::Variable::symbolTablePass(SymbolTable *root) {
 
     if(!type_component_->isInfer()) {
         type_component_->symbolTablePass(root);
-    }
-
-    for(golite::Expression* expression : expressions_) {
-        expression->symbolTablePass(root);
     }
 }
 
