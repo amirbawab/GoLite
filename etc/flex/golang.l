@@ -177,7 +177,9 @@ continue        { golite::Utils::log_token("tCONTINUE"); yylval.g_line.line = yy
 '((\\[abfnrtv\\\'])|[^\\'])' {
     // Rune/Character
     golite::Utils::log_token("tRUNE", yytext);
-    yylval.g_expression = new golite::Literal<char*>(strdup(yytext), yylineno);
+    golite::Literal<char*>* rune = new golite::Literal<char*>(strdup(yytext), yylineno);
+    rune->setRune(true);
+    yylval.g_expression = rune;
     return fToken(tRUNE);
 }
 

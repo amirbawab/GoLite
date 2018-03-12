@@ -58,6 +58,7 @@ namespace golite {
     class Literal<char*> : public Primary {
     private:
         char* value_;
+        bool f_rune_ = false;
         int line_;
     public:
         Literal(char* value, int line) : value_(value), line_(line){}
@@ -69,11 +70,15 @@ namespace golite {
         int getLine() { return line_; }
         void weedingPass() { /*Do nothing*/ }
         golite::TypeComponent* typeCheck() {
+            if(f_rune_) {
+                return golite::Program::RUNE_BUILTIN_TYPE->getTypeComponent();
+            }
             return golite::Program::STRING_BUILTIN_TYPE->getTypeComponent();
         }
         void symbolTablePass(SymbolTable* root) { /*Do nothing*/ }
         char* getValue() { return value_; }
         bool isLiteral() { return true; }
+        void setRune(bool f_rune) { f_rune_ = f_rune; }
     };
 
     template <>
