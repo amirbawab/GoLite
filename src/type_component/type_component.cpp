@@ -179,3 +179,19 @@ std::vector<golite::TypeComposite*> golite::TypeComponent::resolveChildren() {
     }
     return children;
 }
+
+bool golite::TypeComponent::isBaseType() {
+    return isInt()
+           || isFloat64()
+           || isBool()
+           || isString()
+           || isRune();
+}
+
+bool golite::TypeComponent::resolvesToBaseType() {
+    return resolvesToInt()
+           || resolvesToFloat64()
+           || resolvesToBool()
+           || resolvesToString()
+           || resolvesToRune();
+}

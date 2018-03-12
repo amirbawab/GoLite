@@ -87,20 +87,6 @@ namespace golite {
          * @return symbol table string representation
          */
         std::string prettifySymbolTable(int indent);
-
-        /**
-         * Check if type component is built-in
-         * @param type_component
-         * @return true if built-in
-         */
-        static bool isBuiltIn(golite::TypeComponent* type_component);
-
-        /**
-         * Resolves to built-in
-         * @param type_component
-         * @return true if resolves to built-in
-         */
-        static bool resolvesToBuiltIn(golite::TypeComponent* type_component);
     };
 }
 

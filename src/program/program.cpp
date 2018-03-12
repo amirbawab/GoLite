@@ -74,19 +74,3 @@ void golite::Program::typeCheck() {
 std::string golite::Program::prettifySymbolTable(int indent) {
     return root_symbol_table_->toPrettySymbol(indent);
 }
-
-bool golite::Program::isBuiltIn(golite::TypeComponent *type_component) {
-    return type_component->isInt()
-           || type_component->isFloat64()
-           || type_component->isBool()
-           || type_component->isString()
-           || type_component->isRune();
-}
-
-bool golite::Program::resolvesToBuiltIn(golite::TypeComponent *type_component) {
-    return type_component->resolvesToInt()
-           || type_component->resolvesToFloat64()
-           || type_component->resolvesToBool()
-           || type_component->resolvesToString()
-           || type_component->resolvesToRune();
-}

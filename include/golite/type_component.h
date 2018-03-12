@@ -193,6 +193,18 @@ namespace golite {
          * @return true if it is
          */
         bool resolvesToNumeric();
+
+        /**
+         * Check if is base type
+         * @return true if it is
+         */
+        bool isBaseType();
+
+        /**
+         * Check if resolves to base type
+         * @return true if it does
+         */
+        bool resolvesToBaseType();
     };
 }
 
