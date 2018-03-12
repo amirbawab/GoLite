@@ -7,5 +7,12 @@ type natural num
 type floats []float64
 type naturals []natural
 
-func main() {}
+// To be shadowed
+func INT() {}
+
+func main() {
+
+    // Shadow function
+    type INT int
+}
 
