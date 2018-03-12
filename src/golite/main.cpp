@@ -145,8 +145,7 @@ int main(int argc, char** argv) {
         do { yyparse(); } while (!feof(yyin));
         golite::Program::getInstance()->weedingPass();
         golite::Program::getInstance()->symbolTablePass();
-        // FIXME Change indentation to 0. Using 1 now just to verify that no indentation was forgotten
-        std::cout << golite::Program::getInstance()->prettifySymbolTable(1) << std::endl;
+        std::cout << golite::Program::getInstance()->prettifySymbolTable(0) << std::endl;
     } else if(typecheck_flag) {
         do { yyparse(); } while (!feof(yyin));
         golite::Program::getInstance()->weedingPass();
