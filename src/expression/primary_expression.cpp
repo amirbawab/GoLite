@@ -84,6 +84,13 @@ golite::TypeComponent* golite::PrimaryExpression::typeCheck() {
         TypeComponent* child_type = children_[i]->typeCheck();
 
         if(children_[i]->isIdentifier()) {
+            Identifier* identifier = static_cast<Identifier*>(children_[i]);
+            if(identifier->getSymbolTableEntry()->isFunction()) {
+                if(i + 1 == children_.size() || !children_[i+1]->isFunctionCall()) {
+                    golite::Utils::error_message("Function identifier " + children_[i]->toGoLite(0)
+                                                 + " expects to be called", children_[i]->getLine());
+                }
+            }
             std::vector<TypeComposite *> type_children = child_type->getChildren();
             type_stack.insert(type_stack.end(), type_children.begin(), type_children.end());
             base_expression = children_[i];
