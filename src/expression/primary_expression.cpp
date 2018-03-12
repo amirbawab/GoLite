@@ -9,6 +9,7 @@
 #include <golite/function.h>
 #include <golite/function_call.h>
 #include <golite/struct.h>
+#include <golite/type.h>
 
 void golite::PrimaryExpression::addChild(golite::Primary *child) {
     children_.push_back(child);
@@ -158,33 +159,43 @@ golite::TypeComponent* golite::PrimaryExpression::typeCheck() {
 
         } else if(children_[i]->isFunctionCall()) {
             // TODO Type casting
-            if(children_[i-1]->isIdentifier()) {
-                Identifier *identifier = static_cast<Identifier *>(children_[i - 1]);
-                Declarable *id_declarable = identifier->getSymbolTableEntry();
-                if (!id_declarable->isFunction()) {
-                    golite::Utils::error_message("Cannot call a non-function identifier " + children_[i-1]->toGoLite(0),
-                                                 children_[i]->getLine());
-                }
-                golite::Function* function = static_cast<Function*>(id_declarable);
+            if(children_[i-1]->isIdentifier() || children_[i-1]->isParenthesis()) {
+                Identifier* identifier = nullptr;
                 golite::FunctionCall* function_call = static_cast<FunctionCall*>(children_[i]);
-                function_call->checkParams(function);
-            } else if(children_[i-1]->isParenthesis()) {
-                Parenthesis *parenthesis = static_cast<Parenthesis*>(children_[i-1]);
-                Expression* par_expr = parenthesis->resolveExpression();
-                if(!par_expr->isIdentifier()) {
-                    golite::Utils::error_message("Cannot call a non-function parenthesis expression "
-                                                 + children_[i-1]->toGoLite(0), children_[i]->getLine());
+
+                // If parenthesis, then extract its content
+                if(children_[i-1]->isParenthesis()) {
+                    Parenthesis *parenthesis = static_cast<Parenthesis*>(children_[i-1]);
+                    Expression* par_expr = parenthesis->resolveExpression();
+                    if(!par_expr->isIdentifier()) {
+                        golite::Utils::error_message("Cannot call a non-function parenthesis expression "
+                                                     + children_[i-1]->toGoLite(0), children_[i]->getLine());
+                    }
+                    PrimaryExpression* primary_expression = static_cast<PrimaryExpression*>(par_expr);
+                    identifier = static_cast<Identifier*>(primary_expression->getChildren().front());
+
+                } else if(children_[i-1]->isIdentifier()) {
+                    identifier = static_cast<Identifier *>(children_[i - 1]);
+                } else {
+                    throw std::runtime_error("Undefined previous child type");
                 }
-                PrimaryExpression* primary_expression = static_cast<PrimaryExpression*>(par_expr);
-                Identifier* identifier = static_cast<Identifier*>(primary_expression->getChildren().front());
+
+                // Get entry in symbol table
                 Declarable *id_declarable = identifier->getSymbolTableEntry();
-                if (!id_declarable->isFunction()) {
-                    golite::Utils::error_message("Cannot call a non-function parenthesis identifier "
+
+                // Should not be a variable
+                if (id_declarable->isDecVariable()) {
+                    golite::Utils::error_message("Cannot make a function call on variable "
                                                  + identifier->toGoLite(0), children_[i]->getLine());
+                } else if(id_declarable->isTypeDeclaration()) {
+                    golite::Type* type = static_cast<Type*>(id_declarable);
+                    function_call->checkParams(type);
+                } else if(id_declarable->isFunction()) {
+                    // Perform function call
+                    golite::Function* function = static_cast<Function*>(id_declarable);
+                    function_call->checkParams(function);
                 }
-                golite::Function* function = static_cast<Function*>(id_declarable);
-                golite::FunctionCall* function_call = static_cast<FunctionCall*>(children_[i]);
-                function_call->checkParams(function);
+
             } else {
                 golite::Utils::error_message("Invalid function call", children_[i]->getLine());
             }

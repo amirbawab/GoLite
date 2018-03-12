@@ -4,6 +4,7 @@
 #include <vector>
 #include <golite/primary.h>
 #include <golite/function.h>
+#include <golite/type.h>
 
 namespace golite {
     class FunctionCall : public Primary {
@@ -55,6 +56,12 @@ namespace golite {
          * @param params
          */
         void checkParams(golite::Function* function);
+
+        /**
+         * Check parameters
+         * @param params
+         */
+        void checkParams(golite::Type* type);
     };
 }
 
