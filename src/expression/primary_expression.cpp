@@ -110,13 +110,16 @@ golite::TypeComponent* golite::PrimaryExpression::typeCheck() {
 
             // Resolve type
             std::vector<TypeComposite*> resolved = type_stack.back()->resolveChildren();
-            type_stack.pop_back();
-            type_stack.insert(type_stack.end(), resolved.begin(), resolved.end());
-
-            if(!type_stack.back()->isStruct()) {
+            if(resolved.empty()){
+                throw std::runtime_error("Resolve array cannot be empty while evaluating selector");
+            }
+            if(!resolved.back()->isStruct()) {
                 golite::Utils::error_message("Selector target must be a struct type but given "
                                              + type_stack.back()->toGoLiteMin(), children_[i]->getLine());
             }
+            type_stack.pop_back();
+            type_stack.insert(type_stack.end(), resolved.begin(), resolved.end());
+
             Selector* selector = static_cast<Selector*>(children_[i]);
             Struct* struct_type = static_cast<Struct*>(type_stack.back());
             StructField* field = struct_type->getField(selector->getIdentifier()->getName());
