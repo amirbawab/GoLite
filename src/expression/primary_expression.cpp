@@ -6,6 +6,8 @@
 #include <golite/selector.h>
 #include <golite/parenthesis.h>
 #include <golite/declarable.h>
+#include <golite/function.h>
+#include <golite/function_call.h>
 
 void golite::PrimaryExpression::addChild(golite::Primary *child) {
     children_.push_back(child);
@@ -95,17 +97,24 @@ golite::TypeComponent* golite::PrimaryExpression::typeCheck() {
 
         } else if(children_[i]->isLiteral()) {
             std::vector<TypeComposite*> type_children = child_type->getChildren();
+            type_composites.insert(type_composites.end(), type_children.begin(), type_children.end());
             base_expression = children_[i];
 
         } else if(children_[i]->isIndex()) {
             if(base_expression->isIdentifier() || base_expression->isAppend() || base_expression->isParenthesis()) {
-                // TODO Compare stack type
+                if(type_composites.empty()
+                   || (!type_composites.back()->isArray() && !type_composites.back()->isSlice()))  {
+                    golite::Utils::error_message("Cannot access index " + children_[i]->toGoLite(0)
+                                                 + " of a non-list type", children_[i]->getLine());
+                }
+                type_composites.pop_back();
             } else {
-                golite::Utils::error_message("Cannot access index of " + base_expression->toGoLite(0),
+                golite::Utils::error_message("Cannot access index " + children_[i]->toGoLite(0) + " of " + base_expression->toGoLite(0),
                                              children_[i]->getLine());
             }
 
         } else if(children_[i]->isFunctionCall()) {
+            // TODO Evaluate arguments
             if(children_[i-1]->isIdentifier()) {
                 Identifier *identifier = static_cast<Identifier *>(children_[i - 1]);
                 Declarable *id_declarable = identifier->getSymbolTableEntry();
@@ -113,6 +122,9 @@ golite::TypeComponent* golite::PrimaryExpression::typeCheck() {
                     golite::Utils::error_message("Cannot call a non-function identifier " + children_[i-1]->toGoLite(0),
                                                  children_[i]->getLine());
                 }
+                golite::Function* function = static_cast<Function*>(id_declarable);
+                golite::FunctionCall* function_call = static_cast<FunctionCall*>(children_[i]);
+                function_call->checkParams(function);
             } else if(children_[i-1]->isParenthesis()) {
                 Parenthesis *parenthesis = static_cast<Parenthesis*>(children_[i-1]);
                 Expression* par_expr = parenthesis->resolveExpression();
@@ -127,6 +139,9 @@ golite::TypeComponent* golite::PrimaryExpression::typeCheck() {
                     golite::Utils::error_message("Cannot call a non-function parenthesis identifier "
                                                  + identifier->toGoLite(0), children_[i]->getLine());
                 }
+                golite::Function* function = static_cast<Function*>(id_declarable);
+                golite::FunctionCall* function_call = static_cast<FunctionCall*>(children_[i]);
+                function_call->checkParams(function);
             } else {
                 golite::Utils::error_message("Invalid function call", children_[i]->getLine());
             }
@@ -143,7 +158,7 @@ golite::TypeComponent* golite::PrimaryExpression::typeCheck() {
             throw std::runtime_error("Unhandled type check for an unrecognized child type");
         }
     }
-    return children_.front()->typeCheck();
+    return new TypeComponent(type_composites);
 }
 
 void golite::PrimaryExpression::symbolTablePass(SymbolTable *root) {

@@ -20,10 +20,22 @@ namespace golite {
         void setIdentifiers(std::vector<Identifier*> identifiers) { identifiers_ = identifiers; }
 
         /**
+         * Get identifiers
+         * @return identifiers
+         */
+        std::vector<Identifier*> getIdentifier() { return identifiers_; }
+
+        /**
          * Set type component
          * @param type_component
          */
         void setTypeComponent(golite::TypeComponent* type_component) { type_component_ = type_component; }
+
+        /**
+         * Get type component
+         * @return type component
+         */
+        TypeComponent* getTypeComponent() const { return type_component_; }
 
         /**
          * Conver to GoLite code

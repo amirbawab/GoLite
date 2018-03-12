@@ -10,8 +10,8 @@ golite::Type* golite::Program::FLOAT64_BUILTIN_TYPE = golite::TypeFactory::creat
 golite::Type* golite::Program::RUNE_BUILTIN_TYPE = golite::TypeFactory::createBuiltInType("rune");
 golite::Type* golite::Program::BOOL_BUILTIN_TYPE = golite::TypeFactory::createBuiltInType("bool");
 golite::Type* golite::Program::STRING_BUILTIN_TYPE = golite::TypeFactory::createBuiltInType("string");
-golite::Type* golite::Program::VOID_TYPE = golite::TypeFactory::createBuiltInType("");
-golite::Type* golite::Program::INFER_TYPE = golite::TypeFactory::createBuiltInType("");
+golite::Type* golite::Program::VOID_TYPE = golite::TypeFactory::createBuiltInType("<void>");
+golite::Type* golite::Program::INFER_TYPE = golite::TypeFactory::createBuiltInType("<infer>");
 
 std::string golite::Program::toGoLite(int indent) {
     std::stringstream ss;

@@ -39,7 +39,7 @@ golite::TypeComponent* golite::Append::typeCheck() {
     std::vector<TypeComposite*> right_children = right_expression_type->getChildren();
     if(left_children.size() != 2 || !left_children[1]->isSlice()) {
         golite::Utils::error_message("Append statement expects slice type as first argument but given "
-                                     + left_expression_type->toGoLiteMin(), left_children[1]->getLine());
+                                     + left_expression_type->toGoLiteMin(), getLine());
     }
     if(right_children.size() != 1 || !left_children[0]->isCompatible(right_children[0])) {
         golite::Utils::error_message("Append statement arguments are not compatible "

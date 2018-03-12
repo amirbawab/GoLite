@@ -18,29 +18,35 @@ namespace golite {
      */
     class Function : public Declarable {
     private:
-        Identifier* identifier_ = nullptr;
-        Block* block_ = nullptr;
-        std::vector<FunctionParam*> params_;
+        Identifier *identifier_ = nullptr;
+        Block *block_ = nullptr;
+        std::vector<FunctionParam *> params_;
     public:
-        Function(Identifier* identifier) : identifier_(identifier){}
+        Function(Identifier *identifier) : identifier_(identifier) {}
+
+        /**
+         * Get identifier
+         * @return identifier
+         */
+        Identifier *getIdentifier() const { return identifier_; }
 
         /**
          * Set function params
          * @param params
          */
-        void setParams(std::vector<FunctionParam*> params) { params_ = params; }
+        void setParams(std::vector<FunctionParam *> params) { params_ = params; }
 
         /**
          * Set block
          * @param block
          */
-        void setBlock(Block* block) { block_ = block; }
+        void setBlock(Block *block) { block_ = block; }
 
         /**
          * Get block
          * @return block
          */
-        Block* getBlock() const { return block_; }
+        Block *getBlock() const { return block_; }
 
         /**
          * @see Declarable::isFunction()
@@ -65,12 +71,24 @@ namespace golite {
         /*
          * @see Declarable::symbolTablePass
          */
-        void symbolTablePass(SymbolTable* root);
+        void symbolTablePass(SymbolTable *root);
 
         /**
          * @see Declarable::toPrettySymbol()
          */
         std::string toPrettySymbol();
+
+        /**
+         * Get function parameters
+         * @return params
+         */
+        std::vector<golite::FunctionParam *> getParams() { return params_; }
+
+        /**
+         * Get function parameters
+         * @return params
+         */
+        std::vector<golite::FunctionParam *> getParamsSeparated();
     };
 }
 

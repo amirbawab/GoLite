@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <golite/primary.h>
+#include <golite/function.h>
 
 namespace golite {
     class FunctionCall : public Primary {
@@ -48,6 +49,12 @@ namespace golite {
          * @see Statement::symbolTablePass()
          */
         void symbolTablePass(SymbolTable* root);
+
+        /**
+         * Check parameters
+         * @param params
+         */
+        void checkParams(golite::Function* function);
     };
 }
 

@@ -11,6 +11,8 @@ namespace golite {
         std::vector<golite::TypeComposite*> children_;
 
     public:
+        TypeComponent() {}
+        TypeComponent(std::vector<TypeComposite*> children) : children_(children){}
 
         /**
          * Convert to GoLite code

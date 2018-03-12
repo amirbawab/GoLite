@@ -61,10 +61,19 @@ void golite::Function::symbolTablePass(golite::SymbolTable *root) {
 std::string golite::Function::toPrettySymbol() {
     std::stringstream ss;
     ss << identifier_->getName() << " [function] = ";
-    if(type_component_->isVoid()) {
-        ss << "<void>";
-    } else {
-        ss << type_component_->toPrettySymbol();
-    }
+    ss << type_component_->toPrettySymbol();
     return ss.str();
+}
+
+std::vector<golite::FunctionParam*> golite::Function::getParamsSeparated() {
+    std::vector<FunctionParam*> separated_params;
+    for(FunctionParam* param : params_) {
+        for(Identifier* identifier : param->getIdentifier()) {
+            FunctionParam* p = new FunctionParam();
+            p->setIdentifiers({identifier});
+            p->setTypeComponent(param->getTypeComponent());
+            separated_params.push_back(p);
+        }
+    }
+    return separated_params;
 }

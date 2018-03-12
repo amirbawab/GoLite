@@ -20,7 +20,24 @@ void golite::FunctionCall::weedingPass() {
 }
 
 golite::TypeComponent* golite::FunctionCall::typeCheck() {
+    // Note: Type check for parameters is done in checkParams()
     return nullptr;
+}
+
+void golite::FunctionCall::checkParams(Function* function) {
+    std::vector<FunctionParam*> params = function->getParamsSeparated();
+    if(params.size() != args_.size()) {
+        golite::Utils::error_message("Number of arguments in function call " + function->getIdentifier()->getName() + " does not match function definition",
+                                     getLine());
+    }
+    for(size_t i=0; i < params.size(); i++) {
+        TypeComponent* arg_type = args_[i]->typeCheck();
+        if(!params[i]->getTypeComponent()->isCompatible(arg_type)) {
+            golite::Utils::error_message("Parameter at index " + std::to_string(i) + " expects "
+                                         + params[i]->getTypeComponent()->toGoLiteMin() + " but given "
+                                         + arg_type->toGoLiteMin(), args_[i]->getLine());
+        }
+    }
 }
 
 void golite::FunctionCall::symbolTablePass(SymbolTable *root) {
