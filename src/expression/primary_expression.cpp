@@ -109,12 +109,14 @@ golite::TypeComponent* golite::PrimaryExpression::typeCheck() {
             if(type_composites.back()->isTypeReference()) {
                 TypeComposite* back = type_composites.back();
                 type_composites.pop_back();
+                // TODO Instead of resolveChildren(), check it resolves to "struct". Issue
                 std::vector<TypeComposite*> resolved = back->resolveChildren();
                 type_composites.insert(type_composites.end(), resolved.begin(), resolved.end());
             }
 
             if(!type_composites.back()->isStruct()) {
-                golite::Utils::error_message("Selector target must be a struct type", children_[i]->getLine());
+                golite::Utils::error_message("Selector target must be a struct type but given "
+                                             + type_composites.back()->toGoLiteMin(), children_[i]->getLine());
             }
             Selector* selector = static_cast<Selector*>(children_[i]);
             Struct* struct_type = static_cast<Struct*>(type_composites.back());
@@ -155,6 +157,7 @@ golite::TypeComponent* golite::PrimaryExpression::typeCheck() {
             }
 
         } else if(children_[i]->isFunctionCall()) {
+            // TODO Type casting
             if(children_[i-1]->isIdentifier()) {
                 Identifier *identifier = static_cast<Identifier *>(children_[i - 1]);
                 Declarable *id_declarable = identifier->getSymbolTableEntry();
