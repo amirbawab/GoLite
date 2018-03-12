@@ -80,6 +80,17 @@ std::string golite::Struct::toPrettySymbol() {
     return toGoLiteMin();
 }
 
-std::vector<golite::TypeComposite*> golite::Struct::resolveChildren() {
+std::vector<golite::TypeComposite*> golite::Struct::resolveChildren(bool) {
     return {this};
+}
+
+golite::StructField * golite::Struct::getField(std::string name) {
+    for(StructField* field : fields_) {
+        for(Identifier* identifier : field->getIdentifiers()) {
+            if(identifier->getName() == name) {
+                return field;
+            }
+        }
+    }
+    return nullptr;
 }

@@ -62,7 +62,14 @@ namespace golite {
         /**
          * @see TypeComposite::resolveChildren()
          */
-        std::vector<golite::TypeComposite*> resolveChildren();
+        std::vector<golite::TypeComposite*> resolveChildren(bool recursive = true);
+
+        /**
+         * Get field
+         * @param name
+         * @return field | nullptr
+         */
+        StructField* getField(std::string name);
     };
 }
 

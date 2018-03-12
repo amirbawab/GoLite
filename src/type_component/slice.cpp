@@ -27,6 +27,6 @@ std::string golite::Slice::toPrettySymbol() {
     return toGoLiteMin();
 }
 
-std::vector<golite::TypeComposite*> golite::Slice::resolveChildren() {
+std::vector<golite::TypeComposite*> golite::Slice::resolveChildren(bool) {
     return {this};
 }

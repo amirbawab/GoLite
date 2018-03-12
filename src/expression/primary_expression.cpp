@@ -8,6 +8,7 @@
 #include <golite/declarable.h>
 #include <golite/function.h>
 #include <golite/function_call.h>
+#include <golite/struct.h>
 
 void golite::PrimaryExpression::addChild(golite::Primary *child) {
     children_.push_back(child);
@@ -79,19 +80,36 @@ golite::TypeComponent* golite::PrimaryExpression::typeCheck() {
     std::vector<golite::TypeComposite*> type_composites;
     for(size_t i = 0; i < children_.size(); i++) {
         TypeComponent* child_type = children_[i]->typeCheck();
+
         if(children_[i]->isSelector()) {
-            if(base_expression->isIdentifier()) {
-                // TODO
-            } else if(base_expression->isSelector()) {
-                // TODO
-            } else {
-                golite::Utils::error_message("Cannot access member of a non identifier "
-                                             + base_expression->toGoLite(0), children_[i]->getLine());
+            if(type_composites.empty()) {
+                golite::Utils::error_message("Selector target must be a struct type", children_[i]->getLine());
             }
+
+            if(type_composites.back()->isTypeReference()) {
+                TypeComposite* back = type_composites.back();
+                type_composites.pop_back();
+                std::vector<TypeComposite*> resolved = back->resolveChildren();
+                type_composites.insert(type_composites.end(), resolved.begin(), resolved.end());
+            }
+
+            if(!type_composites.back()->isStruct()) {
+                golite::Utils::error_message("Selector target must be a struct type", children_[i]->getLine());
+            }
+            Selector* selector = static_cast<Selector*>(children_[i]);
+            Struct* struct_type = static_cast<Struct*>(type_composites.back());
+            StructField* field = struct_type->getField(selector->getIdentifier()->getName());
+            if(!field) {
+                golite::Utils::error_message("Type " + type_composites.back()->toGoLiteMin() + " does not have member "
+                                             + selector->getIdentifier()->toGoLite(0), children_[i]->getLine());
+            }
+            type_composites.pop_back();
+            std::vector<TypeComposite*> field_type = field->getTypeComponent()->getChildren();
+            type_composites.insert(type_composites.end(), field_type.begin(), field_type.end());
             base_expression = children_[i];
 
         } else if(children_[i]->isIdentifier()) {
-            std::vector<TypeComposite*> type_children = child_type->resolveChildren();
+            std::vector<TypeComposite*> type_children = child_type->getChildren();
             type_composites.insert(type_composites.end(), type_children.begin(), type_children.end());
             base_expression = children_[i];
 
@@ -102,11 +120,23 @@ golite::TypeComponent* golite::PrimaryExpression::typeCheck() {
 
         } else if(children_[i]->isIndex()) {
             if(base_expression->isIdentifier() || base_expression->isAppend() || base_expression->isParenthesis()) {
-                if(type_composites.empty()
-                   || (!type_composites.back()->isArray() && !type_composites.back()->isSlice()))  {
+                if(type_composites.empty()) {
                     golite::Utils::error_message("Cannot access index " + children_[i]->toGoLite(0)
                                                  + " of a non-list type", children_[i]->getLine());
                 }
+
+                if(type_composites.back()->isTypeReference()) {
+                    TypeComposite* back = type_composites.back();
+                    type_composites.pop_back();
+                    std::vector<TypeComposite*> resolved = back->resolveChildren(false);
+                    type_composites.insert(type_composites.end(), resolved.begin(), resolved.end());
+                }
+
+                if(!type_composites.back()->isArray() && !type_composites.back()->isSlice())  {
+                    golite::Utils::error_message("Cannot access index " + children_[i]->toGoLite(0)
+                                                 + " of a non-list type", children_[i]->getLine());
+                }
+
                 type_composites.pop_back();
             } else {
                 golite::Utils::error_message("Cannot access index " + children_[i]->toGoLite(0) + " of " + base_expression->toGoLite(0),
@@ -114,7 +144,6 @@ golite::TypeComponent* golite::PrimaryExpression::typeCheck() {
             }
 
         } else if(children_[i]->isFunctionCall()) {
-            // TODO Evaluate arguments
             if(children_[i-1]->isIdentifier()) {
                 Identifier *identifier = static_cast<Identifier *>(children_[i - 1]);
                 Declarable *id_declarable = identifier->getSymbolTableEntry();
@@ -143,6 +172,7 @@ golite::TypeComponent* golite::PrimaryExpression::typeCheck() {
                 golite::FunctionCall* function_call = static_cast<FunctionCall*>(children_[i]);
                 function_call->checkParams(function);
             } else {
+
                 golite::Utils::error_message("Invalid function call", children_[i]->getLine());
             }
 
@@ -152,6 +182,8 @@ golite::TypeComponent* golite::PrimaryExpression::typeCheck() {
             base_expression = children_[i];
 
         } else if(children_[i]->isParenthesis()) {
+            std::vector<TypeComposite*> type_children = child_type->getChildren();
+            type_composites.insert(type_composites.end(), type_children.begin(), type_children.end());
             base_expression = children_[i];
 
         } else {
