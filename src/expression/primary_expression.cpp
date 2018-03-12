@@ -5,6 +5,7 @@
 #include <iostream>
 #include <golite/selector.h>
 #include <golite/parenthesis.h>
+#include <golite/declarable.h>
 
 void golite::PrimaryExpression::addChild(golite::Primary *child) {
     children_.push_back(child);
@@ -72,30 +73,76 @@ golite::TypeComponent* golite::PrimaryExpression::typeCheck() {
     }
 
     // Get the type of the first element
-    Expression* base_expression = nullptr;
+    Primary* base_expression = nullptr;
     std::vector<golite::TypeComposite*> type_composites;
     for(size_t i = 0; i < children_.size(); i++) {
         TypeComponent* child_type = children_[i]->typeCheck();
         if(children_[i]->isSelector()) {
+            if(base_expression->isIdentifier()) {
+                // TODO
+            } else if(base_expression->isSelector()) {
+                // TODO
+            } else {
+                golite::Utils::error_message("Cannot access member of a non identifier "
+                                             + base_expression->toGoLite(0), children_[i]->getLine());
+            }
             base_expression = children_[i];
+
         } else if(children_[i]->isIdentifier()) {
-            std::vector<TypeComposite*> type_children = child_type->getChildren();
+            std::vector<TypeComposite*> type_children = child_type->resolveChildren();
             type_composites.insert(type_composites.end(), type_children.begin(), type_children.end());
             base_expression = children_[i];
+
         } else if(children_[i]->isLiteral()) {
             std::vector<TypeComposite*> type_children = child_type->getChildren();
             base_expression = children_[i];
+
         } else if(children_[i]->isIndex()) {
+            if(base_expression->isIdentifier() || base_expression->isAppend() || base_expression->isParenthesis()) {
+                // TODO Compare stack type
+            } else {
+                golite::Utils::error_message("Cannot access index of " + base_expression->toGoLite(0),
+                                             children_[i]->getLine());
+            }
+
         } else if(children_[i]->isFunctionCall()) {
+            if(children_[i-1]->isIdentifier()) {
+                Identifier *identifier = static_cast<Identifier *>(children_[i - 1]);
+                Declarable *id_declarable = identifier->getSymbolTableEntry();
+                if (!id_declarable->isFunction()) {
+                    golite::Utils::error_message("Cannot call a non-function identifier " + children_[i-1]->toGoLite(0),
+                                                 children_[i]->getLine());
+                }
+            } else if(children_[i-1]->isParenthesis()) {
+                Parenthesis *parenthesis = static_cast<Parenthesis*>(children_[i-1]);
+                Expression* par_expr = parenthesis->resolveExpression();
+                if(!par_expr->isIdentifier()) {
+                    golite::Utils::error_message("Cannot call a non-function parenthesis expression "
+                                                 + children_[i-1]->toGoLite(0), children_[i]->getLine());
+                }
+                PrimaryExpression* primary_expression = static_cast<PrimaryExpression*>(par_expr);
+                Identifier* identifier = static_cast<Identifier*>(primary_expression->getChildren().front());
+                Declarable *id_declarable = identifier->getSymbolTableEntry();
+                if (!id_declarable->isFunction()) {
+                    golite::Utils::error_message("Cannot call a non-function parenthesis identifier "
+                                                 + identifier->toGoLite(0), children_[i]->getLine());
+                }
+            } else {
+                golite::Utils::error_message("Invalid function call", children_[i]->getLine());
+            }
+
         } else if(children_[i]->isAppend()) {
+            std::vector<TypeComposite*> type_children = child_type->resolveChildren();
+            type_composites.insert(type_composites.end(), type_children.begin(), type_children.end());
             base_expression = children_[i];
+
         } else if(children_[i]->isParenthesis()) {
             base_expression = children_[i];
+
         } else {
             throw std::runtime_error("Unhandled type check for an unrecognized child type");
         }
     }
-    // TODO Traverse the vector of type composite and verify the element in the primary expression align with the type
     return children_.front()->typeCheck();
 }
 
