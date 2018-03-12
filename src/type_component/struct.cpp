@@ -80,7 +80,7 @@ std::string golite::Struct::toPrettySymbol() {
     return toGoLiteMin();
 }
 
-std::vector<golite::TypeComposite*> golite::Struct::resolveChildren(bool) {
+std::vector<golite::TypeComposite*> golite::Struct::resolveChildren() {
     return {this};
 }
 

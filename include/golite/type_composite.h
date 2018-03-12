@@ -86,7 +86,7 @@ namespace golite {
          * Resolve children
          * @return children
          */
-        virtual std::vector<TypeComposite*> resolveChildren(bool recursive = true) = 0;
+        virtual std::vector<TypeComposite*> resolveChildren() = 0;
     };
 }
 

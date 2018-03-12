@@ -35,6 +35,6 @@ std::string golite::Array::toPrettySymbol() {
     return toGoLiteMin();
 }
 
-std::vector<golite::TypeComposite*> golite::Array::resolveChildren(bool) {
+std::vector<golite::TypeComposite*> golite::Array::resolveChildren() {
     return {this};
 }

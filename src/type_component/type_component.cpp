@@ -174,8 +174,12 @@ bool golite::TypeComponent::resolvesToNumeric() {
 std::vector<golite::TypeComposite*> golite::TypeComponent::resolveChildren() {
     std::vector<golite::TypeComposite*> children;
     for(size_t i=0; i < children_.size(); i++) {
-        std::vector<golite::TypeComposite*> resolved_children = children_[i]->resolveChildren();
-        children.insert(children.end(), resolved_children.begin(), resolved_children.end());
+        if(i == children_.size() - 1) {
+            std::vector<golite::TypeComposite*> resolved_children = children_[i]->resolveChildren();
+            children.insert(children.end(), resolved_children.begin(), resolved_children.end());
+        } else {
+            children.push_back(children_[i]);
+        }
     }
     return children;
 }
