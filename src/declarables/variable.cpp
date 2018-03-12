@@ -72,7 +72,7 @@ void golite::Variable::typeCheck() {
             TypeComponent* expression_type = expressions_[i]->typeCheck();
             if(!identifiers_[i]->isBlank()) {
                 if(type_component_->isInfer()) {
-                    identifiers_[i]->updateTypeInSymbolTable(expression_type);
+                    type_component_ = expression_type;
                 } else if(!type_component_->isCompatible(expression_type)) {
                     golite::Utils::error_message("Variable " + identifiers_[i]->getName()
                                                  + " expects an expression of type " + type_component_->toGoLite(0)
