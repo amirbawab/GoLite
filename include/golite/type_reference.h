@@ -9,6 +9,8 @@ namespace golite {
     private:
         Identifier* identifier_ = nullptr;
         Declarable* declarable_type_ = nullptr;
+
+        // TODO Remove this
         bool built_in_ = false;
     public:
 

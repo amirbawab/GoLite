@@ -10,6 +10,7 @@
 #include <golite/function_call.h>
 #include <golite/struct.h>
 #include <golite/type.h>
+#include <golite/type_reference.h>
 
 void golite::PrimaryExpression::addChild(golite::Primary *child) {
     children_.push_back(child);
@@ -156,7 +157,6 @@ golite::TypeComponent* golite::PrimaryExpression::typeCheck() {
             }
 
         } else if(children_[i]->isFunctionCall()) {
-            // TODO Type casting
             if(children_[i-1]->isIdentifier() || children_[i-1]->isParenthesis()) {
                 Identifier* identifier = nullptr;
                 golite::FunctionCall* function_call = static_cast<FunctionCall*>(children_[i]);
@@ -187,7 +187,27 @@ golite::TypeComponent* golite::PrimaryExpression::typeCheck() {
                                                  + identifier->toGoLite(0), children_[i]->getLine());
                 } else if(id_declarable->isTypeDeclaration()) {
                     golite::Type* type = static_cast<Type*>(id_declarable);
+
+                    // Type must resolve to a base type
+                    if(!id_declarable->getTypeComponent()->resolvesToBaseType()) {
+                        golite::Utils::error_message("Conversion type should be a base type but given "
+                                                     + type->getIdentifier()->toGoLite(0),
+                                                     children_[i]->getLine());
+                    }
+
+                    // Check params
                     function_call->checkParams(type);
+
+                    // Update stack
+                    if(type_stack.empty()) {
+                        throw std::runtime_error("Type casting require a non-empty stack.");
+                    }
+                    type_stack.pop_back();
+                    TypeReference* cast_reference = new TypeReference();
+                    cast_reference->setIdentifier(type->getIdentifier());
+                    cast_reference->setDeclarableType(type);
+                    type_stack.push_back(cast_reference);
+
                 } else if(id_declarable->isFunction()) {
                     // Perform function call
                     golite::Function* function = static_cast<Function*>(id_declarable);
