@@ -93,6 +93,12 @@ namespace golite {
          * @return a non-parenthesis expression
          */
         virtual Expression* resolveExpression() { return this; };
+
+        /**
+         * Check if exprssion is a literal
+         * @return true if it is
+         */
+        virtual bool isLiteral() { return false; }
     };
 }
 

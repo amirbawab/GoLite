@@ -77,6 +77,11 @@ namespace golite {
          * @see Expression::resolveExpression()
          */
         Expression* resolveExpression();
+
+        /**
+         * @see Expression::isLiteral()
+         */
+        bool isLiteral();
     };
 }
 

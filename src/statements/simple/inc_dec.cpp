@@ -29,7 +29,16 @@ void golite::IncDec::weedingPass(bool, bool) {
 
 void golite::IncDec::typeCheck() {
     TypeComponent* expression_type = expression_->typeCheck();
-    // TODO expression_type->resolveToIdentifier()
+
+    // Resolve non-parenthesis expression
+    Expression* resolved_expression = expression_->resolveExpression();
+    if(!resolved_expression->isPrimaryExpression()
+       || resolved_expression->isFunctionCall()
+       || resolved_expression->isLiteral()) {
+        golite::Utils::error_message("Increment/Decrement statement expects a variable but given "
+                                     + expression_->toGoLite(0), expression_->getLine());
+    }
+
     if(!expression_type->resolvesToNumeric()) {
         golite::Utils::error_message("Increment and decrement statement must resolve to a numeric but given "
                                      + expression_type->toGoLiteMin(), expression_->getLine());

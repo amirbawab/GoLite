@@ -49,6 +49,16 @@ bool golite::PrimaryExpression::isIdentifier() {
     return children_.back()->isIdentifier();
 }
 
+bool golite::PrimaryExpression::isLiteral() {
+    if(children_.empty()) {
+        throw std::runtime_error("Cannot check if primary expression is a literal because children list is empty");
+    }
+    if(children_.size() != 1) {
+        return false;
+    }
+    return children_.back()->isLiteral();
+}
+
 bool golite::PrimaryExpression::isBlank() {
     if(!isIdentifier()) {
         return false;

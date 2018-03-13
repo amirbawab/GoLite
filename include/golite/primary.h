@@ -15,12 +15,6 @@ namespace golite {
         virtual bool isSelector() { return false; }
 
         /**
-         * Check if primary is a literal
-         * @return true if it is
-         */
-        virtual bool isLiteral() { return false; }
-
-        /**
          * Check if primary is an index
          * @return true if it is
          */
