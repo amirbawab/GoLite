@@ -33,10 +33,11 @@ void golite::Function::weedingPass(bool check_break, bool check_continue) {
 
 void golite::Function::typeCheck() {
     block_->typeCheck();
-    if(!type_component_->isVoid() && !block_->hasReturn(this)) {
+    if(!block_->hasReturn(this) && !type_component_->isVoid()) {
         golite::Utils::error_message("Function " + identifier_->getName() + " is missing a return statement",
                                      identifier_->getLine());
     }
+    // TODO Last statement must be terminating
 }
 
 void golite::Function::symbolTablePass(golite::SymbolTable *root) {

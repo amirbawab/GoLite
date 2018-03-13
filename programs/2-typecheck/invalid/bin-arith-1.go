@@ -5,5 +5,5 @@ func main() {
     type a struct { a int; }
     var test a
 
-    println(test + 'test')
+    println(test + "test")
 }

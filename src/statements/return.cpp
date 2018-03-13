@@ -37,10 +37,10 @@ void golite::Return::symbolTablePass(SymbolTable *root) {
 bool golite::Return::hasReturn(Declarable *function) {
     if(expression_) {
         TypeComponent* type_component = expression_->typeCheck();
-        if(function->getTypeComponent()) {
+        if(!function->getTypeComponent()->isVoid()) {
             if(!function->getTypeComponent()->isCompatible(type_component)) {
                 golite::Utils::error_message("Return expression type " + type_component->toGoLiteMin()
-                                             + "is not compatible with the function type "
+                                             + " is not compatible with the function type "
                                              + function->getTypeComponent()->toGoLiteMin(),
                                              expression_->getLine());
             }
@@ -49,11 +49,9 @@ bool golite::Return::hasReturn(Declarable *function) {
                     "Return statement cannot have an expression because the function type is void",
                     expression_->getLine());
         }
-    } else {
-        if(function->getTypeComponent()) {
-            golite::Utils::error_message("Function declaration expects a type "
-                                         + function->getTypeComponent()->toGoLiteMin(), getLine());
-        }
+    } else if(!function->getTypeComponent()->isVoid()) {
+        golite::Utils::error_message("Function declaration expects a type "
+                                     + function->getTypeComponent()->toGoLiteMin(), getLine());
     }
     return true;
 }
