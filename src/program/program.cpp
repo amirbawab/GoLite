@@ -12,6 +12,7 @@ golite::Type* golite::Program::BOOL_BUILTIN_TYPE = golite::TypeFactory::createBu
 golite::Type* golite::Program::STRING_BUILTIN_TYPE = golite::TypeFactory::createBuiltInType("string");
 golite::Type* golite::Program::VOID_TYPE = golite::TypeFactory::createBuiltInType("<void>");
 golite::Type* golite::Program::INFER_TYPE = golite::TypeFactory::createBuiltInType("<infer>");
+golite::Type* golite::Program::UNMAPPED_TYPE = golite::TypeFactory::createBuiltInType("<unmapped>");
 
 std::string golite::Program::toGoLite(int indent) {
     std::stringstream ss;

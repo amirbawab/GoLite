@@ -31,6 +31,7 @@ namespace golite {
         static Type* STRING_BUILTIN_TYPE;
         static Type* VOID_TYPE;
         static Type* INFER_TYPE;
+        static Type* UNMAPPED_TYPE;
 
         static Program* getInstance() {
             static Program* instance(new Program());
