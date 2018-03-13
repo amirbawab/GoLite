@@ -133,7 +133,11 @@ bool golite::TypeComponent::isRecursive(Declarable *declarable) {
     }
 
     for(TypeComposite* type_composite : children_) {
-        if(type_composite->isTypeReference() && !type_composite->isRecursive(declarable) || type_composite->isSlice()) {
+        if(type_composite->isTypeReference()) {
+            if(!type_composite->isRecursive(declarable)) {
+                return false;
+            }
+        } else if(type_composite->isStruct() || type_composite->isSlice()) {
             return false;
         }
     }
