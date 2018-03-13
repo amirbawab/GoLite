@@ -40,8 +40,6 @@ bool golite::PrimaryExpression::isFunctionCall() {
 }
 
 bool golite::PrimaryExpression::isIdentifier() {
-    // TODO Check if we can resolve inside parenthesis. Refactor required if applied
-    // TODO Or maybe create another method called resolvesToIdentifier()
     if(children_.empty()) {
         throw std::runtime_error("Cannot check if primary expression is an identifier because children list is empty");
     }
@@ -251,4 +249,11 @@ bool golite::PrimaryExpression::isParenthesis() {
         return false;
     }
     return children_.back()->isParenthesis();
+}
+
+golite::Expression* golite::PrimaryExpression::resolveExpression() {
+    if(isParenthesis()) {
+        return children_.front()->resolveExpression();
+    }
+    return this;
 }

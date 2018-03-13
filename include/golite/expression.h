@@ -87,6 +87,12 @@ namespace golite {
          * @param root
          */
         virtual void symbolTablePass(SymbolTable* root) = 0;
+
+        /**
+         * Resolve expression in parenthesis
+         * @return a non-parenthesis expression
+         */
+        virtual Expression* resolveExpression() { return this; };
     };
 }
 
