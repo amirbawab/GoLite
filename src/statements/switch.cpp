@@ -32,13 +32,6 @@ std::string golite::Switch::toGoLite(int indent) {
 
 void golite::Switch::weedingPass(bool, bool check_continue) {
     if(simple_) {
-        if(simple_->isSimpleExpression()) {
-            golite::SimpleExpression* simple_expression = static_cast<SimpleExpression*>(simple_);
-            if(simple_expression->getExpression()->isBlank()) {
-                golite::Utils::error_message("Switch statement initial statement cannot be a blank identifier",
-                                             simple_->getLine());
-            }
-        }
         simple_->weedingPass(false, false);
     }
 

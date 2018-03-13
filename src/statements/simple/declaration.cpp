@@ -93,12 +93,7 @@ void golite::Declaration::symbolTablePass(SymbolTable *root) {
             golite::PrimaryExpression* id_prim = static_cast<golite::PrimaryExpression*>(left_identifiers_[i]);
             golite::Identifier* id = static_cast<golite::Identifier*>(id_prim->getChildren().back());
             Declarable* existing_dec = root->getSymbol(id->getName(), false);
-            if(existing_dec) {
-                if(existing_dec->isTypeDeclaration()) {
-                    golite::Utils::error_message("Type " + id->getName() + " is not an expression",
-                                                 left_identifiers_[i]->getLine());
-                }
-            } else {
+            if(!existing_dec) {
                 new_var = true;
 
                 // FIXME Issue #39
@@ -108,8 +103,8 @@ void golite::Declaration::symbolTablePass(SymbolTable *root) {
                 var_decl->setTypeComponent(golite::Program::INFER_TYPE->getTypeComponent());
                 root->putSymbol(id->getName(), var_decl);
             }
+            left_identifiers_[i]->symbolTablePass(root);
         }
-        left_identifiers_[i]->symbolTablePass(root);
     }
 
     // make sure there's at least one new variable

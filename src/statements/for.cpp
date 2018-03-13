@@ -40,13 +40,6 @@ std::string golite::For::toGoLite(int indent) {
 
 void golite::For::weedingPass(bool, bool) {
     if(left_simple_) {
-        if(left_simple_->isSimpleExpression()) {
-            golite::SimpleExpression* simple_expression = static_cast<SimpleExpression*>(left_simple_);
-            if(simple_expression->getExpression()->isBlank()) {
-                golite::Utils::error_message("For statement pre statement cannot be a blank identifier",
-                                             left_simple_->getLine());
-            }
-        }
         left_simple_->weedingPass(false, false);
     }
 
@@ -59,13 +52,7 @@ void golite::For::weedingPass(bool, bool) {
     }
 
     if(right_simple_) {
-        if(right_simple_->isSimpleExpression()) {
-            golite::SimpleExpression* simple_expression = static_cast<SimpleExpression*>(right_simple_);
-            if(simple_expression->getExpression()->isBlank()) {
-                golite::Utils::error_message("For statement post statement cannot be a blank identifier",
-                                             right_simple_->getLine());
-            }
-        } else if(right_simple_->isDeclaration()){
+        if(right_simple_->isDeclaration()){
             golite::Utils::error_message("Right simple statement cannot be a short declaration",
                                          right_simple_->getLine());
         }

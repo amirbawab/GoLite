@@ -171,8 +171,7 @@ golite::TypeComponent* golite::PrimaryExpression::typeCheck() {
 
                 // If parenthesis, then extract its content
                 if(children_[i-1]->isParenthesis()) {
-                    Parenthesis *parenthesis = static_cast<Parenthesis*>(children_[i-1]);
-                    Expression* par_expr = parenthesis->resolveExpression();
+                    Expression* par_expr = children_[i-1]->resolveExpression();
                     if(!par_expr->isIdentifier()) {
                         golite::Utils::error_message("Cannot call a non-function parenthesis expression "
                                                      + children_[i-1]->toGoLite(0), children_[i]->getLine());
@@ -238,6 +237,16 @@ void golite::PrimaryExpression::symbolTablePass(SymbolTable *root) {
     }
     for(Primary* child : children_) {
         child->symbolTablePass(root);
+
+        // Identifier must refer to functions or variables only
+        if(child->isIdentifier()) {
+            Identifier* identifier = static_cast<Identifier*>(child);
+            if(identifier->getSymbolTableEntry()->isTypeDeclaration()) {
+                golite::Utils::error_message("Type " + identifier->getName() + " is not an expression",
+                                             child->getLine());
+            }
+            // Note: Cannot be a function because a function would be in a parent scope
+        }
     }
 }
 

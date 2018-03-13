@@ -15,14 +15,8 @@ void golite::SimpleExpression::typeCheck() {
 
 void golite::SimpleExpression::weedingPass(bool, bool) {
     expression_->weedingPass();
-    if(expression_->isParenthesis()) {
-        PrimaryExpression* primary_expression = static_cast<PrimaryExpression*>(expression_);
-        Parenthesis* parenthesis = static_cast<Parenthesis*>(primary_expression->getChildren().front());
-        if(!parenthesis->resolveExpression()->isFunctionCall()) {
-            golite::Utils::error_message("Expression statement in parenthesis must be a function all",
-                                         expression_->getLine());
-        }
-    }else if(!expression_->isFunctionCall()) {
+    Expression* resolved_expression = expression_->resolveExpression();
+    if(!resolved_expression->isFunctionCall()) {
         golite::Utils::error_message("Expression statement must be a function call", expression_->getLine());
     }
 }

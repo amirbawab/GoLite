@@ -65,13 +65,6 @@ std::string golite::If::toGoLite(int indent) {
 
 void golite::If::weedingPass(bool check_break, bool check_continue) {
     if(simple_) {
-        if(simple_->isSimpleExpression()) {
-            golite::SimpleExpression* simple_expression = static_cast<SimpleExpression*>(simple_);
-            if(simple_expression->getExpression()->isBlank()) {
-                golite::Utils::error_message("If statement initial statement cannot be a blank identifier",
-                                             simple_->getLine());
-            }
-        }
         simple_->weedingPass(false, false);
     }
 

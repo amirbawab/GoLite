@@ -28,12 +28,14 @@ golite::TypeComponent* golite::Identifier::typeCheck() {
 }
 
 void golite::Identifier::symbolTablePass(SymbolTable *root) {
-    if(!isBlank()) {
-        // check that the identifier actually exists
-        Declarable* found_symbol = root->getSymbol(this->getName());
-        if(!found_symbol) {
-            golite::Utils::error_message("Undefined: " + this->getName(), this->getLine());
-        }
+    if(isBlank()) {
+        throw std::runtime_error("Cannot call symbol table check on blank identifier");
+    }
+
+    // check that the identifier actually exists
+    Declarable* found_symbol = root->getSymbol(this->getName());
+    if(!found_symbol) {
+        golite::Utils::error_message("Undefined identifier " + this->getName(), this->getLine());
     }
 
     // The specific symbol table must be assigned to this identifier

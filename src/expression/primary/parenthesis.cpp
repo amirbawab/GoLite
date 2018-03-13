@@ -30,14 +30,5 @@ void golite::Parenthesis::symbolTablePass(SymbolTable *root) {
 }
 
 golite::Expression* golite::Parenthesis::resolveExpression() {
-    // TODO implement this with polymorphism
-    if(expression_->isParenthesis()) {
-        if(!expression_->isPrimaryExpression()) {
-            throw std::runtime_error("Unhandled cast for resolve expression");
-        }
-        PrimaryExpression* primary_expression = static_cast<PrimaryExpression*>(expression_);
-        Parenthesis* parenthesis = static_cast<Parenthesis*>(primary_expression->getChildren().back());
-        return parenthesis->resolveExpression();
-    }
-    return expression_;
+    return expression_->resolveExpression();
 }
