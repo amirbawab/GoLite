@@ -235,17 +235,18 @@ void golite::PrimaryExpression::symbolTablePass(SymbolTable *root) {
     if(children_.empty()) {
         throw std::runtime_error("Cannot perform symbol table pass on a primary expression with an empty list of children");
     }
-    for(Primary* child : children_) {
-        child->symbolTablePass(root);
+    for(size_t i=0; i < children_.size(); i++) {
+        children_[i]->symbolTablePass(root);
 
         // Identifier must refer to functions or variables only
-        if(child->isIdentifier()) {
-            Identifier* identifier = static_cast<Identifier*>(child);
-            if(identifier->getSymbolTableEntry()->isTypeDeclaration()) {
-                golite::Utils::error_message("Type " + identifier->getName() + " is not an expression",
-                                             child->getLine());
+        if(children_[i]->isIdentifier()) {
+            if(i + 1 == children_.size() || !children_[i+1]->isFunctionCall()) {
+                Identifier* identifier = static_cast<Identifier*>(children_[i]);
+                if(identifier->getSymbolTableEntry()->isTypeDeclaration()) {
+                    golite::Utils::error_message("Type " + identifier->getName() + " is not an expression",
+                                                 children_[i]->getLine());
+                }
             }
-            // Note: Cannot be a function because a function would be in a parent scope
         }
     }
 }

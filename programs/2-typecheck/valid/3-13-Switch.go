@@ -3,8 +3,8 @@ package main
 
 func main() {
 
-    type a int
-    type b bool
+    var a int
+    var b bool
 
     // A switch statement with an expression type checks if:
     //  - init type checks
