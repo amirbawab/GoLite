@@ -15,6 +15,7 @@ namespace golite {
         std::map<std::string, SymbolTable*> tables_;
         std::map<std::string, Declarable*> entries_;
         std::vector<std::string> entries_keys_;
+        const std::string init_prefix = "~init~";
 
     public:
         SymbolTable(SymbolTable* parent);
@@ -25,6 +26,12 @@ namespace golite {
          * @param decl
          */
         void putSymbol(std::string name, Declarable* decl);
+
+        /**
+         * Puts init in symbol table
+         * @param decl
+         */
+        void putInit(Declarable* decl);
 
         /**
          * Puts a new table

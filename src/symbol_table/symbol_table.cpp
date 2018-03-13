@@ -18,6 +18,11 @@ void golite::SymbolTable::putSymbol(std::string name, golite::Declarable *decl) 
     this->entries_keys_.push_back(name);
 }
 
+void golite::SymbolTable::putInit(Declarable *decl) {
+    std::string init_name = init_prefix + std::to_string(entries_keys_.size());
+    putSymbol(init_name, decl);
+}
+
 void golite::SymbolTable::putTable(SymbolTable *table) {
     std::string unique_key = " ~ " + std::to_string(entries_keys_.size()) + " ~ ";
     tables_[unique_key] = table;

@@ -13,6 +13,8 @@ golite::Type* golite::Program::STRING_BUILTIN_TYPE = golite::TypeFactory::create
 golite::Type* golite::Program::VOID_TYPE = golite::TypeFactory::createBuiltInType("<void>");
 golite::Type* golite::Program::INFER_TYPE = golite::TypeFactory::createBuiltInType("<infer>");
 golite::Type* golite::Program::UNMAPPED_TYPE = golite::TypeFactory::createBuiltInType("<unmapped>");
+std::string golite::Program::INIT_FUNC_NAME = "init";
+std::string golite::Program::MAIN_FUNC_NAME = "main";
 
 std::string golite::Program::toGoLite(int indent) {
     std::stringstream ss;

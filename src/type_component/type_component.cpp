@@ -92,7 +92,8 @@ bool golite::TypeComponent::isInfer() {
 }
 
 bool golite::TypeComponent::isVoid() {
-    return isCompatible(golite::Program::VOID_TYPE->getTypeComponent());
+    return isCompatible(golite::Program::VOID_TYPE->getTypeComponent())
+           || isCompatible(golite::Program::UNMAPPED_TYPE->getTypeComponent());
 }
 
 bool golite::TypeComponent::isComparable() {

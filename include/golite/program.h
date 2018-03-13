@@ -32,6 +32,8 @@ namespace golite {
         static Type* VOID_TYPE;
         static Type* INFER_TYPE;
         static Type* UNMAPPED_TYPE;
+        static std::string INIT_FUNC_NAME;
+        static std::string MAIN_FUNC_NAME;
 
         static Program* getInstance() {
             static Program* instance(new Program());

@@ -41,12 +41,33 @@ void golite::Function::typeCheck() {
 }
 
 void golite::Function::symbolTablePass(golite::SymbolTable *root) {
-    if(root->hasSymbol(this->identifier_->getName(), false)) {
-        golite::Utils::error_message("Function name " + identifier_->toGoLite(0) + " redeclared in this block",
-                                     identifier_->getLine());
+
+    // Init function can be redeclared
+    if(identifier_->getName() == Program::INIT_FUNC_NAME) {
+        if(!params_.empty()) {
+            golite::Utils::error_message("Init function cannot have parameters", identifier_->getLine());
+        }
+        if(!type_component_->isVoid()) {
+            golite::Utils::error_message("Init function must be void", identifier_->getLine());
+        }
+        type_component_ = Program::UNMAPPED_TYPE->getTypeComponent();
+        root->putInit(this);
+    } else {
+        if(root->hasSymbol(this->identifier_->getName(), false)) {
+            golite::Utils::error_message("Function name " + identifier_->toGoLite(0) + " redeclared in this block",
+                                         identifier_->getLine());
+        }
+        if(identifier_->getName() == Program::MAIN_FUNC_NAME) {
+            if(!params_.empty()) {
+                golite::Utils::error_message("Main function cannot have parameters", identifier_->getLine());
+            }
+            if(!type_component_->isVoid()) {
+                golite::Utils::error_message("Main function must be void", identifier_->getLine());
+            }
+        }
+        root->putSymbol(this->identifier_->getName(), this);
     }
 
-    root->putSymbol(this->identifier_->getName(), this);
     SymbolTable* function_block_table = new SymbolTable(root);
     for(FunctionParam* param : params_) {
         param->symbolTablePass(function_block_table);
