@@ -65,6 +65,12 @@ namespace golite {
         virtual std::string toPrettySymbol() = 0;
 
         /**
+         * Get line
+         * @return line
+         */
+        virtual int getLine() = 0;
+
+        /**
          * Set type component
          * @param type_component
          */

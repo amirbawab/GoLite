@@ -99,3 +99,7 @@ std::vector<golite::FunctionParam*> golite::Function::getParamsSeparated() {
     }
     return separated_params;
 }
+
+int golite::Function::getLine() {
+    return identifier_->getLine();
+}

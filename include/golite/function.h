@@ -89,6 +89,12 @@ namespace golite {
          * @return params
          */
         std::vector<golite::FunctionParam *> getParamsSeparated();
+
+        /**
+         * Get line number
+         * @return line number
+         */
+        int getLine();
     };
 }
 

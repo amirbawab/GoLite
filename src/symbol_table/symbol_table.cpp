@@ -2,6 +2,7 @@
 #include <golite/declarable.h>
 #include <golite/utils.h>
 #include <iostream>
+#include <golite/program.h>
 
 golite::SymbolTable::SymbolTable(SymbolTable *parent) {
     parent_ = parent;
@@ -13,6 +14,15 @@ golite::SymbolTable::SymbolTable(SymbolTable *parent) {
 void golite::SymbolTable::putSymbol(std::string name, golite::Declarable *decl) {
     if(entries_.find(name) != entries_.end()) {
         throw std::runtime_error("Identifier " + name + " already exists in the symbol table");
+    }
+
+    // If program scope
+    if(this == Program::getInstance()->getProgramSymbolTable()) {
+        if(!decl->isFunction()) {
+            if(name == Program::INIT_FUNC_NAME || name == Program::MAIN_FUNC_NAME) {
+                golite::Utils::error_message("Variable " + name + " must be a function", decl->getLine());
+            }
+        }
     }
     this->entries_[name] = decl;
     this->entries_keys_.push_back(name);

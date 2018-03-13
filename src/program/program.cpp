@@ -62,9 +62,9 @@ void golite::Program::initializeSymbolTable() {
 
 void golite::Program::symbolTablePass() {
     this->initializeSymbolTable();
-    SymbolTable* program_symbol_table = new SymbolTable(root_symbol_table_);
+    program_symbol_table_ = new SymbolTable(root_symbol_table_);
     for(Declarable* declarable: declarables_) {
-        declarable->symbolTablePass(program_symbol_table);
+        declarable->symbolTablePass(program_symbol_table_);
     }
 }
 

@@ -21,6 +21,7 @@ namespace golite {
         Identifier* package_name_ = nullptr;
         std::vector<Declarable*> declarables_;
         SymbolTable* root_symbol_table_ = nullptr;
+        SymbolTable* program_symbol_table_ = nullptr;
 
         void initializeSymbolTable();
     public:
@@ -90,6 +91,12 @@ namespace golite {
          * @return symbol table string representation
          */
         std::string prettifySymbolTable(int indent);
+
+        /**
+         * Get program symbol table
+         * @return symbol table
+         */
+        SymbolTable* getProgramSymbolTable() { return program_symbol_table_; }
     };
 }
 
