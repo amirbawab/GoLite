@@ -2,7 +2,7 @@
 package main
 
 func foo(int a) {
-    print a
+    print(a)
 }
 
 func main() {

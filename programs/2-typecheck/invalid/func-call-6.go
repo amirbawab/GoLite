@@ -1,4 +1,4 @@
-cannot use test (type func() int) as type int in argument to test2
+// cannot use test (type func() int) as type int in argument to test2
 package main
 
 func test() int {

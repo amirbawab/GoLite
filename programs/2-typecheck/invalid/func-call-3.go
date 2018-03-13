@@ -5,7 +5,7 @@ func test(int a) {
     return a
 }
 
-type b struct { a int }
+type b struct { a int; }
 
 func main() {
     var c b

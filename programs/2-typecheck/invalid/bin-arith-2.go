@@ -2,7 +2,7 @@
 package main
 
 func main() {
-    type a struct { a int }
+    type a struct { a int; }
     var test a
 
     println('test' + test)

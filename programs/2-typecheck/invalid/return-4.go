@@ -1,4 +1,6 @@
 // cannot return functions
+package main
+
 func testing() {
     return "test"
 }
