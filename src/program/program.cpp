@@ -50,6 +50,7 @@ void golite::Program::initializeSymbolTable() {
     Identifier* true_id = new Identifier("true", -1);
     true_var->setTypeComponent(Program::BOOL_BUILTIN_TYPE->getTypeComponent());
     true_var->setIdentifiers({true_id});
+    true_var->setConstant(true);
     this->root_symbol_table_->putSymbol(true_id->getName(), true_var);
 
     // append false
@@ -57,6 +58,7 @@ void golite::Program::initializeSymbolTable() {
     Identifier* false_id = new Identifier("false", -1);
     false_var->setTypeComponent(Program::BOOL_BUILTIN_TYPE->getTypeComponent());
     false_var->setIdentifiers({false_id});
+    false_var->setConstant(true);
     this->root_symbol_table_->putSymbol(false_id->getName(), false_var);
 }
 

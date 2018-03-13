@@ -16,6 +16,7 @@ namespace golite {
     private:
         std::vector<Identifier*> identifiers_;
         std::vector<Expression*> expressions_;
+        bool constant_ = false;
     public:
 
         /**
@@ -79,6 +80,18 @@ namespace golite {
          * @return identifiers
          */
         std::vector<golite::Identifier*> getIdentifiers() { return identifiers_; }
+
+        /**
+         * Set constant
+         * @param constant
+         */
+        void setConstant(bool constant) { constant_ = constant; }
+
+        /**
+         * Check if constant
+         * @return true if it is
+         */
+        bool isConstant() const { return constant_; }
     };
 }
 

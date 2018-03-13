@@ -109,7 +109,12 @@ std::string golite::Variable::toPrettySymbol() {
     if(identifiers_.size() != 1) {
         throw std::runtime_error("Symbol table variables must be normalized to one identifier per variable");
     }
-    ss << identifiers_.front()->getName() << " [variable] = ";
+    ss << identifiers_.front()->getName();
+    if(constant_) {
+        ss << " [constant] = ";
+    } else {
+        ss << " [variable] = ";
+    }
     ss << type_component_->toPrettySymbol();
     return ss.str();
 }
