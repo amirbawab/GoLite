@@ -86,17 +86,84 @@ void golite::Assignment::typeCheck() {
     }
 
     for(size_t i=0; i < left_expressions_.size(); i++) {
-        if(!left_expressions_[i]->isPrimaryExpression()) {
-            golite::Utils::error_message("Left element of an assignment cannot be binary or unary",
-                                         left_expressions_[i]->getLine());
+        Expression* left_operand = left_expressions_[i];
+        Expression* right_operand = right_expressions_[i];
+
+        // Resolve non-parenthesis expression
+        Expression* resolved_expression = left_operand->resolveExpression();
+        if(!resolved_expression->isPrimaryExpression()
+           || resolved_expression->isFunctionCall()
+           || resolved_expression->isLiteral()) {
+            golite::Utils::error_message("Assignment statement expects a variable on the left but given "
+                                         + left_operand->toGoLite(0), left_operand->getLine());
         }
 
-        TypeComponent* right_type = right_expressions_[i]->typeCheck();
-        if(!left_expressions_[i]->isBlank()) {
-            TypeComponent* left_type = left_expressions_[i]->typeCheck();
-            if(!left_type->isCompatible(right_type)) {
-                golite::Utils::error_message("Incompatible " + left_type->toGoLiteMin() + " and "
-                                             + right_type->toGoLiteMin(), left_type->getLine());
+        TypeComponent* right_type = right_operand->typeCheck();
+        // Ignore case of blank identifier on the left
+        if(!left_operand->isBlank()) {
+
+            // Perform type check on the left element
+            TypeComponent* left_type = left_operand->typeCheck();
+            switch (kind_) {
+                case EQUAL:
+                    if(!left_type->isCompatible(right_type)) {
+                        golite::Utils::error_message("Incompatible " + left_type->toGoLiteMin() + " and "
+                                                     + right_type->toGoLiteMin(), left_type->getLine());
+                    }
+                    break;
+
+                case PLUS_EQUAL:
+                    if(!left_type->resolvesToString() && !left_type->resolvesToNumeric()) {
+                        golite::Utils::error_message("Left operand of += must resolve to a string or a numeric but given "
+                                                     + left_type->toGoLiteMin(), left_operand->getLine());
+                    }
+                    if(!right_type->resolvesToString() && !right_type->resolvesToNumeric()) {
+                        golite::Utils::error_message("Right operand of += must resolve to a string or a numeric but given "
+                                                     + right_type->toGoLiteMin(), right_operand->getLine());
+                    }
+                    if(!left_type->isCompatible(right_type)) {
+                        golite::Utils::error_message("Left and right operands of += must be compatible but given "
+                                                     + left_type->toGoLiteMin() + " and " + right_type->toGoLiteMin(),
+                                                     left_operand->getLine());
+                    }
+                    break;
+
+                case MINUS_EQUAL:
+                case MULTIPLY_EQUAL:
+                case DIVIDE_EQUAL:
+                    if(!left_type->resolvesToNumeric()) {
+                        golite::Utils::error_message("Left operand of -=, *=, /= must resolve to a numeric but given "
+                                                     + left_type->toGoLiteMin(), left_operand->getLine());
+                    }
+                    if(!right_type->resolvesToNumeric()) {
+                        golite::Utils::error_message("Right operand of -=, *=, /= must resolve to a numeric but given "
+                                                     + right_type->toGoLiteMin(), right_operand->getLine());
+                    }
+                    if(!left_type->isCompatible(right_type)) {
+                        golite::Utils::error_message("Left and right operands of -=, *=, /= must be compatible but given "
+                                                     + left_type->toGoLiteMin() + " and " + right_type->toGoLiteMin(),
+                                                     left_operand->getLine());
+                    }
+                    break;
+
+                case MODULO_EQUAL:
+                case BIT_OR_EQUAL:
+                case BIT_AND_EQUAL:
+                case LEFT_SHIFT_EQUAL:
+                case RIGHT_SHIFT_EQUAL:
+                case BIT_CLEAR_EQUAL:
+                case BIT_XOR_EQUAL:
+                    if(!left_type->resolvesToInt()) {
+                        golite::Utils::error_message("Left operand of %=, |=, &=, <<=, >>=, ^&=, ^= must resolve to an integer but given "
+                                                     + left_type->toGoLiteMin(), left_operand->getLine());
+                    }
+                    if(!right_type->resolvesToInt()) {
+                        golite::Utils::error_message("Right operand of %=, |=, &=, <<=, >>=, ^&=, ^= must resolve to an integer but given "
+                                                     + right_type->toGoLiteMin(), right_operand->getLine());
+                    }
+                    break;
+                default:
+                    throw std::runtime_error("Unhandled <op>= kind");
             }
         }
     }
