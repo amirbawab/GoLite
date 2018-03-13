@@ -69,6 +69,11 @@ namespace golite {
          * @see Statement::hasReturn()
          */
         bool hasReturn(Declarable* function);
+
+        /**
+         * @see Statement::isTerminating()
+         */
+        bool isTerminating();
     };
 }
 

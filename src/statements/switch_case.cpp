@@ -61,3 +61,14 @@ void golite::SwitchCase::symbolTablePass(SymbolTable *root) {
 bool golite::SwitchCase::hasReturn(Declarable* function) {
     return block_->hasReturn(function);
 }
+
+bool golite::SwitchCase::isTerminating() {
+    if(block_->hasBreak()) {
+        golite::Utils::error_message("Switch case with a break statement is not terminating", getLine());
+    }
+
+    if(!block_->isTerminating()) {
+        golite::Utils::error_message("Switch case is not terminating", getLine());
+    }
+    return true;
+}

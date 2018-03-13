@@ -55,3 +55,7 @@ bool golite::Return::hasReturn(Declarable *function) {
     }
     return true;
 }
+
+bool golite::Return::isTerminating() {
+    return true;
+}

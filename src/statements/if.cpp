@@ -145,3 +145,23 @@ bool golite::If::hasReturn(Declarable* function) {
 bool golite::If::hasBreak() {
     return block_->hasBreak();
 }
+
+bool golite::If::isTerminating() {
+    bool is_terminating = true;
+    is_terminating &= block_->isTerminating();
+
+    for(If* else_if_stmt : else_if_) {
+        is_terminating &= else_if_stmt->isTerminating();
+    }
+
+    if(else_) {
+        is_terminating &= else_->isTerminating();
+    } else {
+        is_terminating = false;
+    }
+
+    if(!is_terminating) {
+        golite::Utils::error_message("If statement is not terminating in all branches", getLine());
+    }
+    return true;
+}

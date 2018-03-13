@@ -33,16 +33,23 @@ void golite::Function::weedingPass(bool check_break, bool check_continue) {
 
 void golite::Function::typeCheck() {
     block_->typeCheck();
-    if(!block_->hasReturn(this) && !type_component_->isVoid()) {
-        golite::Utils::error_message("Function " + identifier_->getName() + " is missing a return statement",
-                                     identifier_->getLine());
+    bool has_return = block_->hasReturn(this);
+    if(!type_component_->isVoid()) {
+        if(!has_return) {
+            golite::Utils::error_message("Function " + identifier_->toGoLite(0) + " is missing a return statement",
+                                         identifier_->getLine());
+        }
+
+        if(!block_->isTerminating()) {
+            golite::Utils::error_message("Function " + identifier_->toGoLite(0) + " is not terminating",
+                                         identifier_->getLine());
+        }
     }
-    // TODO Last statement must be terminating
 }
 
 void golite::Function::symbolTablePass(golite::SymbolTable *root) {
     if(root->hasSymbol(this->identifier_->getName(), false)) {
-        golite::Utils::error_message("Function name " + identifier_->getName() + " redeclared in this block",
+        golite::Utils::error_message("Function name " + identifier_->toGoLite(0) + " redeclared in this block",
                                      identifier_->getLine());
     }
 

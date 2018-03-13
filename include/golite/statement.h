@@ -127,6 +127,12 @@ namespace golite {
          * @return true if it does
          */
         virtual bool hasBreak() { return false; }
+
+        /**
+         * Check if last statement is terminating
+         * @return true if it is
+         */
+        virtual bool isTerminating() { return false; }
     };
 }
 

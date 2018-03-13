@@ -64,6 +64,11 @@ namespace golite {
          * @see Statement::hsaBreak()
          */
         bool hasBreak();
+
+        /**
+         * @see Statement::isTerminating()
+         */
+        bool isTerminating();
     };
 }
 

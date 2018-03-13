@@ -105,3 +105,18 @@ bool golite::For::hasReturn(Declarable* function) {
 bool golite::For::hasBreak() {
     return block_->hasBreak();
 }
+
+bool golite::For::isTerminating() {
+    if(expression_) {
+        golite::Utils::error_message("For loop with a condition is not terminating", getLine());
+    }
+
+    if(hasBreak()) {
+        golite::Utils::error_message("For loop with a break statement is not terminating", getLine());
+    }
+
+    if(!block_->isTerminating()) {
+        golite::Utils::error_message("For loop is not terminating", getLine());
+    }
+    return true;
+}

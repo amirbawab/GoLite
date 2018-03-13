@@ -96,3 +96,19 @@ bool golite::Switch::hasReturn(Declarable* function) {
     }
     return has_default && has_return;
 }
+
+bool golite::Switch::isTerminating() {
+    bool has_default = false;
+    for(SwitchCase* switch_case : cases_) {
+        switch_case->isTerminating();
+        has_default |= switch_case->isDefault();
+    }
+    // Note: No need to check if all switch cases return true
+    // because they report an error if not
+
+    // Default statement is required
+    if(!has_default) {
+        golite::Utils::error_message("Switch statement with not default case is not terminating", getLine());
+    }
+    return true;
+}

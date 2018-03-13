@@ -58,3 +58,7 @@ bool golite::Block::hasBreak() {
     }
     return false;
 }
+
+bool golite::Block::isTerminating() {
+    return !statements_.empty() && statements_.back()->isTerminating();
+}
