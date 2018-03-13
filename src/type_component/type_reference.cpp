@@ -79,3 +79,7 @@ std::vector<golite::TypeComposite*> golite::TypeReference::resolveChildren() {
     }
     return declarable_type_->getTypeComponent()->resolveChildren();
 }
+
+bool golite::TypeReference::isRecursive(Declarable* declarable) {
+    return declarable_type_ == declarable;
+}

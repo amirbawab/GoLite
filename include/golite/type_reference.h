@@ -95,6 +95,11 @@ namespace golite {
          * @see TypeComposite::resolveChildren()
          */
         std::vector<golite::TypeComposite*> resolveChildren();
+
+        /**
+         * @see TypeComposite::isRecursive()
+         */
+        bool isRecursive(Declarable* declarable);
     };
 }
 

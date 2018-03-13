@@ -142,11 +142,11 @@ namespace golite {
         std::string toPrettySymbol();
 
         /**
-         * Check if type component is a type refence that matches the given name
+         * Check if type component is recursive
          * @param name
          * @return true if it is
          */
-        bool isTypeReference(std::string name);
+        bool isRecursive(Declarable* declarable);
 
         /**
          * Check if resolves to bools

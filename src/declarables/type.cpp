@@ -26,11 +26,13 @@ void golite::Type::symbolTablePass(SymbolTable *root) {
     if(root->hasSymbol(this->identifier_->getName(), false)) {
         golite::Utils::error_message("Type name " + identifier_->getName() + " redeclared in this block", getLine());
     }
-    if(type_component_->isTypeReference(identifier_->getName())) {
-        golite::Utils::error_message("Type " + identifier_->getName() + " cannot be recursive", identifier_->getLine());
-    }
     root->putSymbol(this->identifier_->getName(), this);
     type_component_->symbolTablePass(root);
+
+    // Check for recursion
+    if(type_component_->isRecursive(this)) {
+        golite::Utils::error_message("Type " + identifier_->getName() + " cannot be recursive", identifier_->getLine());
+    }
 }
 
 std::string golite::Type::toPrettySymbol() {

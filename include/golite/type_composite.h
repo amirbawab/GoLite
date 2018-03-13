@@ -87,6 +87,13 @@ namespace golite {
          * @return children
          */
         virtual std::vector<TypeComposite*> resolveChildren() = 0;
+
+        /**
+         * Check if a type is recursive
+         * @param type
+         * @return true if it is
+         */
+        virtual bool isRecursive(Declarable* type) { return false; }
     };
 }
 

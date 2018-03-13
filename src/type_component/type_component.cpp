@@ -127,15 +127,17 @@ std::string golite::TypeComponent::toPrettySymbol() {
     return ss.str();
 }
 
-bool golite::TypeComponent::isTypeReference(std::string name) {
-    if(children_.size() != 1) {
-        return false;
+bool golite::TypeComponent::isRecursive(Declarable *declarable) {
+    if(children_.empty()) {
+        throw std::runtime_error("Cannot check if type component is recursive because children list is empty");
     }
-    if(!children_.front()->isTypeReference()) {
-        return false;
+
+    for(TypeComposite* type_composite : children_) {
+        if(type_composite->isTypeReference() && !type_composite->isRecursive(declarable) || type_composite->isSlice()) {
+            return false;
+        }
     }
-    TypeReference* type_reference = static_cast<TypeReference*>(children_.front());
-    return type_reference->getIdentifier()->getName() == name;
+    return true;
 }
 
 bool golite::TypeComponent::resolvesToBool() {
