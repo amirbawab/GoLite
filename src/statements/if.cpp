@@ -126,20 +126,16 @@ void golite::If::symbolTablePass(SymbolTable *root) {
     }
 }
 
-bool golite::If::hasReturn(Declarable* function) {
-    bool has_return = true;
-    has_return &= block_->hasReturn(function);
+void golite::If::checkReturn(Declarable* function) {
+    block_->checkReturn(function);
 
     for(If* else_if_stmt : else_if_) {
-        has_return &= else_if_stmt->hasReturn(function);
+        else_if_stmt->checkReturn(function);
     }
 
     if(else_) {
-        has_return &= else_->hasReturn(function);
-    } else {
-        has_return = false;
+        else_->checkReturn(function);
     }
-    return has_return;
 }
 
 bool golite::If::hasBreak() {

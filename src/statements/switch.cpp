@@ -87,14 +87,10 @@ void golite::Switch::symbolTablePass(golite::SymbolTable *root) {
     }
 }
 
-bool golite::Switch::hasReturn(Declarable* function) {
-    bool has_default = false;
-    bool has_return = true;
-    for(SwitchCase* switch_case : cases_) {
-        has_return &= switch_case->hasReturn(function);
-        has_default |= switch_case->isDefault();
+void golite::Switch::checkReturn(Declarable* function) {
+    for (SwitchCase *switch_case : cases_) {
+        switch_case->checkReturn(function);
     }
-    return has_default && has_return;
 }
 
 bool golite::Switch::isTerminating() {

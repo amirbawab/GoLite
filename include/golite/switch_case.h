@@ -71,7 +71,7 @@ namespace golite {
          * Check if all cases have return statement
          * @param function
          */
-        bool hasReturn(Declarable* function);
+        void checkReturn(Declarable* function);
 
         /**
          * @see Statement::isTerminating()

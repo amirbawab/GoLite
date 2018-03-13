@@ -56,9 +56,9 @@ namespace golite {
         void symbolTablePass(SymbolTable* root);
 
         /**
-         * @see Statement::hasReturn()
+         * @see Statement::checkReturn()
          */
-        bool hasReturn(Declarable* function);
+        void checkReturn(Declarable* function);
 
         /**
          * @see Statement::hsaBreak()

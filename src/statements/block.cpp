@@ -39,12 +39,10 @@ void golite::Block::symbolTablePass(SymbolTable *root) {
     }
 }
 
-bool golite::Block::hasReturn(Declarable* function) {
-    bool has_return = false;
+void golite::Block::checkReturn(Declarable* function) {
     for(Statement* statement : statements_) {
-        has_return |= statement->hasReturn(function);
+        statement->checkReturn(function);
     }
-    return has_return;
 }
 
 bool golite::Block::hasBreak() {

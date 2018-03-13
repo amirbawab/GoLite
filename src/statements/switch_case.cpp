@@ -58,8 +58,8 @@ void golite::SwitchCase::symbolTablePass(SymbolTable *root) {
     block_->symbolTablePass(block_table);
 }
 
-bool golite::SwitchCase::hasReturn(Declarable* function) {
-    return block_->hasReturn(function);
+void golite::SwitchCase::checkReturn(Declarable* function) {
+    block_->checkReturn(function);
 }
 
 bool golite::SwitchCase::isTerminating() {

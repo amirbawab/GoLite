@@ -33,17 +33,10 @@ void golite::Function::weedingPass(bool check_break, bool check_continue) {
 
 void golite::Function::typeCheck() {
     block_->typeCheck();
-    bool has_return = block_->hasReturn(this);
-    if(!type_component_->isVoid()) {
-        if(!has_return) {
-            golite::Utils::error_message("Function " + identifier_->toGoLite(0) + " is missing a return statement",
-                                         identifier_->getLine());
-        }
-
-        if(!block_->isTerminating()) {
-            golite::Utils::error_message("Function " + identifier_->toGoLite(0) + " is not terminating",
-                                         identifier_->getLine());
-        }
+    block_->checkReturn(this);
+    if(!type_component_->isVoid() && !block_->isTerminating()) {
+        golite::Utils::error_message("Function " + identifier_->toGoLite(0) + " is not terminating",
+                                     identifier_->getLine());
     }
 }
 

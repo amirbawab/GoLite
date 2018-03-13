@@ -98,8 +98,8 @@ void golite::For::symbolTablePass(SymbolTable *root) {
     this->block_->symbolTablePass(for_inner_table);
 }
 
-bool golite::For::hasReturn(Declarable* function) {
-    return block_->hasReturn(function);
+void golite::For::checkReturn(Declarable* function) {
+    block_->checkReturn(function);
 }
 
 bool golite::For::hasBreak() {

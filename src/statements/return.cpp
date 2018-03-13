@@ -25,7 +25,7 @@ void golite::Return::weedingPass(bool, bool) {
 }
 
 void golite::Return::typeCheck() {
-    // Type checking is done in hasReturn() method
+    // Type checking is done in checkReturn() method
 }
 
 void golite::Return::symbolTablePass(SymbolTable *root) {
@@ -34,7 +34,7 @@ void golite::Return::symbolTablePass(SymbolTable *root) {
     }
 }
 
-bool golite::Return::hasReturn(Declarable *function) {
+void golite::Return::checkReturn(Declarable *function) {
     if(expression_) {
         TypeComponent* type_component = expression_->typeCheck();
         if(!function->getTypeComponent()->isVoid()) {
@@ -50,10 +50,9 @@ bool golite::Return::hasReturn(Declarable *function) {
                     expression_->getLine());
         }
     } else if(!function->getTypeComponent()->isVoid()) {
-        golite::Utils::error_message("Function declaration expects a type "
+        golite::Utils::error_message("Return statement expects an expression of type "
                                      + function->getTypeComponent()->toGoLiteMin(), getLine());
     }
-    return true;
 }
 
 bool golite::Return::isTerminating() {

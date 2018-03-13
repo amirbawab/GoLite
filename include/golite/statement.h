@@ -116,11 +116,10 @@ namespace golite {
         virtual void symbolTablePass(SymbolTable* root) = 0;
 
         /**
-         * Check if statement is return or will return in all cases
+         * Check all return statements for errors
          * @param function
-         * @return true if it does
          */
-        virtual bool hasReturn(Declarable* function) { return false; }
+        virtual void checkReturn(Declarable* function) { }
 
         /**
          * Check if statement is break or has a break
