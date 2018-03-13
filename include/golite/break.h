@@ -40,6 +40,11 @@ namespace golite {
          * @see Statement::symbolTablePass()
          */
         void symbolTablePass(SymbolTable* root);
+
+        /**
+         * @see Statement::hsaBreak()
+         */
+        bool hasBreak();
     };
 }
 

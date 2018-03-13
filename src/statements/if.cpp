@@ -141,3 +141,7 @@ bool golite::If::hasReturn(Declarable* function) {
     }
     return has_return;
 }
+
+bool golite::If::hasBreak() {
+    return block_->hasBreak();
+}

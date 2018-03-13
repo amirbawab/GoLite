@@ -46,3 +46,15 @@ bool golite::Block::hasReturn(Declarable* function) {
     }
     return has_return;
 }
+
+bool golite::Block::hasBreak() {
+    for(Statement* statement : statements_) {
+        // Don't check for and switch statements
+        // because if they a break then it's for them
+        // and not for the current block
+        if(!statement->isFor() && !statement->isSwitch() && statement->hasBreak()) {
+            return true;
+        }
+    }
+    return false;
+}

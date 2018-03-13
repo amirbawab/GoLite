@@ -101,3 +101,7 @@ void golite::For::symbolTablePass(SymbolTable *root) {
 bool golite::For::hasReturn(Declarable* function) {
     return block_->hasReturn(function);
 }
+
+bool golite::For::hasBreak() {
+    return block_->hasBreak();
+}

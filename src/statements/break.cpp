@@ -21,3 +21,7 @@ void golite::Break::typeCheck() {
 void golite::Break::symbolTablePass(SymbolTable *root) {
     // Do nothing
 }
+
+bool golite::Break::hasBreak() {
+    return true;
+}

@@ -121,6 +121,12 @@ namespace golite {
          * @return true if it does
          */
         virtual bool hasReturn(Declarable* function) { return false; }
+
+        /**
+         * Check if statement is break or has a break
+         * @return true if it does
+         */
+        virtual bool hasBreak() { return false; }
     };
 }
 
