@@ -32,7 +32,7 @@ void golite::TypeReference::symbolTablePass(SymbolTable *root) {
     if(!declarable->isTypeDeclaration()) {
         golite::Utils::error_message("Identifier " + identifier_->getName() + " is not a type declaration", identifier_->getLine());
     }
-    declarable_type_ = declarable;
+    declarable_type_ = static_cast<Type*>(declarable);
 }
 
 bool golite::TypeReference::isCompatible(TypeComposite *type_composite) {
@@ -44,15 +44,15 @@ bool golite::TypeReference::isCompatible(TypeComposite *type_composite) {
 }
 
 std::string golite::TypeReference::toPrettySymbol() {
-    std::stringstream ss;
-    ss << "(" << identifier_->toGoLite(0);
-    if(!built_in_) {
-        if(!declarable_type_ || !declarable_type_->getTypeComponent()) {
-            throw std::runtime_error("Declarable or declarable type is empty. Verify symbol table pass.");
-        }
-        ss  << " -> " << declarable_type_->getTypeComponent()->toPrettySymbol();
+    if(!declarable_type_ || !declarable_type_->getTypeComponent()) {
+        throw std::runtime_error("Declarable or declarable type is empty. Verify symbol table pass.");
     }
-    ss << ")";
+
+    std::stringstream ss;
+    ss << identifier_->getName();
+    if(!declarable_type_->isBuiltIn()) {
+        ss << " -> " << declarable_type_->getTypeComponent()->toPrettySymbol();
+    }
     return ss.str();
 }
 
@@ -60,22 +60,25 @@ bool golite::TypeReference::resolvesTo(Declarable* declarable) {
     if(!declarable->getTypeComponent() || declarable->getTypeComponent()->getChildren().size() != 1) {
         throw std::runtime_error("Type composite cannot resolve a declarable with number of children not equal to 1");
     }
+    if(!declarable_type_ || !declarable_type_->getTypeComponent()) {
+        throw std::runtime_error("Declarable or declarable type is empty while resolving type. Verify symbol table pass.");
+    }
     if(isCompatible(declarable->getTypeComponent()->getChildren().front())) {
         return true;
     }
-    if(built_in_) {
-        return false;
+    if(declarable_type_->isBuiltIn()) {
+        return declarable_type_->getTypeComponent()->isCompatible(declarable->getTypeComponent());
     }
     return declarable_type_->getTypeComponent()->resolvesTo(declarable);
 }
 
 std::vector<golite::TypeComposite*> golite::TypeReference::resolveChildren() {
-    if(built_in_) {
-        return {this};
-    }
     if(!declarable_type_ || !declarable_type_->getTypeComponent()) {
         throw std::runtime_error("Cannot resolve children because declarable or declarable type is empty. "
                                          "Verify symbol table pass.");
+    }
+    if(declarable_type_->isBuiltIn()) {
+        return declarable_type_->getTypeComponent()->getChildren();
     }
     return declarable_type_->getTypeComponent()->resolveChildren();
 }
