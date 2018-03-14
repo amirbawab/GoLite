@@ -116,12 +116,22 @@ void golite::If::symbolTablePass(SymbolTable *root) {
     SymbolTable* if_inner_table = new SymbolTable(if_outer_table);
     this->block_->symbolTablePass(if_inner_table);
 
+    SymbolTable* prev_else_if_outer = if_outer_table;
     for(golite::If* else_if_stmt : this->else_if_) {
-        else_if_stmt->symbolTablePass(if_outer_table);
+        SymbolTable* else_if_outer_table = new SymbolTable(prev_else_if_outer);
+
+        if(else_if_stmt->simple_) {
+            else_if_stmt->simple_->symbolTablePass(else_if_outer_table);
+        }
+        else_if_stmt->expression_->symbolTablePass(else_if_outer_table);
+
+        SymbolTable* else_if_inner_table = new SymbolTable(else_if_outer_table);
+        else_if_stmt->block_->symbolTablePass(else_if_inner_table);
+        prev_else_if_outer = else_if_outer_table;
     }
 
     if(this->else_) {
-        SymbolTable* else_inner_table = new SymbolTable(if_outer_table);
+        SymbolTable* else_inner_table = new SymbolTable(prev_else_if_outer);
         this->else_->symbolTablePass(else_inner_table);
     }
 }
