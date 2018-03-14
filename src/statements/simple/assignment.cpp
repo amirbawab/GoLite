@@ -99,21 +99,21 @@ void golite::Assignment::typeCheck() {
                                          + left_operand->toGoLite(0), left_operand->getLine());
         }
 
-        // Cannot be constant
-        if(resolved_expression->isIdentifier()) {
-            PrimaryExpression* primary_expression = static_cast<PrimaryExpression*>(resolved_expression);
-            Identifier* identifier = static_cast<Identifier*>(primary_expression->getChildren().front());
-            if(identifier->getSymbolTableEntry()->isDecVariable()) {
-                Variable* variable = static_cast<Variable*>(identifier->getSymbolTableEntry());
-                if(variable->isConstant()) {
-                    golite::Utils::error_message("Constant " + identifier->toGoLite(0) + " cannot be assigned", resolved_expression->getLine());
-                }
-            }
-        }
-
         TypeComponent* right_type = right_operand->typeCheck();
         // Ignore case of blank identifier on the left
         if(!left_operand->isBlank()) {
+
+            // Cannot be constant
+            if(resolved_expression->isIdentifier()) {
+                PrimaryExpression* primary_expression = static_cast<PrimaryExpression*>(resolved_expression);
+                Identifier* identifier = static_cast<Identifier*>(primary_expression->getChildren().front());
+                if(identifier->getSymbolTableEntry()->isDecVariable()) {
+                    Variable* variable = static_cast<Variable*>(identifier->getSymbolTableEntry());
+                    if(variable->isConstant()) {
+                        golite::Utils::error_message("Constant " + identifier->toGoLite(0) + " cannot be assigned", resolved_expression->getLine());
+                    }
+                }
+            }
 
             // Perform type check on the left element
             TypeComponent* left_type = left_operand->typeCheck();
@@ -184,7 +184,9 @@ void golite::Assignment::typeCheck() {
 
 void golite::Assignment::symbolTablePass(SymbolTable *root) {
     for(golite::Expression* expr : this->left_expressions_) {
-        expr->symbolTablePass(root);
+        if(!expr->isBlank()) {
+            expr->symbolTablePass(root);
+        }
     }
 
     for(golite::Expression* expr : this->right_expressions_) {
