@@ -5,7 +5,6 @@ func main() {
     var a int
     var b []float64
     var c []rune
-    var d bool
     var e string
     var f struct { g int; }
 
@@ -21,7 +20,6 @@ func main() {
     a += 1
     b[0] += 2.3
     c[0] += 'r'
-    d += true
     e += "string"
     f.g += 1
 }

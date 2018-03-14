@@ -19,4 +19,7 @@ func f2(a int) int {
 
     // Should be evaluated even after a return expr
     f2(1 + 2);
+
+    // Terminating
+    return -1
 }
