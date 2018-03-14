@@ -50,7 +50,9 @@ std::string golite::TypeReference::toPrettySymbol() {
 
     std::stringstream ss;
     ss << identifier_->getName();
-    if(!declarable_type_->isBuiltIn()) {
+
+    // Note: Children size is important to avoid recursive call on: type A []A
+    if(!declarable_type_->isBuiltIn() && declarable_type_->getTypeComponent()->getChildren().size() == 1) {
         ss << " -> " << declarable_type_->getTypeComponent()->toPrettySymbol();
     }
     return ss.str();
