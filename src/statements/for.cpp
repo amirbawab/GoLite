@@ -114,9 +114,5 @@ bool golite::For::isTerminating() {
     if(hasBreak()) {
         golite::Utils::error_message("For loop with a break statement is not terminating", getLine());
     }
-
-    if(!block_->isTerminating()) {
-        golite::Utils::error_message("For loop is not terminating", getLine());
-    }
     return true;
 }

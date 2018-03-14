@@ -147,7 +147,7 @@ bool golite::If::isTerminating() {
     is_terminating &= block_->isTerminating();
 
     for(If* else_if_stmt : else_if_) {
-        is_terminating &= else_if_stmt->isTerminating();
+        is_terminating &= else_if_stmt->block_->isTerminating();
     }
 
     if(else_) {
