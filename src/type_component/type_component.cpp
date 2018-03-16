@@ -101,7 +101,11 @@ bool golite::TypeComponent::isVoid() {
 }
 
 bool golite::TypeComponent::isComparable() {
-    // Everything is comparable
+    for(TypeComposite* type_composite : children_) {
+        if(type_composite->isSlice()) {
+            return false;
+        }
+    }
     return true;
 }
 
@@ -174,7 +178,12 @@ bool golite::TypeComponent::resolvesToRune() {
 }
 
 bool golite::TypeComponent::resolvesToComparable() {
-    // Everything is comparable
+    std::vector<TypeComposite*> resolved = resolveChildren();
+    for(TypeComposite* type_composite : resolved) {
+        if(type_composite->isSlice()) {
+            return false;
+        }
+    }
     return true;
 }
 

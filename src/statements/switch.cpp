@@ -67,6 +67,10 @@ void golite::Switch::typeCheck() {
         if(expression_type->isVoid()) {
             golite::Utils::error_message("Switch expression cannot be void", expression_->getLine());
         }
+        if(!expression_type->isComparable()) {
+            golite::Utils::error_message("Switch expression must be comparable but given " +
+                                                 expression_type->toGoLiteMin(), expression_type->getLine());
+        }
     }
 
     for (SwitchCase *switch_case : cases_) {
