@@ -166,13 +166,18 @@ void golite::Assignment::typeCheck() {
                 case RIGHT_SHIFT_EQUAL:
                 case BIT_CLEAR_EQUAL:
                 case BIT_XOR_EQUAL:
-                    if(!left_type->resolvesToInt()) {
+                    if(!left_type->resolvesToInteger()) {
                         golite::Utils::error_message("Left operand of %=, |=, &=, <<=, >>=, ^&=, ^= must resolve to an integer but given "
                                                      + left_type->toGoLiteMin(), left_operand->getLine());
                     }
-                    if(!right_type->resolvesToInt()) {
+                    if(!right_type->resolvesToInteger()) {
                         golite::Utils::error_message("Right operand of %=, |=, &=, <<=, >>=, ^&=, ^= must resolve to an integer but given "
                                                      + right_type->toGoLiteMin(), right_operand->getLine());
+                    }
+                    if(!left_type->isCompatible(right_type)) {
+                        golite::Utils::error_message("Left and right operands of %, |, &, <<. >>, ^&, ^ must be compatible but given "
+                                                     + left_type->toGoLiteMin() + " and " + right_type->toGoLiteMin(),
+                                                     left_operand->getLine());
                     }
                     break;
                 default:

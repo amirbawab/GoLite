@@ -75,6 +75,10 @@ bool golite::TypeComponent::isInt() {
     return isCompatible(golite::Program::INT_BUILTIN_TYPE->getTypeComponent());
 }
 
+bool golite::TypeComponent::isInteger() {
+    return isInt() || isRune();
+}
+
 bool golite::TypeComponent::isFloat64() {
     return isCompatible(golite::Program::FLOAT64_BUILTIN_TYPE->getTypeComponent());
 }
@@ -155,6 +159,10 @@ bool golite::TypeComponent::resolvesToFloat64() {
 
 bool golite::TypeComponent::resolvesToInt() {
     return resolvesTo(golite::Program::INT_BUILTIN_TYPE);
+}
+
+bool golite::TypeComponent::resolvesToInteger() {
+    return resolvesToInt() || resolvesToRune();
 }
 
 bool golite::TypeComponent::resolvesToString() {

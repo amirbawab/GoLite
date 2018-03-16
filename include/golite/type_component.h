@@ -88,6 +88,12 @@ namespace golite {
         bool isInt();
 
         /**
+         * Check if it's an int or rune
+         * @return true if it is
+         */
+        bool isInteger();
+
+        /**
          * Check if it's a float64
          * @return true if it is
          */
@@ -165,7 +171,14 @@ namespace golite {
          * @return true if it does
          */
         bool resolvesToInt();
+
         /**
+         * Check if resolves to int or rune
+         * @return true if it does
+         */
+        bool resolvesToInteger();
+
+/**
          * Check if resolves to string
          * @return true if it does
          */

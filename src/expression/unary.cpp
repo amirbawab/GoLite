@@ -53,7 +53,7 @@ golite::TypeComponent* golite::Unary::typeCheck() {
             }
             break;
         case XOR:
-            if(!operand_type->resolvesToInt() && !operand_type->resolvesToRune()) {
+            if(!operand_type->resolvesToInteger()) {
                 golite::Utils::error_message("Unary operation ^ expects an operand that resolves to an int or a rune "
                                                      "expression but given " + operand_type->toGoLiteMin(), getLine());
             }

@@ -57,8 +57,7 @@ void golite::FunctionCall::checkParams(golite::Type *type) {
     can_cast |= type->getTypeComponent()->resolvesToNumeric() && expression_type->resolvesToNumeric();
 
     // Rule 3: Type resolves to string type and expr resolves to an integer
-    can_cast |= type->getTypeComponent()->resolvesToString()
-               && (expression_type->resolvesToInt() || expression_type->resolvesToRune());
+    can_cast |= type->getTypeComponent()->resolvesToString() && expression_type->resolvesToInteger();
     if(!can_cast) {
         golite::Utils::error_message("Cannot convert " + expression_type->toGoLiteMin()
                                      + " to " + type->getTypeComponent()->toGoLiteMin(), getLine());

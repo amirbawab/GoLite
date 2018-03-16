@@ -98,12 +98,17 @@ golite::TypeComponent* golite::Binary::typeCheck() {
         case KIND::OR:
         case KIND::AND:
             if(!left_type->resolvesToBool()) {
-                golite::Utils::error_message("Left operand of && an || must be a boolean but given "
+                golite::Utils::error_message("Left operand of && and || must be a boolean but given "
                                              + left_type->toGoLiteMin() , left_operand_->getLine());
             }
             if(!right_type->resolvesToBool()) {
-                golite::Utils::error_message("Right operand of && an || must be a boolean but given "
+                golite::Utils::error_message("Right operand of && and || must be a boolean but given "
                                              + right_type->toGoLiteMin() , right_operand_->getLine());
+            }
+            if(!left_type->isCompatible(right_type)) {
+                golite::Utils::error_message("Left and right operands of && and || must be compatible but given "
+                                             + left_type->toGoLiteMin() + " and " + right_type->toGoLiteMin(),
+                                             left_operand_->getLine());
             }
             return left_type;
 
@@ -184,13 +189,18 @@ golite::TypeComponent* golite::Binary::typeCheck() {
         case KIND::RIGHT_SHIFT:
         case KIND::BIT_CLEAR:
         case KIND::BIT_XOR:
-            if(!left_type->resolvesToInt()) {
+            if(!left_type->resolvesToInteger()) {
                 golite::Utils::error_message("Left operand of %, |, &, <<, >>, ^&, ^ must resolve to an integer but given "
                                              + left_type->toGoLiteMin(), left_operand_->getLine());
             }
-            if(!right_type->resolvesToInt()) {
+            if(!right_type->resolvesToInteger()) {
                 golite::Utils::error_message("Right operand of %, |, &, <<, >>, ^&, ^ must resolve to an integer but given "
                                              + right_type->toGoLiteMin(), right_operand_->getLine());
+            }
+            if(!left_type->isCompatible(right_type)) {
+                golite::Utils::error_message("Left and right operands of %, |, &, <<. >>, ^&, ^ must be compatible but given "
+                                             + left_type->toGoLiteMin() + " and " + right_type->toGoLiteMin(),
+                                             left_operand_->getLine());
             }
             return left_type;
     }
