@@ -72,6 +72,10 @@ void golite::Variable::typeCheck() {
             TypeComponent* expression_type = expressions_[i]->typeCheck();
             if(!identifiers_[i]->isBlank()) {
                 if(type_component_->isInfer()) {
+                    if(expression_type->isVoid()) {
+                        golite::Utils::error_message("Cannot assign a void function to a variable",
+                                                     identifiers_[i]->getLine());
+                    }
                     type_component_ = expression_type;
                 } else if(!type_component_->isCompatible(expression_type)) {
                     golite::Utils::error_message("Variable " + identifiers_[i]->getName()
