@@ -91,6 +91,16 @@ namespace golite {
          * @see TypeComposite::isRecursive()
          */
         bool isRecursive(Declarable* declarable);
+
+        /**
+         * @see TypeComposite::isComparable()
+         */
+        bool isComparable() { return true; }
+
+        /**
+         * @see TypeComposite::resolvesToComparable()
+         */
+        bool resolvesToComparable();
     };
 }
 

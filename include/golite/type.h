@@ -55,6 +55,16 @@ namespace golite {
          */
         void symbolTablePass(SymbolTable *root);
 
+        /*
+         * Check if it's a recursive type
+         */
+        bool isRecursive();
+
+        /*
+         * Check if it's a recursive type
+         */
+        bool isSliceRecursive();
+
         /**
          * @see Declarable::toPrettySymbol()
          */

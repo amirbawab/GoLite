@@ -155,6 +155,13 @@ namespace golite {
         bool isRecursive(Declarable* declarable);
 
         /**
+         * Check if slice recursive
+         * @param name
+         * @return true if it is
+         */
+        bool isSliceRecursive(Declarable* declarable);
+
+        /**
          * Check if resolves to bools
          * @return true if it does
          */

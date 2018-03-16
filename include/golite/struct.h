@@ -70,6 +70,16 @@ namespace golite {
          * @return field | nullptr
          */
         StructField* getField(std::string name);
+
+        /**
+         * @see TypeComposite::isComparable()
+         */
+        bool isComparable();
+
+        /**
+         * @see TypeComposite::resolvesToComparable()
+         */
+        bool resolvesToComparable();
     };
 }
 

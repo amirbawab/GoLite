@@ -105,3 +105,21 @@ golite::StructField * golite::Struct::getField(std::string name) {
     }
     return nullptr;
 }
+
+bool golite::Struct::isComparable() {
+    for(StructField* field : fields_) {
+        if(!field->getTypeComponent()->isComparable()) {
+            return false;
+        }
+    }
+    return true;
+}
+
+bool golite::Struct::resolvesToComparable() {
+    for(StructField* field : fields_) {
+        if(!field->getTypeComponent()->resolvesToComparable()) {
+            return false;
+        }
+    }
+    return true;
+}

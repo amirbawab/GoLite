@@ -94,6 +94,18 @@ namespace golite {
          * @return true if it is
          */
         virtual bool isRecursive(Declarable* type) { return false; }
+
+        /**
+         * Check if a type is comparable
+         * @return true if it is
+         */
+        virtual bool isComparable() = 0;
+
+        /**
+         * Check if a type resolves to comparable
+         * @return true if it is
+         */
+        virtual bool resolvesToComparable() = 0;
     };
 }
 

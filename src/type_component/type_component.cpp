@@ -102,7 +102,7 @@ bool golite::TypeComponent::isVoid() {
 
 bool golite::TypeComponent::isComparable() {
     for(TypeComposite* type_composite : children_) {
-        if(type_composite->isSlice()) {
+        if(!type_composite->isComparable()) {
             return false;
         }
     }
@@ -153,6 +153,13 @@ bool golite::TypeComponent::isRecursive(Declarable *declarable) {
     return true;
 }
 
+bool golite::TypeComponent::isSliceRecursive(Declarable *declarable) {
+    if(children_.size() != 2 || !children_[1]->isSlice() || !children_[0]->isTypeReference()) {
+        return false;
+    }
+    return children_[0]->isRecursive(declarable);
+}
+
 bool golite::TypeComponent::resolvesToBool() {
     return resolvesTo(golite::Program::BOOL_BUILTIN_TYPE);
 }
@@ -180,7 +187,7 @@ bool golite::TypeComponent::resolvesToRune() {
 bool golite::TypeComponent::resolvesToComparable() {
     std::vector<TypeComposite*> resolved = resolveChildren();
     for(TypeComposite* type_composite : resolved) {
-        if(type_composite->isSlice()) {
+        if(!type_composite->resolvesToComparable()) {
             return false;
         }
     }

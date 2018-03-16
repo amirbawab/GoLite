@@ -31,7 +31,7 @@ void golite::Type::symbolTablePass(SymbolTable *root) {
         root->putSymbol(this->identifier_->getName(), this);
 
         // Check for recursion
-        if(type_component_->isRecursive(this)) {
+        if(isRecursive()) {
             golite::Utils::error_message("Type " + identifier_->getName() + " cannot be recursive", identifier_->getLine());
         }
     }
@@ -47,4 +47,12 @@ std::string golite::Type::toPrettySymbol() {
 golite::Type::Type(Identifier *identifier, TypeComponent *type_component) {
     identifier_ = identifier;
     type_component_ = type_component;
+}
+
+bool golite::Type::isRecursive() {
+    return type_component_->isRecursive(this);
+}
+
+bool golite::Type::isSliceRecursive() {
+    return type_component_->isSliceRecursive(this);
 }

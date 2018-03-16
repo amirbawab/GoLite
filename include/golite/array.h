@@ -61,6 +61,16 @@ namespace golite {
          * @see TypeComposite::resolveChildren()
          */
         std::vector<golite::TypeComposite*> resolveChildren();
+
+        /**
+         * @see TypeComposite::isComparable()
+         */
+        bool isComparable() { return true; }
+
+        /**
+         * @see TypeComposite::resolvesToComparable()
+         */
+        bool resolvesToComparable() { return true; }
     };
 }
 

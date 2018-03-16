@@ -51,8 +51,9 @@ std::string golite::TypeReference::toPrettySymbol() {
     std::stringstream ss;
     ss << identifier_->getName();
 
-    // Note: Children size is important to avoid recursive call on: type A []A
-    if(!declarable_type_->isBuiltIn() && declarable_type_->getTypeComponent()->getChildren().size() == 1) {
+    if(declarable_type_->isSliceRecursive()) {
+        ss << " -> ... (of the form type T []T)";
+    } else if(!declarable_type_->isBuiltIn()) {
         ss << " -> " << declarable_type_->getTypeComponent()->toPrettySymbol();
     }
     return ss.str();
@@ -87,4 +88,11 @@ std::vector<golite::TypeComposite*> golite::TypeReference::resolveChildren() {
 
 bool golite::TypeReference::isRecursive(Declarable* declarable) {
     return declarable_type_ == declarable;
+}
+
+bool golite::TypeReference::resolvesToComparable() {
+    if(declarable_type_->isBuiltIn() || declarable_type_->isSliceRecursive()) {
+        return declarable_type_->getTypeComponent()->isComparable();
+    }
+    return declarable_type_->getTypeComponent()->resolvesToComparable();
 }
