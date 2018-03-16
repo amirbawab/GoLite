@@ -64,6 +64,9 @@ void golite::Switch::typeCheck() {
     TypeComponent* expression_type = nullptr;
     if (expression_) {
         expression_type = expression_->typeCheck();
+        if(expression_type->isVoid()) {
+            golite::Utils::error_message("Switch expression cannot be void", expression_->getLine());
+        }
     }
 
     for (SwitchCase *switch_case : cases_) {
