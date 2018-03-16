@@ -70,6 +70,9 @@ void golite::Function::symbolTablePass(golite::SymbolTable *root) {
 
     SymbolTable* function_block_table = new SymbolTable(root);
     for(FunctionParam* param : params_) {
+        param->getTypeComponent()->symbolTablePass(root);
+    }
+    for(FunctionParam* param : params_) {
         param->symbolTablePass(function_block_table);
     }
 

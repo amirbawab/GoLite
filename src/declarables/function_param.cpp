@@ -2,6 +2,7 @@
 #include <golite/utils.h>
 #include <golite/pretty_helper.h>
 #include <golite/variable.h>
+#include <iostream>
 
 std::string golite::FunctionParam::toGoLite(int indent) {
     std::stringstream ss;
@@ -18,6 +19,7 @@ void golite::FunctionParam::weedingPass() {
 }
 
 void golite::FunctionParam::symbolTablePass(SymbolTable *root) {
+    // Note: Type component has been checked in the function symbol table pass
     for(Identifier* identifier : identifiers_) {
         if(!identifier->isBlank()) {
             if(root->hasSymbol(identifier->getName(), false)) {
@@ -30,5 +32,4 @@ void golite::FunctionParam::symbolTablePass(SymbolTable *root) {
             root->putSymbol(identifier->getName(), variable);
         }
     }
-    type_component_->symbolTablePass(root);
 }
