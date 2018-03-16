@@ -1,5 +1,7 @@
 #include <golite/struct.h>
 #include <golite/utils.h>
+#include <golite/variable.h>
+#include <set>
 #include <sstream>
 
 std::string golite::Struct::toGoLite(int indent) {
@@ -37,9 +39,18 @@ void golite::Struct::weedingPass() {
 }
 
 void golite::Struct::symbolTablePass(SymbolTable *root) {
-    SymbolTable* symbol_table = new golite::SymbolTable(root);
     for(StructField* field : fields_) {
-        field->symbolTablePass(symbol_table);
+        field->symbolTablePass(root);
+        std::set<std::string> identifier_names;
+        for(Identifier* identifier : field->getIdentifiers()) {
+            if(!identifier->isBlank()) {
+                if(identifier_names.find(identifier->getName()) != identifier_names.end()) {
+                    golite::Utils::error_message("Field name " + identifier->getName()
+                                                 + " redeclared in this block", identifier->getLine());
+                }
+                identifier_names.insert(identifier->getName());
+            }
+        }
     }
 }
 
