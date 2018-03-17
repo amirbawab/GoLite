@@ -58,6 +58,10 @@ void golite::Declaration::typeCheck() {
         if(!left_identifiers_[i]->isBlank()) {
             TypeComponent* left_type = left_identifiers_[i]->typeCheck();
             if(left_type->isInfer()) {
+                if(right_type->isVoid()) {
+                    golite::Utils::error_message("Short declaration cannot be assigned a void",
+                                                 left_identifiers_[i]->getLine());
+                }
                 golite::PrimaryExpression* id_prim = static_cast<golite::PrimaryExpression*>(left_identifiers_[i]);
                 golite::Identifier* id = static_cast<golite::Identifier*>(id_prim->getChildren().back());
                 id->updateTypeInSymbolTable(right_type);
