@@ -288,3 +288,27 @@ golite::Expression* golite::PrimaryExpression::resolveExpression() {
     }
     return this;
 }
+
+bool golite::PrimaryExpression::startsWithFunctionIdentifier() {
+    if(children_.empty()) {
+        throw std::runtime_error("Cannot check if primary starts with function identifier because children list is empty");
+    }
+    Identifier* identifier = nullptr;
+    if(children_.front()->isIdentifier()) {
+        identifier = static_cast<Identifier*>(children_.front());
+    } else if(children_.front()->isParenthesis()) {
+        Primary* child = static_cast<Parenthesis*>(children_.front());
+        Expression* resolved = child->resolveExpression();
+        if(resolved->isPrimaryExpression()) {
+            PrimaryExpression* primary_expression = static_cast<PrimaryExpression*>(resolved);
+            if(primary_expression->getChildren().front()->isIdentifier()) {
+                identifier = static_cast<Identifier*>(primary_expression->getChildren().front());
+            }
+        }
+    }
+
+    if(!identifier) {
+        return false;
+    }
+    return identifier->getSymbolTableEntry()->isFunction();
+}

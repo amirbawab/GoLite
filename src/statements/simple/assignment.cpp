@@ -3,6 +3,7 @@
 #include <golite/pretty_helper.h>
 #include <golite/primary_expression.h>
 #include <golite/variable.h>
+#include <iostream>
 
 std::string golite::Assignment::toGoLite(int indent) {
     std::stringstream ss;
@@ -104,14 +105,20 @@ void golite::Assignment::typeCheck() {
         if(!left_operand->isBlank()) {
 
             // Cannot be constant
-            if(resolved_expression->isIdentifier()) {
+            if(resolved_expression->isPrimaryExpression()) {
                 PrimaryExpression* primary_expression = static_cast<PrimaryExpression*>(resolved_expression);
-                Identifier* identifier = static_cast<Identifier*>(primary_expression->getChildren().front());
-                if(identifier->getSymbolTableEntry()->isDecVariable()) {
-                    Variable* variable = static_cast<Variable*>(identifier->getSymbolTableEntry());
-                    if(variable->isConstant()) {
-                        golite::Utils::error_message("Constant " + identifier->toGoLite(0) + " cannot be assigned", resolved_expression->getLine());
+                if(primary_expression->isIdentifier()) {
+                    Identifier* identifier = static_cast<Identifier*>(primary_expression->getChildren().front());
+                    if(identifier->getSymbolTableEntry()->isDecVariable()) {
+                        Variable* variable = static_cast<Variable*>(identifier->getSymbolTableEntry());
+                        if(variable->isConstant()) {
+                            golite::Utils::error_message("Constant " + identifier->toGoLite(0) + " cannot be assigned",
+                                                         resolved_expression->getLine());
+                        }
                     }
+                } else if(primary_expression->startsWithFunctionIdentifier()) {
+                    golite::Utils::error_message("Call to a function cannot be on the left of an assignment",
+                                                 resolved_expression->getLine());
                 }
             }
 

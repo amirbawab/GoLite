@@ -82,6 +82,12 @@ namespace golite {
          * @see Expression::isLiteral()
          */
         bool isLiteral();
+
+        /**
+         * Check if primary expression starts with a function identifier
+         * @return true if it does
+         */
+        bool startsWithFunctionIdentifier();
     };
 }
 
