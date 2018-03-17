@@ -88,6 +88,12 @@ namespace golite {
          * @return true if it does
          */
         bool startsWithFunctionIdentifier();
+
+        /**
+         * Check if type casting
+         * @return true if it is
+         */
+        bool isTypeCasting();
     };
 }
 

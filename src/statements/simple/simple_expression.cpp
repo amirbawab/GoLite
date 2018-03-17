@@ -11,6 +11,10 @@ int golite::SimpleExpression::getLine() {
 
 void golite::SimpleExpression::typeCheck() {
     expression_->typeCheck();
+    Expression* resolved = expression_->resolveExpression();
+    if(resolved->isTypeCasting()) {
+        golite::Utils::error_message("Expression statement cannot be type casting", expression_->getLine());
+    }
 }
 
 void golite::SimpleExpression::weedingPass(bool, bool) {
