@@ -2,12 +2,14 @@
 #include <golite/utils.h>
 #include <golite/pretty_helper.h>
 #include <golite/program.h>
+#include <golite/func.h>
+#include <iostream>
 
 std::string golite::Function::toGoLite(int indent) {
     std::stringstream ss;
     ss << golite::Utils::indent(indent) << "func " << identifier_->toGoLite(0)
        << "(" << golite::Pretty::implodeParams(params_, indent) << ") ";
-    if(!type_component_->isVoid()) {
+    if(!type_component_->resolveFunc()->isVoid()) {
         ss << type_component_->toGoLite(indent) << " ";
     }
     ss << "{";
@@ -34,7 +36,7 @@ void golite::Function::weedingPass(bool check_break, bool check_continue) {
 void golite::Function::typeCheck() {
     block_->typeCheck();
     block_->checkReturn(this);
-    if(!type_component_->isVoid() && !block_->isTerminating()) {
+    if(!type_component_->resolveFunc()->isVoid() && !block_->isTerminating()) {
         golite::Utils::error_message("Function " + identifier_->toGoLite(0) + " is not terminating",
                                      identifier_->getLine());
     }
@@ -47,10 +49,10 @@ void golite::Function::symbolTablePass(golite::SymbolTable *root) {
         if(!params_.empty()) {
             golite::Utils::error_message("Init function cannot have parameters", identifier_->getLine());
         }
-        if(!type_component_->isVoid()) {
+        if(!type_component_->resolveFunc()->isVoid()) {
             golite::Utils::error_message("Init function must be void", identifier_->getLine());
         }
-        type_component_ = Program::UNMAPPED_TYPE->getTypeComponent();
+        type_component_ = new TypeComponent({ new golite::Func(Program::UNMAPPED_TYPE->getTypeComponent())});
         root->putInit(this);
     } else {
         if(root->hasSymbol(this->identifier_->getName(), false)) {
@@ -76,7 +78,7 @@ void golite::Function::symbolTablePass(golite::SymbolTable *root) {
         param->symbolTablePass(function_block_table);
     }
 
-    if(!type_component_->isVoid()) {
+    if(!type_component_->resolveFunc()->isVoid()) {
         type_component_->symbolTablePass(root);
     }
 
