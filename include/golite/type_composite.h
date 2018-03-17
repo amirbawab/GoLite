@@ -58,6 +58,12 @@ namespace golite {
         virtual bool isSlice() { return false; }
 
         /**
+         * Func types return true
+         * @return true for func
+         */
+        virtual bool isFunc() { return false; }
+
+        /**
          * Perform symbol table check
          * @param root
          */

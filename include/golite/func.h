@@ -65,6 +65,11 @@ namespace golite {
          * @see TypeComposite::resolvesToComparable()
          */
         bool resolvesToComparable() { return false; }
+
+        /**
+         * @see TypeComposite::isFunc()
+         */
+        bool isFunc() { return true; }
     };
 }
 

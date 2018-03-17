@@ -225,6 +225,12 @@ namespace golite {
          * @return true if it does
          */
         bool resolvesToBaseType();
+
+        /**
+         * Resolve type component of a function
+         * @return resolve type component of func
+         */
+        golite::TypeComponent* resolveFunc();
     };
 }
 

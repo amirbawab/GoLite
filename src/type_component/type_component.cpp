@@ -4,6 +4,7 @@
 #include <iostream>
 #include <golite/type_reference.h>
 #include <golite/program.h>
+#include <golite/func.h>
 
 std::string golite::TypeComponent::toGoLite(int indent) {
     std::stringstream ss;
@@ -229,4 +230,15 @@ bool golite::TypeComponent::resolvesToBaseType() {
            || resolvesToBool()
            || resolvesToString()
            || resolvesToRune();
+}
+
+golite::TypeComponent* golite::TypeComponent::resolveFunc() {
+    if(children_.empty()) {
+        throw std::runtime_error("Cannot resolve func because children is empty");
+    }
+    if(!children_.front()->isFunc()) {
+        throw std::runtime_error("Cannot resolve func because front child is not a func");
+    }
+    golite::Func* func = static_cast<Func*>(children_.front());
+    return func->getTypeComponent();
 }

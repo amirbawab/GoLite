@@ -61,7 +61,7 @@ void golite::Function::symbolTablePass(golite::SymbolTable *root) {
             if(!params_.empty()) {
                 golite::Utils::error_message("Main function cannot have parameters", identifier_->getLine());
             }
-            if(!type_component_->isVoid()) {
+            if(!type_component_->resolveFunc()->isVoid()) {
                 golite::Utils::error_message("Main function must be void", identifier_->getLine());
             }
         }
