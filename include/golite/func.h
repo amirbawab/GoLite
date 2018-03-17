@@ -6,9 +6,9 @@
 
 namespace golite {
     class Func : public TypeComposite {
-    protected:
-        golite::TypeComponent* type_component_;
-        golite::Function* function_;
+    private:
+        golite::TypeComponent* type_component_ = nullptr;
+        golite::Function* function_ = nullptr;
     public:
         Func(Function* function, golite::TypeComponent* type_component) :
                 function_(function), type_component_(type_component) {}

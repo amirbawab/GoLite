@@ -12,6 +12,7 @@
 #include <golite/type.h>
 #include <golite/type_reference.h>
 #include <golite/cast.h>
+#include <golite/func.h>
 
 void golite::PrimaryExpression::addChild(golite::Primary *child) {
     children_.push_back(child);
@@ -92,13 +93,14 @@ golite::TypeComponent* golite::PrimaryExpression::typeCheck() {
         TypeComponent* child_type = children_[i]->typeCheck();
 
         if(children_[i]->isIdentifier()) {
-            std::vector<TypeComposite *> type_children = child_type->getChildren();
 
             // Analyze identifier
             Identifier* identifier = static_cast<Identifier*>(children_[i]);
             if(identifier->getSymbolTableEntry()->isTypeDeclaration()) {
-                type_stack.push_back(new golite::Cast(new golite::TypeComponent(type_children)));
+                Type* type = static_cast<Type*>(identifier->getSymbolTableEntry());
+                type_stack.push_back(new golite::Cast(children_[i]->getLine(), type));
             } else {
+                std::vector<TypeComposite *> type_children = child_type->getChildren();
                 type_stack.insert(type_stack.end(), type_children.begin(), type_children.end());
             }
 
@@ -154,24 +156,30 @@ golite::TypeComponent* golite::PrimaryExpression::typeCheck() {
             std::vector<TypeComposite *> resolved = type_stack.back()->resolveChildren();
             type_stack.pop_back();
             type_stack.insert(type_stack.end(), resolved.begin(), resolved.end());
-
             if (!type_stack.back()->isArray() && !type_stack.back()->isSlice()) {
                 golite::Utils::error_message("Cannot access index " + children_[i]->toGoLite(0)
                                              + " of a non-list type", children_[i]->getLine());
             }
-
-            // Consume stack
             type_stack.pop_back();
 
         } else if(children_[i]->isFunctionCall()) {
             if(type_stack.empty()) {
                 throw std::runtime_error("Function call cannot cannot be processed because stack is empty");
             }
+            golite::FunctionCall* function_call = static_cast<FunctionCall*>(children_[i]);
 
-            if(type_stack.back()->isCast()) {
-
-            }else if(type_stack.back()->isFunc()) {
-
+            TypeComposite* top = type_stack.back();
+            type_stack.pop_back();
+            if(top->isCast()) {
+                golite::Cast* cast = static_cast<Cast*>(top);
+                function_call->checkParams(cast->getType());
+                std::vector<TypeComposite*> cast_type = cast->getTypeComponent()->getChildren();
+                type_stack.insert(type_stack.end(), cast_type.begin(), cast_type.end());
+            }else if(top->isFunc()) {
+                golite::Func* func = static_cast<Func*>(top);
+                function_call->checkParams(func->getFunction());
+                std::vector<TypeComposite*> func_type = func->getTypeComponent()->getChildren();
+                type_stack.insert(type_stack.end(), func_type.begin(), func_type.end());
             } else {
                 golite::Utils::error_message("Cannot perform a function call on " + type_stack.back()->toGoLiteMin(),
                                              children_[i]->getLine());
@@ -189,17 +197,6 @@ void golite::PrimaryExpression::symbolTablePass(SymbolTable *root) {
     }
     for(size_t i=0; i < children_.size(); i++) {
         children_[i]->symbolTablePass(root);
-
-        // Identifier must refer to functions or variables only
-        if(children_[i]->isIdentifier()) {
-            if(i + 1 == children_.size() || !children_[i+1]->isFunctionCall()) {
-                Identifier* identifier = static_cast<Identifier*>(children_[i]);
-                if(identifier->getSymbolTableEntry()->isTypeDeclaration()) {
-                    golite::Utils::error_message("Type " + identifier->getName() + " is not an expression",
-                                                 children_[i]->getLine());
-                }
-            }
-        }
     }
 }
 

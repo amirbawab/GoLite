@@ -1,21 +1,22 @@
-#ifndef GOLITE_FUNC_H
-#define GOLITE_FUNC_H
+#ifndef GOLITE_CAST_H
+#define GOLITE_CAST_H
 
 #include <golite/type_component.h>
 #include <golite/type.h>
 
 namespace golite {
     class Cast : public TypeComposite {
-    protected:
-        golite::TypeComponent* type_component_;
+    private:
+        int line_;
+        Type* type_ = nullptr;
     public:
-        Cast(golite::TypeComponent* type_component) : type_component_(type_component) {}
+        Cast(int line, Type* type) : line_(line), type_(type) {}
 
         /**
          * Get type component
          * @return type component
          */
-        golite::TypeComponent* getTypeComponent() const { return type_component_; }
+        golite::TypeComponent* getTypeComponent();
 
         /**
          * @see TypeComposite::toGoLite(int)
@@ -30,7 +31,7 @@ namespace golite {
         /**
          * @see TypeComposite::getLine()
          */
-        int getLine();
+        int getLine() { return line_; }
 
         /**
          * @see TypeComposite::weedingPass()
@@ -71,6 +72,12 @@ namespace golite {
          * @see TypeComposite::isCast()
          */
         bool isCast() { return true; }
+
+        /**
+         * Get type
+         * @return type
+         */
+        Type* getType() const { return type_; }
     };
 }
 
