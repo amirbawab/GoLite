@@ -2,16 +2,14 @@
 #define GOLITE_FUNC_H
 
 #include <golite/type_component.h>
-#include <golite/function.h>
+#include <golite/type.h>
 
 namespace golite {
-    class Func : public TypeComposite {
+    class Cast : public TypeComposite {
     protected:
         golite::TypeComponent* type_component_;
-        golite::Function* function_;
     public:
-        Func(Function* function, golite::TypeComponent* type_component) :
-                function_(function), type_component_(type_component) {}
+        Cast(golite::TypeComponent* type_component) : type_component_(type_component) {}
 
         /**
          * Get type component
@@ -70,15 +68,9 @@ namespace golite {
         bool resolvesToComparable() { return false; }
 
         /**
-         * @see TypeComposite::isFunc()
+         * @see TypeComposite::isCast()
          */
-        bool isFunc() { return true; }
-
-        /**
-         * Get function
-         * @return function
-         */
-        Function* getFunction() const { return function_; }
+        bool isCast() { return true; }
     };
 }
 

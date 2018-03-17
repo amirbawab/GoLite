@@ -1,11 +1,22 @@
 #include<golite/func.h>
+#include <sstream>
 
 std::string golite::Func::toGoLite(int indent) {
     return type_component_->toGoLite(indent);
 }
 
 std::string golite::Func::toGoLiteMin() {
-    return type_component_->toGoLiteMin();
+    std::stringstream ss;
+    ss << "(";
+    std::vector<FunctionParam*> params = function_->getParamsSeparated();
+    for(size_t i=0; i < params.size(); i++) {
+        if(i != 0) {
+            ss << ", ";
+        }
+        ss << params[i]->getTypeComponent()->toGoLiteMin();
+    }
+    ss << ") -> " << type_component_->toGoLiteMin();
+    return ss.str();
 }
 
 int golite::Func::getLine() {
@@ -21,6 +32,7 @@ void golite::Func::symbolTablePass(SymbolTable *root) {
 }
 
 bool golite::Func::isCompatible(TypeComposite *type_composite) {
+    // In golite, we don't compare function pointers
     return false;
 }
 

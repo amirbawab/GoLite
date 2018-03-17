@@ -41,12 +41,6 @@ namespace golite {
         virtual bool isFunctionCall() { return false; }
 
         /**
-         * Check if expression is a type casting
-         * @return true if it is
-         */
-        virtual bool isTypeCasting() { return false; }
-
-        /**
          * Check if expression is an identifier
          * @return true if it is
          */

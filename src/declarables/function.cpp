@@ -52,7 +52,7 @@ void golite::Function::symbolTablePass(golite::SymbolTable *root) {
         if(!type_component_->resolveFunc()->isVoid()) {
             golite::Utils::error_message("Init function must be void", identifier_->getLine());
         }
-        type_component_ = new TypeComponent({ new golite::Func(Program::UNMAPPED_TYPE->getTypeComponent())});
+        type_component_ = new TypeComponent({ new golite::Func(this, Program::UNMAPPED_TYPE->getTypeComponent())});
         root->putInit(this);
     } else {
         if(root->hasSymbol(this->identifier_->getName(), false)) {

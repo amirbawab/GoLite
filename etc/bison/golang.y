@@ -418,7 +418,7 @@ func_dec[root]
             $root = new golite::Function($id);
             $root->setParams(*$params);
             $root->setBlock($block);
-            $root->setTypeComponent(new golite::TypeComponent({new golite::Func($id_type)}));
+            $root->setTypeComponent(new golite::TypeComponent({new golite::Func($root, $id_type)}));
         }
     ;
 

@@ -64,6 +64,12 @@ namespace golite {
         virtual bool isFunc() { return false; }
 
         /**
+         * Cast types return true
+         * @return true for cast
+         */
+        virtual bool isCast() { return false; }
+
+        /**
          * Perform symbol table check
          * @param root
          */

@@ -79,8 +79,8 @@ void golite::Variable::typeCheck() {
                     type_component_ = expression_type;
                 } else if(!type_component_->isCompatible(expression_type)) {
                     golite::Utils::error_message("Variable " + identifiers_[i]->getName()
-                                                 + " expects an expression of type " + type_component_->toGoLite(0)
-                                                 + " but given " + expression_type->toGoLite(0),
+                                                 + " expects an expression of type " + type_component_->toGoLiteMin()
+                                                 + " but given " + expression_type->toGoLiteMin(),
                                                  identifiers_[i]->getLine());
                 }
             }

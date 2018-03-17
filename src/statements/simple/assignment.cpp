@@ -91,36 +91,11 @@ void golite::Assignment::typeCheck() {
         Expression* left_operand = left_expressions_[i];
         Expression* right_operand = right_expressions_[i];
 
-        // Resolve non-parenthesis expression
-        Expression* resolved_expression = left_operand->resolveExpression();
-        if(!resolved_expression->isPrimaryExpression()
-           || resolved_expression->isFunctionCall()
-           || resolved_expression->isLiteral()) {
-            golite::Utils::error_message("Assignment statement expects a variable on the left but given "
-                                         + left_operand->toGoLite(0), left_operand->getLine());
-        }
+        // TODO Check if is addressable
 
         TypeComponent* right_type = right_operand->typeCheck();
         // Ignore case of blank identifier on the left
         if(!left_operand->isBlank()) {
-
-            // Cannot be constant
-            if(resolved_expression->isPrimaryExpression()) {
-                PrimaryExpression* primary_expression = static_cast<PrimaryExpression*>(resolved_expression);
-                if(primary_expression->isIdentifier()) {
-                    Identifier* identifier = static_cast<Identifier*>(primary_expression->getChildren().front());
-                    if(identifier->getSymbolTableEntry()->isDecVariable()) {
-                        Variable* variable = static_cast<Variable*>(identifier->getSymbolTableEntry());
-                        if(variable->isConstant()) {
-                            golite::Utils::error_message("Constant " + identifier->toGoLite(0) + " cannot be assigned",
-                                                         resolved_expression->getLine());
-                        }
-                    }
-                } else if(primary_expression->startsWithFunctionIdentifier()) {
-                    golite::Utils::error_message("Call to a function cannot be on the left of an assignment",
-                                                 resolved_expression->getLine());
-                }
-            }
 
             // Perform type check on the left element
             TypeComponent* left_type = left_operand->typeCheck();
