@@ -39,9 +39,9 @@ void golite::Struct::weedingPass() {
 }
 
 void golite::Struct::symbolTablePass(SymbolTable *root) {
+    std::set<std::string> identifier_names;
     for(StructField* field : fields_) {
         field->symbolTablePass(root);
-        std::set<std::string> identifier_names;
         for(Identifier* identifier : field->getIdentifiers()) {
             if(!identifier->isBlank()) {
                 if(identifier_names.find(identifier->getName()) != identifier_names.end()) {
