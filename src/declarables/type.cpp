@@ -29,13 +29,15 @@ void golite::Type::symbolTablePass(SymbolTable *root) {
 
     if(!identifier_->isBlank()) {
         root->putSymbol(this->identifier_->getName(), this);
+        type_component_->symbolTablePass(root);
 
         // Check for recursion
         if(isRecursive()) {
             golite::Utils::error_message("Type " + identifier_->getName() + " cannot be recursive", identifier_->getLine());
         }
+    } else {
+        type_component_->symbolTablePass(root);
     }
-    type_component_->symbolTablePass(root);
 }
 
 std::string golite::Type::toPrettySymbol() {
