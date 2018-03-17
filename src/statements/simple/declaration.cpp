@@ -5,6 +5,7 @@
 #include <golite/variable.h>
 #include <iostream>
 #include <golite/program.h>
+#include <set>
 
 std::string golite::Declaration::toGoLite(int indent) {
     std::stringstream ss;
@@ -81,6 +82,7 @@ void golite::Declaration::symbolTablePass(SymbolTable *root) {
     }
 
     bool new_var = false;
+    std::set<Declarable*> variableSet;
     for(size_t i=0; i < left_identifiers_.size(); i++) {
 
         if(!left_identifiers_[i]->isIdentifier()) {
@@ -102,7 +104,14 @@ void golite::Declaration::symbolTablePass(SymbolTable *root) {
                 var_decl->setExpressions({ right_expressions_[i] });
                 var_decl->setTypeComponent(golite::Program::INFER_TYPE->getTypeComponent());
                 root->putSymbol(id->getName(), var_decl);
+                existing_dec = var_decl;
             }
+
+            if(variableSet.find(existing_dec) != variableSet.end()) {
+                golite::Utils::error_message("Variable " + left_identifiers_[i]->toGoLite(0) + " is repeated",
+                                             left_identifiers_[i]->getLine());
+            }
+            variableSet.insert(existing_dec);
             left_identifiers_[i]->symbolTablePass(root);
         }
     }
