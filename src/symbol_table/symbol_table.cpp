@@ -97,7 +97,11 @@ std::string golite::SymbolTable::toPrettySymbol(int indent) {
     // show entries
     for(std::string key : entries_keys_) {
         if(entries_.find(key) != entries_.end()) {
-            ss << golite::Utils::indent(indent) << entries_[key]->toPrettySymbol() << std::endl;
+            if(entries_[key]->isDecVariable()) {
+                ss << golite::Utils::indent(indent) << key << entries_[key]->toPrettySymbol() << std::endl;
+            } else {
+                ss << golite::Utils::indent(indent) << entries_[key]->toPrettySymbol() << std::endl;
+            }
         }
 
         if(tables_.find(key) != tables_.end()) {
