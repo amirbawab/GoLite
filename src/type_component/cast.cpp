@@ -33,10 +33,5 @@ std::vector<golite::TypeComposite*> golite::Cast::resolveChildren() {
 }
 
 golite::TypeComponent* golite::Cast::getTypeComponent() {
-    TypeReference* type_reference = new TypeReference();
-    type_reference->setIdentifier(type_->getIdentifier());
-    type_reference->setDeclarableType(type_);
-    TypeComponent* type_component = new TypeComponent();
-    type_component->addChild(type_reference);
-    return type_component;
+    return type_->toTypeComponent();
 }

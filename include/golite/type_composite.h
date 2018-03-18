@@ -6,6 +6,7 @@
 #include <golite/symbol_table.h>
 
 namespace golite {
+    class Type;
     class TypeComposite {
     public:
 
@@ -105,7 +106,7 @@ namespace golite {
          * @param type
          * @return true if it is
          */
-        virtual bool isRecursive(Declarable* type) { return false; }
+        virtual bool isRecursive(Type* type) = 0;
 
         /**
          * Check if a type is comparable

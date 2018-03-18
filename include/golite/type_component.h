@@ -149,17 +149,10 @@ namespace golite {
 
         /**
          * Check if type component is recursive
-         * @param name
+         * @param type
          * @return true if it is
          */
-        bool isRecursive(Declarable* declarable);
-
-        /**
-         * Check if slice recursive
-         * @param name
-         * @return true if it is
-         */
-        bool isSliceRecursive(Declarable* declarable);
+        bool isRecursive(Type* type);
 
         /**
          * Check if resolves to bools

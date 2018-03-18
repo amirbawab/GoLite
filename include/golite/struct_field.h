@@ -60,6 +60,13 @@ namespace golite {
          * @return type component
          */
         TypeComponent* getTypeComponent() { return type_component_; }
+
+        /**
+         * Check if struct field is recursive
+         * @param type
+         * @return true if it is
+         */
+        bool isRecursive(Type* type);
     };
 }
 

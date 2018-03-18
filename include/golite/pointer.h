@@ -17,6 +17,11 @@ namespace golite {
          * @see TypeComposite::isPointer()
          */
         bool isPointer() { return true; }
+
+        /**
+         * @see TypeComposite::isRecursive()
+         */
+        bool isRecursive(Type* type) { return false; }
     };
 }
 

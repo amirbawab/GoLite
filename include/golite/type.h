@@ -60,11 +60,6 @@ namespace golite {
          */
         bool isRecursive();
 
-        /*
-         * Check if it's a recursive type
-         */
-        bool isSliceRecursive();
-
         /**
          * @see Declarable::toPrettySymbol()
          */
@@ -81,6 +76,12 @@ namespace golite {
          * @return true if it is
          */
         bool isBuiltIn() const { return built_in_; }
+
+        /**
+         * Create a type component from this type
+         * @return type component
+         */
+        TypeComponent* toTypeComponent();
     };
 }
 

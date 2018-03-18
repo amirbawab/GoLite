@@ -1,6 +1,7 @@
 #include <golite/type.h>
 #include <sstream>
 #include <golite/utils.h>
+#include <golite/type_reference.h>
 
 std::string golite::Type::toGoLite(int indent) {
     std::stringstream ss;
@@ -55,6 +56,11 @@ bool golite::Type::isRecursive() {
     return type_component_->isRecursive(this);
 }
 
-bool golite::Type::isSliceRecursive() {
-    return type_component_->isSliceRecursive(this);
+golite::TypeComponent* golite::Type::toTypeComponent() {
+    TypeReference* type_reference = new TypeReference();
+    type_reference->setIdentifier(getIdentifier());
+    type_reference->setDeclarableType(this);
+    TypeComponent* type_component = new TypeComponent();
+    type_component->addChild(type_reference);
+    return type_component;
 }

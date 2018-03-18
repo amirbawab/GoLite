@@ -123,3 +123,12 @@ bool golite::Struct::resolvesToComparable() {
     }
     return true;
 }
+
+bool golite::Struct::isRecursive(Type *type) {
+    for(StructField* field : fields_) {
+        if(field->isRecursive(type)) {
+            return true;
+        }
+    }
+    return false;
+}

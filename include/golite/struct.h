@@ -80,6 +80,11 @@ namespace golite {
          * @see TypeComposite::resolvesToComparable()
          */
         bool resolvesToComparable();
+
+        /**
+         * @see TypeComposite::isRecursive()
+         */
+        bool isRecursive(Type* type);
     };
 }
 
