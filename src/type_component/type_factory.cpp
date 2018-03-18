@@ -15,7 +15,6 @@ golite::Type* golite::TypeFactory::createBuiltInType(std::string id) {
 
     // Build the recursive definition of type_reference -> type
     Type* built_in_type = new Type(type_id, type_component);
-    built_in_type->setBuiltIn(true);
     type_ref->setDeclarableType(built_in_type);
     return built_in_type;
 }

@@ -9,7 +9,6 @@ namespace golite {
     class Type : public Declarable, public Statement {
     private:
         Identifier* identifier_ = nullptr;
-        bool built_in_ = false;
     public:
         Type(Identifier* identifier, TypeComponent* type_component);
 
@@ -66,16 +65,10 @@ namespace golite {
         std::string toPrettySymbol();
 
         /**
-         * Set built in
-         * @param built_in
+         * Check if type component contains a self refence
+         * @return
          */
-        void setBuiltIn(bool built_in) { built_in_ = built_in; }
-
-        /**
-         * Check if built in
-         * @return true if it is
-         */
-        bool isBuiltIn() const { return built_in_; }
+        bool isSelfReferring();
 
         /**
          * Create a type component from this type

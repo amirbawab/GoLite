@@ -64,3 +64,12 @@ golite::TypeComponent* golite::Type::toTypeComponent() {
     type_component->addChild(type_reference);
     return type_component;
 }
+
+bool golite::Type::isSelfReferring() {
+    for(TypeComposite* type_composite : type_component_->getChildren()) {
+        if(type_composite->isRecursive(this)) {
+            return true;
+        }
+    }
+    return false;
+}
