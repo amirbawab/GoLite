@@ -3,6 +3,8 @@
 #include <golite/declarable.h>
 #include <sstream>
 #include <golite/type.h>
+#include <iostream>
+#include <golite/variable.h>
 
 std::string golite::Identifier::BLANK = "_";
 
@@ -45,12 +47,16 @@ void golite::Identifier::symbolTablePass(SymbolTable *root) {
 }
 
 void golite::Identifier::updateTypeInSymbolTable(TypeComponent *new_type, bool search_in_parent) {
-    golite::Identifier* type_id = new golite::Identifier("~infer~", -1);
-    Declarable* new_declarable = new golite::Type(type_id, new_type);
     if(!symbol_table_) {
         throw std::runtime_error("Symbol table was not set. Verify symbol table pass.");
     }
-    symbol_table_->updateSymbol(getName(), new_declarable, search_in_parent);
+    Declarable* entry = getSymbolTableEntry();
+    if(!entry->isDecVariable()) {
+        throw std::runtime_error("Cannot update symbol entry for a non-variable");
+    }
+    golite::Variable* variable = static_cast<Variable*>(entry);
+    variable->setTypeComponent(new_type);
+    symbol_table_->updateSymbol(getName(), variable, search_in_parent);
 }
 
 golite::Declarable* golite::Identifier::getSymbolTableEntry() {
@@ -65,4 +71,8 @@ golite::Declarable* golite::Identifier::getSymbolTableEntry() {
                                          "Verify symbol table pass.");
     }
     return declarable;
+}
+
+bool golite::Identifier::isCasting() {
+    return getSymbolTableEntry()->isTypeDeclaration();
 }

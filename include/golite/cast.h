@@ -1,24 +1,24 @@
-#ifndef GOLITE_ARRAY_H
-#define GOLITE_ARRAY_H
+#ifndef GOLITE_CAST_H
+#define GOLITE_CAST_H
 
-#include <golite/type_composite.h>
-#include <golite/literal.h>
+#include <golite/pointer.h>
+#include <golite/type.h>
 
 namespace golite {
-    class Array : public TypeComposite {
+    class Cast : public Pointer {
     private:
-        golite::Literal<int>* size_ = nullptr;
+        int line_;
+        Type* type_ = nullptr;
     public:
-        Array(golite::Literal<int>* size) : size_(size) {}
+        Cast(int line, Type* type) : line_(line), type_(type) {}
 
         /**
-         * Get size
-         * @return size
+         * @see TypeComposite::getTypeComponent()
          */
-        golite::Literal<int>* getSize() const { return size_; }
+        golite::TypeComponent* getTypeComponent();
 
         /**
-         * @see TypeComponent::toGoLite()
+         * @see TypeComposite::toGoLite(int)
          */
         std::string toGoLite(int indent);
 
@@ -30,17 +30,12 @@ namespace golite {
         /**
          * @see TypeComposite::getLine()
          */
-        int getLine();
+        int getLine() { return line_; }
 
         /**
          * @see TypeComposite::weedingPass()
          */
         void weedingPass();
-
-        /**
-         * @see TypeComposite::isArray()
-         */
-        bool isArray() { return true; }
 
         /**
          * @see TypeComposite::symbolTablePass()
@@ -65,17 +60,23 @@ namespace golite {
         /**
          * @see TypeComposite::isComparable()
          */
-        bool isComparable() { return true; }
+        bool isComparable() { return false; }
 
         /**
          * @see TypeComposite::resolvesToComparable()
          */
-        bool resolvesToComparable() { return true; }
+        bool resolvesToComparable() { return false; }
 
         /**
-         * @see TypeComposite::isRecursive()
+         * @see TypeComposite::isCast()
          */
-        bool isRecursive(Type* type) { return true; }
+        bool isCast() { return true; }
+
+        /**
+         * Get type
+         * @return type
+         */
+        Type* getType() const { return type_; }
     };
 }
 

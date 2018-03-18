@@ -4,6 +4,7 @@
 #include <iostream>
 #include <golite/type_reference.h>
 #include <golite/program.h>
+#include <golite/func.h>
 
 std::string golite::TypeComponent::toGoLite(int indent) {
     std::stringstream ss;
@@ -136,28 +137,17 @@ std::string golite::TypeComponent::toPrettySymbol() {
     return ss.str();
 }
 
-bool golite::TypeComponent::isRecursive(Declarable *declarable) {
+bool golite::TypeComponent::isRecursive(Type* type) {
     if(children_.empty()) {
         throw std::runtime_error("Cannot check if type component is recursive because children list is empty");
     }
 
     for(TypeComposite* type_composite : children_) {
-        if(type_composite->isTypeReference()) {
-            if(!type_composite->isRecursive(declarable)) {
-                return false;
-            }
-        } else if(type_composite->isStruct() || type_composite->isSlice()) {
+        if(!type_composite->isRecursive(type)) {
             return false;
         }
     }
     return true;
-}
-
-bool golite::TypeComponent::isSliceRecursive(Declarable *declarable) {
-    if(children_.size() != 2 || !children_[1]->isSlice() || !children_[0]->isTypeReference()) {
-        return false;
-    }
-    return children_[0]->isRecursive(declarable);
 }
 
 bool golite::TypeComponent::resolvesToBool() {
@@ -229,4 +219,22 @@ bool golite::TypeComponent::resolvesToBaseType() {
            || resolvesToBool()
            || resolvesToString()
            || resolvesToRune();
+}
+
+golite::TypeComponent* golite::TypeComponent::resolveFunc() {
+    if(children_.empty()) {
+        throw std::runtime_error("Cannot resolve func because children is empty");
+    }
+    if(!children_.front()->isFunc()) {
+        throw std::runtime_error("Cannot resolve func because front child is not a func");
+    }
+    golite::Func* func = static_cast<Func*>(children_.front());
+    return func->getTypeComponent();
+}
+
+bool golite::TypeComponent::isPointer() {
+    if(!children_.empty()) {
+        return children_.back()->isPointer();
+    }
+    return false;
 }

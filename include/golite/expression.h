@@ -41,12 +41,6 @@ namespace golite {
         virtual bool isFunctionCall() { return false; }
 
         /**
-         * Check if expression is a type casting
-         * @return true if it is
-         */
-        virtual bool isTypeCasting() { return false; }
-
-        /**
          * Check if expression is an identifier
          * @return true if it is
          */
@@ -105,6 +99,18 @@ namespace golite {
          * @return true if it is
          */
         virtual bool isLiteral() { return false; }
+
+        /**
+         * Check if expression is a casting
+         * @return
+         */
+        virtual bool isCasting() { return false; }
+
+        /**
+         * Check if expression is addressable
+         * @return true if it is
+         */
+        virtual bool isAddressable() { return false; }
     };
 }
 

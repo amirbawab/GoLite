@@ -76,11 +76,14 @@ void golite::Variable::typeCheck() {
                         golite::Utils::error_message("Cannot assign a void function to a variable",
                                                      identifiers_[i]->getLine());
                     }
+                    if(expression_type->isPointer()) {
+                        golite::Utils::error_message("Cannot assign " + expression_type->toGoLiteMin() + " to a variable", expressions_[i]->getLine());
+                    }
                     type_component_ = expression_type;
                 } else if(!type_component_->isCompatible(expression_type)) {
                     golite::Utils::error_message("Variable " + identifiers_[i]->getName()
-                                                 + " expects an expression of type " + type_component_->toGoLite(0)
-                                                 + " but given " + expression_type->toGoLite(0),
+                                                 + " expects an expression of type " + type_component_->toGoLiteMin()
+                                                 + " but given " + expression_type->toGoLiteMin(),
                                                  identifiers_[i]->getLine());
                 }
             }

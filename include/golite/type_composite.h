@@ -6,6 +6,7 @@
 #include <golite/symbol_table.h>
 
 namespace golite {
+    class Type;
     class TypeComposite {
     public:
 
@@ -58,6 +59,18 @@ namespace golite {
         virtual bool isSlice() { return false; }
 
         /**
+         * Func types return true
+         * @return true for func
+         */
+        virtual bool isFunc() { return false; }
+
+        /**
+         * Cast types return true
+         * @return true for cast
+         */
+        virtual bool isCast() { return false; }
+
+        /**
          * Perform symbol table check
          * @param root
          */
@@ -93,7 +106,7 @@ namespace golite {
          * @param type
          * @return true if it is
          */
-        virtual bool isRecursive(Declarable* type) { return false; }
+        virtual bool isRecursive(Type* type) = 0;
 
         /**
          * Check if a type is comparable
@@ -106,6 +119,12 @@ namespace golite {
          * @return true if it is
          */
         virtual bool resolvesToComparable() = 0;
+
+        /**
+         * Check if a type is a pointer
+         * @return true if it is
+         */
+        virtual bool isPointer() { return false; }
     };
 }
 

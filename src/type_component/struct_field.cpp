@@ -1,6 +1,7 @@
 #include <golite/struct_field.h>
 #include <golite/utils.h>
 #include <golite/pretty_helper.h>
+#include <golite/type.h>
 
 std::string golite::StructField::toGoLite(int indent) {
     std::stringstream ss;
@@ -25,4 +26,8 @@ void golite::StructField::weedingPass() {
 
 void golite::StructField::symbolTablePass(SymbolTable *root) {
     type_component_->symbolTablePass(root);
+}
+
+bool golite::StructField::isRecursive(Type *type) {
+    return type_component_->isCompatible(type->toTypeComponent()) || type_component_->isRecursive(type);
 }

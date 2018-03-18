@@ -149,17 +149,10 @@ namespace golite {
 
         /**
          * Check if type component is recursive
-         * @param name
+         * @param type
          * @return true if it is
          */
-        bool isRecursive(Declarable* declarable);
-
-        /**
-         * Check if slice recursive
-         * @param name
-         * @return true if it is
-         */
-        bool isSliceRecursive(Declarable* declarable);
+        bool isRecursive(Type* type);
 
         /**
          * Check if resolves to bools
@@ -225,6 +218,18 @@ namespace golite {
          * @return true if it does
          */
         bool resolvesToBaseType();
+
+        /**
+         * Resolve type component of a function
+         * @return resolve type component of func
+         */
+        golite::TypeComponent* resolveFunc();
+
+        /**
+         * Check if type component has a pointer
+         * @return pointer
+         */
+        bool isPointer();
     };
 }
 

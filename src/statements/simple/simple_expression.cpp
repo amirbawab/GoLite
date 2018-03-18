@@ -11,9 +11,9 @@ int golite::SimpleExpression::getLine() {
 
 void golite::SimpleExpression::typeCheck() {
     expression_->typeCheck();
-    Expression* resolved = expression_->resolveExpression();
-    if(resolved->isTypeCasting()) {
-        golite::Utils::error_message("Expression statement cannot be type casting", expression_->getLine());
+    if(expression_->isCasting()) {
+        golite::Utils::error_message("Expression statement must be a function call but given conversion",
+                                     expression_->getLine());
     }
 }
 

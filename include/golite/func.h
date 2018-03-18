@@ -1,24 +1,25 @@
-#ifndef GOLITE_ARRAY_H
-#define GOLITE_ARRAY_H
+#ifndef GOLITE_FUNC_H
+#define GOLITE_FUNC_H
 
-#include <golite/type_composite.h>
-#include <golite/literal.h>
+#include <golite/pointer.h>
+#include <golite/function.h>
 
 namespace golite {
-    class Array : public TypeComposite {
+    class Func : public Pointer {
     private:
-        golite::Literal<int>* size_ = nullptr;
+        golite::TypeComponent* type_component_ = nullptr;
+        golite::Function* function_ = nullptr;
     public:
-        Array(golite::Literal<int>* size) : size_(size) {}
+        Func(Function* function, golite::TypeComponent* type_component) :
+                function_(function), type_component_(type_component) {}
 
         /**
-         * Get size
-         * @return size
+         * @see TypeComposite::getTypeComponent()
          */
-        golite::Literal<int>* getSize() const { return size_; }
+        golite::TypeComponent* getTypeComponent() { return type_component_; }
 
         /**
-         * @see TypeComponent::toGoLite()
+         * @see TypeComposite::toGoLite(int)
          */
         std::string toGoLite(int indent);
 
@@ -36,11 +37,6 @@ namespace golite {
          * @see TypeComposite::weedingPass()
          */
         void weedingPass();
-
-        /**
-         * @see TypeComposite::isArray()
-         */
-        bool isArray() { return true; }
 
         /**
          * @see TypeComposite::symbolTablePass()
@@ -65,17 +61,23 @@ namespace golite {
         /**
          * @see TypeComposite::isComparable()
          */
-        bool isComparable() { return true; }
+        bool isComparable() { return false; }
 
         /**
          * @see TypeComposite::resolvesToComparable()
          */
-        bool resolvesToComparable() { return true; }
+        bool resolvesToComparable() { return false; }
 
         /**
-         * @see TypeComposite::isRecursive()
+         * @see TypeComposite::isFunc()
          */
-        bool isRecursive(Type* type) { return true; }
+        bool isFunc() { return true; }
+
+        /**
+         * Get function
+         * @return function
+         */
+        Function* getFunction() const { return function_; }
     };
 }
 

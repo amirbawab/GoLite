@@ -51,9 +51,7 @@ std::string golite::TypeReference::toPrettySymbol() {
     std::stringstream ss;
     ss << identifier_->getName();
 
-    if(declarable_type_->isSliceRecursive()) {
-        ss << " -> ... (of the form type T []T)";
-    } else if(!declarable_type_->isBuiltIn()) {
+    if(!declarable_type_->isSelfReferring()) {
         ss << " -> " << declarable_type_->getTypeComponent()->toPrettySymbol();
     }
     return ss.str();
@@ -69,7 +67,7 @@ bool golite::TypeReference::resolvesTo(Declarable* declarable) {
     if(isCompatible(declarable->getTypeComponent()->getChildren().front())) {
         return true;
     }
-    if(declarable_type_->isBuiltIn()) {
+    if(declarable_type_->isSelfReferring()) {
         return declarable_type_->getTypeComponent()->isCompatible(declarable->getTypeComponent());
     }
     return declarable_type_->getTypeComponent()->resolvesTo(declarable);
@@ -80,18 +78,18 @@ std::vector<golite::TypeComposite*> golite::TypeReference::resolveChildren() {
         throw std::runtime_error("Cannot resolve children because declarable or declarable type is empty. "
                                          "Verify symbol table pass.");
     }
-    if(declarable_type_->isBuiltIn()) {
+    if(declarable_type_->isSelfReferring()) {
         return declarable_type_->getTypeComponent()->getChildren();
     }
     return declarable_type_->getTypeComponent()->resolveChildren();
 }
 
-bool golite::TypeReference::isRecursive(Declarable* declarable) {
-    return declarable_type_ == declarable;
+bool golite::TypeReference::isRecursive(Type* type) {
+    return declarable_type_ == type;
 }
 
 bool golite::TypeReference::resolvesToComparable() {
-    if(declarable_type_->isBuiltIn() || declarable_type_->isSliceRecursive()) {
+    if(declarable_type_->isSelfReferring()) {
         return declarable_type_->getTypeComponent()->isComparable();
     }
     return declarable_type_->getTypeComponent()->resolvesToComparable();

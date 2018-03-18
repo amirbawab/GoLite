@@ -90,7 +90,7 @@ namespace golite {
         /**
          * @see TypeComposite::isRecursive()
          */
-        bool isRecursive(Declarable* declarable);
+        bool isRecursive(Type* type);
 
         /**
          * @see TypeComposite::isComparable()

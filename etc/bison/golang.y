@@ -46,6 +46,7 @@ extern "C" int yylineno;
     #include <golite/primary_expression.h>
     #include <golite/parenthesis.h>
     #include <golite/simple_expression.h>
+    #include <golite/func.h>
 }
 
 %union {
@@ -417,7 +418,7 @@ func_dec[root]
             $root = new golite::Function($id);
             $root->setParams(*$params);
             $root->setBlock($block);
-            $root->setTypeComponent($id_type);
+            $root->setTypeComponent(new golite::TypeComponent({new golite::Func($root, $id_type)}));
         }
     ;
 

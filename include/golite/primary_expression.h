@@ -8,6 +8,7 @@ namespace golite {
     class PrimaryExpression : public Expression {
     private:
         std::vector<golite::Primary*> children_;
+        bool addressable_ = false;
     public:
 
         /**
@@ -84,16 +85,14 @@ namespace golite {
         bool isLiteral();
 
         /**
-         * Check if primary expression starts with a function identifier
-         * @return true if it does
+         * @see Expression::isCasting()
          */
-        bool startsWithFunctionIdentifier();
+        bool isCasting();
 
         /**
-         * Check if type casting
-         * @return true if it is
+         * @see Expression::isAddressable()
          */
-        bool isTypeCasting();
+        bool isAddressable() { return addressable_; }
     };
 }
 
