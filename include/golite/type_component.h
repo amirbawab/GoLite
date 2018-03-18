@@ -231,6 +231,12 @@ namespace golite {
          * @return resolve type component of func
          */
         golite::TypeComponent* resolveFunc();
+
+        /**
+         * Check if type component has a pointer
+         * @return pointer
+         */
+        bool isPointer();
     };
 }
 

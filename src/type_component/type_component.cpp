@@ -242,3 +242,10 @@ golite::TypeComponent* golite::TypeComponent::resolveFunc() {
     golite::Func* func = static_cast<Func*>(children_.front());
     return func->getTypeComponent();
 }
+
+bool golite::TypeComponent::isPointer() {
+    if(!children_.empty()) {
+        return children_.back()->isPointer();
+    }
+    return false;
+}

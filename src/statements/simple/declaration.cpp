@@ -62,6 +62,10 @@ void golite::Declaration::typeCheck() {
                     golite::Utils::error_message("Short declaration cannot be assigned a void",
                                                  left_identifiers_[i]->getLine());
                 }
+                if(right_type->isPointer()) {
+                    golite::Utils::error_message("Cannot assign " + right_type->toGoLiteMin() + " to a short declaration",
+                                                 right_expressions_[i]->getLine());
+                }
                 golite::PrimaryExpression* id_prim = static_cast<golite::PrimaryExpression*>(left_identifiers_[i]);
                 golite::Identifier* id = static_cast<golite::Identifier*>(id_prim->getChildren().back());
                 id->updateTypeInSymbolTable(right_type);
