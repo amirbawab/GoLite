@@ -99,6 +99,10 @@ void golite::Assignment::typeCheck() {
 
             // Perform type check on the left element
             TypeComponent* left_type = left_operand->typeCheck();
+            if(!left_operand->isAddressable()) {
+                golite::Utils::error_message("Assignment operand " + left_operand->toGoLite(0) + " is not addressable",
+                                             left_operand->getLine());
+            }
             switch (kind_) {
                 case EQUAL:
                     if(!left_type->isCompatible(right_type)) {

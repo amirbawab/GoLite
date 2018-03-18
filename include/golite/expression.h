@@ -105,6 +105,12 @@ namespace golite {
          * @return
          */
         virtual bool isCasting() { return false; }
+
+        /**
+         * Check if expression is addressable
+         * @return true if it is
+         */
+        virtual bool isAddressable() { return false; }
     };
 }
 

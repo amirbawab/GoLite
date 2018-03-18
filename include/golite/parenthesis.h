@@ -57,6 +57,11 @@ namespace golite {
          * @see Expression::isCasting()
          */
         bool isCasting();
+
+        /**
+         * @see Expression::isAddressable()
+         */
+        bool isAddressable();
     };
 }
 

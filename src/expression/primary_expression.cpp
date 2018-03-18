@@ -13,6 +13,7 @@
 #include <golite/type_reference.h>
 #include <golite/cast.h>
 #include <golite/func.h>
+#include <golite/variable.h>
 
 void golite::PrimaryExpression::addChild(golite::Primary *child) {
     children_.push_back(child);
@@ -104,17 +105,27 @@ golite::TypeComponent* golite::PrimaryExpression::typeCheck() {
                 type_stack.insert(type_stack.end(), type_children.begin(), type_children.end());
             }
 
+            // Variable is addressable
+            Declarable* declarable = identifier->getSymbolTableEntry();
+            if(declarable->isDecVariable()) {
+                Variable* variable = static_cast<golite::Variable*>(declarable);
+                addressable_ = !variable->isConstant();
+            }
+
         } else if(children_[i]->isLiteral()) {
             std::vector<TypeComposite*> type_children = child_type->getChildren();
             type_stack.insert(type_stack.end(), type_children.begin(), type_children.end());
+            addressable_ = false;
 
         } else if(children_[i]->isAppend()) {
             std::vector<TypeComposite*> type_children = child_type->getChildren();
             type_stack.insert(type_stack.end(), type_children.begin(), type_children.end());
+            addressable_ = false;
 
         } else if(children_[i]->isParenthesis()) {
             std::vector<TypeComposite*> type_children = child_type->getChildren();
             type_stack.insert(type_stack.end(), type_children.begin(), type_children.end());
+            addressable_ = children_[i]->isAddressable();
 
         } else if(children_[i]->isSelector()) {
             if(type_stack.empty()) {
@@ -146,6 +157,8 @@ golite::TypeComponent* golite::PrimaryExpression::typeCheck() {
             std::vector<TypeComposite*> field_type = field->getTypeComponent()->getChildren();
             type_stack.insert(type_stack.end(), field_type.begin(), field_type.end());
 
+            // Note: No need to update addressable as it depends on the previous one
+
         } else if(children_[i]->isIndex()) {
             if (type_stack.empty()) {
                 golite::Utils::error_message("Cannot access index " + children_[i]->toGoLite(0)
@@ -160,7 +173,14 @@ golite::TypeComponent* golite::PrimaryExpression::typeCheck() {
                 golite::Utils::error_message("Cannot access index " + children_[i]->toGoLite(0)
                                              + " of a non-list type", children_[i]->getLine());
             }
+
+            // Slices are addressable
+            if(type_stack.back()->isSlice()) {
+                addressable_ = true;
+            }
             type_stack.pop_back();
+
+            // Note: No need to update addressable for arrays as it depends on the previous one
 
         } else if(children_[i]->isFunctionCall()) {
             if(type_stack.empty()) {
@@ -192,6 +212,7 @@ golite::TypeComponent* golite::PrimaryExpression::typeCheck() {
                 golite::Utils::error_message("Cannot perform a function call on " + top->toGoLiteMin(),
                                              children_[i]->getLine());
             }
+            addressable_ = false;
         } else {
             throw std::runtime_error("Unhandled type check for an unrecognized child type");
         }

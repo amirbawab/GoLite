@@ -36,3 +36,7 @@ golite::Expression* golite::Parenthesis::resolveExpression() {
 bool golite::Parenthesis::isCasting() {
     return expression_->isCasting();
 }
+
+bool golite::Parenthesis::isAddressable() {
+    return expression_->isAddressable();
+}
