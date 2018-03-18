@@ -167,7 +167,6 @@ golite::TypeComponent* golite::PrimaryExpression::typeCheck() {
                 throw std::runtime_error("Function call cannot cannot be processed because stack is empty");
             }
             golite::FunctionCall* function_call = static_cast<FunctionCall*>(children_[i]);
-
             TypeComposite* top = type_stack.back();
             type_stack.pop_back();
             if(top->isCast()) {
@@ -181,7 +180,7 @@ golite::TypeComponent* golite::PrimaryExpression::typeCheck() {
                 std::vector<TypeComposite*> func_type = func->getTypeComponent()->getChildren();
                 type_stack.insert(type_stack.end(), func_type.begin(), func_type.end());
             } else {
-                golite::Utils::error_message("Cannot perform a function call on " + type_stack.back()->toGoLiteMin(),
+                golite::Utils::error_message("Cannot perform a function call on " + top->toGoLiteMin(),
                                              children_[i]->getLine());
             }
         } else {
