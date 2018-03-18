@@ -172,8 +172,17 @@ golite::TypeComponent* golite::PrimaryExpression::typeCheck() {
             if(top->isCast()) {
                 golite::Cast* cast = static_cast<Cast*>(top);
                 function_call->checkParams(cast->getType());
-                std::vector<TypeComposite*> cast_type = cast->getTypeComponent()->getChildren();
-                type_stack.insert(type_stack.end(), cast_type.begin(), cast_type.end());
+
+                TypeComponent* cast_type_component = cast->getTypeComponent();
+
+                // Type must resolve to a base type
+                if(!cast_type_component->resolvesToBaseType()) {
+                    golite::Utils::error_message("Conversion type should be a base type but given "
+                                                 + cast->getType()->getIdentifier()->toGoLite(0),
+                                                 children_[i]->getLine());
+                }
+                std::vector<TypeComposite*> cast_type_children = cast_type_component->getChildren();
+                type_stack.insert(type_stack.end(), cast_type_children.begin(), cast_type_children.end());
             }else if(top->isFunc()) {
                 golite::Func* func = static_cast<Func*>(top);
                 function_call->checkParams(func->getFunction());
