@@ -1,11 +1,11 @@
 #ifndef GOLITE_FUNC_H
 #define GOLITE_FUNC_H
 
-#include <golite/type_component.h>
+#include <golite/pointer.h>
 #include <golite/function.h>
 
 namespace golite {
-    class Func : public TypeComposite {
+    class Func : public Pointer {
     private:
         golite::TypeComponent* type_component_ = nullptr;
         golite::Function* function_ = nullptr;
@@ -14,10 +14,9 @@ namespace golite {
                 function_(function), type_component_(type_component) {}
 
         /**
-         * Get type component
-         * @return type component
+         * @see TypeComposite::getTypeComponent()
          */
-        golite::TypeComponent* getTypeComponent() const { return type_component_; }
+        golite::TypeComponent* getTypeComponent() { return type_component_; }
 
         /**
          * @see TypeComposite::toGoLite(int)

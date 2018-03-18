@@ -1,11 +1,11 @@
 #ifndef GOLITE_CAST_H
 #define GOLITE_CAST_H
 
-#include <golite/type_component.h>
+#include <golite/pointer.h>
 #include <golite/type.h>
 
 namespace golite {
-    class Cast : public TypeComposite {
+    class Cast : public Pointer {
     private:
         int line_;
         Type* type_ = nullptr;
@@ -13,8 +13,7 @@ namespace golite {
         Cast(int line, Type* type) : line_(line), type_(type) {}
 
         /**
-         * Get type component
-         * @return type component
+         * @see TypeComposite::getTypeComponent()
          */
         golite::TypeComponent* getTypeComponent();
 

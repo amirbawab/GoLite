@@ -118,6 +118,12 @@ namespace golite {
          * @return true if it is
          */
         virtual bool resolvesToComparable() = 0;
+
+        /**
+         * Check if a type is a pointer
+         * @return true if it is
+         */
+        virtual bool isPointer() { return false; }
     };
 }
 
