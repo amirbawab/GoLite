@@ -82,6 +82,11 @@ namespace golite {
          * @see Expression::isLiteral()
          */
         bool isLiteral();
+
+        /**
+         * @see Expression::isCasting()
+         */
+        bool isCasting();
     };
 }
 

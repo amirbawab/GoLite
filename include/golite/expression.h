@@ -99,6 +99,12 @@ namespace golite {
          * @return true if it is
          */
         virtual bool isLiteral() { return false; }
+
+        /**
+         * Check if expression is a casting
+         * @return
+         */
+        virtual bool isCasting() { return false; }
     };
 }
 

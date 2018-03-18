@@ -32,3 +32,7 @@ void golite::Parenthesis::symbolTablePass(SymbolTable *root) {
 golite::Expression* golite::Parenthesis::resolveExpression() {
     return expression_->resolveExpression();
 }
+
+bool golite::Parenthesis::isCasting() {
+    return expression_->isCasting();
+}

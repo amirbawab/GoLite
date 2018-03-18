@@ -72,3 +72,7 @@ golite::Declarable* golite::Identifier::getSymbolTableEntry() {
     }
     return declarable;
 }
+
+bool golite::Identifier::isCasting() {
+    return getSymbolTableEntry()->isTypeDeclaration();
+}

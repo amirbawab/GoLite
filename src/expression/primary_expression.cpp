@@ -224,3 +224,10 @@ golite::Expression* golite::PrimaryExpression::resolveExpression() {
     }
     return this;
 }
+
+bool golite::PrimaryExpression::isCasting() {
+    if(!children_.empty()) {
+        return children_.front()->isCasting();
+    }
+    return false;
+}

@@ -69,6 +69,11 @@ namespace golite {
          * @return declarable
          */
         Declarable* getSymbolTableEntry();
+
+        /**
+         * @see Expression::isCasting()
+         */
+        bool isCasting();
     };
 }
 

@@ -52,6 +52,11 @@ namespace golite {
          * @see Expression::isParenthesis()
          */
         bool isParenthesis() { return true; }
+
+        /**
+         * @see Expression::isCasting()
+         */
+        bool isCasting();
     };
 }
 
