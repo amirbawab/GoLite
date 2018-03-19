@@ -97,6 +97,12 @@ namespace golite {
          * @return symbol table
          */
         SymbolTable* getProgramSymbolTable() { return program_symbol_table_; }
+
+        /**
+         * Generate typescript code
+         * @return code
+         */
+        std::string toTypeScript(int indent);
     };
 }
 

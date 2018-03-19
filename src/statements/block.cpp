@@ -33,7 +33,7 @@ void golite::Block::symbolTablePass(SymbolTable *root) {
     for(Statement* statement : statements_) {
         SymbolTable* block_table = root;
         if(statement->isBlock()) {
-            block_table = new SymbolTable(root);
+            block_table = new SymbolTable(root, "_block_");
         }
         statement->symbolTablePass(block_table);
     }

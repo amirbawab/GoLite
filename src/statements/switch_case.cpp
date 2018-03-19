@@ -54,7 +54,7 @@ void golite::SwitchCase::symbolTablePass(SymbolTable *root) {
         expr->symbolTablePass(root);
     }
 
-    SymbolTable* block_table = new SymbolTable(root);
+    SymbolTable* block_table = new SymbolTable(root, "_case_");
     block_->symbolTablePass(block_table);
 }
 

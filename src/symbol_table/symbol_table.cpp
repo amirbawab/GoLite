@@ -4,8 +4,10 @@
 #include <iostream>
 #include <golite/program.h>
 
-golite::SymbolTable::SymbolTable(SymbolTable *parent) {
+golite::SymbolTable::SymbolTable(SymbolTable *parent, std::string name) {
+    static unsigned int counter = 1;
     parent_ = parent;
+    name_ = name + "_" + std::to_string(counter++) + "_";
     if(parent) {
         parent->putTable(this);
     }
@@ -111,5 +113,14 @@ std::string golite::SymbolTable::toPrettySymbol(int indent) {
 
     indent--;
     ss << golite::Utils::indent(indent) << "}" << std::endl;
+    return ss.str();
+}
+
+std::string golite::SymbolTable::getAbsoluteName() {
+    std::stringstream ss;
+    if(parent_) {
+        ss << parent_->getAbsoluteName();
+    }
+    ss << name_;
     return ss.str();
 }

@@ -79,7 +79,7 @@ void golite::Switch::typeCheck() {
 }
 
 void golite::Switch::symbolTablePass(golite::SymbolTable *root) {
-    SymbolTable* switch_outer_table = new SymbolTable(root);
+    SymbolTable* switch_outer_table = new SymbolTable(root, "_switch_");
 
     if(this->simple_) {
         this->simple_->symbolTablePass(switch_outer_table);
