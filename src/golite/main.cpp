@@ -16,6 +16,7 @@ bool parse_flag = false;
 bool pretty_flag = false;
 bool typecheck_flag = false;
 bool symbol_flag = false;
+bool codegen_flag = false;
 
 // Input files
 std::string input_file;
@@ -34,6 +35,7 @@ void printUsage() {
             << "    -P, --pretty          Prettify input file" << std::endl
             << "    -T, --typecheck       Perform type checking" << std::endl
             << "    -S, --symbol          Outputs the symbol table." << std::endl
+            << "    -c, --codegen         Generate code" << std::endl
             << "    -h, --help            Display this help message" << std::endl;
 
 }
@@ -49,13 +51,14 @@ void initParams(int argc, char *argv[]) {
             {"pretty", no_argument, 0, 'P'},
             {"typecheck", no_argument, 0, 'T'},
             {"symbol", no_argument, 0, 'S'},
+            {"codegen", no_argument, 0, 'c'},
             {"help", no_argument, 0, 'h'},
             {0, 0, 0, 0}
     };
 
     int optionIndex = 0;
     int c;
-    while ((c = getopt_long(argc, argv, "tspPTSh", longOptions, &optionIndex)) != -1) {
+    while ((c = getopt_long(argc, argv, "tspPTSch", longOptions, &optionIndex)) != -1) {
         switch (c) {
             case 't':
                 tokens_flag = true;
@@ -75,6 +78,9 @@ void initParams(int argc, char *argv[]) {
             case 'S':
                 symbol_flag = true;
                 break;
+            case 'c':
+                codegen_flag = true;
+                break;
             case 'h':
             default:
                 // Print by default
@@ -89,7 +95,7 @@ void initParams(int argc, char *argv[]) {
  */
 bool validArguments() {
     return !input_file.empty() &&
-            scan_flag + parse_flag + pretty_flag + tokens_flag + typecheck_flag + symbol_flag == 1;
+            scan_flag + parse_flag + pretty_flag + tokens_flag + typecheck_flag + symbol_flag + codegen_flag == 1;
 }
 
 /**
@@ -151,6 +157,12 @@ int main(int argc, char** argv) {
         golite::Program::getInstance()->weedingPass();
         golite::Program::getInstance()->symbolTablePass();
         golite::Program::getInstance()->typeCheck();
+    } else if(codegen_flag) {
+        do { yyparse(); } while (!feof(yyin));
+        golite::Program::getInstance()->weedingPass();
+        golite::Program::getInstance()->symbolTablePass();
+        golite::Program::getInstance()->typeCheck();
+        // TODO Add code gen
     }
 
     return golite::Utils::EXIT_FINE;
