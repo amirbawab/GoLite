@@ -184,3 +184,8 @@ void golite::Assignment::symbolTablePass(SymbolTable *root) {
         expr->symbolTablePass(root);
     }
 }
+
+std::string golite::Assignment::toTypeScript(int indent) {
+    // TODO
+    return "";
+}

@@ -25,3 +25,8 @@ void golite::Break::symbolTablePass(SymbolTable *root) {
 bool golite::Break::hasBreak() {
     return true;
 }
+
+std::string golite::Break::toTypeScript(int indent) {
+    // TODO
+    return "";
+}

@@ -45,6 +45,11 @@ namespace golite {
          * @see Statement::hsaBreak()
          */
         bool hasBreak();
+
+        /**
+         * @see Statement::toTypeScript()
+         */
+        std::string toTypeScript(int indent);
     };
 }
 

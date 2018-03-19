@@ -115,3 +115,8 @@ bool golite::Switch::isTerminating() {
     }
     return true;
 }
+
+std::string golite::Switch::toTypeScript(int indent) {
+    // TODO
+    return "";
+}

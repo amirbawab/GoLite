@@ -34,3 +34,8 @@ std::string golite::SimpleExpression::toGoLite(int indent) {
 void golite::SimpleExpression::symbolTablePass(SymbolTable *root) {
     this->expression_->symbolTablePass(root);
 }
+
+std::string golite::SimpleExpression::toTypeScript(int indent) {
+    // TODO
+    return "";
+}

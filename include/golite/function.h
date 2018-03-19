@@ -95,6 +95,11 @@ namespace golite {
          * @return line number
          */
         int getLine();
+
+        /**
+         * @see Declarable::toTypeScript()
+         */
+        std::string toTypeScript(int indent);
     };
 }
 

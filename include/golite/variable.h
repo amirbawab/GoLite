@@ -92,6 +92,11 @@ namespace golite {
          * @return true if it is
          */
         bool isConstant() const { return constant_; }
+
+        /**
+         * @see Declarable::toTypeScript()
+         */
+        std::string toTypeScript(int indent);
     };
 }
 

@@ -44,3 +44,8 @@ void golite::IncDec::typeCheck() {
 void golite::IncDec::symbolTablePass(SymbolTable *root) {
     this->expression_->symbolTablePass(root);
 }
+
+std::string golite::IncDec::toTypeScript(int indent) {
+    // TODO
+    return "";
+}

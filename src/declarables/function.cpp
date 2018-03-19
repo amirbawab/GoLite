@@ -108,3 +108,8 @@ std::vector<golite::FunctionParam*> golite::Function::getParamsSeparated() {
 int golite::Function::getLine() {
     return identifier_->getLine();
 }
+
+std::string golite::Function::toTypeScript(int indent) {
+    // TODO
+    return "";
+}

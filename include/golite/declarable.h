@@ -81,6 +81,12 @@ namespace golite {
          * @return type component
          */
         golite::TypeComponent* getTypeComponent() const { return type_component_; }
+
+        /**
+         * Generate typescript code
+         * @return code
+         */
+        virtual std::string toTypeScript(int indent) = 0;
     };
 }
 

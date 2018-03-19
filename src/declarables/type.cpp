@@ -73,3 +73,8 @@ bool golite::Type::isSelfReferring() {
     }
     return false;
 }
+
+std::string golite::Type::toTypeScript(int indent) {
+    // TODO
+    return "";
+}

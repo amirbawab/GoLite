@@ -129,3 +129,8 @@ void golite::Declaration::symbolTablePass(SymbolTable *root) {
         golite::Utils::error_message("no new variables on left side of :=", this->getLine());
     }
 }
+
+std::string golite::Declaration::toTypeScript(int indent) {
+    // TODO
+    return "";
+}

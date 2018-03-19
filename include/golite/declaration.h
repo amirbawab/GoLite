@@ -53,6 +53,11 @@ namespace golite {
          * @see Statement::symbolTablePass()
          */
         void symbolTablePass(SymbolTable* root);
+
+        /**
+         * @see Statement::toTypeScript()
+         */
+        std::string toTypeScript(int indent);
     };
 }
 

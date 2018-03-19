@@ -36,3 +36,8 @@ void golite::Println::symbolTablePass(SymbolTable *root) {
         expr->symbolTablePass(root);
     }
 }
+
+std::string golite::Println::toTypeScript(int indent) {
+    // TODO
+    return "";
+}

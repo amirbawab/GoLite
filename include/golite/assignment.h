@@ -101,6 +101,11 @@ namespace golite {
          */
         void symbolTablePass(SymbolTable* root);
 
+        /**
+         * @see Statement::toTypeScript()
+         */
+        std::string toTypeScript(int indent);
+
         Assignment(std::vector<Expression*> left, std::vector<Expression*> right, KIND kind) :
                 left_expressions_(left), right_expressions_(right), kind_(kind){}
     private:

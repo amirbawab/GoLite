@@ -75,6 +75,11 @@ namespace golite {
          * @return type component
          */
         TypeComponent* toTypeComponent();
+
+        /**
+         * @see Declarable::toTypeScript()
+         */
+        std::string toTypeScript(int indent);
     };
 }
 

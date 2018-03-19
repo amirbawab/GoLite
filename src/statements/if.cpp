@@ -171,3 +171,8 @@ bool golite::If::isTerminating() {
     }
     return true;
 }
+
+std::string golite::If::toTypeScript(int indent) {
+    // TODO
+    return "";
+}

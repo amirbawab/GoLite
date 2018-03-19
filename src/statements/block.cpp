@@ -60,3 +60,8 @@ bool golite::Block::hasBreak() {
 bool golite::Block::isTerminating() {
     return !statements_.empty() && statements_.back()->isTerminating();
 }
+
+std::string golite::Block::toTypeScript(int indent) {
+    // TODO
+    return "";
+}

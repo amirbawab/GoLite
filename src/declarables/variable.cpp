@@ -121,3 +121,8 @@ std::string golite::Variable::toPrettySymbol() {
     ss << type_component_->toPrettySymbol();
     return ss.str();
 }
+
+std::string golite::Variable::toTypeScript(int indent) {
+    // TODO
+    return "";
+}
