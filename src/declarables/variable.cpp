@@ -103,6 +103,7 @@ void golite::Variable::symbolTablePass(SymbolTable *root) {
                 golite::Utils::error_message("Variable name " + id->getName() + " redeclared in this block", getLine());
             }
             root->putSymbol(id->getName(), this);
+            id->symbolTablePass(root);
         }
     }
 
@@ -123,6 +124,14 @@ std::string golite::Variable::toPrettySymbol() {
 }
 
 std::string golite::Variable::toTypeScript(int indent) {
-    // TODO
-    return "";
+    std::stringstream ss;
+    for(size_t i=0; i < identifiers_.size(); i++) {
+        ss << golite::Utils::indent(indent) << "var " << identifiers_[i]->toTypeScript(0)
+           << " /*: TODO*/";
+        if(!expressions_.empty()) {
+            ss << " = " << expressions_[i]->toTypeScript(0);
+        }
+        ss << ";" << std::endl;
+    }
+    return ss.str();
 }
