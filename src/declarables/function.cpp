@@ -68,6 +68,7 @@ void golite::Function::symbolTablePass(golite::SymbolTable *root) {
             }
         }
         root->putSymbol(this->identifier_->getName(), this);
+        identifier_->symbolTablePass(root);
     }
 
     SymbolTable* function_block_table = new SymbolTable(root, "_f_" + identifier_->getName());
@@ -110,6 +111,21 @@ int golite::Function::getLine() {
 }
 
 std::string golite::Function::toTypeScript(int indent) {
-    // TODO
-    return "";
+    std::stringstream ss;
+    if(!identifier_->isBlank()) {
+        ss << golite::Utils::indent(indent) << "function " << identifier_->toTypeScript(0)
+           << "(" << ")"
+           << " /*: TODO*/ {";
+        if(!block_->getStatements().empty()) {
+            ss << std::endl;
+            ss << block_->toTypeScript(indent+1);
+            ss << golite::Utils::indent(indent);
+        }
+        ss << "}";
+    } else {
+        ss << golite::Utils::indent(indent) << "/*";
+
+        ss << std::endl << golite::Utils::indent(indent) << "*/";
+    }
+    return ss.str();
 }

@@ -78,10 +78,13 @@ bool golite::Identifier::isCasting() {
 }
 
 std::string golite::Identifier::toTypeScript(int indent) {
+    if(isBlank()) {
+        throw std::runtime_error("Cannot generate code for blank identifier");
+    }
     if(!symbol_table_) {
         throw std::runtime_error("Cannot generate code because symbol table is not set");
     }
     std::stringstream ss;
-    ss << symbol_table_->getAbsoluteName() << name_;
+    ss << symbol_table_->getAbsoluteName() << "_" << name_;
     return ss.str();
 }

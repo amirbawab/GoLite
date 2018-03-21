@@ -62,6 +62,9 @@ bool golite::Block::isTerminating() {
 }
 
 std::string golite::Block::toTypeScript(int indent) {
-    // TODO
-    return "";
+    std::stringstream ss;
+    for(Statement* statement : statements_) {
+        ss << statement->toTypeScript(indent) << std::endl;
+    }
+    return ss.str();
 }

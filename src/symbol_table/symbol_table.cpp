@@ -5,9 +5,8 @@
 #include <golite/program.h>
 
 golite::SymbolTable::SymbolTable(SymbolTable *parent, std::string name) {
-    static unsigned int counter = 1;
     parent_ = parent;
-    name_ = name + "_" + std::to_string(counter++) + "_";
+    name_ = name;
     if(parent) {
         parent->putTable(this);
     }

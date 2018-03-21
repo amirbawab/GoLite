@@ -36,7 +36,7 @@ void golite::Program::weedingPass() {
 }
 
 void golite::Program::initializeSymbolTable() {
-    this->root_symbol_table_ = new SymbolTable(nullptr, "_golite_");
+    this->root_symbol_table_ = new SymbolTable(nullptr, "golite");
 
     // append built-in type
     this->root_symbol_table_->putSymbol(INT_BUILTIN_TYPE->getIdentifier()->getName(), INT_BUILTIN_TYPE);
@@ -64,7 +64,7 @@ void golite::Program::initializeSymbolTable() {
 
 void golite::Program::symbolTablePass() {
     this->initializeSymbolTable();
-    program_symbol_table_ = new SymbolTable(root_symbol_table_, "_p_");
+    program_symbol_table_ = new SymbolTable(root_symbol_table_, "_prog");
     for(Declarable* declarable: declarables_) {
         declarable->symbolTablePass(program_symbol_table_);
     }
@@ -86,5 +86,9 @@ std::string golite::Program::toTypeScript(int indent) {
        << golite::Utils::indent(indent) << " *    GOLITE => TYPESCRIPT     *" << std::endl
        << golite::Utils::indent(indent) << " * THIS CODE IS AUTO-GENERATED *" << std::endl
        << golite::Utils::indent(indent) << " ******************************/" << std::endl;
+
+    for(Declarable* declarable : declarables_) {
+        ss << declarable->toTypeScript(indent) << std::endl;
+    }
     return ss.str();
 }

@@ -30,6 +30,7 @@ void golite::Type::symbolTablePass(SymbolTable *root) {
 
     if(!identifier_->isBlank()) {
         root->putSymbol(this->identifier_->getName(), this);
+        identifier_->symbolTablePass(root);
         type_component_->symbolTablePass(root);
 
         // Check for recursion
@@ -75,6 +76,14 @@ bool golite::Type::isSelfReferring() {
 }
 
 std::string golite::Type::toTypeScript(int indent) {
-    // TODO
-    return "";
+    std::stringstream ss;
+    if(!identifier_->isBlank()) {
+        ss << golite::Utils::indent(indent) << "class " << identifier_->toTypeScript(0)
+           << " /*extends TODO*/ {};";
+    } else {
+        ss << golite::Utils::indent(indent) << "/*" << std::endl;
+        ss << toGoLite(indent);
+        ss << std::endl << golite::Utils::indent(indent) << "*/";
+    }
+    return ss.str();
 }
