@@ -211,3 +211,69 @@ void golite::Binary::symbolTablePass(SymbolTable *root) {
     this->left_operand_->symbolTablePass(root);
     this->right_operand_->symbolTablePass(root);
 }
+
+std::string golite::Binary::toTypeScript(int indent) {
+    std::stringstream ss;
+    ss << "(" << left_operand_->toTypeScript(0);
+    switch (kind_){
+        case MINUS:
+            ss << " - ";
+            break;
+        case PLUS:
+            ss << " + ";
+            break;
+        case MULTIPLY:
+            ss << " * ";
+            break;
+        case DIVIDE:
+            ss << " / ";
+            break;
+        case MODULO:
+            ss << " % ";
+            break;
+        case BIT_AND:
+            ss << " & ";
+            break;
+        case BIT_OR:
+            ss << " | ";
+            break;
+        case BIT_XOR:
+            ss << " ^ ";
+            break;
+        case BIT_CLEAR:
+            ss << " &^ ";  // TODO
+            break;
+        case LEFT_SHIFT:
+            ss << " << ";
+            break;
+        case RIGHT_SHIFT:
+            ss << " >> ";
+            break;
+        case IS_EQUAL:
+            ss << " == ";
+            break;
+        case IS_NOT_EQUAL:
+            ss << " != ";
+            break;
+        case LESS_THAN:
+            ss << " < ";
+            break;
+        case LESS_THAN_EQUAL:
+            ss << " <= ";
+            break;
+        case GREATER_THAN:
+            ss << " > ";
+            break;
+        case GREATER_THAN_EQUAL:
+            ss << " >= ";
+            break;
+        case AND:
+            ss << " && ";
+            break;
+        case OR:
+            ss << " || ";
+            break;
+    }
+    ss << right_operand_->toTypeScript(0) << ")";
+    return ss.str();
+}

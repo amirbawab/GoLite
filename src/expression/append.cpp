@@ -53,3 +53,8 @@ void golite::Append::symbolTablePass(SymbolTable *root) {
     this->left_expression_->symbolTablePass(root);
     this->right_expression_->symbolTablePass(root);
 }
+
+std::string golite::Append::toTypeScript(int indent) {
+    // TODO
+    return "";
+}

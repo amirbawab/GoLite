@@ -69,3 +69,16 @@ void golite::FunctionCall::symbolTablePass(SymbolTable *root) {
         arg->symbolTablePass(root);
     }
 }
+
+std::string golite::FunctionCall::toTypeScript(int indent) {
+    std::stringstream ss;
+    ss << "(";
+    for(size_t i=0; i < args_.size(); i++) {
+        if(i != 0) {
+            ss << ", ";
+        }
+        ss << args_[i]->toTypeScript(0);
+    }
+    ss << ")";
+    return ss.str();
+}

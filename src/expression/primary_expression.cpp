@@ -252,3 +252,11 @@ bool golite::PrimaryExpression::isCasting() {
     }
     return false;
 }
+
+std::string golite::PrimaryExpression::toTypeScript(int indent) {
+    std::stringstream ss;
+    for(Primary* child : children_) {
+        ss << child->toTypeScript(0);
+    }
+    return ss.str();
+}

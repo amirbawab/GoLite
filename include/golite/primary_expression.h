@@ -93,6 +93,11 @@ namespace golite {
          * @see Expression::isAddressable()
          */
         bool isAddressable() { return addressable_; }
+
+        /**
+         * @see Expression::toTypeScript()
+         */
+        std::string toTypeScript(int indent);
     };
 }
 

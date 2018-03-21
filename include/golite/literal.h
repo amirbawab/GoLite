@@ -30,6 +30,7 @@ namespace golite {
         void symbolTablePass(SymbolTable* root) { /*Do nothing*/ }
         bool getValue() { return value_; }
         bool isLiteral() { return true; }
+        std::string toTypeScript(int indent) { return std::string((value_ ? "true" : "false")); }
     };
 
     template <>
@@ -52,6 +53,7 @@ namespace golite {
         void symbolTablePass(SymbolTable* root) { /*Do nothing*/ }
         int getValue() { return value_; }
         bool isLiteral() { return true; }
+        std::string toTypeScript(int indent) { return std::to_string(value_); }
     };
 
     template <>
@@ -79,6 +81,7 @@ namespace golite {
         char* getValue() { return value_; }
         bool isLiteral() { return true; }
         void setRune(bool f_rune) { f_rune_ = f_rune; }
+        std::string toTypeScript(int indent) { return std::string(value_); }
     };
 
     template <>
@@ -101,6 +104,7 @@ namespace golite {
         void symbolTablePass(SymbolTable* root) { /*Do nothing*/ }
         float getValue() { return value_; }
         bool isLiteral() { return true; }
+        std::string toTypeScript(int indent) { return std::to_string(value_); }
     };
 }
 

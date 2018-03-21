@@ -76,3 +76,12 @@ golite::Declarable* golite::Identifier::getSymbolTableEntry() {
 bool golite::Identifier::isCasting() {
     return getSymbolTableEntry()->isTypeDeclaration();
 }
+
+std::string golite::Identifier::toTypeScript(int indent) {
+    if(!symbol_table_) {
+        throw std::runtime_error("Cannot generate code because symbol table is not set");
+    }
+    std::stringstream ss;
+    ss << symbol_table_->getAbsoluteName() << name_;
+    return ss.str();
+}
