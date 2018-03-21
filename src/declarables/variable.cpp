@@ -126,12 +126,15 @@ std::string golite::Variable::toPrettySymbol() {
 std::string golite::Variable::toTypeScript(int indent) {
     std::stringstream ss;
     for(size_t i=0; i < identifiers_.size(); i++) {
+        if(i != 0) {
+            ss << std::endl;
+        }
         ss << golite::Utils::indent(indent) << "var " << identifiers_[i]->toTypeScript(0)
            << " /*: TODO*/";
         if(!expressions_.empty()) {
             ss << " = " << expressions_[i]->toTypeScript(0);
         }
-        ss << ";" << std::endl;
+        ss << ";";
     }
     return ss.str();
 }

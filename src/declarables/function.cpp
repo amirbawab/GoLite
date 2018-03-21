@@ -71,7 +71,7 @@ void golite::Function::symbolTablePass(golite::SymbolTable *root) {
         identifier_->symbolTablePass(root);
     }
 
-    SymbolTable* function_block_table = new SymbolTable(root, "_f_" + identifier_->getName());
+    SymbolTable* function_block_table = new SymbolTable(root, "_func_" + identifier_->getName());
     for(FunctionParam* param : params_) {
         param->getTypeComponent()->symbolTablePass(root);
     }
@@ -118,7 +118,9 @@ std::string golite::Function::toTypeScript(int indent) {
            << " /*: TODO*/ {";
         if(!block_->getStatements().empty()) {
             ss << std::endl;
-            ss << block_->toTypeScript(indent+1);
+            for(Statement* statement : block_->getStatements()) {
+                ss << statement->toTypeScript(indent+1) << std::endl;
+            }
             ss << golite::Utils::indent(indent);
         }
         ss << "}";

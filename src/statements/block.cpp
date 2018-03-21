@@ -30,10 +30,11 @@ void golite::Block::typeCheck() {
 }
 
 void golite::Block::symbolTablePass(SymbolTable *root) {
+    static int count = 1;
     for(Statement* statement : statements_) {
         SymbolTable* block_table = root;
         if(statement->isBlock()) {
-            block_table = new SymbolTable(root, "_block_");
+            block_table = new SymbolTable(root, "_block_" + std::to_string(count++));
         }
         statement->symbolTablePass(block_table);
     }
@@ -63,8 +64,14 @@ bool golite::Block::isTerminating() {
 
 std::string golite::Block::toTypeScript(int indent) {
     std::stringstream ss;
-    for(Statement* statement : statements_) {
-        ss << statement->toTypeScript(indent) << std::endl;
+    ss << golite::Utils::indent(indent) << "{";
+    if(!statements_.empty()) {
+        ss << std::endl;
+        for(Statement* statement : statements_) {
+            ss << statement->toTypeScript(indent+1) << std::endl;
+        }
+        ss << golite::Utils::indent(indent);
     }
+    ss << "}";
     return ss.str();
 }
