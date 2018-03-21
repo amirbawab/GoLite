@@ -35,3 +35,7 @@ std::vector<golite::TypeComposite*> golite::Cast::resolveChildren() {
 golite::TypeComponent* golite::Cast::getTypeComponent() {
     return type_->toTypeComponent();
 }
+
+std::string golite::Cast::toTypeScript(int indent) {
+    return "";
+}

@@ -77,6 +77,11 @@ namespace golite {
          * @return type
          */
         Type* getType() const { return type_; }
+
+        /**
+         * @see TypeComposite::toTypeScript()
+         */
+        std::string toTypeScript(int indent);
     };
 }
 

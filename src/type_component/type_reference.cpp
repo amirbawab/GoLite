@@ -94,3 +94,19 @@ bool golite::TypeReference::resolvesToComparable() {
     }
     return declarable_type_->getTypeComponent()->resolvesToComparable();
 }
+
+std::string golite::TypeReference::toTypeScript(int indent) {
+    if(declarable_type_->isSelfReferring()) {
+        TypeComponent* type_component = declarable_type_->getTypeComponent();
+        if(type_component->isInt() || type_component->isFloat64()) {
+            return "number";
+        } else if(type_component->isBool()) {
+            return "boolean";
+        } else if(type_component->isRune() || type_component->isString()) {
+            return "string";
+        } else {
+            throw std::runtime_error("Unhandled type reference " + identifier_->getName());
+        }
+    }
+    return declarable_type_->getIdentifier()->toTypeScript(0);
+}

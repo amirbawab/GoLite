@@ -132,3 +132,7 @@ bool golite::Struct::isRecursive(Type *type) {
     }
     return false;
 }
+
+std::string golite::Struct::toTypeScript(int indent) {
+    return "{}";
+}

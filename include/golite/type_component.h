@@ -230,6 +230,12 @@ namespace golite {
          * @return pointer
          */
         bool isPointer();
+
+        /**
+         * Generate typescript code
+         * @return code
+         */
+        std::string toTypeScript(int indent);
     };
 }
 

@@ -43,3 +43,7 @@ std::string golite::Func::toPrettySymbol() {
 std::vector<golite::TypeComposite*> golite::Func::resolveChildren() {
     return {this};
 }
+
+std::string golite::Func::toTypeScript(int indent) {
+    return "";
+}

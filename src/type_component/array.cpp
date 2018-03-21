@@ -38,3 +38,7 @@ std::string golite::Array::toPrettySymbol() {
 std::vector<golite::TypeComposite*> golite::Array::resolveChildren() {
     return {this};
 }
+
+std::string golite::Array::toTypeScript(int indent) {
+    throw std::runtime_error("Cannot convert array to typescript");
+}

@@ -101,6 +101,11 @@ namespace golite {
          * @see TypeComposite::resolvesToComparable()
          */
         bool resolvesToComparable();
+
+        /**
+         * @see TypeComposite::toTypeScript()
+         */
+        std::string toTypeScript(int indent);
     };
 }
 

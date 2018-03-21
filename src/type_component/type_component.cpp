@@ -238,3 +238,19 @@ bool golite::TypeComponent::isPointer() {
     }
     return false;
 }
+
+std::string golite::TypeComponent::toTypeScript(int indent) {
+    std::stringstream ss;
+    std::stringstream ss_start;
+    std::stringstream ss_end;
+    for(TypeComposite* child : children_) {
+        if(child->isArray() || child->isSlice()) {
+            ss_start << "Array<";
+            ss_end << ">";
+        } else if(child->isTypeReference() || child->isStruct()) {
+            ss_end << child->toTypeScript(0);
+        }
+    }
+    ss << ss_start.str() << ss_end.str();
+    return ss.str();
+}

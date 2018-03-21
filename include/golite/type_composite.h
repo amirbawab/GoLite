@@ -125,6 +125,12 @@ namespace golite {
          * @return true if it is
          */
         virtual bool isPointer() { return false; }
+
+        /**
+         * Generate typescript code
+         * @return code
+         */
+        virtual std::string toTypeScript(int indent) = 0;
     };
 }
 

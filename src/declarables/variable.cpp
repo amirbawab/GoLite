@@ -130,7 +130,7 @@ std::string golite::Variable::toTypeScript(int indent) {
             ss << std::endl;
         }
         ss << golite::Utils::indent(indent) << "var " << identifiers_[i]->toTypeScript(0)
-           << " /*: TODO*/";
+           << " : " << type_component_->toTypeScript(0);
         if(!expressions_.empty()) {
             ss << " = " << expressions_[i]->toTypeScript(0);
         }

@@ -115,7 +115,7 @@ std::string golite::Function::toTypeScript(int indent) {
     if(!identifier_->isBlank()) {
         ss << golite::Utils::indent(indent) << "function " << identifier_->toTypeScript(0)
            << "(" << ")"
-           << " /*: TODO*/ {";
+           << " : " << type_component_->toTypeScript(0) << " {";
         if(!block_->getStatements().empty()) {
             ss << std::endl;
             for(Statement* statement : block_->getStatements()) {
