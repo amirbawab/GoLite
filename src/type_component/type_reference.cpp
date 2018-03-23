@@ -104,8 +104,10 @@ std::string golite::TypeReference::toTypeScript(int indent) {
             return "boolean";
         } else if(type_component->isRune() || type_component->isString()) {
             return "string";
+        } else if(type_component->isVoid()) {
+            return "void";
         } else {
-            throw std::runtime_error("Unhandled type reference " + identifier_->getName());
+            return declarable_type_->getIdentifier()->toTypeScript(0);
         }
     }
     return declarable_type_->getIdentifier()->toTypeScript(0);

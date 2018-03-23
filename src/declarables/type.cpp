@@ -79,7 +79,7 @@ std::string golite::Type::toTypeScript(int indent) {
     std::stringstream ss;
     if(!identifier_->isBlank()) {
         ss << golite::Utils::indent(indent) << "class " << identifier_->toTypeScript(0)
-           << " /*extends TODO*/ {};";
+           << " extends " << type_component_->toTypeScript(0) << "{};";
     } else {
         ss << golite::Utils::indent(indent) << "/*" << std::endl;
         ss << toGoLite(indent);

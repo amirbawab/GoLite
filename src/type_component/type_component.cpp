@@ -247,7 +247,7 @@ std::string golite::TypeComponent::toTypeScript(int indent) {
         if(child->isArray() || child->isSlice()) {
             ss_start << "Array<";
             ss_end << ">";
-        } else if(child->isTypeReference() || child->isStruct()) {
+        } else if(child->isTypeReference() || child->isStruct() || child->isPointer()) {
             ss_end << child->toTypeScript(0);
         }
     }

@@ -1,5 +1,6 @@
 #include<golite/func.h>
 #include <sstream>
+#include <iostream>
 
 std::string golite::Func::toGoLite(int indent) {
     return type_component_->toGoLite(indent);
@@ -45,5 +46,5 @@ std::vector<golite::TypeComposite*> golite::Func::resolveChildren() {
 }
 
 std::string golite::Func::toTypeScript(int indent) {
-    return "";
+    return type_component_->toTypeScript(indent);
 }
