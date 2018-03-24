@@ -196,11 +196,11 @@ bool golite::TypeComponent::resolvesToNumeric() {
 
 std::vector<golite::TypeComposite*> golite::TypeComponent::resolveChildren() {
     std::vector<golite::TypeComposite*> children;
-    for(size_t i=0; i < children_.size(); i++) {
-        if(i == children_.size() - 1) {
-            std::vector<golite::TypeComposite*> resolved_children = children_[i]->resolveChildren();
-            children.insert(children.end(), resolved_children.begin(), resolved_children.end());
-        } else {
+    if(children_.size() == 1) {
+        std::vector<golite::TypeComposite*> resolved_children = children_.back()->resolveChildren();
+        children.insert(children.end(), resolved_children.begin(), resolved_children.end());
+    } else {
+        for(size_t i=0; i < children_.size(); i++) {
             children.push_back(children_[i]);
         }
     }
@@ -278,8 +278,12 @@ std::string golite::TypeComponent::toTypeScriptDefaultValue() {
     } else if(isSlice() || isArray()) {
         return "[]";
     } else if(isStruct()) {
-        Struct* struct_child = static_cast<Struct*>(children_.front());
+        Struct *struct_child = static_cast<Struct *>(children_.front());
         return "new " + struct_child->getName() + "()";
+    } else if(isTypeReference()) {
+        TypeReference* type_reference = static_cast<TypeReference*>(children_.front());
+        TypeComponent* resolved_type_component = new TypeComponent(type_reference->resolveChildren());
+        return resolved_type_component->toTypeScriptDefaultValue();
     } else {
         throw std::runtime_error("Unhandled default type script value");
     }
