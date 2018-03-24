@@ -22,6 +22,5 @@ void golite::Empty::symbolTablePass(SymbolTable *root) {
 }
 
 std::string golite::Empty::toTypeScript(int indent) {
-    // TODO
-    return "";
+    return std::string("");
 }
