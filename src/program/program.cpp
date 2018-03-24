@@ -88,13 +88,28 @@ std::string golite::Program::toTypeScript(int indent) {
        << golite::Utils::indent(indent) << " ******************************/" << std::endl
        << std::endl;
 
-    // Built-in functions
-    ss << golite::Utils::blockComment({"Print function"}, indent) << std::endl;
-    ss << golite::Utils::indent(indent) << "function golite_print(expr) : void { process.stdout.write(expr + ''); };"
-       << std::endl << std::endl;
-    ss << golite::Utils::blockComment({"Print line function"}, indent) << std::endl;
-    ss << golite::Utils::indent(indent) << "function golite_println(expr) : void { golite_print(expr + '\\n'); };"
-       << std::endl << std::endl;
+    // Built-in function: print
+    ss << golite::Utils::blockComment({"Print function"}, indent) << std::endl
+       << golite::Utils::indent(indent) << "function golite_print(...args : any[]) : void {" << std::endl
+       << golite::Utils::indent(indent+1) << "var buffer : string = \"\";" << std::endl
+       << golite::Utils::indent(indent+1) << "for( var i : number = 0; i < args.length; i++) {" << std::endl
+       << golite::Utils::indent(indent+2) << "buffer += args[i];" << std::endl
+       << golite::Utils::indent(indent+1) << "}" << std::endl
+       << golite::Utils::indent(indent+1) << "process.stdout.write(buffer);" << std::endl
+       << golite::Utils::indent(indent) << "};" << std::endl
+       << std::endl;
+
+    // Built-in function: println
+    ss << golite::Utils::blockComment({"Print line function"}, indent) << std::endl
+       << golite::Utils::indent(indent) << "function golite_println(...args : any[]) : void {" << std::endl
+       << golite::Utils::indent(indent+1) << "var buffer : string = \"\";" << std::endl
+       << golite::Utils::indent(indent+1) << "for( var i : number = 0; i < args.length; i++) {" << std::endl
+       << golite::Utils::indent(indent+2) << "if(i != 0) buffer += ' ';" << std::endl
+       << golite::Utils::indent(indent+2) << "buffer += args[i];" << std::endl
+       << golite::Utils::indent(indent+1) << "}" << std::endl
+       << golite::Utils::indent(indent+1) << "process.stdout.write(buffer + '\\n');" << std::endl
+       << golite::Utils::indent(indent) << "};" << std::endl
+       << std::endl;
 
     for(Declarable* declarable : declarables_) {
         ss << declarable->toTypeScript(indent) << std::endl;
