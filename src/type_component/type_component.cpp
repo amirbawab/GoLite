@@ -5,6 +5,8 @@
 #include <golite/type_reference.h>
 #include <golite/program.h>
 #include <golite/func.h>
+#include <map>
+#include <golite/struct.h>
 
 std::string golite::TypeComponent::toGoLite(int indent) {
     std::stringstream ss;
@@ -240,11 +242,25 @@ std::string golite::TypeComponent::toTypeScript(int indent) {
         if(child->isArray() || child->isSlice()) {
             ss_start << "Array<";
             ss_end << ">";
-        } else if(child->isTypeReference() || child->isStruct() || child->isPointer()) {
+        } else if(child->isTypeReference() || child->isPointer()) {
             ss_end << child->toTypeScript(indent);
+        } else if(child->isStruct()) {
+            golite::Struct* struct_child = static_cast<Struct*>(child);
+            ss_end << struct_child->getName();
         }
     }
     ss << ss_start.str() << ss_end.str();
+    return ss.str();
+}
+
+std::string golite::TypeComponent::toTypeScriptInitializer(int indent) {
+    static long count = 1;
+    std::stringstream ss;
+    if(!children_.empty() && children_.front()->isStruct()) {
+        Struct* struct_child = static_cast<Struct*>(children_.front());
+        struct_child->setName("struct_" + std::to_string(count++));
+        ss << struct_child->toTypeScript(indent) << std::endl;
+    }
     return ss.str();
 }
 

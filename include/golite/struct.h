@@ -10,6 +10,7 @@ namespace golite {
     private:
         std::vector<StructField*> fields_;
         int line_;
+        std::string name_;
     public:
         Struct(int line) : line_(line) {}
 
@@ -90,6 +91,18 @@ namespace golite {
          * @see TypeComposite::toTypeScript()
          */
         std::string toTypeScript(int indent);
+
+        /**
+         * Set name
+         * @param name
+         */
+        void setName(std::string name) { name_ = name; }
+
+        /**
+         * Get struct name
+         * @return name
+         */
+        std::string getName() const { return name_; }
     };
 }
 

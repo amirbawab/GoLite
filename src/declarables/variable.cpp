@@ -131,13 +131,15 @@ std::string golite::Variable::toTypeScript(int indent) {
         if(i != 0) {
             ss << std::endl;
         }
-        ss << golite::Utils::indent(indent) << "var ";
+        ss << type_component_->toTypeScriptInitializer(indent)
+           << golite::Utils::indent(indent) << "var ";
 
         if(identifiers_[i]->isBlank()) {
             ss << "_";
         } else {
-            ss << identifiers_[i]->toTypeScript(0) << " : " << type_component_->toTypeScript(0);
+            ss << identifiers_[i]->toTypeScript(0);
         }
+        ss << " : " << type_component_->toTypeScript(0);
         if(!expressions_.empty()) {
             ss << " = " << expressions_[i]->toTypeScript(0);
         }

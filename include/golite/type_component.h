@@ -238,6 +238,12 @@ namespace golite {
         std::string toTypeScript(int indent);
 
         /**
+         * Generate typescript code
+         * @return code
+         */
+        std::string toTypeScriptInitializer(int indent);
+
+        /**
          * Generate default type code expression value
          * @return string
          */
