@@ -232,13 +232,6 @@ golite::TypeComponent* golite::TypeComponent::resolveFunc() {
     return func->getTypeComponent();
 }
 
-bool golite::TypeComponent::isPointer() {
-    if(!children_.empty()) {
-        return children_.back()->isPointer();
-    }
-    return false;
-}
-
 std::string golite::TypeComponent::toTypeScript(int indent) {
     std::stringstream ss;
     std::stringstream ss_start;
@@ -248,9 +241,49 @@ std::string golite::TypeComponent::toTypeScript(int indent) {
             ss_start << "Array<";
             ss_end << ">";
         } else if(child->isTypeReference() || child->isStruct() || child->isPointer()) {
-            ss_end << child->toTypeScript(0);
+            ss_end << child->toTypeScript(indent);
         }
     }
     ss << ss_start.str() << ss_end.str();
     return ss.str();
+}
+
+std::string golite::TypeComponent::toTypeScriptDefaultValue() {
+    if(isInt()) {
+        return "0";
+    } else if (isFloat64()) {
+        return "0.0";
+    } else if(isString()) {
+        return "\"\"";
+    } else if(isRune()) {
+        return "'\\u0000'";
+    } else if(isBool()) {
+        return "false";
+    } else if(isSlice() || isArray()) {
+        return "[]";
+    } else if(isStruct()) {
+        return "{}";
+    } else {
+        throw std::runtime_error("Unhandled default type script value");
+    }
+}
+
+bool golite::TypeComponent::isArray() {
+    return !children_.empty() && children_.back()->isArray();
+}
+
+bool golite::TypeComponent::isStruct() {
+    return !children_.empty() && children_.back()->isStruct();
+}
+
+bool golite::TypeComponent::isSlice() {
+    return !children_.empty() && children_.back()->isSlice();
+}
+
+bool golite::TypeComponent::isTypeReference() {
+    return !children_.empty() && children_.back()->isTypeReference();
+}
+
+bool golite::TypeComponent::isPointer() {
+    return !children_.empty() && children_.back()->isPointer();
 }

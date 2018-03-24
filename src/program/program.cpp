@@ -85,7 +85,8 @@ std::string golite::Program::toTypeScript(int indent) {
     ss << golite::Utils::indent(indent) << "/*******************************" << std::endl
        << golite::Utils::indent(indent) << " *    GOLITE => TYPESCRIPT     *" << std::endl
        << golite::Utils::indent(indent) << " * THIS CODE IS AUTO-GENERATED *" << std::endl
-       << golite::Utils::indent(indent) << " ******************************/" << std::endl;
+       << golite::Utils::indent(indent) << " ******************************/" << std::endl
+       << std::endl;
 
     for(Declarable* declarable : declarables_) {
         ss << declarable->toTypeScript(indent) << std::endl;

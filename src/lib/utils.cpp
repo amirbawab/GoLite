@@ -32,3 +32,18 @@ std::string golite::Utils::indent(int val) {
     }
     return indent.str();
 }
+
+std::string golite::Utils::blockComment(std::vector<std::string> lines, int indent, int line) {
+    lines.push_back("Line " + std::to_string(line) + " in original code");
+    std::stringstream ss;
+    ss << golite::Utils::indent(indent)<< "/**" << std::endl;
+    for(std::string line : lines) {
+        ss << golite::Utils::indent(indent) << " * " << line << std::endl;
+    }
+    ss << golite::Utils::indent(indent)<< " */";
+    return ss.str();
+}
+
+std::string golite::Utils::codeNotGenerated(std::string code, int indent, int line) {
+    return golite::Utils::blockComment({"CODE NOT GENERATED", "\n" + code}, indent, line);
+}

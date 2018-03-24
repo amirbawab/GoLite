@@ -236,6 +236,36 @@ namespace golite {
          * @return code
          */
         std::string toTypeScript(int indent);
+
+        /**
+         * Generate default type code expression value
+         * @return string
+         */
+        std::string toTypeScriptDefaultValue();
+
+        /**
+         * Check if is array
+         * @return true if it is
+         */
+        bool isArray();
+
+        /**
+         * Check if is slice
+         * @return true if it is
+         */
+        bool isSlice();
+
+        /**
+         * Check if is struct
+         * @return true if it is
+         */
+        bool isStruct();
+
+        /**
+         * Check if is type reference
+         * @return true if it is
+         */
+        bool isTypeReference();
     };
 }
 

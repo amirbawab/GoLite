@@ -134,5 +134,15 @@ bool golite::Struct::isRecursive(Type *type) {
 }
 
 std::string golite::Struct::toTypeScript(int indent) {
-    return "{}";
+    std::stringstream ss;
+    ss << "{";
+    if(!fields_.empty()) {
+        ss << std::endl;
+        for(StructField *field : fields_) {
+            ss << field->toTypeScript(indent+1) << std::endl;
+        }
+        ss << golite::Utils::indent(indent);
+    }
+    ss << "}";
+    return ss.str();
 }

@@ -68,7 +68,9 @@ void golite::Function::symbolTablePass(golite::SymbolTable *root) {
             }
         }
         root->putSymbol(this->identifier_->getName(), this);
-        identifier_->symbolTablePass(root);
+        if(!identifier_->isBlank()) {
+            identifier_->symbolTablePass(root);
+        }
     }
 
     SymbolTable* function_block_table = new SymbolTable(root, "_func_" + identifier_->getName());
@@ -112,22 +114,25 @@ int golite::Function::getLine() {
 
 std::string golite::Function::toTypeScript(int indent) {
     std::stringstream ss;
-    if(!identifier_->isBlank()) {
+    if (!identifier_->isBlank()) {
+        ss << golite::Utils::blockComment(
+                {
+                        "Function " + identifier_->getName() + " was renamed to " + identifier_->toTypeScript(0)
+                }, indent, identifier_->getLine()) << std::endl;
         ss << golite::Utils::indent(indent) << "function " << identifier_->toTypeScript(0)
            << "(" << ")"
            << " : " << type_component_->toTypeScript(0) << " {";
-        if(!block_->getStatements().empty()) {
+        if (!block_->getStatements().empty()) {
             ss << std::endl;
-            for(Statement* statement : block_->getStatements()) {
-                ss << statement->toTypeScript(indent+1) << std::endl;
+            for (Statement *statement : block_->getStatements()) {
+                ss << statement->toTypeScript(indent + 1) << std::endl;
             }
             ss << golite::Utils::indent(indent);
         }
         ss << "}";
     } else {
-        ss << golite::Utils::indent(indent) << "/*";
-
-        ss << std::endl << golite::Utils::indent(indent) << "*/";
+        ss << golite::Utils::codeNotGenerated(toGoLite(0), indent, getLine());
     }
+    ss << std::endl;
     return ss.str();
 }
