@@ -36,6 +36,7 @@ void golite::SimpleExpression::symbolTablePass(SymbolTable *root) {
 }
 
 std::string golite::SimpleExpression::toTypeScript(int indent) {
-    // TODO
-    return "";
+    std::stringstream ss;
+    ss << golite::Utils::indent(indent) << expression_->toTypeScript(0) << ";";
+    return ss.str();
 }

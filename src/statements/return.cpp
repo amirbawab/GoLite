@@ -60,6 +60,11 @@ bool golite::Return::isTerminating() {
 }
 
 std::string golite::Return::toTypeScript(int indent) {
-    // TODO
-    return "";
+    std::stringstream ss;
+    ss << golite::Utils::indent(indent) << "return";
+    if(expression_) {
+        ss << " " << expression_->toTypeScript(0);
+    }
+    ss << ";";
+    return ss.str();
 }

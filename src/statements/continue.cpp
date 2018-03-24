@@ -23,6 +23,7 @@ void golite::Continue::symbolTablePass(SymbolTable *root) {
 }
 
 std::string golite::Continue::toTypeScript(int indent) {
-    // TODO
-    return "";
+    std::stringstream ss;
+    ss << golite::Utils::indent(indent) << "continue;";
+    return ss.str();
 }

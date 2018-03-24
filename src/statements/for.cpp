@@ -118,6 +118,27 @@ bool golite::For::isTerminating() {
 }
 
 std::string golite::For::toTypeScript(int indent) {
-    // TODO
-    return "";
+    std::stringstream ss;
+    ss << golite::Utils::indent(indent) << "for(";
+    if(left_simple_) {
+        ss << left_simple_->toTypeScript(0);
+    }
+    ss << ";";
+    if(expression_) {
+        ss << expression_->toTypeScript(0);
+    }
+    ss << ";";
+    if(right_simple_) {
+        ss << right_simple_->toTypeScript(0);
+    }
+    ss << ") {";
+    if(!block_->getStatements().empty()) {
+        ss << std::endl;
+        for(Statement* statement : block_->getStatements()) {
+            ss << statement->toTypeScript(indent+1) << std::endl;
+        }
+        ss << golite::Utils::indent(indent);
+    }
+    ss << "}";
+    return ss.str();
 }

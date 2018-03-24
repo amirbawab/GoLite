@@ -173,6 +173,45 @@ bool golite::If::isTerminating() {
 }
 
 std::string golite::If::toTypeScript(int indent) {
-    // TODO
-    return "";
+    std::stringstream ss;
+    if(simple_) {
+        ss << golite::Utils::indent(indent) << simple_->toTypeScript(0) << ";" << std::endl;
+    }
+    for(If* else_if : else_if_) {
+        if(else_if->simple_) {
+            ss << golite::Utils::indent(indent) << else_if->simple_->toTypeScript(0) << ";" << std::endl;
+        }
+    }
+    ss << golite::Utils::indent(indent) << "if(" << expression_->toTypeScript(0) << ") {";
+    if(!block_->getStatements().empty()) {
+        ss << std::endl;
+        for(Statement* statement : block_->getStatements()) {
+            ss << statement->toTypeScript(indent+1) << std::endl;
+        }
+        ss << golite::Utils::indent(indent);
+    }
+    ss << "}";
+    for(If* else_if : else_if_) {
+        ss << " else if(" << else_if->expression_->toTypeScript(0) << ") {";
+        if(!else_if->block_->getStatements().empty()) {
+            ss << std::endl;
+            for(Statement* statement : else_if->block_->getStatements()) {
+                ss << statement->toTypeScript(indent+1) << std::endl;
+            }
+            ss << golite::Utils::indent(indent);
+        }
+        ss << "}";
+    }
+    if(else_) {
+        ss << " else {";
+        if(!else_->getStatements().empty()) {
+            ss << std::endl;
+            for(Statement* statement : else_->getStatements()) {
+                ss << statement->toTypeScript(indent+1) << std::endl;
+            }
+            ss << golite::Utils::indent(indent);
+        }
+        ss << "}";
+    }
+    return ss.str();
 }

@@ -27,6 +27,7 @@ bool golite::Break::hasBreak() {
 }
 
 std::string golite::Break::toTypeScript(int indent) {
-    // TODO
-    return "";
+    std::stringstream ss;
+    ss << golite::Utils::indent(indent) << "break;";
+    return ss.str();
 }
