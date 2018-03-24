@@ -54,6 +54,7 @@ void golite::Function::symbolTablePass(golite::SymbolTable *root) {
         }
         type_component_ = new TypeComponent({ new golite::Func(this, Program::UNMAPPED_TYPE->getTypeComponent())});
         root->putInit(this);
+        identifier_->setSymbolTable(root);
     } else {
         if(root->hasSymbol(this->identifier_->getName(), false)) {
             golite::Utils::error_message("Function name " + identifier_->toGoLite(0) + " redeclared in this block",

@@ -79,6 +79,12 @@ namespace golite {
          * @see Expression::toTypeScript()
          */
         std::string toTypeScript(int indent);
+
+        /**
+         * Set symbol table
+         * @param symbol_table
+         */
+        void setSymbolTable(SymbolTable* symbol_table) { symbol_table_ = symbol_table; }
     };
 }
 

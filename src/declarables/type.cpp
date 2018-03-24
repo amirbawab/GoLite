@@ -85,10 +85,11 @@ std::string golite::Type::toTypeScript(int indent) {
         ss << golite::Utils::indent(indent) << "type " << identifier_->toTypeScript(0) << " = ";
 
         if(isSelfReferring()) {
-            ss << "{ self : " << type_component_->toTypeScript(indent) << " };";
+            ss << "{ self : " << type_component_->toTypeScript(indent) << " }";
         } else {
-            ss << type_component_->toTypeScript(indent) << std::endl;
+            ss << type_component_->toTypeScript(indent);
         }
+        ss << ";";
     } else {
         ss << golite::Utils::codeNotGenerated(toGoLite(0), indent, getLine());
     }
