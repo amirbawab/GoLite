@@ -147,6 +147,8 @@ std::string golite::Struct::toTypeScript(int indent) {
         ss_post << golite::Utils::indent(indent);
     }
     ss_post << "}";
-    ss << ss_pre.str() << ss_post.str();
+    ss << ss_pre.str();
+    ss << golite::Utils::blockComment({"Class representing a struct"}, indent, getLine()) << std::endl;
+    ss << ss_post.str() << std::endl;
     return ss.str();
 }

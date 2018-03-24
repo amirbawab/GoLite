@@ -78,12 +78,11 @@ bool golite::Type::isSelfReferring() {
 std::string golite::Type::toTypeScript(int indent) {
     std::stringstream ss;
     if(!identifier_->isBlank()) {
-        ss << golite::Utils::blockComment(
-                {
-                        "Type " + identifier_->getName() + " was renamed to " + identifier_->toTypeScript(0)
-                }, indent, identifier_->getLine()) << std::endl;
-        ss << type_component_->toTypeScriptInitializer(indent)
-           << golite::Utils::indent(indent) << "type " << identifier_->toTypeScript(0) << " = ";
+        ss << type_component_->toTypeScriptInitializer(indent);
+        ss << golite::Utils::blockComment({"Type " + identifier_->getName() + " was renamed to "
+                                           + identifier_->toTypeScript(0)},
+                                          indent, identifier_->getLine()) << std::endl;
+        ss << golite::Utils::indent(indent) << "type " << identifier_->toTypeScript(0) << " = ";
 
         if(isSelfReferring()) {
             // TODO Verify this

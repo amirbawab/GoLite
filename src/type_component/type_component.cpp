@@ -278,7 +278,8 @@ std::string golite::TypeComponent::toTypeScriptDefaultValue() {
     } else if(isSlice() || isArray()) {
         return "[]";
     } else if(isStruct()) {
-        return "{}";
+        Struct* struct_child = static_cast<Struct*>(children_.front());
+        return "new " + struct_child->getName() + "()";
     } else {
         throw std::runtime_error("Unhandled default type script value");
     }
