@@ -119,17 +119,15 @@ bool golite::For::isTerminating() {
 
 std::string golite::For::toTypeScript(int indent) {
     std::stringstream ss;
-    ss << golite::Utils::indent(indent) << "for(";
     if(left_simple_) {
-        ss << left_simple_->toTypeScript(0);
+        ss << left_simple_->toTypeScript(indent) << std::endl;
     }
-    ss << ";";
+    ss << golite::Utils::blockComment({"For statement"}, indent, getLine()) << std::endl;
+    ss << golite::Utils::indent(indent) << "while (";
     if(expression_) {
         ss << expression_->toTypeScript(0);
-    }
-    ss << ";";
-    if(right_simple_) {
-        ss << right_simple_->toTypeScript(0);
+    } else {
+        ss << "true";
     }
     ss << ") {";
     if(!block_->getStatements().empty()) {
@@ -137,6 +135,9 @@ std::string golite::For::toTypeScript(int indent) {
         for(Statement* statement : block_->getStatements()) {
             ss << statement->toTypeScript(indent+1) << std::endl;
         }
+    }
+    if(right_simple_) {
+        ss << right_simple_->toTypeScript(indent+1) << std::endl;
         ss << golite::Utils::indent(indent);
     }
     ss << "}";
