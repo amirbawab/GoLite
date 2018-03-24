@@ -51,7 +51,7 @@ namespace golite {
          * @param lines
          * @return block comment
          */
-        static std::string blockComment(std::vector<std::string> lines, int indent, int line);
+        static std::string blockComment(std::vector<std::string> lines, int indent, int line = -1);
 
         /**
          * Generate block comment

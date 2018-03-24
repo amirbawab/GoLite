@@ -38,6 +38,14 @@ void golite::Println::symbolTablePass(SymbolTable *root) {
 }
 
 std::string golite::Println::toTypeScript(int indent) {
-    // TODO
-    return "";
+    std::stringstream ss;
+    for(size_t i=0; i < expressions_.size(); i++) {
+        if(i + 1 == expressions_.size()) {
+            ss << golite::Utils::indent(indent) << "golite_print(" << expressions_[i]->toTypeScript(0) << ");" << std::endl;
+            ss << golite::Utils::indent(indent) << "golite_print( );" << std::endl;
+        } else {
+            ss << golite::Utils::indent(indent) << "golite_print(" << expressions_[i]->toTypeScript(0) << ");" << std::endl;
+        }
+    }
+    return ss.str();
 }

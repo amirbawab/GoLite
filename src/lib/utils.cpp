@@ -34,7 +34,9 @@ std::string golite::Utils::indent(int val) {
 }
 
 std::string golite::Utils::blockComment(std::vector<std::string> lines, int indent, int line) {
-    lines.push_back("Line " + std::to_string(line) + " in original code");
+    if(line >= 0) {
+        lines.push_back("Line " + std::to_string(line) + " in original code");
+    }
     std::stringstream ss;
     ss << golite::Utils::indent(indent)<< "/**" << std::endl;
     for(std::string line : lines) {

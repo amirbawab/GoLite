@@ -88,8 +88,26 @@ std::string golite::Program::toTypeScript(int indent) {
        << golite::Utils::indent(indent) << " ******************************/" << std::endl
        << std::endl;
 
+    // Built-in functions
+    ss << golite::Utils::blockComment({"Print function"}, indent) << std::endl;
+    ss << golite::Utils::indent(indent) << "function golite_print(expr) : void { process.stdout.write(expr + ''); };"
+       << std::endl << std::endl;
+    ss << golite::Utils::blockComment({"Print line function"}, indent) << std::endl;
+    ss << golite::Utils::indent(indent) << "function golite_println(expr) : void { golite_print(expr + '\\n'); };"
+       << std::endl << std::endl;
+
     for(Declarable* declarable : declarables_) {
         ss << declarable->toTypeScript(indent) << std::endl;
+    }
+
+    // TODO Call all init
+
+    // Call main function
+    Declarable* main_dec = program_symbol_table_->getSymbol(Program::MAIN_FUNC_NAME);
+    if(main_dec) {
+        Function* main_func = static_cast<Function*>(main_dec);
+        ss << golite::Utils::indent(indent) << "// Call main function" << std::endl;
+        ss << golite::Utils::indent(indent) << main_func->getIdentifier()->toTypeScript(0) << "();";
     }
     return ss.str();
 }
