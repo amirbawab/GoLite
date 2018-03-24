@@ -30,7 +30,7 @@ void golite::Block::typeCheck() {
 }
 
 void golite::Block::symbolTablePass(SymbolTable *root) {
-    static int count = 1;
+    static long count = 1;
     for(Statement* statement : statements_) {
         SymbolTable* block_table = root;
         if(statement->isBlock()) {

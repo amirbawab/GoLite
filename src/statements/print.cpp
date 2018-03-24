@@ -45,6 +45,6 @@ std::string golite::Print::toTypeScript(int indent) {
         }
         ss << expressions_[i]->toTypeScript(0);
     }
-    ss << ");" << std::endl;
+    ss << ");";
     return ss.str();
 }

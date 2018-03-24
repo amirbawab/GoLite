@@ -106,32 +106,35 @@ void golite::If::typeCheck() {
 }
 
 void golite::If::symbolTablePass(SymbolTable *root) {
-    SymbolTable* if_outer_table = new SymbolTable(root, "_if_o_");
+    static long count = 1;
+    std::string if_name_prefix = "_if_" + std::to_string(count++);
+    SymbolTable* if_outer_table = new SymbolTable(root, if_name_prefix + "_o");
 
     if(this->simple_) {
         this->simple_->symbolTablePass(if_outer_table);
     }
     this->expression_->symbolTablePass(if_outer_table);
 
-    SymbolTable* if_inner_table = new SymbolTable(if_outer_table, "_if_i_");
+    SymbolTable* if_inner_table = new SymbolTable(if_outer_table, if_name_prefix + "_i");
     this->block_->symbolTablePass(if_inner_table);
 
     SymbolTable* prev_else_if_outer = if_outer_table;
     for(golite::If* else_if_stmt : this->else_if_) {
-        SymbolTable* else_if_outer_table = new SymbolTable(prev_else_if_outer, "_else_if_o_");
+        std::string else_if_name_prefix = "_else_if_" + std::to_string(count++);
+        SymbolTable* else_if_outer_table = new SymbolTable(prev_else_if_outer, else_if_name_prefix + "_o");
 
         if(else_if_stmt->simple_) {
             else_if_stmt->simple_->symbolTablePass(else_if_outer_table);
         }
         else_if_stmt->expression_->symbolTablePass(else_if_outer_table);
 
-        SymbolTable* else_if_inner_table = new SymbolTable(else_if_outer_table, "_else_if_i_");
+        SymbolTable* else_if_inner_table = new SymbolTable(else_if_outer_table, else_if_name_prefix + "_i");
         else_if_stmt->block_->symbolTablePass(else_if_inner_table);
         prev_else_if_outer = else_if_outer_table;
     }
 
     if(this->else_) {
-        SymbolTable* else_inner_table = new SymbolTable(prev_else_if_outer, "_else_");
+        SymbolTable* else_inner_table = new SymbolTable(prev_else_if_outer, "_else_" + std::to_string(count++));
         this->else_->symbolTablePass(else_inner_table);
     }
 }
@@ -175,14 +178,15 @@ bool golite::If::isTerminating() {
 std::string golite::If::toTypeScript(int indent) {
     std::stringstream ss;
     if(simple_) {
-        ss << golite::Utils::indent(indent) << simple_->toTypeScript(0) << ";" << std::endl;
+        ss << simple_->toTypeScript(indent) << std::endl;
     }
     for(If* else_if : else_if_) {
         if(else_if->simple_) {
-            ss << golite::Utils::indent(indent) << else_if->simple_->toTypeScript(0) << ";" << std::endl;
+            ss << else_if->simple_->toTypeScript(indent) << std::endl;
         }
     }
-    ss << golite::Utils::indent(indent) << "if(" << expression_->toTypeScript(0) << ") {";
+    ss << golite::Utils::blockComment({"If statement"}, indent, getLine()) << std::endl
+       << golite::Utils::indent(indent) << "if(" << expression_->toTypeScript(0) << ") {";
     if(!block_->getStatements().empty()) {
         ss << std::endl;
         for(Statement* statement : block_->getStatements()) {
@@ -213,5 +217,6 @@ std::string golite::If::toTypeScript(int indent) {
         }
         ss << "}";
     }
+    ss << std::endl;
     return ss.str();
 }

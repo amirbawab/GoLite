@@ -131,6 +131,41 @@ void golite::Declaration::symbolTablePass(SymbolTable *root) {
 }
 
 std::string golite::Declaration::toTypeScript(int indent) {
-    // TODO
-    return "";
+    std::stringstream ss_ids;
+    std::stringstream ss_exprs;
+    std::stringstream ss;
+    ss << golite::Utils::blockComment({"Declaration group of size " + std::to_string(left_identifiers_.size())},
+                                      indent, getLine()) << std::endl;
+    for(size_t i=0; i < left_identifiers_.size(); i++) {
+        ss << golite::Utils::indent(indent) << "var ";
+
+        if(left_identifiers_[i]->isBlank()) {
+            ss << "_";
+        } else {
+            golite::PrimaryExpression* id_prim = static_cast<golite::PrimaryExpression*>(left_identifiers_[i]);
+            golite::Identifier* id = static_cast<golite::Identifier*>(id_prim->getChildren().back());
+            golite::Variable* id_var = static_cast<Variable*>(id->getSymbolTableEntry());
+            ss << id->toTypeScript(0) << " : " << id_var->getTypeComponent()->toTypeScript(0);
+        }
+        ss << ";" << std::endl;
+    }
+
+    if(left_identifiers_.size() > 1) {
+        ss_ids << "[";
+        ss_exprs << "[";
+    }
+    for(size_t i=0; i < left_identifiers_.size(); i++) {
+        if(i != 0) {
+            ss_ids << ", ";
+            ss_exprs << ", ";
+        }
+        ss_ids << left_identifiers_[i]->toTypeScript(0);
+        ss_exprs << right_expressions_[i]->toTypeScript(0);
+    }
+    if(left_identifiers_.size() > 1) {
+        ss_ids << "]";
+        ss_exprs << "]";
+    }
+    ss << golite::Utils::indent(indent) << ss_ids.str() << " = " << ss_exprs.str() << std::endl;
+    return ss.str();
 }

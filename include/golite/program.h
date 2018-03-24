@@ -7,6 +7,7 @@
 #include <golite/identifier.h>
 #include <golite/symbol_table.h>
 #include <golite/type.h>
+#include <golite/variable.h>
 
 namespace golite {
 
@@ -33,6 +34,8 @@ namespace golite {
         static Type* VOID_TYPE;
         static Type* INFER_TYPE;
         static Type* UNMAPPED_TYPE;
+        static Variable* TRUE_VAR;
+        static Variable* FALSE_VAR;
         static std::string INIT_FUNC_NAME;
         static std::string MAIN_FUNC_NAME;
 
