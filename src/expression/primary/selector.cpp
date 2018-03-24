@@ -29,6 +29,6 @@ void golite::Selector::symbolTablePass(SymbolTable *root) {
 
 std::string golite::Selector::toTypeScript(int indent) {
     std::stringstream ss;
-    ss << "." << identifier_->toTypeScript(0);
+    ss << "." << identifier_->getName();
     return ss.str();
 }
