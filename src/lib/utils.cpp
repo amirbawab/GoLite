@@ -47,5 +47,11 @@ std::string golite::Utils::blockComment(std::vector<std::string> lines, int inde
 }
 
 std::string golite::Utils::codeNotGenerated(std::string code, int indent, int line) {
-    return golite::Utils::blockComment({"CODE NOT GENERATED", "\n" + code}, indent, line);
+    std::stringstream ss(code);
+    std::string l;
+    std::vector<std::string> lines = {"CODE NOT GENERATED", ""};
+    while (std::getline(ss, l)) {
+        lines.push_back(l);
+    }
+    return golite::Utils::blockComment(lines, indent, line);
 }

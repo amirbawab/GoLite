@@ -116,12 +116,26 @@ int golite::Function::getLine() {
 std::string golite::Function::toTypeScript(int indent) {
     std::stringstream ss;
     if (!identifier_->isBlank()) {
+
+        // TypeScript initializer
         ss << type_component_->resolveFunc()->toTypeScriptInitializer(indent);
+        for(size_t i=0; i < params_.size(); i++) {
+            ss << params_[i]->toTypeScriptInitializer(indent);
+        }
+
+        // Generate function code
         ss << golite::Utils::blockComment({"Function " + identifier_->getName() + " was renamed to "
                                            + identifier_->toTypeScript(0)}, indent,
                                           identifier_->getLine()) << std::endl;
         ss << golite::Utils::indent(indent) << "function " << identifier_->toTypeScript(0)
-           << "(" << ")"
+           << "(";
+        for(size_t i=0; i < params_.size(); i++) {
+            if(i != 0) {
+                ss << ", ";
+            }
+            ss << params_[i]->toTypeScript(indent);
+        }
+        ss << ")"
            << " : " << type_component_->toTypeScript(0) << " {";
         if (!block_->getStatements().empty()) {
             ss << std::endl;
