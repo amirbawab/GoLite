@@ -123,14 +123,13 @@ std::string golite::Switch::toTypeScript(int indent) {
     }
 
     ss << golite::Utils::blockComment({"Switch statement"}, indent, getLine()) << std::endl;
-    ss << golite::Utils::indent(indent) << "while(true) {";
+    ss << golite::Utils::indent(indent) << "while(true) {" << std::endl;
     if(!cases_.empty()) {
-        ss << std::endl;
         for(SwitchCase* case_ : cases_) {
             ss << case_->toTypeScript(expression_, indent+1) << std::endl;
         }
-        ss << golite::Utils::indent(indent);
     }
-    ss << "}" << std::endl;
+    ss << golite::Utils::indent(indent+1) << "break;" << std::endl;
+    ss << golite::Utils::indent(indent) << "}" << std::endl;
     return ss.str();
 }
