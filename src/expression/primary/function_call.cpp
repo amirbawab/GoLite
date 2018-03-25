@@ -82,3 +82,11 @@ std::string golite::FunctionCall::toTypeScript(int indent) {
     ss << ")";
     return ss.str();
 }
+
+std::string golite::FunctionCall::toTypeScriptInitializer(int indent) {
+    std::stringstream ss;
+    for(Expression* arg : args_) {
+        ss << arg->toTypeScriptInitializer(indent);
+    }
+    return ss.str();
+}
