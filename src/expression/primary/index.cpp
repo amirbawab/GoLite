@@ -38,3 +38,7 @@ std::string golite::Index::toTypeScript(int indent) {
     ss << "[" << expression_->toTypeScript(0) << "]";
     return ss.str();
 }
+
+std::string golite::Index::toTypeScriptInitializer(int indent) {
+    return expression_->toTypeScriptInitializer(indent);
+}
