@@ -9,6 +9,7 @@ namespace golite {
     private:
         std::vector<golite::Primary*> children_;
         bool addressable_ = false;
+        std::string name_;
     public:
 
         /**
@@ -98,6 +99,11 @@ namespace golite {
          * @see Expression::toTypeScript()
          */
         std::string toTypeScript(int indent);
+
+        /**
+         * @see Expression::toTypeScriptInitializer()
+         */
+        std::string toTypeScriptInitializer(int indent);
     };
 }
 

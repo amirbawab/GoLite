@@ -232,6 +232,18 @@ namespace golite {
         bool isPointer();
 
         /**
+         * Check if type component has a func
+         * @return pointer
+         */
+        bool isFunc();
+
+/**
+         * Check if type component has a cast
+         * @return pointer
+         */
+        bool isCast();
+
+        /**
          * Generate typescript code
          * @return code
          */

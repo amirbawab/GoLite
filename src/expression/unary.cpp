@@ -86,3 +86,9 @@ std::string golite::Unary::toTypeScript(int indent) {
     ss << operand_->toTypeScript(0) << ")";
     return ss.str();
 }
+
+std::string golite::Unary::toTypeScriptInitializer(int indent) {
+    std::stringstream ss;
+    ss << operand_->toTypeScriptInitializer(indent);
+    return ss.str();
+}

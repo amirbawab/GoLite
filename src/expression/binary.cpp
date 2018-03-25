@@ -277,3 +277,10 @@ std::string golite::Binary::toTypeScript(int indent) {
     ss << right_operand_->toTypeScript(0) << ")";
     return ss.str();
 }
+
+std::string golite::Binary::toTypeScriptInitializer(int indent) {
+    std::stringstream ss;
+    ss << left_operand_->toTypeScriptInitializer(indent)
+       << right_operand_->toTypeScriptInitializer(indent);
+    return ss.str();
+}

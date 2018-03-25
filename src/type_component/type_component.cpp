@@ -308,3 +308,11 @@ bool golite::TypeComponent::isTypeReference() {
 bool golite::TypeComponent::isPointer() {
     return !children_.empty() && children_.back()->isPointer();
 }
+
+bool golite::TypeComponent::isFunc() {
+    return !children_.empty() && children_.back()->isFunc();
+}
+
+bool golite::TypeComponent::isCast() {
+    return !children_.empty() && children_.back()->isCast();
+}
