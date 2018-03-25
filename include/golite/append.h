@@ -57,6 +57,11 @@ namespace golite {
          * @see Expression::toTypeScript()
          */
         std::string toTypeScript(int indent);
+
+        /**
+         * @see Expression::toTypeScriptInitializer()
+         */
+        std::string toTypeScriptInitializer(int indent);
     private:
         Expression* left_expression_ = nullptr;
         Expression* right_expression_ = nullptr;

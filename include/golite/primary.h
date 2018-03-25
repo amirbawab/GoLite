@@ -29,7 +29,7 @@ namespace golite {
         /**
          * @see Expression::toTypeScriptInitializer()
          */
-        virtual std::string toTypeScriptInitializer(int indent) { return std::string(); }
+        virtual std::string toTypeScriptInitializer(int indent) = 0;
     };
 }
 

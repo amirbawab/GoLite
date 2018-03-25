@@ -88,3 +88,7 @@ std::string golite::Identifier::toTypeScript(int indent) {
     ss << symbol_table_->getAbsoluteName() << "_" << name_;
     return ss.str();
 }
+
+std::string golite::Identifier::toTypeScriptInitializer(int indent) {
+    return std::string();
+}

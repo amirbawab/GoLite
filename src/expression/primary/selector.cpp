@@ -32,3 +32,7 @@ std::string golite::Selector::toTypeScript(int indent) {
     ss << "." << identifier_->getName();
     return ss.str();
 }
+
+std::string golite::Selector::toTypeScriptInitializer(int indent) {
+    return std::string();
+}

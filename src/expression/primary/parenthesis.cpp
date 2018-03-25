@@ -46,3 +46,7 @@ std::string golite::Parenthesis::toTypeScript(int indent) {
     ss << "(" << expression_->toTypeScript(0) << ")";
     return ss.str();
 }
+
+std::string golite::Parenthesis::toTypeScriptInitializer(int indent) {
+    return expression_->toTypeScriptInitializer(indent);
+}

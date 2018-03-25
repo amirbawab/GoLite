@@ -58,3 +58,8 @@ std::string golite::Append::toTypeScript(int indent) {
     // TODO
     return "";
 }
+
+std::string golite::Append::toTypeScriptInitializer(int indent) {
+    // TODO
+    return "";
+}
