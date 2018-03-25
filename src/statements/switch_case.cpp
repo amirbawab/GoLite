@@ -72,3 +72,31 @@ bool golite::SwitchCase::isTerminating() {
     }
     return true;
 }
+
+std::string golite::SwitchCase::toTypeScript(golite::Expression *expression, int indent) {
+    std::stringstream ss;
+    ss << golite::Utils::indent(indent) << "if (";
+    if(!expressions_.empty()) {
+        for(size_t i=0; i < expressions_.size(); i++) {
+            if(i != 0) {
+                ss << " || ";
+            }
+            if(expression) {
+                ss << expression->toTypeScript(0) << " == ";
+            }
+            ss << expressions_[i]->toTypeScript(0);
+        }
+    } else {
+        ss << "true";
+    }
+    ss << ") {" << std::endl;
+    if(!block_->getStatements().empty()) {
+        for(Statement* statement : block_->getStatements()) {
+            ss << statement->toTypeScript(indent+1) << std::endl;
+        }
+    }
+    ss << golite::Utils::indent(indent+1) << "// Exit switch statement" << std::endl;
+    ss << golite::Utils::indent(indent+1) << "break;" << std::endl;
+    ss << golite::Utils::indent(indent) << "}" << std::endl;
+    return ss.str();
+}

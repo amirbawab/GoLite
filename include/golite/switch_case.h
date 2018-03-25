@@ -77,6 +77,14 @@ namespace golite {
          * @see Statement::isTerminating()
          */
         bool isTerminating();
+
+        /**
+         * Generate TypeScript code
+         * @param expression
+         * @param indent
+         * @return code
+         */
+        std::string toTypeScript(golite::Expression* expression, int indent);
     };
 }
 

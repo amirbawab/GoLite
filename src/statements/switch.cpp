@@ -117,6 +117,20 @@ bool golite::Switch::isTerminating() {
 }
 
 std::string golite::Switch::toTypeScript(int indent) {
-    // TODO
-    return "";
+    std::stringstream ss;
+    if(simple_) {
+        ss << simple_->toTypeScript(indent) << std::endl;
+    }
+
+    ss << golite::Utils::blockComment({"Switch statement"}, indent, getLine()) << std::endl;
+    ss << golite::Utils::indent(indent) << "while(true) {";
+    if(!cases_.empty()) {
+        ss << std::endl;
+        for(SwitchCase* case_ : cases_) {
+            ss << case_->toTypeScript(expression_, indent+1) << std::endl;
+        }
+        ss << golite::Utils::indent(indent);
+    }
+    ss << "}" << std::endl;
+    return ss.str();
 }
