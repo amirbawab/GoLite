@@ -46,5 +46,15 @@ std::vector<golite::TypeComposite*> golite::Func::resolveChildren() {
 }
 
 std::string golite::Func::toTypeScript(int indent) {
-    return type_component_->toTypeScript(indent);
+    std::stringstream ss;
+    ss << "(";
+    std::vector<FunctionParam*> params = function_->getParams();
+    for(size_t i=0; i < params.size(); i++) {
+        if(i != 0) {
+            ss << ", ";
+        }
+        ss << params[i]->toTypeScript(indent);
+    }
+    ss << ") => " << type_component_->toTypeScript(indent);
+    return ss.str();
 }

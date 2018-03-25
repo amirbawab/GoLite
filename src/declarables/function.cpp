@@ -136,7 +136,7 @@ std::string golite::Function::toTypeScript(int indent) {
             ss << params_[i]->toTypeScript(indent);
         }
         ss << ")"
-           << " : " << type_component_->toTypeScript(0) << " {";
+           << " : " << type_component_->resolveFunc()->toTypeScript(0) << " {";
         if (!block_->getStatements().empty()) {
             ss << std::endl;
             for (Statement *statement : block_->getStatements()) {
