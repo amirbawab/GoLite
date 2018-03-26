@@ -3,6 +3,7 @@
 #include <golite/variable.h>
 #include <set>
 #include <sstream>
+#include <golite/ts_helper.h>
 
 std::string golite::Struct::toGoLite(int indent) {
     std::stringstream ss;
@@ -152,7 +153,7 @@ std::string golite::Struct::toTypeScriptInitializer(int indent) {
         for(Identifier* identifier : field->getIdentifiers()) {
             ss_post << golite::Utils::indent(indent+2) << "obj." << identifier->getName() << " = this."
                     << identifier->getName();
-            if(field->getTypeComponent()->resolvesToStruct()) {
+            if(golite::TSHelper::isObject(field->getTypeComponent())) {
                 ss_post << ".clone()";
             }
             ss_post << ";" << std::endl;

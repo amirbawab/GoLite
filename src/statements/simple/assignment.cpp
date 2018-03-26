@@ -4,6 +4,7 @@
 #include <golite/primary_expression.h>
 #include <golite/variable.h>
 #include <iostream>
+#include <golite/ts_helper.h>
 
 std::string golite::Assignment::toGoLite(int indent) {
     std::stringstream ss;
@@ -212,7 +213,7 @@ std::string golite::Assignment::toTypeScript(int indent) {
         }
         ss_ids << left_expressions_[i]->toTypeScript(0);
         ss_exprs << right_expressions_[i]->toTypeScript(0);
-        if(right_expressions_[i]->typeCheck()->resolvesToStruct()) {
+        if(golite::TSHelper::isObject(right_expressions_[i]->typeCheck())) {
             ss_exprs << ".clone()";
         }
     }

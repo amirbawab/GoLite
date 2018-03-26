@@ -2,6 +2,7 @@
 #include <golite/utils.h>
 #include <golite/pretty_helper.h>
 #include <golite/primary_expression.h>
+#include <golite/ts_helper.h>
 
 std::string golite::FunctionCall::toGoLite(int indent) {
     std::stringstream ss;
@@ -78,6 +79,9 @@ std::string golite::FunctionCall::toTypeScript(int indent) {
             ss << ", ";
         }
         ss << args_[i]->toTypeScript(0);
+        if(golite::TSHelper::isObject(args_[i]->typeCheck())) {
+            ss << ".clone()";
+        }
     }
     ss << ")";
     return ss.str();
