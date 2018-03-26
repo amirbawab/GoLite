@@ -145,12 +145,15 @@ bool golite::TypeComponent::isRecursive(Type* type) {
         throw std::runtime_error("Cannot check if type component is recursive because children list is empty");
     }
 
-    for(TypeComposite* type_composite : children_) {
-        if(!type_composite->isRecursive(type)) {
+    for(size_t i = children_.size(); i > 0; i--) {
+        if(children_[i-1]->isSlice()) {
             return false;
         }
+        if(children_[i-1]->isRecursive(type)) {
+            return true;
+        }
     }
-    return true;
+    return false;
 }
 
 bool golite::TypeComponent::resolvesToBool() {
