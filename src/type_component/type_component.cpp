@@ -7,6 +7,7 @@
 #include <golite/func.h>
 #include <map>
 #include <golite/struct.h>
+#include <golite/array.h>
 
 std::string golite::TypeComponent::toGoLite(int indent) {
     std::stringstream ss;
@@ -238,14 +239,17 @@ std::string golite::TypeComponent::toTypeScript(int indent) {
     std::stringstream ss;
     std::stringstream ss_start;
     std::stringstream ss_end;
-    for(TypeComposite* child : children_) {
-        if(child->isArray() || child->isSlice()) {
+    for(size_t i=children_.size(); i > 0; i--) {
+        if(children_[i-1]->isArray()) {
             ss_start << "Array<";
             ss_end << ">";
-        } else if(child->isTypeReference() || child->isPointer()) {
-            ss_end << child->toTypeScript(indent);
-        } else if(child->isStruct()) {
-            golite::Struct* struct_child = static_cast<Struct*>(child);
+        } else if(children_[i-1]->isSlice()) {
+            ss_start << "Slice<";
+            ss_end << ">";
+        } else if(children_[i-1]->isTypeReference() || children_[i-1]->isPointer()) {
+            ss_start << children_[i-1]->toTypeScript(indent);
+        } else if(children_[i-1]->isStruct()) {
+            golite::Struct* struct_child = static_cast<Struct*>(children_[i-1]);
             ss_end << struct_child->getName();
         }
     }
@@ -275,8 +279,11 @@ std::string golite::TypeComponent::toTypeScriptDefaultValue() {
         return "'\\u0000'";
     } else if(isBool()) {
         return "false";
-    } else if(isSlice() || isArray()) {
-        return "[]";
+    } else if(isArray()) {
+        golite::Array* array = static_cast<Array*>(children_.back());
+        return "new " + toTypeScript(0) + "(" + array->getSize()->toTypeScript(0) + ")";
+    } else if(isSlice()) {
+        return "new " + toTypeScript(0) + "()";
     } else if(isStruct()) {
         Struct *struct_child = static_cast<Struct *>(children_.front());
         return "new " + struct_child->getName() + "()";

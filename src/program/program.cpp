@@ -113,6 +113,33 @@ std::string golite::Program::toTypeScript(int indent) {
        << TRUE_VAR->getTypeComponent()->toTypeScript(0) << " = false;" << std::endl
        << std::endl;
 
+    // Array
+    ss << golite::Utils::blockComment({"Array interface", "Built-in interface"}, indent) << std::endl
+       << golite::Utils::indent(indent) << "interface Array<T> {" << std::endl
+       << golite::Utils::indent(indent+1) << "check : (index : number) => Array<T>;" << std::endl
+       << golite::Utils::indent(indent) << "}" << std::endl
+       << golite::Utils::indent(indent) << "Array.prototype.check = function(index : number) {" << std::endl
+       << golite::Utils::indent(indent+1) << "if(index < 0 || index >= this.length) {" << std::endl
+       << golite::Utils::indent(indent+2) << "process.stderr.write('Index out of bound' + '\\n');" << std::endl
+       << golite::Utils::indent(indent+2) << "process.exit(1);" << std::endl
+       << golite::Utils::indent(indent+1) << "}" << std::endl
+       << golite::Utils::indent(indent+1) << "return this;" << std::endl
+       << golite::Utils::indent(indent) << "}" << std::endl
+       << std::endl;
+
+    // Slice
+    ss << golite::Utils::blockComment({"Slice class", "Built-in class"}, indent) << std::endl
+       << golite::Utils::indent(indent) << "class Slice<T> extends Array<T> {" << std::endl
+       << golite::Utils::indent(indent+1) << "capacity : number = 0;" << std::endl
+       << golite::Utils::indent(indent+1) << "constructor() {" << std::endl
+        << golite::Utils::indent(indent+2) << "super(0);" << std::endl
+        << golite::Utils::indent(indent+1) << "}" << std::endl
+       << golite::Utils::indent(indent+1) << "append(val : T) : Slice<T> {" << std::endl
+       << golite::Utils::indent(indent+2) << "return (<any>Object).assign([val], this);" << std::endl
+       << golite::Utils::indent(indent+1) << "}" << std::endl
+       << golite::Utils::indent(indent) << "}" << std::endl
+       << std::endl;
+
     for(Declarable* declarable : declarables_) {
         ss << declarable->toTypeScript(indent) << std::endl;
     }
