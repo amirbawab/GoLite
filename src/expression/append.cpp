@@ -65,6 +65,8 @@ std::string golite::Append::toTypeScript(int indent) {
 }
 
 std::string golite::Append::toTypeScriptInitializer(int indent) {
-    // TODO
-    return "";
+    std::stringstream ss;
+    ss << left_expression_->toTypeScriptInitializer(indent)
+       << right_expression_->toTypeScriptInitializer(indent);
+    return ss.str();
 }

@@ -189,6 +189,15 @@ std::string golite::Assignment::toTypeScript(int indent) {
     std::stringstream ss_ids;
     std::stringstream ss_exprs;
     std::stringstream ss;
+
+    // Init expressions from left to right
+    for(size_t i=0; i < left_expressions_.size(); i++) {
+        ss << left_expressions_[i]->toTypeScriptInitializer(indent);
+    }
+    for(size_t i=0; i < left_expressions_.size(); i++) {
+        ss << right_expressions_[i]->toTypeScriptInitializer(indent);
+    }
+
     ss << golite::Utils::blockComment({"Assignment group of size " + std::to_string(left_expressions_.size())},
                                       indent, getLine()) << std::endl;
     ss_ids << golite::Utils::indent(indent);
@@ -249,6 +258,6 @@ std::string golite::Assignment::toTypeScript(int indent) {
             ss << " &^= ";
             break;
     }
-    ss << ss_exprs.str() << ";";
+    ss << ss_exprs.str() << ";" << std::endl;
     return ss.str();
 }
