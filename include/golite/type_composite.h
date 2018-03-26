@@ -131,6 +131,12 @@ namespace golite {
          * @return code
          */
         virtual std::string toTypeScript(int indent) = 0;
+
+        /**
+         * Generate typescript code
+         * @return code
+         */
+        virtual std::string toTypeScriptInitializer(int indent) = 0;
     };
 }
 

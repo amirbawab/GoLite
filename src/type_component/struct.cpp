@@ -133,7 +133,9 @@ bool golite::Struct::isRecursive(Type *type) {
     return false;
 }
 
-std::string golite::Struct::toTypeScript(int indent) {
+std::string golite::Struct::toTypeScriptInitializer(int indent) {
+    static long count = 1;
+    name_ = "struct_" + std::to_string(count++);
     std::stringstream ss_pre;
     std::stringstream ss_post;
     std::stringstream ss;
@@ -146,9 +148,13 @@ std::string golite::Struct::toTypeScript(int indent) {
         }
         ss_post << golite::Utils::indent(indent);
     }
-    ss_post << "}";
+    ss_post << "};";
     ss << ss_pre.str();
     ss << golite::Utils::blockComment({"Class representing a struct"}, indent, getLine()) << std::endl;
-    ss << ss_post.str() << std::endl;
+    ss << ss_post.str() << std::endl << std::endl;
     return ss.str();
+}
+
+std::string golite::Struct::toTypeScript(int indent) {
+    return name_;
 }

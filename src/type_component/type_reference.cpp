@@ -112,3 +112,7 @@ std::string golite::TypeReference::toTypeScript(int indent) {
     }
     return declarable_type_->getIdentifier()->toTypeScript(0);
 }
+
+std::string golite::TypeReference::toTypeScriptInitializer(int indent) {
+    return std::string();
+}

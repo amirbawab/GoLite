@@ -58,3 +58,7 @@ std::string golite::Func::toTypeScript(int indent) {
     ss << ") => " << type_component_->toTypeScript(indent);
     return ss.str();
 }
+
+std::string golite::Func::toTypeScriptInitializer(int indent) {
+    return std::string();
+}

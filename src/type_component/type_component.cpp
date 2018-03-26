@@ -246,11 +246,8 @@ std::string golite::TypeComponent::toTypeScript(int indent) {
         } else if(children_[i-1]->isSlice()) {
             ss_start << "Slice<";
             ss_end << ">";
-        } else if(children_[i-1]->isTypeReference() || children_[i-1]->isPointer()) {
+        } else if(children_[i-1]->isTypeReference() || children_[i-1]->isPointer() || children_[i-1]->isStruct()) {
             ss_start << children_[i-1]->toTypeScript(indent);
-        } else if(children_[i-1]->isStruct()) {
-            golite::Struct* struct_child = static_cast<Struct*>(children_[i-1]);
-            ss_end << struct_child->getName();
         }
     }
     ss << ss_start.str() << ss_end.str();
@@ -258,12 +255,9 @@ std::string golite::TypeComponent::toTypeScript(int indent) {
 }
 
 std::string golite::TypeComponent::toTypeScriptInitializer(int indent) {
-    static long count = 1;
     std::stringstream ss;
-    if(!children_.empty() && children_.front()->isStruct()) {
-        Struct* struct_child = static_cast<Struct*>(children_.front());
-        struct_child->setName("struct_" + std::to_string(count++));
-        ss << struct_child->toTypeScript(indent) << std::endl;
+    for(TypeComposite* child : children_) {
+        ss << child->toTypeScriptInitializer(indent);
     }
     return ss.str();
 }
@@ -285,8 +279,7 @@ std::string golite::TypeComponent::toTypeScriptDefaultValue() {
     } else if(isSlice()) {
         return "new " + toTypeScript(0) + "()";
     } else if(isStruct()) {
-        Struct *struct_child = static_cast<Struct *>(children_.front());
-        return "new " + struct_child->getName() + "()";
+        return "new " + toTypeScript(0) + "()";
     } else if(isTypeReference()) {
         TypeReference* type_reference = static_cast<TypeReference*>(children_.front());
         TypeComponent* resolved_type_component = new TypeComponent(type_reference->resolveChildren());

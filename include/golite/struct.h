@@ -93,16 +93,9 @@ namespace golite {
         std::string toTypeScript(int indent);
 
         /**
-         * Set name
-         * @param name
+         * @see TypeComposite::toTypeScriptInitializer()
          */
-        void setName(std::string name) { name_ = name; }
-
-        /**
-         * Get struct name
-         * @return name
-         */
-        std::string getName() const { return name_; }
+        std::string toTypeScriptInitializer(int indent);
     };
 }
 

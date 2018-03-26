@@ -37,5 +37,9 @@ golite::TypeComponent* golite::Cast::getTypeComponent() {
 }
 
 std::string golite::Cast::toTypeScript(int indent) {
-    return "";
+    return std::string();
+}
+
+std::string golite::Cast::toTypeScriptInitializer(int indent) {
+    return std::string();
 }

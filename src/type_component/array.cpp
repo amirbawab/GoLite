@@ -42,3 +42,7 @@ std::vector<golite::TypeComposite*> golite::Array::resolveChildren() {
 std::string golite::Array::toTypeScript(int indent) {
     throw std::runtime_error("Cannot convert array to typescript");
 }
+
+std::string golite::Array::toTypeScriptInitializer(int indent) {
+    return std::string();
+}
