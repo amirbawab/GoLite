@@ -301,6 +301,14 @@ bool golite::TypeComponent::resolvesToStruct() {
     return isStruct() || (new TypeComponent(resolveChildren()))->isStruct();
 }
 
+bool golite::TypeComponent::resolvesToArray() {
+    return isArray() || (new TypeComponent(resolveChildren()))->isArray();
+}
+
+bool golite::TypeComponent::resolvesToSlice() {
+    return isSlice() || (new TypeComponent(resolveChildren()))->isSlice();
+}
+
 bool golite::TypeComponent::isSlice() {
     return !children_.empty() && children_.back()->isSlice();
 }

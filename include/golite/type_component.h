@@ -280,16 +280,28 @@ namespace golite {
         bool isStruct();
 
         /**
+         * Check if is type reference
+         * @return true if it is
+         */
+        bool isTypeReference();
+
+        /**
          * Check if resolves to struct
          * @return true if it does
          */
         bool resolvesToStruct();
 
         /**
-         * Check if is type reference
-         * @return true if it is
+         * Check if resolves to array
+         * @return true if it does
          */
-        bool isTypeReference();
+        bool resolvesToArray();
+
+        /**
+         * Check if resolves to slice
+         * @return true if it does
+         */
+        bool resolvesToSlice();
     };
 }
 
