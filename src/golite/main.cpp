@@ -162,7 +162,7 @@ int main(int argc, char** argv) {
         golite::Program::getInstance()->weedingPass();
         golite::Program::getInstance()->symbolTablePass();
         golite::Program::getInstance()->typeCheck();
-        std::cout << golite::Program::getInstance()->toTypeScript(1) << std::endl;
+        std::cout << golite::Program::getInstance()->toTypeScript(0) << std::endl;
     }
 
     return golite::Utils::EXIT_FINE;
