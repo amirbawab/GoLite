@@ -212,10 +212,8 @@ std::string golite::Assignment::toTypeScript(int indent) {
             ss_exprs << ", ";
         }
         ss_ids << left_expressions_[i]->toTypeScript(0);
-        ss_exprs << right_expressions_[i]->toTypeScript(0);
-        if(golite::TSHelper::isObject(right_expressions_[i]->typeCheck())) {
-            ss_exprs << ".clone()";
-        }
+        ss_exprs << right_expressions_[i]->toTypeScript(0)
+                 << golite::TSHelper::cloneObject(right_expressions_[i]->typeCheck());
     }
     if(left_expressions_.size() > 1) {
         ss_ids << "]";

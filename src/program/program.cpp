@@ -3,6 +3,7 @@
 #include <golite/function.h>
 #include <golite/variable.h>
 #include <golite/declarable_factory.h>
+#include <golite/ts_helper.h>
 
 // define static types
 golite::Type* golite::Program::INT_BUILTIN_TYPE = golite::DeclarableFactory::createBuiltInType("int");
@@ -82,83 +83,11 @@ std::string golite::Program::toTypeScript(int indent) {
        << golite::Utils::indent(indent) << " ******************************/" << std::endl
        << std::endl;
 
-    // Built-in function: print
-    ss << golite::Utils::blockComment({"Print function", "Built-in function"}, indent) << std::endl
-       << golite::Utils::indent(indent) << "function golite_print(...args : any[]) : void {" << std::endl
-       << golite::Utils::indent(indent+1) << "var buffer : string = \"\";" << std::endl
-       << golite::Utils::indent(indent+1) << "for( var i : number = 0; i < args.length; i++) {" << std::endl
-       << golite::Utils::indent(indent+2) << "buffer += args[i];" << std::endl
-       << golite::Utils::indent(indent+1) << "}" << std::endl
-       << golite::Utils::indent(indent+1) << "process.stdout.write(buffer);" << std::endl
-       << golite::Utils::indent(indent) << "};" << std::endl
-       << std::endl;
-
-    // Built-in function: println
-    ss << golite::Utils::blockComment({"Print line function", "Built-in function"}, indent) << std::endl
-       << golite::Utils::indent(indent) << "function golite_println(...args : any[]) : void {" << std::endl
-       << golite::Utils::indent(indent+1) << "var buffer : string = \"\";" << std::endl
-       << golite::Utils::indent(indent+1) << "for( var i : number = 0; i < args.length; i++) {" << std::endl
-       << golite::Utils::indent(indent+2) << "if(i != 0) buffer += ' ';" << std::endl
-       << golite::Utils::indent(indent+2) << "buffer += args[i];" << std::endl
-       << golite::Utils::indent(indent+1) << "}" << std::endl
-       << golite::Utils::indent(indent+1) << "process.stdout.write(buffer + '\\n');" << std::endl
-       << golite::Utils::indent(indent) << "};" << std::endl
-       << std::endl;
-
-    // Built-in constants: true/false
-    ss << golite::Utils::blockComment({"True and False constants", "Built-in variables"}, indent) << std::endl
-       << golite::Utils::indent(indent)  << "var " << TRUE_VAR->getIdentifiers().back()->toTypeScript(indent) << " : "
-       << TRUE_VAR->getTypeComponent()->toTypeScript(0) << " = true;" << std::endl
-       << golite::Utils::indent(indent)  << "var " << FALSE_VAR->getIdentifiers().back()->toTypeScript(indent) << " : "
-       << TRUE_VAR->getTypeComponent()->toTypeScript(0) << " = false;" << std::endl
-       << std::endl;
-
-    // Array
-    ss << golite::Utils::blockComment({"Array interface", "Built-in interface"}, indent) << std::endl
-       << golite::Utils::indent(indent) << "interface Array<T> {" << std::endl
-       << golite::Utils::indent(indent+1) << "check : (index : number) => Array<T>;" << std::endl
-       << golite::Utils::indent(indent+1) << "clone : () => Array<T>;" << std::endl
-       << golite::Utils::indent(indent) << "}" << std::endl
-       << golite::Utils::indent(indent) << "Array.prototype.check = function(index : number) {" << std::endl
-       << golite::Utils::indent(indent+1) << "if(index < 0 || index >= this.length) {" << std::endl
-       << golite::Utils::indent(indent+2) << "process.stderr.write('Index out of bound' + '\\n');" << std::endl
-       << golite::Utils::indent(indent+2) << "process.exit(1);" << std::endl
-       << golite::Utils::indent(indent+1) << "}" << std::endl
-       << golite::Utils::indent(indent+1) << "return this;" << std::endl
-       << golite::Utils::indent(indent) << "}" << std::endl
-       << golite::Utils::indent(indent) << "Array.prototype.clone = function() {" << std::endl
-       << golite::Utils::indent(indent+1) << "var array = [];" << std::endl
-       << golite::Utils::indent(indent+1) << "for(var i : number = 0; i < this.length; i++) {" << std::endl
-       << golite::Utils::indent(indent+2) << "if(this[i] instanceof Object) {" << std::endl
-       << golite::Utils::indent(indent+3) << "array[i] = this[i].clone();" << std::endl
-       << golite::Utils::indent(indent+2) << "} else {" << std::endl
-       << golite::Utils::indent(indent+3) << "array[i] = this[i];" << std::endl
-       << golite::Utils::indent(indent+2) << "}" << std::endl
-       << golite::Utils::indent(indent+1) << "}" << std::endl
-       << golite::Utils::indent(indent+1) << "return array;" << std::endl
-       << golite::Utils::indent(indent) << "}" << std::endl
-       << std::endl;
-
-    // Slice
-    ss << golite::Utils::blockComment({"Slice class", "Built-in class"}, indent) << std::endl
-       << golite::Utils::indent(indent) << "class Slice<T> {" << std::endl
-       << golite::Utils::indent(indent+1) << "array : Array<T> = new Array<T>(0);" << std::endl
-       << golite::Utils::indent(indent+1) << "capacity : number = 0;" << std::endl
-       << golite::Utils::indent(indent+1) << "append = (val : T) : Slice<T> => {" << std::endl
-       << golite::Utils::indent(indent+2) << "return (<any>Object).assign([val], this.array);" << std::endl
-       << golite::Utils::indent(indent+1) << "}" << std::endl
-       << golite::Utils::indent(indent+1) << "check = (index : number) : Array<T> => {" << std::endl
-       << golite::Utils::indent(indent+2) << "this.array.check(index);" << std::endl
-       << golite::Utils::indent(indent+2) << "return this.array;" << std::endl
-       << golite::Utils::indent(indent+1) << "}" << std::endl
-       << golite::Utils::indent(indent+1) << "clone = (): Slice<T> => {" << std::endl
-       << golite::Utils::indent(indent+2) << "var slice: Slice<T> = new Slice<T>();" << std::endl
-       << golite::Utils::indent(indent+2) << "slice.capacity = this.capacity;" << std::endl
-       << golite::Utils::indent(indent+2) << "slice.array = this.array.clone();" << std::endl
-       << golite::Utils::indent(indent+2) << "return slice;" << std::endl
-       << golite::Utils::indent(indent+1) << "}" << std::endl
-       << golite::Utils::indent(indent) << "}" << std::endl
-       << std::endl;
+    ss << golite::TSHelper::codePrint(indent);
+    ss << golite::TSHelper::codePrintln(indent);
+    ss << golite::TSHelper::codeConstants(indent);
+    ss << golite::TSHelper::codeArrayInterface(indent);
+    ss << golite::TSHelper::codeSlice(indent);
 
     for(Declarable* declarable : declarables_) {
         ss << declarable->toTypeScript(indent) << std::endl;

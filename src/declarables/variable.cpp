@@ -5,6 +5,7 @@
 #include <vector>
 #include <algorithm>
 #include <golite/program.h>
+#include <golite/ts_helper.h>
 
 long golite::Variable::indexOfIdentifier(std::string id) {
     std::vector<golite::Identifier*>::iterator found_id_itt =
@@ -144,7 +145,8 @@ std::string golite::Variable::toTypeScript(int indent) {
         }
         ss << " : " << type_component_->toTypeScript(0) << " = ";
         if(!expressions_.empty()) {
-            ss << expressions_[i]->toTypeScript(0);
+            ss << expressions_[i]->toTypeScript(0)
+               << golite::TSHelper::cloneObject(expressions_[i]->typeCheck());
         } else {
             ss << type_component_->toTypeScriptDefaultValue();
         }
