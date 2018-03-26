@@ -211,7 +211,7 @@ std::string golite::Assignment::toTypeScript(int indent) {
             ss_exprs << ", ";
         }
         ss_ids << left_expressions_[i]->toTypeScript(0);
-        ss_exprs << right_expressions_[i]->toTypeScript(0);
+        ss_exprs << "golite_copy(" << right_expressions_[i]->toTypeScript(0) << ")";
     }
     if(left_expressions_.size() > 1) {
         ss_ids << "]";
@@ -219,7 +219,7 @@ std::string golite::Assignment::toTypeScript(int indent) {
     }
     ss << ss_ids.str();
 
-    // TODO Verify that all of them work
+    // TODO Verify that all  of them work
     switch (kind_) {
         case EQUAL:
             ss << " = ";
