@@ -33,15 +33,20 @@ void golite::Append::weedingPass() {
 }
 
 golite::TypeComponent* golite::Append::typeCheck() {
-    TypeComponent* left_expression_type = left_expression_->typeCheck();
-    TypeComponent* right_expression_type = right_expression_->typeCheck();
-    std::vector<TypeComposite*> left_children = left_expression_type->resolveChildren();
-    std::vector<TypeComposite*> right_children = right_expression_type->getChildren();
-    if(left_children.size() != 2 || !left_children[1]->isSlice()) {
+    TypeComponent *left_expression_type = left_expression_->typeCheck();
+    TypeComponent *right_expression_type = right_expression_->typeCheck();
+    std::vector<TypeComposite *> left_children = left_expression_type->resolveChildren();
+    std::vector<TypeComposite *> right_children = right_expression_type->getChildren();
+    if (left_children.empty() || !left_children.back()->isSlice()) {
         golite::Utils::error_message("Append statement expects slice type as first argument but given "
                                      + left_expression_type->toGoLiteMin(), getLine());
     }
-    if(right_children.size() != 1 || !left_children[0]->isCompatible(right_children[0])) {
+
+    // Remove slice
+    left_children.pop_back();
+    TypeComponent *left_type_component = new TypeComponent(left_children);
+    TypeComponent *right_type_component = new TypeComponent(right_children);
+    if (!left_type_component->isCompatible(right_type_component)) {
         golite::Utils::error_message("Append statement arguments are not compatible "
                                      + left_expression_type->toGoLiteMin() + " and "
                                      + right_expression_type->toGoLiteMin(), getLine());
