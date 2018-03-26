@@ -275,7 +275,11 @@ std::string golite::TypeComponent::toTypeScriptDefaultValue() {
         return "false";
     } else if(isArray()) {
         golite::Array* array = static_cast<Array*>(children_.back());
-        return "new " + toTypeScript(0) + "(" + array->getSize()->toTypeScript(0) + ")";
+        std::vector<TypeComposite*> sub_children = children_;
+        sub_children.pop_back();
+        TypeComponent sub_type_component(sub_children);
+        return "new " + toTypeScript(0)
+               + "(" + array->getSize()->toTypeScript(0) + ").init(" + sub_type_component.toTypeScriptDefaultValue() +  ")";
     } else if(isSlice()) {
         return "new " + toTypeScript(0) + "()";
     } else if(isStruct()) {

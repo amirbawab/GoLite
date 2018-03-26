@@ -66,6 +66,7 @@ std::string golite::TSHelper::codeArrayInterface(int indent) {
        << golite::Utils::indent(indent) << "interface Array<T> {" << std::endl
        << golite::Utils::indent(indent+1) << "check : (index : number) => Array<T>;" << std::endl
        << golite::Utils::indent(indent+1) << clone_func_name_ << " : () => Array<T>;" << std::endl
+       << golite::Utils::indent(indent+1) << "init : (val : T) => Array<T>;" << std::endl
        << golite::Utils::indent(indent) << "}" << std::endl
        << golite::Utils::indent(indent) << "Array.prototype.check = function(index : number) {" << std::endl
        << golite::Utils::indent(indent+1) << "if(index < 0 || index >= this.length) {" << std::endl
@@ -84,6 +85,16 @@ std::string golite::TSHelper::codeArrayInterface(int indent) {
        << golite::Utils::indent(indent+2) << "}" << std::endl
        << golite::Utils::indent(indent+1) << "}" << std::endl
        << golite::Utils::indent(indent+1) << "return array;" << std::endl
+       << golite::Utils::indent(indent) << "}" << std::endl
+       << golite::Utils::indent(indent) << "Array.prototype.init = function (val: any) {" << std::endl
+       << golite::Utils::indent(indent+1) << "for (var i: number = 0; i < this.length; i++) {" << std::endl
+       << golite::Utils::indent(indent+2) << "if (val instanceof Object) {" << std::endl
+       << golite::Utils::indent(indent+3) << " this[i] = val." << getCloneCall() << ";" << std::endl
+       << golite::Utils::indent(indent+2) << "} else {" << std::endl
+       << golite::Utils::indent(indent+3) << "this[i] = val;" << std::endl
+       << golite::Utils::indent(indent+2) << "}" << std::endl
+       << golite::Utils::indent(indent+1) << "}" << std::endl
+       << golite::Utils::indent(indent+1) << "return this;" << std::endl
        << golite::Utils::indent(indent) << "}" << std::endl
        << std::endl;
     return ss.str();
