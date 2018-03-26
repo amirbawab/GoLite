@@ -134,7 +134,7 @@ std::string golite::Program::toTypeScript(int indent) {
        << golite::Utils::indent(indent+1) << "constructor() {" << std::endl
         << golite::Utils::indent(indent+2) << "super(0);" << std::endl
         << golite::Utils::indent(indent+1) << "}" << std::endl
-       << golite::Utils::indent(indent+1) << "append(val : T) : Slice<T> {" << std::endl
+       << golite::Utils::indent(indent+1) << "append = (val : T) : Slice<T> => {" << std::endl
        << golite::Utils::indent(indent+2) << "return (<any>Object).assign([val], this);" << std::endl
        << golite::Utils::indent(indent+1) << "}" << std::endl
        << golite::Utils::indent(indent) << "}" << std::endl
