@@ -142,27 +142,6 @@ std::string golite::Program::toTypeScript(int indent) {
        << golite::Utils::indent(indent) << "}" << std::endl
        << std::endl;
 
-    ss << golite::Utils::blockComment({"Make a deep-copy of anything", "Built-in function"}, indent) << std::endl
-       << golite::Utils::indent(indent) << "function golite_copy(element: any): any {" << std::endl
-       << golite::Utils::indent(indent+1) << "if (element instanceof Array) {" << std::endl
-       << golite::Utils::indent(indent+2) << "var clone: any = [];" << std::endl
-       << golite::Utils::indent(indent+2) << "for (var i = 0; i < element.length; i++) {" << std::endl
-       << golite::Utils::indent(indent+3) << "clone[i] = golite_copy(element[i]);" << std::endl
-       << golite::Utils::indent(indent+2) << "}" << std::endl
-       << golite::Utils::indent(indent+2) << "return clone;" << std::endl
-       << golite::Utils::indent(indent+1) << "} else if (element instanceof Object) {" << std::endl
-       << golite::Utils::indent(indent+2) << "var clone: any = {};" << std::endl
-       << golite::Utils::indent(indent+2) << "Object.getOwnPropertyNames(element).forEach((key: string) => {" << std::endl
-       << golite::Utils::indent(indent+3) << "clone[key] = golite_copy(element[key]);" << std::endl
-       << golite::Utils::indent(indent+2) << "});" << std::endl
-       << golite::Utils::indent(indent+2) << "return clone;" << std::endl
-       << golite::Utils::indent(indent+1) << "} else {" << std::endl
-       << golite::Utils::indent(indent+2) << "return element;" << std::endl
-       << golite::Utils::indent(indent+1) << "}" << std::endl
-       << golite::Utils::indent(indent) << "}" << std::endl
-       << std::endl;
-
-
     for(Declarable* declarable : declarables_) {
         ss << declarable->toTypeScript(indent) << std::endl;
     }

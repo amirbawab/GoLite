@@ -297,6 +297,10 @@ bool golite::TypeComponent::isStruct() {
     return !children_.empty() && children_.back()->isStruct();
 }
 
+bool golite::TypeComponent::resolvesToStruct() {
+    return isStruct() || (new TypeComponent(resolveChildren()))->isStruct();
+}
+
 bool golite::TypeComponent::isSlice() {
     return !children_.empty() && children_.back()->isSlice();
 }
