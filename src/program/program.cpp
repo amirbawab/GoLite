@@ -129,14 +129,16 @@ std::string golite::Program::toTypeScript(int indent) {
 
     // Slice
     ss << golite::Utils::blockComment({"Slice class", "Built-in class"}, indent) << std::endl
-       << golite::Utils::indent(indent) << "class Slice<T> extends Array<T> {" << std::endl
+       << golite::Utils::indent(indent) << "class Slice<T> {" << std::endl
+       << golite::Utils::indent(indent+1) << "array : Array<T> = new Array<T>(0);" << std::endl
        << golite::Utils::indent(indent+1) << "capacity : number = 0;" << std::endl
-       << golite::Utils::indent(indent+1) << "constructor() {" << std::endl
-        << golite::Utils::indent(indent+2) << "super(0);" << std::endl
-        << golite::Utils::indent(indent+1) << "}" << std::endl
        << golite::Utils::indent(indent+1) << "append = (val : T) : Slice<T> => {" << std::endl
-       << golite::Utils::indent(indent+2) << "return (<any>Object).assign([val], this);" << std::endl
+       << golite::Utils::indent(indent+2) << "return (<any>Object).assign([val], this.array);" << std::endl
        << golite::Utils::indent(indent+1) << "}" << std::endl
+        << golite::Utils::indent(indent+1) << "check = (index : number) : Array<T> => {" << std::endl
+       << golite::Utils::indent(indent+2) << "this.array.check(index);" << std::endl
+        << golite::Utils::indent(indent+2) << "return this.array;" << std::endl
+        << golite::Utils::indent(indent+1) << "}" << std::endl
        << golite::Utils::indent(indent) << "}" << std::endl
        << std::endl;
 
