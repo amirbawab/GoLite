@@ -98,11 +98,11 @@ bool golite::TypeReference::resolvesToComparable() {
 std::string golite::TypeReference::toTypeScript(int indent) {
     if(declarable_type_->isSelfReferring()) {
         TypeComponent* type_component = declarable_type_->getTypeComponent();
-        if(type_component->isInt() || type_component->isFloat64()) {
+        if(type_component->isInt() || type_component->isFloat64() || type_component->isRune()) {
             return "number";
         } else if(type_component->isBool()) {
             return "boolean";
-        } else if(type_component->isRune() || type_component->isString()) {
+        } else if(type_component->isString()) {
             return "string";
         } else if(type_component->isVoid()) {
             return "void";

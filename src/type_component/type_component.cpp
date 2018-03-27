@@ -273,7 +273,7 @@ std::string golite::TypeComponent::toTypeScriptDefaultValue() {
     } else if(isString()) {
         return "\"\"";
     } else if(isRune()) {
-        return "'\\u0000'";
+        return "0";
     } else if(isBool()) {
         return "false";
     } else if(isArray()) {

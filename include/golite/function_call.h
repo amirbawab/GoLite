@@ -72,6 +72,12 @@ namespace golite {
          * @see Expression::toTypeScriptInitializer()
          */
         std::string toTypeScriptInitializer(int indent);
+
+        /**
+         * Get arguments
+         * @return args
+         */
+        std::vector<golite::Expression*> getArgs() const { return args_; }
     };
 }
 

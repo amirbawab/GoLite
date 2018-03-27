@@ -83,7 +83,12 @@ namespace golite {
         char* getValue() { return value_; }
         bool isLiteral() { return true; }
         void setRune(bool f_rune) { f_rune_ = f_rune; }
-        std::string toTypeScript(int indent) { return std::string(value_); }
+        std::string toTypeScript(int indent) {
+            if(f_rune_) {
+                return std::string(value_) + ".charCodeAt(0)";
+            }
+            return std::string(value_);
+        }
         std::string toTypeScriptInitializer(int indent) { return std::string(); }
     };
 

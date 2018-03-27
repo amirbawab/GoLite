@@ -256,14 +256,20 @@ bool golite::PrimaryExpression::isCasting() {
 std::string golite::PrimaryExpression::toTypeScript(int indent) {
     std::stringstream ss;
     if(name_.empty()) {
-        size_t i = 0;
         if(isCasting()) {
-            TypeComponent* type_component = typeCheck();
-            ss << "<" << type_component->toTypeScript(0) << ">";
-            i = 1;
-        }
-        for(; i < children_.size(); i++) {
-            ss << children_[i]->toTypeScript(0);
+            TypeComponent* cast_type_component = typeCheck();
+            FunctionCall* function_call = static_cast<FunctionCall*>(children_.back());
+            TypeComponent* expr_type_component = function_call->getArgs().back()->typeCheck();
+            ss << "<" << cast_type_component->toTypeScript(0) << ">";
+            if(cast_type_component->resolvesToString() && expr_type_component->resolvesToInteger()) {
+                ss << "String.fromCharCode(" << children_.back()->toTypeScript(0) << ")";
+            } else {
+                ss << children_.back()->toTypeScript(0);
+            }
+        } else {
+            for(size_t i = 0; i < children_.size(); i++) {
+                ss << children_[i]->toTypeScript(0);
+            }
         }
     } else {
         ss << name_;
