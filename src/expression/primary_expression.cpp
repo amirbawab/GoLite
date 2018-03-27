@@ -252,3 +252,58 @@ bool golite::PrimaryExpression::isCasting() {
     }
     return false;
 }
+
+std::string golite::PrimaryExpression::toTypeScript(int indent) {
+    std::stringstream ss;
+    if(name_.empty()) {
+        if(isCasting()) {
+            TypeComponent* cast_type_component = typeCheck();
+            FunctionCall* function_call = static_cast<FunctionCall*>(children_.back());
+            TypeComponent* expr_type_component = function_call->getArgs().back()->typeCheck();
+            ss << "<" << cast_type_component->toTypeScript(0) << ">";
+            if(cast_type_component->resolvesToString() && expr_type_component->resolvesToInteger()) {
+                ss << "String.fromCharCode(" << children_.back()->toTypeScript(0) << ")";
+            } else {
+                ss << children_.back()->toTypeScript(0);
+            }
+        } else {
+            for(size_t i = 0; i < children_.size(); i++) {
+                ss << children_[i]->toTypeScript(0);
+            }
+        }
+    } else {
+        ss << name_;
+    }
+    return ss.str();
+}
+
+std::string golite::PrimaryExpression::toTypeScriptInitializer(int indent) {
+    static long count = 1;
+    std::stringstream ss;
+    if(children_.empty()) {
+        throw std::runtime_error("Cannot generate code initializer for primary expression because children list isempty");
+    }
+
+    // Initialize nested expressions
+    for(Primary* child : children_) {
+        ss << child->toTypeScriptInitializer(indent);
+    }
+
+    // Promote function calls
+    TypeComponent* first_child = children_.front()->typeCheck();
+    if(first_child->isFunc()) {
+
+        // Assign them to unique variables
+        name_ = "expr_" + std::to_string(count++);
+        TypeComponent* type_component = typeCheck();
+        ss << type_component->toTypeScriptInitializer(indent);
+        ss << golite::Utils::blockComment({"Promoted expression"}, indent, getLine()) << std::endl;
+        ss << golite::Utils::indent(indent) << "var " << name_ << " : "
+           << type_component->toTypeScript(0) << " = ";
+        for(Primary* child : children_) {
+            ss << child->toTypeScript(0);
+        }
+        ss << ";" << std::endl << std::endl;
+    }
+    return ss.str();
+}

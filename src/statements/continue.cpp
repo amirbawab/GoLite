@@ -21,3 +21,9 @@ void golite::Continue::typeCheck() {
 void golite::Continue::symbolTablePass(SymbolTable *root) {
     // Do nothing
 }
+
+std::string golite::Continue::toTypeScript(int indent) {
+    std::stringstream ss;
+    ss << golite::Utils::indent(indent) << "continue;";
+    return ss.str();
+}

@@ -94,3 +94,25 @@ bool golite::TypeReference::resolvesToComparable() {
     }
     return declarable_type_->getTypeComponent()->resolvesToComparable();
 }
+
+std::string golite::TypeReference::toTypeScript(int indent) {
+    if(declarable_type_->isSelfReferring()) {
+        TypeComponent* type_component = declarable_type_->getTypeComponent();
+        if(type_component->isInt() || type_component->isFloat64() || type_component->isRune()) {
+            return "number";
+        } else if(type_component->isBool()) {
+            return "boolean";
+        } else if(type_component->isString()) {
+            return "string";
+        } else if(type_component->isVoid()) {
+            return "void";
+        } else {
+            return declarable_type_->getIdentifier()->toTypeScript(0);
+        }
+    }
+    return declarable_type_->getIdentifier()->toTypeScript(0);
+}
+
+std::string golite::TypeReference::toTypeScriptInitializer(int indent) {
+    return std::string();
+}

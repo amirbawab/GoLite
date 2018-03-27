@@ -65,3 +65,30 @@ golite::TypeComponent* golite::Unary::typeCheck() {
 void golite::Unary::symbolTablePass(SymbolTable *root) {
     this->operand_->symbolTablePass(root);
 }
+
+std::string golite::Unary::toTypeScript(int indent) {
+    std::stringstream ss;
+    ss << golite::Utils::indent(indent) << "(";
+    switch (kind_) {
+        case MINUS:
+            ss << "-";
+            break;
+        case NOT:
+            ss << "!";
+            break;
+        case PLUS:
+            ss << "+";
+            break;
+        case XOR:
+            ss << "^";
+            break;
+    }
+    ss << operand_->toTypeScript(0) << ")";
+    return ss.str();
+}
+
+std::string golite::Unary::toTypeScriptInitializer(int indent) {
+    std::stringstream ss;
+    ss << operand_->toTypeScriptInitializer(indent);
+    return ss.str();
+}

@@ -1,5 +1,6 @@
 #include<golite/func.h>
 #include <sstream>
+#include <iostream>
 
 std::string golite::Func::toGoLite(int indent) {
     return type_component_->toGoLite(indent);
@@ -42,4 +43,22 @@ std::string golite::Func::toPrettySymbol() {
 
 std::vector<golite::TypeComposite*> golite::Func::resolveChildren() {
     return {this};
+}
+
+std::string golite::Func::toTypeScript(int indent) {
+    std::stringstream ss;
+    ss << "(";
+    std::vector<FunctionParam*> params = function_->getParams();
+    for(size_t i=0; i < params.size(); i++) {
+        if(i != 0) {
+            ss << ", ";
+        }
+        ss << params[i]->toTypeScript(indent);
+    }
+    ss << ") => " << type_component_->toTypeScript(indent);
+    return ss.str();
+}
+
+std::string golite::Func::toTypeScriptInitializer(int indent) {
+    return std::string();
 }

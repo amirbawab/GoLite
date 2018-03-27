@@ -178,7 +178,7 @@ continue        { golite::Utils::log_token("tCONTINUE"); yylval.g_line.line = yy
     // Rune/Character
     golite::Utils::log_token("tRUNE", yytext);
     golite::Literal<char*>* rune = new golite::Literal<char*>(strdup(yytext), yylineno);
-    rune->setRune(true);
+    rune->f_rune_ = true;
     yylval.g_expression = rune;
     return fToken(tRUNE);
 }
@@ -186,7 +186,9 @@ continue        { golite::Utils::log_token("tCONTINUE"); yylval.g_line.line = yy
 `([^`]|\n)*` {
     // Raw String
     golite::Utils::log_token("tSTRING", yytext);
-    yylval.g_expression = new golite::Literal<char*>(strdup(yytext), yylineno);
+    golite::Literal<char*>* raw_string = new golite::Literal<char*>(strdup(yytext), yylineno);
+    raw_string->f_raw_ = true;
+    yylval.g_expression = raw_string;
     return fToken(tSTRING);
 }
 

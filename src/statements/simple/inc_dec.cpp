@@ -44,3 +44,16 @@ void golite::IncDec::typeCheck() {
 void golite::IncDec::symbolTablePass(SymbolTable *root) {
     this->expression_->symbolTablePass(root);
 }
+
+std::string golite::IncDec::toTypeScript(int indent) {
+    std::stringstream ss;
+    ss << golite::Utils::blockComment({(isIncrement() ? "Increment statement" : "Decrement statement")},
+                                      indent, getLine()) << std::endl
+       << golite::Utils::indent(indent) << expression_->toTypeScript(0);
+    if(isIncrement()) {
+        ss << "++";
+    } else {
+        ss << "--";
+    }
+    return ss.str();
+}

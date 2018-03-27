@@ -5,6 +5,7 @@
 #include <vector>
 #include <algorithm>
 #include <golite/program.h>
+#include <golite/ts_helper.h>
 
 long golite::Variable::indexOfIdentifier(std::string id) {
     std::vector<golite::Identifier*>::iterator found_id_itt =
@@ -103,6 +104,7 @@ void golite::Variable::symbolTablePass(SymbolTable *root) {
                 golite::Utils::error_message("Variable name " + id->getName() + " redeclared in this block", getLine());
             }
             root->putSymbol(id->getName(), this);
+            id->symbolTablePass(root);
         }
     }
 
@@ -119,5 +121,37 @@ std::string golite::Variable::toPrettySymbol() {
         ss << " [variable] = ";
     }
     ss << type_component_->toPrettySymbol();
+    return ss.str();
+}
+
+std::string golite::Variable::toTypeScript(int indent) {
+    std::stringstream ss;
+    ss << type_component_->toTypeScriptInitializer(indent);
+    for(size_t i=0; i < expressions_.size(); i++) {
+        ss << expressions_[i]->toTypeScriptInitializer(indent);
+    }
+    ss << golite::Utils::blockComment({"Variable group of size " + std::to_string(identifiers_.size())},
+                                      indent, getLine()) << std::endl;
+    for(size_t i=0; i < identifiers_.size(); i++) {
+        if(i != 0) {
+            ss << std::endl;
+        }
+        ss << golite::Utils::indent(indent) << "var ";
+
+        if(identifiers_[i]->isBlank()) {
+            ss << "_";
+        } else {
+            ss << identifiers_[i]->toTypeScript(0);
+        }
+        ss << " : " << type_component_->toTypeScript(0) << " = ";
+        if(!expressions_.empty()) {
+            ss << expressions_[i]->toTypeScript(0)
+               << golite::TSHelper::cloneObject(expressions_[i]->typeCheck());
+        } else {
+            ss << type_component_->toTypeScriptDefaultValue();
+        }
+        ss << ";";
+    }
+    ss << std::endl;
     return ss.str();
 }

@@ -2,6 +2,7 @@
 #define GOLITE_UTILS_H
 
 #include <string>
+#include <vector>
 
 namespace golite {
 
@@ -44,6 +45,20 @@ namespace golite {
          * @return spaces
          */
         static std::string indent(int val);
+
+        /**
+         * Generate block comment
+         * @param lines
+         * @return block comment
+         */
+        static std::string blockComment(std::vector<std::string> lines, int indent, int line = -1);
+
+        /**
+         * Generate block comment
+         * @param code
+         * @return code
+         */
+        static std::string codeNotGenerated(std::string code, int indent, int line);
     };
 }
 

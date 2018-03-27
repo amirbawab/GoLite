@@ -78,6 +78,16 @@ namespace golite {
          * @return function
          */
         Function* getFunction() const { return function_; }
+
+        /**
+         * @see TypeComposite::toTypeScript()
+         */
+        std::string toTypeScript(int indent);
+
+        /**
+         * @see TypeComposite::toTypeScriptInitializer()
+         */
+        std::string toTypeScriptInitializer(int indent);
     };
 }
 

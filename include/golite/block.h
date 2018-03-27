@@ -69,6 +69,11 @@ namespace golite {
          * @see Statement::isTerminating()
          */
         bool isTerminating();
+
+        /**
+         * @see Statement::toTypeScript()
+         */
+        std::string toTypeScript(int indent);
     };
 }
 

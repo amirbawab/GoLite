@@ -26,3 +26,13 @@ golite::TypeComponent* golite::Selector::typeCheck() {
 void golite::Selector::symbolTablePass(SymbolTable *root) {
     // Handled in type checking as type of previous identifier might not be available at this point
 }
+
+std::string golite::Selector::toTypeScript(int indent) {
+    std::stringstream ss;
+    ss << "." << identifier_->getName();
+    return ss.str();
+}
+
+std::string golite::Selector::toTypeScriptInitializer(int indent) {
+    return std::string();
+}

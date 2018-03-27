@@ -20,3 +20,7 @@ void golite::Empty::typeCheck() {
 void golite::Empty::symbolTablePass(SymbolTable *root) {
     // Do nothing
 }
+
+std::string golite::Empty::toTypeScript(int indent) {
+    return std::string("");
+}

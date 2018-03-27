@@ -10,6 +10,7 @@ namespace golite {
     private:
         std::vector<StructField*> fields_;
         int line_;
+        std::string name_;
     public:
         Struct(int line) : line_(line) {}
 
@@ -85,6 +86,16 @@ namespace golite {
          * @see TypeComposite::isRecursive()
          */
         bool isRecursive(Type* type);
+
+        /**
+         * @see TypeComposite::toTypeScript()
+         */
+        std::string toTypeScript(int indent);
+
+        /**
+         * @see TypeComposite::toTypeScriptInitializer()
+         */
+        std::string toTypeScriptInitializer(int indent);
     };
 }
 

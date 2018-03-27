@@ -79,7 +79,8 @@ void golite::Switch::typeCheck() {
 }
 
 void golite::Switch::symbolTablePass(golite::SymbolTable *root) {
-    SymbolTable* switch_outer_table = new SymbolTable(root);
+    static long count = 1;
+    SymbolTable* switch_outer_table = new SymbolTable(root, "_switch_" + std::to_string(count++));
 
     if(this->simple_) {
         this->simple_->symbolTablePass(switch_outer_table);
@@ -114,4 +115,22 @@ bool golite::Switch::isTerminating() {
         golite::Utils::error_message("Switch statement with not default case is not terminating", getLine());
     }
     return true;
+}
+
+std::string golite::Switch::toTypeScript(int indent) {
+    std::stringstream ss;
+    if(simple_) {
+        ss << simple_->toTypeScript(indent) << std::endl;
+    }
+
+    ss << golite::Utils::blockComment({"Switch statement"}, indent, getLine()) << std::endl;
+    ss << golite::Utils::indent(indent) << "while(true) {" << std::endl;
+    if(!cases_.empty()) {
+        for(SwitchCase* case_ : cases_) {
+            ss << case_->toTypeScript(expression_, indent+1) << std::endl;
+        }
+    }
+    ss << golite::Utils::indent(indent+1) << "break;" << std::endl;
+    ss << golite::Utils::indent(indent) << "}" << std::endl;
+    return ss.str();
 }

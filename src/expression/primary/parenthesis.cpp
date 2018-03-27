@@ -40,3 +40,13 @@ bool golite::Parenthesis::isCasting() {
 bool golite::Parenthesis::isAddressable() {
     return expression_->isAddressable();
 }
+
+std::string golite::Parenthesis::toTypeScript(int indent) {
+    std::stringstream ss;
+    ss << "(" << expression_->toTypeScript(0) << ")";
+    return ss.str();
+}
+
+std::string golite::Parenthesis::toTypeScriptInitializer(int indent) {
+    return expression_->toTypeScriptInitializer(indent);
+}

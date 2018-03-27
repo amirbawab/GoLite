@@ -3,6 +3,7 @@
 #include <golite/variable.h>
 #include <set>
 #include <sstream>
+#include <golite/ts_helper.h>
 
 std::string golite::Struct::toGoLite(int indent) {
     std::stringstream ss;
@@ -131,4 +132,40 @@ bool golite::Struct::isRecursive(Type *type) {
         }
     }
     return false;
+}
+
+std::string golite::Struct::toTypeScriptInitializer(int indent) {
+    static long count = 1;
+    name_ = "struct_" + std::to_string(count++);
+    std::stringstream ss_pre;
+    std::stringstream ss_post;
+    std::stringstream ss;
+    ss_post << golite::Utils::indent(indent) << "class " << name_ << " {" << std::endl;
+    if(!fields_.empty()) {
+        for(StructField *field : fields_) {
+            ss_pre << field->getTypeComponent()->toTypeScriptInitializer(indent);
+            ss_post << field->toTypeScript(indent+1) << std::endl;
+        }
+    }
+    ss_post << golite::Utils::indent(indent+1) << "clone = () : " << name_ << " => {" << std::endl
+            << golite::Utils::indent(indent+2) << "var obj : " << name_ << " = new " << name_ << "();" << std::endl;
+    for(StructField *field : fields_) {
+        for(Identifier* identifier : field->getIdentifiers()) {
+            ss_post << golite::Utils::indent(indent+2) << "obj." << identifier->getName() << " = this."
+                    << identifier->getName() << golite::TSHelper::cloneObject(field->getTypeComponent())
+                    << ";" << std::endl;
+        }
+    }
+
+    ss_post << golite::Utils::indent(indent+2) << "return obj;" << std::endl
+            << golite::Utils::indent(indent+1) << "}" << std::endl
+            << golite::Utils::indent(indent) << "};";
+    ss << ss_pre.str();
+    ss << golite::Utils::blockComment({"Class representing a struct"}, indent, getLine()) << std::endl;
+    ss << ss_post.str() << std::endl << std::endl;
+    return ss.str();
+}
+
+std::string golite::Struct::toTypeScript(int indent) {
+    return name_;
 }

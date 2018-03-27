@@ -81,7 +81,9 @@ void golite::For::typeCheck() {
 }
 
 void golite::For::symbolTablePass(SymbolTable *root) {
-    SymbolTable* for_outer_table = new SymbolTable(root);
+    static long count = 1;
+    std::string for_name_prefix = "_for_" + std::to_string(count++);
+    SymbolTable* for_outer_table = new SymbolTable(root, for_name_prefix + "_o");
     if(left_simple_) {
         left_simple_->symbolTablePass(for_outer_table);
     }
@@ -94,7 +96,7 @@ void golite::For::symbolTablePass(SymbolTable *root) {
         right_simple_->symbolTablePass(for_outer_table);
     }
 
-    SymbolTable* for_inner_table = new SymbolTable(for_outer_table);
+    SymbolTable* for_inner_table = new SymbolTable(for_outer_table, for_name_prefix + "_i");
     this->block_->symbolTablePass(for_inner_table);
 }
 
@@ -115,4 +117,31 @@ bool golite::For::isTerminating() {
         golite::Utils::error_message("For loop with a break statement is not terminating", getLine());
     }
     return true;
+}
+
+std::string golite::For::toTypeScript(int indent) {
+    std::stringstream ss;
+    if(left_simple_ && !left_simple_->isEmpty()) {
+        ss << left_simple_->toTypeScript(indent) << std::endl;
+    }
+    ss << golite::Utils::blockComment({"For statement"}, indent, getLine()) << std::endl;
+    ss << golite::Utils::indent(indent) << "while (";
+    if(expression_) {
+        ss << expression_->toTypeScript(0);
+    } else {
+        ss << "true";
+    }
+    ss << ") {";
+    if((right_simple_ && !right_simple_->isEmpty()) || !block_->getStatements().empty()) {
+        ss << std::endl;
+    }
+    for(Statement* statement : block_->getStatements()) {
+        ss << statement->toTypeScript(indent+1) << std::endl;
+    }
+    if(right_simple_ && !right_simple_->isEmpty()) {
+        ss << right_simple_->toTypeScript(indent+1) << std::endl;
+        ss << golite::Utils::indent(indent);
+    }
+    ss << "}";
+    return ss.str();
 }

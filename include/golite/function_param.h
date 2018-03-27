@@ -54,6 +54,20 @@ namespace golite {
          * @param root
          */
         void symbolTablePass(SymbolTable* root);
+
+        /**
+         * To type script
+         * @param indent
+         * @return code
+         */
+        std::string toTypeScript(int indent);
+
+        /**
+         * To type script initializer
+         * @param indent
+         * @return code
+         */
+        std::string toTypeScriptInitializer(int indent);
     };
 }
 

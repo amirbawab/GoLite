@@ -5,6 +5,9 @@
 #include <golite/type_reference.h>
 #include <golite/program.h>
 #include <golite/func.h>
+#include <map>
+#include <golite/struct.h>
+#include <golite/array.h>
 
 std::string golite::TypeComponent::toGoLite(int indent) {
     std::stringstream ss;
@@ -142,12 +145,15 @@ bool golite::TypeComponent::isRecursive(Type* type) {
         throw std::runtime_error("Cannot check if type component is recursive because children list is empty");
     }
 
-    for(TypeComposite* type_composite : children_) {
-        if(!type_composite->isRecursive(type)) {
+    for(size_t i = children_.size(); i > 0; i--) {
+        if(children_[i-1]->isSlice()) {
             return false;
         }
+        if(children_[i-1]->isRecursive(type)) {
+            return true;
+        }
     }
-    return true;
+    return false;
 }
 
 bool golite::TypeComponent::resolvesToBool() {
@@ -194,11 +200,11 @@ bool golite::TypeComponent::resolvesToNumeric() {
 
 std::vector<golite::TypeComposite*> golite::TypeComponent::resolveChildren() {
     std::vector<golite::TypeComposite*> children;
-    for(size_t i=0; i < children_.size(); i++) {
-        if(i == children_.size() - 1) {
-            std::vector<golite::TypeComposite*> resolved_children = children_[i]->resolveChildren();
-            children.insert(children.end(), resolved_children.begin(), resolved_children.end());
-        } else {
+    if(children_.size() == 1) {
+        std::vector<golite::TypeComposite*> resolved_children = children_.back()->resolveChildren();
+        children.insert(children.end(), resolved_children.begin(), resolved_children.end());
+    } else {
+        for(size_t i=0; i < children_.size(); i++) {
             children.push_back(children_[i]);
         }
     }
@@ -232,9 +238,100 @@ golite::TypeComponent* golite::TypeComponent::resolveFunc() {
     return func->getTypeComponent();
 }
 
-bool golite::TypeComponent::isPointer() {
-    if(!children_.empty()) {
-        return children_.back()->isPointer();
+std::string golite::TypeComponent::toTypeScript(int indent) {
+    std::stringstream ss;
+    std::stringstream ss_start;
+    std::stringstream ss_end;
+    for(size_t i=children_.size(); i > 0; i--) {
+        if(children_[i-1]->isArray()) {
+            ss_start << "Array<";
+            ss_end << ">";
+        } else if(children_[i-1]->isSlice()) {
+            ss_start << "Slice<";
+            ss_end << ">";
+        } else if(children_[i-1]->isTypeReference() || children_[i-1]->isPointer() || children_[i-1]->isStruct()) {
+            ss_start << children_[i-1]->toTypeScript(indent);
+        }
     }
-    return false;
+    ss << ss_start.str() << ss_end.str();
+    return ss.str();
+}
+
+std::string golite::TypeComponent::toTypeScriptInitializer(int indent) {
+    std::stringstream ss;
+    for(TypeComposite* child : children_) {
+        ss << child->toTypeScriptInitializer(indent);
+    }
+    return ss.str();
+}
+
+std::string golite::TypeComponent::toTypeScriptDefaultValue() {
+    if(isInt()) {
+        return "0";
+    } else if (isFloat64()) {
+        return "0.0";
+    } else if(isString()) {
+        return "\"\"";
+    } else if(isRune()) {
+        return "0";
+    } else if(isBool()) {
+        return "false";
+    } else if(isArray()) {
+        golite::Array* array = static_cast<Array*>(children_.back());
+        std::vector<TypeComposite*> sub_children = children_;
+        sub_children.pop_back();
+        TypeComponent sub_type_component(sub_children);
+        return "new " + toTypeScript(0)
+               + "(" + array->getSize()->toTypeScript(0) + ").init(" + sub_type_component.toTypeScriptDefaultValue() +  ")";
+    } else if(isSlice()) {
+        return "new " + toTypeScript(0) + "()";
+    } else if(isStruct()) {
+        return "new " + toTypeScript(0) + "()";
+    } else if(isTypeReference()) {
+        TypeReference* type_reference = static_cast<TypeReference*>(children_.front());
+        TypeComponent* resolved_type_component = new TypeComponent(type_reference->resolveChildren());
+        return resolved_type_component->toTypeScriptDefaultValue();
+    } else {
+        throw std::runtime_error("Unhandled default type script value");
+    }
+}
+
+bool golite::TypeComponent::isArray() {
+    return !children_.empty() && children_.back()->isArray();
+}
+
+bool golite::TypeComponent::isStruct() {
+    return !children_.empty() && children_.back()->isStruct();
+}
+
+bool golite::TypeComponent::resolvesToStruct() {
+    return isStruct() || (new TypeComponent(resolveChildren()))->isStruct();
+}
+
+bool golite::TypeComponent::resolvesToArray() {
+    return isArray() || (new TypeComponent(resolveChildren()))->isArray();
+}
+
+bool golite::TypeComponent::resolvesToSlice() {
+    return isSlice() || (new TypeComponent(resolveChildren()))->isSlice();
+}
+
+bool golite::TypeComponent::isSlice() {
+    return !children_.empty() && children_.back()->isSlice();
+}
+
+bool golite::TypeComponent::isTypeReference() {
+    return !children_.empty() && children_.back()->isTypeReference();
+}
+
+bool golite::TypeComponent::isPointer() {
+    return !children_.empty() && children_.back()->isPointer();
+}
+
+bool golite::TypeComponent::isFunc() {
+    return !children_.empty() && children_.back()->isFunc();
+}
+
+bool golite::TypeComponent::isCast() {
+    return !children_.empty() && children_.back()->isCast();
 }

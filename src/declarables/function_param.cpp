@@ -30,6 +30,22 @@ void golite::FunctionParam::symbolTablePass(SymbolTable *root) {
             variable->setIdentifiers({identifier});
             variable->setTypeComponent(type_component_);
             root->putSymbol(identifier->getName(), variable);
+            identifier->setSymbolTable(root);
         }
     }
+}
+
+std::string golite::FunctionParam::toTypeScript(int indent) {
+    std::stringstream ss;
+    for(size_t i=0; i < identifiers_.size(); i++) {
+        if(i != 0) {
+            ss << ", ";
+        }
+        ss << identifiers_[i]->toTypeScript(0) << " : " << type_component_->toTypeScript(0);
+    }
+    return ss.str();
+}
+
+std::string golite::FunctionParam::toTypeScriptInitializer(int indent) {
+    return type_component_->toTypeScriptInitializer(indent);
 }

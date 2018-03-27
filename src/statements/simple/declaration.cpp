@@ -105,8 +105,6 @@ void golite::Declaration::symbolTablePass(SymbolTable *root) {
             Declarable* existing_dec = root->getSymbol(id->getName(), false);
             if(!existing_dec) {
                 new_var = true;
-
-                // FIXME Issue #39
                 golite::Variable* var_decl = new golite::Variable();
                 var_decl->setIdentifiers({ id });
                 var_decl->setExpressions({ right_expressions_[i] });
@@ -128,4 +126,44 @@ void golite::Declaration::symbolTablePass(SymbolTable *root) {
     if(!new_var) {
         golite::Utils::error_message("no new variables on left side of :=", this->getLine());
     }
+}
+
+std::string golite::Declaration::toTypeScript(int indent) {
+    std::stringstream ss_ids;
+    std::stringstream ss_exprs;
+    std::stringstream ss;
+    ss << golite::Utils::blockComment({"Declaration group of size " + std::to_string(left_identifiers_.size())},
+                                      indent, getLine()) << std::endl;
+    for(size_t i=0; i < left_identifiers_.size(); i++) {
+        ss << golite::Utils::indent(indent) << "var ";
+
+        if(left_identifiers_[i]->isBlank()) {
+            ss << "_";
+        } else {
+            golite::PrimaryExpression* id_prim = static_cast<golite::PrimaryExpression*>(left_identifiers_[i]);
+            golite::Identifier* id = static_cast<golite::Identifier*>(id_prim->getChildren().back());
+            golite::Variable* id_var = static_cast<Variable*>(id->getSymbolTableEntry());
+            ss << id->toTypeScript(0) << " : " << id_var->getTypeComponent()->toTypeScript(0);
+        }
+        ss << ";" << std::endl;
+    }
+
+    if(left_identifiers_.size() > 1) {
+        ss_ids << "[";
+        ss_exprs << "[";
+    }
+    for(size_t i=0; i < left_identifiers_.size(); i++) {
+        if(i != 0) {
+            ss_ids << ", ";
+            ss_exprs << ", ";
+        }
+        ss_ids << left_identifiers_[i]->toTypeScript(0);
+        ss_exprs << right_expressions_[i]->toTypeScript(0);
+    }
+    if(left_identifiers_.size() > 1) {
+        ss_ids << "]";
+        ss_exprs << "]";
+    }
+    ss << golite::Utils::indent(indent) << ss_ids.str() << " = " << ss_exprs.str() << std::endl;
+    return ss.str();
 }

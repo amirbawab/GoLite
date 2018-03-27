@@ -114,6 +114,17 @@ namespace golite {
          * @see Expression::isBinary()
          */
         bool isBinary() { return true; }
+
+        /**
+         * @see Expression::toTypeScript()
+         */
+        std::string toTypeScript(int indent);
+
+        /**
+         * @see Expression::toTypeScriptInitializer()
+         */
+        std::string toTypeScriptInitializer(int indent);
+
     private:
 
         // expression + ...

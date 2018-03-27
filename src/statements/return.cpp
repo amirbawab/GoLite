@@ -58,3 +58,13 @@ void golite::Return::checkReturn(Declarable *function) {
 bool golite::Return::isTerminating() {
     return true;
 }
+
+std::string golite::Return::toTypeScript(int indent) {
+    std::stringstream ss;
+    ss << golite::Utils::indent(indent) << "return";
+    if(expression_) {
+        ss << " " << expression_->toTypeScript(0);
+    }
+    ss << ";";
+    return ss.str();
+}

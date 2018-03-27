@@ -52,6 +52,16 @@ namespace golite {
          * @see Primary::isIndex()
          */
         bool isIndex() { return true; }
+
+        /**
+         * @see Expression::toTypeScript()
+         */
+        std::string toTypeScript(int indent);
+
+        /**
+         * @see Expression::toTypeScriptInitializer()
+         */
+        std::string toTypeScriptInitializer(int indent);
     };
 }
 

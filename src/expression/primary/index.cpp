@@ -32,3 +32,13 @@ golite::TypeComponent* golite::Index::typeCheck() {
 void golite::Index::symbolTablePass(SymbolTable *root) {
     expression_->symbolTablePass(root);
 }
+
+std::string golite::Index::toTypeScript(int indent) {
+    std::stringstream ss;
+    ss << ".check(" << expression_->toTypeScript(0) << ")[" << expression_->toTypeScript(0) << "]";
+    return ss.str();
+}
+
+std::string golite::Index::toTypeScriptInitializer(int indent) {
+    return expression_->toTypeScriptInitializer(indent);
+}

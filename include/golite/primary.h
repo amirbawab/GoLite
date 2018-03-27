@@ -25,6 +25,11 @@ namespace golite {
          * @return true if it is
          */
         virtual bool isAppend() { return false; }
+
+        /**
+         * @see Expression::toTypeScriptInitializer()
+         */
+        virtual std::string toTypeScriptInitializer(int indent) = 0;
     };
 }
 

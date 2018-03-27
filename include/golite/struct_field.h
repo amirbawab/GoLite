@@ -67,6 +67,13 @@ namespace golite {
          * @return true if it is
          */
         bool isRecursive(Type* type);
+
+        /**
+         * Convert to type script
+         * @param indent
+         * @return code
+         */
+        std::string toTypeScript(int indent);
     };
 }
 

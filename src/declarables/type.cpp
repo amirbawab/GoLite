@@ -30,6 +30,7 @@ void golite::Type::symbolTablePass(SymbolTable *root) {
 
     if(!identifier_->isBlank()) {
         root->putSymbol(this->identifier_->getName(), this);
+        identifier_->symbolTablePass(root);
         type_component_->symbolTablePass(root);
 
         // Check for recursion
@@ -72,4 +73,33 @@ bool golite::Type::isSelfReferring() {
         }
     }
     return false;
+}
+
+std::string golite::Type::toTypeScript(int indent) {
+    std::stringstream ss;
+    std::stringstream ss_pre;
+    std::stringstream ss_post;
+    static long count = 1;
+    if(!identifier_->isBlank()) {
+        ss_post << type_component_->toTypeScriptInitializer(indent);
+        ss_post << golite::Utils::blockComment({"Type " + identifier_->getName() + " was renamed to "
+                                           + identifier_->toTypeScript(0)},
+                                          indent, identifier_->getLine()) << std::endl;
+        ss_post << golite::Utils::indent(indent) << "type " << identifier_->toTypeScript(0) << " = ";
+        if(isSelfReferring()) {
+            std::string class_name = "self_" + std::to_string(count++);
+            ss_pre << golite::Utils::blockComment({"Class solving circular type declaration"}, indent, getLine())
+                   << std::endl << golite::Utils::indent(indent) << "class " << class_name << " extends "
+                   << type_component_->toTypeScript(0) << " {};" << std::endl << std::endl;
+            ss_post << class_name;
+        } else {
+            ss_post << type_component_->toTypeScript(indent);
+        }
+        ss_post << ";";
+    } else {
+        ss_post << golite::Utils::codeNotGenerated(toGoLite(0), indent, getLine());
+    }
+    ss_post << std::endl;
+    ss << ss_pre.str() << ss_post.str();
+    return ss.str();
 }

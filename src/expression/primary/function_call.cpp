@@ -2,6 +2,7 @@
 #include <golite/utils.h>
 #include <golite/pretty_helper.h>
 #include <golite/primary_expression.h>
+#include <golite/ts_helper.h>
 
 std::string golite::FunctionCall::toGoLite(int indent) {
     std::stringstream ss;
@@ -68,4 +69,26 @@ void golite::FunctionCall::symbolTablePass(SymbolTable *root) {
     for(Expression* arg : args_) {
         arg->symbolTablePass(root);
     }
+}
+
+std::string golite::FunctionCall::toTypeScript(int indent) {
+    std::stringstream ss;
+    ss << "(";
+    for(size_t i=0; i < args_.size(); i++) {
+        if(i != 0) {
+            ss << ", ";
+        }
+        ss << args_[i]->toTypeScript(0)
+           << golite::TSHelper::cloneObject(args_[i]->typeCheck());
+    }
+    ss << ")";
+    return ss.str();
+}
+
+std::string golite::FunctionCall::toTypeScriptInitializer(int indent) {
+    std::stringstream ss;
+    for(Expression* arg : args_) {
+        ss << arg->toTypeScriptInitializer(indent);
+    }
+    return ss.str();
 }

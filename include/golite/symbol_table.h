@@ -12,13 +12,14 @@ namespace golite {
     class SymbolTable {
     private:
         SymbolTable* parent_ = nullptr;
+        std::string name_;
         std::map<std::string, SymbolTable*> tables_;
         std::map<std::string, Declarable*> entries_;
         std::vector<std::string> entries_keys_;
         const std::string init_prefix = "~init~";
 
     public:
-        SymbolTable(SymbolTable* parent);
+        SymbolTable(SymbolTable* parent, std::string name);
 
         /**
          * Puts a new symbol in this sym table
@@ -78,6 +79,12 @@ namespace golite {
          * @return string
          */
         std::string toPrettySymbol(int indent);
+
+        /**
+         * Get absolute name
+         * @return absolute name
+         */
+        std::string getAbsoluteName();
     };
 }
 

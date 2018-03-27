@@ -105,6 +105,12 @@ namespace golite {
         virtual bool isSimpleExpression() { return false; }
 
         /**
+         * Empty statement overrides this function
+         * @return true for empty statements
+         */
+        virtual bool isEmpty() { return false; }
+
+        /**
          * Perform type checking
          */
         virtual void typeCheck() = 0;
@@ -132,6 +138,12 @@ namespace golite {
          * @return true if it is
          */
         virtual bool isTerminating() { return false; }
+
+        /**
+         * Generate typescript code
+         * @return code
+         */
+        virtual std::string toTypeScript(int indent) = 0;
     };
 }
 

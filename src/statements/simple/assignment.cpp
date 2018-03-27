@@ -4,6 +4,7 @@
 #include <golite/primary_expression.h>
 #include <golite/variable.h>
 #include <iostream>
+#include <golite/ts_helper.h>
 
 std::string golite::Assignment::toGoLite(int indent) {
     std::stringstream ss;
@@ -90,8 +91,6 @@ void golite::Assignment::typeCheck() {
     for(size_t i=0; i < left_expressions_.size(); i++) {
         Expression* left_operand = left_expressions_[i];
         Expression* right_operand = right_expressions_[i];
-
-        // TODO Check if is addressable
 
         TypeComponent* right_type = right_operand->typeCheck();
         // Ignore case of blank identifier on the left
@@ -183,4 +182,85 @@ void golite::Assignment::symbolTablePass(SymbolTable *root) {
     for(golite::Expression* expr : this->right_expressions_) {
         expr->symbolTablePass(root);
     }
+}
+
+std::string golite::Assignment::toTypeScript(int indent) {
+    std::stringstream ss_ids;
+    std::stringstream ss_exprs;
+    std::stringstream ss;
+
+    // Init expressions from left to right
+    for(size_t i=0; i < left_expressions_.size(); i++) {
+        ss << left_expressions_[i]->toTypeScriptInitializer(indent);
+    }
+    for(size_t i=0; i < left_expressions_.size(); i++) {
+        ss << right_expressions_[i]->toTypeScriptInitializer(indent);
+    }
+
+    ss << golite::Utils::blockComment({"Assignment group of size " + std::to_string(left_expressions_.size())},
+                                      indent, getLine()) << std::endl;
+    ss_ids << golite::Utils::indent(indent);
+    if(left_expressions_.size() > 1) {
+        ss_ids << "[";
+        ss_exprs << "[";
+    }
+    for(size_t i=0; i < left_expressions_.size(); i++) {
+        if(i != 0) {
+            ss_ids << ", ";
+            ss_exprs << ", ";
+        }
+        ss_ids << left_expressions_[i]->toTypeScript(0);
+        ss_exprs << right_expressions_[i]->toTypeScript(0)
+                 << golite::TSHelper::cloneObject(right_expressions_[i]->typeCheck());
+    }
+    if(left_expressions_.size() > 1) {
+        ss_ids << "]";
+        ss_exprs << "]";
+    }
+    ss << ss_ids.str();
+
+    switch (kind_) {
+        case EQUAL:
+            ss << " = ";
+            break;
+        case PLUS_EQUAL:
+            ss << " += ";
+            break;
+        case MINUS_EQUAL:
+            ss << " -= ";
+            break;
+        case MULTIPLY_EQUAL:
+            ss << " *= ";
+            break;
+        case DIVIDE_EQUAL:
+            ss << " /= ";
+            break;
+        case MODULO_EQUAL:
+            ss << " %= ";
+            break;
+        case LEFT_SHIFT_EQUAL:
+            ss << " <<= ";
+            break;
+        case RIGHT_SHIFT_EQUAL:
+            ss << " >>= ";
+            break;
+        case BIT_AND_EQUAL:
+            ss << " &= ";
+            break;
+        case BIT_OR_EQUAL:
+            ss << " |= ";
+            break;
+        case BIT_XOR_EQUAL:
+            ss << " ^= ";
+            break;
+        case BIT_CLEAR_EQUAL:
+            ss << " &= ";
+    }
+    if(kind_ == KIND::BIT_CLEAR_EQUAL) {
+        ss  << "~(" << ss_exprs.str() << ")";
+    } else {
+        ss << ss_exprs.str();
+    }
+    ss << ";" << std::endl;
+    return ss.str();
 }

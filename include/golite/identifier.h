@@ -9,6 +9,7 @@ namespace golite {
     private:
         static std::string BLANK;
         std::string name_;
+        std::string ts_name_;
         int line_;
         SymbolTable* symbol_table_ = nullptr;
     public:
@@ -74,6 +75,22 @@ namespace golite {
          * @see Expression::isCasting()
          */
         bool isCasting();
+
+        /**
+         * @see Expression::toTypeScript()
+         */
+        std::string toTypeScript(int indent);
+
+        /**
+         * @see Expression::toTypeScriptInitializer()
+         */
+        std::string toTypeScriptInitializer(int indent);
+
+        /**
+         * Set symbol table
+         * @param symbol_table
+         */
+        void setSymbolTable(SymbolTable* symbol_table) { symbol_table_ = symbol_table; }
     };
 }
 

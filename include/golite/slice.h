@@ -69,6 +69,16 @@ namespace golite {
          * @see TypeComposite::isRecursive()
          */
         bool isRecursive(Type* type) { return false; }
+
+        /**
+         * @see TypeComposite::toTypeScript()
+         */
+        std::string toTypeScript(int indent);
+
+        /**
+         * @see TypeComposite::toTypeScriptInitializer()
+         */
+        std::string toTypeScriptInitializer(int indent);
     };
 }
 

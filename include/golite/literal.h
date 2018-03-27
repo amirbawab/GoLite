@@ -5,6 +5,7 @@
 #include <golite/primary.h>
 #include <golite/utils.h>
 #include <sstream>
+#include <regex>
 
 namespace golite {
     template <class T>
@@ -30,6 +31,8 @@ namespace golite {
         void symbolTablePass(SymbolTable* root) { /*Do nothing*/ }
         bool getValue() { return value_; }
         bool isLiteral() { return true; }
+        std::string toTypeScript(int indent) { return std::string((value_ ? "true" : "false")); }
+        std::string toTypeScriptInitializer(int indent) { return std::string(); }
     };
 
     template <>
@@ -52,15 +55,18 @@ namespace golite {
         void symbolTablePass(SymbolTable* root) { /*Do nothing*/ }
         int getValue() { return value_; }
         bool isLiteral() { return true; }
+        std::string toTypeScript(int indent) { return std::to_string(value_); }
+        std::string toTypeScriptInitializer(int indent) { return std::string(); }
     };
 
     template <>
     class Literal<char*> : public Primary {
     private:
         char* value_;
-        bool f_rune_ = false;
         int line_;
     public:
+        bool f_rune_ = false;
+        bool f_raw_ = false;
         Literal(char* value, int line) : value_(value), line_(line){}
         std::string toGoLite(int indent) {
             std::stringstream ss;
@@ -78,7 +84,48 @@ namespace golite {
         void symbolTablePass(SymbolTable* root) { /*Do nothing*/ }
         char* getValue() { return value_; }
         bool isLiteral() { return true; }
-        void setRune(bool f_rune) { f_rune_ = f_rune; }
+        std::string toTypeScript(int indent) {
+            // Rune
+            if(f_rune_) {
+                return std::string(value_) + ".charCodeAt(0)";
+            }
+
+            // Raw string
+            if(f_raw_) {
+                std::string val;
+                val = std::regex_replace(value_, std::regex("\\\\"), "\\\\");
+                val = std::regex_replace(val, std::regex("\n"), "\\n");
+                val[0] = '"';
+                val[val.size()-1] = '"';
+                return val;
+            }
+
+            // Interpreted string
+            std::stringstream ss;
+            bool escape = false;
+            std::string org_value = std::string(value_);
+            for(size_t i=0; i < org_value.size(); i++) {
+                if(!escape && org_value[i] == '\\') {
+                    ss << org_value[i];
+                    escape = true;
+                } else {
+                    // \Convert unsupported escape characters in TypeScript
+                    // instead replace them with their hex value
+                    if(escape) {
+                        if(org_value[i] == 'a') {
+                            ss << "x07";
+                        } else {
+                            ss << org_value[i];
+                        }
+                    } else {
+                        ss << org_value[i];
+                    }
+                    escape = false;
+                }
+            }
+            return ss.str();
+        }
+        std::string toTypeScriptInitializer(int indent) { return std::string(); }
     };
 
     template <>
@@ -101,6 +148,8 @@ namespace golite {
         void symbolTablePass(SymbolTable* root) { /*Do nothing*/ }
         float getValue() { return value_; }
         bool isLiteral() { return true; }
+        std::string toTypeScript(int indent) { return std::to_string(value_); }
+        std::string toTypeScriptInitializer(int indent) { return std::string(); }
     };
 }
 

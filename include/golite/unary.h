@@ -69,6 +69,16 @@ namespace golite {
          * @see Expression::isUnary()
          */
         bool isUnary() { return true; }
+
+        /**
+         * @see Expression::toTypeScript()
+         */
+        std::string toTypeScript(int indent);
+
+        /**
+         * @see Expression::toTypeScriptInitializer()
+         */
+        std::string toTypeScriptInitializer(int indent);
     private:
         Expression* operand_ = nullptr;
         KIND kind_;
