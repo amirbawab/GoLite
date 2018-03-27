@@ -81,7 +81,9 @@ void golite::For::typeCheck() {
 }
 
 void golite::For::symbolTablePass(SymbolTable *root) {
-    SymbolTable* for_outer_table = new SymbolTable(root, "_for_o_");
+    static long count = 1;
+    std::string for_name_prefix = "_for_" + std::to_string(count++);
+    SymbolTable* for_outer_table = new SymbolTable(root, for_name_prefix + "_o");
     if(left_simple_) {
         left_simple_->symbolTablePass(for_outer_table);
     }
@@ -94,7 +96,7 @@ void golite::For::symbolTablePass(SymbolTable *root) {
         right_simple_->symbolTablePass(for_outer_table);
     }
 
-    SymbolTable* for_inner_table = new SymbolTable(for_outer_table, "_for_i_");
+    SymbolTable* for_inner_table = new SymbolTable(for_outer_table, for_name_prefix + "_i");
     this->block_->symbolTablePass(for_inner_table);
 }
 

@@ -50,11 +50,12 @@ void golite::SwitchCase::typeCheck(TypeComponent* switch_expression_type) {
 }
 
 void golite::SwitchCase::symbolTablePass(SymbolTable *root) {
+    static long count = 1;
     for(golite::Expression* expr : this->expressions_) {
         expr->symbolTablePass(root);
     }
 
-    SymbolTable* block_table = new SymbolTable(root, "_case_");
+    SymbolTable* block_table = new SymbolTable(root, "_case_" + std::to_string(count++));
     block_->symbolTablePass(block_table);
 }
 
