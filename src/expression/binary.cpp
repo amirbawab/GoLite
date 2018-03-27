@@ -240,9 +240,6 @@ std::string golite::Binary::toTypeScript(int indent) {
         case BIT_XOR:
             ss << " ^ ";
             break;
-        case BIT_CLEAR:
-            ss << " &^ ";  // TODO
-            break;
         case LEFT_SHIFT:
             ss << " << ";
             break;
@@ -274,7 +271,13 @@ std::string golite::Binary::toTypeScript(int indent) {
             ss << " || ";
             break;
     }
-    ss << right_operand_->toTypeScript(0) << ")";
+
+    if(kind_ == KIND::BIT_CLEAR) {
+        ss << " & ~(" << right_operand_->toTypeScript(0) << ")";
+    } else {
+        ss << right_operand_->toTypeScript(0);
+    }
+    ss << ")";
     return ss.str();
 }
 

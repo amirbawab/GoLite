@@ -256,10 +256,12 @@ std::string golite::Assignment::toTypeScript(int indent) {
         case BIT_XOR_EQUAL:
             ss << " ^= ";
             break;
-        case BIT_CLEAR_EQUAL:
-            ss << " &^= ";
-            break;
     }
-    ss << ss_exprs.str() << ";" << std::endl;
+    if(kind_ == KIND::BIT_CLEAR_EQUAL) {
+        ss  << " &= ~(" << ss_exprs.str() << ")";
+    } else {
+        ss << ss_exprs.str();
+    }
+    ss << ";" << std::endl;
     return ss.str();
 }
