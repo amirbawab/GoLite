@@ -105,6 +105,12 @@ namespace golite {
         virtual bool isSimpleExpression() { return false; }
 
         /**
+         * Empty statement overrides this function
+         * @return true for empty statements
+         */
+        virtual bool isEmpty() { return false; }
+
+        /**
          * Perform type checking
          */
         virtual void typeCheck() = 0;

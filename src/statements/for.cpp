@@ -119,7 +119,7 @@ bool golite::For::isTerminating() {
 
 std::string golite::For::toTypeScript(int indent) {
     std::stringstream ss;
-    if(left_simple_) {
+    if(!left_simple_->isEmpty()) {
         ss << left_simple_->toTypeScript(indent) << std::endl;
     }
     ss << golite::Utils::blockComment({"For statement"}, indent, getLine()) << std::endl;
@@ -130,13 +130,13 @@ std::string golite::For::toTypeScript(int indent) {
         ss << "true";
     }
     ss << ") {";
-    if(!block_->getStatements().empty()) {
+    if(!right_simple_->isEmpty() || !block_->getStatements().empty()) {
         ss << std::endl;
-        for(Statement* statement : block_->getStatements()) {
-            ss << statement->toTypeScript(indent+1) << std::endl;
-        }
     }
-    if(right_simple_) {
+    for(Statement* statement : block_->getStatements()) {
+        ss << statement->toTypeScript(indent+1) << std::endl;
+    }
+    if(!right_simple_->isEmpty()) {
         ss << right_simple_->toTypeScript(indent+1) << std::endl;
         ss << golite::Utils::indent(indent);
     }

@@ -36,6 +36,11 @@ namespace golite {
          * @see Statement::toTypeScript()
          */
         std::string toTypeScript(int indent);
+
+        /**
+         * @see Statement::isEmpty
+         */
+        bool isEmpty() { return true; }
     };
 }
 
