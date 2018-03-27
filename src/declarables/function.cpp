@@ -115,6 +115,7 @@ int golite::Function::getLine() {
 
 std::string golite::Function::toTypeScript(int indent) {
     std::stringstream ss;
+    static long count = 1;
     if (!identifier_->isBlank()) {
 
         // TypeScript initializer
@@ -124,11 +125,16 @@ std::string golite::Function::toTypeScript(int indent) {
         }
 
         // Generate function code
+        std::string func_name;
+        if(identifier_->getName() == golite::Program::INIT_FUNC_NAME) {
+            func_name = "init_" + std::to_string(count++) + "_";
+        }
+        func_name += identifier_->toTypeScript(0);
         ss << golite::Utils::blockComment({"Function " + identifier_->getName() + " was renamed to "
-                                           + identifier_->toTypeScript(0)}, indent,
+                                           + func_name}, indent,
                                           identifier_->getLine()) << std::endl;
-        ss << golite::Utils::indent(indent) << "function " << identifier_->toTypeScript(0)
-           << "(";
+        ss << golite::Utils::indent(indent) << "function ";
+        ss << func_name << "(";
         for(size_t i=0; i < params_.size(); i++) {
             if(i != 0) {
                 ss << ", ";
@@ -144,10 +150,13 @@ std::string golite::Function::toTypeScript(int indent) {
             }
             ss << golite::Utils::indent(indent);
         }
-        ss << "}";
+        ss << "}" << std::endl;
+        if(identifier_->getName() == golite::Program::INIT_FUNC_NAME) {
+            ss << std::endl << golite::Utils::indent(indent) << "// Call init() function" << std::endl;
+            ss << golite::Utils::indent(indent) << func_name << "();" << std::endl;
+        }
     } else {
-        ss << golite::Utils::codeNotGenerated(toGoLite(0), indent, getLine());
+        ss << golite::Utils::codeNotGenerated(toGoLite(0), indent, getLine()) << std::endl;
     }
-    ss << std::endl;
     return ss.str();
 }
