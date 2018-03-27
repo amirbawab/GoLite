@@ -111,8 +111,12 @@ namespace golite {
                 } else {
                     // \Convert unsupported escape characters in TypeScript
                     // instead replace them with their hex value
-                    if(org_value[i] == 'a') {
-                        ss << "x07";
+                    if(escape) {
+                        if(org_value[i] == 'a') {
+                            ss << "x07";
+                        } else {
+                            ss << org_value[i];
+                        }
                     } else {
                         ss << org_value[i];
                     }
