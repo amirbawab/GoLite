@@ -92,8 +92,6 @@ void golite::Assignment::typeCheck() {
         Expression* left_operand = left_expressions_[i];
         Expression* right_operand = right_expressions_[i];
 
-        // TODO Check if is addressable
-
         TypeComponent* right_type = right_operand->typeCheck();
         // Ignore case of blank identifier on the left
         if(!left_operand->isBlank()) {
@@ -221,7 +219,6 @@ std::string golite::Assignment::toTypeScript(int indent) {
     }
     ss << ss_ids.str();
 
-    // TODO Verify that all  of them work
     switch (kind_) {
         case EQUAL:
             ss << " = ";
@@ -256,9 +253,11 @@ std::string golite::Assignment::toTypeScript(int indent) {
         case BIT_XOR_EQUAL:
             ss << " ^= ";
             break;
+        case BIT_CLEAR_EQUAL:
+            ss << " &= ";
     }
     if(kind_ == KIND::BIT_CLEAR_EQUAL) {
-        ss  << " &= ~(" << ss_exprs.str() << ")";
+        ss  << "~(" << ss_exprs.str() << ")";
     } else {
         ss << ss_exprs.str();
     }

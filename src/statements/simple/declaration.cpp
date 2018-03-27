@@ -105,8 +105,6 @@ void golite::Declaration::symbolTablePass(SymbolTable *root) {
             Declarable* existing_dec = root->getSymbol(id->getName(), false);
             if(!existing_dec) {
                 new_var = true;
-
-                // FIXME Issue #39
                 golite::Variable* var_decl = new golite::Variable();
                 var_decl->setIdentifiers({ id });
                 var_decl->setExpressions({ right_expressions_[i] });

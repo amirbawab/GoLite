@@ -93,8 +93,6 @@ std::string golite::Program::toTypeScript(int indent) {
         ss << declarable->toTypeScript(indent) << std::endl;
     }
 
-    // TODO Call all init
-
     // Call main function
     Declarable* main_dec = program_symbol_table_->getSymbol(Program::MAIN_FUNC_NAME);
     if(main_dec) {

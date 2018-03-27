@@ -270,10 +270,12 @@ std::string golite::Binary::toTypeScript(int indent) {
         case OR:
             ss << " || ";
             break;
+        case BIT_CLEAR:
+            ss << " & ";
     }
 
     if(kind_ == KIND::BIT_CLEAR) {
-        ss << " & ~(" << right_operand_->toTypeScript(0) << ")";
+        ss << "~(" << right_operand_->toTypeScript(0) << ")";
     } else {
         ss << right_operand_->toTypeScript(0);
     }
