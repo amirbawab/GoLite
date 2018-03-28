@@ -120,11 +120,14 @@ bool golite::For::isTerminating() {
 }
 
 std::string golite::For::toTypeScript(int indent) {
+    static long count = 1;
     std::stringstream ss;
+    std::string while_counter = "while_" + std::to_string(count);
     if(left_simple_ && !left_simple_->isEmpty()) {
         ss << left_simple_->toTypeScript(indent) << std::endl;
     }
     ss << golite::Utils::blockComment({"For statement"}, indent, getLine()) << std::endl;
+    ss << golite::Utils::indent(indent) << "var " << while_counter << " : number = 0;" << std::endl;
     ss << golite::Utils::indent(indent) << "while (";
     if(expression_) {
         ss << expression_->toTypeScript(0);
@@ -132,15 +135,17 @@ std::string golite::For::toTypeScript(int indent) {
         ss << "true";
     }
     ss << ") {";
-    if((right_simple_ && !right_simple_->isEmpty()) || !block_->getStatements().empty()) {
-        ss << std::endl;
-    }
-    for(Statement* statement : block_->getStatements()) {
-        ss << statement->toTypeScript(indent+1) << std::endl;
-    }
     if(right_simple_ && !right_simple_->isEmpty()) {
-        ss << right_simple_->toTypeScript(indent+1) << std::endl;
-        ss << golite::Utils::indent(indent);
+        ss << std::endl << golite::Utils::indent(indent+1) << "if (" << while_counter << " != 0) {" << std::endl;
+        ss << right_simple_->toTypeScript(indent+2) << std::endl;
+        ss << golite::Utils::indent(indent+1) << "}" << std::endl;
+        ss << golite::Utils::indent(indent+1) << "++" << while_counter << std::endl;
+    }
+    if(!block_->getStatements().empty()) {
+        ss << std::endl;
+        for(Statement* statement : block_->getStatements()) {
+            ss << statement->toTypeScript(indent+1) << std::endl;
+        }
     }
     ss << "}";
     return ss.str();
