@@ -55,5 +55,6 @@ std::string golite::IncDec::toTypeScript(int indent) {
     } else {
         ss << "--";
     }
+    ss << std::endl;
     return ss.str();
 }

@@ -121,33 +121,37 @@ bool golite::For::isTerminating() {
 
 std::string golite::For::toTypeScript(int indent) {
     static long count = 1;
+    std::string for_func = "for_" + std::to_string(count++);
     std::stringstream ss;
-    std::string while_counter = "while_" + std::to_string(count);
+
+    // Process pre-statement
     if(left_simple_ && !left_simple_->isEmpty()) {
         ss << left_simple_->toTypeScript(indent) << std::endl;
     }
+
+    // Create function for post-statement
+    ss << golite::Utils::blockComment({"For loop initial statement", "Promoted to function"}, indent, getLine())
+       << std::endl;
+    ss << golite::Utils::indent(indent) << "function " << for_func << "() : void {";
+    if(right_simple_ && !right_simple_->isEmpty()) {
+        ss << std::endl;
+        ss << right_simple_->toTypeScript(indent+1);
+        ss << golite::Utils::indent(indent);
+    }
+    ss << "}" << std::endl << std::endl;
+
+    // Generate for loop code
     ss << golite::Utils::blockComment({"For statement"}, indent, getLine()) << std::endl;
-    ss << golite::Utils::indent(indent) << "var " << while_counter << " : number = 0;" << std::endl;
-    ss << golite::Utils::indent(indent) << "while (";
+    ss << golite::Utils::indent(indent) << "for (;";
     if(expression_) {
         ss << expression_->toTypeScript(0);
-    } else {
-        ss << "true";
     }
-    ss << ") {";
-    if(right_simple_ && !right_simple_->isEmpty()) {
-        ss << std::endl << golite::Utils::indent(indent+1) << "if (" << while_counter << " != 0) {" << std::endl;
-        ss << right_simple_->toTypeScript(indent+2) << std::endl;
-        ss << golite::Utils::indent(indent+1) << "}" << std::endl;
-        ss << golite::Utils::indent(indent+1) << "++" << while_counter << std::endl;
-    }
+    ss << "; " << for_func << "()" << ") {";
     if(!block_->getStatements().empty()) {
         ss << std::endl;
         for(Statement* statement : block_->getStatements()) {
             ss << statement->toTypeScript(indent+1) << std::endl;
         }
-    }
-    if(right_simple_ && !right_simple_->isEmpty() || !block_->getStatements().empty()) {
         ss << golite::Utils::indent(indent);
     }
     ss << "}";
