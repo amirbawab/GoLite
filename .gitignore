@@ -6,3 +6,5 @@ build/
 grading/
 grading.sh
 *.js
+node_modules/
+package-lock.json
