@@ -5,6 +5,7 @@ build/
 *.log
 grading/
 grading.sh
+*.ts
 *.js
 node_modules/
 package-lock.json
