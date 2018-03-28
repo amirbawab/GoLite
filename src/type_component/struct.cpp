@@ -144,7 +144,7 @@ std::string golite::Struct::toTypeScriptInitializer(int indent) {
     if(!fields_.empty()) {
         for(StructField *field : fields_) {
             ss_pre << field->getTypeComponent()->toTypeScriptInitializer(indent);
-            ss_post << field->toTypeScript(indent+1) << std::endl;
+            ss_post << field->toTypeScript(indent+1);
         }
     }
     ss_post << golite::Utils::indent(indent+1) << "clone = () : " << name_ << " => {" << std::endl
@@ -156,10 +156,33 @@ std::string golite::Struct::toTypeScriptInitializer(int indent) {
                     << ";" << std::endl;
         }
     }
-
     ss_post << golite::Utils::indent(indent+2) << "return obj;" << std::endl
-            << golite::Utils::indent(indent+1) << "}" << std::endl
-            << golite::Utils::indent(indent) << "};";
+            << golite::Utils::indent(indent+1) << "}" << std::endl;
+
+    ss_post << golite::Utils::indent(indent+1) << "equals = (obj : " << name_ << ") : boolean => {" << std::endl
+            << golite::Utils::indent(indent+2) << "return ";
+    if(fields_.empty()) {
+        ss_post << "true" << std::endl;
+    } else {
+        size_t k = 0;
+        for(size_t i=0; i < fields_.size(); i++) {
+            for(Identifier* identifier : fields_[i]->getIdentifiers()) {
+                if(k != 0) {
+                    ss_post << std::endl << golite::Utils::indent(indent+3) << "   && ";
+                }
+                if(golite::TSHelper::isObject(fields_[i]->getTypeComponent())) {
+                    ss_post << "this." << identifier->getName()
+                            << ".equals(obj." << identifier->getName() << ")";
+                } else {
+                    ss_post << "this." << identifier->getName() << " === obj." << identifier->getName();
+                }
+                k++;
+            }
+        }
+        ss_post << ";" << std::endl;
+    }
+    ss_post << golite::Utils::indent(indent+1) << "}" << std::endl;
+    ss_post << golite::Utils::indent(indent) << "};";
     ss << ss_pre.str();
     ss << golite::Utils::blockComment({"Class representing a struct"}, indent, getLine()) << std::endl;
     ss << ss_post.str() << std::endl << std::endl;

@@ -37,7 +37,7 @@ std::string golite::StructField::toTypeScript(int indent) {
     for(Identifier* identifier : identifiers_) {
         ss << golite::Utils::indent(indent) << identifier->getName()
            << " : " << type_component_->toTypeScript(indent)
-           << " = " << type_component_->toTypeScriptDefaultValue();
+           << " = " << type_component_->toTypeScriptDefaultValue() << ";" << std::endl;
     }
     return ss.str();
 }
