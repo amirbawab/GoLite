@@ -18,7 +18,14 @@ function main() {
     else
     
         # Compier
+        GOLITE_PATH="$PWD/run.sh"
         TSC_PATH="$PWD/build/node_modules/typescript/bin/tsc"
+
+        # Check if TypeScript compiler was installed
+        if [ ! -f "$GOLITE_PATH" ]; then
+            echo "GoLite compiler was not found"
+            exit 1
+        fi
 
         # Check if TypeScript compiler was installed
         if [ ! -f "$TSC_PATH" ]; then
@@ -27,22 +34,38 @@ function main() {
         fi
 
         # Input and output files
-        IN_FILE="$1"
-        OUT_FILE="${IN_FILE%.*}.js"
+        GO_FILE="$1"
+        TS_FILE="${GO_FILE%.*}.ts"
+        JS_FILE="${TS_FILE%.*}.js"
+
+        # Compile GoLite
+        "$GOLITE_PATH" \
+            codegen \
+            "$GO_FILE" > "$TS_FILE"
+
+        # Check if GoLite compiled successfully
+        EXIT_CODE="$?"
+        if [[ $EXIT_CODE -ne 0 ]]
+        then
+            echo "!!! Error compiling GoLite"
+            exit $EXIT_CODE
+        fi
 
         # Compile TypeScript
-        tsc \
-            ./etc/typescript/stubs.ts \
-            "$IN_FILE"
+        "$TSC_PATH" \
+            "$PWD/etc/typescript/stubs.ts" \
+            "$TS_FILE"
 
-        if [[ $? -ne 0 ]]
+        # Check if TypeScript compiled successfully
+        EXIT_CODE="$?"
+        if [[ $EXIT_CODE -ne 0 ]]
         then
-            echo "Error compiling ..."
-        else
-
-            # Run code
-            node "$OUT_FILE"
+            echo "!!! Error compiling TypeScript"
+            exit $EXIT_CODE
         fi
+
+        # Run JavaScript code
+        node "$JS_FILE"
     fi
 }
 
