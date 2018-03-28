@@ -70,7 +70,7 @@ std::string golite::TSHelper::codeArrayInterface(int indent) {
        << golite::Utils::indent(indent) << "}" << std::endl
        << golite::Utils::indent(indent) << "Array.prototype.check = function(index : number) {" << std::endl
        << golite::Utils::indent(indent+1) << "if(index < 0 || index >= this.length) {" << std::endl
-       << golite::Utils::indent(indent+2) << "process.stderr.write('Index out of bound' + '\\n');" << std::endl
+       << golite::Utils::indent(indent+2) << "process.stderr.write('Error: Index out of bound' + '\\n');" << std::endl
        << golite::Utils::indent(indent+2) << "process.exit(1);" << std::endl
        << golite::Utils::indent(indent+1) << "}" << std::endl
        << golite::Utils::indent(indent+1) << "return this;" << std::endl
