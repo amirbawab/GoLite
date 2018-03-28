@@ -53,6 +53,8 @@ function main() {
 
         # Compile TypeScript
         "$TSC_PATH" \
+            --removeComments \
+            --allowUnreachableCode \
             "$PWD/etc/typescript/stubs.ts" \
             "$TS_FILE"
 
