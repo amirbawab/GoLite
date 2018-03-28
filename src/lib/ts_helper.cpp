@@ -104,7 +104,7 @@ std::string golite::TSHelper::codeArrayInterface(int indent) {
        << golite::Utils::indent(indent+3) << "if(this[i] !== array[i]) return false;" << std::endl
        << golite::Utils::indent(indent+2) << "}" << std::endl
        << golite::Utils::indent(indent+1) << "}" << std::endl
-       << golite::Utils::indent(indent+1) << "return this;" << std::endl
+       << golite::Utils::indent(indent+1) << "return true;" << std::endl
        << golite::Utils::indent(indent) << "}" << std::endl
        << std::endl;
     return ss.str();

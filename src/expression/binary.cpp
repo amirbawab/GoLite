@@ -5,6 +5,7 @@
 #include <golite/primary_expression.h>
 #include <iostream>
 #include <golite/program.h>
+#include <golite/ts_helper.h>
 
 std::string golite::Binary::toGoLite(int indent) {
     std::stringstream ss;
@@ -214,72 +215,81 @@ void golite::Binary::symbolTablePass(SymbolTable *root) {
 
 std::string golite::Binary::toTypeScript(int indent) {
     std::stringstream ss;
-    ss << "(" << left_operand_->toTypeScript(0);
-    switch (kind_){
-        case MINUS:
-            ss << " - ";
-            break;
-        case PLUS:
-            ss << " + ";
-            break;
-        case MULTIPLY:
-            ss << " * ";
-            break;
-        case DIVIDE:
-            ss << " / ";
-            break;
-        case MODULO:
-            ss << " % ";
-            break;
-        case BIT_AND:
-            ss << " & ";
-            break;
-        case BIT_OR:
-            ss << " | ";
-            break;
-        case BIT_XOR:
-            ss << " ^ ";
-            break;
-        case LEFT_SHIFT:
-            ss << " << ";
-            break;
-        case RIGHT_SHIFT:
-            ss << " >> ";
-            break;
-        case IS_EQUAL:
-            ss << " == ";
-            break;
-        case IS_NOT_EQUAL:
-            ss << " != ";
-            break;
-        case LESS_THAN:
-            ss << " < ";
-            break;
-        case LESS_THAN_EQUAL:
-            ss << " <= ";
-            break;
-        case GREATER_THAN:
-            ss << " > ";
-            break;
-        case GREATER_THAN_EQUAL:
-            ss << " >= ";
-            break;
-        case AND:
-            ss << " && ";
-            break;
-        case OR:
-            ss << " || ";
-            break;
-        case BIT_CLEAR:
-            ss << " & ";
-    }
-
-    if(kind_ == KIND::BIT_CLEAR) {
-        ss << "~(" << right_operand_->toTypeScript(0) << ")";
+    TypeComponent *type_component = left_operand_->typeCheck();
+    if (golite::TSHelper::isObject(type_component)) {
+        if (kind_ == KIND::IS_EQUAL) {
+            ss << "(" << left_operand_->toTypeScript(0) << ".equals(" << right_operand_->toTypeScript(0) << "))";
+        } else if (kind_ == KIND::IS_NOT_EQUAL) {
+            ss << "(!" << left_operand_->toTypeScript(0) << ".equals(" << right_operand_->toTypeScript(0) << "))";
+        }
     } else {
-        ss << right_operand_->toTypeScript(0);
+        ss << "(" << left_operand_->toTypeScript(0);
+        switch (kind_) {
+            case MINUS:
+                ss << " - ";
+                break;
+            case PLUS:
+                ss << " + ";
+                break;
+            case MULTIPLY:
+                ss << " * ";
+                break;
+            case DIVIDE:
+                ss << " / ";
+                break;
+            case MODULO:
+                ss << " % ";
+                break;
+            case BIT_AND:
+                ss << " & ";
+                break;
+            case BIT_OR:
+                ss << " | ";
+                break;
+            case BIT_XOR:
+                ss << " ^ ";
+                break;
+            case LEFT_SHIFT:
+                ss << " << ";
+                break;
+            case RIGHT_SHIFT:
+                ss << " >> ";
+                break;
+            case IS_EQUAL:
+                ss << " == ";
+                break;
+            case IS_NOT_EQUAL:
+                ss << " != ";
+                break;
+            case LESS_THAN:
+                ss << " < ";
+                break;
+            case LESS_THAN_EQUAL:
+                ss << " <= ";
+                break;
+            case GREATER_THAN:
+                ss << " > ";
+                break;
+            case GREATER_THAN_EQUAL:
+                ss << " >= ";
+                break;
+            case AND:
+                ss << " && ";
+                break;
+            case OR:
+                ss << " || ";
+                break;
+            case BIT_CLEAR:
+                ss << " & ";
+        }
+
+        if (kind_ == KIND::BIT_CLEAR) {
+            ss << "~(" << right_operand_->toTypeScript(0) << ")";
+        } else {
+            ss << right_operand_->toTypeScript(0);
+        }
+        ss << ")";
     }
-    ss << ")";
     return ss.str();
 }
 
