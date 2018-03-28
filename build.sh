@@ -1,6 +1,6 @@
 #/bin/bash
 
-BUILD_DIR="build/"
+BUILD_DIR="$PWD/build/"
 
 echo ">> Cleaning old build (if any)"
 rm -rf $BUILD_DIR
@@ -16,5 +16,17 @@ cmake ..
 
 echo ">> Running make ..."
 make
+
+echo ">> Installing TypeScript compiler: $PWD/$BUILD_DIR"
+npm install typescript@2.8.2 --prefix="$BUILD_DIR" > /dev/null 2>&1
+
+if [[ $? -ne 0 ]]; then
+    echo 
+    echo "#######################################################"
+    echo "# Failed to install typescript                        #"
+    echo "# You will not be able to execute the generated code  #."
+    echo "#######################################################"
+    echo
+fi
 
 echo ">> DONE"

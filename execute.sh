@@ -16,6 +16,15 @@ function main() {
     then
         printUsage
     else
+    
+        # Compier
+        TSC_PATH="$PWD/build/node_modules/typescript/bin/tsc"
+
+        # Check if TypeScript compiler was installed
+        if [ ! -f "$TSC_PATH" ]; then
+            echo "TypeScript compiler was not found"
+            exit 1
+        fi
 
         # Input and output files
         IN_FILE="$1"
