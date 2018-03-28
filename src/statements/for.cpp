@@ -133,7 +133,7 @@ std::string golite::For::toTypeScript(int indent) {
     // Create function for post-statement
     ss << golite::Utils::blockComment({"For loop condition", "Promoted to function"}, indent, getLine())
        << std::endl;
-    ss << golite::Utils::indent(indent) << "function " << for_cond << "() : boolean {";
+    ss << golite::Utils::indent(indent) << "function " << for_cond << "() : boolean {" << std::endl;
     if(expression_) {
         ss << expression_->toTypeScriptInitializer(indent+1);
         ss << golite::Utils::indent(indent+1) << "return " << expression_->toTypeScript(0) << ";" << std::endl;
