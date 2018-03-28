@@ -2,8 +2,6 @@
 #include <golite/utils.h>
 #include <golite/program.h>
 
-std::string golite::TSHelper::clone_func_name_ = "clone";
-
 bool golite::TSHelper::isObject(TypeComponent *type_component) {
     return type_component->resolvesToStruct()
            || type_component->resolvesToArray()
@@ -13,7 +11,7 @@ bool golite::TSHelper::isObject(TypeComponent *type_component) {
 std::string golite::TSHelper::cloneObject(TypeComponent *type_component) {
     std::stringstream ss;
     if(isObject(type_component)) {
-        ss << "." << getCloneCall();
+        ss << ".clone()";
     }
     return ss.str();
 }
@@ -65,8 +63,9 @@ std::string golite::TSHelper::codeArrayInterface(int indent) {
     ss << golite::Utils::blockComment({"Array interface", "Built-in interface"}, indent) << std::endl
        << golite::Utils::indent(indent) << "interface Array<T> {" << std::endl
        << golite::Utils::indent(indent+1) << "check : (index : number) => Array<T>;" << std::endl
-       << golite::Utils::indent(indent+1) << clone_func_name_ << " : () => Array<T>;" << std::endl
+       << golite::Utils::indent(indent+1) << "clone : () => Array<T>;" << std::endl
        << golite::Utils::indent(indent+1) << "init : (val : T) => Array<T>;" << std::endl
+       << golite::Utils::indent(indent+1) << "equals : (array : Array<T>) => boolean;" << std::endl
        << golite::Utils::indent(indent) << "}" << std::endl
        << golite::Utils::indent(indent) << "Array.prototype.check = function(index : number) {" << std::endl
        << golite::Utils::indent(indent+1) << "if(index < 0 || index >= this.length) {" << std::endl
@@ -75,11 +74,11 @@ std::string golite::TSHelper::codeArrayInterface(int indent) {
        << golite::Utils::indent(indent+1) << "}" << std::endl
        << golite::Utils::indent(indent+1) << "return this;" << std::endl
        << golite::Utils::indent(indent) << "}" << std::endl
-       << golite::Utils::indent(indent) << "Array.prototype." << clone_func_name_ << " = function() {" << std::endl
+       << golite::Utils::indent(indent) << "Array.prototype.clone = function() {" << std::endl
        << golite::Utils::indent(indent+1) << "var array = [];" << std::endl
        << golite::Utils::indent(indent+1) << "for(var i : number = 0; i < this.length; i++) {" << std::endl
        << golite::Utils::indent(indent+2) << "if(this[i] instanceof Object) {" << std::endl
-       << golite::Utils::indent(indent+3) << "array[i] = this[i]." << getCloneCall() <<  ";" << std::endl
+       << golite::Utils::indent(indent+3) << "array[i] = this[i].clone();" << std::endl
        << golite::Utils::indent(indent+2) << "} else {" << std::endl
        << golite::Utils::indent(indent+3) << "array[i] = this[i];" << std::endl
        << golite::Utils::indent(indent+2) << "}" << std::endl
@@ -89,9 +88,20 @@ std::string golite::TSHelper::codeArrayInterface(int indent) {
        << golite::Utils::indent(indent) << "Array.prototype.init = function (val: any) {" << std::endl
        << golite::Utils::indent(indent+1) << "for (var i: number = 0; i < this.length; i++) {" << std::endl
        << golite::Utils::indent(indent+2) << "if (val instanceof Object) {" << std::endl
-       << golite::Utils::indent(indent+3) << " this[i] = val." << getCloneCall() << ";" << std::endl
+       << golite::Utils::indent(indent+3) << " this[i] = val.clone();" << std::endl
        << golite::Utils::indent(indent+2) << "} else {" << std::endl
        << golite::Utils::indent(indent+3) << "this[i] = val;" << std::endl
+       << golite::Utils::indent(indent+2) << "}" << std::endl
+       << golite::Utils::indent(indent+1) << "}" << std::endl
+       << golite::Utils::indent(indent+1) << "return this;" << std::endl
+       << golite::Utils::indent(indent) << "}" << std::endl
+       << golite::Utils::indent(indent) << "Array.prototype.equals = function (array: any) {" << std::endl
+       << golite::Utils::indent(indent+1) << "if(this.length !== array.length) return false;" << std::endl
+       << golite::Utils::indent(indent+1) << "for (var i: number = 0; i < this.length; i++) {" << std::endl
+       << golite::Utils::indent(indent+2) << "if (this[i] instanceof Object) {" << std::endl
+       << golite::Utils::indent(indent+3) << " if(!this[i].equals(array[i])) return false;" << std::endl
+       << golite::Utils::indent(indent+2) << "} else {" << std::endl
+       << golite::Utils::indent(indent+3) << "if(this[i] !== array[i]) return false;" << std::endl
        << golite::Utils::indent(indent+2) << "}" << std::endl
        << golite::Utils::indent(indent+1) << "}" << std::endl
        << golite::Utils::indent(indent+1) << "return this;" << std::endl
@@ -102,11 +112,11 @@ std::string golite::TSHelper::codeArrayInterface(int indent) {
 
 std::string golite::TSHelper::codeSlice(int indent) {
     std::stringstream ss;
-    ss << golite::Utils::blockComment({"Slice class", "Built-in class"}, indent) << std::endl
+    ss << golite::Utils::blockComment({"Slice class", "Built-in class", "Not comparable"}, indent) << std::endl
        << golite::Utils::indent(indent) << "class Slice<T> {" << std::endl
        << golite::Utils::indent(indent+1) << "array : Array<T> = new Array<T>(0);" << std::endl
        << golite::Utils::indent(indent+1) << "append = (val : T) : Slice<T> => {" << std::endl
-       << golite::Utils::indent(indent+2) << "var slice : Slice<T> = this." << getCloneCall() << ";" << std::endl
+       << golite::Utils::indent(indent+2) << "var slice : Slice<T> = this.clone();" << std::endl
        << golite::Utils::indent(indent+2) << "slice.array.push(val);" << std::endl
        << golite::Utils::indent(indent+2) << "return slice;" << std::endl
        << golite::Utils::indent(indent+1) << "}" << std::endl
@@ -114,9 +124,9 @@ std::string golite::TSHelper::codeSlice(int indent) {
        << golite::Utils::indent(indent+2) << "this.array.check(index);" << std::endl
        << golite::Utils::indent(indent+2) << "return this.array;" << std::endl
        << golite::Utils::indent(indent+1) << "}" << std::endl
-       << golite::Utils::indent(indent+1) << clone_func_name_ << " = (): Slice<T> => {" << std::endl
+       << golite::Utils::indent(indent+1) << "clone = (): Slice<T> => {" << std::endl
        << golite::Utils::indent(indent+2) << "var slice : Slice<T> = new Slice<T>();" << std::endl
-       << golite::Utils::indent(indent+2) << "slice.array = this.array." << getCloneCall() << ";" << std::endl
+       << golite::Utils::indent(indent+2) << "slice.array = this.array.clone();" << std::endl
        << golite::Utils::indent(indent+2) << "return slice;" << std::endl
        << golite::Utils::indent(indent+1) << "}" << std::endl
        << golite::Utils::indent(indent) << "}" << std::endl
@@ -146,8 +156,3 @@ std::string golite::TSHelper::codeFloat(int indent) {
     return ss.str();
 }
 
-std::string golite::TSHelper::getCloneCall() {
-    std::stringstream ss;
-    ss << clone_func_name_ << "()";
-    return ss.str();
-}

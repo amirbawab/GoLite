@@ -5,8 +5,6 @@
 
 namespace golite {
     class TSHelper{
-    private:
-        static std::string clone_func_name_;
     public:
         /**
          * Check if type is considered an Object in TypeScript
@@ -63,12 +61,6 @@ namespace golite {
          * @return code
          */
         static std::string codeSlice(int indent);
-
-        /**
-         * Clone function call
-         * @return code
-         */
-        static std::string getCloneCall();
     };
 }
 #endif
