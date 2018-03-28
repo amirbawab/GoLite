@@ -147,6 +147,9 @@ std::string golite::For::toTypeScript(int indent) {
             ss << statement->toTypeScript(indent+1) << std::endl;
         }
     }
+    if(right_simple_ && !right_simple_->isEmpty() || !block_->getStatements().empty()) {
+        ss << golite::Utils::indent(indent);
+    }
     ss << "}";
     return ss.str();
 }
