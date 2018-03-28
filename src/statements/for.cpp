@@ -121,7 +121,8 @@ bool golite::For::isTerminating() {
 
 std::string golite::For::toTypeScript(int indent) {
     static long count = 1;
-    std::string for_func = "for_" + std::to_string(count++);
+    std::string for_cond = "for_cond_" + std::to_string(count);
+    std::string for_post = "for_post_" + std::to_string(count++);
     std::stringstream ss;
 
     // Process pre-statement
@@ -130,9 +131,21 @@ std::string golite::For::toTypeScript(int indent) {
     }
 
     // Create function for post-statement
+    ss << golite::Utils::blockComment({"For loop condition", "Promoted to function"}, indent, getLine())
+       << std::endl;
+    ss << golite::Utils::indent(indent) << "function " << for_cond << "() : boolean {";
+    if(expression_) {
+        ss << std::endl;
+        ss << expression_->toTypeScriptInitializer(indent+1);
+        ss << golite::Utils::indent(indent+1) << "return " << expression_->toTypeScript(0) << ";" << std::endl;
+        ss << golite::Utils::indent(indent);
+    }
+    ss << "}" << std::endl << std::endl;
+
+    // Create function for post-statement
     ss << golite::Utils::blockComment({"For loop initial statement", "Promoted to function"}, indent, getLine())
        << std::endl;
-    ss << golite::Utils::indent(indent) << "function " << for_func << "() : void {";
+    ss << golite::Utils::indent(indent) << "function " << for_post << "() : void {";
     if(right_simple_ && !right_simple_->isEmpty()) {
         ss << std::endl;
         ss << right_simple_->toTypeScript(indent+1);
@@ -142,11 +155,7 @@ std::string golite::For::toTypeScript(int indent) {
 
     // Generate for loop code
     ss << golite::Utils::blockComment({"For statement"}, indent, getLine()) << std::endl;
-    ss << golite::Utils::indent(indent) << "for (;";
-    if(expression_) {
-        ss << expression_->toTypeScript(0);
-    }
-    ss << "; " << for_func << "()" << ") {";
+    ss << golite::Utils::indent(indent) << "for (; " << for_cond << "(); " << for_post << "()) {";
     if(!block_->getStatements().empty()) {
         ss << std::endl;
         for(Statement* statement : block_->getStatements()) {
