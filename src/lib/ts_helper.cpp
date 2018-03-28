@@ -124,6 +124,28 @@ std::string golite::TSHelper::codeSlice(int indent) {
     return ss.str();
 }
 
+std::string golite::TSHelper::codeFloat(int indent) {
+    std::stringstream ss;
+    ss << golite::Utils::blockComment({"Format float values", "Built-in function"}, indent) << std::endl
+       << golite::Utils::indent(indent) << "function golite_float(float: number): string {" << std::endl
+       << golite::Utils::indent(indent+1) << "var sign : string = \"\";" << std::endl
+       << golite::Utils::indent(indent+1) << "var eFloat : string = float.toExponential(6);" << std::endl
+       << golite::Utils::indent(indent+1) << "if (float >= 0) sign = \"+\";" << std::endl
+       << golite::Utils::indent(indent+1) << "var eIndex : number = eFloat.indexOf(\"e\");" << std::endl
+       << golite::Utils::indent(indent+1) << "var eFloatVal: string = eFloat.slice(0, eIndex);" << std::endl
+       << golite::Utils::indent(indent+1) << "var eSign = eFloat.slice(eIndex, eIndex+2);" << std::endl
+       << golite::Utils::indent(indent+1) << "var eVal = eFloat.slice(eIndex + 2);" << std::endl
+       << golite::Utils::indent(indent+1) << "if (eVal.length == 1) {" << std::endl
+       << golite::Utils::indent(indent+2) << "eVal = \"00\" + eVal;" << std::endl
+       << golite::Utils::indent(indent+1) << "} else if (eVal.length == 2) {" << std::endl
+       << golite::Utils::indent(indent+2) << "eVal = \"0\" + eVal;" << std::endl
+       << golite::Utils::indent(indent+1) << "}" << std::endl
+       << golite::Utils::indent(indent+1) << "return sign + eFloatVal + eSign + eVal;" << std::endl
+       << golite::Utils::indent(indent) << "}" << std::endl
+       << std::endl;
+    return ss.str();
+}
+
 std::string golite::TSHelper::getCloneCall() {
     std::stringstream ss;
     ss << clone_func_name_ << "()";

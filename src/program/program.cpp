@@ -88,6 +88,7 @@ std::string golite::Program::toTypeScript(int indent) {
     ss << golite::TSHelper::codeConstants(indent);
     ss << golite::TSHelper::codeArrayInterface(indent);
     ss << golite::TSHelper::codeSlice(indent);
+    ss << golite::TSHelper::codeFloat(indent);
 
     for(Declarable* declarable : declarables_) {
         ss << declarable->toTypeScript(indent) << std::endl;

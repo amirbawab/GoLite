@@ -51,6 +51,13 @@ namespace golite {
         static std::string codeArrayInterface(int indent);
 
         /**
+         * Generate code for float point printer
+         * @param indent
+         * @return code
+         */
+        static std::string codeFloat(int indent);
+
+        /**
          * Generate code for Slice class
          * @param indent
          * @return code
