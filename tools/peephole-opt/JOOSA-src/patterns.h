@@ -111,12 +111,95 @@ int simplify_goto_goto(CODE **c)
   }
   return 0;
 }
+
+/* iload x
+ * ldc 0
+ * if_icmpeq
+ * --------->
+ * iload x
+ * if_eq
+ */
+int branch_eq(CODE **c)
+{ int x1, x2, x3;
+    if (
+            (is_iload(*c,&x1) && is_ldc_int(next(*c),&x2)
+             || is_ldc_int(*c, &x2) && is_iload(next(*c), &x1)) &&
+        is_if_icmpeq(next(next(*c)), &x3) &&
+        x2==0) {
+        return replace(c,3,makeCODEiload(x1,
+                           makeCODEifeq(x3, NULL)));
+    }
+    return 0;
+}
+
+/* iload x
+ * ldc 0
+ * if_icmpne
+ * --------->
+ * iload x
+ * if_ne
+ */
+int branch_ne(CODE **c)
+{ int x1, x2, x3;
+    if (
+            (is_iload(*c,&x1) && is_ldc_int(next(*c),&x2)
+             || is_ldc_int(*c, &x2) && is_iload(next(*c), &x1)) &&
+            is_if_icmpne(next(next(*c)), &x3) &&
+            x2==0) {
+        return replace(c,3,makeCODEiload(x1,
+                           makeCODEifne(x3, NULL)));
+    }
+    return 0;
+}
+
+/* aload x
+ * aconst_null
+ * if_acmpeq
+ * --------->
+ * aload x
+ * ifnull
+ */
+int branch_is_null(CODE **c)
+{ int x1, x2;
+    if (
+            (is_aload(*c,&x1) && is_aconst_null(next(*c))
+             || is_aconst_null(*c) && is_aload(next(*c), &x1)) &&
+            is_if_acmpeq(next(next(*c)), &x2)) {
+        return replace(c,3,makeCODEaload(x1,
+                           makeCODEifnull(x2, NULL)));
+    }
+    return 0;
+}
+
+/* aload x
+ * aconst_null
+ * if_acmpne
+ * --------->
+ * aload x
+ * ifnonnull
+ */
+int branch_is_not_null(CODE **c)
+{ int x1, x2;
+    if (
+            (is_aload(*c,&x1) && is_aconst_null(next(*c))
+             || is_aconst_null(*c) && is_aload(next(*c), &x1)) &&
+            is_if_acmpne(next(next(*c)), &x2)) {
+        return replace(c,3,makeCODEaload(x1,
+                           makeCODEifnonnull(x2, NULL)));
+    }
+    return 0;
+}
+
 void init_patterns(void) {
 	ADD_PATTERN(simplify_multiplication_right);
 	ADD_PATTERN(simplify_astore);
 	ADD_PATTERN(positive_increment);
 	ADD_PATTERN(simplify_goto_goto);
 
-    // Added
+    /*New patterns*/
 	ADD_PATTERN(negative_increment);
+    ADD_PATTERN(branch_eq);
+    ADD_PATTERN(branch_ne);
+    ADD_PATTERN(branch_is_null);
+    ADD_PATTERN(branch_is_not_null);
 }
