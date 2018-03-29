@@ -18,36 +18,17 @@
  *                               dup
  *                               iadd
  */
-
-int simplify_multiplication_right(CODE **c) {
+int simplify_multiplication(CODE **c) {
     int x, k;
-    if (is_iload(*c, &x)
-        && is_ldc_int(next(*c), &k)
-        && is_imul(next(next(*c)))) {
-        if (k == 0) return replace(c, 3, makeCODEldc_int(0, NULL));
-        if (k == 1) return replace(c, 3, makeCODEiload(x, NULL));
-        if (k == 2) return replace(c, 3, makeCODEiload(x, makeCODEdup(makeCODEiadd(NULL))));
-    }
-    return 0;
-}
-
-/* ldc 0          ldc 1          ldc 2
- * iload x        iload x        iload x
- * imul           imul           imul
- * ------>        ------>        ------>
- * ldc 0          iload x        iload x
- *                               dup
- *                               iadd
- */
-
-int simplify_multiplication_left(CODE **c) {
-    int x, k;
-    if (is_ldc_int(*c, &k)
-        && is_iload(next(*c), &x)
-        && is_imul(next(next(*c)))) {
-        if (k == 0) return replace(c, 3, makeCODEldc_int(0, NULL));
-        if (k == 1) return replace(c, 3, makeCODEiload(x, NULL));
-        if (k == 2) return replace(c, 3, makeCODEiload(x, makeCODEdup(makeCODEiadd(NULL))));
+    if (is_imul(next(next(*c)))) {
+        if((is_iload(*c, &x)
+           && is_ldc_int(next(*c), &k))
+           || (is_ldc_int(*c, &k)
+              && is_iload(next(*c), &x))) {
+            if (k == 0) return replace(c, 3, makeCODEldc_int(0, NULL));
+            if (k == 1) return replace(c, 3, makeCODEiload(x, NULL));
+            if (k == 2) return replace(c, 3, makeCODEiload(x, makeCODEdup(makeCODEiadd(NULL))));
+        }
     }
     return 0;
 }
@@ -58,29 +39,15 @@ int simplify_multiplication_left(CODE **c) {
  * ------>
  * iload x
  */
-int simplify_addition_left(CODE **c) {
+int simplify_addition(CODE **c) {
     int x, k;
-    if (is_iload(*c, &x)
-        && is_ldc_int(next(*c), &k)
-        && is_iadd(next(next(*c))) && k == 0) {
-        return replace(c, 3, makeCODEiload(x, NULL));
-    }
-    return 0;
-}
-
-/* ldc 0
- * iload x
- * iadd
- * ------>
- * iload x
- */
-int simplify_addition_right(CODE **c) {
-    int x, k;
-    if (is_ldc_int(*c, &k)
-        && is_iload(next(*c), &x)
-        && is_iadd(next(next(*c)))
-        && k == 0) {
-        return replace(c, 3, makeCODEiload(x, NULL));
+    if (is_iadd(next(next(*c)))) {
+        if((is_iload(*c, &x)
+           && is_ldc_int(next(*c), &k))
+           || (is_ldc_int(*c, &k)
+              && is_iload(next(*c), &x))) {
+            if(k == 0) return replace(c, 3, makeCODEiload(x, NULL));
+        }
     }
     return 0;
 }
@@ -228,67 +195,18 @@ int simplify_goto_goto(CODE **c) {
  * iload x
  * if_eq
  */
-int branch_eq_left(CODE **c) {
+int simplify_ibranch(CODE **c) {
     int x1, x2, x3;
-    if (is_iload(*c, &x1)
-        && is_ldc_int(next(*c), &x2)
-        && is_if_icmpeq(next(next(*c)), &x3)
-        && x2 == 0) {
-        return replace(c, 3, makeCODEiload(x1, makeCODEifeq(x3, NULL)));
-    }
-    return 0;
-}
-
-/* ldc 0
- * iload x
- * if_icmpeq
- * --------->
- * iload x
- * if_eq
- */
-int branch_eq_right(CODE **c) {
-    int x1, x2, x3;
-    if (is_ldc_int(*c, &x1)
-        && is_iload(next(*c), &x2)
-        && is_if_icmpeq(next(next(*c)), &x3)
-        && x1 == 0) {
-        return replace(c, 3, makeCODEiload(x2, makeCODEifeq(x3, NULL)));
-    }
-    return 0;
-}
-
-/* iload x
- * ldc 0
- * if_icmpne
- * --------->
- * iload x
- * if_ne
- */
-int branch_ne_left(CODE **c) {
-    int x1, x2, x3;
-    if (is_iload(*c, &x1)
-        && is_ldc_int(next(*c), &x2)
-        && is_if_icmpne(next(next(*c)), &x3)
-        && x2 == 0) {
-        return replace(c, 3, makeCODEiload(x1, makeCODEifne(x3, NULL)));
-    }
-    return 0;
-}
-
-/* ldc 0
- * iload x
- * if_icmpne
- * --------->
- * iload x
- * if_ne
- */
-int branch_ne_right(CODE **c) {
-    int x1, x2, x3;
-    if (is_ldc_int(*c, &x1)
-        && is_iload(next(*c), &x2)
-        && is_if_icmpne(next(next(*c)), &x3)
-        && x1 == 0) {
-        return replace(c, 3, makeCODEiload(x2, makeCODEifne(x3, NULL)));
+    if ((is_iload(*c, &x1)
+        && is_ldc_int(next(*c), &x2))
+        || (is_ldc_int(*c, &x2)
+           && is_iload(next(*c), &x1))) {
+        if(x2 == 0) {
+            if(is_if_icmpeq(next(next(*c)), &x3))
+                return replace(c, 3, makeCODEiload(x1, makeCODEifeq(x3, NULL)));
+            if(is_if_icmpne(next(next(*c)), &x3))
+                return replace(c, 3, makeCODEiload(x1, makeCODEifne(x3, NULL)));
+        }
     }
     return 0;
 }
@@ -300,98 +218,16 @@ int branch_ne_right(CODE **c) {
  * aload x
  * ifnull
  */
-int branch_is_null_left(CODE **c) {
+int simplify_abranch(CODE **c) {
     int x1, x2;
-    if (is_aload(*c, &x1)
-        && is_aconst_null(next(*c))
-        && is_if_acmpeq(next(next(*c)), &x2)) {
-        return replace(c, 3, makeCODEaload(x1, makeCODEifnull(x2, NULL)));
-    }
-    return 0;
-}
-
-/* aconst_null
- * aload x
- * if_acmpeq
- * --------->
- * aload x
- * ifnull
- */
-int branch_is_null_right(CODE **c) {
-    int x1, x2;
-    if (is_aconst_null(*c)
-        && is_aload(next(*c), &x1)
-        && is_if_acmpeq(next(next(*c)), &x2)) {
-        return replace(c, 3, makeCODEaload(x1, makeCODEifnull(x2, NULL)));
-    }
-    return 0;
-}
-
-/* aload x
- * aconst_null
- * if_acmpne
- * --------->
- * aload x
- * ifnonnull
- */
-int branch_is_not_null_left(CODE **c) {
-    int x1, x2;
-    if (is_aload(*c, &x1)
-        && is_aconst_null(next(*c))
-        && is_if_acmpne(next(next(*c)), &x2)) {
-        return replace(c, 3, makeCODEaload(x1, makeCODEifnonnull(x2, NULL)));
-    }
-    return 0;
-}
-
-/* aconst_null
- * aload x
- * if_acmpne
- * --------->
- * aload x
- * ifnonnull
- */
-int branch_is_not_null_right(CODE **c) {
-    int x1, x2;
-    if (is_aconst_null(*c)
-        && is_aload(next(*c), &x1)
-        && is_if_acmpne(next(next(*c)), &x2)) {
-        return replace(c, 3, makeCODEaload(x1, makeCODEifnonnull(x2, NULL)));
-    }
-    return 0;
-}
-
-/* iload x
- * istore x
- * --------->
- */
-int self_store(CODE **c) {
-    int x1, x2;
-    if (is_iload(*c, &x1)
-        && is_istore(next(*c), &x2)
-        && x1 == x2) {
-        return replace(c, 2, NULL);
-    }
-    return 0;
-}
-
-/* ldc x
- * istore y
- * ldc x
- * istore y
- * --------->
- * ldc x
- * istore y
- */
-int redundant_ldc_store(CODE **c) {
-    int x1, x2, x3, x4;
-    if (is_ldc_int(*c, &x1)
-        && is_istore(next(*c), &x2)
-        && is_ldc_int(next(next(*c)), &x3)
-        && is_istore(next(next(next(*c))), &x4)
-        && x1 == x3
-        && x2 == x4) {
-        return replace(c, 4, makeCODEldc_int(x1, makeCODEistore(x2, NULL)));
+    if ((is_aload(*c, &x1)
+        && is_aconst_null(next(*c)))
+        || (is_aconst_null(*c)
+           && is_aload(next(*c), &x1))) {
+        if (is_if_acmpeq(next(next(*c)), &x2))
+            return replace(c, 3, makeCODEaload(x1, makeCODEifnull(x2, NULL)));
+        if (is_if_acmpne(next(next(*c)), &x2))
+            return replace(c, 3, makeCODEaload(x1, makeCODEifnonnull(x2, NULL)));
     }
     return 0;
 }
@@ -407,7 +243,7 @@ int redundant_ldc_store(CODE **c) {
  * ------------>
  * if_acmpne else_0
  */
-int simplify_if_acmpeq_branch(CODE **c) {
+int simplify_if_branch(CODE **c) {
     int x1, x2, x3, x4, x5, x6, x7;
     if (is_ldc_int(next(*c), &x2)
         && x2 == 0
@@ -433,30 +269,20 @@ int simplify_if_acmpeq_branch(CODE **c) {
 
 void init_patterns(void) {
     /*Given optimization*/
-    ADD_PATTERN(simplify_multiplication_right);
+    ADD_PATTERN(simplify_multiplication);
     ADD_PATTERN(simplify_astore);
     ADD_PATTERN(positive_increment);
     ADD_PATTERN(simplify_goto_goto);
 
     /*Simple optimization*/
     ADD_PATTERN(negative_increment);
-    ADD_PATTERN(branch_eq_left);
-    ADD_PATTERN(branch_eq_right);
-    ADD_PATTERN(branch_ne_left);
-    ADD_PATTERN(branch_ne_right);
-    ADD_PATTERN(branch_is_null_left);
-    ADD_PATTERN(branch_is_null_right);
-    ADD_PATTERN(branch_is_not_null_left);
-    ADD_PATTERN(branch_is_not_null_right);
     ADD_PATTERN(simplify_division_right);
-    ADD_PATTERN(simplify_multiplication_left);
-    ADD_PATTERN(simplify_addition_left);
-    ADD_PATTERN(simplify_addition_right);
     ADD_PATTERN(simplify_subtract_left);
     ADD_PATTERN(simplify_self_subtract);
-    ADD_PATTERN(redundant_ldc_store);
-    ADD_PATTERN(self_store);
+    ADD_PATTERN(simplify_addition);
+    ADD_PATTERN(simplify_ibranch);
+    ADD_PATTERN(simplify_abranch);
 
     /*Medium optimization*/
-    ADD_PATTERN(simplify_if_acmpeq_branch);
+    ADD_PATTERN(simplify_if_branch);
 }
