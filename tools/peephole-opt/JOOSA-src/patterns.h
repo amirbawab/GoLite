@@ -69,6 +69,25 @@ int positive_increment(CODE **c)
   return 0;
 }
 
+/* iload x
+ * ldc k   (-128<=k<0)
+ * iadd
+ * istore x
+ * --------->
+ * iinc x k
+ */ 
+int negative_increment(CODE **c)
+{ int x,y,k;
+  if (is_iload(*c,&x) &&
+      is_ldc_int(next(*c),&k) &&
+      is_iadd(next(next(*c))) &&
+      is_istore(next(next(next(*c))),&y) &&
+      x==y && -128<=k && k<0) {
+     return replace(c,4,makeCODEiinc(x,k,NULL));
+  }
+  return 0;
+}
+
 /* goto L1
  * ...
  * L1:
@@ -97,4 +116,7 @@ void init_patterns(void) {
 	ADD_PATTERN(simplify_astore);
 	ADD_PATTERN(positive_increment);
 	ADD_PATTERN(simplify_goto_goto);
+
+    // Added
+	ADD_PATTERN(negative_increment);
 }
