@@ -120,6 +120,22 @@ int simplify_astore(CODE **c) {
     return 0;
 }
 
+/* dup
+ * istore x
+ * pop
+ * -------->
+ * istore x
+ */
+int simplify_istore(CODE **c) {
+    int x;
+    if (is_dup(*c)
+        && is_istore(next(*c), &x)
+        && is_pop(next(next(*c)))) {
+        return replace(c, 3, makeCODEistore(x, NULL));
+    }
+    return 0;
+}
+
 /* iload x
  * ldc k   (0<=k<=127)
  * iadd
@@ -376,6 +392,7 @@ void init_patterns(void) {
     ADD_PATTERN(positive_increment);
     ADD_PATTERN(simplify_goto_goto);
 
+    ADD_PATTERN(simplify_istore);
     ADD_PATTERN(negative_increment);
     ADD_PATTERN(simplify_division_right);
     ADD_PATTERN(simplify_subtract_left);
