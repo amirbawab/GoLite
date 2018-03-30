@@ -335,11 +335,36 @@ int merge_labels(CODE **c) {
     return 0;
 }
 
+/**
+ * .....
+ * label: <-- Not used, remove it
+ * .....
+ */
 int remove_dead_labels(CODE **c) {
     int x1;
     if(is_label(*c, &x1) && deadlabel(x1)) {
         printf("Removing %s\n", currentlabels[x1].name);
         return replace(c, 1,  NULL);
+    }
+    return 0;
+}
+
+int simplify_if(CODE **c) {
+    int x;
+    if (is_dup(*c)
+        && is_pop(next(next(*c)))) {
+        if(is_if_acmpne(next(*c), &x)) return replace(c, 3, makeCODEif_acmpne(x, NULL));
+        if(is_if_acmpeq(next(*c), &x)) return replace(c, 3, makeCODEif_acmpeq(x, NULL));
+        if(is_if_icmpne(next(*c), &x)) return replace(c, 3, makeCODEif_icmpne(x, NULL));
+        if(is_if_icmpeq(next(*c), &x)) return replace(c, 3, makeCODEif_icmpeq(x, NULL));
+        if(is_if_icmpgt(next(*c), &x)) return replace(c, 3, makeCODEif_icmpgt(x, NULL));
+        if(is_if_icmplt(next(*c), &x)) return replace(c, 3, makeCODEif_icmplt(x, NULL));
+        if(is_if_icmpge(next(*c), &x)) return replace(c, 3, makeCODEif_icmpge(x, NULL));
+        if(is_if_icmple(next(*c), &x)) return replace(c, 3, makeCODEif_icmple(x, NULL));
+        if(is_ifeq(next(*c), &x)) return replace(c, 3, makeCODEifeq(x, NULL));
+        if(is_ifne(next(*c), &x)) return replace(c, 3, makeCODEifne(x, NULL));
+        if(is_ifnull(next(*c), &x)) return replace(c, 3, makeCODEifnull(x, NULL));
+        if(is_ifnonnull(next(*c), &x)) return replace(c, 3, makeCODEifnonnull(x, NULL));
     }
     return 0;
 }
@@ -351,17 +376,15 @@ void init_patterns(void) {
     ADD_PATTERN(positive_increment);
     ADD_PATTERN(simplify_goto_goto);
 
-    /*Simple optimization*/
     ADD_PATTERN(negative_increment);
     ADD_PATTERN(simplify_division_right);
     ADD_PATTERN(simplify_subtract_left);
     ADD_PATTERN(simplify_self_subtract);
     ADD_PATTERN(simplify_addition);
+    ADD_PATTERN(simplify_if_branch);
     ADD_PATTERN(simplify_ibranch);
     ADD_PATTERN(simplify_abranch);
-
-    /*Medium optimization*/
-    ADD_PATTERN(simplify_if_branch);
+    /*ADD_PATTERN(simplify_if);*/ /*Stack size is affected if enabled*/
     ADD_PATTERN(merge_labels);
     /*ADD_PATTERN(remove_dead_labels);*/ /*This causes an error when simplify_if_branch is enabled*/
 }
