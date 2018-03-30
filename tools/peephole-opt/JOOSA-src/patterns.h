@@ -233,9 +233,9 @@ int simplify_abranch(CODE **c) {
 }
 
 /**
- * if_acmpeq true_2
+ * if_acmpeq true_2     <-- reduce label
  * iconst_0
- * goto stop_3
+ * goto stop_3          <-- reduce label
  * true_2:
  * iconst_1
  * stop_3:
@@ -254,15 +254,92 @@ int simplify_if_branch(CODE **c) {
         && is_label(next(next(next(next(next(*c))))), &x6)
         && x3 == x6
         && is_ifeq(next(next(next(next(next(next(*c)))))), &x7)) {
-        if(is_if_acmpeq(*c, &x1)) return replace(c, 7, makeCODEif_acmpne(x7, NULL));
-        if(is_if_acmpne(*c, &x1)) return replace(c, 7, makeCODEif_acmpeq(x7, NULL));
-        if(is_if_icmpeq(*c, &x1)) return replace(c, 7, makeCODEif_icmpne(x7, NULL));
-        if(is_if_icmpne(*c, &x1)) return replace(c, 7, makeCODEif_icmpeq(x7, NULL));
-        if(is_if_icmplt(*c, &x1)) return replace(c, 7, makeCODEif_icmpge(x7, NULL));
-        if(is_if_icmple(*c, &x1)) return replace(c, 7, makeCODEif_icmpgt(x7, NULL));
-        if(is_if_icmpgt(*c, &x1)) return replace(c, 7, makeCODEif_icmple(x7, NULL));
-        if(is_if_icmpge(*c, &x1)) return replace(c, 7, makeCODEif_icmplt(x7, NULL));
-        if(is_if_icmpge(*c, &x1)) return replace(c, 7, makeCODEif_icmplt(x7, NULL));
+        if(is_if_acmpeq(*c, &x1)) {
+            droplabel(x1);
+            droplabel(x3);
+            return replace(c, 7, makeCODEif_acmpne(x7, NULL));
+        }
+        if(is_if_acmpne(*c, &x1)) {
+            droplabel(x1);
+            droplabel(x3);
+            return replace(c, 7, makeCODEif_acmpeq(x7, NULL));
+        }
+        if(is_if_icmpeq(*c, &x1)) {
+            droplabel(x1);
+            droplabel(x3);
+            return replace(c, 7, makeCODEif_icmpne(x7, NULL));
+        }
+        if(is_if_icmpne(*c, &x1)) {
+            droplabel(x1);
+            droplabel(x3);
+            return replace(c, 7, makeCODEif_icmpeq(x7, NULL));
+        }
+        if(is_if_icmplt(*c, &x1)) {
+            droplabel(x1);
+            droplabel(x3);
+            return replace(c, 7, makeCODEif_icmpge(x7, NULL));
+        }
+        if(is_if_icmple(*c, &x1)) {
+            droplabel(x1);
+            droplabel(x3);
+            return replace(c, 7, makeCODEif_icmpgt(x7, NULL));
+        }
+        if(is_if_icmpgt(*c, &x1)) {
+            droplabel(x1);
+            droplabel(x3);
+            return replace(c, 7, makeCODEif_icmple(x7, NULL));
+        }
+        if(is_if_icmpge(*c, &x1)) {
+            droplabel(x1);
+            droplabel(x3);
+            return replace(c, 7, makeCODEif_icmplt(x7, NULL));
+        }
+        if(is_if_icmpge(*c, &x1)) {
+            droplabel(x1);
+            droplabel(x3);
+            return replace(c, 7, makeCODEif_icmplt(x7, NULL));
+        }
+    }
+    return 0;
+}
+
+/**
+ * goto A
+ * ...
+ * goto B
+ * ...
+ * A:
+ * B:
+ * --------->
+ * goto B
+ * ...
+ * goto B
+ * ...
+ * A:  <--- Will be removed by another pattern
+ * B:
+ */
+int merge_labels(CODE **c) {
+    int x1, x2, x3;
+    if (is_goto(*c, &x1)) {
+        CODE* nextCode = *c;
+        while((nextCode = next(nextCode))) {
+            if(is_label(nextCode, &x2)
+               && x1 == x2
+               && is_label(next(nextCode), &x3)) {
+                droplabel(x1);
+                copylabel(x3);
+                return replace(c, 1, makeCODEgoto(x3, NULL));
+            }
+        }
+    }
+    return 0;
+}
+
+int remove_dead_labels(CODE **c) {
+    int x1;
+    if(is_label(*c, &x1) && deadlabel(x1)) {
+        printf("Removing %s\n", currentlabels[x1].name);
+        return replace(c, 1,  NULL);
     }
     return 0;
 }
@@ -285,4 +362,6 @@ void init_patterns(void) {
 
     /*Medium optimization*/
     ADD_PATTERN(simplify_if_branch);
+    ADD_PATTERN(merge_labels);
+    /*ADD_PATTERN(remove_dead_labels);*/ /*This causes an error when simplify_if_branch is enabled*/
 }
