@@ -418,6 +418,9 @@ int remove_nop(CODE **c) {
         if(is_areturn(*c)){
             return replace(c, 2, makeCODEareturn(NULL));
         }
+        if(is_return(*c)) {
+            return replace(c, 2, makeCODEreturn(NULL));
+        }
     }
     return 0;
 }
