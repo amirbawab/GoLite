@@ -359,41 +359,56 @@ int merge_labels(CODE **c) {
 int remove_dead_labels(CODE **c) {
     int x1;
     if(is_label(*c, &x1) && deadlabel(x1)) {
-        printf("Removing %s\n", currentlabels[x1].name);
         return replace(c, 1,  NULL);
     }
     return 0;
 }
 
-int simplify_if(CODE **c) {
-    int x;
-    if (is_dup(*c)
-        && is_pop(next(next(*c)))) {
-        if(is_if_acmpne(next(*c), &x)) return replace(c, 3, makeCODEif_acmpne(x, NULL));
-        if(is_if_acmpeq(next(*c), &x)) return replace(c, 3, makeCODEif_acmpeq(x, NULL));
-        if(is_if_icmpne(next(*c), &x)) return replace(c, 3, makeCODEif_icmpne(x, NULL));
-        if(is_if_icmpeq(next(*c), &x)) return replace(c, 3, makeCODEif_icmpeq(x, NULL));
-        if(is_if_icmpgt(next(*c), &x)) return replace(c, 3, makeCODEif_icmpgt(x, NULL));
-        if(is_if_icmplt(next(*c), &x)) return replace(c, 3, makeCODEif_icmplt(x, NULL));
-        if(is_if_icmpge(next(*c), &x)) return replace(c, 3, makeCODEif_icmpge(x, NULL));
-        if(is_if_icmple(next(*c), &x)) return replace(c, 3, makeCODEif_icmple(x, NULL));
-        if(is_ifeq(next(*c), &x)) return replace(c, 3, makeCODEifeq(x, NULL));
-        if(is_ifne(next(*c), &x)) return replace(c, 3, makeCODEifne(x, NULL));
-        if(is_ifnull(next(*c), &x)) return replace(c, 3, makeCODEifnull(x, NULL));
-        if(is_ifnonnull(next(*c), &x)) return replace(c, 3, makeCODEifnonnull(x, NULL));
+/**
+ * ldc x
+ * istore
+ * ldc x
+ */
+int simplify_ldc_store(CODE **c) {
+    int x1, x2, x3;
+    if(is_ldc_int(*c, &x1)
+       && is_ldc_int(next(next(*c)), &x3)
+       && x1 == x3) {
+        if(is_istore(next(*c), &x2)) {
+            return replace(c, 3, makeCODEldc_int(x1,makeCODEdup(makeCODEistore(x2, NULL))));
+        }
+        if(is_astore(next(*c), &x2)) {
+            return replace(c, 3, makeCODEldc_int(x1,makeCODEdup(makeCODEastore(x2, NULL))));
+        }
+    }
+    return 0;
+}
+
+/**
+ * ireturn
+ * nop
+ * -------->
+ * ireturn
+ */
+int remove_nop(CODE **c) {
+    if(is_nop(next(*c))) {
+        if(is_ireturn(*c)){
+            return replace(c, 2, makeCODEireturn(NULL));
+        }
+        if(is_areturn(*c)){
+            return replace(c, 2, makeCODEareturn(NULL));
+        }
     }
     return 0;
 }
 
 void init_patterns(void) {
     /*Given optimization*/
-    ADD_PATTERN(simplify_multiplication);
-    ADD_PATTERN(simplify_astore);
     ADD_PATTERN(positive_increment);
-    ADD_PATTERN(simplify_goto_goto);
-
     ADD_PATTERN(simplify_istore);
+    ADD_PATTERN(simplify_astore);
     ADD_PATTERN(negative_increment);
+    ADD_PATTERN(simplify_multiplication);
     ADD_PATTERN(simplify_division_right);
     ADD_PATTERN(simplify_subtract_left);
     ADD_PATTERN(simplify_self_subtract);
@@ -401,7 +416,9 @@ void init_patterns(void) {
     ADD_PATTERN(simplify_if_branch);
     ADD_PATTERN(simplify_ibranch);
     ADD_PATTERN(simplify_abranch);
-    /*ADD_PATTERN(simplify_if);*/ /*Stack size is affected if enabled*/
     ADD_PATTERN(merge_labels);
+    ADD_PATTERN(simplify_goto_goto);
+    ADD_PATTERN(simplify_ldc_store);
+    ADD_PATTERN(remove_nop);
     /*ADD_PATTERN(remove_dead_labels);*/ /*This causes an error when simplify_if_branch is enabled*/
 }
