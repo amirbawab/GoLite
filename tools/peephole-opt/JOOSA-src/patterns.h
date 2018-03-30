@@ -407,6 +407,36 @@ int simplify_branch_4(CODE **c) {
 }
 
 /**
+ * if(true) and while(true) are removed
+ * if(false) and while(false) are removed with their body
+ */
+int simplify_branch_5(CODE **c) {
+    int x1,x2,x3;
+    if(is_ldc_int(*c, &x1)) {
+
+        /*Eliminate true conditions*/
+        if((is_ifeq(next(*c), &x2) && x1 != 0)
+           || (is_ifne(next(*c), &x2) && x1 == 0)) {
+            return replace(c, 2, NULL);
+        }
+
+        /*Delete dead branch*/
+        if((is_ifeq(next(*c), &x2) && x1 == 0)
+           || (is_ifne(next(*c), &x2) && x1 != 0)) {
+            CODE* nextCode = *c;
+            int pc = 0;
+            while((nextCode = next(nextCode))) {
+                pc++;
+                if(is_label(nextCode, &x3) && x2 == x3) {
+                    return replace(c, pc, NULL);
+                }
+            }
+        }
+    }
+    return 0;
+}
+
+/**
  * goto A
  * ...
  * goto B
@@ -507,6 +537,7 @@ void init_patterns(void) {
     ADD_PATTERN(simplify_branch_2);
     ADD_PATTERN(simplify_branch_3);
     ADD_PATTERN(simplify_branch_4);
+    ADD_PATTERN(simplify_branch_5);
     ADD_PATTERN(merge_labels);
     ADD_PATTERN(simplify_goto_goto);
     ADD_PATTERN(simplify_ldc_store);
