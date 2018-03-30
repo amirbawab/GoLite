@@ -315,6 +315,26 @@ int simplify_if_branch(CODE **c) {
             droplabel(x3);
             return replace(c, 7, makeCODEif_icmplt(x7, NULL));
         }
+        if(is_ifeq(*c, &x1)) {
+            droplabel(x1);
+            droplabel(x3);
+            return replace(c, 7, makeCODEifne(x7, NULL));
+        }
+        if(is_ifne(*c, &x1)) {
+            droplabel(x1);
+            droplabel(x3);
+            return replace(c, 7, makeCODEifeq(x7, NULL));
+        }
+        if(is_ifnull(*c, &x1)) {
+            droplabel(x1);
+            droplabel(x3);
+            return replace(c, 7, makeCODEifnonnull(x7, NULL));
+        }
+        if(is_ifnonnull(*c, &x1)) {
+            droplabel(x1);
+            droplabel(x3);
+            return replace(c, 7, makeCODEifnull(x7, NULL));
+        }
     }
     return 0;
 }
