@@ -310,11 +310,6 @@ int simplify_branch_1(CODE **c) {
             droplabel(x3);
             return replace(c, 7, makeCODEif_icmplt(x7, NULL));
         }
-        if(is_if_icmpge(*c, &x1)) {
-            droplabel(x1);
-            droplabel(x3);
-            return replace(c, 7, makeCODEif_icmplt(x7, NULL));
-        }
         if(is_ifeq(*c, &x1)) {
             droplabel(x1);
             droplabel(x3);
@@ -377,10 +372,6 @@ int simplify_branch_4(CODE **c) {
         if(is_if_icmpgt(*c, &x1)) {
             droplabel(x1);
             return replace(c, 3, makeCODEif_icmple(x2, NULL));
-        }
-        if(is_if_icmpge(*c, &x1)) {
-            droplabel(x1);
-            return replace(c, 3, makeCODEif_icmplt(x2, NULL));
         }
         if(is_if_icmpge(*c, &x1)) {
             droplabel(x1);
@@ -457,7 +448,7 @@ int simplify_branch_6(CODE **c) {
 
 /**
  * iconst_0
- * if_acmpeq
+ * if_icmpeq
  * ---------->
  * ifnull
  */
@@ -469,6 +460,65 @@ int simplify_branch_7(CODE **c) {
         }
         if(is_if_icmpne((next(*c)), &x2)) {
             return replace(c, 2, makeCODEifne(x2, NULL));
+        }
+    }
+    return 0;
+}
+
+/**
+ * if_(i|a).* true_A
+ * iconst_0
+ * goto stop_B
+ * true_A:
+ * iconst_1
+ * stop_B:
+ * dup
+ * ifeq|ifne false_C
+ * pop
+ *----------------->
+ * inverse_of(if_(i|a).* true A)
+ * iconst_1
+ * goto stop_B
+ * true_A:
+ * iconst_0
+ * dup
+ * stop_B:
+ * ifeq|ifne false_C
+ */
+int simplify_branch_8(CODE **c) {
+    int x0, x1, x2, x3, x4, x5, x6;
+    if(is_ldc_int(next(*c), &x1)
+       && is_goto(next(next(*c)), &x2)
+       && is_label(next(next(next(*c))), &x3)
+       && is_ldc_int(next(next(next(next(*c)))), &x4)
+       && is_label(next(next(next(next(next(*c))))), &x5)
+       && is_dup(next(next(next(next(next(next(*c)))))))
+       && is_pop(next(next(next(next(next(next(next(next(*c)))))))))) {
+        if(is_ifeq(next(next(next(next(next(next(next(*c))))))), &x6)) {
+            if(is_if_acmpeq(*c, &x0)) {
+                return replace(c, 9, makeCODEif_acmpne(x0, makeCODEldc_int(x4, makeCODEgoto(x2, makeCODElabel(x3, makeCODEldc_int(x1, makeCODEdup(makeCODElabel(x5, makeCODEifeq(x6, NULL)))))))));
+            }
+            if(is_if_acmpne(*c, &x0)) {
+                return replace(c, 9, makeCODEif_acmpeq(x0, makeCODEldc_int(x4, makeCODEgoto(x2, makeCODElabel(x3, makeCODEldc_int(x1, makeCODEdup(makeCODElabel(x5, makeCODEifeq(x6, NULL)))))))));
+            }
+            if(is_if_icmpeq(*c, &x0)) {
+                return replace(c, 9, makeCODEif_icmpne(x0, makeCODEldc_int(x4, makeCODEgoto(x2, makeCODElabel(x3, makeCODEldc_int(x1, makeCODEdup(makeCODElabel(x5, makeCODEifeq(x6, NULL)))))))));
+            }
+            if(is_if_icmpne(*c, &x0)) {
+                return replace(c, 9, makeCODEif_icmpeq(x0, makeCODEldc_int(x4, makeCODEgoto(x2, makeCODElabel(x3, makeCODEldc_int(x1, makeCODEdup(makeCODElabel(x5, makeCODEifeq(x6, NULL)))))))));
+            }
+            if(is_if_icmplt(*c, &x0)) {
+                return replace(c, 9, makeCODEif_icmpge(x0, makeCODEldc_int(x4, makeCODEgoto(x2, makeCODElabel(x3, makeCODEldc_int(x1, makeCODEdup(makeCODElabel(x5, makeCODEifeq(x6, NULL)))))))));
+            }
+            if(is_if_icmple(*c, &x0)) {
+                return replace(c, 9, makeCODEif_icmpgt(x0, makeCODEldc_int(x4, makeCODEgoto(x2, makeCODElabel(x3, makeCODEldc_int(x1, makeCODEdup(makeCODElabel(x5, makeCODEifeq(x6, NULL)))))))));
+            }
+            if(is_if_icmpgt(*c, &x0)) {
+                return replace(c, 9, makeCODEif_icmple(x0, makeCODEldc_int(x4, makeCODEgoto(x2, makeCODElabel(x3, makeCODEldc_int(x1, makeCODEdup(makeCODElabel(x5, makeCODEifeq(x6, NULL)))))))));
+            }
+            if(is_if_icmpge(*c, &x0)) {
+                return replace(c, 9, makeCODEif_icmplt(x0, makeCODEldc_int(x4, makeCODEgoto(x2, makeCODElabel(x3, makeCODEldc_int(x1, makeCODEdup(makeCODElabel(x5, makeCODEifeq(x6, NULL)))))))));
+            }
         }
     }
     return 0;
@@ -813,6 +863,31 @@ int simplify_swap_5(CODE **c) {
     return 0;
 }
 
+/**
+ * ldc "..."
+ * dup
+ * ifnonnull stop
+ * pop
+ * ldc "null"
+ * stop
+ * ------------->
+ * ldc "..."
+ */
+int simplify_string(CODE **c) {
+    int x1, x2;
+    char *y1, *y2;
+    if(is_ldc_string(*c, &y1)
+       && is_dup(next(*c))
+       && is_ifnonnull(next(next(*c)), &x1)
+       && is_pop(next(next(next(*c))))
+       && is_ldc_string(next(next(next(next(*c)))), &y2)
+       && is_label(next(next(next(next(next(*c))))), &x2)
+       && strcmp(y2, "null") == 0) {
+        return replace(c, 6, makeCODEldc_string(y1, NULL));
+    }
+    return 0;
+}
+
 void init_patterns(void) {
     /*Given optimization*/
     ADD_PATTERN(positive_increment);
@@ -830,11 +905,10 @@ void init_patterns(void) {
     /*ADD_PATTERN(simplify_branch_5);*/ /*Works? Need to be tested further*/
     ADD_PATTERN(simplify_branch_6);
     ADD_PATTERN(simplify_branch_7);
-    ADD_PATTERN(merge_labels);
+    ADD_PATTERN(simplify_branch_8);
     ADD_PATTERN(simplify_goto_goto);
     ADD_PATTERN(simplify_ldc_store);
     ADD_PATTERN(remove_nop);
-    /*ADD_PATTERN(remove_dead_labels);*/ /*This causes an error when simplify_if_branch is enabled*/
     ADD_PATTERN(negative_increment);
     ADD_PATTERN(simplify_putfield);
     ADD_PATTERN(simplify_swap_1);
@@ -842,4 +916,7 @@ void init_patterns(void) {
     ADD_PATTERN(simplify_swap_3);
     ADD_PATTERN(simplify_swap_4);
     ADD_PATTERN(simplify_swap_5);
+    /*ADD_PATTERN(merge_labels);*/
+    /*ADD_PATTERN(remove_dead_labels);*/ /*This causes an error when simplify_if_branch is enabled*/
+    ADD_PATTERN(simplify_string);
 }
