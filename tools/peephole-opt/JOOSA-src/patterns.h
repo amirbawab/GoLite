@@ -584,6 +584,115 @@ int simplify_putfield(CODE **c) {
     return 0;
 }
 
+/**
+ * ldc | iload | aload
+ * ldc | iload | aload
+ * swap
+ * ----->
+ * ldc | iload | aload
+ * ldc | iload | aload
+ */
+int simplify_swap_1(CODE **c) {
+    int x1, x2;
+    char* y1, *y2;
+    if(is_swap(next(next(*c)))) {
+        if(is_aload(*c, &x1) && is_aload(next(*c), &x2)) {
+            return replace(c, 3, makeCODEaload(x2, makeCODEaload(x1, NULL)));
+        }
+        if(is_iload(*c, &x1) && is_iload(next(*c), &x2)) {
+            return replace(c, 3, makeCODEiload(x2, makeCODEiload(x1, NULL)));
+        }
+        if(is_iload(*c, &x1) && is_aload(next(*c), &x2)) {
+            return replace(c, 3, makeCODEaload(x2, makeCODEiload(x1, NULL)));
+        }
+        if(is_aload(*c, &x1) && is_iload(next(*c), &x2)) {
+            return replace(c, 3, makeCODEiload(x2, makeCODEaload(x1, NULL)));
+        }
+        if(is_ldc_int(*c, &x1) && is_iload(next(*c), &x2)) {
+            return replace(c, 3, makeCODEiload(x2, makeCODEldc_int(x1, NULL)));
+        }
+        if(is_iload(*c, &x1) && is_ldc_int(next(*c), &x2)) {
+            return replace(c, 3, makeCODEldc_int(x2, makeCODEiload(x1, NULL)));
+        }
+        if(is_ldc_int(*c, &x1) && is_aload(next(*c), &x2)) {
+            return replace(c, 3, makeCODEaload(x2, makeCODEldc_int(x1, NULL)));
+        }
+        if(is_aload(*c, &x1) && is_ldc_int(next(*c), &x2)) {
+            return replace(c, 3, makeCODEldc_int(x2, makeCODEaload(x1, NULL)));
+        }
+        if(is_ldc_string(*c, &y1) && is_iload(next(*c), &x2)) {
+            return replace(c, 3, makeCODEiload(x2, makeCODEldc_string(y1, NULL)));
+        }
+        if(is_iload(*c, &x1) && is_ldc_string(next(*c), &y2)) {
+            return replace(c, 3, makeCODEldc_string(y2, makeCODEiload(x1, NULL)));
+        }
+        if(is_ldc_string(*c, &y1) && is_aload(next(*c), &x2)) {
+            return replace(c, 3, makeCODEaload(x2, makeCODEldc_string(y1, NULL)));
+        }
+        if(is_aload(*c, &x1) && is_ldc_string(next(*c), &y2)) {
+            return replace(c, 3, makeCODEldc_string(y2, makeCODEaload(x1, NULL)));
+        }
+        if(is_aconst_null(*c) && is_aload(next(*c), &x1)) {
+            return replace(c, 3, makeCODEaload(x1, makeCODEaconst_null(NULL)));
+        }
+        if(is_aload(*c, &x1) && is_aconst_null(next(*c))) {
+            return replace(c, 3, makeCODEaconst_null(makeCODEaload(x1, NULL)));
+        }
+    }
+    return 0;
+}
+
+/**
+ * new
+ * dup
+ * invokenonvirtual
+ * aload_0
+ * swap
+ * putfield
+ * ----------->
+ * aload_0
+ * new
+ * dup
+ * invokenonvirtual
+ * putfield
+ */
+int simplify_swap_2(CODE **c) {
+    int x1;
+    char *y1, *y2, *y3;
+    if(is_new(*c, &y1)
+       && is_dup(next(*c))
+       && is_invokenonvirtual(next(next(*c)), &y2)
+       && is_aload(next(next(next(*c))), &x1)
+       && is_swap(next(next(next(next(*c)))))
+       && is_putfield(next(next(next(next(next(*c))))), &y3)) {
+        return replace(c, 6, makeCODEaload(x1, makeCODEnew(y1, makeCODEdup(makeCODEinvokenonvirtual(y2, makeCODEputfield(y3, NULL))))));
+    }
+    return 0;
+}
+
+/**
+ * aload 0
+ * getfield
+ * aload 0
+ * swap
+ * -------->
+ * aload 0
+ * dup
+ * getfield
+ */
+int simplify_swap_3(CODE **c) {
+    int x1, x2;
+    char *y1;
+    if(is_aload(*c, &x1)
+       && is_getfield(next(*c), &y1)
+       && is_aload(next(next(*c)), &x2)
+       && is_swap(next(next(next(*c))))
+       && x1 == x2) {
+        return replace(c, 4, makeCODEaload(x1, makeCODEdup(makeCODEgetfield(y1, NULL))));
+    }
+    return 0;
+}
+
 void init_patterns(void) {
     /*Given optimization*/
     ADD_PATTERN(positive_increment);
@@ -607,5 +716,8 @@ void init_patterns(void) {
     ADD_PATTERN(remove_nop);
     /*ADD_PATTERN(remove_dead_labels);*/ /*This causes an error when simplify_if_branch is enabled*/
     ADD_PATTERN(negative_increment);
-    ADD_PATTERN(simplify_putfield);
+    ADD_PATTERN(simplify_putfield); /*Does not seem to cover all cases! Investigate .j files*/
+    ADD_PATTERN(simplify_swap_1);
+    ADD_PATTERN(simplify_swap_2);
+    ADD_PATTERN(simplify_swap_3);
 }
