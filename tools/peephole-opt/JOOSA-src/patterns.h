@@ -437,25 +437,38 @@ int simplify_branch_5(CODE **c) {
 }
 
 /**
- * dup
- * astore
  * acsont_null
  * if_acmpeq
  * ---------->
- * dup
- * astore
  * ifnull
  */
 int simplify_branch_6(CODE **c) {
-    int x1, x2;
-    if(is_dup(*c)
-       && is_astore(next(*c), &x1)
-       && is_aconst_null(next(next(*c)))) {
-        if(is_if_acmpeq(next(next(next(*c))), &x2)) {
-            return replace(c, 4, makeCODEdup(makeCODEastore(x1, makeCODEifnull(x2, NULL))));
+    int x1;
+    if(is_aconst_null(*c)) {
+        if(is_if_acmpeq(next(*c), &x1)) {
+            return replace(c, 2, makeCODEifnull(x1, NULL));
         }
-        if(is_if_acmpne(next(next(next(*c))), &x2)) {
-            return replace(c, 4, makeCODEdup(makeCODEastore(x1, makeCODEifnonnull(x2, NULL))));
+        if(is_if_acmpne((next(*c)), &x1)) {
+            return replace(c, 2, makeCODEifnonnull(x1, NULL));
+        }
+    }
+    return 0;
+}
+
+/**
+ * iconst_0
+ * if_acmpeq
+ * ---------->
+ * ifnull
+ */
+int simplify_branch_7(CODE **c) {
+    int x1, x2;
+    if(is_ldc_int(*c, &x1) && x1 == 0) {
+        if(is_if_icmpeq(next(*c), &x2)) {
+            return replace(c, 2, makeCODEifeq(x2, NULL));
+        }
+        if(is_if_icmpne((next(*c)), &x2)) {
+            return replace(c, 2, makeCODEifne(x2, NULL));
         }
     }
     return 0;
@@ -547,6 +560,30 @@ int remove_nop(CODE **c) {
     return 0;
 }
 
+/**
+ * dup
+ * aload
+ * swap
+ * putfield
+ * pop
+ * --------->
+ * aload
+ * swap
+ * putfield
+ */
+int simplify_putfield(CODE **c) {
+    int x1;
+    char *x2;
+    if(is_dup(*c)
+       && is_aload(next(*c), &x1)
+       && is_swap(next(next(*c)))
+       && is_putfield(next(next(next(*c))),&x2)
+       && is_pop(next(next(next(next(*c)))))) {
+        return replace(c, 5, makeCODEaload(x1, makeCODEswap(makeCODEputfield(x2, NULL))));
+    }
+    return 0;
+}
+
 void init_patterns(void) {
     /*Given optimization*/
     ADD_PATTERN(positive_increment);
@@ -563,10 +600,12 @@ void init_patterns(void) {
     ADD_PATTERN(simplify_branch_4);
     /*ADD_PATTERN(simplify_branch_5);*/ /*Works? Need to be tested further*/
     ADD_PATTERN(simplify_branch_6);
+    ADD_PATTERN(simplify_branch_7);
     ADD_PATTERN(merge_labels);
     ADD_PATTERN(simplify_goto_goto);
     ADD_PATTERN(simplify_ldc_store);
     ADD_PATTERN(remove_nop);
     /*ADD_PATTERN(remove_dead_labels);*/ /*This causes an error when simplify_if_branch is enabled*/
     ADD_PATTERN(negative_increment);
+    ADD_PATTERN(simplify_putfield);
 }
