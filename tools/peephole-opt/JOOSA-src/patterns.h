@@ -693,6 +693,126 @@ int simplify_swap_3(CODE **c) {
     return 0;
 }
 
+/**
+ * new
+ * dup
+ * ldc | aload | iload
+ * invokenonvirtual
+ * aload_0
+ * swap
+ * putfield
+ * ----------->
+ * aload_0
+ * new
+ * dup
+ * ldc | aload | iload
+ * invokenonvirtual
+ * putfield
+ */
+int simplify_swap_4(CODE **c) {
+    int x1, x2;
+    char *y1, *y2, *y3, *y4;
+    if(is_new(*c, &y1)
+       && is_dup(next(*c))
+       && is_invokenonvirtual(next(next(next(*c))), &y2)
+       && is_aload(next(next(next(next(*c)))), &x1)
+       && is_swap(next(next(next(next(next(*c))))))
+       && is_putfield(next(next(next(next(next(next(*c)))))), &y3)) {
+        if(is_ldc_int(next(next(*c)), &x2)) {
+            return replace(c, 7, makeCODEaload(x1, makeCODEnew(y1, makeCODEdup(makeCODEldc_int(x2, makeCODEinvokenonvirtual(y2, makeCODEputfield(y3, NULL)))))));
+        }
+        if(is_ldc_string(next(next(*c)), &y4)) {
+            return replace(c, 7, makeCODEaload(x1, makeCODEnew(y1, makeCODEdup(makeCODEldc_string(y4, makeCODEinvokenonvirtual(y2, makeCODEputfield(y3, NULL)))))));
+        }
+        if(is_iload(next(next(*c)), &x2)) {
+            return replace(c, 7, makeCODEaload(x1, makeCODEnew(y1, makeCODEdup(makeCODEiload(x2, makeCODEinvokenonvirtual(y2, makeCODEputfield(y3, NULL)))))));
+        }
+        if(is_aload(next(next(*c)), &x2)) {
+            return replace(c, 7, makeCODEaload(x1, makeCODEnew(y1, makeCODEdup(makeCODEaload(x2, makeCODEinvokenonvirtual(y2, makeCODEputfield(y3, NULL)))))));
+        }
+    }
+    return 0;
+}
+
+/**
+ * new
+ * dup
+ * ldc | aload | iload
+ * ldc | aload | iload
+ * invokenonvirtual
+ * aload_0
+ * swap
+ * putfield
+ * ----------->
+ * aload_0
+ * new
+ * dup
+ * ldc | aload | iload
+ * ldc | aload | iload
+ * invokenonvirtual
+ * putfield
+ */
+int simplify_swap_5(CODE **c) {
+    int x1, x2, x3;
+    char *y1, *y2, *y3, *y4, *y5;
+    if(is_new(*c, &y1)
+       && is_dup(next(*c))
+       && is_invokenonvirtual(next(next(next(next(*c)))), &y2)
+       && is_aload(next(next(next(next(next(*c))))), &x1)
+       && is_swap(next(next(next(next(next(next(*c)))))))
+       && is_putfield(next(next(next(next(next(next(next(*c))))))), &y3)) {
+        if(is_ldc_int(next(next(*c)), &x2) && is_ldc_int(next(next(next(*c))), &x3)) {
+            return replace(c, 8, makeCODEaload(x1, makeCODEnew(y1, makeCODEdup(makeCODEldc_int(x2, makeCODEldc_int(x3, makeCODEinvokenonvirtual(y2, makeCODEputfield(y3, NULL))))))));
+        }
+        if(is_ldc_string(next(next(*c)), &y4) && is_ldc_string(next(next(next(*c))), &y5)) {
+            return replace(c, 8, makeCODEaload(x1, makeCODEnew(y1, makeCODEdup(makeCODEldc_string(y4, makeCODEldc_string(y5, makeCODEinvokenonvirtual(y2, makeCODEputfield(y3, NULL))))))));
+        }
+        if(is_iload(next(next(*c)), &x2) && is_iload(next(next(next(*c))), &x3)) {
+            return replace(c, 8, makeCODEaload(x1, makeCODEnew(y1, makeCODEdup(makeCODEiload(x2, makeCODEiload(x3, makeCODEinvokenonvirtual(y2, makeCODEputfield(y3, NULL))))))));
+        }
+        if(is_aload(next(next(*c)), &x2) && is_aload(next(next(next(*c))), &x3)) {
+            return replace(c, 8, makeCODEaload(x1, makeCODEnew(y1, makeCODEdup(makeCODEaload(x2, makeCODEaload(x3, makeCODEinvokenonvirtual(y2, makeCODEputfield(y3, NULL))))))));
+        }
+        if(is_ldc_int(next(next(*c)), &x2) && is_ldc_string(next(next(next(*c))), &y4)) {
+            return replace(c, 8, makeCODEaload(x1, makeCODEnew(y1, makeCODEdup(makeCODEldc_int(x2, makeCODEldc_string(y4, makeCODEinvokenonvirtual(y2, makeCODEputfield(y3, NULL))))))));
+        }
+        if(is_ldc_int(next(next(*c)), &x2) && is_iload(next(next(next(*c))), &x3)) {
+            return replace(c, 8, makeCODEaload(x1, makeCODEnew(y1, makeCODEdup(makeCODEldc_int(x2, makeCODEiload(x3, makeCODEinvokenonvirtual(y2, makeCODEputfield(y3, NULL))))))));
+        }
+        if(is_ldc_int(next(next(*c)), &x2) && is_aload(next(next(next(*c))), &x3)) {
+            return replace(c, 8, makeCODEaload(x1, makeCODEnew(y1, makeCODEdup(makeCODEldc_int(x2, makeCODEaload(x3, makeCODEinvokenonvirtual(y2, makeCODEputfield(y3, NULL))))))));
+        }
+        if(is_ldc_string(next(next(*c)), &y4) && is_ldc_int(next(next(next(*c))), &x2)) {
+            return replace(c, 8, makeCODEaload(x1, makeCODEnew(y1, makeCODEdup(makeCODEldc_string(y4, makeCODEldc_int(x2, makeCODEinvokenonvirtual(y2, makeCODEputfield(y3, NULL))))))));
+        }
+        if(is_ldc_string(next(next(*c)), &y4) && is_iload(next(next(next(*c))), &x2)) {
+            return replace(c, 8, makeCODEaload(x1, makeCODEnew(y1, makeCODEdup(makeCODEldc_string(y4, makeCODEiload(x2, makeCODEinvokenonvirtual(y2, makeCODEputfield(y3, NULL))))))));
+        }
+        if(is_ldc_string(next(next(*c)), &y4) && is_aload(next(next(next(*c))), &x2)) {
+            return replace(c, 8, makeCODEaload(x1, makeCODEnew(y1, makeCODEdup(makeCODEldc_string(y4, makeCODEaload(x2, makeCODEinvokenonvirtual(y2, makeCODEputfield(y3, NULL))))))));
+        }
+        if(is_iload(next(next(*c)), &x2) && is_ldc_int(next(next(next(*c))), &x3)) {
+            return replace(c, 8, makeCODEaload(x1, makeCODEnew(y1, makeCODEdup(makeCODEiload(x2, makeCODEldc_int(x3, makeCODEinvokenonvirtual(y2, makeCODEputfield(y3, NULL))))))));
+        }
+        if(is_iload(next(next(*c)), &x2) && is_ldc_string(next(next(next(*c))), &y4)) {
+            return replace(c, 8, makeCODEaload(x1, makeCODEnew(y1, makeCODEdup(makeCODEiload(x2, makeCODEldc_string(y4, makeCODEinvokenonvirtual(y2, makeCODEputfield(y3, NULL))))))));
+        }
+        if(is_iload(next(next(*c)), &x2) && is_aload(next(next(next(*c))), &x3)) {
+            return replace(c, 8, makeCODEaload(x1, makeCODEnew(y1, makeCODEdup(makeCODEiload(x2, makeCODEaload(x3, makeCODEinvokenonvirtual(y2, makeCODEputfield(y3, NULL))))))));
+        }
+        if(is_aload(next(next(*c)), &x2) && is_ldc_int(next(next(next(*c))), &x3)) {
+            return replace(c, 8, makeCODEaload(x1, makeCODEnew(y1, makeCODEdup(makeCODEaload(x2, makeCODEldc_int(x3, makeCODEinvokenonvirtual(y2, makeCODEputfield(y3, NULL))))))));
+        }
+        if(is_aload(next(next(*c)), &x2) && is_ldc_string(next(next(next(*c))), &y4)) {
+            return replace(c, 8, makeCODEaload(x1, makeCODEnew(y1, makeCODEdup(makeCODEaload(x2, makeCODEldc_string(y4, makeCODEinvokenonvirtual(y2, makeCODEputfield(y3, NULL))))))));
+        }
+        if(is_aload(next(next(*c)), &x2) && is_iload(next(next(next(*c))), &x3)) {
+            return replace(c, 8, makeCODEaload(x1, makeCODEnew(y1, makeCODEdup(makeCODEaload(x2, makeCODEiload(x3, makeCODEinvokenonvirtual(y2, makeCODEputfield(y3, NULL))))))));
+        }
+    }
+    return 0;
+}
+
 void init_patterns(void) {
     /*Given optimization*/
     ADD_PATTERN(positive_increment);
@@ -716,8 +836,10 @@ void init_patterns(void) {
     ADD_PATTERN(remove_nop);
     /*ADD_PATTERN(remove_dead_labels);*/ /*This causes an error when simplify_if_branch is enabled*/
     ADD_PATTERN(negative_increment);
-    ADD_PATTERN(simplify_putfield); /*Does not seem to cover all cases! Investigate .j files*/
+    ADD_PATTERN(simplify_putfield);
     ADD_PATTERN(simplify_swap_1);
     ADD_PATTERN(simplify_swap_2);
     ADD_PATTERN(simplify_swap_3);
+    ADD_PATTERN(simplify_swap_4);
+    ADD_PATTERN(simplify_swap_5);
 }
