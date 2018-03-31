@@ -158,22 +158,22 @@ int positive_increment(CODE **c) {
 }
 
 /* iload x
- * ldc k   (-128<=k<0)
- * iadd
+ * ldc k   (0>=k>128)
+ * isub
  * istore x
  * --------->
- * iinc x k
+ * iinc x -k
  */
 int negative_increment(CODE **c) {
     int x, y, k;
     if (is_iload(*c, &x)
         && is_ldc_int(next(*c), &k)
-        && is_iadd(next(next(*c)))
+        && is_isub(next(next(*c)))
         && is_istore(next(next(next(*c))), &y)
         && x == y
-        && -128 <= k
-        && k < 0) {
-        return replace(c, 4, makeCODEiinc(x, k, NULL));
+        && 0 <= k
+        && k <= 127) {
+        return replace(c, 4, makeCODEiinc(x, -k, NULL));
     }
     return 0;
 }
@@ -437,6 +437,31 @@ int simplify_branch_5(CODE **c) {
 }
 
 /**
+ * dup
+ * astore
+ * acsont_null
+ * if_acmpeq
+ * ---------->
+ * dup
+ * astore
+ * ifnull
+ */
+int simplify_branch_6(CODE **c) {
+    int x1, x2;
+    if(is_dup(*c)
+       && is_astore(next(*c), &x1)
+       && is_aconst_null(next(next(*c)))) {
+        if(is_if_acmpeq(next(next(next(*c))), &x2)) {
+            return replace(c, 4, makeCODEdup(makeCODEastore(x1, makeCODEifnull(x2, NULL))));
+        }
+        if(is_if_acmpne(next(next(next(*c))), &x2)) {
+            return replace(c, 4, makeCODEdup(makeCODEastore(x1, makeCODEifnonnull(x2, NULL))));
+        }
+    }
+    return 0;
+}
+
+/**
  * goto A
  * ...
  * goto B
@@ -527,7 +552,6 @@ void init_patterns(void) {
     ADD_PATTERN(positive_increment);
     ADD_PATTERN(simplify_istore);
     ADD_PATTERN(simplify_astore);
-    ADD_PATTERN(negative_increment);
     ADD_PATTERN(simplify_multiplication);
     ADD_PATTERN(simplify_division_right);
     ADD_PATTERN(simplify_subtract_left);
@@ -537,10 +561,12 @@ void init_patterns(void) {
     ADD_PATTERN(simplify_branch_2);
     ADD_PATTERN(simplify_branch_3);
     ADD_PATTERN(simplify_branch_4);
-    ADD_PATTERN(simplify_branch_5);
+    /*ADD_PATTERN(simplify_branch_5);*/ /*Works? Need to be tested further*/
+    ADD_PATTERN(simplify_branch_6);
     ADD_PATTERN(merge_labels);
     ADD_PATTERN(simplify_goto_goto);
     ADD_PATTERN(simplify_ldc_store);
     ADD_PATTERN(remove_nop);
     /*ADD_PATTERN(remove_dead_labels);*/ /*This causes an error when simplify_if_branch is enabled*/
+    ADD_PATTERN(negative_increment);
 }
