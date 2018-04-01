@@ -6,7 +6,7 @@ public class Benchmark {
   public static void main (String[] args){
       String a;
       a = "";
-      if(a != a || a != a || a != a) {
+      if(a == a || a == a || a == a) {
       
       }
   }
