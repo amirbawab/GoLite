@@ -954,43 +954,6 @@ int simplify_multiplication_right(CODE** c) {
     return 0;
 }
 
-/*
- * aload_x
- * aload_x
- * if_acmpeq k
- * -------------->
- * goto k
- */
-int simplify_redundant_cmp_1(CODE** c) {
-    int x1, x2, k;
-    if(is_aload(*c, &x1) &&
-            is_aload(next(*c), &x2) &&
-            is_if_acmpeq(next(next(*c)), &k)) {
-        if(x1 == x2) {
-            return replace(c, 3, makeCODEgoto(k, NULL));
-        }
-    }
-
-    return 0;
-}
-
-/*
- * aload_x
- * dup
- * if_acmpeq k
- * ------------->
- * goto k
- */
-int simplify_redundant_cmp_2(CODE** c) {
-    int x, k;
-    if(is_aload(*c, &x) &&
-            is_dup(next(*c)) &&
-            is_if_acmpeq(next(next(*c)), &k)) {
-        return replace(c, 3, makeCODEgoto(k, NULL));
-    }
-
-    return 0;
-}
 
 void init_patterns(void) {
     /*Given optimization*/
@@ -1026,6 +989,4 @@ void init_patterns(void) {
     ADD_PATTERN(remove_dead_labels);
 
     ADD_PATTERN(simplify_multiplication_right);
-    ADD_PATTERN(simplify_redundant_cmp_1);
-    ADD_PATTERN(simplify_redundant_cmp_2);
 }
