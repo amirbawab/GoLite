@@ -18,7 +18,7 @@
 #include "tree.h"
 
 extern CLASSFILE *theclassfile;
- 
+
 %}
 
 %start classfile
