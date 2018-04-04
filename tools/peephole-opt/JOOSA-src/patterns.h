@@ -467,6 +467,54 @@ int simplify_branch_7(CODE **c) {
 }
 
 /**
+ * if_acmpeq true_2     <-- reduce label
+ * iconst_0
+ * goto stop_3          <-- reduce label
+ * true_2:
+ * iconst_1
+ * stop_3:
+ * dup
+ * ifeq|ifne
+ * ------------>
+ * ???????
+ */
+int simplify_branch_8(CODE **c) {
+    int x1,x2,x3,x4,x5,x6,x7;
+    if (is_if(c, &x1)
+        && is_ldc_int(next(*c), &x2)
+        && x2 == 0
+        && is_goto(next(next(*c)), &x3)
+        && is_label(next(next(next(*c))), &x4)
+        && is_ldc_int(next(next(next(next(*c)))), &x5)
+        && x5 == 1
+        && is_label(next(next(next(next(next(*c))))), &x6)
+        && x3 == x6
+        && currentlabels[x6].sources != 1
+        && is_dup(next(next(next(next(next(next(*c)))))))) {
+        if(is_ifeq(next(next(next(next(next(next(next(*c))))))), &x7) || is_ifne(next(next(next(next(next(next(next(*c))))))), &x7)) {
+            /* TODO */
+        }
+    }
+    return 0;
+}
+
+/**
+ * dup
+ * ifne A
+ * pop
+ * ...........
+ * A:
+ * ifeq | ifne
+ * ------------>
+ * Follow the if maybe?
+ */
+int simplify_branch_9(CODE **c) {
+    /* TODO */
+    return 0;
+}
+
+
+/**
  * goto A   <-- reduce label
  * ...
  * goto B   <-- increase label
@@ -923,6 +971,8 @@ void init_patterns(void) {
     /*ADD_PATTERN(simplify_branch_5);*/ /*Works? Need to be tested further*/
     ADD_PATTERN(simplify_branch_6);
     ADD_PATTERN(simplify_branch_7);
+    ADD_PATTERN(simplify_branch_8);
+    ADD_PATTERN(simplify_branch_9);
     ADD_PATTERN(simplify_goto_goto);
     ADD_PATTERN(simplify_ldc_store);
     ADD_PATTERN(remove_nop);
