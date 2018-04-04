@@ -864,6 +864,48 @@ int remove_dead_labels(CODE **c) {
     return 0;
 }
 
+/**
+ * iload x
+ * ldc 0
+ * imul
+ * ------------->
+ * ldc 0
+ *
+ * OR
+ *
+ * iload x
+ * ldc 1
+ * imul
+ * ------------->
+ * iload x
+ *
+ * OR
+ *
+ * iload x
+ * ldc 2
+ * imul
+ * ------------->
+ * iload x
+ * dup
+ * iadd
+ */
+int simplify_multiplication_right(CODE** c) {
+    int x, k;
+    if(is_iload(*c, &x) &&
+            is_ldc_int(next(*c), &k) &&
+            is_imul(next(next(*c)))) {
+        if(k == 0) {
+            return replace(c, 3, makeCODEldc_int(0, NULL));
+        } else if(k == 1) {
+            return replace(c, 3, makeCODEiload(x, NULL));
+        } else if(k == 2) {
+            return replace(c, 3, makeCODEiload(x, makeCODEdup(makeCODEiadd(NULL))));
+        }
+        return 0;
+    }
+    return 0;
+}
+
 void init_patterns(void) {
     /*Given optimization*/
     ADD_PATTERN(positive_increment);
@@ -894,4 +936,6 @@ void init_patterns(void) {
     ADD_PATTERN(simplify_string);
     ADD_PATTERN(merge_labels);
     ADD_PATTERN(remove_dead_labels);
+
+    ADD_PATTERN(simplify_multiplication_right);
 }
