@@ -966,7 +966,7 @@ int simplify_redundant_cmp(CODE** c) {
     if(is_aload(*c, &x1) &&
             is_aload(next(*c), &x2) &&
             is_if_acmpeq(next(next(*c)), &k)) {
-        if(x1 == x2) { // comparing the same object, simply goto the label
+        if(x1 == x2) {
             return replace(c, 3, makeCODEgoto(k, NULL));
         }
     }
