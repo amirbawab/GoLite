@@ -467,49 +467,89 @@ int simplify_branch_7(CODE **c) {
 }
 
 /**
- * if_acmpeq true_2     <-- reduce label
+ * input:0 ---> 1 ---> goto:stop_39
+ * input:1 ---> 0 ---> goto:false_37
+ *
+ * iload_3
+ * ifeq true_38
  * iconst_0
- * goto stop_3          <-- reduce label
- * true_2:
+ * goto stop_39
+ * true_38:
  * iconst_1
- * stop_3:
+ * stop_39:
  * dup
- * ifeq|ifne
+ * ifeq false_37
+ * pop
  * ------------>
- * ???????
+ * iconst_0
+ * iload_3
+ * ifne false_37
+ * pop
  */
 int simplify_branch_8(CODE **c) {
-    int x1,x2,x3,x4,x5,x6,x7;
-    if (is_if(c, &x1)
-        && is_ldc_int(next(*c), &x2)
-        && x2 == 0
-        && is_goto(next(next(*c)), &x3)
-        && is_label(next(next(next(*c))), &x4)
-        && is_ldc_int(next(next(next(next(*c)))), &x5)
-        && x5 == 1
-        && is_label(next(next(next(next(next(*c))))), &x6)
-        && x3 == x6
-        && currentlabels[x6].sources != 1
-        && is_dup(next(next(next(next(next(next(*c)))))))) {
-        if(is_ifeq(next(next(next(next(next(next(next(*c))))))), &x7) || is_ifne(next(next(next(next(next(next(next(*c))))))), &x7)) {
-            /* TODO */
-        }
+    int x1,x2,x3,x4,x5,x6,x7,x8;
+    if (is_iload(*c, &x1)
+        && is_ifeq(next(*c), &x2)
+        && is_ldc_int(next(next(*c)), &x3)
+        && is_goto(next(next(next(*c))), &x4)
+        && is_label(next(next(next(next(*c)))), &x5)
+        && x2 == x5
+        && currentlabels[x5].sources == 1
+        && is_ldc_int(next(next(next(next(next(*c))))), &x6)
+        && is_label(next(next(next(next(next(next(*c)))))), &x7)
+        && x4 == x7
+        && currentlabels[x7].sources == 1
+        && is_dup(next(next(next(next(next(next(next(*c))))))))
+        && is_ifeq(next(next(next(next(next(next(next(next(*c)))))))), &x8)
+        && is_pop(next(next(next(next(next(next(next(next(next(*c))))))))))) {
+        return replace(c, 10, makeCODEldc_int(x3, makeCODEiload(x1, makeCODEifne(x8, makeCODEpop(NULL)))));
     }
     return 0;
 }
 
 /**
+ * input:0 ---> 1 ---> goto:stop_39
+ * input:1 ---> 0 ---> goto:false_37
+ *
+ * iconst_1
+ * iload_1
+ * if_icmple true_4
+ * iconst_0
+ * goto stop_5
+ * true_4:
+ * iconst_1
+ * stop_5:
  * dup
- * ifne A
+ * ifeq false_3
  * pop
- * ...........
- * A:
- * ifeq | ifne
  * ------------>
- * Follow the if maybe?
+ * iconst_0
+ * iconst_1
+ * iload_1
+ * if_icmpgt false_3
+ * pop
  */
 int simplify_branch_9(CODE **c) {
-    /* TODO */
+    int x0,x1,x2,x3,x4,x5,x6,x7,x8;
+    if (is_ldc_int(next(next(next(*c))), &x3)
+        && is_goto(next(next(next(next(*c)))), &x4)
+        && is_label(next(next(next(next(next(*c))))), &x5)
+        && currentlabels[x5].sources == 1
+        && is_ldc_int(next(next(next(next(next(next(*c)))))), &x6)
+        && is_label(next(next(next(next(next(next(next(*c))))))), &x7)
+        && x4 == x7
+        && currentlabels[x7].sources == 1
+        && is_dup(next(next(next(next(next(next(next(next(*c)))))))))
+        && is_ifeq(next(next(next(next(next(next(next(next(next(*c))))))))), &x8)
+        && is_pop(next(next(next(next(next(next(next(next(next(next(*c)))))))))))) {
+
+        if(is_ldc_int(*c, &x0) && is_iload(next(*c), &x1)) {
+            if(is_if_icmple(next(next(*c)), &x2) && x2 == x5) {
+                return replace(c, 11, makeCODEldc_int(x3, makeCODEldc_int(x0, makeCODEiload(x1, makeCODEif_icmpgt(x8, makeCODEpop(NULL))))));
+            }
+        }
+
+    }
     return 0;
 }
 
