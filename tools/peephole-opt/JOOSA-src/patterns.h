@@ -954,6 +954,50 @@ int simplify_multiplication_right(CODE** c) {
     return 0;
 }
 
+/*
+ * return
+ * <some code>
+ * X:
+ * --------->
+ * return
+ * X:
+ */
+int strip_post_return(CODE** c) {
+    int x, y;
+    if(is_return(*c) && !is_label(next(*c), &y) && is_label(next(next(*c)), &x)) {
+        return replace(c, 3, makeCODEreturn(makeCODElabel(x, NULL)));
+    }
+}
+
+/*
+ * areturn
+ * <some code>
+ * X:
+ * --------->
+ * return
+ * X:
+ */
+int strip_post_areturn(CODE** c) {
+    int x, y;
+    if(is_areturn(*c) && !is_label(next(*c), &y) && is_label(next(next(*c)), &x)) {
+        return replace(c, 3, makeCODEareturn(makeCODElabel(x, NULL)));
+    }
+}
+
+/*
+ * ireturn
+ * <some code>
+ * X:
+ * --------->
+ * return
+ * X:
+ */
+int strip_post_ireturn(CODE** c) {
+    int x, y;
+    if(is_ireturn(*c) && !is_label(next(*c), &y) && is_label(next(next(*c)), &x)) {
+        return replace(c, 3, makeCODEireturn(makeCODElabel(x, NULL)));
+    }
+}
 
 void init_patterns(void) {
     /*Given optimization*/
@@ -989,4 +1033,7 @@ void init_patterns(void) {
     ADD_PATTERN(remove_dead_labels);
 
     ADD_PATTERN(simplify_multiplication_right);
+    ADD_PATTERN(strip_post_return);
+    ADD_PATTERN(strip_post_areturn);
+    ADD_PATTERN(strip_post_ireturn);
 }
