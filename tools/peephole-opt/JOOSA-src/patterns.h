@@ -508,9 +508,6 @@ int simplify_branch_8(CODE **c) {
 }
 
 /**
- * input:0 ---> 1 ---> goto:stop_39
- * input:1 ---> 0 ---> goto:false_37
- *
  * iconst_1
  * iload_1
  * if_icmple true_4
@@ -540,15 +537,41 @@ int simplify_branch_9(CODE **c) {
         && x4 == x7
         && currentlabels[x7].sources == 1
         && is_dup(next(next(next(next(next(next(next(next(*c)))))))))
-        && is_ifeq(next(next(next(next(next(next(next(next(next(*c))))))))), &x8)
         && is_pop(next(next(next(next(next(next(next(next(next(next(*c)))))))))))) {
 
-        if(is_ldc_int(*c, &x0) && is_iload(next(*c), &x1)) {
-            if(is_if_icmple(next(next(*c)), &x2) && x2 == x5) {
-                return replace(c, 11, makeCODEldc_int(x3, makeCODEldc_int(x0, makeCODEiload(x1, makeCODEif_icmpgt(x8, makeCODEpop(NULL))))));
+        if(is_ifeq(next(next(next(next(next(next(next(next(next(*c))))))))), &x8)) {
+            if(is_ldc_int(*c, &x0) && is_iload(next(*c), &x1)) {
+                if(is_if_icmple(next(next(*c)), &x2) && x2 == x5) {
+                    return replace(c, 11, makeCODEldc_int(x3, makeCODEldc_int(x0, makeCODEiload(x1, makeCODEif_icmpgt(x8, makeCODEpop(NULL))))));
+                }
+                if(is_if_icmplt(next(next(*c)), &x2) && x2 == x5) {
+                    return replace(c, 11, makeCODEldc_int(x3, makeCODEldc_int(x0, makeCODEiload(x1, makeCODEif_icmpge(x8, makeCODEpop(NULL))))));
+                }
+                if(is_if_icmpge(next(next(*c)), &x2) && x2 == x5) {
+                    return replace(c, 11, makeCODEldc_int(x3, makeCODEldc_int(x0, makeCODEiload(x1, makeCODEif_icmplt(x8, makeCODEpop(NULL))))));
+                }
+                if(is_if_icmpgt(next(next(*c)), &x2) && x2 == x5) {
+                    return replace(c, 11, makeCODEldc_int(x3, makeCODEldc_int(x0, makeCODEiload(x1, makeCODEif_icmple(x8, makeCODEpop(NULL))))));
+                }
+                if(is_if_icmpeq(next(next(*c)), &x2) && x2 == x5) {
+                    return replace(c, 11, makeCODEldc_int(x3, makeCODEldc_int(x0, makeCODEiload(x1, makeCODEif_icmpne(x8, makeCODEpop(NULL))))));
+                }
+                if(is_if_icmpne(next(next(*c)), &x2) && x2 == x5) {
+                    return replace(c, 11, makeCODEldc_int(x3, makeCODEldc_int(x0, makeCODEiload(x1, makeCODEif_icmpeq(x8, makeCODEpop(NULL))))));
+                }
             }
         }
 
+        if(is_ifne(next(next(next(next(next(next(next(next(next(*c))))))))), &x8)) {
+            if (is_aload(*c, &x0) && is_aload(next(*c), &x1)) {
+                if (is_if_acmpeq(next(next(*c)), &x2) && x2 == x5) {
+                    return replace(c, 11, makeCODEldc_int(x6, makeCODEaload(x0, makeCODEaload(x1, makeCODEif_acmpeq(x8, makeCODEpop(NULL))))));
+                }
+                if (is_if_acmpne(next(next(*c)), &x2) && x2 == x5) {
+                    return replace(c, 11, makeCODEldc_int(x6, makeCODEaload(x0, makeCODEaload(x1, makeCODEif_acmpne(x8,makeCODEpop(NULL))))));
+                }
+            }
+        }
     }
     return 0;
 }
