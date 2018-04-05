@@ -1030,6 +1030,7 @@ int strip_post_return(CODE** c) {
     if(is_return(*c) && !is_label(next(*c), &y) && is_label(next(next(*c)), &x)) {
         return replace(c, 3, makeCODEreturn(makeCODElabel(x, NULL)));
     }
+    return 0;
 }
 
 /*
@@ -1045,6 +1046,7 @@ int strip_post_areturn(CODE** c) {
     if(is_areturn(*c) && !is_label(next(*c), &y) && is_label(next(next(*c)), &x)) {
         return replace(c, 3, makeCODEareturn(makeCODElabel(x, NULL)));
     }
+    return 0;
 }
 
 /*
@@ -1060,6 +1062,7 @@ int strip_post_ireturn(CODE** c) {
     if(is_ireturn(*c) && !is_label(next(*c), &y) && is_label(next(next(*c)), &x)) {
         return replace(c, 3, makeCODEireturn(makeCODElabel(x, NULL)));
     }
+    return 0;
 }
 
 void init_patterns(void) {
