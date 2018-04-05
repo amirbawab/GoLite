@@ -127,15 +127,15 @@ std::string golite::Variable::toPrettySymbol() {
 std::string golite::Variable::toTypeScript(int indent) {
     std::stringstream ss;
     ss << type_component_->toTypeScriptInitializer(indent);
-    for(size_t i=0; i < expressions_.size(); i++) {
-        ss << expressions_[i]->toTypeScriptInitializer(indent);
-    }
-    ss << golite::Utils::blockComment({"Variable group of size " + std::to_string(identifiers_.size())},
-                                      indent, getLine()) << std::endl;
     for(size_t i=0; i < identifiers_.size(); i++) {
-        if(i != 0) {
+        if(i!=0) {
             ss << std::endl;
         }
+        if(!expressions_.empty()) {
+            ss << expressions_[i]->toTypeScriptInitializer(indent);
+        }
+        ss << golite::Utils::blockComment({"Variable " + identifiers_[i]->getName()},
+                                          indent, identifiers_[i]->getLine()) << std::endl;
         ss << golite::Utils::indent(indent) << "var ";
 
         if(identifiers_[i]->isBlank()) {

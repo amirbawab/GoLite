@@ -148,6 +148,12 @@ std::string golite::Declaration::toTypeScript(int indent) {
         ss << ";" << std::endl;
     }
 
+    for(size_t i=0; i < right_expressions_.size(); i++) {
+        ss << right_expressions_[i]->toTypeScriptInitializer(indent);
+    }
+
+    ss << golite::Utils::blockComment({"Assignment for declaration"},
+                                      indent, getLine()) << std::endl;
     if(left_identifiers_.size() > 1) {
         ss_ids << "[";
         ss_exprs << "[";
