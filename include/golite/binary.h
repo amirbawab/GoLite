@@ -135,6 +135,12 @@ namespace golite {
 
         // Binary expression type
         KIND kind_;
+
+        // Left operand function name
+        std::string left_func_name_;
+
+        // Right operand function name
+        std::string right_func_name_;
     };
 }
 
