@@ -215,8 +215,11 @@ void golite::Binary::symbolTablePass(SymbolTable *root) {
 
 std::string golite::Binary::toTypeScript(int indent) {
     std::stringstream ss;
-    TypeComponent *type_component = left_operand_->typeCheck();
-    if (golite::TSHelper::isObject(type_component)) {
+    if(kind_ == KIND::AND) {
+        ss << left_func_name_ << "() && " << right_func_name_ << "()";
+    } else if(kind_ == KIND::OR) {
+        ss << left_func_name_ << "() || " << right_func_name_ << "()";
+    } else if (golite::TSHelper::isObject(left_operand_->typeCheck())) {
         if (kind_ == KIND::IS_EQUAL) {
             ss << "(" << left_operand_->toTypeScript(0) << ".equals(" << right_operand_->toTypeScript(0) << "))";
         } else if (kind_ == KIND::IS_NOT_EQUAL) {
@@ -273,14 +276,10 @@ std::string golite::Binary::toTypeScript(int indent) {
             case GREATER_THAN_EQUAL:
                 ss << " >= ";
                 break;
-            case AND:
-                ss << " && ";
-                break;
-            case OR:
-                ss << " || ";
-                break;
             case BIT_CLEAR:
                 ss << " & ";
+            default:
+                throw std::runtime_error("Unhandled binary operation");
         }
 
         if (kind_ == KIND::BIT_CLEAR) {
@@ -295,7 +294,27 @@ std::string golite::Binary::toTypeScript(int indent) {
 
 std::string golite::Binary::toTypeScriptInitializer(int indent) {
     std::stringstream ss;
-    ss << left_operand_->toTypeScriptInitializer(indent)
-       << right_operand_->toTypeScriptInitializer(indent);
+    if(kind_ == KIND::AND || kind_ == KIND::OR) {
+        static int count = 1;
+        ss << golite::Utils::blockComment({"Binary operation && and || have promoted left operands"},
+                                    indent, getLine()) << std::endl;
+        left_func_name_ = "and_or_lop_" + std::to_string(count++);
+        ss << golite::Utils::indent(indent) << "function " << left_func_name_ << "() {" << std::endl
+           << left_operand_->toTypeScriptInitializer(indent+1)
+           << golite::Utils::indent(indent+1) << "return " << left_operand_->toTypeScript(0) << ";" << std::endl
+           << golite::Utils::indent(indent) << "}" << std::endl << std::endl;
+
+        ss << golite::Utils::blockComment({"Binary operation && and || have promoted right operands"},
+                                          indent, getLine()) << std::endl;
+        right_func_name_ = "and_or_rop_" + std::to_string(count++);
+        ss << golite::Utils::indent(indent) << "function " << right_func_name_ << "() {" << std::endl
+           << right_operand_->toTypeScriptInitializer(indent+1)
+           << golite::Utils::indent(indent+1) << "return " << right_operand_->toTypeScript(0) << ";" << std::endl
+           << golite::Utils::indent(indent) << "}" << std::endl << std::endl;
+
+    } else {
+        ss << left_operand_->toTypeScriptInitializer(indent)
+           << right_operand_->toTypeScriptInitializer(indent);
+    }
     return ss.str();
 }
