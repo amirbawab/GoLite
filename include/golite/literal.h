@@ -87,6 +87,7 @@ namespace golite {
         std::string toTypeScript(int indent) {
             // Rune
             if(f_rune_) {
+                if(strcmp(value_, "'\\a'") == 0) return "'\\x07'";
                 return std::string(value_) + ".charCodeAt(0)";
             }
 
