@@ -41,7 +41,7 @@ function main() {
         # Compile GoLite
         "$GOLITE_PATH" \
             codegen \
-            "$GO_FILE" > "$TS_FILE"
+            "$GO_FILE" > /dev/null #OK
 
         # Check if GoLite compiled successfully
         EXIT_CODE="$?"

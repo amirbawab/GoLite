@@ -24,12 +24,20 @@ then
 
 fi
 
+# Output stream
+OUT_STREAM=/dev/stdout
+
+# Codegen updates output stream
+if [[ "$1" == "codegen" ]]; then
+    OUT_STREAM="./build/codegen.ts"
+fi
+
 # Run program
-./build/bin/golite "--$1" "$2"
+./build/bin/golite "--$1" "$2" > "$OUT_STREAM"
 EXIT_CODE="$?"
 
 # Scan option
-if [[ "$1" == "scan" || "$1" == "parse" || "$1" == "typecheck" ]]; then
+if [[ "$1" == "scan" || "$1" == "parse" || "$1" == "typecheck" || "$1" == "codegen" ]]; then
     if [ "$EXIT_CODE" -eq 0 ]; then
         echo "OK"
     fi
