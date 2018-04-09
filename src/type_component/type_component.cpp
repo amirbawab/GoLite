@@ -182,8 +182,8 @@ bool golite::TypeComponent::resolvesToRune() {
 
 bool golite::TypeComponent::resolvesToComparable() {
     std::vector<TypeComposite*> resolved = resolveChildren();
-    for(TypeComposite* type_composite : resolved) {
-        if(!type_composite->resolvesToComparable()) {
+    for(size_t i = resolved.size(); i > 0; i--) {
+        if(!resolved[i-1]->resolvesToComparable()) {
             return false;
         }
     }
