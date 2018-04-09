@@ -170,10 +170,13 @@ std::string golite::Struct::toTypeScriptInitializer(int indent) {
         for(size_t i=0; i < fields_.size(); i++) {
             for(Identifier* identifier : fields_[i]->getIdentifiers()) {
                 if(!identifier->isBlank()) {
+                    TypeComponent* field_type_component = fields_[i]->getTypeComponent();
                     if(k != 0) {
                         ss_post << std::endl << golite::Utils::indent(indent+3) << "   && ";
                     }
-                    if(golite::TSHelper::isObject(fields_[i]->getTypeComponent())) {
+                    if(field_type_component->isSlice()) {
+                        ss_post << "true";
+                    } else if(golite::TSHelper::isObject(field_type_component)) {
                         ss_post << "this." << identifier->getName()
                                 << ".equals(obj." << identifier->getName() << ")";
                     } else {
