@@ -35,7 +35,7 @@ function main() {
 
         # Input and output files
         GO_FILE="$1"
-        TS_FILE="${GO_FILE%.*}.ts"
+        TS_FILE="./build/codegen.ts"
         JS_FILE="${TS_FILE%.*}.js"
 
         # Compile GoLite
