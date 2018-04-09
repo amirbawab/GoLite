@@ -35,9 +35,14 @@ bool golite::StructField::isRecursive(Type *type) {
 std::string golite::StructField::toTypeScript(int indent) {
     std::stringstream ss;
     for(Identifier* identifier : identifiers_) {
-        ss << golite::Utils::indent(indent) << identifier->getName()
-           << " : " << type_component_->toTypeScript(indent)
-           << " = " << type_component_->toTypeScriptDefaultValue() << ";" << std::endl;
+        if(identifier->isBlank()) {
+            static int count = 1;
+            ss << golite::Utils::indent(indent) << "D34D_C0D3_" << count++;
+        } else {
+            ss << golite::Utils::indent(indent) << identifier->getName();
+        }
+        ss << " : " << type_component_->toTypeScript(indent)
+                 << " = " << type_component_->toTypeScriptDefaultValue() << ";" << std::endl;
     }
     return ss.str();
 }

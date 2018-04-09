@@ -151,9 +151,11 @@ std::string golite::Struct::toTypeScriptInitializer(int indent) {
             << golite::Utils::indent(indent+2) << "var obj : " << name_ << " = new " << name_ << "();" << std::endl;
     for(StructField *field : fields_) {
         for(Identifier* identifier : field->getIdentifiers()) {
-            ss_post << golite::Utils::indent(indent+2) << "obj." << identifier->getName() << " = this."
-                    << identifier->getName() << golite::TSHelper::cloneObject(field->getTypeComponent())
-                    << ";" << std::endl;
+            if(!identifier->isBlank()) {
+                ss_post << golite::Utils::indent(indent+2) << "obj." << identifier->getName() << " = this."
+                        << identifier->getName() << golite::TSHelper::cloneObject(field->getTypeComponent())
+                        << ";" << std::endl;
+            }
         }
     }
     ss_post << golite::Utils::indent(indent+2) << "return obj;" << std::endl
@@ -167,16 +169,18 @@ std::string golite::Struct::toTypeScriptInitializer(int indent) {
         size_t k = 0;
         for(size_t i=0; i < fields_.size(); i++) {
             for(Identifier* identifier : fields_[i]->getIdentifiers()) {
-                if(k != 0) {
-                    ss_post << std::endl << golite::Utils::indent(indent+3) << "   && ";
+                if(!identifier->isBlank()) {
+                    if(k != 0) {
+                        ss_post << std::endl << golite::Utils::indent(indent+3) << "   && ";
+                    }
+                    if(golite::TSHelper::isObject(fields_[i]->getTypeComponent())) {
+                        ss_post << "this." << identifier->getName()
+                                << ".equals(obj." << identifier->getName() << ")";
+                    } else {
+                        ss_post << "this." << identifier->getName() << " === obj." << identifier->getName();
+                    }
+                    k++;
                 }
-                if(golite::TSHelper::isObject(fields_[i]->getTypeComponent())) {
-                    ss_post << "this." << identifier->getName()
-                            << ".equals(obj." << identifier->getName() << ")";
-                } else {
-                    ss_post << "this." << identifier->getName() << " === obj." << identifier->getName();
-                }
-                k++;
             }
         }
         ss_post << ";" << std::endl;
