@@ -61,6 +61,9 @@ bool golite::Return::isTerminating() {
 
 std::string golite::Return::toTypeScript(int indent) {
     std::stringstream ss;
+    if(expression_) {
+        ss << expression_->toTypeScriptInitializer(indent);
+    }
     ss << golite::Utils::indent(indent) << "return";
     if(expression_) {
         ss << " " << expression_->toTypeScript(0);
