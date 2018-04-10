@@ -74,16 +74,19 @@ bool golite::SwitchCase::isTerminating() {
     return true;
 }
 
-std::string golite::SwitchCase::toTypeScript(golite::Expression *expression, int indent) {
+std::string golite::SwitchCase::toTypeScript(std::string expressionStr, int indent) {
     std::stringstream ss;
+    for(Expression* expression : expressions_ ) {
+        ss << expression->toTypeScriptInitializer(indent);
+    }
     ss << golite::Utils::indent(indent) << "if (";
     if(!expressions_.empty()) {
         for(size_t i=0; i < expressions_.size(); i++) {
             if(i != 0) {
                 ss << " || ";
             }
-            if(expression) {
-                ss << expression->toTypeScript(0) << " == ";
+            if(!expressionStr.empty()) {
+                ss << expressionStr << " == ";
             }
             ss << expressions_[i]->toTypeScript(0);
         }

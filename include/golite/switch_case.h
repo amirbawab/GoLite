@@ -84,7 +84,7 @@ namespace golite {
          * @param indent
          * @return code
          */
-        std::string toTypeScript(golite::Expression* expression, int indent);
+        std::string toTypeScript(std::string expression, int indent);
     };
 }
 
