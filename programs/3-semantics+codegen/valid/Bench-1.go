@@ -1,5 +1,8 @@
 package main
 
+// Stations
+var stations []string
+
 // Graph struct
 type Graph struct {
     nodes int
@@ -39,6 +42,18 @@ func addEdge(from, to int, w float64) {
 func connect(from, to int, w float64) {
     addEdge(from, to, w)
     addEdge(to, from, w)
+}
+
+/**
+ * Print path
+ */
+func printPath(path []int) {
+    for i:=0; path[i] >= 0; i++ {
+        if i != 0 {
+            print(" -> ")
+        }
+        print(stations[path[i]])
+    }
 }
 
 /**
@@ -150,75 +165,145 @@ func dijkstra(from ,to int) []int {
 
 func main() {
 
+    // Populate stations
+    stations = append(stations, "Acadie")
+    stations = append(stations, "Angrignon")
+    stations = append(stations, "Assomption")
+    stations = append(stations, "Atwater")
+    stations = append(stations, "Beaubien")
+    stations = append(stations, "Beaudry")
+    stations = append(stations, "Berri-UQAM")
+    stations = append(stations, "Bonaventure")
+    stations = append(stations, "Cadillac")
+    stations = append(stations, "Cartier")
+    stations = append(stations, "Champ-de-Mars")
+    stations = append(stations, "Charlevoix")
+    stations = append(stations, "Côte-des-Neiges")
+    stations = append(stations, "Côte-Sainte-Catherine")
+    stations = append(stations, "Côte-Vertu")
+    stations = append(stations, "Crémazie")
+    stations = append(stations, "D'Iberville")
+    stations = append(stations, "De Castelnau")
+    stations = append(stations, "De L'Église")
+    stations = append(stations, "De La Concorde")
+    stations = append(stations, "De La Savane")
+    stations = append(stations, "Du Collège")
+    stations = append(stations, "Édouard-Montpetit")
+    stations = append(stations, "Fabre")
+    stations = append(stations, "Frontenac")
+    stations = append(stations, "Georges-Vanier")
+    stations = append(stations, "Guy-Concordia")
+    stations = append(stations, "Henri-Bourassa")
+    stations = append(stations, "Honoré-Beaugrand")
+    stations = append(stations, "Jarry")
+    stations = append(stations, "Jean-Drapeau")
+    stations = append(stations, "Jean-Talon")
+    stations = append(stations, "Jolicoeur")
+    stations = append(stations, "Joliette")
+    stations = append(stations, "Langelier")
+    stations = append(stations, "LaSalle")
+    stations = append(stations, "Laurier")
+    stations = append(stations, "Lionel-Groulx")
+    stations = append(stations, "Longueuil–Université-de-Sherbrooke")
+    stations = append(stations, "Lucien-L'Allier")
+    stations = append(stations, "McGill")
+    stations = append(stations, "Monk")
+    stations = append(stations, "Mont-Royal")
+    stations = append(stations, "Montmorency")
+    stations = append(stations, "Namur")
+    stations = append(stations, "Outremont")
+    stations = append(stations, "Papineau")
+    stations = append(stations, "Parc")
+    stations = append(stations, "Peel")
+    stations = append(stations, "Pie-IX")
+    stations = append(stations, "Place-d'Armes")
+    stations = append(stations, "Place-des-Arts")
+    stations = append(stations, "Place-Saint-Henri")
+    stations = append(stations, "Plamondon")
+    stations = append(stations, "Préfontaine")
+    stations = append(stations, "Radisson")
+    stations = append(stations, "Rosemont")
+    stations = append(stations, "Saint-Laurent")
+    stations = append(stations, "Saint-Michel")
+    stations = append(stations, "Sauvé")
+    stations = append(stations, "Sherbrooke")
+    stations = append(stations, "Snowdon")
+    stations = append(stations, "Square-Victoria-OACI")
+    stations = append(stations, "Université-de-Montréal")
+    stations = append(stations, "Vendôme")
+    stations = append(stations, "Verdun")
+    stations = append(stations, "Viau")
+    stations = append(stations, "Villa-Maria")
+
     // Create stations
-    var n0  int = addNode(); // Acadie
-    var n1  int = addNode(); // Angrignon
-    var n2  int = addNode(); // Assomption
-    var n3  int = addNode(); // Atwater
-    var n4  int = addNode(); // Beaubien
-    var n5  int = addNode(); // Beaudry
-    var n6  int = addNode(); // Berri-UQAM
-    var n7  int = addNode(); // Bonaventure
-    var n8  int = addNode(); // Cadillac
-    var n9  int = addNode(); // Cartier
-    var n10 int = addNode(); // Champ-de-Mars
-    var n11 int = addNode(); // Charlevoix
-    var n12 int = addNode(); // Côte-des-Neiges
-    var n13 int = addNode(); // Côte-Sainte-Catherine
-    var n14 int = addNode(); // Côte-Vertu
-    var n15 int = addNode(); // Crémazie
-    var n16 int = addNode(); // D'Iberville
-    var n17 int = addNode(); // De Castelnau
-    var n18 int = addNode(); // De L'Église
-    var n19 int = addNode(); // De La Concorde
-    var n20 int = addNode(); // De La Savane
-    var n21 int = addNode(); // Du Collège
-    var n22 int = addNode(); // Édouard-Montpetit
-    var n23 int = addNode(); // Fabre
-    var n24 int = addNode(); // Frontenac
-    var n25 int = addNode(); // Georges-Vanier
-    var n26 int = addNode(); // Guy-Concordia
-    var n27 int = addNode(); // Henri-Bourassa
-    var n28 int = addNode(); // Honoré-Beaugrand
-    var n29 int = addNode(); // Jarry
-    var n30 int = addNode(); // Jean-Drapeau
-    var n31 int = addNode(); // Jean-Talon
-    var n32 int = addNode(); // Jolicoeur
-    var n33 int = addNode(); // Joliette
-    var n34 int = addNode(); // Langelier
-    var n35 int = addNode(); // LaSalle
-    var n36 int = addNode(); // Laurier
-    var n37 int = addNode(); // Lionel-Groulx
-    var n38 int = addNode(); // Longueuil–Université-de-Sherbrooke
-    var n39 int = addNode(); // Lucien-L'Allier
-    var n40 int = addNode(); // McGill
-    var n41 int = addNode(); // Monk
-    var n42 int = addNode(); // Mont-Royal
-    var n43 int = addNode(); // Montmorency
-    var n44 int = addNode(); // Namur
-    var n45 int = addNode(); // Outremont
-    var n46 int = addNode(); // Papineau
-    var n47 int = addNode(); // Parc
-    var n48 int = addNode(); // Peel
-    var n49 int = addNode(); // Pie-IX
-    var n50 int = addNode(); // Place-d'Armes
-    var n51 int = addNode(); // Place-des-Arts
-    var n52 int = addNode(); // Place-Saint-Henri
-    var n53 int = addNode(); // Plamondon
-    var n54 int = addNode(); // Préfontaine
-    var n55 int = addNode(); // Radisson
-    var n56 int = addNode(); // Rosemont
-    var n57 int = addNode(); // Saint-Laurent
-    var n58 int = addNode(); // Saint-Michel
-    var n59 int = addNode(); // Sauvé
-    var n60 int = addNode(); // Sherbrooke
-    var n61 int = addNode(); // Snowdon
-    var n62 int = addNode(); // Square-Victoria-OACI
-    var n63 int = addNode(); // Université-de-Montréal
-    var n64 int = addNode(); // Vendôme
-    var n65 int = addNode(); // Verdun
-    var n66 int = addNode(); // Viau
-    var n67 int = addNode(); // Villa-Maria
+    var n0  int = addNode();
+    var n1  int = addNode();
+    var n2  int = addNode();
+    var n3  int = addNode();
+    var n4  int = addNode();
+    var n5  int = addNode();
+    var n6  int = addNode();
+    var n7  int = addNode();
+    var n8  int = addNode();
+    var n9  int = addNode();
+    var n10 int = addNode();
+    var n11 int = addNode();
+    var n12 int = addNode();
+    var n13 int = addNode();
+    var n14 int = addNode();
+    var n15 int = addNode();
+    var n16 int = addNode();
+    var n17 int = addNode();
+    var n18 int = addNode();
+    var n19 int = addNode();
+    var n20 int = addNode();
+    var n21 int = addNode();
+    var n22 int = addNode();
+    var n23 int = addNode();
+    var n24 int = addNode();
+    var n25 int = addNode();
+    var n26 int = addNode();
+    var n27 int = addNode();
+    var n28 int = addNode();
+    var n29 int = addNode();
+    var n30 int = addNode();
+    var n31 int = addNode();
+    var n32 int = addNode();
+    var n33 int = addNode();
+    var n34 int = addNode();
+    var n35 int = addNode();
+    var n36 int = addNode();
+    var n37 int = addNode();
+    var n38 int = addNode();
+    var n39 int = addNode();
+    var n40 int = addNode();
+    var n41 int = addNode();
+    var n42 int = addNode();
+    var n43 int = addNode();
+    var n44 int = addNode();
+    var n45 int = addNode();
+    var n46 int = addNode();
+    var n47 int = addNode();
+    var n48 int = addNode();
+    var n49 int = addNode();
+    var n50 int = addNode();
+    var n51 int = addNode();
+    var n52 int = addNode();
+    var n53 int = addNode();
+    var n54 int = addNode();
+    var n55 int = addNode();
+    var n56 int = addNode();
+    var n57 int = addNode();
+    var n58 int = addNode();
+    var n59 int = addNode();
+    var n60 int = addNode();
+    var n61 int = addNode();
+    var n62 int = addNode();
+    var n63 int = addNode();
+    var n64 int = addNode();
+    var n65 int = addNode();
+    var n66 int = addNode();
+    var n67 int = addNode();
 
     // Connect stations
     connect(0,47,727.60)
@@ -290,4 +375,7 @@ func main() {
     connect(66,2,895.87)
     connect(67,64,1407.32)
     connect(22,45,1090.60)
+
+    // Print path
+    printPath(dijkstra(n0, n10))
 }
