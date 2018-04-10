@@ -1,7 +1,7 @@
 package main
 
-var size_x int = 3
-var size_y int = 2
+var size_x int = 5
+var size_y int = 5
 
 type PuzzleState struct {
 	numbers []int
@@ -35,7 +35,7 @@ func _compute_xy_pos_from_inline(idx int) XYPos {
 	if idx < size_x {
 		pos.y = 0
 	} else {
-		pos.y = idx / 3
+		pos.y = idx / size_x
 	}
 
 	return pos
@@ -217,19 +217,41 @@ func construct_search_space(root StateNode, level_rem int) StateNode {
 }
 
 func main() {
-	//[ 5, 1, 0,
-	//	4, 3, 2 ]
+	//[ 5, 1, 4, 2, 3,
+	//  1, 2, 3, 4, 5,
+	//  7, 6, 0, 3, 2,
+	//  9, 9, 9, 9, 10, 
+	//	4, 3, 2, 7, 8  ]
 	var numbers []int
 	numbers = append(numbers, 5)
 	numbers = append(numbers, 1)
+	numbers = append(numbers, 4)
+	numbers = append(numbers, 2)
+	numbers = append(numbers, 3)
+	numbers = append(numbers, 1)
+	numbers = append(numbers, 2)
+	numbers = append(numbers, 3)
+	numbers = append(numbers, 4)
+	numbers = append(numbers, 5)
+	numbers = append(numbers, 7)
+	numbers = append(numbers, 6)
 	numbers = append(numbers, 0)
+	numbers = append(numbers, 3)
+	numbers = append(numbers, 2)
+	numbers = append(numbers, 9)
+	numbers = append(numbers, 9)
+	numbers = append(numbers, 9)
+	numbers = append(numbers, 9)
+	numbers = append(numbers, 10)
 	numbers = append(numbers, 4)
 	numbers = append(numbers, 3)
 	numbers = append(numbers, 2)
-
+	numbers = append(numbers, 7)
+	numbers = append(numbers, 8)
+	
 	var puzzle PuzzleState = initialize_puzzle(numbers)
 	var root_node StateNode = puzzle_state_to_node(puzzle)
-	root_node = construct_search_space(root_node, 10)
+	root_node = construct_search_space(root_node, 5)
 
 	println(num_search_space_state)
 }
