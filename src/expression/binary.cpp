@@ -225,6 +225,12 @@ std::string golite::Binary::toTypeScript(int indent) {
         } else if (kind_ == KIND::IS_NOT_EQUAL) {
             ss << "(!" << left_operand_->toTypeScript(0) << ".equals(" << right_operand_->toTypeScript(0) << "))";
         }
+    } else if(kind_ == KIND::DIVIDE) {
+        if(left_operand_->typeCheck()->resolvesToInteger() && right_operand_->typeCheck()->resolvesToInteger()) {
+            ss << "(Math.floor(" << left_operand_->toTypeScript(0) << " / " << right_operand_->toTypeScript(0) << "))";
+        } else {
+            ss << "(" << left_operand_->toTypeScript(0) << " / " << right_operand_->toTypeScript(0) << ")";
+        }
     } else {
         ss << "(" << left_operand_->toTypeScript(0);
         switch (kind_) {
