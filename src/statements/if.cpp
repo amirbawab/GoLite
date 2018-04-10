@@ -180,10 +180,12 @@ std::string golite::If::toTypeScript(int indent) {
     if(simple_) {
         ss << simple_->toTypeScript(indent) << std::endl;
     }
+    ss << expression_->toTypeScriptInitializer(indent);
     for(If* else_if : else_if_) {
         if(else_if->simple_) {
             ss << else_if->simple_->toTypeScript(indent) << std::endl;
         }
+        else_if->expression_->toTypeScriptInitializer(indent);
     }
     ss << golite::Utils::blockComment({"If statement"}, indent, getLine()) << std::endl
        << golite::Utils::indent(indent) << "if(" << expression_->toTypeScript(0) << ") {";
