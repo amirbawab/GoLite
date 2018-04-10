@@ -216,16 +216,6 @@ void golite::Binary::symbolTablePass(SymbolTable *root) {
 std::string golite::Binary::toTypeScript(int indent) {
     std::stringstream ss;
     if(kind_ == KIND::AND) {
-
-        // FIXME
-        // That's a temp solution until all statements with expression
-        // have init called
-//        if (left_func_name_.empty()) {
-//            left_func_name_ = left_operand_->toTypeScript(0);
-//        }
-//        if(right_func_name_.empty()) {
-//            right_func_name_ = right_operand_->toTypeScript(0);
-//        }
         ss << left_func_name_ << "() && " << right_func_name_ << "()";
     } else if(kind_ == KIND::OR) {
         ss << left_func_name_ << "() || " << right_func_name_ << "()";
@@ -306,11 +296,13 @@ std::string golite::Binary::toTypeScriptInitializer(int indent) {
     std::stringstream ss;
     if(kind_ == KIND::AND || kind_ == KIND::OR) {
         static int count = 1;
+        std::string left_init = left_operand_->toTypeScriptInitializer(indent+1);
+        std::string right_init = right_operand_->toTypeScriptInitializer(indent+1);
         ss << golite::Utils::blockComment({"Binary operation && and || have promoted left operands"},
                                     indent, getLine()) << std::endl;
         left_func_name_ = "and_or_lop_" + std::to_string(count++);
         ss << golite::Utils::indent(indent) << "function " << left_func_name_ << "() {" << std::endl
-           << left_operand_->toTypeScriptInitializer(indent+1)
+           << left_init
            << golite::Utils::indent(indent+1) << "return " << left_operand_->toTypeScript(0) << ";" << std::endl
            << golite::Utils::indent(indent) << "}" << std::endl << std::endl;
 
@@ -318,7 +310,7 @@ std::string golite::Binary::toTypeScriptInitializer(int indent) {
                                           indent, getLine()) << std::endl;
         right_func_name_ = "and_or_rop_" + std::to_string(count++);
         ss << golite::Utils::indent(indent) << "function " << right_func_name_ << "() {" << std::endl
-           << right_operand_->toTypeScriptInitializer(indent+1)
+           << right_init
            << golite::Utils::indent(indent+1) << "return " << right_operand_->toTypeScript(0) << ";" << std::endl
            << golite::Utils::indent(indent) << "}" << std::endl << std::endl;
 
