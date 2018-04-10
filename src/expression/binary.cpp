@@ -216,6 +216,16 @@ void golite::Binary::symbolTablePass(SymbolTable *root) {
 std::string golite::Binary::toTypeScript(int indent) {
     std::stringstream ss;
     if(kind_ == KIND::AND) {
+
+        // FIXME
+        // That's a temp solution until all statements with expression
+        // have init called
+//        if (left_func_name_.empty()) {
+//            left_func_name_ = left_operand_->toTypeScript(0);
+//        }
+//        if(right_func_name_.empty()) {
+//            right_func_name_ = right_operand_->toTypeScript(0);
+//        }
         ss << left_func_name_ << "() && " << right_func_name_ << "()";
     } else if(kind_ == KIND::OR) {
         ss << left_func_name_ << "() || " << right_func_name_ << "()";
