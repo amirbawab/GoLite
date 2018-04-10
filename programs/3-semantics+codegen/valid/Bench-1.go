@@ -54,6 +54,7 @@ func printPath(path []int) {
         }
         print(stations[path[i]])
     }
+    println()
 }
 
 /**
@@ -113,7 +114,7 @@ func dijkstra(from ,to int) []int {
         queueLen--
 
         // Mark it as visited
-        visited[min] = VISITED
+        visited[top] = VISITED
 
         // Update and queue neighbors
         for i := 0; i < graph.deg[top]; i++ {
@@ -377,5 +378,37 @@ func main() {
     connect(22,45,1090.60)
 
     // Print path
-    printPath(dijkstra(n0, n10))
+    printPath(dijkstra(n61, n58))
+    printPath(dijkstra(n58, n61))
+}
+
+func main2() {
+    stations = append(stations, "a")
+    stations = append(stations, "b")
+    stations = append(stations, "c")
+    stations = append(stations, "d")
+    stations = append(stations, "e")
+    stations = append(stations, "f")
+    stations = append(stations, "g")
+
+    var a = addNode()
+    var b = addNode()
+    var c = addNode()
+    var d = addNode()
+    var e = addNode()
+    var f = addNode()
+    var g = addNode()
+
+    connect(a, b, 4.)
+    connect(a, c, 3.)
+    connect(b, e, 12.)
+    connect(b, f, 5.)
+    connect(c, d, 7.)
+    connect(c, e, 10.)
+    connect(d, e, 2.)
+    connect(e, g, 5.)
+    connect(f, g, 16.)
+    
+    printPath(dijkstra(a, e))
+    printPath(dijkstra(e, a))
 }
