@@ -44,44 +44,108 @@ func connect(from, to int, w float64) {
 /**
  * Run Dijkstra
  */
-func dijkstra(from ,to int) {
-    var visited [graph.nodes]bool
-    type Pair struct {
-        node int
-        weight float64
-    };
+func dijkstra(from ,to int) []int {
+    // Keep track of visited nodes
+    var visited []int
+    var UNVISITED int = 0
+    var VISITING int = 1
+    var VISITED int = 2
+    for i:=0; i < graph.nodes; i++ {
+        visited = append(visited, UNVISITED)
+    }
+
+    // Keep track of cost
+    var cost[] float64
+    var MAX float64 = 99999.;
+    for i:=0; i < graph.nodes; i++ {
+        cost = append(cost, MAX)
+    }
+
+    // Keep track of parents
+    var parent[] int
+    for i:=0; i < graph.nodes; i++ {
+        parent = append(parent, -1)
+    }
 
     // Queue of node
-    var queue [graph.nodes]Pair
+    var queue []int
+    var queueLen = 0
+    
+    // Allocate space in queue
+    for i:=0; i < graph.nodes; i++ {
+        queue = append(queue, 0)
+    }
 
-    // Prepare from node
-    var fromPair Pair
-    fromPair.node = from
-    fromPair.weight = 0
+    // Queue start node
+    queue[0] = from
+    visited[from] = VISITING
+    queueLen = 1
 
     // Queue from node
-    queue = append(queue, from)
-    var queueLen = 1
     for queueLen > 0 {
         
         // Search for min weight
-        int minId = 0;
+        var min int = 0;
         for i := 1; i < queueLen; i++ {
-            if queue[i].weight < queue[minId].weight {
-                minId = i
+            if cost[queue[i]] < cost[queue[min]] {
+                min = i
             }
         }
+        var top = queue[min]
+
+        // Remove top from queue
+        queue[min], queue[queueLen-1] = queue[queueLen-1], queue[min]
+        queueLen--
 
         // Mark it as visited
-        visited[minId] = true
+        visited[min] = VISITED
 
         // Update and queue neighbors
-        for i := 0; i < graph.deg[from]; i++ {
-            if !visited[i] {
-                qu
+        for i := 0; i < graph.deg[top]; i++ {
+            var neighbor int = graph.al[top][i]
+            var newCost float64 = cost[top] + graph.weight[top][i]
+            if visited[neighbor] == UNVISITED {
+                cost[neighbor] = newCost
+                visited[neighbor] = VISITING
+                parent[neighbor] = top
+                queue[queueLen] = neighbor
+                queueLen++
+            } else if visited[neighbor] == VISITING {
+                if cost[neighbor] > newCost {
+                    cost[neighbor] = newCost
+                    parent[neighbor] = top
+                }
             }
         }
     }
+
+    // Create reverse path
+    var pathRev []int
+
+    // If not reachable
+    if parent[to] < 0 {
+        pathRev = append(pathRev, -1)
+        return pathRev
+    }
+
+    // If reachable
+    var count int = 0
+    pathRev = append(pathRev, to)
+    count++
+    var tmpParent = parent[to]
+    for tmpParent >= 0 {
+        pathRev = append(pathRev, tmpParent)
+        tmpParent = parent[tmpParent]
+        count++
+    }
+    
+    // Reverse path
+    var path []int
+    for i:=count; i > 0; i-- {
+        path = append(path, pathRev[i-1])
+    }
+    path = append(path, -1)
+    return path
 }
 
 func main() {
