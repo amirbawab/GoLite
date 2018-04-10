@@ -263,6 +263,8 @@ std::string golite::PrimaryExpression::toTypeScript(int indent) {
             ss << "<" << cast_type_component->toTypeScript(0) << ">";
             if(cast_type_component->resolvesToString() && expr_type_component->resolvesToInteger()) {
                 ss << "String.fromCharCode(" << children_.back()->toTypeScript(0) << ")";
+            } else if(cast_type_component->resolvesToInteger() && expr_type_component->resolvesToFloat64()) {
+                ss << "Math.floor(" << children_.back()->toTypeScript(0) << ")";
             } else {
                 ss << children_.back()->toTypeScript(0);
             }
