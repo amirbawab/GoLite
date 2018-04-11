@@ -233,7 +233,12 @@ std::string golite::Assignment::toTypeScript(int indent) {
             ss << " *= ";
             break;
         case DIVIDE_EQUAL:
-            ss << " /= ";
+            if(left_expressions_.back()->typeCheck()->resolvesToInteger()) {
+                ss << " = Math.floor(" << left_expressions_.back()->toTypeScript(0) << " / ";
+                ss_exprs << ")";
+            } else {
+                ss << " /= ";
+            }
             break;
         case MODULO_EQUAL:
             ss << " %= ";
