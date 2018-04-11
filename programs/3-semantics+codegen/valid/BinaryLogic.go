@@ -9,7 +9,9 @@
 //~true
 //~true
 //~true
-//~truetruetruetruetruetruetruetrue
+//~truetruetruetruetruetruetruetruefalse
+//~false
+//~false
 package main
 
 func one() int {
@@ -27,6 +29,14 @@ func and(left, right bool) bool {
 
 func or(left, right bool) bool {
     return left || right && true
+}
+
+func boolToInt(val bool) int {
+    if val {
+        return 1
+    } else {
+        return 0
+    }
 }
 
 func main() {
@@ -90,4 +100,17 @@ func main() {
     print(expr6)
     print(one() == 1 && two() == 2 && true)
     print(one() == 1 || two() == 2 || true)
+
+    // Test index
+    var expr7 [10]bool
+    println(expr7[boolToInt(one() == 1 && two() == 2 && true)])
+    println(expr7[boolToInt(one() == boolToInt(one() == 1 && two() == 2 && true) && two() == 2 && true)])
+
+    // Test append
+    var expr8 []bool
+    expr8 = append(expr8, expr7[boolToInt(one() == boolToInt(one() == 1 && two() == 2 && true) && two() == 2 && true)])
+
+    // Test parenthesis
+    println((expr7)[(boolToInt)((one()) == (boolToInt)(((one)() == 1 && two() == 2 && true)) && (two() == 2 && true))])
+
 }
