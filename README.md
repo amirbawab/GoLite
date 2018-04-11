@@ -1,8 +1,6 @@
 # GoLite
 
-## Team
-Details about the team information can be found in the report section
+Bench 1: Run Dijkstra on Montreal metro stations and display the shortest path for each stations to all other ones
 
-## Report
-PDF: doc/  
-Edit Version: https://www.overleaf.com/13806252wpptxjsgszvg#/53464173/
+Bench 2: Generates the search space graph for a variant of the 8-puzzle game
+
