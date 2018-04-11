@@ -12,6 +12,10 @@
 //~truetruetruetruetruetruetruetruefalse
 //~false
 //~false
+//~false
+//~true
+//~false
+
 package main
 
 func one() int {
@@ -112,5 +116,11 @@ func main() {
 
     // Test parenthesis
     println((expr7)[(boolToInt)((one()) == (boolToInt)(((one)() == 1 && two() == 2 && true)) && (two() == 2 && true))])
+    println(((expr7)[(boolToInt)((one()) == (boolToInt)(((one)() == 1 && two() == 2 && true)) && (two() == 2 && true))]))
+
+
+    // Test unary
+    println(!(expr7[boolToInt(one() == boolToInt(one() == 1 && two() == 2 && true) && two() == 2 && true)]))
+    println(!!!!(expr7[boolToInt(one() == boolToInt(one() == 1 && two() == 2 && true) && two() == 2 && true)]))
 
 }
