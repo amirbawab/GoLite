@@ -1,6 +1,6 @@
-//~731340
+//~69836
 package main
-var search_depth int = 12
+var search_depth int = 10
 var size_x int = 4
 var size_y int = 4
 
