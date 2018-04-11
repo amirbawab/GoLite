@@ -1,3 +1,4 @@
+//~[TEST PASS]
 //~Acadie
 //~Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
 //~Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption
@@ -66,7 +67,6 @@
 //~Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun
 //~Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau
 //~Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Villa-Maria
-//~Angrignon -> Monk -> Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie
 //~Angrignon
 //~Angrignon -> Monk -> Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption
 //~Angrignon -> Monk -> Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Atwater
@@ -134,8 +134,6 @@
 //~Angrignon -> Monk -> Jolicoeur -> Verdun
 //~Angrignon -> Monk -> Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau
 //~Angrignon -> Monk -> Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria
-//~Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie
-//~Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
 //~Assomption
 //~Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater
 //~Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien
@@ -202,9 +200,6 @@
 //~Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun
 //~Assomption -> Viau
 //~Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria
-//~Atwater -> Guy-Concordia -> Peel -> McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie
-//~Atwater -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~Atwater -> Guy-Concordia -> Peel -> McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption
 //~Atwater
 //~Atwater -> Guy-Concordia -> Peel -> McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien
 //~Atwater -> Guy-Concordia -> Peel -> McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Beaudry
@@ -270,10 +265,6 @@
 //~Atwater -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun
 //~Atwater -> Guy-Concordia -> Peel -> McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau
 //~Atwater -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria
-//~Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie
-//~Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption
-//~Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater
 //~Beaubien
 //~Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry
 //~Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM
@@ -338,11 +329,6 @@
 //~Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun
 //~Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau
 //~Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Villa-Maria
-//~Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie
-//~Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption
-//~Beaudry -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater
-//~Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien
 //~Beaudry
 //~Beaudry -> Berri-UQAM
 //~Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure
@@ -406,12 +392,6 @@
 //~Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun
 //~Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau
 //~Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria
-//~Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie
-//~Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption
-//~Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater
-//~Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien
-//~Berri-UQAM -> Beaudry
 //~Berri-UQAM
 //~Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure
 //~Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac
@@ -474,13 +454,6 @@
 //~Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun
 //~Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau
 //~Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria
-//~Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie
-//~Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption
-//~Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Atwater
-//~Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien
-//~Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry
-//~Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM
 //~Bonaventure
 //~Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac
 //~Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier
@@ -542,14 +515,6 @@
 //~Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun
 //~Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau
 //~Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria
-//~Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie
-//~Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~Cadillac -> Assomption
-//~Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater
-//~Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien
-//~Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry
-//~Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM
-//~Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure
 //~Cadillac
 //~Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier
 //~Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars
@@ -610,15 +575,6 @@
 //~Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun
 //~Cadillac -> Assomption -> Viau
 //~Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria
-//~Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> De Castelnau -> Parc -> Acadie
-//~Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption
-//~Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater
-//~Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien
-//~Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry
-//~Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM
-//~Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure
-//~Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac
 //~Cartier
 //~Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars
 //~Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix
@@ -678,16 +634,6 @@
 //~Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun
 //~Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau
 //~Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Villa-Maria
-//~Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie
-//~Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption
-//~Champ-de-Mars -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater
-//~Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien
-//~Champ-de-Mars -> Berri-UQAM -> Beaudry
-//~Champ-de-Mars -> Berri-UQAM
-//~Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure
-//~Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac
-//~Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier
 //~Champ-de-Mars
 //~Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix
 //~Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges
@@ -746,17 +692,6 @@
 //~Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun
 //~Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau
 //~Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria
-//~Charlevoix -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie
-//~Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption
-//~Charlevoix -> Lionel-Groulx -> Atwater
-//~Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien
-//~Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry
-//~Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM
-//~Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure
-//~Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac
-//~Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier
-//~Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars
 //~Charlevoix
 //~Charlevoix -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges
 //~Charlevoix -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine
@@ -814,18 +749,6 @@
 //~Charlevoix -> LaSalle -> De L'Église -> Verdun
 //~Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau
 //~Charlevoix -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria
-//~Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie
-//~Côte-des-Neiges -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~Côte-des-Neiges -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption
-//~Côte-des-Neiges -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Atwater
-//~Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien
-//~Côte-des-Neiges -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry
-//~Côte-des-Neiges -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM
-//~Côte-des-Neiges -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure
-//~Côte-des-Neiges -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac
-//~Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier
-//~Côte-des-Neiges -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars
-//~Côte-des-Neiges -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix
 //~Côte-des-Neiges
 //~Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine
 //~Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège -> Côte-Vertu
@@ -882,19 +805,6 @@
 //~Côte-des-Neiges -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun
 //~Côte-des-Neiges -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau
 //~Côte-des-Neiges -> Snowdon -> Villa-Maria
-//~Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie
-//~Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption
-//~Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Atwater
-//~Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien
-//~Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry
-//~Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM
-//~Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure
-//~Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac
-//~Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier
-//~Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars
-//~Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix
-//~Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges
 //~Côte-Sainte-Catherine
 //~Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège -> Côte-Vertu
 //~Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Jarry -> Crémazie
@@ -950,20 +860,6 @@
 //~Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun
 //~Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau
 //~Côte-Sainte-Catherine -> Snowdon -> Villa-Maria
-//~Côte-Vertu -> Du Collège -> De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie
-//~Côte-Vertu -> Du Collège -> De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~Côte-Vertu -> Du Collège -> De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption
-//~Côte-Vertu -> Du Collège -> De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Atwater
-//~Côte-Vertu -> Du Collège -> De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien
-//~Côte-Vertu -> Du Collège -> De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry
-//~Côte-Vertu -> Du Collège -> De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM
-//~Côte-Vertu -> Du Collège -> De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure
-//~Côte-Vertu -> Du Collège -> De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac
-//~Côte-Vertu -> Du Collège -> De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier
-//~Côte-Vertu -> Du Collège -> De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars
-//~Côte-Vertu -> Du Collège -> De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix
-//~Côte-Vertu -> Du Collège -> De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges
-//~Côte-Vertu -> Du Collège -> De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine
 //~Côte-Vertu
 //~Côte-Vertu -> Du Collège -> De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Jarry -> Crémazie
 //~Côte-Vertu -> Du Collège -> De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Fabre -> D'Iberville
@@ -1018,21 +914,6 @@
 //~Côte-Vertu -> Du Collège -> De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun
 //~Côte-Vertu -> Du Collège -> De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau
 //~Côte-Vertu -> Du Collège -> De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria
-//~Crémazie -> Jarry -> Jean-Talon -> De Castelnau -> Parc -> Acadie
-//~Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption
-//~Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater
-//~Crémazie -> Jarry -> Jean-Talon -> Beaubien
-//~Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry
-//~Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM
-//~Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure
-//~Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac
-//~Crémazie -> Sauvé -> Henri-Bourassa -> Cartier
-//~Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars
-//~Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix
-//~Crémazie -> Jarry -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges
-//~Crémazie -> Jarry -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine
-//~Crémazie -> Jarry -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège -> Côte-Vertu
 //~Crémazie
 //~Crémazie -> Jarry -> Jean-Talon -> Fabre -> D'Iberville
 //~Crémazie -> Jarry -> Jean-Talon -> De Castelnau
@@ -1086,22 +967,6 @@
 //~Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun
 //~Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau
 //~Crémazie -> Jarry -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Villa-Maria
-//~D'Iberville -> Fabre -> Jean-Talon -> De Castelnau -> Parc -> Acadie
-//~D'Iberville -> Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~D'Iberville -> Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption
-//~D'Iberville -> Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater
-//~D'Iberville -> Fabre -> Jean-Talon -> Beaubien
-//~D'Iberville -> Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry
-//~D'Iberville -> Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM
-//~D'Iberville -> Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure
-//~D'Iberville -> Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac
-//~D'Iberville -> Fabre -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier
-//~D'Iberville -> Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars
-//~D'Iberville -> Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix
-//~D'Iberville -> Fabre -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges
-//~D'Iberville -> Fabre -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine
-//~D'Iberville -> Fabre -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège -> Côte-Vertu
-//~D'Iberville -> Fabre -> Jean-Talon -> Jarry -> Crémazie
 //~D'Iberville
 //~D'Iberville -> Fabre -> Jean-Talon -> De Castelnau
 //~D'Iberville -> Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église
@@ -1154,23 +1019,6 @@
 //~D'Iberville -> Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun
 //~D'Iberville -> Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau
 //~D'Iberville -> Fabre -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Villa-Maria
-//~De Castelnau -> Parc -> Acadie
-//~De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption
-//~De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater
-//~De Castelnau -> Jean-Talon -> Beaubien
-//~De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry
-//~De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM
-//~De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure
-//~De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac
-//~De Castelnau -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier
-//~De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars
-//~De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix
-//~De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges
-//~De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine
-//~De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège -> Côte-Vertu
-//~De Castelnau -> Jean-Talon -> Jarry -> Crémazie
-//~De Castelnau -> Jean-Talon -> Fabre -> D'Iberville
 //~De Castelnau
 //~De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église
 //~De Castelnau -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde
@@ -1222,24 +1070,6 @@
 //~De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun
 //~De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau
 //~De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Villa-Maria
-//~De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie
-//~De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption
-//~De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Atwater
-//~De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien
-//~De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry
-//~De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM
-//~De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure
-//~De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac
-//~De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier
-//~De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars
-//~De L'Église -> LaSalle -> Charlevoix
-//~De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges
-//~De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine
-//~De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège -> Côte-Vertu
-//~De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie
-//~De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre -> D'Iberville
-//~De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau
 //~De L'Église
 //~De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde
 //~De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane
@@ -1290,25 +1120,6 @@
 //~De L'Église -> Verdun
 //~De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau
 //~De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria
-//~De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> De Castelnau -> Parc -> Acadie
-//~De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption
-//~De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater
-//~De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien
-//~De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry
-//~De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM
-//~De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure
-//~De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac
-//~De La Concorde -> Cartier
-//~De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars
-//~De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix
-//~De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges
-//~De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine
-//~De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège -> Côte-Vertu
-//~De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie
-//~De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Fabre -> D'Iberville
-//~De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> De Castelnau
-//~De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église
 //~De La Concorde
 //~De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane
 //~De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège
@@ -1358,26 +1169,6 @@
 //~De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun
 //~De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau
 //~De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Villa-Maria
-//~De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie
-//~De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption
-//~De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Atwater
-//~De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien
-//~De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry
-//~De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM
-//~De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure
-//~De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac
-//~De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier
-//~De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars
-//~De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix
-//~De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges
-//~De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine
-//~De La Savane -> Du Collège -> Côte-Vertu
-//~De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Jarry -> Crémazie
-//~De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Fabre -> D'Iberville
-//~De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau
-//~De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église
-//~De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde
 //~De La Savane
 //~De La Savane -> Du Collège
 //~De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit
@@ -1426,27 +1217,6 @@
 //~De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun
 //~De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau
 //~De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria
-//~Du Collège -> De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie
-//~Du Collège -> De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~Du Collège -> De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption
-//~Du Collège -> De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Atwater
-//~Du Collège -> De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien
-//~Du Collège -> De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry
-//~Du Collège -> De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM
-//~Du Collège -> De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure
-//~Du Collège -> De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac
-//~Du Collège -> De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier
-//~Du Collège -> De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars
-//~Du Collège -> De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix
-//~Du Collège -> De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges
-//~Du Collège -> De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine
-//~Du Collège -> Côte-Vertu
-//~Du Collège -> De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Jarry -> Crémazie
-//~Du Collège -> De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Fabre -> D'Iberville
-//~Du Collège -> De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau
-//~Du Collège -> De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église
-//~Du Collège -> De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde
-//~Du Collège -> De La Savane
 //~Du Collège
 //~Du Collège -> De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit
 //~Du Collège -> De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Fabre
@@ -1494,28 +1264,6 @@
 //~Du Collège -> De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun
 //~Du Collège -> De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau
 //~Du Collège -> De La Savane -> Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria
-//~Édouard-Montpetit -> Outremont -> Acadie
-//~Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption
-//~Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Atwater
-//~Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien
-//~Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry
-//~Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM
-//~Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure
-//~Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac
-//~Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier
-//~Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars
-//~Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix
-//~Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges
-//~Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine
-//~Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège -> Côte-Vertu
-//~Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Jarry -> Crémazie
-//~Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Fabre -> D'Iberville
-//~Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau
-//~Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église
-//~Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde
-//~Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane
-//~Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège
 //~Édouard-Montpetit
 //~Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Fabre
 //~Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac
@@ -1562,29 +1310,6 @@
 //~Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun
 //~Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau
 //~Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Villa-Maria
-//~Fabre -> Jean-Talon -> De Castelnau -> Parc -> Acadie
-//~Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption
-//~Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater
-//~Fabre -> Jean-Talon -> Beaubien
-//~Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry
-//~Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM
-//~Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure
-//~Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac
-//~Fabre -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier
-//~Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars
-//~Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix
-//~Fabre -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges
-//~Fabre -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine
-//~Fabre -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège -> Côte-Vertu
-//~Fabre -> Jean-Talon -> Jarry -> Crémazie
-//~Fabre -> D'Iberville
-//~Fabre -> Jean-Talon -> De Castelnau
-//~Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église
-//~Fabre -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde
-//~Fabre -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane
-//~Fabre -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège
-//~Fabre -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit
 //~Fabre
 //~Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac
 //~Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier
@@ -1630,30 +1355,6 @@
 //~Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun
 //~Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau
 //~Fabre -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Villa-Maria
-//~Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie
-//~Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption
-//~Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater
-//~Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien
-//~Frontenac -> Papineau -> Beaudry
-//~Frontenac -> Papineau -> Beaudry -> Berri-UQAM
-//~Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure
-//~Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac
-//~Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier
-//~Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars
-//~Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix
-//~Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges
-//~Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine
-//~Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège -> Côte-Vertu
-//~Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie
-//~Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre -> D'Iberville
-//~Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau
-//~Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église
-//~Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde
-//~Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane
-//~Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège
-//~Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit
-//~Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre
 //~Frontenac
 //~Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier
 //~Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia
@@ -1698,31 +1399,6 @@
 //~Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun
 //~Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau
 //~Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria
-//~Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie
-//~Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption
-//~Georges-Vanier -> Lionel-Groulx -> Atwater
-//~Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien
-//~Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry
-//~Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM
-//~Georges-Vanier -> Lucien-L'Allier -> Bonaventure
-//~Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac
-//~Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier
-//~Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars
-//~Georges-Vanier -> Lionel-Groulx -> Charlevoix
-//~Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges
-//~Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine
-//~Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège -> Côte-Vertu
-//~Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie
-//~Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre -> D'Iberville
-//~Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau
-//~Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église
-//~Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde
-//~Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane
-//~Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège
-//~Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit
-//~Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre
-//~Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac
 //~Georges-Vanier
 //~Georges-Vanier -> Lionel-Groulx -> Atwater -> Guy-Concordia
 //~Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa
@@ -1766,32 +1442,6 @@
 //~Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun
 //~Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau
 //~Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria
-//~Guy-Concordia -> Peel -> McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie
-//~Guy-Concordia -> Atwater -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~Guy-Concordia -> Peel -> McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption
-//~Guy-Concordia -> Atwater
-//~Guy-Concordia -> Peel -> McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien
-//~Guy-Concordia -> Peel -> McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Beaudry
-//~Guy-Concordia -> Peel -> McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM
-//~Guy-Concordia -> Atwater -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure
-//~Guy-Concordia -> Peel -> McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac
-//~Guy-Concordia -> Peel -> McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier
-//~Guy-Concordia -> Peel -> McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Champ-de-Mars
-//~Guy-Concordia -> Atwater -> Lionel-Groulx -> Charlevoix
-//~Guy-Concordia -> Atwater -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges
-//~Guy-Concordia -> Atwater -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine
-//~Guy-Concordia -> Atwater -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège -> Côte-Vertu
-//~Guy-Concordia -> Peel -> McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie
-//~Guy-Concordia -> Peel -> McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre -> D'Iberville
-//~Guy-Concordia -> Peel -> McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau
-//~Guy-Concordia -> Atwater -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église
-//~Guy-Concordia -> Peel -> McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde
-//~Guy-Concordia -> Atwater -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane
-//~Guy-Concordia -> Atwater -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège
-//~Guy-Concordia -> Atwater -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit
-//~Guy-Concordia -> Peel -> McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre
-//~Guy-Concordia -> Peel -> McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac
-//~Guy-Concordia -> Atwater -> Lionel-Groulx -> Georges-Vanier
 //~Guy-Concordia
 //~Guy-Concordia -> Peel -> McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa
 //~Guy-Concordia -> Peel -> McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier -> Radisson -> Honoré-Beaugrand
@@ -1834,33 +1484,6 @@
 //~Guy-Concordia -> Atwater -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun
 //~Guy-Concordia -> Peel -> McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau
 //~Guy-Concordia -> Atwater -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria
-//~Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> De Castelnau -> Parc -> Acadie
-//~Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption
-//~Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater
-//~Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien
-//~Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry
-//~Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM
-//~Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure
-//~Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac
-//~Henri-Bourassa -> Cartier
-//~Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars
-//~Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix
-//~Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges
-//~Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine
-//~Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège -> Côte-Vertu
-//~Henri-Bourassa -> Sauvé -> Crémazie
-//~Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Fabre -> D'Iberville
-//~Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> De Castelnau
-//~Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église
-//~Henri-Bourassa -> Cartier -> De La Concorde
-//~Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane
-//~Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège
-//~Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit
-//~Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Fabre
-//~Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac
-//~Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier
-//~Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia
 //~Henri-Bourassa
 //~Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier -> Radisson -> Honoré-Beaugrand
 //~Henri-Bourassa -> Sauvé -> Crémazie -> Jarry
@@ -1902,34 +1525,6 @@
 //~Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun
 //~Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau
 //~Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Villa-Maria
-//~Honoré-Beaugrand -> Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie
-//~Honoré-Beaugrand -> Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~Honoré-Beaugrand -> Radisson -> Langelier -> Cadillac -> Assomption
-//~Honoré-Beaugrand -> Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater
-//~Honoré-Beaugrand -> Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien
-//~Honoré-Beaugrand -> Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry
-//~Honoré-Beaugrand -> Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM
-//~Honoré-Beaugrand -> Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure
-//~Honoré-Beaugrand -> Radisson -> Langelier -> Cadillac
-//~Honoré-Beaugrand -> Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier
-//~Honoré-Beaugrand -> Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars
-//~Honoré-Beaugrand -> Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix
-//~Honoré-Beaugrand -> Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges
-//~Honoré-Beaugrand -> Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine
-//~Honoré-Beaugrand -> Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège -> Côte-Vertu
-//~Honoré-Beaugrand -> Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie
-//~Honoré-Beaugrand -> Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre -> D'Iberville
-//~Honoré-Beaugrand -> Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau
-//~Honoré-Beaugrand -> Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église
-//~Honoré-Beaugrand -> Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde
-//~Honoré-Beaugrand -> Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane
-//~Honoré-Beaugrand -> Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège
-//~Honoré-Beaugrand -> Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit
-//~Honoré-Beaugrand -> Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre
-//~Honoré-Beaugrand -> Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac
-//~Honoré-Beaugrand -> Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier
-//~Honoré-Beaugrand -> Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia
-//~Honoré-Beaugrand -> Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa
 //~Honoré-Beaugrand
 //~Honoré-Beaugrand -> Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry
 //~Honoré-Beaugrand -> Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Jean-Drapeau
@@ -1970,35 +1565,6 @@
 //~Honoré-Beaugrand -> Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun
 //~Honoré-Beaugrand -> Radisson -> Langelier -> Cadillac -> Assomption -> Viau
 //~Honoré-Beaugrand -> Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria
-//~Jarry -> Jean-Talon -> De Castelnau -> Parc -> Acadie
-//~Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption
-//~Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater
-//~Jarry -> Jean-Talon -> Beaubien
-//~Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry
-//~Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM
-//~Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure
-//~Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac
-//~Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier
-//~Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars
-//~Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix
-//~Jarry -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges
-//~Jarry -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine
-//~Jarry -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège -> Côte-Vertu
-//~Jarry -> Crémazie
-//~Jarry -> Jean-Talon -> Fabre -> D'Iberville
-//~Jarry -> Jean-Talon -> De Castelnau
-//~Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église
-//~Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde
-//~Jarry -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane
-//~Jarry -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège
-//~Jarry -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit
-//~Jarry -> Jean-Talon -> Fabre
-//~Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac
-//~Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier
-//~Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia
-//~Jarry -> Crémazie -> Sauvé -> Henri-Bourassa
-//~Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier -> Radisson -> Honoré-Beaugrand
 //~Jarry
 //~Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Jean-Drapeau
 //~Jarry -> Jean-Talon
@@ -2038,36 +1604,6 @@
 //~Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun
 //~Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau
 //~Jarry -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Villa-Maria
-//~Jean-Drapeau -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie
-//~Jean-Drapeau -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~Jean-Drapeau -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption
-//~Jean-Drapeau -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater
-//~Jean-Drapeau -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien
-//~Jean-Drapeau -> Berri-UQAM -> Beaudry
-//~Jean-Drapeau -> Berri-UQAM
-//~Jean-Drapeau -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure
-//~Jean-Drapeau -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac
-//~Jean-Drapeau -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier
-//~Jean-Drapeau -> Berri-UQAM -> Champ-de-Mars
-//~Jean-Drapeau -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix
-//~Jean-Drapeau -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges
-//~Jean-Drapeau -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine
-//~Jean-Drapeau -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège -> Côte-Vertu
-//~Jean-Drapeau -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie
-//~Jean-Drapeau -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre -> D'Iberville
-//~Jean-Drapeau -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau
-//~Jean-Drapeau -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église
-//~Jean-Drapeau -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde
-//~Jean-Drapeau -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane
-//~Jean-Drapeau -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège
-//~Jean-Drapeau -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit
-//~Jean-Drapeau -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre
-//~Jean-Drapeau -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac
-//~Jean-Drapeau -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier
-//~Jean-Drapeau -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia
-//~Jean-Drapeau -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa
-//~Jean-Drapeau -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier -> Radisson -> Honoré-Beaugrand
-//~Jean-Drapeau -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry
 //~Jean-Drapeau
 //~Jean-Drapeau -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon
 //~Jean-Drapeau -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur
@@ -2106,37 +1642,6 @@
 //~Jean-Drapeau -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun
 //~Jean-Drapeau -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau
 //~Jean-Drapeau -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria
-//~Jean-Talon -> De Castelnau -> Parc -> Acadie
-//~Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption
-//~Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater
-//~Jean-Talon -> Beaubien
-//~Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry
-//~Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM
-//~Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure
-//~Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac
-//~Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier
-//~Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars
-//~Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix
-//~Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges
-//~Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine
-//~Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège -> Côte-Vertu
-//~Jean-Talon -> Jarry -> Crémazie
-//~Jean-Talon -> Fabre -> D'Iberville
-//~Jean-Talon -> De Castelnau
-//~Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église
-//~Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde
-//~Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane
-//~Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège
-//~Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit
-//~Jean-Talon -> Fabre
-//~Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac
-//~Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier
-//~Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia
-//~Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa
-//~Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier -> Radisson -> Honoré-Beaugrand
-//~Jean-Talon -> Jarry
-//~Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Jean-Drapeau
 //~Jean-Talon
 //~Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur
 //~Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette
@@ -2174,38 +1679,6 @@
 //~Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun
 //~Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau
 //~Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Villa-Maria
-//~Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie
-//~Jolicoeur -> Monk -> Angrignon
-//~Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption
-//~Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Atwater
-//~Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien
-//~Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry
-//~Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM
-//~Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure
-//~Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac
-//~Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier
-//~Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars
-//~Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix
-//~Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges
-//~Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine
-//~Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège -> Côte-Vertu
-//~Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie
-//~Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre -> D'Iberville
-//~Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau
-//~Jolicoeur -> Verdun -> De L'Église
-//~Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde
-//~Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane
-//~Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège
-//~Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit
-//~Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre
-//~Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac
-//~Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier
-//~Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Atwater -> Guy-Concordia
-//~Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa
-//~Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier -> Radisson -> Honoré-Beaugrand
-//~Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry
-//~Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Jean-Drapeau
-//~Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon
 //~Jolicoeur
 //~Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette
 //~Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier
@@ -2242,39 +1715,6 @@
 //~Jolicoeur -> Verdun
 //~Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau
 //~Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria
-//~Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie
-//~Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~Joliette -> Pie-IX -> Viau -> Assomption
-//~Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater
-//~Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien
-//~Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry
-//~Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM
-//~Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure
-//~Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac
-//~Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier
-//~Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars
-//~Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix
-//~Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges
-//~Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine
-//~Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège -> Côte-Vertu
-//~Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie
-//~Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre -> D'Iberville
-//~Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau
-//~Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église
-//~Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde
-//~Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane
-//~Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège
-//~Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit
-//~Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre
-//~Joliette -> Préfontaine -> Frontenac
-//~Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier
-//~Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia
-//~Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa
-//~Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier -> Radisson -> Honoré-Beaugrand
-//~Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry
-//~Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Jean-Drapeau
-//~Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon
-//~Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur
 //~Joliette
 //~Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier
 //~Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle
@@ -2310,40 +1750,6 @@
 //~Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun
 //~Joliette -> Pie-IX -> Viau
 //~Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria
-//~Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie
-//~Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~Langelier -> Cadillac -> Assomption
-//~Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater
-//~Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien
-//~Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry
-//~Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM
-//~Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure
-//~Langelier -> Cadillac
-//~Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier
-//~Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars
-//~Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix
-//~Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges
-//~Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine
-//~Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège -> Côte-Vertu
-//~Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie
-//~Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre -> D'Iberville
-//~Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau
-//~Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église
-//~Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde
-//~Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane
-//~Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège
-//~Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit
-//~Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre
-//~Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac
-//~Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier
-//~Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia
-//~Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa
-//~Langelier -> Radisson -> Honoré-Beaugrand
-//~Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry
-//~Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Jean-Drapeau
-//~Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon
-//~Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur
-//~Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette
 //~Langelier
 //~Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle
 //~Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier
@@ -2378,41 +1784,6 @@
 //~Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun
 //~Langelier -> Cadillac -> Assomption -> Viau
 //~Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria
-//~LaSalle -> Charlevoix -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie
-//~LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption
-//~LaSalle -> Charlevoix -> Lionel-Groulx -> Atwater
-//~LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien
-//~LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry
-//~LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM
-//~LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure
-//~LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac
-//~LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier
-//~LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars
-//~LaSalle -> Charlevoix
-//~LaSalle -> Charlevoix -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges
-//~LaSalle -> Charlevoix -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine
-//~LaSalle -> Charlevoix -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège -> Côte-Vertu
-//~LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie
-//~LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre -> D'Iberville
-//~LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau
-//~LaSalle -> De L'Église
-//~LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde
-//~LaSalle -> Charlevoix -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane
-//~LaSalle -> Charlevoix -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège
-//~LaSalle -> Charlevoix -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit
-//~LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre
-//~LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac
-//~LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier
-//~LaSalle -> Charlevoix -> Lionel-Groulx -> Atwater -> Guy-Concordia
-//~LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa
-//~LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier -> Radisson -> Honoré-Beaugrand
-//~LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry
-//~LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Jean-Drapeau
-//~LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon
-//~LaSalle -> De L'Église -> Verdun -> Jolicoeur
-//~LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette
-//~LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier
 //~LaSalle
 //~LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier
 //~LaSalle -> Charlevoix -> Lionel-Groulx
@@ -2446,42 +1817,6 @@
 //~LaSalle -> De L'Église -> Verdun
 //~LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau
 //~LaSalle -> Charlevoix -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria
-//~Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie
-//~Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption
-//~Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater
-//~Laurier -> Rosemont -> Beaubien
-//~Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry
-//~Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM
-//~Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure
-//~Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac
-//~Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier
-//~Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars
-//~Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix
-//~Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges
-//~Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine
-//~Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège -> Côte-Vertu
-//~Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie
-//~Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre -> D'Iberville
-//~Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau
-//~Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église
-//~Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde
-//~Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane
-//~Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège
-//~Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit
-//~Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre
-//~Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac
-//~Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier
-//~Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia
-//~Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa
-//~Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier -> Radisson -> Honoré-Beaugrand
-//~Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry
-//~Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Jean-Drapeau
-//~Laurier -> Rosemont -> Beaubien -> Jean-Talon
-//~Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur
-//~Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette
-//~Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier
-//~Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle
 //~Laurier
 //~Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx
 //~Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Jean-Drapeau -> Longueuil–Université-de-Sherbrooke
@@ -2514,43 +1849,6 @@
 //~Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun
 //~Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau
 //~Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Villa-Maria
-//~Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie
-//~Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption
-//~Lionel-Groulx -> Atwater
-//~Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien
-//~Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry
-//~Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM
-//~Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure
-//~Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac
-//~Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier
-//~Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars
-//~Lionel-Groulx -> Charlevoix
-//~Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges
-//~Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine
-//~Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège -> Côte-Vertu
-//~Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie
-//~Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre -> D'Iberville
-//~Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau
-//~Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église
-//~Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde
-//~Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane
-//~Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège
-//~Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit
-//~Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre
-//~Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac
-//~Lionel-Groulx -> Georges-Vanier
-//~Lionel-Groulx -> Atwater -> Guy-Concordia
-//~Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa
-//~Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier -> Radisson -> Honoré-Beaugrand
-//~Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry
-//~Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Jean-Drapeau
-//~Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon
-//~Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur
-//~Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette
-//~Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier
-//~Lionel-Groulx -> Charlevoix -> LaSalle
-//~Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier
 //~Lionel-Groulx
 //~Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Jean-Drapeau -> Longueuil–Université-de-Sherbrooke
 //~Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier
@@ -2582,44 +1880,6 @@
 //~Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun
 //~Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau
 //~Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria
-//~Longueuil–Université-de-Sherbrooke -> Jean-Drapeau -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie
-//~Longueuil–Université-de-Sherbrooke -> Jean-Drapeau -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~Longueuil–Université-de-Sherbrooke -> Jean-Drapeau -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption
-//~Longueuil–Université-de-Sherbrooke -> Jean-Drapeau -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater
-//~Longueuil–Université-de-Sherbrooke -> Jean-Drapeau -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien
-//~Longueuil–Université-de-Sherbrooke -> Jean-Drapeau -> Berri-UQAM -> Beaudry
-//~Longueuil–Université-de-Sherbrooke -> Jean-Drapeau -> Berri-UQAM
-//~Longueuil–Université-de-Sherbrooke -> Jean-Drapeau -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure
-//~Longueuil–Université-de-Sherbrooke -> Jean-Drapeau -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac
-//~Longueuil–Université-de-Sherbrooke -> Jean-Drapeau -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier
-//~Longueuil–Université-de-Sherbrooke -> Jean-Drapeau -> Berri-UQAM -> Champ-de-Mars
-//~Longueuil–Université-de-Sherbrooke -> Jean-Drapeau -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix
-//~Longueuil–Université-de-Sherbrooke -> Jean-Drapeau -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges
-//~Longueuil–Université-de-Sherbrooke -> Jean-Drapeau -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine
-//~Longueuil–Université-de-Sherbrooke -> Jean-Drapeau -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège -> Côte-Vertu
-//~Longueuil–Université-de-Sherbrooke -> Jean-Drapeau -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie
-//~Longueuil–Université-de-Sherbrooke -> Jean-Drapeau -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre -> D'Iberville
-//~Longueuil–Université-de-Sherbrooke -> Jean-Drapeau -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau
-//~Longueuil–Université-de-Sherbrooke -> Jean-Drapeau -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église
-//~Longueuil–Université-de-Sherbrooke -> Jean-Drapeau -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde
-//~Longueuil–Université-de-Sherbrooke -> Jean-Drapeau -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane
-//~Longueuil–Université-de-Sherbrooke -> Jean-Drapeau -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège
-//~Longueuil–Université-de-Sherbrooke -> Jean-Drapeau -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit
-//~Longueuil–Université-de-Sherbrooke -> Jean-Drapeau -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre
-//~Longueuil–Université-de-Sherbrooke -> Jean-Drapeau -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac
-//~Longueuil–Université-de-Sherbrooke -> Jean-Drapeau -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier
-//~Longueuil–Université-de-Sherbrooke -> Jean-Drapeau -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia
-//~Longueuil–Université-de-Sherbrooke -> Jean-Drapeau -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa
-//~Longueuil–Université-de-Sherbrooke -> Jean-Drapeau -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier -> Radisson -> Honoré-Beaugrand
-//~Longueuil–Université-de-Sherbrooke -> Jean-Drapeau -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry
-//~Longueuil–Université-de-Sherbrooke -> Jean-Drapeau
-//~Longueuil–Université-de-Sherbrooke -> Jean-Drapeau -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon
-//~Longueuil–Université-de-Sherbrooke -> Jean-Drapeau -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur
-//~Longueuil–Université-de-Sherbrooke -> Jean-Drapeau -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette
-//~Longueuil–Université-de-Sherbrooke -> Jean-Drapeau -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier
-//~Longueuil–Université-de-Sherbrooke -> Jean-Drapeau -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle
-//~Longueuil–Université-de-Sherbrooke -> Jean-Drapeau -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier
-//~Longueuil–Université-de-Sherbrooke -> Jean-Drapeau -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx
 //~Longueuil–Université-de-Sherbrooke
 //~Longueuil–Université-de-Sherbrooke -> Jean-Drapeau -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier
 //~Longueuil–Université-de-Sherbrooke -> Jean-Drapeau -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill
@@ -2650,45 +1910,6 @@
 //~Longueuil–Université-de-Sherbrooke -> Jean-Drapeau -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun
 //~Longueuil–Université-de-Sherbrooke -> Jean-Drapeau -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau
 //~Longueuil–Université-de-Sherbrooke -> Jean-Drapeau -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria
-//~Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie
-//~Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption
-//~Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Atwater
-//~Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien
-//~Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry
-//~Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM
-//~Lucien-L'Allier -> Bonaventure
-//~Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac
-//~Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier
-//~Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars
-//~Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix
-//~Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges
-//~Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine
-//~Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège -> Côte-Vertu
-//~Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie
-//~Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre -> D'Iberville
-//~Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau
-//~Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église
-//~Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde
-//~Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane
-//~Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège
-//~Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit
-//~Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre
-//~Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac
-//~Lucien-L'Allier -> Georges-Vanier
-//~Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Atwater -> Guy-Concordia
-//~Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa
-//~Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier -> Radisson -> Honoré-Beaugrand
-//~Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry
-//~Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Jean-Drapeau
-//~Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon
-//~Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur
-//~Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette
-//~Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier
-//~Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle
-//~Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier
-//~Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx
-//~Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Jean-Drapeau -> Longueuil–Université-de-Sherbrooke
 //~Lucien-L'Allier
 //~Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill
 //~Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk
@@ -2718,46 +1939,6 @@
 //~Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun
 //~Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau
 //~Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria
-//~McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie
-//~McGill -> Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption
-//~McGill -> Peel -> Guy-Concordia -> Atwater
-//~McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien
-//~McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Beaudry
-//~McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM
-//~McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure
-//~McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac
-//~McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier
-//~McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Champ-de-Mars
-//~McGill -> Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx -> Charlevoix
-//~McGill -> Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges
-//~McGill -> Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine
-//~McGill -> Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège -> Côte-Vertu
-//~McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie
-//~McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre -> D'Iberville
-//~McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau
-//~McGill -> Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église
-//~McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde
-//~McGill -> Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane
-//~McGill -> Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège
-//~McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit
-//~McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre
-//~McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac
-//~McGill -> Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx -> Georges-Vanier
-//~McGill -> Peel -> Guy-Concordia
-//~McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa
-//~McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier -> Radisson -> Honoré-Beaugrand
-//~McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry
-//~McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Jean-Drapeau
-//~McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon
-//~McGill -> Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur
-//~McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette
-//~McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier
-//~McGill -> Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx -> Charlevoix -> LaSalle
-//~McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier
-//~McGill -> Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx
-//~McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Jean-Drapeau -> Longueuil–Université-de-Sherbrooke
-//~McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier
 //~McGill
 //~McGill -> Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk
 //~McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal
@@ -2786,47 +1967,6 @@
 //~McGill -> Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun
 //~McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau
 //~McGill -> Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria
-//~Monk -> Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie
-//~Monk -> Angrignon
-//~Monk -> Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption
-//~Monk -> Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Atwater
-//~Monk -> Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien
-//~Monk -> Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry
-//~Monk -> Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM
-//~Monk -> Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure
-//~Monk -> Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac
-//~Monk -> Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier
-//~Monk -> Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars
-//~Monk -> Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix
-//~Monk -> Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges
-//~Monk -> Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine
-//~Monk -> Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège -> Côte-Vertu
-//~Monk -> Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie
-//~Monk -> Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre -> D'Iberville
-//~Monk -> Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau
-//~Monk -> Jolicoeur -> Verdun -> De L'Église
-//~Monk -> Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde
-//~Monk -> Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane
-//~Monk -> Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège
-//~Monk -> Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit
-//~Monk -> Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre
-//~Monk -> Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac
-//~Monk -> Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier
-//~Monk -> Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Atwater -> Guy-Concordia
-//~Monk -> Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa
-//~Monk -> Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier -> Radisson -> Honoré-Beaugrand
-//~Monk -> Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry
-//~Monk -> Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Jean-Drapeau
-//~Monk -> Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon
-//~Monk -> Jolicoeur
-//~Monk -> Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette
-//~Monk -> Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier
-//~Monk -> Jolicoeur -> Verdun -> De L'Église -> LaSalle
-//~Monk -> Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier
-//~Monk -> Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx
-//~Monk -> Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Jean-Drapeau -> Longueuil–Université-de-Sherbrooke
-//~Monk -> Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier
-//~Monk -> Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Atwater -> Guy-Concordia -> Peel -> McGill
 //~Monk
 //~Monk -> Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal
 //~Monk -> Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde -> Montmorency
@@ -2854,48 +1994,6 @@
 //~Monk -> Jolicoeur -> Verdun
 //~Monk -> Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau
 //~Monk -> Jolicoeur -> Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria
-//~Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie
-//~Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption
-//~Mont-Royal -> Sherbrooke -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater
-//~Mont-Royal -> Laurier -> Rosemont -> Beaubien
-//~Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry
-//~Mont-Royal -> Sherbrooke -> Berri-UQAM
-//~Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure
-//~Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac
-//~Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier
-//~Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars
-//~Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix
-//~Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges
-//~Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine
-//~Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège -> Côte-Vertu
-//~Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie
-//~Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre -> D'Iberville
-//~Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau
-//~Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église
-//~Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde
-//~Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane
-//~Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège
-//~Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit
-//~Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre
-//~Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac
-//~Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier
-//~Mont-Royal -> Sherbrooke -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia
-//~Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa
-//~Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier -> Radisson -> Honoré-Beaugrand
-//~Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry
-//~Mont-Royal -> Sherbrooke -> Berri-UQAM -> Jean-Drapeau
-//~Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon
-//~Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur
-//~Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette
-//~Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier
-//~Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle
-//~Mont-Royal -> Laurier
-//~Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx
-//~Mont-Royal -> Sherbrooke -> Berri-UQAM -> Jean-Drapeau -> Longueuil–Université-de-Sherbrooke
-//~Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier
-//~Mont-Royal -> Sherbrooke -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill
-//~Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk
 //~Mont-Royal
 //~Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde -> Montmorency
 //~Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur
@@ -2922,49 +2020,6 @@
 //~Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun
 //~Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau
 //~Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria
-//~Montmorency -> De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> De Castelnau -> Parc -> Acadie
-//~Montmorency -> De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~Montmorency -> De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption
-//~Montmorency -> De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater
-//~Montmorency -> De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien
-//~Montmorency -> De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry
-//~Montmorency -> De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM
-//~Montmorency -> De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure
-//~Montmorency -> De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac
-//~Montmorency -> De La Concorde -> Cartier
-//~Montmorency -> De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars
-//~Montmorency -> De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix
-//~Montmorency -> De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges
-//~Montmorency -> De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine
-//~Montmorency -> De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège -> Côte-Vertu
-//~Montmorency -> De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie
-//~Montmorency -> De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Fabre -> D'Iberville
-//~Montmorency -> De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> De Castelnau
-//~Montmorency -> De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église
-//~Montmorency -> De La Concorde
-//~Montmorency -> De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane
-//~Montmorency -> De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège
-//~Montmorency -> De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit
-//~Montmorency -> De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Fabre
-//~Montmorency -> De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac
-//~Montmorency -> De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier
-//~Montmorency -> De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia
-//~Montmorency -> De La Concorde -> Cartier -> Henri-Bourassa
-//~Montmorency -> De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier -> Radisson -> Honoré-Beaugrand
-//~Montmorency -> De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry
-//~Montmorency -> De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Jean-Drapeau
-//~Montmorency -> De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon
-//~Montmorency -> De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur
-//~Montmorency -> De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette
-//~Montmorency -> De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier
-//~Montmorency -> De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle
-//~Montmorency -> De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier
-//~Montmorency -> De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx
-//~Montmorency -> De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Jean-Drapeau -> Longueuil–Université-de-Sherbrooke
-//~Montmorency -> De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier
-//~Montmorency -> De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill
-//~Montmorency -> De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk
-//~Montmorency -> De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal
 //~Montmorency
 //~Montmorency -> De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur
 //~Montmorency -> De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont
@@ -2990,50 +2045,6 @@
 //~Montmorency -> De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun
 //~Montmorency -> De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau
 //~Montmorency -> De La Concorde -> Cartier -> Henri-Bourassa -> Sauvé -> Crémazie -> Jarry -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Villa-Maria
-//~Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie
-//~Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption
-//~Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Atwater
-//~Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien
-//~Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry
-//~Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM
-//~Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure
-//~Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac
-//~Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier
-//~Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars
-//~Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix
-//~Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges
-//~Namur -> Plamondon -> Côte-Sainte-Catherine
-//~Namur -> De La Savane -> Du Collège -> Côte-Vertu
-//~Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Jarry -> Crémazie
-//~Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Fabre -> D'Iberville
-//~Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau
-//~Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église
-//~Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde
-//~Namur -> De La Savane
-//~Namur -> De La Savane -> Du Collège
-//~Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit
-//~Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Fabre
-//~Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac
-//~Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier
-//~Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Atwater -> Guy-Concordia
-//~Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa
-//~Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier -> Radisson -> Honoré-Beaugrand
-//~Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Jarry
-//~Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Jean-Drapeau
-//~Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon
-//~Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur
-//~Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette
-//~Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier
-//~Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle
-//~Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier
-//~Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx
-//~Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Jean-Drapeau -> Longueuil–Université-de-Sherbrooke
-//~Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier
-//~Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Atwater -> Guy-Concordia -> Peel -> McGill
-//~Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk
-//~Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal
-//~Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde -> Montmorency
 //~Namur
 //~Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont
 //~Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau
@@ -3058,51 +2069,6 @@
 //~Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun
 //~Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau
 //~Namur -> Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria
-//~Outremont -> Acadie
-//~Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption
-//~Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater
-//~Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien
-//~Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry
-//~Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM
-//~Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure
-//~Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac
-//~Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier
-//~Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars
-//~Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix
-//~Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges
-//~Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine
-//~Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège -> Côte-Vertu
-//~Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Jarry -> Crémazie
-//~Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Fabre -> D'Iberville
-//~Outremont -> Acadie -> Parc -> De Castelnau
-//~Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église
-//~Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde
-//~Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane
-//~Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège
-//~Outremont -> Édouard-Montpetit
-//~Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Fabre
-//~Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac
-//~Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier
-//~Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia
-//~Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa
-//~Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier -> Radisson -> Honoré-Beaugrand
-//~Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Jarry
-//~Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Jean-Drapeau
-//~Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon
-//~Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur
-//~Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette
-//~Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier
-//~Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle
-//~Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier
-//~Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx
-//~Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Jean-Drapeau -> Longueuil–Université-de-Sherbrooke
-//~Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier
-//~Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill
-//~Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk
-//~Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal
-//~Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde -> Montmorency
-//~Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur
 //~Outremont
 //~Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau
 //~Outremont -> Acadie -> Parc
@@ -3126,52 +2092,6 @@
 //~Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun
 //~Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau
 //~Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Villa-Maria
-//~Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie
-//~Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption
-//~Papineau -> Beaudry -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater
-//~Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien
-//~Papineau -> Beaudry
-//~Papineau -> Beaudry -> Berri-UQAM
-//~Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure
-//~Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac
-//~Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier
-//~Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars
-//~Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix
-//~Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges
-//~Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine
-//~Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège -> Côte-Vertu
-//~Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie
-//~Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre -> D'Iberville
-//~Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau
-//~Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église
-//~Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde
-//~Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane
-//~Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège
-//~Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit
-//~Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre
-//~Papineau -> Frontenac
-//~Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier
-//~Papineau -> Beaudry -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia
-//~Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa
-//~Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier -> Radisson -> Honoré-Beaugrand
-//~Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry
-//~Papineau -> Beaudry -> Berri-UQAM -> Jean-Drapeau
-//~Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon
-//~Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur
-//~Papineau -> Frontenac -> Préfontaine -> Joliette
-//~Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier
-//~Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle
-//~Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier
-//~Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx
-//~Papineau -> Beaudry -> Berri-UQAM -> Jean-Drapeau -> Longueuil–Université-de-Sherbrooke
-//~Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier
-//~Papineau -> Beaudry -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill
-//~Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk
-//~Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal
-//~Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde -> Montmorency
-//~Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur
-//~Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont
 //~Papineau
 //~Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc
 //~Papineau -> Beaudry -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel
@@ -3194,53 +2114,6 @@
 //~Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun
 //~Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau
 //~Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria
-//~Parc -> Acadie
-//~Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption
-//~Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater
-//~Parc -> De Castelnau -> Jean-Talon -> Beaubien
-//~Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry
-//~Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM
-//~Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure
-//~Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac
-//~Parc -> De Castelnau -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier
-//~Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars
-//~Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix
-//~Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges
-//~Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine
-//~Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège -> Côte-Vertu
-//~Parc -> De Castelnau -> Jean-Talon -> Jarry -> Crémazie
-//~Parc -> De Castelnau -> Jean-Talon -> Fabre -> D'Iberville
-//~Parc -> De Castelnau
-//~Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église
-//~Parc -> De Castelnau -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde
-//~Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane
-//~Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège
-//~Parc -> Acadie -> Outremont -> Édouard-Montpetit
-//~Parc -> De Castelnau -> Jean-Talon -> Fabre
-//~Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac
-//~Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier
-//~Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia
-//~Parc -> De Castelnau -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa
-//~Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier -> Radisson -> Honoré-Beaugrand
-//~Parc -> De Castelnau -> Jean-Talon -> Jarry
-//~Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Jean-Drapeau
-//~Parc -> De Castelnau -> Jean-Talon
-//~Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur
-//~Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette
-//~Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier
-//~Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle
-//~Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier
-//~Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx
-//~Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Jean-Drapeau -> Longueuil–Université-de-Sherbrooke
-//~Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier
-//~Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill
-//~Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk
-//~Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal
-//~Parc -> De Castelnau -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde -> Montmorency
-//~Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur
-//~Parc -> Acadie -> Outremont
-//~Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau
 //~Parc
 //~Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel
 //~Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX
@@ -3262,54 +2135,6 @@
 //~Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun
 //~Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau
 //~Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Villa-Maria
-//~Peel -> McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie
-//~Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~Peel -> McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption
-//~Peel -> Guy-Concordia -> Atwater
-//~Peel -> McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien
-//~Peel -> McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Beaudry
-//~Peel -> McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM
-//~Peel -> McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure
-//~Peel -> McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac
-//~Peel -> McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier
-//~Peel -> McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Champ-de-Mars
-//~Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx -> Charlevoix
-//~Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges
-//~Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine
-//~Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège -> Côte-Vertu
-//~Peel -> McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie
-//~Peel -> McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre -> D'Iberville
-//~Peel -> McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau
-//~Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église
-//~Peel -> McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde
-//~Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane
-//~Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège
-//~Peel -> McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit
-//~Peel -> McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre
-//~Peel -> McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac
-//~Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx -> Georges-Vanier
-//~Peel -> Guy-Concordia
-//~Peel -> McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa
-//~Peel -> McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier -> Radisson -> Honoré-Beaugrand
-//~Peel -> McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry
-//~Peel -> McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Jean-Drapeau
-//~Peel -> McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon
-//~Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur
-//~Peel -> McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette
-//~Peel -> McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier
-//~Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx -> Charlevoix -> LaSalle
-//~Peel -> McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier
-//~Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx
-//~Peel -> McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Jean-Drapeau -> Longueuil–Université-de-Sherbrooke
-//~Peel -> McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier
-//~Peel -> McGill
-//~Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk
-//~Peel -> McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal
-//~Peel -> McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde -> Montmorency
-//~Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur
-//~Peel -> McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont
-//~Peel -> McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Beaudry -> Papineau
-//~Peel -> McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc
 //~Peel
 //~Peel -> McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX
 //~Peel -> McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes
@@ -3330,55 +2155,6 @@
 //~Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun
 //~Peel -> McGill -> Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau
 //~Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria
-//~Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie
-//~Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~Pie-IX -> Viau -> Assomption
-//~Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater
-//~Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien
-//~Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry
-//~Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM
-//~Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure
-//~Pie-IX -> Viau -> Assomption -> Cadillac
-//~Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier
-//~Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars
-//~Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix
-//~Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges
-//~Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine
-//~Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège -> Côte-Vertu
-//~Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie
-//~Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre -> D'Iberville
-//~Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau
-//~Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église
-//~Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde
-//~Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane
-//~Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège
-//~Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit
-//~Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre
-//~Pie-IX -> Joliette -> Préfontaine -> Frontenac
-//~Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier
-//~Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia
-//~Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa
-//~Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier -> Radisson -> Honoré-Beaugrand
-//~Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry
-//~Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Jean-Drapeau
-//~Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon
-//~Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur
-//~Pie-IX -> Joliette
-//~Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier
-//~Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle
-//~Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier
-//~Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx
-//~Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Jean-Drapeau -> Longueuil–Université-de-Sherbrooke
-//~Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier
-//~Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill
-//~Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk
-//~Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal
-//~Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde -> Montmorency
-//~Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur
-//~Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont
-//~Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau
-//~Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc
-//~Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel
 //~Pie-IX
 //~Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes
 //~Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts
@@ -3398,56 +2174,6 @@
 //~Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun
 //~Pie-IX -> Viau
 //~Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria
-//~Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie
-//~Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption
-//~Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater
-//~Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien
-//~Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry
-//~Place-d'Armes -> Champ-de-Mars -> Berri-UQAM
-//~Place-d'Armes -> Square-Victoria-OACI -> Bonaventure
-//~Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac
-//~Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier
-//~Place-d'Armes -> Champ-de-Mars
-//~Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix
-//~Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges
-//~Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine
-//~Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège -> Côte-Vertu
-//~Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie
-//~Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre -> D'Iberville
-//~Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau
-//~Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église
-//~Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde
-//~Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane
-//~Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège
-//~Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit
-//~Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre
-//~Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac
-//~Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier
-//~Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia
-//~Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa
-//~Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier -> Radisson -> Honoré-Beaugrand
-//~Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry
-//~Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Jean-Drapeau
-//~Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon
-//~Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur
-//~Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette
-//~Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier
-//~Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle
-//~Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier
-//~Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx
-//~Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Jean-Drapeau -> Longueuil–Université-de-Sherbrooke
-//~Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier
-//~Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill
-//~Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk
-//~Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal
-//~Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde -> Montmorency
-//~Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur
-//~Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont
-//~Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau
-//~Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc
-//~Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel
-//~Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX
 //~Place-d'Armes
 //~Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts
 //~Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri
@@ -3466,57 +2192,6 @@
 //~Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun
 //~Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau
 //~Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria
-//~Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie
-//~Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption
-//~Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater
-//~Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien
-//~Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Beaudry
-//~Place-des-Arts -> Saint-Laurent -> Berri-UQAM
-//~Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure
-//~Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac
-//~Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier
-//~Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Champ-de-Mars
-//~Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx -> Charlevoix
-//~Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges
-//~Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine
-//~Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège -> Côte-Vertu
-//~Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie
-//~Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre -> D'Iberville
-//~Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau
-//~Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église
-//~Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde
-//~Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane
-//~Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège
-//~Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit
-//~Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre
-//~Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac
-//~Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier
-//~Place-des-Arts -> McGill -> Peel -> Guy-Concordia
-//~Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa
-//~Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier -> Radisson -> Honoré-Beaugrand
-//~Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry
-//~Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Jean-Drapeau
-//~Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon
-//~Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur
-//~Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette
-//~Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier
-//~Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx -> Charlevoix -> LaSalle
-//~Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier
-//~Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx
-//~Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Jean-Drapeau -> Longueuil–Université-de-Sherbrooke
-//~Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier
-//~Place-des-Arts -> McGill
-//~Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk
-//~Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal
-//~Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde -> Montmorency
-//~Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur
-//~Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont
-//~Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Beaudry -> Papineau
-//~Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc
-//~Place-des-Arts -> McGill -> Peel
-//~Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX
-//~Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes
 //~Place-des-Arts
 //~Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx -> Place-Saint-Henri
 //~Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon
@@ -3534,58 +2209,6 @@
 //~Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun
 //~Place-des-Arts -> Saint-Laurent -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau
 //~Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria
-//~Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie
-//~Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption
-//~Place-Saint-Henri -> Lionel-Groulx -> Atwater
-//~Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien
-//~Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry
-//~Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM
-//~Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure
-//~Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac
-//~Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier
-//~Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars
-//~Place-Saint-Henri -> Lionel-Groulx -> Charlevoix
-//~Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges
-//~Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine
-//~Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège -> Côte-Vertu
-//~Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie
-//~Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre -> D'Iberville
-//~Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau
-//~Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église
-//~Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde
-//~Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane
-//~Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège
-//~Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit
-//~Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre
-//~Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac
-//~Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier
-//~Place-Saint-Henri -> Lionel-Groulx -> Atwater -> Guy-Concordia
-//~Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa
-//~Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier -> Radisson -> Honoré-Beaugrand
-//~Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry
-//~Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Jean-Drapeau
-//~Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon
-//~Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur
-//~Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette
-//~Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier
-//~Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle
-//~Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier
-//~Place-Saint-Henri -> Lionel-Groulx
-//~Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Jean-Drapeau -> Longueuil–Université-de-Sherbrooke
-//~Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier
-//~Place-Saint-Henri -> Lionel-Groulx -> Atwater -> Guy-Concordia -> Peel -> McGill
-//~Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk
-//~Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal
-//~Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde -> Montmorency
-//~Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur
-//~Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont
-//~Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau
-//~Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc
-//~Place-Saint-Henri -> Lionel-Groulx -> Atwater -> Guy-Concordia -> Peel
-//~Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX
-//~Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes
-//~Place-Saint-Henri -> Lionel-Groulx -> Atwater -> Guy-Concordia -> Peel -> McGill -> Place-des-Arts
 //~Place-Saint-Henri
 //~Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon
 //~Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine
@@ -3602,59 +2225,6 @@
 //~Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun
 //~Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau
 //~Place-Saint-Henri -> Vendôme -> Villa-Maria
-//~Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie
-//~Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption
-//~Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Atwater
-//~Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien
-//~Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry
-//~Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM
-//~Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure
-//~Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac
-//~Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier
-//~Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars
-//~Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix
-//~Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges
-//~Plamondon -> Côte-Sainte-Catherine
-//~Plamondon -> Namur -> De La Savane -> Du Collège -> Côte-Vertu
-//~Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Jarry -> Crémazie
-//~Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Fabre -> D'Iberville
-//~Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau
-//~Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église
-//~Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde
-//~Plamondon -> Namur -> De La Savane
-//~Plamondon -> Namur -> De La Savane -> Du Collège
-//~Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit
-//~Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Fabre
-//~Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac
-//~Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier
-//~Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Atwater -> Guy-Concordia
-//~Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa
-//~Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier -> Radisson -> Honoré-Beaugrand
-//~Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Jarry
-//~Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Jean-Drapeau
-//~Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon
-//~Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur
-//~Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette
-//~Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier
-//~Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle
-//~Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier
-//~Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx
-//~Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Jean-Drapeau -> Longueuil–Université-de-Sherbrooke
-//~Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier
-//~Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Atwater -> Guy-Concordia -> Peel -> McGill
-//~Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk
-//~Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal
-//~Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde -> Montmorency
-//~Plamondon -> Namur
-//~Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont
-//~Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau
-//~Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc
-//~Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Atwater -> Guy-Concordia -> Peel
-//~Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX
-//~Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes
-//~Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Atwater -> Guy-Concordia -> Peel -> McGill -> Place-des-Arts
-//~Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri
 //~Plamondon
 //~Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine
 //~Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier -> Radisson
@@ -3670,60 +2240,6 @@
 //~Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun
 //~Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau
 //~Plamondon -> Côte-Sainte-Catherine -> Snowdon -> Villa-Maria
-//~Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie
-//~Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption
-//~Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater
-//~Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien
-//~Préfontaine -> Frontenac -> Papineau -> Beaudry
-//~Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM
-//~Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure
-//~Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac
-//~Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier
-//~Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars
-//~Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix
-//~Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges
-//~Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine
-//~Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège -> Côte-Vertu
-//~Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie
-//~Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre -> D'Iberville
-//~Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau
-//~Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église
-//~Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde
-//~Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane
-//~Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège
-//~Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit
-//~Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre
-//~Préfontaine -> Frontenac
-//~Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier
-//~Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia
-//~Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa
-//~Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier -> Radisson -> Honoré-Beaugrand
-//~Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry
-//~Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Jean-Drapeau
-//~Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon
-//~Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur
-//~Préfontaine -> Joliette
-//~Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier
-//~Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle
-//~Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier
-//~Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx
-//~Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Jean-Drapeau -> Longueuil–Université-de-Sherbrooke
-//~Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier
-//~Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill
-//~Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk
-//~Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal
-//~Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde -> Montmorency
-//~Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur
-//~Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont
-//~Préfontaine -> Frontenac -> Papineau
-//~Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc
-//~Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel
-//~Préfontaine -> Joliette -> Pie-IX
-//~Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes
-//~Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts
-//~Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri
-//~Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon
 //~Préfontaine
 //~Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier -> Radisson
 //~Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont
@@ -3738,61 +2254,6 @@
 //~Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun
 //~Préfontaine -> Joliette -> Pie-IX -> Viau
 //~Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria
-//~Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie
-//~Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~Radisson -> Langelier -> Cadillac -> Assomption
-//~Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater
-//~Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien
-//~Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry
-//~Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM
-//~Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure
-//~Radisson -> Langelier -> Cadillac
-//~Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier
-//~Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars
-//~Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix
-//~Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges
-//~Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine
-//~Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège -> Côte-Vertu
-//~Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie
-//~Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre -> D'Iberville
-//~Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau
-//~Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église
-//~Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde
-//~Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane
-//~Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège
-//~Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit
-//~Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre
-//~Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac
-//~Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier
-//~Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia
-//~Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa
-//~Radisson -> Honoré-Beaugrand
-//~Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry
-//~Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Jean-Drapeau
-//~Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon
-//~Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur
-//~Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette
-//~Radisson -> Langelier
-//~Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle
-//~Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier
-//~Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx
-//~Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Jean-Drapeau -> Longueuil–Université-de-Sherbrooke
-//~Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier
-//~Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill
-//~Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk
-//~Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal
-//~Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde -> Montmorency
-//~Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur
-//~Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont
-//~Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau
-//~Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc
-//~Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel
-//~Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX
-//~Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes
-//~Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts
-//~Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri
-//~Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon
-//~Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine
 //~Radisson
 //~Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont
 //~Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Saint-Laurent
@@ -3806,62 +2267,6 @@
 //~Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun
 //~Radisson -> Langelier -> Cadillac -> Assomption -> Viau
 //~Radisson -> Langelier -> Cadillac -> Assomption -> Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria
-//~Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie
-//~Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption
-//~Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater
-//~Rosemont -> Beaubien
-//~Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry
-//~Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM
-//~Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure
-//~Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac
-//~Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier
-//~Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars
-//~Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix
-//~Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges
-//~Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine
-//~Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège -> Côte-Vertu
-//~Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie
-//~Rosemont -> Beaubien -> Jean-Talon -> Fabre -> D'Iberville
-//~Rosemont -> Beaubien -> Jean-Talon -> De Castelnau
-//~Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église
-//~Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde
-//~Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane
-//~Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège
-//~Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit
-//~Rosemont -> Beaubien -> Jean-Talon -> Fabre
-//~Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac
-//~Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier
-//~Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia
-//~Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa
-//~Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier -> Radisson -> Honoré-Beaugrand
-//~Rosemont -> Beaubien -> Jean-Talon -> Jarry
-//~Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Jean-Drapeau
-//~Rosemont -> Beaubien -> Jean-Talon
-//~Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur
-//~Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette
-//~Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier
-//~Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle
-//~Rosemont -> Laurier
-//~Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx
-//~Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Jean-Drapeau -> Longueuil–Université-de-Sherbrooke
-//~Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier
-//~Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill
-//~Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk
-//~Rosemont -> Laurier -> Mont-Royal
-//~Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde -> Montmorency
-//~Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur
-//~Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont
-//~Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau
-//~Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc
-//~Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel
-//~Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX
-//~Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes
-//~Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts
-//~Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri
-//~Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine -> Plamondon
-//~Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine
-//~Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier -> Radisson
 //~Rosemont
 //~Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Saint-Laurent
 //~Rosemont -> Beaubien -> Jean-Talon -> Fabre -> D'Iberville -> Saint-Michel
@@ -3874,63 +2279,6 @@
 //~Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun
 //~Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau
 //~Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Villa-Maria
-//~Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie
-//~Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~Saint-Laurent -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption
-//~Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater
-//~Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien
-//~Saint-Laurent -> Berri-UQAM -> Beaudry
-//~Saint-Laurent -> Berri-UQAM
-//~Saint-Laurent -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure
-//~Saint-Laurent -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac
-//~Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier
-//~Saint-Laurent -> Berri-UQAM -> Champ-de-Mars
-//~Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx -> Charlevoix
-//~Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges
-//~Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine
-//~Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège -> Côte-Vertu
-//~Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie
-//~Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre -> D'Iberville
-//~Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau
-//~Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église
-//~Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde
-//~Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane
-//~Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège
-//~Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit
-//~Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre
-//~Saint-Laurent -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac
-//~Saint-Laurent -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier
-//~Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia
-//~Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa
-//~Saint-Laurent -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier -> Radisson -> Honoré-Beaugrand
-//~Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry
-//~Saint-Laurent -> Berri-UQAM -> Jean-Drapeau
-//~Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon
-//~Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur
-//~Saint-Laurent -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette
-//~Saint-Laurent -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier
-//~Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx -> Charlevoix -> LaSalle
-//~Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier
-//~Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx
-//~Saint-Laurent -> Berri-UQAM -> Jean-Drapeau -> Longueuil–Université-de-Sherbrooke
-//~Saint-Laurent -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier
-//~Saint-Laurent -> Place-des-Arts -> McGill
-//~Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk
-//~Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal
-//~Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde -> Montmorency
-//~Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur
-//~Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont
-//~Saint-Laurent -> Berri-UQAM -> Beaudry -> Papineau
-//~Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc
-//~Saint-Laurent -> Place-des-Arts -> McGill -> Peel
-//~Saint-Laurent -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX
-//~Saint-Laurent -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes
-//~Saint-Laurent -> Place-des-Arts
-//~Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx -> Place-Saint-Henri
-//~Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon
-//~Saint-Laurent -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine
-//~Saint-Laurent -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier -> Radisson
-//~Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont
 //~Saint-Laurent
 //~Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre -> D'Iberville -> Saint-Michel
 //~Saint-Laurent -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé
@@ -3942,64 +2290,6 @@
 //~Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun
 //~Saint-Laurent -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau
 //~Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria
-//~Saint-Michel -> D'Iberville -> Fabre -> Jean-Talon -> De Castelnau -> Parc -> Acadie
-//~Saint-Michel -> D'Iberville -> Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~Saint-Michel -> D'Iberville -> Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption
-//~Saint-Michel -> D'Iberville -> Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater
-//~Saint-Michel -> D'Iberville -> Fabre -> Jean-Talon -> Beaubien
-//~Saint-Michel -> D'Iberville -> Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry
-//~Saint-Michel -> D'Iberville -> Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM
-//~Saint-Michel -> D'Iberville -> Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure
-//~Saint-Michel -> D'Iberville -> Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac
-//~Saint-Michel -> D'Iberville -> Fabre -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier
-//~Saint-Michel -> D'Iberville -> Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars
-//~Saint-Michel -> D'Iberville -> Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix
-//~Saint-Michel -> D'Iberville -> Fabre -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges
-//~Saint-Michel -> D'Iberville -> Fabre -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine
-//~Saint-Michel -> D'Iberville -> Fabre -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège -> Côte-Vertu
-//~Saint-Michel -> D'Iberville -> Fabre -> Jean-Talon -> Jarry -> Crémazie
-//~Saint-Michel -> D'Iberville
-//~Saint-Michel -> D'Iberville -> Fabre -> Jean-Talon -> De Castelnau
-//~Saint-Michel -> D'Iberville -> Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église
-//~Saint-Michel -> D'Iberville -> Fabre -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde
-//~Saint-Michel -> D'Iberville -> Fabre -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane
-//~Saint-Michel -> D'Iberville -> Fabre -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège
-//~Saint-Michel -> D'Iberville -> Fabre -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit
-//~Saint-Michel -> D'Iberville -> Fabre
-//~Saint-Michel -> D'Iberville -> Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac
-//~Saint-Michel -> D'Iberville -> Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier
-//~Saint-Michel -> D'Iberville -> Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia
-//~Saint-Michel -> D'Iberville -> Fabre -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa
-//~Saint-Michel -> D'Iberville -> Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier -> Radisson -> Honoré-Beaugrand
-//~Saint-Michel -> D'Iberville -> Fabre -> Jean-Talon -> Jarry
-//~Saint-Michel -> D'Iberville -> Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Jean-Drapeau
-//~Saint-Michel -> D'Iberville -> Fabre -> Jean-Talon
-//~Saint-Michel -> D'Iberville -> Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur
-//~Saint-Michel -> D'Iberville -> Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette
-//~Saint-Michel -> D'Iberville -> Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier
-//~Saint-Michel -> D'Iberville -> Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle
-//~Saint-Michel -> D'Iberville -> Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier
-//~Saint-Michel -> D'Iberville -> Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx
-//~Saint-Michel -> D'Iberville -> Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Jean-Drapeau -> Longueuil–Université-de-Sherbrooke
-//~Saint-Michel -> D'Iberville -> Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier
-//~Saint-Michel -> D'Iberville -> Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill
-//~Saint-Michel -> D'Iberville -> Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk
-//~Saint-Michel -> D'Iberville -> Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal
-//~Saint-Michel -> D'Iberville -> Fabre -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde -> Montmorency
-//~Saint-Michel -> D'Iberville -> Fabre -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur
-//~Saint-Michel -> D'Iberville -> Fabre -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont
-//~Saint-Michel -> D'Iberville -> Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau
-//~Saint-Michel -> D'Iberville -> Fabre -> Jean-Talon -> De Castelnau -> Parc
-//~Saint-Michel -> D'Iberville -> Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel
-//~Saint-Michel -> D'Iberville -> Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX
-//~Saint-Michel -> D'Iberville -> Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes
-//~Saint-Michel -> D'Iberville -> Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts
-//~Saint-Michel -> D'Iberville -> Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri
-//~Saint-Michel -> D'Iberville -> Fabre -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine -> Plamondon
-//~Saint-Michel -> D'Iberville -> Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine
-//~Saint-Michel -> D'Iberville -> Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier -> Radisson
-//~Saint-Michel -> D'Iberville -> Fabre -> Jean-Talon -> Beaubien -> Rosemont
-//~Saint-Michel -> D'Iberville -> Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Saint-Laurent
 //~Saint-Michel
 //~Saint-Michel -> D'Iberville -> Fabre -> Jean-Talon -> Jarry -> Crémazie -> Sauvé
 //~Saint-Michel -> D'Iberville -> Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke
@@ -4010,65 +2300,6 @@
 //~Saint-Michel -> D'Iberville -> Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun
 //~Saint-Michel -> D'Iberville -> Fabre -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau
 //~Saint-Michel -> D'Iberville -> Fabre -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Villa-Maria
-//~Sauvé -> Crémazie -> Jarry -> Jean-Talon -> De Castelnau -> Parc -> Acadie
-//~Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption
-//~Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater
-//~Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien
-//~Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry
-//~Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM
-//~Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure
-//~Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac
-//~Sauvé -> Henri-Bourassa -> Cartier
-//~Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars
-//~Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix
-//~Sauvé -> Crémazie -> Jarry -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges
-//~Sauvé -> Crémazie -> Jarry -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine
-//~Sauvé -> Crémazie -> Jarry -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège -> Côte-Vertu
-//~Sauvé -> Crémazie
-//~Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Fabre -> D'Iberville
-//~Sauvé -> Crémazie -> Jarry -> Jean-Talon -> De Castelnau
-//~Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église
-//~Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde
-//~Sauvé -> Crémazie -> Jarry -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane
-//~Sauvé -> Crémazie -> Jarry -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège
-//~Sauvé -> Crémazie -> Jarry -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit
-//~Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Fabre
-//~Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac
-//~Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier
-//~Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia
-//~Sauvé -> Henri-Bourassa
-//~Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier -> Radisson -> Honoré-Beaugrand
-//~Sauvé -> Crémazie -> Jarry
-//~Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Jean-Drapeau
-//~Sauvé -> Crémazie -> Jarry -> Jean-Talon
-//~Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur
-//~Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette
-//~Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier
-//~Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle
-//~Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier
-//~Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx
-//~Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Jean-Drapeau -> Longueuil–Université-de-Sherbrooke
-//~Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier
-//~Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill
-//~Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk
-//~Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal
-//~Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde -> Montmorency
-//~Sauvé -> Crémazie -> Jarry -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur
-//~Sauvé -> Crémazie -> Jarry -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont
-//~Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau
-//~Sauvé -> Crémazie -> Jarry -> Jean-Talon -> De Castelnau -> Parc
-//~Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel
-//~Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX
-//~Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes
-//~Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts
-//~Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri
-//~Sauvé -> Crémazie -> Jarry -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine -> Plamondon
-//~Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine
-//~Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier -> Radisson
-//~Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont
-//~Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Saint-Laurent
-//~Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Fabre -> D'Iberville -> Saint-Michel
 //~Sauvé
 //~Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke
 //~Sauvé -> Crémazie -> Jarry -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon
@@ -4078,66 +2309,6 @@
 //~Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun
 //~Sauvé -> Crémazie -> Jarry -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau
 //~Sauvé -> Crémazie -> Jarry -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Villa-Maria
-//~Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie
-//~Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption
-//~Sherbrooke -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater
-//~Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien
-//~Sherbrooke -> Berri-UQAM -> Beaudry
-//~Sherbrooke -> Berri-UQAM
-//~Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure
-//~Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac
-//~Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier
-//~Sherbrooke -> Berri-UQAM -> Champ-de-Mars
-//~Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix
-//~Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal -> Côte-des-Neiges
-//~Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine
-//~Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège -> Côte-Vertu
-//~Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie
-//~Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre -> D'Iberville
-//~Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau
-//~Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église
-//~Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde
-//~Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane
-//~Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège
-//~Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit
-//~Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre
-//~Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac
-//~Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier
-//~Sherbrooke -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia
-//~Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa
-//~Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier -> Radisson -> Honoré-Beaugrand
-//~Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry
-//~Sherbrooke -> Berri-UQAM -> Jean-Drapeau
-//~Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon
-//~Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur
-//~Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette
-//~Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier
-//~Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle
-//~Sherbrooke -> Mont-Royal -> Laurier
-//~Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx
-//~Sherbrooke -> Berri-UQAM -> Jean-Drapeau -> Longueuil–Université-de-Sherbrooke
-//~Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier
-//~Sherbrooke -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill
-//~Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk
-//~Sherbrooke -> Mont-Royal
-//~Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde -> Montmorency
-//~Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur
-//~Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont
-//~Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau
-//~Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc
-//~Sherbrooke -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel
-//~Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX
-//~Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes
-//~Sherbrooke -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts
-//~Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri
-//~Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon
-//~Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine
-//~Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier -> Radisson
-//~Sherbrooke -> Mont-Royal -> Laurier -> Rosemont
-//~Sherbrooke -> Berri-UQAM -> Saint-Laurent
-//~Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre -> D'Iberville -> Saint-Michel
-//~Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé
 //~Sherbrooke
 //~Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon
 //~Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI
@@ -4146,67 +2317,6 @@
 //~Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun
 //~Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau
 //~Sherbrooke -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria
-//~Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie
-//~Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption
-//~Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Atwater
-//~Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien
-//~Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry
-//~Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM
-//~Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure
-//~Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac
-//~Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier
-//~Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars
-//~Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix
-//~Snowdon -> Côte-des-Neiges
-//~Snowdon -> Côte-Sainte-Catherine
-//~Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège -> Côte-Vertu
-//~Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Jarry -> Crémazie
-//~Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Fabre -> D'Iberville
-//~Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau
-//~Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église
-//~Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde
-//~Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane
-//~Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège
-//~Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit
-//~Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Fabre
-//~Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac
-//~Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier
-//~Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Atwater -> Guy-Concordia
-//~Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa
-//~Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier -> Radisson -> Honoré-Beaugrand
-//~Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Jarry
-//~Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Jean-Drapeau
-//~Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon
-//~Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur
-//~Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette
-//~Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier
-//~Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle
-//~Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier
-//~Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx
-//~Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Jean-Drapeau -> Longueuil–Université-de-Sherbrooke
-//~Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier
-//~Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Atwater -> Guy-Concordia -> Peel -> McGill
-//~Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk
-//~Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal
-//~Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde -> Montmorency
-//~Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur
-//~Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont
-//~Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau
-//~Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc
-//~Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Atwater -> Guy-Concordia -> Peel
-//~Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX
-//~Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes
-//~Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Atwater -> Guy-Concordia -> Peel -> McGill -> Place-des-Arts
-//~Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri
-//~Snowdon -> Côte-Sainte-Catherine -> Plamondon
-//~Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine
-//~Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier -> Radisson
-//~Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont
-//~Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Atwater -> Guy-Concordia -> Peel -> McGill -> Place-des-Arts -> Saint-Laurent
-//~Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Fabre -> D'Iberville -> Saint-Michel
-//~Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Jarry -> Crémazie -> Sauvé
-//~Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke
 //~Snowdon
 //~Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI
 //~Snowdon -> Côte-des-Neiges -> Université-de-Montréal
@@ -4214,413 +2324,26 @@
 //~Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun
 //~Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau
 //~Snowdon -> Villa-Maria
-//~Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie
-//~Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption
-//~Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Atwater
-//~Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien
-//~Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry
-//~Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM
-//~Square-Victoria-OACI -> Bonaventure
-//~Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac
-//~Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier
-//~Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars
-//~Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix
-//~Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges
-//~Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine
-//~Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège -> Côte-Vertu
-//~Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie
-//~Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre -> D'Iberville
-//~Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau
-//~Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église
-//~Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde
-//~Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane
-//~Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège
-//~Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit
-//~Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre
-//~Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac
-//~Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier
-//~Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia
-//~Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa
-//~Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier -> Radisson -> Honoré-Beaugrand
-//~Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry
-//~Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Jean-Drapeau
-//~Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon
-//~Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur
-//~Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette
-//~Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier
-//~Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle
-//~Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier
-//~Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx
-//~Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Jean-Drapeau -> Longueuil–Université-de-Sherbrooke
-//~Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier
-//~Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill
-//~Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk
-//~Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal
-//~Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde -> Montmorency
-//~Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur
-//~Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont
-//~Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau
-//~Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc
-//~Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel
-//~Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX
-//~Square-Victoria-OACI -> Place-d'Armes
-//~Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts
-//~Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri
-//~Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon
-//~Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine
-//~Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier -> Radisson
-//~Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont
-//~Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Saint-Laurent
-//~Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre -> D'Iberville -> Saint-Michel
-//~Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé
-//~Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke
-//~Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon
 //~Square-Victoria-OACI
 //~Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal
 //~Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme
 //~Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun
 //~Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau
 //~Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria
-//~Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie
-//~Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption
-//~Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Atwater
-//~Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien
-//~Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry
-//~Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM
-//~Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure
-//~Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac
-//~Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier
-//~Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars
-//~Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix
-//~Université-de-Montréal -> Côte-des-Neiges
-//~Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine
-//~Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège -> Côte-Vertu
-//~Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Jarry -> Crémazie
-//~Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Fabre -> D'Iberville
-//~Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau
-//~Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église
-//~Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde
-//~Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane
-//~Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège
-//~Université-de-Montréal -> Édouard-Montpetit
-//~Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Fabre
-//~Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac
-//~Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier
-//~Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Atwater -> Guy-Concordia
-//~Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa
-//~Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier -> Radisson -> Honoré-Beaugrand
-//~Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Jarry
-//~Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Jean-Drapeau
-//~Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon
-//~Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur
-//~Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette
-//~Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier
-//~Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle
-//~Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier
-//~Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx
-//~Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Jean-Drapeau -> Longueuil–Université-de-Sherbrooke
-//~Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier
-//~Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Atwater -> Guy-Concordia -> Peel -> McGill
-//~Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk
-//~Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal
-//~Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde -> Montmorency
-//~Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur
-//~Université-de-Montréal -> Édouard-Montpetit -> Outremont
-//~Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau
-//~Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc
-//~Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Atwater -> Guy-Concordia -> Peel
-//~Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX
-//~Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes
-//~Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts
-//~Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri
-//~Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Côte-Sainte-Catherine -> Plamondon
-//~Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine
-//~Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier -> Radisson
-//~Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont
-//~Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Saint-Laurent
-//~Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Fabre -> D'Iberville -> Saint-Michel
-//~Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Jarry -> Crémazie -> Sauvé
-//~Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke
-//~Université-de-Montréal -> Côte-des-Neiges -> Snowdon
-//~Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI
 //~Université-de-Montréal
 //~Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Villa-Maria -> Vendôme
 //~Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun
 //~Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier -> Mont-Royal -> Sherbrooke -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau
 //~Université-de-Montréal -> Côte-des-Neiges -> Snowdon -> Villa-Maria
-//~Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie
-//~Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption
-//~Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Atwater
-//~Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien
-//~Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry
-//~Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM
-//~Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure
-//~Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac
-//~Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier
-//~Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars
-//~Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix
-//~Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges
-//~Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine
-//~Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège -> Côte-Vertu
-//~Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Jarry -> Crémazie
-//~Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Fabre -> D'Iberville
-//~Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau
-//~Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église
-//~Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde
-//~Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane
-//~Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège
-//~Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit
-//~Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Fabre
-//~Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac
-//~Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier
-//~Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Atwater -> Guy-Concordia
-//~Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa
-//~Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier -> Radisson -> Honoré-Beaugrand
-//~Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Jarry
-//~Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Jean-Drapeau
-//~Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon
-//~Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur
-//~Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette
-//~Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier
-//~Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle
-//~Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier
-//~Vendôme -> Place-Saint-Henri -> Lionel-Groulx
-//~Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Jean-Drapeau -> Longueuil–Université-de-Sherbrooke
-//~Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier
-//~Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Atwater -> Guy-Concordia -> Peel -> McGill
-//~Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk
-//~Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal
-//~Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde -> Montmorency
-//~Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur
-//~Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont
-//~Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau
-//~Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc
-//~Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Atwater -> Guy-Concordia -> Peel
-//~Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX
-//~Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes
-//~Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Atwater -> Guy-Concordia -> Peel -> McGill -> Place-des-Arts
-//~Vendôme -> Place-Saint-Henri
-//~Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon
-//~Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine
-//~Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier -> Radisson
-//~Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont
-//~Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Atwater -> Guy-Concordia -> Peel -> McGill -> Place-des-Arts -> Saint-Laurent
-//~Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Fabre -> D'Iberville -> Saint-Michel
-//~Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Jarry -> Crémazie -> Sauvé
-//~Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke
-//~Vendôme -> Villa-Maria -> Snowdon
-//~Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI
-//~Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal
 //~Vendôme
 //~Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun
 //~Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau
 //~Vendôme -> Villa-Maria
-//~Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie
-//~Verdun -> Jolicoeur -> Monk -> Angrignon
-//~Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption
-//~Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Atwater
-//~Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien
-//~Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry
-//~Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM
-//~Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure
-//~Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac
-//~Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier
-//~Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars
-//~Verdun -> De L'Église -> LaSalle -> Charlevoix
-//~Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges
-//~Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine
-//~Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège -> Côte-Vertu
-//~Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie
-//~Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre -> D'Iberville
-//~Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau
-//~Verdun -> De L'Église
-//~Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde
-//~Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane
-//~Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège
-//~Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit
-//~Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre
-//~Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac
-//~Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier
-//~Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Atwater -> Guy-Concordia
-//~Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa
-//~Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier -> Radisson -> Honoré-Beaugrand
-//~Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry
-//~Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Jean-Drapeau
-//~Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon
-//~Verdun -> Jolicoeur
-//~Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette
-//~Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier
-//~Verdun -> De L'Église -> LaSalle
-//~Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier
-//~Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx
-//~Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Jean-Drapeau -> Longueuil–Université-de-Sherbrooke
-//~Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier
-//~Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Atwater -> Guy-Concordia -> Peel -> McGill
-//~Verdun -> Jolicoeur -> Monk
-//~Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal
-//~Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde -> Montmorency
-//~Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur
-//~Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont
-//~Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau
-//~Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc
-//~Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Atwater -> Guy-Concordia -> Peel
-//~Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX
-//~Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes
-//~Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Atwater -> Guy-Concordia -> Peel -> McGill -> Place-des-Arts
-//~Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Place-Saint-Henri
-//~Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon
-//~Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine
-//~Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier -> Radisson
-//~Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont
-//~Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Atwater -> Guy-Concordia -> Peel -> McGill -> Place-des-Arts -> Saint-Laurent
-//~Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre -> D'Iberville -> Saint-Michel
-//~Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé
-//~Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke
-//~Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon
-//~Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI
-//~Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal
-//~Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme
 //~Verdun
 //~Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau
 //~Verdun -> De L'Église -> LaSalle -> Charlevoix -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria
-//~Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie
-//~Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~Viau -> Assomption
-//~Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia -> Atwater
-//~Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien
-//~Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry
-//~Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM
-//~Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure
-//~Viau -> Assomption -> Cadillac
-//~Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier
-//~Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars
-//~Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix
-//~Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-des-Neiges
-//~Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine
-//~Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège -> Côte-Vertu
-//~Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie
-//~Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre -> D'Iberville
-//~Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau
-//~Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église
-//~Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde
-//~Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane
-//~Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège
-//~Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit
-//~Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre
-//~Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac
-//~Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier
-//~Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel -> Guy-Concordia
-//~Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa
-//~Viau -> Assomption -> Cadillac -> Langelier -> Radisson -> Honoré-Beaugrand
-//~Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry
-//~Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Jean-Drapeau
-//~Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon
-//~Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur
-//~Viau -> Pie-IX -> Joliette
-//~Viau -> Assomption -> Cadillac -> Langelier
-//~Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle
-//~Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier
-//~Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx
-//~Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Jean-Drapeau -> Longueuil–Université-de-Sherbrooke
-//~Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier
-//~Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill
-//~Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk
-//~Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal
-//~Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde -> Montmorency
-//~Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur
-//~Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont
-//~Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau
-//~Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc
-//~Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts -> McGill -> Peel
-//~Viau -> Pie-IX
-//~Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes
-//~Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Saint-Laurent -> Place-des-Arts
-//~Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri
-//~Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon
-//~Viau -> Pie-IX -> Joliette -> Préfontaine
-//~Viau -> Assomption -> Cadillac -> Langelier -> Radisson
-//~Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont
-//~Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Saint-Laurent
-//~Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Fabre -> D'Iberville -> Saint-Michel
-//~Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> Jarry -> Crémazie -> Sauvé
-//~Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke
-//~Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria -> Snowdon
-//~Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI
-//~Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Sherbrooke -> Mont-Royal -> Laurier -> Rosemont -> Beaubien -> Jean-Talon -> De Castelnau -> Parc -> Acadie -> Outremont -> Édouard-Montpetit -> Université-de-Montréal
-//~Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme
-//~Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun
 //~Viau
 //~Viau -> Pie-IX -> Joliette -> Préfontaine -> Frontenac -> Papineau -> Beaudry -> Berri-UQAM -> Champ-de-Mars -> Place-d'Armes -> Square-Victoria-OACI -> Bonaventure -> Lucien-L'Allier -> Georges-Vanier -> Lionel-Groulx -> Place-Saint-Henri -> Vendôme -> Villa-Maria
-//~Villa-Maria -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie
-//~Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk -> Angrignon
-//~Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption
-//~Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Atwater
-//~Villa-Maria -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien
-//~Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry
-//~Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM
-//~Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure
-//~Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac
-//~Villa-Maria -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier
-//~Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars
-//~Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix
-//~Villa-Maria -> Snowdon -> Côte-des-Neiges
-//~Villa-Maria -> Snowdon -> Côte-Sainte-Catherine
-//~Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège -> Côte-Vertu
-//~Villa-Maria -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Jarry -> Crémazie
-//~Villa-Maria -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Fabre -> D'Iberville
-//~Villa-Maria -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau
-//~Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église
-//~Villa-Maria -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde
-//~Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane
-//~Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur -> De La Savane -> Du Collège
-//~Villa-Maria -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit
-//~Villa-Maria -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Fabre
-//~Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac
-//~Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier
-//~Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Atwater -> Guy-Concordia
-//~Villa-Maria -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa
-//~Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier -> Radisson -> Honoré-Beaugrand
-//~Villa-Maria -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Jarry
-//~Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Jean-Drapeau
-//~Villa-Maria -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon
-//~Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur
-//~Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette
-//~Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier
-//~Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle
-//~Villa-Maria -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont -> Laurier
-//~Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx
-//~Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Jean-Drapeau -> Longueuil–Université-de-Sherbrooke
-//~Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier
-//~Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Atwater -> Guy-Concordia -> Peel -> McGill
-//~Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun -> Jolicoeur -> Monk
-//~Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke -> Mont-Royal
-//~Villa-Maria -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Jarry -> Crémazie -> Sauvé -> Henri-Bourassa -> Cartier -> De La Concorde -> Montmorency
-//~Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon -> Namur
-//~Villa-Maria -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont
-//~Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau
-//~Villa-Maria -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc
-//~Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Atwater -> Guy-Concordia -> Peel
-//~Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX
-//~Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes
-//~Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Atwater -> Guy-Concordia -> Peel -> McGill -> Place-des-Arts
-//~Villa-Maria -> Vendôme -> Place-Saint-Henri
-//~Villa-Maria -> Snowdon -> Côte-Sainte-Catherine -> Plamondon
-//~Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine
-//~Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau -> Assomption -> Cadillac -> Langelier -> Radisson
-//~Villa-Maria -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Beaubien -> Rosemont
-//~Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Atwater -> Guy-Concordia -> Peel -> McGill -> Place-des-Arts -> Saint-Laurent
-//~Villa-Maria -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Fabre -> D'Iberville -> Saint-Michel
-//~Villa-Maria -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal -> Édouard-Montpetit -> Outremont -> Acadie -> Parc -> De Castelnau -> Jean-Talon -> Jarry -> Crémazie -> Sauvé
-//~Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Sherbrooke
-//~Villa-Maria -> Snowdon
-//~Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI
-//~Villa-Maria -> Snowdon -> Côte-des-Neiges -> Université-de-Montréal
-//~Villa-Maria -> Vendôme
-//~Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Charlevoix -> LaSalle -> De L'Église -> Verdun
-//~Villa-Maria -> Vendôme -> Place-Saint-Henri -> Lionel-Groulx -> Georges-Vanier -> Lucien-L'Allier -> Bonaventure -> Square-Victoria-OACI -> Place-d'Armes -> Champ-de-Mars -> Berri-UQAM -> Beaudry -> Papineau -> Frontenac -> Préfontaine -> Joliette -> Pie-IX -> Viau
 //~Villa-Maria
 
 package main
