@@ -1,3 +1,4 @@
+//~1 2 3 4
 package main
 
 func main() {
