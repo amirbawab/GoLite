@@ -91,7 +91,7 @@ void golite::Declaration::symbolTablePass(SymbolTable *root) {
     }
 
     bool new_var = false;
-    std::set<Identifier*> identifierSet;
+    std::set<std::string> identifierNameSet;
     for(size_t i=0; i < left_identifiers_.size(); i++) {
 
         if(!left_identifiers_[i]->isIdentifier()) {
@@ -114,11 +114,11 @@ void golite::Declaration::symbolTablePass(SymbolTable *root) {
                 existing_dec = var_decl;
             }
 
-            if(identifierSet.find(id) != identifierSet.end()) {
+            if(identifierNameSet.find(id->getName()) != identifierNameSet.end()) {
                 golite::Utils::error_message("Variable " + left_identifiers_[i]->toGoLite(0) + " is repeated",
                                              left_identifiers_[i]->getLine());
             }
-            identifierSet.insert(id);
+            identifierNameSet.insert(id->getName());
             left_identifiers_[i]->symbolTablePass(root);
         }
     }
