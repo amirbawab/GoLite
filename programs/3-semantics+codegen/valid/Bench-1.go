@@ -48,6 +48,11 @@ func connect(from, to int, w float64) {
  * Print path
  */
 func printPath(path []int) {
+    // Index 0 is guaranteed to be there
+    if path[0] < 0 {
+        println("No path found")
+        return
+    }
     for i:=0; path[i] >= 0; i++ {
         if i != 0 {
             print(" -> ")
@@ -61,6 +66,14 @@ func printPath(path []int) {
  * Run Dijkstra
  */
 func dijkstra(from ,to int) []int {
+    // Check if source is same as destination
+    if from == to {
+        var path []int
+        path = append(path, from)
+        path = append(path, -1)
+        return path
+    }
+
     // Keep track of visited nodes
     var visited []int
     var UNVISITED int = 0
@@ -236,75 +249,10 @@ func main() {
     stations = append(stations, "Viau")
     stations = append(stations, "Villa-Maria")
 
-    // Create stations
-    var n0  int = addNode();
-    var n1  int = addNode();
-    var n2  int = addNode();
-    var n3  int = addNode();
-    var n4  int = addNode();
-    var n5  int = addNode();
-    var n6  int = addNode();
-    var n7  int = addNode();
-    var n8  int = addNode();
-    var n9  int = addNode();
-    var n10 int = addNode();
-    var n11 int = addNode();
-    var n12 int = addNode();
-    var n13 int = addNode();
-    var n14 int = addNode();
-    var n15 int = addNode();
-    var n16 int = addNode();
-    var n17 int = addNode();
-    var n18 int = addNode();
-    var n19 int = addNode();
-    var n20 int = addNode();
-    var n21 int = addNode();
-    var n22 int = addNode();
-    var n23 int = addNode();
-    var n24 int = addNode();
-    var n25 int = addNode();
-    var n26 int = addNode();
-    var n27 int = addNode();
-    var n28 int = addNode();
-    var n29 int = addNode();
-    var n30 int = addNode();
-    var n31 int = addNode();
-    var n32 int = addNode();
-    var n33 int = addNode();
-    var n34 int = addNode();
-    var n35 int = addNode();
-    var n36 int = addNode();
-    var n37 int = addNode();
-    var n38 int = addNode();
-    var n39 int = addNode();
-    var n40 int = addNode();
-    var n41 int = addNode();
-    var n42 int = addNode();
-    var n43 int = addNode();
-    var n44 int = addNode();
-    var n45 int = addNode();
-    var n46 int = addNode();
-    var n47 int = addNode();
-    var n48 int = addNode();
-    var n49 int = addNode();
-    var n50 int = addNode();
-    var n51 int = addNode();
-    var n52 int = addNode();
-    var n53 int = addNode();
-    var n54 int = addNode();
-    var n55 int = addNode();
-    var n56 int = addNode();
-    var n57 int = addNode();
-    var n58 int = addNode();
-    var n59 int = addNode();
-    var n60 int = addNode();
-    var n61 int = addNode();
-    var n62 int = addNode();
-    var n63 int = addNode();
-    var n64 int = addNode();
-    var n65 int = addNode();
-    var n66 int = addNode();
-    var n67 int = addNode();
+    // Initialize stations
+    for i := 0; i < 68; i++ {
+        addNode();
+    }
 
     // Connect stations
     connect(0,47,727.60)
@@ -378,37 +326,9 @@ func main() {
     connect(22,45,1090.60)
 
     // Print path
-    printPath(dijkstra(n61, n58))
-    printPath(dijkstra(n58, n61))
-}
-
-func main2() {
-    stations = append(stations, "a")
-    stations = append(stations, "b")
-    stations = append(stations, "c")
-    stations = append(stations, "d")
-    stations = append(stations, "e")
-    stations = append(stations, "f")
-    stations = append(stations, "g")
-
-    var a = addNode()
-    var b = addNode()
-    var c = addNode()
-    var d = addNode()
-    var e = addNode()
-    var f = addNode()
-    var g = addNode()
-
-    connect(a, b, 4.)
-    connect(a, c, 3.)
-    connect(b, e, 12.)
-    connect(b, f, 5.)
-    connect(c, d, 7.)
-    connect(c, e, 10.)
-    connect(d, e, 2.)
-    connect(e, g, 5.)
-    connect(f, g, 16.)
-    
-    printPath(dijkstra(a, e))
-    printPath(dijkstra(e, a))
+    for i := 0; i < graph.nodes; i++ {
+        for j := 0; j < graph.nodes; j++ {
+            printPath(dijkstra(i, j))
+        }
+    }
 }
