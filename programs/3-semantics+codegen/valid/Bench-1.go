@@ -4639,6 +4639,19 @@ type Graph struct {
 // Build a graph
 var graph Graph
 
+// Reset graph
+func resetGraph() {
+    var al [][]int
+    var weight [][]float64
+    var deg []int
+    var slist []string
+    graph.nodes = 0
+    graph.al = al
+    graph.weight = weight
+    graph.deg = deg
+    stations = slist
+}
+
 /**
  * Add node to a graph
  */
@@ -4685,6 +4698,20 @@ func printPath(path []int) {
         print(stations[path[i]])
     }
     println()
+}
+
+/**
+ * Count path
+ */
+func countPath(path []int) int {
+    // Index 0 is guaranteed to be there
+    if path[0] < 0 {
+        println("No path found")
+        return 0
+    }
+	var i int
+    for ; path[i] >= 0; i++ {}
+    return i
 }
 
 /**
@@ -4802,7 +4829,13 @@ func dijkstra(from ,to int) []int {
     return path
 }
 
-func main() {
+/**
+ * Run metro example
+ */
+func metroGraph() {
+
+    // Reset graph
+    resetGraph()
 
     // Populate stations
     stations = append(stations, "Acadie")
@@ -4953,7 +4986,54 @@ func main() {
     // Print path
     for i := 0; i < graph.nodes; i++ {
         for j := 0; j < graph.nodes; j++ {
-            printPath(dijkstra(i, j))
+			if i <= j {
+            	printPath(dijkstra(i, j))
+			}
         }
     }
 }
+
+func unitTestGraph() {
+    
+    // Reset graph
+    resetGraph()
+    
+    // Complete graph
+    var N int = 140
+
+    // Add nodes
+    for i := 0; i < N; i++ {
+        addNode()
+    }
+
+    // Add connections
+    for i := 0; i < N; i++ {
+        for j:=0; j < N; j++ {
+            if i != j {
+                addEdge(i, j, float64(i + j))
+            }
+        }
+    }
+
+	// Check nodes
+	if graph.nodes != N {
+		println("[TEST FAILED]")
+	}
+
+    // Check dijkstra
+    for i := 0; i < graph.nodes; i++ {
+        for j := 0; j < graph.nodes; j++ {
+			if i != j && countPath(dijkstra(i, j)) != 2 || i == j && countPath(dijkstra(i, j)) != 1 {
+				println("[TEST FAILED]");
+				return
+			}
+        }
+    }
+	println("[TEST PASS]")
+}
+
+func main() {
+	unitTestGraph()
+    metroGraph()
+}
+
