@@ -1,8 +1,8 @@
-//~196
+//~731340
 package main
-
-var size_x int = 5
-var size_y int = 5
+var search_depth int = 12
+var size_x int = 4
+var size_y int = 4
 
 type PuzzleState struct {
 	numbers []int
@@ -218,41 +218,41 @@ func construct_search_space(root StateNode, level_rem int) StateNode {
 }
 
 func main() {
-	//[ 5, 1, 4, 2, 3,
-	//  1, 2, 3, 4, 5,
-	//  7, 6, 0, 3, 2,
-	//  9, 9, 9, 9, 10, 
-	//	4, 3, 2, 7, 8  ]
+	//[ 5, 1, 4, 2,
+	//  1, 2, 3, 4,
+	//  7, 6, 0, 3,
+	//  9, 9, 9, 9,
+	//	4, 3, 2, 7, ]
 	var numbers []int
 	numbers = append(numbers, 5)
 	numbers = append(numbers, 1)
 	numbers = append(numbers, 4)
 	numbers = append(numbers, 2)
-	numbers = append(numbers, 3)
+	//numbers = append(numbers, 3)
 	numbers = append(numbers, 1)
 	numbers = append(numbers, 2)
 	numbers = append(numbers, 3)
 	numbers = append(numbers, 4)
-	numbers = append(numbers, 5)
+	//numbers = append(numbers, 5)
 	numbers = append(numbers, 7)
 	numbers = append(numbers, 6)
 	numbers = append(numbers, 0)
 	numbers = append(numbers, 3)
-	numbers = append(numbers, 2)
+	//numbers = append(numbers, 2)
 	numbers = append(numbers, 9)
 	numbers = append(numbers, 9)
 	numbers = append(numbers, 9)
 	numbers = append(numbers, 9)
-	numbers = append(numbers, 10)
+	//numbers = append(numbers, 10)
 	numbers = append(numbers, 4)
 	numbers = append(numbers, 3)
 	numbers = append(numbers, 2)
 	numbers = append(numbers, 7)
-	numbers = append(numbers, 8)
+	//numbers = append(numbers, 8)
 	
 	var puzzle PuzzleState = initialize_puzzle(numbers)
 	var root_node StateNode = puzzle_state_to_node(puzzle)
-	root_node = construct_search_space(root_node, 5)
+	root_node = construct_search_space(root_node, search_depth)
 
-	println(num_search_space_state)
+	println(num_search_space_state) // test23
 }
