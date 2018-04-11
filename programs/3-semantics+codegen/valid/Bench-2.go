@@ -252,7 +252,7 @@ func main() {
 	
 	var puzzle PuzzleState = initialize_puzzle(numbers)
 	var root_node StateNode = puzzle_state_to_node(puzzle)
-	root_node = construct_search_space(root_node, 5)
+	root_node = construct_search_space(root_node, 11)
 
 	println(num_search_space_state)
 }
