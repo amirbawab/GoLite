@@ -160,7 +160,8 @@ std::string golite::Declaration::toTypeScript(int indent) {
     } else {
         for(size_t i=0; i < left_identifiers_.size(); i++) {
             if(i == 0) {
-                ss << left_identifiers_[i]->toTypeScript(0) << " = [" << right_expressions_[i]->toTypeScript(0)
+                ss << golite::Utils::indent(indent) << left_identifiers_[i]->toTypeScript(0)
+                   << " = [" << right_expressions_[i]->toTypeScript(0)
                    << golite::TSHelper::cloneObject(right_expressions_[i]->typeCheck());
             } else {
                 ss << ", " << left_identifiers_[i]->toTypeScript(0) << "=" << right_expressions_[i]->toTypeScript(0)
