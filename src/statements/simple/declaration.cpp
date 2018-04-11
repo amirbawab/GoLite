@@ -6,6 +6,7 @@
 #include <iostream>
 #include <golite/program.h>
 #include <set>
+#include <golite/ts_helper.h>
 
 std::string golite::Declaration::toGoLite(int indent) {
     std::stringstream ss;
@@ -129,8 +130,6 @@ void golite::Declaration::symbolTablePass(SymbolTable *root) {
 }
 
 std::string golite::Declaration::toTypeScript(int indent) {
-    std::stringstream ss_ids;
-    std::stringstream ss_exprs;
     std::stringstream ss;
     ss << golite::Utils::blockComment({"Declaration group of size " + std::to_string(left_identifiers_.size())},
                                       indent, getLine()) << std::endl;
@@ -154,22 +153,21 @@ std::string golite::Declaration::toTypeScript(int indent) {
 
     ss << golite::Utils::blockComment({"Assignment for declaration"},
                                       indent, getLine()) << std::endl;
-    if(left_identifiers_.size() > 1) {
-        ss_ids << "[";
-        ss_exprs << "[";
-    }
-    for(size_t i=0; i < left_identifiers_.size(); i++) {
-        if(i != 0) {
-            ss_ids << ", ";
-            ss_exprs << ", ";
+    if(left_identifiers_.size() == 1) {
+        ss << golite::Utils::indent(indent) << left_identifiers_.front()->toTypeScript(0) << " = "
+           << right_expressions_.front()->toTypeScript(0)
+           << golite::TSHelper::cloneObject(right_expressions_.front()->typeCheck()) << ";" << std::endl;
+    } else {
+        for(size_t i=0; i < left_identifiers_.size(); i++) {
+            if(i == 0) {
+                ss << left_identifiers_[i]->toTypeScript(0) << " = [" << right_expressions_[i]->toTypeScript(0)
+                   << golite::TSHelper::cloneObject(right_expressions_[i]->typeCheck());
+            } else {
+                ss << ", " << left_identifiers_[i]->toTypeScript(0) << "=" << right_expressions_[i]->toTypeScript(0)
+                   << golite::TSHelper::cloneObject(right_expressions_[i]->typeCheck());
+            }
         }
-        ss_ids << left_identifiers_[i]->toTypeScript(0);
-        ss_exprs << right_expressions_[i]->toTypeScript(0);
+        ss << "][0];"<< std::endl;
     }
-    if(left_identifiers_.size() > 1) {
-        ss_ids << "]";
-        ss_exprs << "]";
-    }
-    ss << golite::Utils::indent(indent) << ss_ids.str() << " = " << ss_exprs.str() << std::endl;
     return ss.str();
 }
