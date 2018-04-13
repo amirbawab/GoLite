@@ -18,7 +18,7 @@ echo ">> Running make ..."
 make
 
 echo ">> Installing TypeScript compiler: $BUILD_DIR"
-npm install typescript@2.8.1 --prefix="$BUILD_DIR" > /dev/null 2>&1
+npm install typescript@2.8.1 uglify-js@3.3.21 --prefix="$BUILD_DIR" > /dev/null 2>&1
 
 if [[ $? -ne 0 ]]; then
     echo 

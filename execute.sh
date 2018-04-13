@@ -20,6 +20,7 @@ function main() {
         # Compier
         GOLITE_PATH="$PWD/run.sh"
         TSC_PATH="$PWD/build/node_modules/typescript/bin/tsc"
+        UGLIFY_PATH="$PWD/build/node_modules/uglify-js/bin/uglifyjs"
 
         # Check if TypeScript compiler was installed
         if [ ! -f "$GOLITE_PATH" ]; then
@@ -37,6 +38,7 @@ function main() {
         GO_FILE="$1"
         TS_FILE="./build/codegen.ts"
         JS_FILE="${TS_FILE%.*}.js"
+        JS_MIN_FILE="${TS_FILE%.*}.min.js"
 
         # Compile GoLite
         "$GOLITE_PATH" \
@@ -66,8 +68,16 @@ function main() {
             exit $EXIT_CODE
         fi
 
+        # Compress and minify JS
+        "$UGLIFY_PATH" \
+            --compress \
+            --mangle \
+            --output "$JS_MIN_FILE" \
+            "$JS_FILE"
+            
+
         # Run JavaScript code
-        node "$JS_FILE"
+        node --max-old-space-size=4096 "$JS_FILE"
     fi
 }
 
