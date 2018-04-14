@@ -757,6 +757,97 @@ int simplify_branch_11(CODE **c) {
 }
 
 /**
+ * invokevirtual
+ * iconst_4
+ * if_icmpeq true_14
+ * iconst_0
+ * goto true_11
+ * true_14:
+ * iconst_1
+ * true_11:
+ * dup
+ * ifeq true_10
+ * pop
+ * ---------->
+ * invokevirtual
+ * iconst_0
+ * swap
+ * iload_2
+ * iconst_4
+ * if_ifcmpne ture_10
+ * pop
+ */
+int simplify_branch_12(CODE **c) {
+    int x1,x2,x3,x4,x5,x6,x7,x8;
+    char *y1;
+    if (is_invokevirtual(*c, &y1)
+        && is_ioperand(next(*c), &x1)
+        && is_if_code(next(next(*c)), &x2)
+        && is_ldc_int(next(next(next(*c))), &x3)
+        && x3 == 0
+        && is_goto(next(next(next(next(*c)))), &x4)
+        && is_label(next(next(next(next(next(*c))))), &x5)
+        && x2 == x5
+        && currentlabels[x5].sources == 1
+        && is_ldc_int(next(next(next(next(next(next(*c)))))), &x6)
+        && x6 == 1
+        && is_label(next(next(next(next(next(next(next(*c))))))), &x7)
+        && x4 == x7
+        && currentlabels[x7].sources == 1
+        && is_dup(next(next(next(next(next(next(next(next(*c)))))))))
+        && is_ifeq(next(next(next(next(next(next(next(next(next(*c))))))))), &x8)
+        && is_pop(next(next(next(next(next(next(next(next(next(next(*c)))))))))))) {
+        return replace(c, 11, makeCODEinvokevirtual(y1, makeCODEldc_int(0, makeCODEswap(ioperand_to_make(code_to_ioperand(next(*c)), x1, if_to_opposite_make(code_to_if(next(next(*c))), x8, makeCODEpop(NULL)))))));
+    }
+    return 0;
+}
+
+/**
+ * invokevirtual
+ * iconst_4
+ * if_icmpeq true_14
+ * iconst_0
+ * goto true_11
+ * true_14:
+ * iconst_1
+ * true_11:
+ * dup
+ * ifne true_10
+ * pop
+ * ---------->
+ * invokevirtual
+ * iconst_1
+ * iload_2
+ * iconst_4
+ * if_ifcmpeq true_10
+ * pop
+ */
+int simplify_branch_13(CODE **c) {
+    int x1,x2,x3,x4,x5,x6,x7,x8;
+    char* y1;
+    if (is_invokevirtual(*c, &y1)
+        && is_ioperand(next(*c), &x1)
+        && is_if_code(next(next(*c)), &x2)
+        && is_ldc_int(next(next(next(*c))), &x3)
+        && x3 == 0
+        && is_goto(next(next(next(next(*c)))), &x4)
+        && is_label(next(next(next(next(next(*c))))), &x5)
+        && x2 == x5
+        && currentlabels[x5].sources == 1
+        && is_ldc_int(next(next(next(next(next(next(*c)))))), &x6)
+        && x6 == 1
+        && is_label(next(next(next(next(next(next(next(*c))))))), &x7)
+        && x4 == x7
+        && currentlabels[x7].sources == 1
+        && is_dup(next(next(next(next(next(next(next(next(*c)))))))))
+        && is_ifne(next(next(next(next(next(next(next(next(next(*c))))))))), &x8)
+        && is_pop(next(next(next(next(next(next(next(next(next(next(*c)))))))))))) {
+        return replace(c, 11, makeCODEinvokevirtual(y1, makeCODEldc_int(1, makeCODEswap(ioperand_to_make(code_to_ioperand(next(*c)), x1, if_to_make(code_to_if(next(next(*c))), x8, makeCODEpop(NULL)))))));
+    }
+    return 0;
+}
+
+/**
  * goto A   <-- reduce label
  * ...
  * goto B   <-- increase label
@@ -1058,29 +1149,13 @@ int remove_dead_labels(CODE **c) {
 }
 
 /**
- * iload x
- * ldc 0
- * imul
- * ------------->
- * ldc 0
- *
- * OR
- *
- * iload x
- * ldc 1
- * imul
- * ------------->
- * iload x
- *
- * OR
- *
- * iload x
- * ldc 2
- * imul
- * ------------->
- * iload x
- * dup
- * iadd
+ * iload x          iload x         iload x
+ * ldc 0            ldc 1           ldc 2
+ * imul             imul            imul
+ * ------------->   ------------->  ------------->
+ * ldc 0            iload x         iload x
+ *                                  dup
+ *                                  iadd
  */
 int simplify_multiplication_right(CODE** c) {
     int x, k;
@@ -1171,13 +1246,10 @@ void init_patterns(void) {
     ADD_PATTERN(simplify_branch_7);             /*OK*/
     ADD_PATTERN(simplify_branch_8);             /*OK*/
     ADD_PATTERN(simplify_branch_9);             /*OK*/
-    ADD_PATTERN(simplify_branch_10);
-    ADD_PATTERN(simplify_branch_11);
-    /**
-     * TODO
-     * Create simplify_branch_10 to solve the invoke operand
-     * Use swap to work around the invoke
-     */
+    ADD_PATTERN(simplify_branch_10);            /*OK*/
+    ADD_PATTERN(simplify_branch_11);            /*OK*/
+    ADD_PATTERN(simplify_branch_12);            /*OK*/
+    ADD_PATTERN(simplify_branch_13);            /*OK*/
     ADD_PATTERN(simplify_goto_goto);            /*OK*/
     ADD_PATTERN(simplify_ldc_istore);           /*OK*/
     ADD_PATTERN(remove_nop);                    /*OK*/
