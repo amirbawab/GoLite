@@ -490,15 +490,15 @@ int simplify_branch_2(CODE **c) {
 /**
  * APPLIED FOR ALL FORMS OF IF
  *
- * if_acmpeq true_2     <-- reduce label
- * iconst_0
- * goto stop_3          <-- reduce label
- * true_2:
- * iconst_1
- * stop_3:
- * ifeq else_0
- * ------------>
- * if_acmpne else_0
+ * if_acmpeq true_2     if_acmpeq true_2
+ * iconst_0             iconst_0
+ * goto stop_3          goto stop_3
+ * true_2:              true_2:
+ * iconst_1             iconst_1
+ * stop_3:              stop_3:
+ * ifeq else_0          ifne else_0
+ * ------------>        ------------>
+ * if_acmpne else_0     if_acmpeq else_0
  */
 int simplify_branch_1(CODE **c) {
     int x1, x2, x3, x4, x5, x6, x7;
@@ -513,11 +513,19 @@ int simplify_branch_1(CODE **c) {
         && x5 == 1
         && is_label(next(next(next(next(next(*c))))), &x6)
         && x3 == x6
-        && currentlabels[x6].sources == 1
-        && is_ifeq(next(next(next(next(next(next(*c)))))), &x7)) {
-        droplabel(x1);
-        droplabel(x3);
-        return replace(c, 7, if_to_opposite_make(code_to_if(*c), x7, NULL));
+        && currentlabels[x6].sources == 1) {
+
+        if(is_ifeq(next(next(next(next(next(next(*c)))))), &x7)) {
+            droplabel(x1);
+            droplabel(x3);
+            return replace(c, 7, if_to_opposite_make(code_to_if(*c), x7, NULL));
+        }
+
+        if(is_ifne(next(next(next(next(next(next(*c)))))), &x7)) {
+            droplabel(x1);
+            droplabel(x3);
+            return replace(c, 7, if_to_make(code_to_if(*c), x7, NULL));
+        }
     }
     return 0;
 }
@@ -583,39 +591,41 @@ int simplify_branch_7(CODE **c) {
 }
 
 /**
- * iload_3
- * ifeq true_38
- * iconst_0
- * goto stop_39
- * true_38:
- * iconst_1
- * stop_39:
- * dup
- * ifeq false_37
- * pop
- * ------------>
- * iconst_0
- * iload_3
- * ifne false_37
- * pop
+ * iload_3          iload_3
+ * ifeq true_38     ifne true_38
+ * iconst_0         iconst_0
+ * goto stop_39     goto stop_39
+ * true_38:         true_38:
+ * iconst_1         iconst_1
+ * stop_39:         stop_39:
+ * dup              dup
+ * ifeq false_37    ifeq false_37
+ * pop              pop
+ * ------------>    ------------>
+ * iconst_0         iconst_0
+ * iload_3          iload_3
+ * ifne false_37    ifeq false_37
+ * pop              pop
  */
 int simplify_branch_8(CODE **c) {
     int x1,x2,x3,x4,x5,x6,x7,x8;
     if (is_ioperand(*c, &x1)
-        && is_ifeq(next(*c), &x2)
+        && (is_ifeq(next(*c), &x2) || is_ifne(next(*c), &x2))
         && is_ldc_int(next(next(*c)), &x3)
+        && x3 == 0
         && is_goto(next(next(next(*c))), &x4)
         && is_label(next(next(next(next(*c)))), &x5)
         && x2 == x5
         && currentlabels[x5].sources == 1
         && is_ldc_int(next(next(next(next(next(*c))))), &x6)
+        && x6 == 1
         && is_label(next(next(next(next(next(next(*c)))))), &x7)
         && x4 == x7
         && currentlabels[x7].sources == 1
         && is_dup(next(next(next(next(next(next(next(*c))))))))
         && is_ifeq(next(next(next(next(next(next(next(next(*c)))))))), &x8)
         && is_pop(next(next(next(next(next(next(next(next(next(*c))))))))))) {
-        return replace(c, 10, makeCODEldc_int(x3, ioperand_to_make(code_to_ioperand(*c), x1, makeCODEifne(x8, makeCODEpop(NULL)))));
+        return replace(c, 10, makeCODEldc_int(0, ioperand_to_make(code_to_ioperand(*c), x1, if_to_opposite_make(code_to_if(next(*c)), x8, makeCODEpop(NULL)))));
     }
     return 0;
 }
@@ -645,18 +655,103 @@ int simplify_branch_9(CODE **c) {
         && is_ioperand(next(*c), &x1)
         && is_if_code(next(next(*c)), &x2)
         && is_ldc_int(next(next(next(*c))), &x3)
+        && x3 == 0
         && is_goto(next(next(next(next(*c)))), &x4)
         && is_label(next(next(next(next(next(*c))))), &x5)
         && x2 == x5
         && currentlabels[x5].sources == 1
         && is_ldc_int(next(next(next(next(next(next(*c)))))), &x6)
+        && x6 == 1
         && is_label(next(next(next(next(next(next(next(*c))))))), &x7)
         && x4 == x7
         && currentlabels[x7].sources == 1
         && is_dup(next(next(next(next(next(next(next(next(*c)))))))))
         && is_ifeq(next(next(next(next(next(next(next(next(next(*c))))))))), &x8)
         && is_pop(next(next(next(next(next(next(next(next(next(next(*c)))))))))))) {
-        return replace(c, 11, makeCODEldc_int(x3, ioperand_to_make(code_to_ioperand(*c), x0, ioperand_to_make(code_to_ioperand(next(*c)), x1, if_to_opposite_make(code_to_if(next(next(*c))), x8, makeCODEpop(NULL))))));
+        return replace(c, 11, makeCODEldc_int(0, ioperand_to_make(code_to_ioperand(*c), x0, ioperand_to_make(code_to_ioperand(next(*c)), x1, if_to_opposite_make(code_to_if(next(next(*c))), x8, makeCODEpop(NULL))))));
+    }
+    return 0;
+}
+
+/**
+ * iload_3          iload_3
+ * ifeq true_38     ifne true_38
+ * iconst_0         iconst_0
+ * goto stop_39     goto stop_39
+ * true_38:         true_38:
+ * iconst_1         iconst_1
+ * stop_39:         stop_39:
+ * dup              dup
+ * ifne false_37    ifne false_37
+ * pop              pop
+ * ------------>    ------------>
+ * iconst_1         iconst_1
+ * iload_3          iload_3
+ * ifeq false_37    ifne false_37
+ * pop              pop
+ */
+int simplify_branch_10(CODE **c) {
+    int x1,x2,x3,x4,x5,x6,x7,x8;
+    if (is_ioperand(*c, &x1)
+        && (is_ifeq(next(*c), &x2) || is_ifne(next(*c), &x2))
+        && is_ldc_int(next(next(*c)), &x3)
+        && x3 == 0
+        && is_goto(next(next(next(*c))), &x4)
+        && is_label(next(next(next(next(*c)))), &x5)
+        && x2 == x5
+        && currentlabels[x5].sources == 1
+        && is_ldc_int(next(next(next(next(next(*c))))), &x6)
+        && x6 == 1
+        && is_label(next(next(next(next(next(next(*c)))))), &x7)
+        && x4 == x7
+        && currentlabels[x7].sources == 1
+        && is_dup(next(next(next(next(next(next(next(*c))))))))
+        && is_ifne(next(next(next(next(next(next(next(next(*c)))))))), &x8)
+        && is_pop(next(next(next(next(next(next(next(next(next(*c))))))))))) {
+        return replace(c, 10, makeCODEldc_int(1, ioperand_to_make(code_to_ioperand(*c), x1, if_to_make(code_to_if(next(*c)), x8, makeCODEpop(NULL)))));
+    }
+    return 0;
+}
+
+/**
+ * iload_2
+ * iconst_4
+ * if_icmpeq true_14
+ * iconst_0
+ * goto true_11
+ * true_14:
+ * iconst_1
+ * true_11:
+ * dup
+ * ifne true_10
+ * pop
+ * ---------->
+ * iconst_1
+ * iload_2
+ * iconst_4
+ * if_ifcmpeq true_10
+ * pop
+ */
+int simplify_branch_11(CODE **c) {
+    int x0,x1,x2,x3,x4,x5,x6,x7,x8;
+    if (is_ioperand(*c, &x0)
+        && is_ioperand(next(*c), &x1)
+        && is_if_code(next(next(*c)), &x2)
+        && is_ldc_int(next(next(next(*c))), &x3)
+        && x3 == 0
+        && is_goto(next(next(next(next(*c)))), &x4)
+        && is_label(next(next(next(next(next(*c))))), &x5)
+        && x2 == x5
+        && currentlabels[x5].sources == 1
+        && is_ldc_int(next(next(next(next(next(next(*c)))))), &x6)
+        && x6 == 1
+        && is_label(next(next(next(next(next(next(next(*c))))))), &x7)
+        && x4 == x7
+        && currentlabels[x7].sources == 1
+        && is_dup(next(next(next(next(next(next(next(next(*c)))))))))
+        && is_ifne(next(next(next(next(next(next(next(next(next(*c))))))))), &x8)
+        && is_pop(next(next(next(next(next(next(next(next(next(next(*c)))))))))))) {
+        return replace(c, 11, makeCODEldc_int(1, ioperand_to_make(code_to_ioperand(*c), x0, ioperand_to_make(code_to_ioperand(next(*c)), x1, if_to_make(code_to_if(next(next(*c))), x8, makeCODEpop(NULL))))));
     }
     return 0;
 }
@@ -1076,12 +1171,8 @@ void init_patterns(void) {
     ADD_PATTERN(simplify_branch_7);             /*OK*/
     ADD_PATTERN(simplify_branch_8);             /*OK*/
     ADD_PATTERN(simplify_branch_9);             /*OK*/
-    /*TODO
-     * Duplicate simplify_branch_9 but:
-     * ...
-     * ifne ..
-     * pop
-     * */
+    ADD_PATTERN(simplify_branch_10);
+    ADD_PATTERN(simplify_branch_11);
     /**
      * TODO
      * Create simplify_branch_10 to solve the invoke operand
