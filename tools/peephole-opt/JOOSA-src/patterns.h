@@ -10,6 +10,154 @@
  * email: hendren@cs.mcgill.ca, mis@brics.dk
  */
 
+/**
+ * Helper function
+ * Check if function is an if statement and set label
+ */
+int is_if_code(CODE* code, int *label) {
+    return is_if_acmpeq(code, label)
+           || is_if_acmpne(code, label)
+           || is_if_icmpeq(code, label)
+           || is_if_icmpne(code, label)
+           || is_if_icmplt(code, label)
+           || is_if_icmple(code, label)
+           || is_if_icmpgt(code, label)
+           || is_if_icmpge(code, label)
+           || is_ifeq(code, label)
+           || is_ifne(code, label)
+           || is_ifnull(code, label)
+           || is_ifnonnull(code, label);
+}
+
+int (*code_to_if(CODE* c, int* label))(CODE*, int*) {
+    int x1;
+    if(is_if_acmpeq(c, &x1)) {
+        return is_if_acmpeq;
+    }
+    if(is_if_acmpne(c, &x1)) {
+        return is_if_acmpne;
+    }
+    if(is_if_icmpeq(c, &x1)) {
+        return is_if_icmpeq;
+    }
+    if(is_if_icmpne(c, &x1)) {
+        return is_if_icmpne;
+    }
+    if(is_if_icmplt(c, &x1)) {
+        return is_if_icmplt;
+    }
+    if(is_if_icmple(c, &x1)) {
+        return is_if_icmple;
+    }
+    if(is_if_icmpgt(c, &x1)) {
+        return is_if_icmpgt;
+    }
+    if(is_if_icmpge(c, &x1)) {
+        return is_if_icmpge;
+    }
+    if(is_ifeq(c, &x1)) {
+        return is_ifeq;
+    }
+    if(is_ifne(c, &x1)) {
+        return is_ifne;
+    }
+    if(is_ifnull(c, &x1)) {
+        return is_ifnull;
+    }
+    if(is_ifnonnull(c, &x1)) {
+        return is_ifnonnull;
+    }
+    return NULL;
+}
+
+/**
+ * Helper functions
+ * Convert if statement to its corresponding make code
+ */
+CODE* if_to_make(int (*func_is)(CODE*, int*), int label, CODE *next) {
+    if(func_is == is_if_acmpeq) {
+        return makeCODEif_acmpeq(label, next);
+    }
+    if(func_is == is_if_acmpne) {
+        return makeCODEif_acmpne(label, next);
+    }
+    if(func_is == is_if_icmpeq) {
+        return makeCODEif_icmpeq(label, next);
+    }
+    if(func_is == is_if_icmpne) {
+        return makeCODEif_icmpne(label, next);
+    }
+    if(func_is == is_if_icmplt) {
+        return makeCODEif_icmplt(label, next);
+    }
+    if(func_is == is_if_icmple) {
+        return makeCODEif_icmple(label, next);
+    }
+    if(func_is == is_if_icmpgt) {
+        return makeCODEif_icmpgt(label, next);
+    }
+    if(func_is == is_if_icmpge) {
+        return makeCODEif_icmpge(label, next);
+    }
+    if(func_is == is_ifeq) {
+        return makeCODEifeq(label, next);
+    }
+    if(func_is == is_ifne) {
+        return makeCODEifne(label, next);
+    }
+    if(func_is == is_ifnull) {
+        return makeCODEifnull(label, next);
+    }
+    if(func_is == is_ifnonnull) {
+        return makeCODEifnonnull(label, next);
+    }
+    return NULL;
+}
+
+/**
+ * Helper functions
+ * Convert if statement to its corresponding opposite make code
+ */
+CODE* if_to_opposite_make(int (*func_is)(CODE*, int*), int label, CODE *next) {
+    if(func_is == is_if_acmpeq) {
+        return if_to_make(is_if_acmpne, label, next);
+    }
+    if(func_is == is_if_acmpne) {
+        return if_to_make(is_if_acmpeq, label, next);
+    }
+    if(func_is == is_if_icmpeq) {
+        return if_to_make(is_if_icmpne, label, next);
+    }
+    if(func_is == is_if_icmpne) {
+        return if_to_make(is_if_icmpeq, label, next);
+    }
+    if(func_is == is_if_icmplt) {
+        return if_to_make(is_if_icmpge, label, next);
+    }
+    if(func_is == is_if_icmple) {
+        return if_to_make(is_if_icmpgt, label, next);
+    }
+    if(func_is == is_if_icmpgt) {
+        return if_to_make(is_if_icmple, label, next);
+    }
+    if(func_is == is_if_icmpge) {
+        return if_to_make(is_if_icmplt, label, next);
+    }
+    if(func_is == is_ifeq) {
+        return if_to_make(is_ifne, label, next);
+    }
+    if(func_is == is_ifne) {
+        return if_to_make(is_ifeq, label, next);
+    }
+    if(func_is == is_ifnull) {
+        return if_to_make(is_ifnonnull, label, next);
+    }
+    if(func_is == is_ifnonnull) {
+        return if_to_make(is_ifnull, label, next);
+    }
+    return NULL;
+}
+
 /* iload x        iload x        iload x
  * ldc 0          ldc 1          ldc 2
  * imul           imul           imul
@@ -33,11 +181,11 @@ int simplify_multiplication(CODE **c) {
     return 0;
 }
 
-/* iload x
- * ldc 0
- * iadd
- * ------>
- * iload x
+/* iload x      ldc 0
+ * ldc 0        iload x
+ * iadd         iadd
+ * ------>      ------>
+ * iload x      iload x
  */
 int simplify_addition(CODE **c) {
     int x, k;
@@ -261,76 +409,22 @@ int simplify_branch_2(CODE **c) {
  */
 int simplify_branch_1(CODE **c) {
     int x1, x2, x3, x4, x5, x6, x7;
-    if (is_ldc_int(next(*c), &x2)
+    if (is_if_code(*c, &x1)
+        && is_ldc_int(next(*c), &x2)
         && x2 == 0
         && is_goto(next(next(*c)), &x3)
         && is_label(next(next(next(*c))), &x4)
+        && x1 == x4
         && is_ldc_int(next(next(next(next(*c)))), &x5)
         && x5 == 1
         && is_label(next(next(next(next(next(*c))))), &x6)
         && x3 == x6
         && currentlabels[x6].sources == 1
         && is_ifeq(next(next(next(next(next(next(*c)))))), &x7)) {
-        if(is_if_acmpeq(*c, &x1)) {
-            droplabel(x1);
-            droplabel(x3);
-            return replace(c, 7, makeCODEif_acmpne(x7, NULL));
-        }
-        if(is_if_acmpne(*c, &x1)) {
-            droplabel(x1);
-            droplabel(x3);
-            return replace(c, 7, makeCODEif_acmpeq(x7, NULL));
-        }
-        if(is_if_icmpeq(*c, &x1)) {
-            droplabel(x1);
-            droplabel(x3);
-            return replace(c, 7, makeCODEif_icmpne(x7, NULL));
-        }
-        if(is_if_icmpne(*c, &x1)) {
-            droplabel(x1);
-            droplabel(x3);
-            return replace(c, 7, makeCODEif_icmpeq(x7, NULL));
-        }
-        if(is_if_icmplt(*c, &x1)) {
-            droplabel(x1);
-            droplabel(x3);
-            return replace(c, 7, makeCODEif_icmpge(x7, NULL));
-        }
-        if(is_if_icmple(*c, &x1)) {
-            droplabel(x1);
-            droplabel(x3);
-            return replace(c, 7, makeCODEif_icmpgt(x7, NULL));
-        }
-        if(is_if_icmpgt(*c, &x1)) {
-            droplabel(x1);
-            droplabel(x3);
-            return replace(c, 7, makeCODEif_icmple(x7, NULL));
-        }
-        if(is_if_icmpge(*c, &x1)) {
-            droplabel(x1);
-            droplabel(x3);
-            return replace(c, 7, makeCODEif_icmplt(x7, NULL));
-        }
-        if(is_ifeq(*c, &x1)) {
-            droplabel(x1);
-            droplabel(x3);
-            return replace(c, 7, makeCODEifne(x7, NULL));
-        }
-        if(is_ifne(*c, &x1)) {
-            droplabel(x1);
-            droplabel(x3);
-            return replace(c, 7, makeCODEifeq(x7, NULL));
-        }
-        if(is_ifnull(*c, &x1)) {
-            droplabel(x1);
-            droplabel(x3);
-            return replace(c, 7, makeCODEifnonnull(x7, NULL));
-        }
-        if(is_ifnonnull(*c, &x1)) {
-            droplabel(x1);
-            droplabel(x3);
-            return replace(c, 7, makeCODEifnull(x7, NULL));
-        }
+
+        droplabel(x1);
+        droplabel(x3);
+        return replace(c, 7, if_to_opposite_make(code_to_if(*c, &x1), x7, NULL));
     }
     return 0;
 }
@@ -1067,15 +1161,15 @@ int strip_post_ireturn(CODE** c) {
 
 void init_patterns(void) {
     /*Given optimization*/
-    ADD_PATTERN(positive_increment);
-    ADD_PATTERN(simplify_istore);
-    ADD_PATTERN(simplify_astore);
-    ADD_PATTERN(simplify_multiplication);
-    ADD_PATTERN(simplify_division_right);
-    ADD_PATTERN(simplify_subtract_left);
-    ADD_PATTERN(simplify_self_subtract);
-    ADD_PATTERN(simplify_addition);
-    ADD_PATTERN(simplify_branch_1);
+    ADD_PATTERN(positive_increment);        /*OK*/
+    ADD_PATTERN(simplify_istore);           /*OK*/
+    ADD_PATTERN(simplify_astore);           /*OK*/
+    ADD_PATTERN(simplify_multiplication);   /*OK*/
+    ADD_PATTERN(simplify_division_right);   /*OK*/
+    ADD_PATTERN(simplify_subtract_left);    /*OK*/
+    ADD_PATTERN(simplify_self_subtract);    /*OK*/
+    ADD_PATTERN(simplify_addition);         /*OK*/
+    ADD_PATTERN(simplify_branch_1);         /*OK*/
     ADD_PATTERN(simplify_branch_2);
     ADD_PATTERN(simplify_branch_3);
     ADD_PATTERN(simplify_branch_4);
