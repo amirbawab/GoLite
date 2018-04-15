@@ -36,8 +36,7 @@ std::string golite::StructField::toTypeScript(int indent) {
     std::stringstream ss;
     for(Identifier* identifier : identifiers_) {
         if(identifier->isBlank()) {
-            static int count = 1;
-            ss << golite::Utils::indent(indent) << "D34D_C0D3_" << count++;
+            ss << golite::Utils::indent(indent) << identifier->toTypeScript(0);
         } else {
             ss << golite::Utils::indent(indent) << identifier->getName();
         }

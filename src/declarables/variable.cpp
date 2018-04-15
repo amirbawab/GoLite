@@ -139,13 +139,7 @@ std::string golite::Variable::toTypeScript(int indent) {
         }
         ss << golite::Utils::blockComment({"Variable " + identifiers_[i]->getName()},
                                           indent, identifiers_[i]->getLine()) << std::endl;
-        ss << golite::Utils::indent(indent) << "var ";
-
-        if(identifiers_[i]->isBlank()) {
-            ss << "_";
-        } else {
-            ss << identifiers_[i]->toTypeScript(0);
-        }
+        ss << golite::Utils::indent(indent) << "var " << identifiers_[i]->toTypeScript(0);
         if(!type_component_->isInfer()) {
             ss << " : " << type_component_->toTypeScript(0) << " = ";
         } else {

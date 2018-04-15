@@ -78,8 +78,9 @@ bool golite::Identifier::isCasting() {
 }
 
 std::string golite::Identifier::toTypeScript(int indent) {
+    static int count = 1;
     if(isBlank()) {
-        throw std::runtime_error("Cannot generate code for blank identifier");
+        return "D34D_C0D3_" + std::to_string(count++);
     }
     if(!symbol_table_) {
         throw std::runtime_error("Cannot generate code because symbol table is not set");

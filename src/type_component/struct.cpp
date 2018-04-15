@@ -169,21 +169,19 @@ std::string golite::Struct::toTypeScriptInitializer(int indent) {
         size_t k = 0;
         for(size_t i=0; i < fields_.size(); i++) {
             for(Identifier* identifier : fields_[i]->getIdentifiers()) {
-                if(!identifier->isBlank()) {
-                    TypeComponent* field_type_component = fields_[i]->getTypeComponent();
-                    if(k != 0) {
-                        ss_post << std::endl << golite::Utils::indent(indent+3) << "   && ";
-                    }
-                    if(field_type_component->isSlice()) {
-                        ss_post << "true";
-                    } else if(golite::TSHelper::isObject(field_type_component)) {
-                        ss_post << "this." << identifier->getName()
-                                << ".equals(obj." << identifier->getName() << ")";
-                    } else {
-                        ss_post << "this." << identifier->getName() << " === obj." << identifier->getName();
-                    }
-                    k++;
+                TypeComponent* field_type_component = fields_[i]->getTypeComponent();
+                if(k != 0) {
+                    ss_post << std::endl << golite::Utils::indent(indent+3) << "   && ";
                 }
+                if(field_type_component->isSlice() || identifier->isBlank()) {
+                    ss_post << "true";
+                } else if(golite::TSHelper::isObject(field_type_component)) {
+                    ss_post << "this." << identifier->getName()
+                            << ".equals(obj." << identifier->getName() << ")";
+                } else {
+                    ss_post << "this." << identifier->getName() << " === obj." << identifier->getName();
+                }
+                k++;
             }
         }
         ss_post << ";" << std::endl;

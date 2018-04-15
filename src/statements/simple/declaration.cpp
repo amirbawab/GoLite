@@ -7,6 +7,7 @@
 #include <golite/program.h>
 #include <set>
 #include <golite/ts_helper.h>
+#include <golite/binary.h>
 
 std::string golite::Declaration::toGoLite(int indent) {
     std::stringstream ss;
@@ -131,20 +132,24 @@ void golite::Declaration::symbolTablePass(SymbolTable *root) {
 
 std::string golite::Declaration::toTypeScript(int indent) {
     std::stringstream ss;
-    ss << golite::Utils::blockComment({"Declaration group of size " + std::to_string(left_identifiers_.size())},
-                                      indent, getLine()) << std::endl;
     for(size_t i=0; i < left_identifiers_.size(); i++) {
-        ss << golite::Utils::indent(indent) << "var ";
-
         if(left_identifiers_[i]->isBlank()) {
-            ss << "_";
+            ss << right_expressions_[i]->typeCheck()->toTypeScriptInitializer(indent);
+            ss << golite::Utils::blockComment({"Declaration assignment"},
+                                              indent, left_identifiers_[i]->getLine()) << std::endl;
+            ss << golite::Utils::indent(indent) << "var " << left_identifiers_[i]->toTypeScript(0) << " : "
+               << right_expressions_[i]->typeCheck()->toTypeScript(0);
         } else {
             golite::PrimaryExpression* id_prim = static_cast<golite::PrimaryExpression*>(left_identifiers_[i]);
             golite::Identifier* id = static_cast<golite::Identifier*>(id_prim->getChildren().back());
             golite::Variable* id_var = static_cast<Variable*>(id->getSymbolTableEntry());
-            ss << id->toTypeScript(0) << " : " << id_var->getTypeComponent()->toTypeScript(0);
+            ss << id_var->getTypeComponent()->toTypeScriptInitializer(indent);
+            ss << golite::Utils::blockComment({"Declaration assignment"},
+                                              indent, left_identifiers_[i]->getLine()) << std::endl;
+            ss << golite::Utils::indent(indent) << "var " << id->toTypeScript(0) << " : "
+               << id_var->getTypeComponent()->toTypeScript(0);
         }
-        ss << ";" << std::endl;
+        ss << ";" << std::endl << std::endl;
     }
 
     for(size_t i=0; i < right_expressions_.size(); i++) {
@@ -160,13 +165,23 @@ std::string golite::Declaration::toTypeScript(int indent) {
     } else {
         for(size_t i=0; i < left_identifiers_.size(); i++) {
             if(i == 0) {
-                TypeComponent* left_type = left_identifiers_[i]->typeCheck();
-                ss << left_type->toTypeScriptInitializer(indent);
-                ss << golite::Utils::blockComment({"Assignment for declaration"},
-                                                  indent, getLine()) << std::endl;
-                ss << golite::Utils::indent(indent) << left_identifiers_[i]->toTypeScript(0)
-                   << " = <" << left_type->toTypeScript(indent) << ">([" << right_expressions_[i]->toTypeScript(0)
-                   << golite::TSHelper::cloneObject(right_expressions_[i]->typeCheck());
+                if(left_identifiers_[i]->isBlank()) {
+                    TypeComponent* right_type = right_expressions_[i]->typeCheck();
+                    ss << right_type->toTypeScriptInitializer(indent);
+                    ss << golite::Utils::blockComment({"Assignment for declaration"},
+                                                      indent, getLine()) << std::endl;
+                    ss << golite::Utils::indent(indent) << left_identifiers_[i]->toTypeScript(0)
+                       << " = <" << right_type->toTypeScript(indent) << ">([" << right_expressions_[i]->toTypeScript(0)
+                       << golite::TSHelper::cloneObject(right_expressions_[i]->typeCheck());
+                } else {
+                    TypeComponent* left_type = left_identifiers_[i]->typeCheck();
+                    ss << left_type->toTypeScriptInitializer(indent);
+                    ss << golite::Utils::blockComment({"Assignment for declaration"},
+                                                      indent, getLine()) << std::endl;
+                    ss << golite::Utils::indent(indent) << left_identifiers_[i]->toTypeScript(0)
+                       << " = <" << left_type->toTypeScript(indent) << ">([" << right_expressions_[i]->toTypeScript(0)
+                       << golite::TSHelper::cloneObject(right_expressions_[i]->typeCheck());
+                }
             } else {
                 ss << ", " << left_identifiers_[i]->toTypeScript(0) << "=" << right_expressions_[i]->toTypeScript(0)
                    << golite::TSHelper::cloneObject(right_expressions_[i]->typeCheck());
