@@ -817,6 +817,7 @@ int simplify_branch_12(CODE **c) {
  * ---------->
  * invokevirtual
  * iconst_1
+ * swap
  * iload_2
  * iconst_4
  * if_ifcmpeq true_10
