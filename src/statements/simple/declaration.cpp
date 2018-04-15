@@ -161,7 +161,7 @@ std::string golite::Declaration::toTypeScript(int indent) {
                                           indent, getLine()) << std::endl;
         ss << golite::Utils::indent(indent) << left_identifiers_.front()->toTypeScript(0) << " = "
            << right_expressions_.front()->toTypeScript(0)
-           << golite::TSHelper::cloneObject(right_expressions_.front()->typeCheck()) << ";" << std::endl;
+           << golite::TSHelper::cloneByExpression(right_expressions_.front()) << ";" << std::endl;
     } else {
         for(size_t i=0; i < left_identifiers_.size(); i++) {
             if(i == 0) {
@@ -172,7 +172,7 @@ std::string golite::Declaration::toTypeScript(int indent) {
                                                       indent, getLine()) << std::endl;
                     ss << golite::Utils::indent(indent) << left_identifiers_[i]->toTypeScript(0)
                        << " = <" << right_type->toTypeScript(indent) << ">([" << right_expressions_[i]->toTypeScript(0)
-                       << golite::TSHelper::cloneObject(right_expressions_[i]->typeCheck());
+                       << golite::TSHelper::cloneByExpression(right_expressions_[i]);
                 } else {
                     TypeComponent* left_type = left_identifiers_[i]->typeCheck();
                     ss << left_type->toTypeScriptInitializer(indent);
@@ -180,11 +180,11 @@ std::string golite::Declaration::toTypeScript(int indent) {
                                                       indent, getLine()) << std::endl;
                     ss << golite::Utils::indent(indent) << left_identifiers_[i]->toTypeScript(0)
                        << " = <" << left_type->toTypeScript(indent) << ">([" << right_expressions_[i]->toTypeScript(0)
-                       << golite::TSHelper::cloneObject(right_expressions_[i]->typeCheck());
+                       << golite::TSHelper::cloneByExpression(right_expressions_[i]);
                 }
             } else {
                 ss << ", " << left_identifiers_[i]->toTypeScript(0) << "=" << right_expressions_[i]->toTypeScript(0)
-                   << golite::TSHelper::cloneObject(right_expressions_[i]->typeCheck());
+                   << golite::TSHelper::cloneByExpression(right_expressions_[i]);
             }
         }
         ss << "][0]);"<< std::endl;

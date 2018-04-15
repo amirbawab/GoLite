@@ -53,6 +53,16 @@ bool golite::PrimaryExpression::isIdentifier() {
     return children_.back()->isIdentifier();
 }
 
+bool golite::PrimaryExpression::isAppend() {
+    if(children_.empty()) {
+        throw std::runtime_error("Cannot check if primary expression is an append because children list is empty");
+    }
+    if(children_.size() != 1) {
+        return false;
+    }
+    return children_.back()->isAppend();
+}
+
 bool golite::PrimaryExpression::isLiteral() {
     if(children_.empty()) {
         throw std::runtime_error("Cannot check if primary expression is a literal because children list is empty");

@@ -8,12 +8,20 @@ bool golite::TSHelper::isObject(TypeComponent *type_component) {
            || type_component->resolvesToSlice();
 }
 
-std::string golite::TSHelper::cloneObject(TypeComponent *type_component) {
+std::string golite::TSHelper::cloneByType(TypeComponent *type_component) {
     std::stringstream ss;
     if(isObject(type_component)) {
         ss << ".clone()";
     }
     return ss.str();
+}
+
+std::string golite::TSHelper::cloneByExpression(Expression* expression) {
+    Expression* resolved_expression = expression->resolveExpression();
+    if(resolved_expression->isAppend()) {
+        return std::string();
+    }
+    return cloneByType(resolved_expression->typeCheck());
 }
 
 std::string golite::TSHelper::codePrint(int indent) {

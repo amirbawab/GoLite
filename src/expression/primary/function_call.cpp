@@ -79,7 +79,7 @@ std::string golite::FunctionCall::toTypeScript(int indent) {
             ss << ", ";
         }
         ss << args_[i]->toTypeScript(0)
-           << golite::TSHelper::cloneObject(args_[i]->typeCheck());
+           << golite::TSHelper::cloneByExpression(args_[i]);
     }
     ss << ")";
     return ss.str();

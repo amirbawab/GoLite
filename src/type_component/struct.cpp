@@ -153,7 +153,7 @@ std::string golite::Struct::toTypeScriptInitializer(int indent) {
         for(Identifier* identifier : field->getIdentifiers()) {
             if(!identifier->isBlank()) {
                 ss_post << golite::Utils::indent(indent+2) << "obj." << identifier->getName() << " = this."
-                        << identifier->getName() << golite::TSHelper::cloneObject(field->getTypeComponent())
+                        << identifier->getName() << golite::TSHelper::cloneByType(field->getTypeComponent())
                         << ";" << std::endl;
             }
         }

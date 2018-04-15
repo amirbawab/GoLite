@@ -147,7 +147,7 @@ std::string golite::Variable::toTypeScript(int indent) {
         }
         if(!expressions_.empty()) {
             ss << expressions_[i]->toTypeScript(0)
-               << golite::TSHelper::cloneObject(expressions_[i]->typeCheck());
+               << golite::TSHelper::cloneByExpression(expressions_[i]);
         } else {
             ss << type_component_->toTypeScriptDefaultValue();
         }

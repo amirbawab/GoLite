@@ -46,6 +46,11 @@ namespace golite {
         bool isIdentifier();
 
         /**
+         * @see Expression::isAppend()
+         */
+        bool isAppend();
+
+        /**
          * @see Expression::isBlank()
          */
         bool isBlank();

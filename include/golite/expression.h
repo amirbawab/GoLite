@@ -47,6 +47,12 @@ namespace golite {
         virtual bool isIdentifier() { return false; }
 
         /**
+         * Check if expression is an append
+         * @return true if it is
+         */
+        virtual bool isAppend() { return false; }
+
+        /**
          * Check if expression is a blank identifier
          * @return true if it is
          */

@@ -21,12 +21,6 @@ namespace golite {
         virtual bool isIndex() { return false; }
 
         /**
-         * Check if primary is an append
-         * @return true if it is
-         */
-        virtual bool isAppend() { return false; }
-
-        /**
          * @see Expression::toTypeScriptInitializer()
          */
         virtual std::string toTypeScriptInitializer(int indent) = 0;

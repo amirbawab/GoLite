@@ -49,11 +49,6 @@ namespace golite {
         void symbolTablePass(SymbolTable* root);
 
         /**
-         * @see Primary::isAppend()
-         */
-        bool isAppend() { return true; }
-
-        /**
          * @see Expression::toTypeScript()
          */
         std::string toTypeScript(int indent);
@@ -62,6 +57,12 @@ namespace golite {
          * @see Expression::toTypeScriptInitializer()
          */
         std::string toTypeScriptInitializer(int indent);
+
+        /**
+         * @see Expression::isAppend()
+         */
+        bool isAppend() { return true; }
+
     private:
         Expression* left_expression_ = nullptr;
         Expression* right_expression_ = nullptr;

@@ -2,6 +2,7 @@
 #define GOLITE_TS_HELOER_H
 
 #include <golite/type_component.h>
+#include <golite/expression.h>
 
 namespace golite {
     class TSHelper{
@@ -18,7 +19,14 @@ namespace golite {
          * @param type_component
          * @return clone objects
          */
-        static std::string cloneObject(TypeComponent* type_component);
+        static std::string cloneByType(TypeComponent* type_component);
+
+        /**
+         * Clone objects
+         * @param type_component
+         * @return clone objects
+         */
+        static std::string cloneByExpression(Expression* expression);
 
         /**
          * Generate code for print function
