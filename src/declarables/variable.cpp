@@ -97,6 +97,10 @@ void golite::Variable::symbolTablePass(SymbolTable *root) {
         expression->symbolTablePass(root);
     }
 
+    if(!type_component_->isInfer()) {
+        type_component_->symbolTablePass(root);
+    }
+
     for(golite::Identifier* id : this->identifiers_) {
         if(!id->isBlank()) {
             // search for an existing symbol in current scope
@@ -106,10 +110,6 @@ void golite::Variable::symbolTablePass(SymbolTable *root) {
             root->putSymbol(id->getName(), this);
             id->symbolTablePass(root);
         }
-    }
-
-    if(!type_component_->isInfer()) {
-        type_component_->symbolTablePass(root);
     }
 }
 
