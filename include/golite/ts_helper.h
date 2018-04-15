@@ -29,6 +29,12 @@ namespace golite {
         static std::string cloneByExpression(Expression* expression);
 
         /**
+         * Clone objects
+         * @return clone objects
+         */
+        static std::string clone();
+
+        /**
          * Generate code for print function
          * @param indent
          * @return code

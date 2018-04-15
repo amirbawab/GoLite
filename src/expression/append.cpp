@@ -4,6 +4,7 @@
 #include <golite/identifier.h>
 #include <golite/primary_expression.h>
 #include <iostream>
+#include <golite/ts_helper.h>
 
 std::string golite::Append::toGoLite(int indent) {
     std::stringstream ss;
@@ -61,7 +62,7 @@ void golite::Append::symbolTablePass(SymbolTable *root) {
 
 std::string golite::Append::toTypeScript(int indent) {
     std::stringstream ss;
-    ss << left_expression_->toTypeScript(0) << ".append(" << right_expression_->toTypeScript(0) << ")";
+    ss << left_expression_->toTypeScript(0) << TSHelper::clone()<< ".append(" << right_expression_->toTypeScript(0) << ")";
     return ss.str();
 }
 
