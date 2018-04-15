@@ -284,6 +284,7 @@ std::string golite::Binary::toTypeScript(int indent) {
                 break;
             case BIT_CLEAR:
                 ss << " & ";
+                break;
             default:
                 throw std::runtime_error("Unhandled binary operation");
         }
