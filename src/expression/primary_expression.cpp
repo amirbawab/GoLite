@@ -14,6 +14,7 @@
 #include <golite/cast.h>
 #include <golite/func.h>
 #include <golite/variable.h>
+#include <golite/ts_helper.h>
 
 void golite::PrimaryExpression::addChild(golite::Primary *child) {
     children_.push_back(child);
@@ -289,26 +290,34 @@ std::string golite::PrimaryExpression::toTypeScriptInitializer(int indent) {
         throw std::runtime_error("Cannot generate code initializer for primary expression because children list isempty");
     }
 
-    // Initialize nested expressions
-    for(Primary* child : children_) {
-        ss << child->toTypeScriptInitializer(indent);
-    }
-
-    // Promote function calls
-    TypeComponent* first_child = children_.front()->typeCheck();
-    if(first_child->isFunc()) {
-
-        // Assign them to unique variables
-        name_ = "expr_" + std::to_string(count++);
-        TypeComponent* type_component = typeCheck();
-        ss << type_component->toTypeScriptInitializer(indent);
-        ss << golite::Utils::blockComment({"Promoted expression"}, indent, getLine()) << std::endl;
-        ss << golite::Utils::indent(indent) << "var " << name_ << " : "
-           << type_component->toTypeScript(0) << " = ";
+    // Check if blank
+    if(isBlank()) {
+        name_ = children_.back()->toTypeScript(0);
+        ss << golite::Utils::blockComment({"Blank identifier variable"}, indent, getLine()) << std::endl;
+        ss << golite::Utils::indent(indent) << "var " << name_ << " : any;" << std::endl << std::endl;
+    } else {
+        // Initialize nested expressions
         for(Primary* child : children_) {
-            ss << child->toTypeScript(0);
+            ss << child->toTypeScriptInitializer(indent);
         }
-        ss << ";" << std::endl << std::endl;
+
+        // Promote function calls
+        TypeComponent* first_child = children_.front()->typeCheck();
+        if(first_child->isFunc()) {
+
+            // Assign them to unique variables
+            name_ = "expr_" + std::to_string(count++);
+            TypeComponent* type_component = typeCheck();
+            ss << type_component->toTypeScriptInitializer(indent);
+            ss << golite::Utils::blockComment({"Promoted expression"}, indent, getLine()) << std::endl;
+            ss << golite::Utils::indent(indent) << "var " << name_ << " : "
+               << type_component->toTypeScript(0) << " = ";
+            for(Primary* child : children_) {
+                ss << child->toTypeScript(0);
+            }
+            ss << ";" << std::endl << std::endl;
+        }
     }
+
     return ss.str();
 }
