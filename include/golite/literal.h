@@ -98,7 +98,7 @@ namespace golite {
                 val = std::regex_replace(val, std::regex("\n"), "\\n");
                 val[0] = '"';
                 val[val.size()-1] = '"';
-                return val;
+                return "String(" + val + ")";
             }
 
             // Interpreted string
@@ -124,7 +124,7 @@ namespace golite {
                     escape = false;
                 }
             }
-            return ss.str();
+            return "String(" + ss.str() + ")";
         }
         std::string toTypeScriptInitializer(int indent) { return std::string(); }
     };
