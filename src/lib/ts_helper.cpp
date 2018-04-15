@@ -11,7 +11,7 @@ bool golite::TSHelper::isObject(TypeComponent *type_component) {
 std::string golite::TSHelper::cloneByType(TypeComponent *type_component) {
     std::stringstream ss;
     if(isObject(type_component)) {
-        ss << clone();
+        ss << ".clone()";
     }
     return ss.str();
 }
@@ -22,10 +22,6 @@ std::string golite::TSHelper::cloneByExpression(Expression* expression) {
         return std::string();
     }
     return cloneByType(resolved_expression->typeCheck());
-}
-
-std::string golite::TSHelper::clone() {
-    return ".clone()";
 }
 
 std::string golite::TSHelper::codePrint(int indent) {
@@ -130,17 +126,18 @@ std::string golite::TSHelper::codeSlice(int indent) {
        << golite::Utils::indent(indent+1) << "capacity : number = 0;" << std::endl
        << golite::Utils::indent(indent+1) << "array : Array<T> = new Array<T>(this.size);" << std::endl
        << golite::Utils::indent(indent+1) << "append = (val : any) : Slice<T> => {" << std::endl
-       << golite::Utils::indent(indent+2) << "if(this.size + 1 > this.capacity) {" << std::endl
-       << golite::Utils::indent(indent+3) << "this.capacity = (this.capacity + 1) * 2;" << std::endl
-       << golite::Utils::indent(indent+3) << "this.array = this.array.clone();" << std::endl
+       << golite::Utils::indent(indent+2) << "var slice : Slice<T> = this.clone();" << std::endl
+       << golite::Utils::indent(indent+2) << "if(slice.size + 1 > slice.capacity) {" << std::endl
+       << golite::Utils::indent(indent+3) << "slice.capacity = (slice.capacity + 1) * 2;" << std::endl
+       << golite::Utils::indent(indent+3) << "slice.array = slice.array.clone();" << std::endl
        << golite::Utils::indent(indent+2) << "}" << std::endl
        << golite::Utils::indent(indent+2) << "if(val instanceof Object) {" << std::endl
-       << golite::Utils::indent(indent+3) << "this.array[this.size] = val.clone();" << std::endl
+       << golite::Utils::indent(indent+3) << "slice.array[slice.size] = val.clone();" << std::endl
        << golite::Utils::indent(indent+2) << "} else {" << std::endl
-       << golite::Utils::indent(indent+3) << "this.array[this.size] = val;" << std::endl
+       << golite::Utils::indent(indent+3) << "slice.array[slice.size] = val;" << std::endl
        << golite::Utils::indent(indent+2) << "}" << std::endl
-       << golite::Utils::indent(indent+2) << "this.size++;" << std::endl
-       << golite::Utils::indent(indent+2) << "return this;" << std::endl
+       << golite::Utils::indent(indent+2) << "slice.size++;" << std::endl
+       << golite::Utils::indent(indent+2) << "return slice;" << std::endl
        << golite::Utils::indent(indent+1) << "}" << std::endl
        << golite::Utils::indent(indent+1) << "check = (index : number) : Array<T> => {" << std::endl
        << golite::Utils::indent(indent+2) << "if(index < 0 || index >= this.size) {" << std::endl
