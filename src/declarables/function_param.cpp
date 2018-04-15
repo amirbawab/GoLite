@@ -37,11 +37,16 @@ void golite::FunctionParam::symbolTablePass(SymbolTable *root) {
 
 std::string golite::FunctionParam::toTypeScript(int indent) {
     std::stringstream ss;
+    static int count = 1;
     for(size_t i=0; i < identifiers_.size(); i++) {
         if(i != 0) {
             ss << ", ";
         }
-        ss << identifiers_[i]->toTypeScript(0) << " : " << type_component_->toTypeScript(0);
+        if(!identifiers_[i]->isBlank()) {
+            ss << identifiers_[i]->toTypeScript(0) << " : " << type_component_->toTypeScript(0);
+        } else {
+            ss << "D34D_C0D3_" << count++ << " : any";
+        }
     }
     return ss.str();
 }
