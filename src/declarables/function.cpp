@@ -68,8 +68,8 @@ void golite::Function::symbolTablePass(golite::SymbolTable *root) {
                 golite::Utils::error_message("Main function must be void", identifier_->getLine());
             }
         }
-        root->putSymbol(this->identifier_->getName(), this);
         if(!identifier_->isBlank()) {
+            root->putSymbol(this->identifier_->getName(), this);
             identifier_->symbolTablePass(root);
         }
     }
