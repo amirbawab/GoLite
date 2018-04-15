@@ -244,16 +244,19 @@ int (*code_to_load(CODE* c))(CODE*, int*) {
     return NULL;
 }
 
-/*----- END OF HELPER FUNCTIONS ------*/
+/*------------------- END OF HELPER FUNCTIONS --------------------*/
 
-/* iload x        iload x        iload x
+/**
+ * iload x        iload x        iload x
  * ldc 0          ldc 1          ldc 2
  * imul           imul           imul
  * ------>        ------>        ------>
  * ldc 0          iload x        iload x
  *                               dup
  *                               iadd
- */
+ *
+ * Multiplication simplification
+ **/
 int simplify_multiplication(CODE **c) {
     int x, k;
     if (is_imul(next(next(*c)))) {
@@ -269,11 +272,14 @@ int simplify_multiplication(CODE **c) {
     return 0;
 }
 
-/* iload x      ldc 0
+/**
+ * iload x      ldc 0
  * ldc 0        iload x
  * iadd         iadd
  * ------>      ------>
  * iload x      iload x
+ *
+ * Addition simplication
  */
 int simplify_addition(CODE **c) {
     int x, k;
@@ -288,11 +294,14 @@ int simplify_addition(CODE **c) {
     return 0;
 }
 
-/* iload x
+/**
+ * iload x
  * ldc 0
  * isub
  * ------>
  * iload x
+ *
+ * a - 0 is a
  */
 int simplify_subtract_left(CODE **c) {
     int x, k;
@@ -305,11 +314,14 @@ int simplify_subtract_left(CODE **c) {
     return 0;
 }
 
-/* iload x
+/**
+ * iload x
  * iload x
  * isub
  * ------>
  * ldc 0
+ *
+ * a - a is 0
  */
 int simplify_self_subtract(CODE **c) {
     int x, k;
@@ -322,11 +334,14 @@ int simplify_self_subtract(CODE **c) {
     return 0;
 }
 
-/* iload x
+/**
+ * iload x
  * ldc 1
  * idiv
  * ------>
  * iload x
+ *
+ * x / 1 is x
  */
 
 int simplify_division_right(CODE **c) {
@@ -340,11 +355,14 @@ int simplify_division_right(CODE **c) {
     return 0;
 }
 
-/* dup
+/**
+ * dup
  * astore x
  * pop
  * -------->
  * astore x
+ *
+ * Unused top of stack
  */
 int simplify_astore(CODE **c) {
     int x;
@@ -356,11 +374,14 @@ int simplify_astore(CODE **c) {
     return 0;
 }
 
-/* dup
+/**
+ * dup
  * istore x
  * pop
  * -------->
  * istore x
+ *
+ * Unused top of stack
  */
 int simplify_istore(CODE **c) {
     int x;
@@ -372,12 +393,15 @@ int simplify_istore(CODE **c) {
     return 0;
 }
 
-/* iload x
+/**
+ * iload x
  * ldc k   (0<=k<=127)
  * iadd
  * istore x
  * --------->
  * iinc x k
+ *
+ * Short increment statement
  */
 int positive_increment(CODE **c) {
     int x, y, k;
@@ -393,12 +417,15 @@ int positive_increment(CODE **c) {
     return 0;
 }
 
-/* iload x
+/**
+ * iload x
  * ldc k   (0>=k>128)
  * isub
  * istore x
  * --------->
  * iinc x -k
+ *
+ * Short negative statement
  */
 int negative_increment(CODE **c) {
     int x, y, k;
@@ -414,7 +441,8 @@ int negative_increment(CODE **c) {
     return 0;
 }
 
-/* goto L1
+/**
+ * goto L1
  * ...
  * L1:
  * goto L2
@@ -449,6 +477,8 @@ int simplify_goto_goto(CODE **c) {
  * --------->       --------->
  * iload x          iload x
  * if_eq            if_eq
+ *
+ * If an operand is 0, then the if statement can be reduced
  */
 int simplify_branch_3(CODE **c) {
     int x1, x2, x3;
@@ -466,12 +496,15 @@ int simplify_branch_3(CODE **c) {
     return 0;
 }
 
-/* aload x          aload x
+/**
+ * aload x          aload x
  * aconst_null      aconst_null
  * if_acmpeq        if_acmpne
  * --------->       ----------->
  * aload x          aload x
  * ifnull           ifnonnull
+ *
+ * If an operand is null, then the if statement can be reduced
  */
 int simplify_branch_2(CODE **c) {
     int x1, x2;
@@ -499,6 +532,34 @@ int simplify_branch_2(CODE **c) {
  * ifeq else_0          ifne else_0
  * ------------>        ------------>
  * if_acmpne else_0     if_acmpeq else_0
+ *
+ *        +-------------+
+ *        | if_acmpeq A |
+ *        +-------------+
+ *       T /            \ F
+ *   +----------+      +----------+  <
+ *   | A:       |      | iconst_0 |  < States can be avoided
+ *   | iconst_1 |      | goto B   |  <
+ *   +----------+      +----------+  <
+ *        \            /             <
+ *       +--------------+            <
+ *       | B:           |            <
+ *       | ifeq C       |            <
+ *       +--------------+            <
+ *       T /            \ F
+ *   +----------+      +----------+
+ *   | C:       |      | ........ |
+ *   +----------+      +----------+
+ *
+ * becomes
+ *
+ *        +-------------+
+ *        | if_acmpne C |  <--- Condition inverse
+ *        +-------------+
+ *       T /            \ F
+ *   +----------+      +----------+
+ *   | C:       |      | ........ |
+ *   +----------+      +----------+
  */
 int simplify_branch_1(CODE **c) {
     int x1, x2, x3, x4, x5, x6, x7;
@@ -538,6 +599,25 @@ int simplify_branch_1(CODE **c) {
  * true:
  * ---------->
  * ifne else
+ *
+ *        +-------------+
+ *        |    ifeq A   |
+ *        +-------------+
+ *       T /            \ F
+ *   +-------+      +----------+    +----+  <
+ *   | A:    |      | goto B   | -- | B: |  < Inverse if condition to avoid those states
+ *   +-------+      +----------+    +----+  <
+ *
+ * becomes
+ *
+ *        +-------------+
+ *        |    ifne B   |
+ *        +-------------+
+ *       T /            \ F
+ *   +-------+      +----------+
+ *   | B:    |      | ........ |
+ *   +-------+      +----------+
+ *
  */
 int simplify_branch_4(CODE **c) {
     int x1, x2, x3;
@@ -556,6 +636,8 @@ int simplify_branch_4(CODE **c) {
  * if_acmpeq        if_acmpne
  * ---------->      ---------->
  * ifnull           ifnonnull
+ *
+ * If operand has null, reduce if statement
  */
 int simplify_branch_6(CODE **c) {
     int x1;
@@ -575,6 +657,8 @@ int simplify_branch_6(CODE **c) {
  * if_icmpeq        if_icmpne
  * ---------->      ---------->
  * ifeq             ifne
+ *
+ * If operand is 0, reduce if statement
  */
 int simplify_branch_7(CODE **c) {
     int x1, x2;
@@ -606,6 +690,38 @@ int simplify_branch_7(CODE **c) {
  * iload_3          iload_3
  * ifne false_37    ifeq false_37
  * pop              pop
+ *
+ *        +-------------+
+ *        | iload x     |  <--- 1 operand
+ *        | ifeq A      |
+ *        +-------------+
+ *       T /           \ F
+ *   +----------+      +----------+  <
+ *   | A:       |      | iconst_0 |  < States can be avoided
+ *   | iconst_1 |      | goto B   |  <
+ *   +----------+      +----------+  <
+ *        \           /              <
+ *       +--------------+            <
+ *       | B:           |            <
+ *       | dup          |            <
+ *       | ifeq C       |            <
+ *       +--------------+            <
+ *       T /           \ F
+ *   +----------+      +----------+
+ *   | C:       |      | pop      |
+ *   +----------+      +----------+
+ *
+ * becomes
+ *
+ *        +-------------+
+ *        | iconst 0    |  <--- Assume it's true (50% chance)
+ *        | iload x     |
+ *        | ifne C      |  <--- Condition inverse
+ *        +-------------+
+ *       T /            \ F
+ *   +----------+      +----------+
+ *   | C:       |      | pop      |  <--- If wrong assumption, pop element
+ *   +----------+      +----------+
  */
 int simplify_branch_8(CODE **c) {
     int x1,x2,x3,x4,x5,x6,x7,x8;
@@ -648,6 +764,40 @@ int simplify_branch_8(CODE **c) {
  * iconst_4
  * if_ifcmpne ture_10
  * pop
+ *
+ *        +-------------+
+ *        | iload x     |  <--- 2 operands
+ *        | iconst y    |
+ *        | if_icmpeq A |
+ *        +-------------+
+ *       T /           \ F
+ *   +----------+      +----------+  <
+ *   | A:       |      | iconst_0 |  < States can be avoided
+ *   | iconst_1 |      | goto B   |  <
+ *   +----------+      +----------+  <
+ *        \           /              <
+ *       +--------------+            <
+ *       | B:           |            <
+ *       | dup          |            <
+ *       | ifeq C       |            <
+ *       +--------------+            <
+ *       T /           \ F
+ *   +----------+      +----------+
+ *   | C:       |      | pop      |
+ *   +----------+      +----------+
+ *
+ * becomes
+ *
+ *        +-------------+
+ *        | iconst 0    |  <--- Assume it's true (50% chance)
+ *        | iload x     |
+ *        | iconst y    |
+ *        | if_icmpne C |  <--- Condition inverse
+ *        +-------------+
+ *       T /            \ F
+ *   +----------+      +----------+
+ *   | C:       |      | pop      |  <--- If wrong assumption, pop element
+ *   +----------+      +----------+
  */
 int simplify_branch_9(CODE **c) {
     int x0,x1,x2,x3,x4,x5,x6,x7,x8;
@@ -689,6 +839,38 @@ int simplify_branch_9(CODE **c) {
  * iload_3          iload_3
  * ifeq false_37    ifne false_37
  * pop              pop
+ *
+ *        +-------------+
+ *        | iload x     |  <--- 1 operand
+ *        | ifeq A      |
+ *        +-------------+
+ *       T /           \ F
+ *   +----------+      +----------+  <
+ *   | A:       |      | iconst_0 |  < States can be avoided
+ *   | iconst_1 |      | goto B   |  <
+ *   +----------+      +----------+  <
+ *        \           /              <
+ *       +--------------+            <
+ *       | B:           |            <
+ *       | dup          |            <
+ *       | ifne C       |            <
+ *       +--------------+            <
+ *       T /           \ F
+ *   +----------+      +----------+
+ *   | C:       |      | pop      |
+ *   +----------+      +----------+
+ *
+ * becomes
+ *
+ *        +-------------+
+ *        | iconst 1    |  <--- Assume it's true (50% chance)
+ *        | iload x     |
+ *        | ifne C      |  <--- Condition doesn't change
+ *        +-------------+
+ *       T /            \ F
+ *   +----------+      +----------+
+ *   | C:       |      | pop      |  <--- If wrong assumption, pop element
+ *   +----------+      +----------+
  */
 int simplify_branch_10(CODE **c) {
     int x1,x2,x3,x4,x5,x6,x7,x8;
@@ -731,6 +913,40 @@ int simplify_branch_10(CODE **c) {
  * iconst_4
  * if_ifcmpeq true_10
  * pop
+ *
+ *        +-------------+
+ *        | iload x     |  <--- 2 operands
+ *        | iconst y    |
+ *        | if_icmpeq A |
+ *        +-------------+
+ *       T /           \ F
+ *   +----------+      +----------+  <
+ *   | A:       |      | iconst_0 |  < States can be avoided
+ *   | iconst_1 |      | goto B   |  <
+ *   +----------+      +----------+  <
+ *        \           /              <
+ *       +--------------+            <
+ *       | B:           |            <
+ *       | dup          |            <
+ *       | ifeq C       |            <
+ *       +--------------+            <
+ *       T /           \ F
+ *   +----------+      +----------+
+ *   | C:       |      | pop      |
+ *   +----------+      +----------+
+ *
+ * becomes
+ *
+ *        +-------------+
+ *        | iconst 1    |  <--- Assume it's true (50% chance)
+ *        | iload x     |
+ *        | iconst y    |
+ *        | if_icmpeq C |  <--- Condition doesn't change
+ *        +-------------+
+ *       T /            \ F
+ *   +----------+      +----------+
+ *   | C:       |      | pop      |  <--- If wrong assumption, pop element
+ *   +----------+      +----------+
  */
 int simplify_branch_11(CODE **c) {
     int x0,x1,x2,x3,x4,x5,x6,x7,x8;
@@ -774,8 +990,44 @@ int simplify_branch_11(CODE **c) {
  * swap
  * iload_2
  * iconst_4
- * if_ifcmpne ture_10
+ * if_ifcmpne true_10
  * pop
+ *
+ *        +---------------+
+ *        | invokevirtual |  <--- Operand 1 is a function call
+ *        | iconst y      |
+ *        | if_icmpeq A   |
+ *        +---------------+
+ *       T /           \ F
+ *   +----------+      +----------+  <
+ *   | A:       |      | iconst_0 |  < States can be avoided
+ *   | iconst_1 |      | goto B   |  <
+ *   +----------+      +----------+  <
+ *        \           /              <
+ *       +--------------+            <
+ *       | B:           |            <
+ *       | dup          |            <
+ *       | ifeq C       |            <
+ *       +--------------+            <
+ *       T /           \ F
+ *   +----------+      +----------+
+ *   | C:       |      | pop      |
+ *   +----------+      +----------+
+ *
+ * becomes
+ *
+ *        +---------------+
+ *        | invokevirtual |  <--- Can't change the order of invokation because of args
+ *        | iconst_0      |  <--- Assume it's true (50% chance)
+ *        | swap          |  <--- Use swap to fix function call order
+ *        | iload x       |
+ *        | iconst y      |
+ *        | if_icmpne C   |  <--- Condition inverse
+ *        +---------------+
+ *       T /            \ F
+ *   +----------+      +----------+
+ *   | C:       |      | pop      |  <--- If wrong assumption, pop element
+ *   +----------+      +----------+
  */
 int simplify_branch_12(CODE **c) {
     int x1,x2,x3,x4,x5,x6,x7,x8;
@@ -822,6 +1074,42 @@ int simplify_branch_12(CODE **c) {
  * iconst_4
  * if_ifcmpeq true_10
  * pop
+ *
+ *        +---------------+
+ *        | invokevirtual |  <--- Operand 1 is a function call
+ *        | iconst y      |
+ *        | if_icmpeq A   |
+ *        +---------------+
+ *       T /           \ F
+ *   +----------+      +----------+  <
+ *   | A:       |      | iconst_0 |  < States can be avoided
+ *   | iconst_1 |      | goto B   |  <
+ *   +----------+      +----------+  <
+ *        \           /              <
+ *       +--------------+            <
+ *       | B:           |            <
+ *       | dup          |            <
+ *       | ifne C       |            <
+ *       +--------------+            <
+ *       T /           \ F
+ *   +----------+      +----------+
+ *   | C:       |      | pop      |
+ *   +----------+      +----------+
+ *
+ * becomes
+ *
+ *        +---------------+
+ *        | invokevirtual |  <--- Can't change the order of invokation because of args
+ *        | iconst_1      |  <--- Assume it's true (50% chance)
+ *        | swap          |  <--- Use swap to fix function call order
+ *        | iload x       |
+ *        | iconst y      |
+ *        | if_icmpne C   |  <--- Condition doesn't change
+ *        +---------------+
+ *       T /            \ F
+ *   +----------+      +----------+
+ *   | C:       |      | pop      |  <--- If wrong assumption, pop element
+ *   +----------+      +----------+
  */
 int simplify_branch_13(CODE **c) {
     int x1,x2,x3,x4,x5,x6,x7,x8;
@@ -862,6 +1150,8 @@ int simplify_branch_13(CODE **c) {
  * ...
  * A:
  * B:
+ *
+ * Merge labels to possibly match other patterns
  */
 int merge_labels(CODE **c) {
     int x1, x2;
@@ -888,6 +1178,8 @@ int merge_labels(CODE **c) {
  * ldc x
  * dup
  * istore
+ *
+ * Increase chance of other pattern match
  */
 int simplify_ldc_istore(CODE **c) {
     int x1, x2, x3;
@@ -905,6 +1197,8 @@ int simplify_ldc_istore(CODE **c) {
  * nop
  * -------->
  * ireturn
+ *
+ * Remove unused nop
  */
 int remove_nop(CODE **c) {
     if(is_nop(next(*c))) {
@@ -931,6 +1225,8 @@ int remove_nop(CODE **c) {
  * aload
  * swap
  * putfield
+ *
+ * Prevent unused top of stack
  */
 int simplify_putfield(CODE **c) {
     int x1;
@@ -952,6 +1248,8 @@ int simplify_putfield(CODE **c) {
  * ----->
  * ldc | load
  * ldc | load
+ *
+ * Simple swap
  */
 int simplify_swap_1(CODE **c) {
     int x1, x2;
@@ -990,6 +1288,8 @@ int simplify_swap_1(CODE **c) {
  * dup
  * invokenonvirtual
  * putfield
+ *
+ * Reoder aload_0 to prevent the swap
  */
 int simplify_swap_2(CODE **c) {
     int x1;
@@ -1014,6 +1314,8 @@ int simplify_swap_2(CODE **c) {
  * aload 0
  * aload 0
  * getfield
+ *
+ * Reorder to prevent swap
  */
 int simplify_swap_3(CODE **c) {
     int x1, x2;
@@ -1042,6 +1344,8 @@ int simplify_swap_3(CODE **c) {
  * ldc | load
  * invokenonvirtual
  * putfield
+ *
+ * Rorder to prevent swap
  */
 int simplify_swap_4(CODE **c) {
     int x1, x2;
@@ -1079,6 +1383,8 @@ int simplify_swap_4(CODE **c) {
  * ldc | load
  * invokenonvirtual
  * putfield
+ *
+ * Rorder to prevent swap
  */
 int simplify_swap_5(CODE **c) {
     int x1, x2, x3;
@@ -1118,6 +1424,8 @@ int simplify_swap_5(CODE **c) {
  * stop
  * ------------->
  * ldc "..."
+ *
+ * A string literal cannot be null, so if statement can be avoided
  */
 int simplify_string(CODE **c) {
     int x1, x2;
@@ -1157,6 +1465,8 @@ int remove_dead_labels(CODE **c) {
  * ldc 0            iload x         iload x
  *                                  dup
  *                                  iadd
+ *
+ * Multiplication simplication
  */
 int simplify_multiplication_right(CODE** c) {
     int x, k;
@@ -1175,13 +1485,15 @@ int simplify_multiplication_right(CODE** c) {
     return 0;
 }
 
-/*
+/**
  * return
  * <some code>
  * X:
  * --------->
  * return
  * X:
+ *
+ * Remove unreached code
  */
 int strip_post_return(CODE** c) {
     int x, y;
@@ -1193,13 +1505,15 @@ int strip_post_return(CODE** c) {
     return 0;
 }
 
-/*
+/**
  * areturn
  * <some code>
  * X:
  * --------->
  * return
  * X:
+ *
+ * Remove unreached code
  */
 int strip_post_areturn(CODE** c) {
     int x, y;
@@ -1211,13 +1525,15 @@ int strip_post_areturn(CODE** c) {
     return 0;
 }
 
-/*
+/**
  * ireturn
  * <some code>
  * X:
  * --------->
  * return
  * X:
+ *
+ * Remove unreached code
  */
 int strip_post_ireturn(CODE** c) {
     int x, y;
