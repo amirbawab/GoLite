@@ -133,6 +133,9 @@ std::string golite::Variable::toTypeScript(int indent) {
         }
         if(!expressions_.empty()) {
             ss << expressions_[i]->toTypeScriptInitializer(indent);
+            if(type_component_->isInfer()) {
+                ss << expressions_[i]->typeCheck()->toTypeScriptInitializer(indent);
+            }
         }
         ss << golite::Utils::blockComment({"Variable " + identifiers_[i]->getName()},
                                           indent, identifiers_[i]->getLine()) << std::endl;
@@ -143,7 +146,11 @@ std::string golite::Variable::toTypeScript(int indent) {
         } else {
             ss << identifiers_[i]->toTypeScript(0);
         }
-        ss << " : " << type_component_->toTypeScript(0) << " = ";
+        if(!type_component_->isInfer()) {
+            ss << " : " << type_component_->toTypeScript(0) << " = ";
+        } else {
+            ss << " : " << expressions_[i]->typeCheck()->toTypeScript(0) << " = ";
+        }
         if(!expressions_.empty()) {
             ss << expressions_[i]->toTypeScript(0)
                << golite::TSHelper::cloneObject(expressions_[i]->typeCheck());
