@@ -62,7 +62,8 @@ void golite::Append::symbolTablePass(SymbolTable *root) {
 
 std::string golite::Append::toTypeScript(int indent) {
     std::stringstream ss;
-    ss << left_expression_->toTypeScript(0) << ".append(" << right_expression_->toTypeScript(0) << ")";
+    ss << left_expression_->toTypeScript(0) << ".append(" << right_expression_->toTypeScript(0)
+       << golite::TSHelper::cloneByExpression(right_expression_) << ")";
     return ss.str();
 }
 

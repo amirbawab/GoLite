@@ -107,7 +107,7 @@ std::string golite::TSHelper::codeArrayInterface(int indent) {
        << golite::Utils::indent(indent+1) << "if(this.length !== array.length) return false;" << std::endl
        << golite::Utils::indent(indent+1) << "for (var i: number = 0; i < this.length; i++) {" << std::endl
        << golite::Utils::indent(indent+2) << "if (this[i] instanceof Object) {" << std::endl
-       << golite::Utils::indent(indent+3) << " if(!this[i].equals(array[i])) return false;" << std::endl
+       << golite::Utils::indent(indent+3) << "if(!this[i].equals(array[i])) return false;" << std::endl
        << golite::Utils::indent(indent+2) << "} else {" << std::endl
        << golite::Utils::indent(indent+3) << "if(this[i] !== array[i]) return false;" << std::endl
        << golite::Utils::indent(indent+2) << "}" << std::endl
@@ -131,11 +131,7 @@ std::string golite::TSHelper::codeSlice(int indent) {
        << golite::Utils::indent(indent+3) << "slice.capacity = (slice.capacity + 1) * 2;" << std::endl
        << golite::Utils::indent(indent+3) << "slice.array = slice.array.clone();" << std::endl
        << golite::Utils::indent(indent+2) << "}" << std::endl
-       << golite::Utils::indent(indent+2) << "if(val instanceof Object) {" << std::endl
-       << golite::Utils::indent(indent+3) << "slice.array[slice.size] = val.clone();" << std::endl
-       << golite::Utils::indent(indent+2) << "} else {" << std::endl
-       << golite::Utils::indent(indent+3) << "slice.array[slice.size] = val;" << std::endl
-       << golite::Utils::indent(indent+2) << "}" << std::endl
+       << golite::Utils::indent(indent+2) << "slice.array[slice.size] = val;" << std::endl
        << golite::Utils::indent(indent+2) << "slice.size++;" << std::endl
        << golite::Utils::indent(indent+2) << "return slice;" << std::endl
        << golite::Utils::indent(indent+1) << "}" << std::endl
