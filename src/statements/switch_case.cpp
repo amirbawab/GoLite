@@ -76,8 +76,15 @@ bool golite::SwitchCase::isTerminating() {
 
 std::string golite::SwitchCase::toTypeScript(std::string expressionStr, int indent) {
     std::stringstream ss;
+    std::vector<std::string> labels;
+    static int count = 1;
     for(Expression* expression : expressions_ ) {
-        ss << expression->toTypeScriptInitializer(indent);
+        labels.push_back("case_" + std::to_string(count++));
+        ss << golite::Utils::blockComment({"Case function"}, indent, expression->getLine()) << std::endl;
+        ss << golite::Utils::indent(indent) << "function " << labels.back() << "() {" << std::endl;
+        ss << expression->toTypeScriptInitializer(indent+1);
+        ss << golite::Utils::indent(indent+1) << "return " << expression->toTypeScript(0) << ";" << std::endl;
+        ss << golite::Utils::indent(indent) << "}" << std::endl << std::endl;
     }
     ss << golite::Utils::indent(indent) << "if (";
     if(!expressions_.empty()) {
@@ -88,7 +95,7 @@ std::string golite::SwitchCase::toTypeScript(std::string expressionStr, int inde
             if(!expressionStr.empty()) {
                 ss << expressionStr << " == ";
             }
-            ss << expressions_[i]->toTypeScript(0);
+            ss << labels[i] << "()";
         }
     } else {
         ss << "true";
