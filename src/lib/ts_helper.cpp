@@ -84,21 +84,26 @@ std::string golite::TSHelper::codeArrayInterface(int indent) {
        << golite::Utils::indent(indent) << "}" << std::endl
        << golite::Utils::indent(indent) << "Array.prototype.clone = function() {" << std::endl
        << golite::Utils::indent(indent+1) << "var array = [];" << std::endl
-       << golite::Utils::indent(indent+1) << "for(var i : number = 0; i < this.length; i++) {" << std::endl
-       << golite::Utils::indent(indent+2) << "if(this[i] instanceof Object) {" << std::endl
+       << golite::Utils::indent(indent+1) << "if(this.length === 0) return array;" << std::endl
+       << golite::Utils::indent(indent+1) << "if(this[0] instanceof Object) {" << std::endl
+       << golite::Utils::indent(indent+2) << "for(var i : number = 0; i < this.length; i++) {" << std::endl
        << golite::Utils::indent(indent+3) << "array[i] = this[i].clone();" << std::endl
-       << golite::Utils::indent(indent+2) << "} else {" << std::endl
+       << golite::Utils::indent(indent+2) << "}" << std::endl
+       << golite::Utils::indent(indent+1) << "} else {" << std::endl
+       << golite::Utils::indent(indent+2) << "for(var i : number = 0; i < this.length; i++) {" << std::endl
        << golite::Utils::indent(indent+3) << "array[i] = this[i];" << std::endl
        << golite::Utils::indent(indent+2) << "}" << std::endl
        << golite::Utils::indent(indent+1) << "}" << std::endl
        << golite::Utils::indent(indent+1) << "return array;" << std::endl
        << golite::Utils::indent(indent) << "}" << std::endl
        << golite::Utils::indent(indent) << "Array.prototype.init = function (val: any) {" << std::endl
-       << golite::Utils::indent(indent+1) << "for (var i: number = 0; i < this.length; i++) {" << std::endl
-       << golite::Utils::indent(indent+2) << "if (val instanceof Object) {" << std::endl
+       << golite::Utils::indent(indent+1) << "if (val instanceof Object) {" << std::endl
+       << golite::Utils::indent(indent+2) << "for (var i: number = 0; i < this.length; i++) {" << std::endl
        << golite::Utils::indent(indent+3) << " this[i] = val.clone();" << std::endl
-       << golite::Utils::indent(indent+2) << "} else {" << std::endl
-       << golite::Utils::indent(indent+3) << "this[i] = val;" << std::endl
+       << golite::Utils::indent(indent+2) << "}" << std::endl
+       << golite::Utils::indent(indent+1) << "} else {" << std::endl
+       << golite::Utils::indent(indent+2) << "for (var i: number = 0; i < this.length; i++) {" << std::endl
+       << golite::Utils::indent(indent+3) << " this[i] = val;" << std::endl
        << golite::Utils::indent(indent+2) << "}" << std::endl
        << golite::Utils::indent(indent+1) << "}" << std::endl
        << golite::Utils::indent(indent+1) << "return this;" << std::endl
