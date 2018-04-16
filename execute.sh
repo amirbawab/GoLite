@@ -77,7 +77,7 @@ function main() {
             
 
         # Run JavaScript code
-        node --max-old-space-size=4096 "$JS_FILE"
+        node --max-old-space-size=4096 "$JS_MIN_FILE"
     fi
 }
 
