@@ -9,8 +9,8 @@ Link: https://www.cs.mcgill.ca/~cs520/2018/
 Check out `doc` directory for a complete documentation about the compiler and its architecture.  
 
 ## Contributors
-- Amir El Bawab - @amirbawab  
-- Jérémie Poisson - @jell0wed
+- Amir El Bawab - [@amirbawab](https://github.com/amirbawab)
+- Jérémie Poisson - [@jell0wed](https://github.com/jell0wed)
 
 ## Instructor
-- Alexander Krolik - @akrolik
+- Alexander Krolik - [@akrolik](https://github.com/akrolik)
